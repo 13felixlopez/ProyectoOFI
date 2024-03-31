@@ -1,0 +1,484 @@
+﻿using ProyectoOFI.Datos;
+using ProyectoOFI.Logica;
+using System;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Text;
+using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
+
+namespace ProyectoOFI.SM
+{
+    public partial class TolvasVerticales : UserControl
+    {
+        string Sacos, Kilos, Calidad, Daño, EsFisico;
+        public TolvasVerticales()
+        {
+            InitializeComponent();
+        }
+
+        private void TolvasVerticales_Load(object sender, EventArgs e)
+        {
+            MostrarTicketsEnLabels();
+            Estilo();
+        }
+
+        protected void MostrarTicketsEnLabels()
+        {
+            DSM datos = new DSM();
+            DataTable tablaTickets = datos.MostrarTV();
+            foreach (DataRow fila in tablaTickets.Rows)
+            {
+                int poav = Convert.ToInt32(fila["POAV"]);
+                string ticket = fila["Ticket"].ToString();
+                MostrarTicketEnLabel(poav, ticket);
+            }
+        }
+
+        protected void MostrarTicketEnLabel(int poav, string ticket)
+        {
+            // Encuentra el Label correspondiente a la POAV
+            string lblName = "lblTV" + poav;
+            Control[] controls = Controls.Find(lblName, true);
+            if (controls.Length > 0 && controls[0] is Label)
+            {
+                // Muestra el ticket en el Label
+                Label lblTicket = (Label)controls[0];
+                lblTicket.Text = ticket;
+            }
+        }
+        public void Estilo()
+        {
+            //Rojo
+            int r1 = 240, g1 = 110, b1 = 67;
+            //Verde
+            int r = 0; int p = 221;
+            int f = 117;
+            #region TV1
+            if (lblTV1.Text == "--")
+            {
+                btnTV1.BackColor = Color.FromArgb(r1, g1, b1);
+                lblTV1.BackColor = Color.FromArgb(r1, g1, b1);
+            }
+            else
+            {
+                btnTV1.BackColor = Color.FromArgb(r, p, f);
+                lblTV1.BackColor = Color.FromArgb(r, p, f);
+            }
+            #endregion
+
+            #region Vertical2
+            if (lblTV2.Text == "--")
+            {
+                btnTV2.BackColor = Color.FromArgb(r1, g1, b1);
+                lblTV2.BackColor = Color.FromArgb(r1, g1, b1);
+            }
+            else
+            {
+                btnTV2.BackColor = Color.FromArgb(r, p, f);
+                lblTV2.BackColor = Color.FromArgb(r, p, f);
+            }
+            #endregion
+
+            #region Vertical3
+            if (lblTV3.Text == "--")
+            {
+                btnTV3.BackColor = Color.FromArgb(r1, g1, b1);
+                lblTV3.BackColor = Color.FromArgb(r1, g1, b1);
+            }
+            else
+            {
+                btnTV3.BackColor = Color.FromArgb(r, p, f);
+                lblTV3.BackColor = Color.FromArgb(r, p, f);
+            }
+            #endregion
+
+            #region Verical4
+            if (lblTV4.Text == "--")
+            {
+                btnTV4.BackColor = Color.FromArgb(r1, g1, b1);
+                lblTV4.BackColor = Color.FromArgb(r1, g1, b1);
+            }
+            else
+            {
+                btnTV4.BackColor = Color.FromArgb(r, p, f);
+                lblTV4.BackColor = Color.FromArgb(r, p, f);
+            }
+            #endregion
+
+            #region Vertical5
+            if (lblTV5.Text == "--")
+            {
+                btnTV5.BackColor = Color.FromArgb(r1, g1, b1);
+                lblTV5.BackColor = Color.FromArgb(r1, g1, b1);
+            }
+            else
+            {
+                btnTV5.BackColor = Color.FromArgb(r, p, f);
+                lblTV5.BackColor = Color.FromArgb(r, p, f);
+            }
+            #endregion
+
+            #region Vertical6
+            if (lblTV6.Text == "--")
+            {
+                btnTV6.BackColor = Color.FromArgb(r1, g1, b1);
+                lblTV6.BackColor = Color.FromArgb(r1, g1, b1);
+            }
+            else
+            {
+                btnTV6.BackColor = Color.FromArgb(r, p, f);
+                lblTV6.BackColor = Color.FromArgb(r, p, f);
+            }
+            #endregion
+
+            #region Vertical7
+            if (lblTV7.Text == "--")
+            {
+                btnTV7.BackColor = Color.FromArgb(r1, g1, b1);
+                lblTV7.BackColor = Color.FromArgb(r1, g1, b1);
+            }
+            else
+            {
+                btnTV7.BackColor = Color.FromArgb(r, p, f);
+                lblTV7.BackColor = Color.FromArgb(r, p, f);
+            }
+            #endregion
+
+            #region Vertical8
+            if (lblTV8.Text == "--")
+            {
+                btnTV8.BackColor = Color.FromArgb(r1, g1, b1);
+                lblTV8.BackColor = Color.FromArgb(r1, g1, b1);
+            }
+            else
+            {
+                btnTV8.BackColor = Color.FromArgb(r, p, f);
+                lblTV8.BackColor = Color.FromArgb(r, p, f);
+            }
+            #endregion
+        }
+
+        private void btnTV2_Click(object sender, EventArgs e)
+        {
+            PLDatos.Visible = true;
+            PLDatos.Dock = DockStyle.Fill;
+            txtTolvaV.Text = "2";
+            if (lblTV2.Text != "--")
+            {
+                CargaTV(lblTV2);
+            }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketV);
+                CargarDatos();
+            }
+        }
+
+        private void btnTV1_Click(object sender, EventArgs e)
+        {
+            PLDatos.Visible = true;
+            PLDatos.Dock = DockStyle.Fill;
+            txtTolvaV.Text = "1";
+            if (lblTV1.Text!="--")
+            {
+                CargaTV(lblTV1);
+            }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketV);
+                CargarDatos();
+            }
+        }
+
+        private void btnTV3_Click(object sender, EventArgs e)
+        {
+            PLDatos.Visible = true;
+            PLDatos.Dock = DockStyle.Fill;
+            txtTolvaV.Text = "3";
+            if (lblTV3.Text != "--")
+            {
+                CargaTV(lblTV3);
+            }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketV);
+                CargarDatos();
+            }
+        }
+
+        private void btnTV4_Click(object sender, EventArgs e)
+        {
+            PLDatos.Visible = true;
+            PLDatos.Dock = DockStyle.Fill;
+            txtTolvaV.Text = "4";
+            if (lblTV4.Text != "--")
+            {
+                CargaTV(lblTV4);
+            }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketV);
+                CargarDatos();
+            }
+        }
+
+        private void btnTV5_Click(object sender, EventArgs e)
+        {
+            PLDatos.Visible = true;
+            PLDatos.Dock = DockStyle.Fill;
+            txtTolvaV.Text = "5";
+            if (lblTV5.Text != "--")
+            {
+                CargaTV(lblTV5);
+            }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketV);
+                CargarDatos();
+            }
+        }
+
+        private void btnTV6_Click(object sender, EventArgs e)
+        {
+            PLDatos.Visible = true;
+            PLDatos.Dock = DockStyle.Fill;
+            txtTolvaV.Text = "6";
+            if (lblTV6.Text != "--")
+            {
+                CargaTV(lblTV6);
+            }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketV);
+                CargarDatos();
+            }
+        }
+
+        private void btnTV7_Click(object sender, EventArgs e)
+        {
+            PLDatos.Visible = true;
+            PLDatos.Dock = DockStyle.Fill;
+            txtTolvaV.Text = "7";
+            if (lblTV7.Text != "--")
+            {
+                CargaTV(lblTV7);
+            }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketV);
+                CargarDatos();
+            }
+        }
+
+        private void btnTV8_Click(object sender, EventArgs e)
+        {
+            PLDatos.Visible = true;
+            PLDatos.Dock = DockStyle.Fill;
+            txtTolvaV.Text = "8";
+            if (lblTV8.Text != "--")
+            {
+                CargaTV(lblTV8);
+            }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketV);
+                CargarDatos();
+            }
+        }
+
+        private void btnGuardarPV_Click(object sender, EventArgs e)
+        {
+            if (Validar())
+            {
+                if (dtFechaPV.Value >= Convert.ToDateTime(LblFRecibido.Text))
+                {
+                    InsertarPOAV();
+                }
+                else
+                {
+                    MessageBox.Show("La fecha de Ingreso a Tolvas Verticales no puede ser menor a la fecha de recibido", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Existen campos vacios o con datos erroneos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+        }
+
+        private bool Validar()
+        {
+            double entero;
+            if (!double.TryParse(txtHumedadPV.Text, out entero))
+            {
+                return false;
+            }
+            return !(cbOperadorPV.Text == "" || cbTurnoPV.Text == "" || txtHumedadPV.Text == "");
+        }
+
+        private void InsertarPOAV()
+        {
+            LPOAV parametros = new LPOAV();
+            DPOAV funcion = new DPOAV();
+            parametros.Ticket = cbTicketV.Text;
+            parametros.POAV = Convert.ToInt32(txtTolvaV.Text);
+            parametros.OperadorPV = cbOperadorPV.Text;
+            parametros.TurnoPV = Convert.ToInt32(cbTurnoPV.Text);
+            parametros.FRecibidoPV = Convert.ToDateTime(dtFechaPV.Value);
+            parametros.HumedadPV = Convert.ToDouble(txtHumedadPV.Text);
+            if (funcion.InsertarPOAV(parametros) == true)
+            {
+                MessageBox.Show("Carga realizada con exito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                btnGuardarPV.Visible = false;
+                cbOperadorPV.Enabled = false;
+                cbTurnoPV.Enabled = false;
+                dtFechaPV.Enabled = false;
+                txtHumedadPV.Enabled = false;
+                btnDescargarPV.Visible = true;
+                cbTicketV.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Error al realizar esta acción", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnDescargarPV_Click(object sender, EventArgs e)
+        {
+            gbVertical.Visible = true;
+            gbPOAV.Enabled = false;
+            txtVertical.Text = txtTolvaV.Text;
+            cbOperadorV.Focus();
+        }
+
+        private void btnGuardarV_Click(object sender, EventArgs e)
+        {
+            if (ValidarDes())
+            {
+                if (dtFProcV.Value>=dtFechaPV.Value)
+                {
+                    DescargarTV();
+                }
+                else
+                {
+                    MessageBox.Show("La fecha de ingreso a Vertical no puede menor al ingreso a Tolva Verical", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Existen campos vacios o con datos no validos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+        }
+
+        private void DescargarTV()
+        {
+            //Verificar que la Vertical este vacia
+            LVertical parametros = new LVertical();
+            DVerticales funcion = new DVerticales();
+            parametros.Ticket = cbTicketV.Text;
+            parametros.Ver = int.Parse(txtVertical.Text);
+            parametros.OperadorV = cbOperadorV.Text;
+            parametros.TurnoV = Convert.ToInt32(cbTurnoPV.Text);
+            parametros.FRecibidoV = Convert.ToDateTime(dtFechaPV.Text);
+            parametros.HrInicoV = Convert.ToDateTime(dtHorainicioV.Text);
+            parametros.HrFin = Convert.ToDateTime(dtHoraFinV.Text);
+            parametros.Duracion = Convert.ToDateTime(txtDuracionV.Text);
+            if (funcion.InsertarVertical(parametros) == true)
+            {
+                string TK = cbTicketV.Text;
+                LPOAV parametro = new LPOAV();
+                DPOAV fun = new DPOAV();
+                parametro.Ticket = TK;
+                MessageBox.Show("Se ha Guardado el registro", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                gbVertical.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("No se ha podido realizar la descarga", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool ValidarDes() => !(cbOperadorV.Text == "" || cbTurnoV.Text == "");
+
+        private void dtHoraFinV_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime hasta = dtHoraFinV.Value;
+            DateTime desde = dtHorainicioV.Value;
+            TimeSpan Duracion = hasta - desde;
+            txtDuracionV.Text = Convert.ToString(Duracion);
+        }
+
+        private void CargaTV(Label TV)
+        {
+            DSM Sm = new DSM();
+            DataTable dt = new DataTable();
+            Sm.CargarTV(TV.Text, dt);
+            cbTicketV.Enabled = false;
+            cbTicketV.Text = TV.Text;
+            LblSacos.Text = dt.Rows[0]["Sacos"].ToString();
+            LblKilos.Text = dt.Rows[0]["Peso"].ToString();
+            double kilos = Convert.ToDouble(LblKilos.Text);
+            kilos = kilos / 46;
+            LblQQsV.Text = Math.Round(kilos, 2).ToString();
+            LblCalidadV.Text = dt.Rows[0]["Calidad"].ToString();
+            LblDanioV.Text = dt.Rows[0]["Danio"].ToString();
+            LblEFisicoV.Text = dt.Rows[0]["EstadoFisico"].ToString();
+            cbOperadorPV.Text = dt.Rows[0]["OperadorPV"].ToString();
+            cbTurnoPV.Text = dt.Rows[0]["TurnoPV"].ToString();
+            dtFechaPV.Text = dt.Rows[0]["FRecibidoPV"].ToString();
+            txtHumedadPV.Text = dt.Rows[0]["HumedadPV"].ToString();
+            LblFRecibido.Text= dt.Rows[0]["FRecibido"].ToString();
+            btnGuardarPV.Visible = false;
+            btnDescargarPV.Visible = true;
+            cbOperadorPV.Enabled = false;
+            cbTurnoPV.Enabled = false;
+            dtFechaPV.Enabled = false;
+            txtHumedadPV.Enabled = false;
+        }
+
+        private void Limpiar()
+        {
+            LblSacos.Text = "--";
+            LblKilos.Text = "--";
+            LblQQsV.Text = "--";
+            LblCalidadV.Text = "--";
+            LblDanioV.Text = "--";
+            LblEFisicoV.Text = "--";
+            cbOperadorPV.Text = "";
+            txtHumedadPV.Clear();
+        }
+        private void cbTicketV_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarDatos();
+        }
+        private void CargarDatos()
+        {
+            if (cbTicketV.SelectedValue != null)
+            {
+                DSM sm = new DSM();
+                sm.MostrarDatosTKSM(LblSacos, LblKilos, LblQQsV, LblCalidadV, LblDanioV, LblEFisicoV,LblFRecibido, cbTicketV.Text);
+            }
+            else
+            {
+                Limpiar();
+            }
+
+        }
+    }
+}

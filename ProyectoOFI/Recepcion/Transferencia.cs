@@ -1,9 +1,11 @@
-﻿using ProyectoOFI.Datos;
+﻿using ExcelDataReader.Log;
+using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using System;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,7 +21,10 @@ namespace ProyectoOFI.Recepcion
         int hasta = 100;
         private int items_por_pagina = 100;
         int totalPaginas;
-        
+        string Calidad, EstadoFisico, Daño, CertificacionE;
+        DataTable Cons = new DataTable();
+        // Crear un arreglo bidimensional para almacenar los datos del DataTable
+        object[,] dataArray;
         public Transferencia()
         {
             InitializeComponent();
@@ -30,7 +35,6 @@ namespace ProyectoOFI.Recepcion
             await CargarDatos();
             PlCarga.Visible = false;
         }
-
         private async Task CargarDatos()
         {
             await Task.Delay(1500);
@@ -39,7 +43,6 @@ namespace ProyectoOFI.Recepcion
             ReiniciarPaginado();
             await Task.Delay(1000);
         }
-
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             AbrirFormulario();
@@ -75,7 +78,7 @@ namespace ProyectoOFI.Recepcion
                     }
                     else
                     {
-                        MessageBox.Show("La cantidad de sacos enviada no puede ser 0", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        MessageBox.Show("La cantidad de sacos enviada no puede ser 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
@@ -88,7 +91,6 @@ namespace ProyectoOFI.Recepcion
                 MessageBox.Show(ex.Message, ex.StackTrace);
             }
         }
-
         private void bntAtras_Click(object sender, EventArgs e)
         {
             PlRecepcion.Visible = false;
@@ -98,24 +100,21 @@ namespace ProyectoOFI.Recepcion
             Limpiar();
             txtTK.Enabled = true;
         }
-
         private void btnSig_Click(object sender, EventArgs e)
         {
             PRecepcion.Dock = DockStyle.Fill;
             PRecepcion.Visible = true;
             PEnvio.Visible = false;
         }
-
         private void btnAnt_Click(object sender, EventArgs e)
         {
             PRecepcion.Visible = false;
             PEnvio.Dock = DockStyle.Fill;
             PEnvio.Visible = true;
         }
-
         private void dtInventario_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            // Verificar si la celda que se está pintando es una celda de encabezado
+            // Verificar si la celda que se TKá pintando es una celda de encabezado
             if (e.RowIndex == -1 && e.ColumnIndex >= 0)
             {
                 // Determinar si la celda es de alguno de los encabezados especificados
@@ -127,8 +126,11 @@ namespace ProyectoOFI.Recepcion
                                       headerText == "MTNR" ||
                                       headerText == "Área de Secado" ||
                                       headerText == "Recibidor" ||
+                                      headerText == "Calidad" ||
+                                      headerText == "Estado Fisico" ||
+                                      headerText == "Daño" ||
                                       headerText == "Digitador";
-                
+
                 // Definir los colores y la fuente según el tipo de encabezado
                 Color backColor = isTargetHeader ? Color.Green : Color.Blue;
                 Color textColor = Color.White;
@@ -147,7 +149,6 @@ namespace ProyectoOFI.Recepcion
                 e.Handled = true;
             }
         }
-
         private void Limpiar()
         {
             //Enviado
@@ -180,7 +181,6 @@ namespace ProyectoOFI.Recepcion
             LblQQs.Text = "--";
             lblTransferencia.Text = "Agregar Transferencia";
         }
-
         private void txtMTNT_TextChanged(object sender, EventArgs e)
         {
             Transferencia s = new Transferencia();
@@ -196,7 +196,6 @@ namespace ProyectoOFI.Recepcion
                 }
             }
         }
-
         private void txtKgs_TextChanged(object sender, EventArgs e)
         {
             try
@@ -216,14 +215,13 @@ namespace ProyectoOFI.Recepcion
                 //txtKgs.Text = Convert.ToString(0);
             }
         }
-
         private void txtPesoE_TextChanged(object sender, EventArgs e)
         {
             try
             {
                 txtMerma.Text = txtPesoE.Text;
                 double Kilos = int.Parse(txtPesoE.Text);
-                Kilos  = Kilos / 46;
+                Kilos = Kilos / 46;
                 LblQQsEn.Text = Math.Round(Kilos, 2).ToString();
 
             }
@@ -253,7 +251,6 @@ namespace ProyectoOFI.Recepcion
             return !(txtKgs.Text == "" || txtMerma.Text == "" || txtTK.Text == "" || cbArea.Text == "" || cbCalidad.Text == "" || cbDaño.Text == ""
             || cbDigitador.Text == "" || cbEstadoFisico.Text == "" || cbRecibidor.Text == "");
         }
-
         public void MostrarLotes()
         {
             DRecepcion funcion = new DRecepcion();
@@ -314,7 +311,6 @@ namespace ProyectoOFI.Recepcion
                 MessageBox.Show("Existen campos vacios", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private async void Alerta()
         {
             timerAct.Enabled = true;
@@ -323,7 +319,6 @@ namespace ProyectoOFI.Recepcion
             PlAlerta.Visible = false;
             timerAct.Enabled = false;
         }
-
         private async void carga()
         {
             timerAct.Enabled = true;
@@ -338,10 +333,9 @@ namespace ProyectoOFI.Recepcion
             PEnvio.Dock = DockStyle.Fill;
             PEnvio.Visible = true;
         }
-
         private void dtInventario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ObtenerEstado();
+            ObtenerTK();
             ObtenerDatos();
             lblTransferencia.Text = "Editar Transferencia";
             AbrirFormulario();
@@ -349,7 +343,7 @@ namespace ProyectoOFI.Recepcion
             BtnEditar.Visible = true;
             PnGuardar.Visible = false;
         }
-        private void ObtenerEstado()
+        private void ObtenerTK()
         {
             string nombrecolumna = "Ticket";
             int indice = dtInventario.Columns[nombrecolumna].Index;
@@ -414,27 +408,22 @@ namespace ProyectoOFI.Recepcion
                 MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void cbEsFisico_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbEstadoFisico.Text = (cbEsFisico.Text);
         }
-
         private void cbCalidadE_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbCalidad.Text = cbCalidadE.Text;
         }
-
         private void nudSacosE_ValueChanged(object sender, EventArgs e)
         {
             nudSacos.Value = nudSacosE.Value;
         }
-
         private void cbDanioE_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbDaño.Text = cbDanioE.Text;
         }
-
         //Ordenamientos
         private void OrdenarDatos()
         {
@@ -448,23 +437,23 @@ namespace ProyectoOFI.Recepcion
             {
                 index = 1;
             }
-            else if (CbOrdenar.Text== "MTNR")
+            else if (CbOrdenar.Text == "MTNR")
             {
                 index = 11;
             }
-            else if (CbOrdenar.Text== "Calidad")
+            else if (CbOrdenar.Text == "Calidad")
             {
                 index = 2;
             }
-            else if (CbOrdenar.Text== "Estado Fisico")
+            else if (CbOrdenar.Text == "Estado Fisico")
             {
                 index = 3;
             }
-            else if (CbOrdenar.Text== "Digitador")
+            else if (CbOrdenar.Text == "Digitador")
             {
                 index = 14;
             }
-            else if (CbOrdenar.Text== "Recibidor")
+            else if (CbOrdenar.Text == "Recibidor")
             {
                 index = 13;
             }
@@ -474,7 +463,6 @@ namespace ProyectoOFI.Recepcion
             }
             dtInventario.Sort(dtInventario.Columns[index], (ListSortDirection)order);
         }
-
         private void CbOrdenar_SelectedIndexChanged(object sender, EventArgs e)
         {
             OrdenarDatos();
@@ -507,7 +495,7 @@ namespace ProyectoOFI.Recepcion
         private void Contar()
         {
             DRecepcion funcion = new DRecepcion();
-            if (txtBuscador.Text != "") 
+            if (txtBuscador.Text != "")
             {
                 Contador = ContarBusqueda;
             }
@@ -529,12 +517,11 @@ namespace ProyectoOFI.Recepcion
 
             }
         }
-
         private void btn_atras_Click(object sender, EventArgs e)
         {
             desde -= 100;
             hasta -= 100;
-            if (txtBuscador.Text!="")
+            if (txtBuscador.Text != "")
             {
                 BuscarTK();
             }
@@ -559,7 +546,6 @@ namespace ProyectoOFI.Recepcion
             }
             Paginar();
         }
-
         private void btn_Sig_Click(object sender, EventArgs e)
         {
             desde += 100;
@@ -585,12 +571,11 @@ namespace ProyectoOFI.Recepcion
             }
             Paginar();
         }
-
         private void btn_Ultima_Click(object sender, EventArgs e)
         {
             hasta = totalPaginas * items_por_pagina;
             desde = hasta - 99;
-            if (txtBuscador.Text!="")
+            if (txtBuscador.Text != "")
             {
                 BuscarTK();
             }
@@ -611,7 +596,6 @@ namespace ProyectoOFI.Recepcion
             }
             Paginar();
         }
-
         private void btn_Primera_Click(object sender, EventArgs e)
         {
             ReiniciarPaginado();
@@ -624,25 +608,97 @@ namespace ProyectoOFI.Recepcion
                 MostrarLotes();
             }
         }
-
         #endregion
         private void dtInventario_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dtInventario.Columns["Eliminar"].Index)
             {
-                DialogResult result = MessageBox.Show("¿Esta seguro de eliminar esta ticket, Desea Continuar?", "Eliminando registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("¿Esta seguro de eliminar la ticket, Desea Continuar?", "Eliminando registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
                 {
                     EliminarTK();
                 }
             }
+            if (e.ColumnIndex == dtInventario.Columns["Consolidar"].Index)
+            {
+                Datos();
+                plfooter.Visible = false;
+                plOpciones.Visible = false;
+                PnConsolidar.Visible = true;
+                PnConsolidar.Dock = DockStyle.Fill;
+                Consolidar cons = new Consolidar(Calidad, CertificacionE, EstadoFisico, Daño);
+                cons.Dock = DockStyle.Fill;
+            }
+        }
+        private void Datos()
+        {
+            DRecepcion funcion = new DRecepcion();
+            LEnvio par = new LEnvio();
+
+            LRecepcion parametros = new LRecepcion();
+            string nombrecolumna = "Calidad";
+            int indice = dtInventario.Columns[nombrecolumna].Index;
+            parametros.Calidad = dtInventario.SelectedCells[indice].Value.ToString();
+
+            nombrecolumna = "Certificación";
+            indice = dtInventario.Columns[nombrecolumna].Index;
+            par.CertificacionE = dtInventario.SelectedCells[indice].Value.ToString();
+
+            nombrecolumna = "Estado Fisico";
+            indice = dtInventario.Columns[nombrecolumna].Index;
+            parametros.EstadoFisico = dtInventario.SelectedCells[indice].Value.ToString();
+
+            nombrecolumna = "Daño";
+            indice = dtInventario.Columns[nombrecolumna].Index;
+            parametros.Daño = dtInventario.SelectedCells[indice].Value.ToString();
+
+            Calidad = parametros.Calidad;
+            CertificacionE = par.CertificacionE;
+            EstadoFisico = parametros.EstadoFisico;
+            Daño = parametros.Daño;
+
+            funcion.MostrarTKConsolidar(ref Cons, parametros, par);
+            //DtTickets.DataSource = Cons;
+            DtAADT();
+        }
+        /// <summary>
+        /// Este metodo se utliza para copiar los datos del datatable a un arreglo
+        /// Esto se hace para poder agregar y eliminar los datos de ambos datagridviews
+        /// Ya que DtTickets es quien recibe los datos desde la base de datos
+        /// </summary>
+        private void DtAADT()
+        {
+
+            //// Crear un arreglo bidimensional para almacenar los datos del DataTable
+            dataArray = new object[Cons.Rows.Count, Cons.Columns.Count];
+
+            // Iterar sobre las filas y columnas del DataTable y almacenar los datos en el arreglo
+            for (int i = 0; i < Cons.Rows.Count; i++)
+            {
+                for (int j = 0; j < Cons.Columns.Count; j++)
+                {
+                    dataArray[i, j] = Cons.Rows[i][j];
+                }
+            }
+
+            // Establecer el arreglo como la fuente de datos del DataGridView
+            DtTickets.Rows.Clear(); // Limpiar el DataGridView antes de agregar datos
+            for (int i = 0; i < Cons.Rows.Count; i++)
+            {
+                DtTickets.Rows.Add(); // Agregar una nueva fila al DataGridView
+                for (int j = 0; j < Cons.Columns.Count; j++)
+                {
+                    DtTickets.Rows[i].Cells[j].Value = dataArray[i, j]; // Asignar los valores del arreglo a las celdas del DataGridView
+                }
+            }
+
         }
         private void EliminarTK()
         {
             string nombrecolumna = "Ticket";
             int indice = dtInventario.Columns[nombrecolumna].Index;
             Ticket = dtInventario.SelectedCells[indice].Value.ToString();
-            
+
             LRecepcion parametros = new LRecepcion();
             DRecepcion funcion = new DRecepcion();
             parametros.Ticket = Ticket;
@@ -652,7 +708,7 @@ namespace ProyectoOFI.Recepcion
             }
             else
             {
-                MessageBox.Show("Imposible eliminar esta Ticket", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Imposible eliminar la Ticket", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void BuscarTK()
@@ -663,7 +719,6 @@ namespace ProyectoOFI.Recepcion
             dtInventario.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.contador.ToString());
         }
-
         private void txtBuscador_TextChanged(object sender, EventArgs e)
         {
             if (txtBuscador.Text == "")
@@ -675,6 +730,64 @@ namespace ProyectoOFI.Recepcion
             {
                 BuscarTK();
                 ReiniciarPaginado();
+            }
+        }
+        private async void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            PnConsolidar.Visible = false;
+            PnConsolidar.Dock = DockStyle.None;
+            plfooter.Visible = true;
+            plOpciones.Visible = true;
+            await CargarDatos();
+        }
+        private void DtTickets_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Verificar si se hizo doble clic en una celda válida
+            if (e.RowIndex >= 0 && e.RowIndex < DtTickets.Rows.Count)
+            {
+                // Obtener la fila seleccionada en DtTickets
+                DataGridViewRow selectedRow = DtTickets.Rows[e.RowIndex];
+
+                // Si dtTKCons está vacío, agregar las columnas
+                if (dtTKCons.Columns.Count == 0)
+                {
+                    foreach (DataGridViewColumn col in DtTickets.Columns)
+                    {
+                        dtTKCons.Columns.Add((DataGridViewColumn)col.Clone());
+                    }
+                }
+
+                // Crear una nueva fila en dtTKCons y copiar los datos de la fila seleccionada en DtTickets
+                DataGridViewRow newRow = (DataGridViewRow)selectedRow.Clone();
+                foreach (DataGridViewCell cell in selectedRow.Cells)
+                {
+                    newRow.Cells[cell.ColumnIndex].Value = cell.Value;
+                }
+
+                // Agregar la nueva fila a dtTKCons
+                dtTKCons.Rows.Add(newRow);
+
+                // Eliminar la fila seleccionada de DtTickets
+                DtTickets.Rows.RemoveAt(e.RowIndex);
+                ActualizarTotales();
+            }
+        }
+        private void ActualizarTotales()
+        {
+            // Inicializar las variables para los totales de sacos y peso
+            int totalSacos = 0;
+            double totalPeso = 0;
+
+            // Iterar sobre todas las filas en dtTKCons para sumar los sacos y el peso
+            foreach (DataGridViewRow row in dtTKCons.Rows)
+            {
+                // Sumar los sacos
+                totalSacos += Convert.ToInt32(row.Cells["Sacos"].Value);
+
+                // Sumar el peso
+                totalPeso += Convert.ToDouble(row.Cells["Peso"].Value);
+                LblTotalSacos.Text = totalSacos.ToString();
+                LblTotalPeso.Text = totalPeso.ToString();
             }
         }
         private void EditarTK()
@@ -740,6 +853,41 @@ namespace ProyectoOFI.Recepcion
                 MessageBox.Show(ex.Message);
             }
         }
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            BuscarCons();
+        }
+        private void dtTKCons_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dtTKCons.Rows.Count)
+            {
+                // Obtener la fila seleccionada en DtTickets
+                DataGridViewRow selectedRow = dtTKCons.Rows[e.RowIndex];
+
+                // Si dtTKCons está vacío, agregar las columnas
+                if (DtTickets.Columns.Count == 0)
+                {
+                    foreach (DataGridViewColumn col in dtTKCons.Columns)
+                    {
+                        DtTickets.Columns.Add((DataGridViewColumn)col.Clone());
+                    }
+                }
+
+                // Crear una nueva fila en dtTKCons y copiar los datos de la fila seleccionada en DtTickets
+                DataGridViewRow newRow = (DataGridViewRow)selectedRow.Clone();
+                foreach (DataGridViewCell cell in selectedRow.Cells)
+                {
+                    newRow.Cells[cell.ColumnIndex].Value = cell.Value;
+                }
+
+                // Agregar la nueva fila a dtTKCons
+                DtTickets.Rows.Add(newRow);
+
+                // Eliminar la fila seleccionada de DtTickets
+                dtTKCons.Rows.RemoveAt(e.RowIndex);
+                ActualizarTotales();
+            }
+        }
         private async void CargaEditar()
         {
             PlCargaTran.Dock = DockStyle.Fill;
@@ -752,7 +900,6 @@ namespace ProyectoOFI.Recepcion
             PEnvio.Dock = DockStyle.Fill;
             PEnvio.Visible = true;
         }
-
         private void BtnEditar_Click(object sender, EventArgs e)
         {
             try
@@ -763,8 +910,8 @@ namespace ProyectoOFI.Recepcion
                     {
                         if (dtFEnvio.Value <= dtpRecibido.Value)
                         {
-                            DialogResult res=MessageBox.Show("Esta seguro de guardar los datos editados","Advertencia",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-                            if (res==DialogResult.Yes)
+                            DialogResult res = MessageBox.Show("Esta seguro de guardar los datos editados", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            if (res == DialogResult.Yes)
                             {
                                 CargaEditar();
                             }
@@ -789,6 +936,10 @@ namespace ProyectoOFI.Recepcion
             {
                 MessageBox.Show(ex.Message, ex.StackTrace);
             }
+        }
+        private void BuscarCons()
+        {
+            
         }
     }
 }

@@ -104,7 +104,6 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-
         public bool EliminarTK(LRecepcion parametros)
         {
             try
@@ -217,6 +216,28 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show("No se ha podido editar el registro " + ex.Message, "ERROR al actualizar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarTKConsolidar(ref DataTable dt, LRecepcion parametros, LEnvio par)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("MostrarTKConsolidar", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Calidad", parametros.Calidad);
+                da.SelectCommand.Parameters.AddWithValue("@Cert", par.CertificacionE);
+                da.SelectCommand.Parameters.AddWithValue("@EsFi", parametros.EstadoFisico);
+                da.SelectCommand.Parameters.AddWithValue("@Danio", parametros.Daño);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

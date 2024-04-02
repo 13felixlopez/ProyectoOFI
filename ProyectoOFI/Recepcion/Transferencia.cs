@@ -431,31 +431,31 @@ namespace ProyectoOFI.Recepcion
             SortOrder order = SortOrder.Ascending;
             if (CbOrdenar.Text == "Fecha Recibido")
             {
-                index = 8;
+                index = 9;
             }
             else if (CbOrdenar.Text == "Ticket")
             {
-                index = 1;
+                index = 2;
             }
             else if (CbOrdenar.Text == "MTNR")
             {
-                index = 11;
+                index = 13;
             }
             else if (CbOrdenar.Text == "Calidad")
             {
-                index = 2;
+                index = 3;
             }
             else if (CbOrdenar.Text == "Estado Fisico")
             {
-                index = 3;
+                index = 4;
             }
             else if (CbOrdenar.Text == "Digitador")
             {
-                index = 14;
+                index = 15;
             }
             else if (CbOrdenar.Text == "Recibidor")
             {
-                index = 13;
+                index = 14;
             }
             else
             {
@@ -738,6 +738,8 @@ namespace ProyectoOFI.Recepcion
             PnConsolidar.Dock = DockStyle.None;
             plfooter.Visible = true;
             plOpciones.Visible = true;
+            dtTKCons.Rows.Clear();
+            Cons.Rows.Clear();
             await CargarDatos();
         }
         private void DtTickets_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -888,6 +890,25 @@ namespace ProyectoOFI.Recepcion
                 ActualizarTotales();
             }
         }
+
+        private void cbAgencia_Leave(object sender, EventArgs e)
+        {
+            if (cbAgencia.Text=="Cliente Directo")
+            {
+                txtMTNR.Visible = false;
+                label27.Visible = false;
+                txtMTNT.Visible = false;
+                label50.Visible = false;
+            }
+            else
+            {
+                txtMTNR.Visible = true;
+                label27.Visible = true;
+                txtMTNT.Visible = true;
+                label50.Visible = true;
+            }
+        }
+
         private async void CargaEditar()
         {
             PlCargaTran.Dock = DockStyle.Fill;

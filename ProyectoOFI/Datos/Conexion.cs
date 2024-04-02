@@ -11,7 +11,7 @@ namespace ProyectoOFI.Datos
     public class Conexion
     {
         //public static string Cn = "Data Source='FELIXL'; Initial Catalog=OFI; Integrated Security=True";
-        public static string conexion = @"Data source=Felix\MSSQLSERVER01; Initial Catalog=OFI; Integrated Security=true";
+        public static string conexion = @"Data source=NIMAT-9L99WV3\MSSQLSERVER02; Initial Catalog=OFI; Integrated Security=true";
         public static SqlConnection conectar = new SqlConnection(conexion);
         public static void abrir()
         {

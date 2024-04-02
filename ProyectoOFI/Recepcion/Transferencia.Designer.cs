@@ -138,6 +138,13 @@
             this.PnConsolidar = new System.Windows.Forms.Panel();
             this.PnTickets = new System.Windows.Forms.Panel();
             this.DtTickets = new System.Windows.Forms.DataGridView();
+            this.Tickets = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sacos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Certificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EsFisico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cali = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Danio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PlBuscar = new System.Windows.Forms.Panel();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -152,13 +159,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.LblTotalSacos = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.Tickets = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sacos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Certificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EsFisico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cali = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Danio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PlEnvio.SuspendLayout();
             this.PlRecepcion.SuspendLayout();
             this.PlAlerta.SuspendLayout();
@@ -476,6 +476,7 @@
             this.cbAgencia.Name = "cbAgencia";
             this.cbAgencia.Size = new System.Drawing.Size(134, 28);
             this.cbAgencia.TabIndex = 138;
+            this.cbAgencia.Leave += new System.EventHandler(this.cbAgencia_Leave);
             // 
             // cbCompra
             // 
@@ -505,7 +506,7 @@
             this.PlRecepcion.Location = new System.Drawing.Point(3, 80);
             this.PlRecepcion.MinimumSize = new System.Drawing.Size(923, 329);
             this.PlRecepcion.Name = "PlRecepcion";
-            this.PlRecepcion.Size = new System.Drawing.Size(923, 329);
+            this.PlRecepcion.Size = new System.Drawing.Size(1505, 439);
             this.PlRecepcion.TabIndex = 9;
             this.PlRecepcion.Visible = false;
             // 
@@ -1133,7 +1134,7 @@
             this.dtInventario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventario.ShowCellToolTips = false;
             this.dtInventario.ShowEditingIcon = false;
-            this.dtInventario.Size = new System.Drawing.Size(1317, 550);
+            this.dtInventario.Size = new System.Drawing.Size(1806, 717);
             this.dtInventario.TabIndex = 6;
             this.dtInventario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtInventario_CellClick);
             this.dtInventario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtInventario_CellDoubleClick);
@@ -1169,14 +1170,14 @@
             this.plOpciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.plOpciones.Location = new System.Drawing.Point(0, 0);
             this.plOpciones.Name = "plOpciones";
-            this.plOpciones.Size = new System.Drawing.Size(1317, 62);
+            this.plOpciones.Size = new System.Drawing.Size(1806, 62);
             this.plOpciones.TabIndex = 7;
             // 
             // plAgregar
             // 
             this.plAgregar.Controls.Add(this.btnAgregar);
             this.plAgregar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.plAgregar.Location = new System.Drawing.Point(1226, 0);
+            this.plAgregar.Location = new System.Drawing.Point(1715, 0);
             this.plAgregar.Name = "plAgregar";
             this.plAgregar.Size = new System.Drawing.Size(91, 62);
             this.plAgregar.TabIndex = 3;
@@ -1281,9 +1282,9 @@
             this.plfooter.Controls.Add(this.lbl_Pagina);
             this.plfooter.Controls.Add(this.Label25);
             this.plfooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plfooter.Location = new System.Drawing.Point(0, 612);
+            this.plfooter.Location = new System.Drawing.Point(0, 779);
             this.plfooter.Name = "plfooter";
-            this.plfooter.Size = new System.Drawing.Size(1317, 60);
+            this.plfooter.Size = new System.Drawing.Size(1806, 60);
             this.plfooter.TabIndex = 8;
             // 
             // btn_atras
@@ -1402,7 +1403,7 @@
             // PlCarga
             // 
             this.PlCarga.Controls.Add(this.PbCarga);
-            this.PlCarga.Location = new System.Drawing.Point(1003, 159);
+            this.PlCarga.Location = new System.Drawing.Point(1514, 167);
             this.PlCarga.Name = "PlCarga";
             this.PlCarga.Size = new System.Drawing.Size(250, 172);
             this.PlCarga.TabIndex = 10;
@@ -1449,9 +1450,9 @@
             this.PnConsolidar.Controls.Add(this.PlBuscar);
             this.PnConsolidar.Controls.Add(this.PnTKCons);
             this.PnConsolidar.Controls.Add(this.panel1);
-            this.PnConsolidar.Location = new System.Drawing.Point(155, 201);
+            this.PnConsolidar.Location = new System.Drawing.Point(1378, 585);
             this.PnConsolidar.Name = "PnConsolidar";
-            this.PnConsolidar.Size = new System.Drawing.Size(902, 412);
+            this.PnConsolidar.Size = new System.Drawing.Size(403, 151);
             this.PnConsolidar.TabIndex = 12;
             this.PnConsolidar.Visible = false;
             // 
@@ -1462,7 +1463,7 @@
             this.PnTickets.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnTickets.Location = new System.Drawing.Point(0, 347);
             this.PnTickets.Name = "PnTickets";
-            this.PnTickets.Size = new System.Drawing.Size(902, 65);
+            this.PnTickets.Size = new System.Drawing.Size(386, 0);
             this.PnTickets.TabIndex = 5;
             // 
             // DtTickets
@@ -1505,9 +1506,51 @@
             this.DtTickets.ReadOnly = true;
             this.DtTickets.RowHeadersVisible = false;
             this.DtTickets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtTickets.Size = new System.Drawing.Size(902, 65);
+            this.DtTickets.Size = new System.Drawing.Size(386, 0);
             this.DtTickets.TabIndex = 0;
             this.DtTickets.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtTickets_CellDoubleClick);
+            // 
+            // Tickets
+            // 
+            this.Tickets.HeaderText = "Ticket";
+            this.Tickets.Name = "Tickets";
+            this.Tickets.ReadOnly = true;
+            // 
+            // Sacos
+            // 
+            this.Sacos.HeaderText = "Sacos";
+            this.Sacos.Name = "Sacos";
+            this.Sacos.ReadOnly = true;
+            // 
+            // Peso
+            // 
+            this.Peso.HeaderText = "Peso";
+            this.Peso.Name = "Peso";
+            this.Peso.ReadOnly = true;
+            // 
+            // Certificacion
+            // 
+            this.Certificacion.HeaderText = "Certificación";
+            this.Certificacion.Name = "Certificacion";
+            this.Certificacion.ReadOnly = true;
+            // 
+            // EsFisico
+            // 
+            this.EsFisico.HeaderText = "Estado Fisico";
+            this.EsFisico.Name = "EsFisico";
+            this.EsFisico.ReadOnly = true;
+            // 
+            // Cali
+            // 
+            this.Cali.HeaderText = "Calidad";
+            this.Cali.Name = "Cali";
+            this.Cali.ReadOnly = true;
+            // 
+            // Danio
+            // 
+            this.Danio.HeaderText = "Daño";
+            this.Danio.Name = "Danio";
+            this.Danio.ReadOnly = true;
             // 
             // PlBuscar
             // 
@@ -1517,7 +1560,7 @@
             this.PlBuscar.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlBuscar.Location = new System.Drawing.Point(0, 302);
             this.PlBuscar.Name = "PlBuscar";
-            this.PlBuscar.Size = new System.Drawing.Size(902, 45);
+            this.PlBuscar.Size = new System.Drawing.Size(386, 45);
             this.PlBuscar.TabIndex = 6;
             // 
             // TxtBuscar
@@ -1556,7 +1599,7 @@
             this.PnTKCons.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnTKCons.Location = new System.Drawing.Point(0, 62);
             this.PnTKCons.Name = "PnTKCons";
-            this.PnTKCons.Size = new System.Drawing.Size(902, 240);
+            this.PnTKCons.Size = new System.Drawing.Size(386, 240);
             this.PnTKCons.TabIndex = 4;
             // 
             // dtTKCons
@@ -1591,7 +1634,7 @@
             this.dtTKCons.ReadOnly = true;
             this.dtTKCons.RowHeadersVisible = false;
             this.dtTKCons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtTKCons.Size = new System.Drawing.Size(902, 240);
+            this.dtTKCons.Size = new System.Drawing.Size(386, 240);
             this.dtTKCons.TabIndex = 0;
             this.dtTKCons.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTKCons_CellDoubleClick);
             // 
@@ -1609,7 +1652,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(902, 62);
+            this.panel1.Size = new System.Drawing.Size(386, 62);
             this.panel1.TabIndex = 3;
             // 
             // BtnCancelar
@@ -1719,48 +1762,6 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "N° de Ticket:";
             // 
-            // Tickets
-            // 
-            this.Tickets.HeaderText = "Ticket";
-            this.Tickets.Name = "Tickets";
-            this.Tickets.ReadOnly = true;
-            // 
-            // Sacos
-            // 
-            this.Sacos.HeaderText = "Sacos";
-            this.Sacos.Name = "Sacos";
-            this.Sacos.ReadOnly = true;
-            // 
-            // Peso
-            // 
-            this.Peso.HeaderText = "Peso";
-            this.Peso.Name = "Peso";
-            this.Peso.ReadOnly = true;
-            // 
-            // Certificacion
-            // 
-            this.Certificacion.HeaderText = "Certificación";
-            this.Certificacion.Name = "Certificacion";
-            this.Certificacion.ReadOnly = true;
-            // 
-            // EsFisico
-            // 
-            this.EsFisico.HeaderText = "Estado Fisico";
-            this.EsFisico.Name = "EsFisico";
-            this.EsFisico.ReadOnly = true;
-            // 
-            // Cali
-            // 
-            this.Cali.HeaderText = "Calidad";
-            this.Cali.Name = "Cali";
-            this.Cali.ReadOnly = true;
-            // 
-            // Danio
-            // 
-            this.Danio.HeaderText = "Daño";
-            this.Danio.Name = "Danio";
-            this.Danio.ReadOnly = true;
-            // 
             // Transferencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1772,7 +1773,7 @@
             this.Controls.Add(this.plOpciones);
             this.Controls.Add(this.plfooter);
             this.Name = "Transferencia";
-            this.Size = new System.Drawing.Size(1317, 672);
+            this.Size = new System.Drawing.Size(1806, 839);
             this.Load += new System.EventHandler(this.Transferencia_Load);
             this.PlEnvio.ResumeLayout(false);
             this.PlRecepcion.ResumeLayout(false);

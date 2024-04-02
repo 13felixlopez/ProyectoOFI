@@ -23,8 +23,6 @@ namespace ProyectoOFI
            
         }
 
-        
-
         private void timerAct_Tick(object sender, EventArgs e)
         {
             //MostrarLotes();
@@ -38,12 +36,14 @@ namespace ProyectoOFI
                 Dock = DockStyle.Fill
             };
             PlPrincipal.Controls.Add(tr);
+            btnTransferencia.Enabled = false;
         }
 
         private void BtnSM_Click(object sender, EventArgs e)
         {
             SMecánico sm = new SMecánico();
             sm.ShowDialog();
+            btnTransferencia.Enabled = true;
         }
     }
 }

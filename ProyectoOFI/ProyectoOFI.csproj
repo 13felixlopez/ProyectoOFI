@@ -68,6 +68,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Recepcion\AgregarAgencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recepcion\AgregarAgencia.Designer.cs">
+      <DependentUpon>AgregarAgencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recepcion\Consolidar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -111,6 +117,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recepcion\AgregarAgencia.resx">
+      <DependentUpon>AgregarAgencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recepcion\Consolidar.resx">
       <DependentUpon>Consolidar.cs</DependentUpon>
@@ -199,9 +208,7 @@
       <Version>3.6.0</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extras\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\join.png" />
   </ItemGroup>

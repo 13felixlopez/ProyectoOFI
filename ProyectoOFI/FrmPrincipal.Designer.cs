@@ -33,6 +33,7 @@ namespace ProyectoOFI
             this.plTitulo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.plfooter = new System.Windows.Forms.Panel();
+            this.PlOpciones = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -42,9 +43,8 @@ namespace ProyectoOFI
             this.timerAct = new System.Windows.Forms.Timer(this.components);
             this.PlPrincipal = new System.Windows.Forms.Panel();
             this.LblPrincipal = new System.Windows.Forms.Label();
-            this.PlOpciones = new System.Windows.Forms.Panel();
-            this.BtnAgencia = new System.Windows.Forms.Button();
             this.BtnAcopio = new System.Windows.Forms.Button();
+            this.BtnAgencia = new System.Windows.Forms.Button();
             this.BtnCatalogo = new System.Windows.Forms.Button();
             this.BtnSM = new System.Windows.Forms.Button();
             this.BtnCPatio = new System.Windows.Forms.Button();
@@ -53,9 +53,9 @@ namespace ProyectoOFI
             this.pbIcono = new System.Windows.Forms.PictureBox();
             this.plTitulo.SuspendLayout();
             this.plfooter.SuspendLayout();
+            this.PlOpciones.SuspendLayout();
             this.panel4.SuspendLayout();
             this.PlPrincipal.SuspendLayout();
-            this.PlOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcono)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,6 +101,17 @@ namespace ProyectoOFI
             this.plfooter.Name = "plfooter";
             this.plfooter.Size = new System.Drawing.Size(197, 751);
             this.plfooter.TabIndex = 3;
+            // 
+            // PlOpciones
+            // 
+            this.PlOpciones.Controls.Add(this.BtnAcopio);
+            this.PlOpciones.Controls.Add(this.BtnAgencia);
+            this.PlOpciones.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PlOpciones.Location = new System.Drawing.Point(11, 391);
+            this.PlOpciones.Name = "PlOpciones";
+            this.PlOpciones.Size = new System.Drawing.Size(186, 113);
+            this.PlOpciones.TabIndex = 21;
+            this.PlOpciones.Visible = false;
             // 
             // panel2
             // 
@@ -188,38 +199,34 @@ namespace ProyectoOFI
             this.LblPrincipal.Text = "Bienvenido al \r\nSistema 👋";
             this.LblPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // PlOpciones
-            // 
-            this.PlOpciones.Controls.Add(this.BtnAcopio);
-            this.PlOpciones.Controls.Add(this.BtnAgencia);
-            this.PlOpciones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PlOpciones.Location = new System.Drawing.Point(11, 391);
-            this.PlOpciones.Name = "PlOpciones";
-            this.PlOpciones.Size = new System.Drawing.Size(186, 129);
-            this.PlOpciones.TabIndex = 21;
-            this.PlOpciones.Visible = false;
-            // 
-            // BtnAgencia
-            // 
-            this.BtnAgencia.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnAgencia.Location = new System.Drawing.Point(0, 0);
-            this.BtnAgencia.Name = "BtnAgencia";
-            this.BtnAgencia.Size = new System.Drawing.Size(186, 44);
-            this.BtnAgencia.TabIndex = 1;
-            this.BtnAgencia.Text = "Agencia";
-            this.BtnAgencia.UseVisualStyleBackColor = true;
-            this.BtnAgencia.Click += new System.EventHandler(this.BtnAgencia_Click);
-            // 
             // BtnAcopio
             // 
             this.BtnAcopio.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnAcopio.Location = new System.Drawing.Point(0, 44);
+            this.BtnAcopio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAcopio.Image = global::ProyectoOFI.Properties.Resources.MdiHandCoin;
+            this.BtnAcopio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnAcopio.Location = new System.Drawing.Point(0, 55);
             this.BtnAcopio.Name = "BtnAcopio";
-            this.BtnAcopio.Size = new System.Drawing.Size(186, 44);
+            this.BtnAcopio.Size = new System.Drawing.Size(186, 55);
             this.BtnAcopio.TabIndex = 2;
             this.BtnAcopio.Text = "Acopio";
             this.BtnAcopio.UseVisualStyleBackColor = true;
             this.BtnAcopio.Click += new System.EventHandler(this.BtnAcopio_Click);
+            // 
+            // BtnAgencia
+            // 
+            this.BtnAgencia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnAgencia.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnAgencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAgencia.Image = global::ProyectoOFI.Properties.Resources.MdiBank;
+            this.BtnAgencia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnAgencia.Location = new System.Drawing.Point(0, 0);
+            this.BtnAgencia.Name = "BtnAgencia";
+            this.BtnAgencia.Size = new System.Drawing.Size(186, 55);
+            this.BtnAgencia.TabIndex = 1;
+            this.BtnAgencia.Text = "Agencia";
+            this.BtnAgencia.UseVisualStyleBackColor = true;
+            this.BtnAgencia.Click += new System.EventHandler(this.BtnAgencia_Click);
             // 
             // BtnCatalogo
             // 
@@ -335,9 +342,9 @@ namespace ProyectoOFI
             this.Load += new System.EventHandler(this.frmInicio_Load);
             this.plTitulo.ResumeLayout(false);
             this.plfooter.ResumeLayout(false);
+            this.PlOpciones.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.PlPrincipal.ResumeLayout(false);
-            this.PlOpciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbIcono)).EndInit();
             this.ResumeLayout(false);
 

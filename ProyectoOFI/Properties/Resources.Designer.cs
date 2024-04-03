@@ -73,6 +73,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap agencia_de_viajes {
+            get {
+                object obj = ResourceManager.GetObject("agencia-de-viajes", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Ant_64 {
             get {
                 object obj = ResourceManager.GetObject("Ant_64", resourceCulture);
@@ -226,6 +236,26 @@ namespace ProyectoOFI.Properties {
         internal static System.Drawing.Bitmap loading_12 {
             get {
                 object obj = ResourceManager.GetObject("loading-12", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MdiBank {
+            get {
+                object obj = ResourceManager.GetObject("MdiBank", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MdiHandCoin {
+            get {
+                object obj = ResourceManager.GetObject("MdiHandCoin", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

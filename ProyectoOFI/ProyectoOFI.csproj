@@ -233,5 +233,14 @@
   <ItemGroup>
     <None Include="Resources\icons8-magazine-50.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agencia-de-viajes.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MdiBank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MdiHandCoin.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

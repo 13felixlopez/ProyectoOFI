@@ -129,5 +129,46 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+		public bool EditarAcopio(int idacopio,string acopio,int idagencia)
+		{
+			try
+			{
+				Conexion.abrir();
+				SqlCommand cmd = new SqlCommand("EditarAcopio",Conexion.conectar);
+				cmd.CommandType = CommandType.StoredProcedure;
+				cmd.Parameters.AddWithValue("@IdAcopio",idacopio);
+				cmd.Parameters.AddWithValue("@Acopio",acopio);
+				cmd.Parameters.AddWithValue("@IdAgencia",idagencia);
+				cmd.ExecuteNonQuery();
+				return true;
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message, "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
+			finally { Conexion.cerrar(); }
+		}
+		public bool EliminarAcopio(int IdAcopio)
+		{
+			try
+			{
+				Conexion.abrir();
+				SqlCommand cmd = new SqlCommand("EliminarAcopio", Conexion.conectar);
+				cmd.CommandType= CommandType.StoredProcedure;
+				cmd.Parameters.AddWithValue("@IdAcopio",IdAcopio);
+				cmd.ExecuteNonQuery();
+				return true;
+			}
+			catch (Exception ex)
+			{
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+			finally
+			{
+				Conexion.cerrar();
+			}
+		}
     }
 }

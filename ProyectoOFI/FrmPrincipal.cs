@@ -66,13 +66,14 @@ namespace ProyectoOFI
         {
             Catalogo AA = new Catalogo();
             AA.ShowDialog();
-
+            PlOpciones.Visible = false;
         }
 
         private void BtnAcopio_Click(object sender, EventArgs e)
         {
             FrmAcopios Ac= new FrmAcopios();
             Ac.ShowDialog();
+            PlOpciones.Visible = false;
         }
     }
 }

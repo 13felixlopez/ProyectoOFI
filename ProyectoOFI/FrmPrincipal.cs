@@ -1,4 +1,5 @@
-﻿using ProyectoOFI.Recepcion;
+﻿using ProyectoOFI.Otros;
+using ProyectoOFI.Recepcion;
 using ProyectoOFI.SM;
 using System;
 using System.Windows.Forms;
@@ -37,6 +38,7 @@ namespace ProyectoOFI
             };
             PlPrincipal.Controls.Add(tr);
             btnTransferencia.Enabled = false;
+            PlOpciones.Visible = false;
         }
 
         private void BtnSM_Click(object sender, EventArgs e)
@@ -44,6 +46,33 @@ namespace ProyectoOFI
             SMecánico sm = new SMecánico();
             sm.ShowDialog();
             btnTransferencia.Enabled = true;
+            PlOpciones.Visible = false;
+        }
+
+        private void BtnCatalogo_Click(object sender, EventArgs e)
+        {
+            if (PlOpciones.Visible==true)
+            {
+                PlOpciones.Visible = false;
+            }
+            else
+            {
+                PlOpciones.Visible = true;
+
+            }
+        }
+
+        private void BtnAgencia_Click(object sender, EventArgs e)
+        {
+            Catalogo AA = new Catalogo();
+            AA.ShowDialog();
+
+        }
+
+        private void BtnAcopio_Click(object sender, EventArgs e)
+        {
+            FrmAcopios Ac= new FrmAcopios();
+            Ac.ShowDialog();
         }
     }
 }

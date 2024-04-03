@@ -163,6 +163,36 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_cerrar_ventana {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cerrar-ventana", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_guardar {
+            get {
+                object obj = ResourceManager.GetObject("icons8-guardar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_magazine_50 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-magazine-50", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_ok_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8_ok_32", resourceCulture);
@@ -226,6 +256,16 @@ namespace ProyectoOFI.Properties {
         internal static System.Drawing.Bitmap Plan {
             get {
                 object obj = ResourceManager.GetObject("Plan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wired_outline_35_edit {
+            get {
+                object obj = ResourceManager.GetObject("wired-outline-35-edit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

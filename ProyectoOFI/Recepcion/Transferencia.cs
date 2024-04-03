@@ -46,6 +46,7 @@ namespace ProyectoOFI.Recepcion
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             AbrirFormulario();
+            MostrarAgencia();
             PnGuardar.Visible = true;
             BtnEditar.Visible = false;
         }
@@ -220,7 +221,7 @@ namespace ProyectoOFI.Recepcion
             try
             {
                 txtMerma.Text = txtPesoE.Text;
-                double Kilos = int.Parse(txtPesoE.Text);
+                double Kilos = double.Parse(txtPesoE.Text);
                 Kilos = Kilos / 46;
                 LblQQsEn.Text = Math.Round(Kilos, 2).ToString();
 
@@ -890,7 +891,6 @@ namespace ProyectoOFI.Recepcion
                 ActualizarTotales();
             }
         }
-
         private void cbAgencia_Leave(object sender, EventArgs e)
         {
             if (cbAgencia.Text=="Cliente Directo")
@@ -908,7 +908,6 @@ namespace ProyectoOFI.Recepcion
                 label50.Visible = true;
             }
         }
-
         private async void CargaEditar()
         {
             PlCargaTran.Dock = DockStyle.Fill;
@@ -961,6 +960,11 @@ namespace ProyectoOFI.Recepcion
         private void BuscarCons()
         {
             
+        }
+        private void MostrarAgencia()
+        {
+            DRecepcion funcion= new DRecepcion();
+            funcion.MostrarAgencia(cbAgencia);
         }
     }
 }

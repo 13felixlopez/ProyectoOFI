@@ -1,11 +1,10 @@
-﻿using ExcelDataReader.Log;
-using ProyectoOFI.Datos;
+﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -41,6 +40,7 @@ namespace ProyectoOFI.Recepcion
             dtInventario.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             MostrarLotes();
             ReiniciarPaginado();
+            MostrarAgencia();
             await Task.Delay(1000);
         }
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -458,6 +458,10 @@ namespace ProyectoOFI.Recepcion
             {
                 index = 14;
             }
+            else if (CbOrdenar.Text == "Area de Secado")
+            {
+                index = 13;
+            }
             else
             {
                 MessageBox.Show("Valor no existente en la tabla", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -627,8 +631,8 @@ namespace ProyectoOFI.Recepcion
                 plOpciones.Visible = false;
                 PnConsolidar.Visible = true;
                 PnConsolidar.Dock = DockStyle.Fill;
-                Consolidar cons = new Consolidar(Calidad, CertificacionE, EstadoFisico, Daño);
-                cons.Dock = DockStyle.Fill;
+                //Consolidar cons = new Consolidar(Calidad, CertificacionE, EstadoFisico, Daño);
+                //cons.Dock = DockStyle.Fill;
             }
         }
         private void Datos()
@@ -742,6 +746,7 @@ namespace ProyectoOFI.Recepcion
             dtTKCons.Rows.Clear();
             Cons.Rows.Clear();
             await CargarDatos();
+            LimpiarCons();
         }
         private void DtTickets_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -781,18 +786,25 @@ namespace ProyectoOFI.Recepcion
             int totalSacos = 0;
             double totalPeso = 0;
 
-            // Iterar sobre todas las filas en dtTKCons para sumar los sacos y el peso
-            foreach (DataGridViewRow row in dtTKCons.Rows)
+            // Verificar si hay filas en dtTKCons
+            if (dtTKCons.Rows.Count > 0)
             {
-                // Sumar los sacos
-                totalSacos += Convert.ToInt32(row.Cells["Sacos"].Value);
+                // Iterar sobre todas las filas en dtTKCons para sumar los sacos y el peso
+                foreach (DataGridViewRow row in dtTKCons.Rows)
+                {
+                    // Sumar los sacos
+                    totalSacos += Convert.ToInt32(row.Cells["Sacos"].Value);
 
-                // Sumar el peso
-                totalPeso += Convert.ToDouble(row.Cells["Peso"].Value);
-                LblTotalSacos.Text = totalSacos.ToString();
-                LblTotalPeso.Text = totalPeso.ToString();
+                    // Sumar el peso
+                    totalPeso += Convert.ToDouble(row.Cells["Peso"].Value);
+                }
             }
+
+            // Establecer los valores en los controles de etiqueta
+            LblTotalSacos.Text = totalSacos.ToString();
+            LblTotalPeso.Text = totalPeso.ToString();
         }
+
         private void EditarTK()
         {
             try
@@ -893,7 +905,7 @@ namespace ProyectoOFI.Recepcion
         }
         private void cbAgencia_Leave(object sender, EventArgs e)
         {
-            if (cbAgencia.Text=="Cliente Directo")
+            if (cbAgencia.Text == "Cliente Directo")
             {
                 txtMTNR.Visible = false;
                 label27.Visible = false;
@@ -920,6 +932,32 @@ namespace ProyectoOFI.Recepcion
             PEnvio.Dock = DockStyle.Fill;
             PEnvio.Visible = true;
         }
+
+        private void cbAgencia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DRecepcion funcion = new DRecepcion();
+            if (cbAgencia.SelectedValue != null)
+            {
+                funcion.MostrarAcopioAgencia(cbAcopio, (int)cbAgencia.SelectedValue);
+            }
+            else
+            {
+                cbAcopio.Text = null;
+            }
+        }
+
+        private void BtnConsolidar_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TxtTicketCons.Text) && !string.IsNullOrEmpty(TxtFolio.Text) && !string.IsNullOrEmpty(CbAreaCons.Text))
+            {
+                CrearConsolidado();
+            }
+            else
+            {
+                MessageBox.Show("No puede haber espacios Vacios", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void BtnEditar_Click(object sender, EventArgs e)
         {
             try
@@ -957,14 +995,125 @@ namespace ProyectoOFI.Recepcion
                 MessageBox.Show(ex.Message, ex.StackTrace);
             }
         }
+
+        private void TxtTicketCons_TextChanged(object sender, EventArgs e)
+        {
+            if (TxtTicketCons.Text != "")
+            {
+                DtTickets.Enabled = true;
+                TxtFolio.Enabled = true;
+            }
+            else
+            {
+                DtTickets.Enabled = false;
+                TxtFolio.Enabled = false;
+            }
+        }
+
+        private void TxtFolio_TextChanged(object sender, EventArgs e)
+        {
+            if (TxtFolio.Text != "")
+            {
+                CbAreaCons.Enabled = true;
+            }
+            else
+            {
+                CbAreaCons.Enabled = false;
+            }
+        }
+
+        private void CbAreaCons_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ActivarCons();
+        }
+        private void ActivarCons()
+        {
+            if (CbAreaCons.Text != "" || TxtTicketCons.Text != "" || TxtFolio.Text != "")
+            {
+                BtnConsolidar.Enabled = true;
+            }
+            else
+            {
+                BtnConsolidar.Enabled = false;
+            }
+        }
         private void BuscarCons()
         {
-            
+
         }
+
+        private void PbFiltro_Click(object sender, EventArgs e)
+        {
+            PlFiltros.Location = new Point(dtInventario.Width / 2
+                - PlFiltros.Width / 2, dtInventario.Height / 2 - PlFiltros.Height / 2);
+            PlFiltros.Visible = true;
+            PlFiltros.BringToFront();
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            PlFiltros.Visible = false;
+            PlFiltros.Visible = false;
+        }
+
         private void MostrarAgencia()
         {
-            DRecepcion funcion= new DRecepcion();
+            DRecepcion funcion = new DRecepcion();
             funcion.MostrarAgencia(cbAgencia);
+        }
+        private async void CrearConsolidado()
+        {
+            try
+            {
+                List<string> lstTickets = new List<string>();
+                foreach (DataGridViewRow dr in dtTKCons.Rows)
+                {
+                    if (dr.Cells[0].Value != null)
+                    {
+                        string ticketValue = dr.Cells[0].Value.ToString();
+                        lstTickets.Add(ticketValue);
+                    }
+                }
+
+
+                LRecepcion parametros = new LRecepcion();
+                LEnvio Par = new LEnvio();
+                parametros.Ticket = TxtTicketCons.Text;
+                parametros.Sacos = int.Parse(LblTotalSacos.Text);
+                parametros.Peso = double.Parse(LblTotalPeso.Text);
+                parametros.Calidad = Calidad;
+                Par.CertificacionE = CertificacionE;
+                parametros.EstadoFisico = EstadoFisico;
+                parametros.FRecibido = DateTime.Now;
+                parametros.Daño = Daño;
+                parametros.Digitador = "Prueba";
+                parametros.Area = CbAreaCons.Text;
+                int folio=int.Parse(TxtFolio.Text);
+                DRecepcion funcion = new DRecepcion();
+                if (funcion.Consolidar(parametros, Par, lstTickets, folio) == true)
+                {
+                    MessageBox.Show("Se ha realizado la consolidacion con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    PnConsolidar.Visible = false;
+                    PnConsolidar.Dock = DockStyle.None;
+                    plfooter.Visible = true;
+                    plOpciones.Visible = true;
+                    dtTKCons.Rows.Clear();
+                    Cons.Rows.Clear();
+                    await CargarDatos();
+                    LimpiarCons();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lo sentimos ha ocurrido un error al consolidar", "ERROR en consolidar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void LimpiarCons()
+        {
+            LblTotalPeso.Text = "00";
+            LblTotalSacos.Text = "00";
+            TxtTicketCons.Clear();
+            TxtFolio.Clear();
         }
     }
 }

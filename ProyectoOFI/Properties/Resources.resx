@@ -118,14 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="MdiBank" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MdiBank.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Next_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Next_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ant_642" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ant_642.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-guardar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-guardar.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OFI Make" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OFI Make.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -141,6 +141,12 @@
   </data>
   <data name="icons8-cerrar-ventana" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-cerrar-ventana.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="loading-12" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\loading-12.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MdiHandCoin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MdiHandCoin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Atras" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Atras.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -160,17 +166,14 @@
   <data name="Ant_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ant_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8_ok_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8_ok_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="join" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\join.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Plan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Plan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-magazine-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-magazine-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-guardar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-guardar.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MdiBank" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MdiBank.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="documentos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\documentos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,16 +181,16 @@
   <data name="Ant_641" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ant_641.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="loading-12" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loading-12.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="join" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\join.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Plan" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Plan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8_ok_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8_ok_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_ok_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_ok_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MdiHandCoin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MdiHandCoin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="filter_list_FILL0_wght400_GRAD0_opsz24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\filter_list_FILL0_wght400_GRAD0_opsz24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

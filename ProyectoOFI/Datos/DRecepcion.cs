@@ -273,5 +273,90 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public void MostrarAcopioAgencia(ComboBox combo,int IdAgencia)
+        {
+            try
+            {
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("MostrarAcopioAgencia", Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+                da.Parameters.AddWithValue("@IdAgencia", IdAgencia);
+                SqlDataAdapter cb = new SqlDataAdapter(da);
+                DataTable dt = new DataTable();
+                cb.Fill(dt);
+                combo.ValueMember = "IdAcopio";
+                combo.DisplayMember = "Acopio";
+                combo.DataSource = dt;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    lista.Add(dt.Rows[i]["Acopio"].ToString());
+                }
+                combo.AutoCompleteCustomSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool Consolidar(LRecepcion parametros, LEnvio Par,List<string> lstcons,int folio)
+        {
+            try
+            {
+                var dt = new DataTable();
+                dt.Columns.Add("Id");
+                dt.Columns.Add("TicketH");
+                int i = 1;
+                foreach (string ticket in lstcons)
+                {
+                    if (ticket != null)
+                    {
+                        DataRow row = dt.NewRow();  // Crear una nueva fila
+                        row["Id"] = i;  // Establecer el valor del Id en la fila actual
+                        row["TicketH"] = ticket;  // Establecer el valor del TicketH en la fila actual
+                        dt.Rows.Add(row);  // Agregar la fila al DataTable
+                        i++; // Incrementar el contador de Id
+                    }
+                }
+
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("Consolidar", Conexion.conectar);
+                var paramertlist = new SqlParameter("@lstCons", SqlDbType.Structured);
+                paramertlist.TypeName = "Con";
+                paramertlist.Value = dt;
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(paramertlist);
+                cmd.Parameters.AddWithValue("@Ticket",parametros.Ticket);
+                cmd.Parameters.AddWithValue("@sacos",parametros.Sacos);
+                cmd.Parameters.AddWithValue("@Peso", parametros.Peso);
+                cmd.Parameters.AddWithValue("@Calidad",parametros.Calidad);
+                cmd.Parameters.AddWithValue("@Certificacion", Par.CertificacionE);
+                cmd.Parameters.AddWithValue("@EstFisico",parametros.EstadoFisico);
+                cmd.Parameters.AddWithValue("@Digitador",parametros.Digitador);
+                cmd.Parameters.AddWithValue("@FRecibido",parametros.FRecibido);
+                cmd.Parameters.AddWithValue("@Danio",parametros.Daño);
+                cmd.Parameters.AddWithValue("@AreaSecado", parametros.Area);
+                cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
+                cmd.Parameters.AddWithValue("@Folio", folio);
+                cmd.Parameters.AddWithValue("@Proceso", parametros.Area);
+                cmd.Parameters.AddWithValue("@Consolidado", "Si");
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ups! Ha ocurrido un error al agregar el Consolidado por favor revise los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
     }
 }

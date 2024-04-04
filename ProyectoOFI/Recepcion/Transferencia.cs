@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,6 +25,7 @@ namespace ProyectoOFI.Recepcion
         DataTable Cons = new DataTable();
         // Crear un arreglo bidimensional para almacenar los datos del DataTable
         object[,] dataArray;
+        List<string> filtro=new List<string>();
         public Transferencia()
         {
             InitializeComponent();
@@ -745,7 +747,8 @@ namespace ProyectoOFI.Recepcion
             plOpciones.Visible = true;
             dtTKCons.Rows.Clear();
             Cons.Rows.Clear();
-            await CargarDatos();
+            //await CargarDatos();
+            BuscarTK();
             LimpiarCons();
         }
         private void DtTickets_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -1053,9 +1056,40 @@ namespace ProyectoOFI.Recepcion
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             PlFiltros.Visible = false;
-            PlFiltros.Visible = false;
         }
 
+        private void CLBFiltros_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            string seleccion = CLBFiltros.Items[e.Index].ToString();
+            if (e.NewValue==CheckState.Checked)
+            {
+                filtro.Add(seleccion);
+            }
+            else if (e.NewValue == CheckState.Unchecked)
+            {
+                filtro.Remove(seleccion);
+            }
+        }
+
+        private void BtnFiltrar_Click(object sender, EventArgs e)
+        {
+            FiltrarColumnas();
+            PlFiltros.Visible = false;
+        }
+        private void FiltrarColumnas()
+        {
+            foreach (DataGridViewColumn column in dtInventario.Columns)
+            {
+                if (filtro.Any(f => column.Name.Contains(f)))
+                {
+                    column.Visible = false;
+                }
+                else
+                {
+                    column.Visible = true;
+                }
+            }
+        }
         private void MostrarAgencia()
         {
             DRecepcion funcion = new DRecepcion();

@@ -1,6 +1,6 @@
 ﻿namespace ProyectoOFI.Recepcion
 {
-    partial class Catalogo
+    partial class FrmAgencia
     {
         /// <summary>
         /// Required designer variable.

@@ -1,11 +1,13 @@
 ﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
+using ProyectoOFI.Otros;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -34,6 +36,7 @@ namespace ProyectoOFI.Recepcion
         {
             PlCarga.Dock = DockStyle.Fill;
             await CargarDatos();
+            Base.DiseñoDtvEliminar(ref dtInventario);
             PlCarga.Visible = false;
         }
         private async Task CargarDatos()
@@ -260,6 +263,7 @@ namespace ProyectoOFI.Recepcion
             DataTable dt = new DataTable();
             funcion.MostrarLote(ref dt, desde, hasta);
             dtInventario.DataSource = dt;
+            Base.DiseñoDtvEliminar(ref dtInventario);
         }
         private void InsertarLote()
         {
@@ -370,25 +374,117 @@ namespace ProyectoOFI.Recepcion
                 {
                     double kilos, kilose;
                     DataRow row = dt.Rows[0];
-                    dtFEnvio.Value = DateTime.Parse(row["FEnvio"].ToString());
-                    cbAgencia.Text = row["Agencia"].ToString();
-                    cbAcopio.Text = row["Acopio"].ToString();
-                    cbCliente.Text = row["Cliente"].ToString();
-                    cbCompra.Text = row["Tipo_Compra"].ToString();
-                    txtMTNT.Text = row["MTNT"].ToString();
-                    cbCertificacion.Text = row["Certificacion"].ToString();
+                    if (DateTime.Parse(row["FEnvio"].ToString()) != null)
+                    {
+                        dtFEnvio.Value = DateTime.Parse(row["FEnvio"].ToString());
+                    }
+                    else
+                    {
+                        dtFEnvio.Value = DateTime.Today.Date;
+                    }
+                    if (row["Agencia"].ToString() != null)
+                    {
+                        cbAgencia.Text = row["Agencia"].ToString();
+                    }
+                    else
+                    {
+                        cbAgencia.ForeColor=Color.White;
+                    }
+                    if (row["Acopio"].ToString() != null)
+                    {
+                        cbAcopio.Text = row["Acopio"].ToString();
+                    }
+                    else
+                    {
+                        cbAcopio.Text = "";
+                    }
+                    if (row["Cliente"].ToString() != null)
+                    {
+                        cbCliente.Text = row["Cliente"].ToString();
+                    }
+                    else
+                    {
+                        cbCliente.Text = "";
+                    }
+                    if (row["Tipo_Compra"].ToString() != null)
+                    {
+                        cbCompra.Text = row["Tipo_Compra"].ToString();
+                    }
+                    else
+                    {
+                        cbCompra.Text = "";
+                    }
+                    if (!string.IsNullOrEmpty(row["MTNT"].ToString()))
+                    {
+                        txtMTNT.Text = row["MTNT"].ToString();
+                    }
+                    else
+                    {
+                        txtMTNT.Text = "";
+                    }
+                    if(row["Certificacion"].ToString()!=null)
+                    {
+                        cbCertificacion.Text = row["Certificacion"].ToString();
+                    }
+                    else
+                    {
+                        cbCertificacion.Text = "";
+                    }
+                    if(row["EsFisico"].ToString() != null)
+                    {
                     cbEsFisico.Text = row["EsFisico"].ToString();
+                    }
+                    else
+                    {
+                        cbEsFisico.Text = "";
+                    }
+                    if(row["CalidadE"].ToString() != null)
+                    {
                     cbCalidadE.Text = row["CalidadE"].ToString();
+                    }
+                    else
+                    {
+                        cbCalidadE.Text= "";
+                    }
+                    if(row["DanioE"].ToString() != null)
+                    {
                     cbDanioE.Text = row["DanioE"].ToString();
+                    }
+                    else
+                    {
+                        cbDanioE.Text = "";
+                    }
+                    if(row["SacosE"].ToString() != null)
+                    {
                     nudSacosE.Value = int.Parse(row["SacosE"].ToString());
+                    }
+                    else
+                    {
+                        nudSacos.Value = 0;
+                    }
+                    if(row["PesoE"].ToString()!= null)
+                    {
                     txtPesoE.Text = row["PesoE"].ToString();
                     kilose = double.Parse(txtPesoE.Text);
                     kilose = kilose / 46;
                     LblQQsEn.Text = Math.Round(kilose, 2).ToString();
+                    }
+                    else
+                    {
+                        txtPesoE.Text= "0";
+                        LblQQsEn.Text= "0";
+                    }
                     txtTK.Text = Ticket.ToString();
                     dtpRecibido.Value = DateTime.Parse(row["FechaRecibido"].ToString());
                     cbArea.Text = row["AreaSecado"].ToString();
+                    if (row["MTNR"].ToString() != null)
+                    {
                     txtMTNR.Text = row["MTNR"].ToString();
+                    }
+                    else
+                    {
+                        txtMTNR.Text = "";
+                    }
                     cbEstadoFisico.Text = row["EstadoFisico"].ToString();
                     cbCalidad.Text = row["Calidad"].ToString();
                     cbDaño.Text = row["Danio"].ToString();
@@ -397,8 +493,22 @@ namespace ProyectoOFI.Recepcion
                     kilos = double.Parse(txtKgs.Text);
                     kilos = kilos / 46;
                     LblQQs.Text = Math.Round(kilos, 2).ToString();
+                    if (row["Merma"].ToString() != null)
+                    {
                     txtMerma.Text = row["Merma"].ToString();
+                    }
+                    else
+                    {
+                        txtMerma.Text = "";
+                    }
+                    if(row["Recibidor"].ToString() == null)
+                    {
                     cbRecibidor.Text = row["Recibidor"].ToString();
+                    }
+                    else
+                    {
+                        cbRecibidor.Text = "";
+                    }
                     cbDigitador.Text = row["Digitador"].ToString();
                 }
                 else
@@ -411,6 +521,108 @@ namespace ProyectoOFI.Recepcion
                 MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        //private void ObtenerDatos()
+        //{
+        //    DRecepcion funcion = new DRecepcion();
+        //    DataTable dt = new DataTable();
+
+        //    try
+        //    {
+        //        funcion.MostrarDetalle(ref dt, Ticket);
+
+        //        if (dt.Rows.Count > 0)
+        //        {
+        //            DataRow row = dt.Rows[0];
+        //            // Convertir la fecha de envío si existe
+        //            if (DateTime.TryParse(row["FEnvio"].ToString(), out DateTime fEnvio))
+        //            {
+        //                dtFEnvio.Value = fEnvio;
+        //            }
+        //            else
+        //            {
+        //                dtFEnvio.Value = DateTime.Today;
+        //            }
+
+        //            // Asignar agencia
+        //            cbAgencia.Text = row["Agencia"].ToString();
+
+        //            // Asignar valores a los controles de UI
+        //            cbAcopio.Text = row["Acopio"].ToString();
+        //            cbCliente.Text = row["Cliente"].ToString();
+        //            cbCompra.Text = row["Tipo_Compra"].ToString();
+        //            txtMTNT.Text = row["MTNT"].ToString();
+        //            cbCertificacion.Text = row["Certificacion"].ToString();
+        //            cbEsFisico.Text = row["EsFisico"].ToString();
+        //            cbCalidadE.Text = row["CalidadE"].ToString();
+        //            cbDanioE.Text = row["DanioE"].ToString();
+
+        //            // Asignar el valor de sacos de entrada y calcular QQs en base a eso
+        //            if (int.TryParse(row["SacosE"].ToString(), out int sacosE))
+        //            {
+        //                nudSacosE.Value = sacosE;
+        //                double kilose = double.Parse(txtPesoE.Text);
+        //                kilose /= 46;
+        //                LblQQsEn.Text = Math.Round(kilose, 2).ToString();
+        //            }
+        //            else
+        //            {
+        //                // Si no se puede convertir a entero, establecer a 0
+        //                nudSacosE.Value = 0;
+        //                LblQQsEn.Text = "0";
+        //            }
+
+        //            // Asignar valor de Ticket
+        //            txtTK.Text = Ticket.ToString();
+
+        //            // Convertir la fecha recibida si existe
+        //            if (DateTime.TryParse(row["FechaRecibido"].ToString(), out DateTime fechaRecibido))
+        //            {
+        //                dtpRecibido.Value = fechaRecibido;
+        //            }
+        //            else
+        //            {
+        //                dtpRecibido.Value = DateTime.Today;
+        //            }
+
+        //            // Asignar valores adicionales
+        //            cbArea.Text = row["AreaSecado"].ToString();
+        //            txtMTNR.Text = row["MTNR"].ToString();
+        //            cbEstadoFisico.Text = row["EstadoFisico"].ToString();
+        //            cbCalidad.Text = row["Calidad"].ToString();
+        //            cbDaño.Text = row["Danio"].ToString();
+
+        //            // Asignar el valor de sacos y calcular QQs
+        //            if (int.TryParse(row["Sacos"].ToString(), out int sacos))
+        //            {
+        //                nudSacos.Value = sacos;
+        //                double kilos = double.Parse(txtKgs.Text);
+        //                kilos /= 46;
+        //                LblQQs.Text = Math.Round(kilos, 2).ToString();
+        //            }
+        //            else
+        //            {
+        //                // Si no se puede convertir a entero, establecer a 0
+        //                nudSacos.Value = 0;
+        //                LblQQs.Text = "0";
+        //            }
+
+        //            // Asignar valor de merma, recibidor y digitador
+        //            txtMerma.Text = row["Merma"].ToString();
+        //            cbRecibidor.Text = row["Recibidor"].ToString();
+        //            cbDigitador.Text = row["Digitador"].ToString();
+
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("No se encontraron datos para el ticket especificado.");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
+
         private void cbEsFisico_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbEstadoFisico.Text = (cbEsFisico.Text);
@@ -725,6 +937,7 @@ namespace ProyectoOFI.Recepcion
             funcion.BuscarTK(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
             dtInventario.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.contador.ToString());
+            Base.DiseñoDtvEliminar(ref dtInventario);
         }
         private void txtBuscador_TextChanged(object sender, EventArgs e)
         {
@@ -739,7 +952,7 @@ namespace ProyectoOFI.Recepcion
                 ReiniciarPaginado();
             }
         }
-        private async void BtnCancelar_Click(object sender, EventArgs e)
+        private void BtnCancelar_Click(object sender, EventArgs e)
         {
             PnConsolidar.Visible = false;
             PnConsolidar.Dock = DockStyle.None;
@@ -747,7 +960,6 @@ namespace ProyectoOFI.Recepcion
             plOpciones.Visible = true;
             dtTKCons.Rows.Clear();
             Cons.Rows.Clear();
-            //await CargarDatos();
             BuscarTK();
             LimpiarCons();
         }
@@ -807,7 +1019,6 @@ namespace ProyectoOFI.Recepcion
             LblTotalSacos.Text = totalSacos.ToString();
             LblTotalPeso.Text = totalPeso.ToString();
         }
-
         private void EditarTK()
         {
             try
@@ -935,7 +1146,6 @@ namespace ProyectoOFI.Recepcion
             PEnvio.Dock = DockStyle.Fill;
             PEnvio.Visible = true;
         }
-
         private void cbAgencia_SelectedIndexChanged(object sender, EventArgs e)
         {
             DRecepcion funcion = new DRecepcion();
@@ -948,7 +1158,6 @@ namespace ProyectoOFI.Recepcion
                 cbAcopio.Text = null;
             }
         }
-
         private void BtnConsolidar_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(TxtTicketCons.Text) && !string.IsNullOrEmpty(TxtFolio.Text) && !string.IsNullOrEmpty(CbAreaCons.Text))
@@ -960,7 +1169,6 @@ namespace ProyectoOFI.Recepcion
                 MessageBox.Show("No puede haber espacios Vacios", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void BtnEditar_Click(object sender, EventArgs e)
         {
             try
@@ -998,7 +1206,6 @@ namespace ProyectoOFI.Recepcion
                 MessageBox.Show(ex.Message, ex.StackTrace);
             }
         }
-
         private void TxtTicketCons_TextChanged(object sender, EventArgs e)
         {
             if (TxtTicketCons.Text != "")
@@ -1012,7 +1219,6 @@ namespace ProyectoOFI.Recepcion
                 TxtFolio.Enabled = false;
             }
         }
-
         private void TxtFolio_TextChanged(object sender, EventArgs e)
         {
             if (TxtFolio.Text != "")
@@ -1024,7 +1230,6 @@ namespace ProyectoOFI.Recepcion
                 CbAreaCons.Enabled = false;
             }
         }
-
         private void CbAreaCons_SelectedIndexChanged(object sender, EventArgs e)
         {
             ActivarCons();
@@ -1042,9 +1247,34 @@ namespace ProyectoOFI.Recepcion
         }
         private void BuscarCons()
         {
+            string busqueda = TxtBuscar.Text.Trim();
 
+            if (string.IsNullOrEmpty(busqueda))
+            {
+                // Si el cuadro de búsqueda está vacío, mostrar todas las filas
+                foreach (DataGridViewRow row in DtTickets.Rows)
+                {
+                    row.Visible = true;
+                }
+            }
+            else
+            {
+                // Si hay texto en el cuadro de búsqueda, buscar y mostrar las filas que coincidan
+                foreach (DataGridViewRow row in DtTickets.Rows)
+                {
+                    bool filaCoincide = false;
+                    foreach (DataGridViewCell cell in row.Cells)
+                    {
+                        if (cell.Value != null && cell.Value.ToString().IndexOf(busqueda, StringComparison.OrdinalIgnoreCase) >= 0)
+                        {
+                            filaCoincide = true;
+                            break;
+                        }
+                    }
+                    row.Visible = filaCoincide;
+                }
+            }
         }
-
         private void PbFiltro_Click(object sender, EventArgs e)
         {
             PlFiltros.Location = new Point(dtInventario.Width / 2
@@ -1052,12 +1282,10 @@ namespace ProyectoOFI.Recepcion
             PlFiltros.Visible = true;
             PlFiltros.BringToFront();
         }
-
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             PlFiltros.Visible = false;
         }
-
         private void CLBFiltros_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             string seleccion = CLBFiltros.Items[e.Index].ToString();
@@ -1070,7 +1298,6 @@ namespace ProyectoOFI.Recepcion
                 filtro.Remove(seleccion);
             }
         }
-
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
             FiltrarColumnas();
@@ -1148,6 +1375,7 @@ namespace ProyectoOFI.Recepcion
             LblTotalSacos.Text = "00";
             TxtTicketCons.Clear();
             TxtFolio.Clear();
+            TxtBuscar.Clear();
         }
     }
 }

@@ -62,6 +62,7 @@
     <Compile Include="Logica\LPOAV.cs" />
     <Compile Include="Logica\LRecepcion.cs" />
     <Compile Include="Logica\LVertical.cs" />
+    <Compile Include="Otros\Base.cs" />
     <Compile Include="Otros\FrmAcopios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,11 +76,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Recepcion\Catalogo.cs">
+    <Compile Include="Otros\FrmAgencia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Recepcion\Catalogo.Designer.cs">
-      <DependentUpon>Catalogo.cs</DependentUpon>
+    <Compile Include="Otros\FrmAgencia.Designer.cs">
+      <DependentUpon>FrmAgencia.cs</DependentUpon>
     </Compile>
     <Compile Include="Recepcion\Consolidar.cs">
       <SubType>UserControl</SubType>
@@ -128,8 +129,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Recepcion\Catalogo.resx">
-      <DependentUpon>Catalogo.cs</DependentUpon>
+    <EmbeddedResource Include="Otros\FrmAgencia.resx">
+      <DependentUpon>FrmAgencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recepcion\Consolidar.resx">
       <DependentUpon>Consolidar.cs</DependentUpon>

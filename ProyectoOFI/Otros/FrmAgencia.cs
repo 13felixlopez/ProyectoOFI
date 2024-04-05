@@ -5,12 +5,12 @@ using System.Windows.Forms;
 
 namespace ProyectoOFI.Recepcion
 {
-    public partial class Catalogo : Form
+    public partial class FrmAgencia : Form
     {
         string agen;
         int IdAgencia;
 
-        public Catalogo()
+        public FrmAgencia()
         {
             InitializeComponent();
             MostrarAgencias();

@@ -64,7 +64,7 @@ namespace ProyectoOFI
 
         private void BtnAgencia_Click(object sender, EventArgs e)
         {
-            Catalogo AA = new Catalogo();
+            FrmAgencia AA = new FrmAgencia();
             AA.ShowDialog();
             PlOpciones.Visible = false;
         }

@@ -109,7 +109,10 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.Button();
             this.dtInventario = new System.Windows.Forms.DataGridView();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Consolidar = new System.Windows.Forms.DataGridViewImageColumn();
             this.plOpciones = new System.Windows.Forms.Panel();
+            this.DtpBuscar = new System.Windows.Forms.DateTimePicker();
             this.PbFiltro = new System.Windows.Forms.PictureBox();
             this.plAgregar = new System.Windows.Forms.Panel();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -148,6 +151,14 @@
             this.PnTKCons = new System.Windows.Forms.Panel();
             this.dtTKCons = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.PlFiltros = new System.Windows.Forms.Panel();
+            this.BtnFiltrar = new System.Windows.Forms.Button();
+            this.CLBFiltros = new System.Windows.Forms.CheckedListBox();
+            this.PlCerrar = new System.Windows.Forms.Panel();
+            this.LblFiltros = new System.Windows.Forms.Label();
+            this.BtnCerrar = new System.Windows.Forms.Button();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.CbAreaCons = new System.Windows.Forms.ComboBox();
             this.TxtFolio = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -160,16 +171,11 @@
             this.label10 = new System.Windows.Forms.Label();
             this.LblTotalSacos = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.PlFiltros = new System.Windows.Forms.Panel();
-            this.BtnFiltrar = new System.Windows.Forms.Button();
-            this.CLBFiltros = new System.Windows.Forms.CheckedListBox();
-            this.PlCerrar = new System.Windows.Forms.Panel();
-            this.LblFiltros = new System.Windows.Forms.Label();
-            this.BtnCerrar = new System.Windows.Forms.Button();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Consolidar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.BtnRangoFecha = new System.Windows.Forms.Button();
+            this.PlFiltroFecha = new System.Windows.Forms.Panel();
+            this.DtpFin = new System.Windows.Forms.DateTimePicker();
+            this.BtnFiltroFecha = new System.Windows.Forms.Button();
             this.PlEnvio.SuspendLayout();
             this.PlRecepcion.SuspendLayout();
             this.PlAlerta.SuspendLayout();
@@ -198,6 +204,8 @@
             this.panel1.SuspendLayout();
             this.PlFiltros.SuspendLayout();
             this.PlCerrar.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.PlFiltroFecha.SuspendLayout();
             this.SuspendLayout();
             // 
             // PlEnvio
@@ -495,8 +503,8 @@
             this.PlRecepcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PlRecepcion.Controls.Add(this.PlAlerta);
             this.PlRecepcion.Controls.Add(this.PlCargaTran);
-            this.PlRecepcion.Controls.Add(this.PEnvio);
             this.PlRecepcion.Controls.Add(this.PRecepcion);
+            this.PlRecepcion.Controls.Add(this.PEnvio);
             this.PlRecepcion.Controls.Add(this.PlTexto);
             this.PlRecepcion.Location = new System.Drawing.Point(3, 80);
             this.PlRecepcion.MinimumSize = new System.Drawing.Size(923, 329);
@@ -511,7 +519,7 @@
             this.PlAlerta.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlAlerta.Location = new System.Drawing.Point(0, 63);
             this.PlAlerta.Name = "PlAlerta";
-            this.PlAlerta.Size = new System.Drawing.Size(2713, 51);
+            this.PlAlerta.Size = new System.Drawing.Size(1777, 51);
             this.PlAlerta.TabIndex = 110;
             this.PlAlerta.Visible = false;
             // 
@@ -522,7 +530,7 @@
             this.LblAlerta.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblAlerta.Location = new System.Drawing.Point(0, 0);
             this.LblAlerta.Name = "LblAlerta";
-            this.LblAlerta.Size = new System.Drawing.Size(2713, 51);
+            this.LblAlerta.Size = new System.Drawing.Size(1777, 51);
             this.LblAlerta.TabIndex = 0;
             this.LblAlerta.Text = "Registro realizado con éxito ✅";
             this.LblAlerta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -530,7 +538,7 @@
             // PlCargaTran
             // 
             this.PlCargaTran.Controls.Add(this.pictureBox1);
-            this.PlCargaTran.Location = new System.Drawing.Point(910, 122);
+            this.PlCargaTran.Location = new System.Drawing.Point(-15, 126);
             this.PlCargaTran.Name = "PlCargaTran";
             this.PlCargaTran.Size = new System.Drawing.Size(173, 89);
             this.PlCargaTran.TabIndex = 109;
@@ -579,7 +587,7 @@
             this.PEnvio.Controls.Add(this.dtFEnvio);
             this.PEnvio.Controls.Add(this.label58);
             this.PEnvio.Controls.Add(this.txtPesoE);
-            this.PEnvio.Location = new System.Drawing.Point(946, 117);
+            this.PEnvio.Location = new System.Drawing.Point(21, 121);
             this.PEnvio.Name = "PEnvio";
             this.PEnvio.Size = new System.Drawing.Size(907, 263);
             this.PEnvio.TabIndex = 107;
@@ -837,7 +845,7 @@
             this.PRecepcion.Controls.Add(this.label38);
             this.PRecepcion.Controls.Add(this.dtpRecibido);
             this.PRecepcion.Controls.Add(this.label40);
-            this.PRecepcion.Location = new System.Drawing.Point(1870, 119);
+            this.PRecepcion.Location = new System.Drawing.Point(934, 126);
             this.PRecepcion.Name = "PRecepcion";
             this.PRecepcion.Size = new System.Drawing.Size(843, 263);
             this.PRecepcion.TabIndex = 106;
@@ -1018,7 +1026,7 @@
             this.PlTexto.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlTexto.Location = new System.Drawing.Point(0, 0);
             this.PlTexto.Name = "PlTexto";
-            this.PlTexto.Size = new System.Drawing.Size(2713, 63);
+            this.PlTexto.Size = new System.Drawing.Size(1777, 63);
             this.PlTexto.TabIndex = 108;
             // 
             // lblTransferencia
@@ -1028,7 +1036,7 @@
             this.lblTransferencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTransferencia.Location = new System.Drawing.Point(0, 0);
             this.lblTransferencia.Name = "lblTransferencia";
-            this.lblTransferencia.Size = new System.Drawing.Size(2440, 63);
+            this.lblTransferencia.Size = new System.Drawing.Size(1504, 63);
             this.lblTransferencia.TabIndex = 4;
             this.lblTransferencia.Text = "Agregar Trasnferencia";
             this.lblTransferencia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1041,7 +1049,7 @@
             this.bntAtras.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.bntAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bntAtras.Image = global::ProyectoOFI.Properties.Resources.Atras;
-            this.bntAtras.Location = new System.Drawing.Point(2440, 0);
+            this.bntAtras.Location = new System.Drawing.Point(1504, 0);
             this.bntAtras.Name = "bntAtras";
             this.bntAtras.Size = new System.Drawing.Size(91, 63);
             this.bntAtras.TabIndex = 58;
@@ -1052,7 +1060,7 @@
             // 
             this.PnGuardar.Controls.Add(this.btnGuardar);
             this.PnGuardar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PnGuardar.Location = new System.Drawing.Point(2531, 0);
+            this.PnGuardar.Location = new System.Drawing.Point(1595, 0);
             this.PnGuardar.Name = "PnGuardar";
             this.PnGuardar.Size = new System.Drawing.Size(91, 63);
             this.PnGuardar.TabIndex = 57;
@@ -1078,7 +1086,7 @@
             this.BtnEditar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEditar.Image = global::ProyectoOFI.Properties.Resources.edit_property_30px;
-            this.BtnEditar.Location = new System.Drawing.Point(2622, 0);
+            this.BtnEditar.Location = new System.Drawing.Point(1686, 0);
             this.BtnEditar.Name = "BtnEditar";
             this.BtnEditar.Size = new System.Drawing.Size(91, 63);
             this.BtnEditar.TabIndex = 59;
@@ -1135,9 +1143,31 @@
             this.dtInventario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtInventario_CellDoubleClick);
             this.dtInventario.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dtInventario_CellPainting);
             // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Image = global::ProyectoOFI.Properties.Resources.Delete;
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.MinimumWidth = 10;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Width = 10;
+            // 
+            // Consolidar
+            // 
+            this.Consolidar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Consolidar.HeaderText = "";
+            this.Consolidar.Image = global::ProyectoOFI.Properties.Resources.join;
+            this.Consolidar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Consolidar.Name = "Consolidar";
+            this.Consolidar.ReadOnly = true;
+            // 
             // plOpciones
             // 
             this.plOpciones.BackColor = System.Drawing.Color.White;
+            this.plOpciones.Controls.Add(this.PlFiltroFecha);
+            this.plOpciones.Controls.Add(this.BtnRangoFecha);
             this.plOpciones.Controls.Add(this.PbFiltro);
             this.plOpciones.Controls.Add(this.plAgregar);
             this.plOpciones.Controls.Add(this.txtBuscador);
@@ -1151,6 +1181,15 @@
             this.plOpciones.Name = "plOpciones";
             this.plOpciones.Size = new System.Drawing.Size(1806, 62);
             this.plOpciones.TabIndex = 7;
+            // 
+            // DtpBuscar
+            // 
+            this.DtpBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.DtpBuscar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpBuscar.Location = new System.Drawing.Point(16, 12);
+            this.DtpBuscar.Name = "DtpBuscar";
+            this.DtpBuscar.Size = new System.Drawing.Size(118, 26);
+            this.DtpBuscar.TabIndex = 5;
             // 
             // PbFiltro
             // 
@@ -1208,6 +1247,7 @@
             this.CbBuscar.Name = "CbBuscar";
             this.CbBuscar.Size = new System.Drawing.Size(168, 28);
             this.CbBuscar.TabIndex = 1;
+            this.CbBuscar.SelectedIndexChanged += new System.EventHandler(this.CbBuscar_SelectedIndexChanged);
             // 
             // CbOrdenar
             // 
@@ -1422,9 +1462,9 @@
             this.PnConsolidar.Controls.Add(this.PlBuscar);
             this.PnConsolidar.Controls.Add(this.PnTKCons);
             this.PnConsolidar.Controls.Add(this.panel1);
-            this.PnConsolidar.Location = new System.Drawing.Point(1540, 646);
+            this.PnConsolidar.Location = new System.Drawing.Point(1533, 589);
             this.PnConsolidar.Name = "PnConsolidar";
-            this.PnConsolidar.Size = new System.Drawing.Size(204, 69);
+            this.PnConsolidar.Size = new System.Drawing.Size(248, 182);
             this.PnConsolidar.TabIndex = 12;
             this.PnConsolidar.Visible = false;
             // 
@@ -1435,7 +1475,7 @@
             this.PnTickets.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnTickets.Location = new System.Drawing.Point(0, 484);
             this.PnTickets.Name = "PnTickets";
-            this.PnTickets.Size = new System.Drawing.Size(187, 0);
+            this.PnTickets.Size = new System.Drawing.Size(231, 0);
             this.PnTickets.TabIndex = 5;
             // 
             // DtTickets
@@ -1479,7 +1519,7 @@
             this.DtTickets.ReadOnly = true;
             this.DtTickets.RowHeadersVisible = false;
             this.DtTickets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtTickets.Size = new System.Drawing.Size(187, 0);
+            this.DtTickets.Size = new System.Drawing.Size(231, 0);
             this.DtTickets.TabIndex = 0;
             this.DtTickets.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtTickets_CellDoubleClick);
             // 
@@ -1533,7 +1573,7 @@
             this.PlBuscar.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlBuscar.Location = new System.Drawing.Point(0, 439);
             this.PlBuscar.Name = "PlBuscar";
-            this.PlBuscar.Size = new System.Drawing.Size(187, 45);
+            this.PlBuscar.Size = new System.Drawing.Size(231, 45);
             this.PlBuscar.TabIndex = 6;
             // 
             // TxtBuscar
@@ -1572,7 +1612,7 @@
             this.PnTKCons.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnTKCons.Location = new System.Drawing.Point(0, 62);
             this.PnTKCons.Name = "PnTKCons";
-            this.PnTKCons.Size = new System.Drawing.Size(187, 377);
+            this.PnTKCons.Size = new System.Drawing.Size(231, 377);
             this.PnTKCons.TabIndex = 4;
             // 
             // dtTKCons
@@ -1607,186 +1647,26 @@
             this.dtTKCons.ReadOnly = true;
             this.dtTKCons.RowHeadersVisible = false;
             this.dtTKCons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtTKCons.Size = new System.Drawing.Size(187, 377);
+            this.dtTKCons.Size = new System.Drawing.Size(231, 377);
             this.dtTKCons.TabIndex = 0;
             this.dtTKCons.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTKCons_CellDoubleClick);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.CbAreaCons);
-            this.panel1.Controls.Add(this.TxtFolio);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.BtnCancelar);
-            this.panel1.Controls.Add(this.BtnConsolidar);
-            this.panel1.Controls.Add(this.TxtTicketCons);
-            this.panel1.Controls.Add(this.label11);
-            this.panel1.Controls.Add(this.LblTotalPeso);
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.LblTotalSacos);
-            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(187, 62);
+            this.panel1.Size = new System.Drawing.Size(231, 62);
             this.panel1.TabIndex = 3;
-            // 
-            // CbAreaCons
-            // 
-            this.CbAreaCons.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.CbAreaCons.Enabled = false;
-            this.CbAreaCons.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CbAreaCons.FormattingEnabled = true;
-            this.CbAreaCons.Items.AddRange(new object[] {
-            "Secado Mecanico",
-            "Control Patio"});
-            this.CbAreaCons.Location = new System.Drawing.Point(1213, 16);
-            this.CbAreaCons.Name = "CbAreaCons";
-            this.CbAreaCons.Size = new System.Drawing.Size(202, 28);
-            this.CbAreaCons.TabIndex = 5;
-            this.CbAreaCons.SelectedIndexChanged += new System.EventHandler(this.CbAreaCons_SelectedIndexChanged);
-            // 
-            // TxtFolio
-            // 
-            this.TxtFolio.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.TxtFolio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtFolio.Enabled = false;
-            this.TxtFolio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtFolio.Location = new System.Drawing.Point(844, 16);
-            this.TxtFolio.MaximumSize = new System.Drawing.Size(210, 29);
-            this.TxtFolio.MinimumSize = new System.Drawing.Size(210, 29);
-            this.TxtFolio.Name = "TxtFolio";
-            this.TxtFolio.Size = new System.Drawing.Size(210, 26);
-            this.TxtFolio.TabIndex = 4;
-            this.TxtFolio.TextChanged += new System.EventHandler(this.TxtFolio_TextChanged);
-            // 
-            // label13
-            // 
-            this.label13.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(1064, 20);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(143, 20);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "Área de Secado:";
-            // 
-            // label12
-            // 
-            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(736, 20);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(101, 20);
-            this.label12.TabIndex = 3;
-            this.label12.Text = "N° de Folio:";
-            // 
-            // BtnCancelar
-            // 
-            this.BtnCancelar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.BtnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.BtnCancelar.FlatAppearance.BorderSize = 0;
-            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCancelar.ForeColor = System.Drawing.Color.White;
-            this.BtnCancelar.Location = new System.Drawing.Point(1580, 13);
-            this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(135, 37);
-            this.BtnCancelar.TabIndex = 2;
-            this.BtnCancelar.Text = "Cerrar";
-            this.BtnCancelar.UseVisualStyleBackColor = false;
-            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
-            // 
-            // BtnConsolidar
-            // 
-            this.BtnConsolidar.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.BtnConsolidar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.BtnConsolidar.Enabled = false;
-            this.BtnConsolidar.FlatAppearance.BorderSize = 0;
-            this.BtnConsolidar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnConsolidar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnConsolidar.Location = new System.Drawing.Point(1427, 13);
-            this.BtnConsolidar.Name = "BtnConsolidar";
-            this.BtnConsolidar.Size = new System.Drawing.Size(135, 37);
-            this.BtnConsolidar.TabIndex = 2;
-            this.BtnConsolidar.Text = "Consolidar";
-            this.BtnConsolidar.UseVisualStyleBackColor = false;
-            this.BtnConsolidar.Click += new System.EventHandler(this.BtnConsolidar_Click);
-            // 
-            // TxtTicketCons
-            // 
-            this.TxtTicketCons.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtTicketCons.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTicketCons.Location = new System.Drawing.Point(140, 16);
-            this.TxtTicketCons.MaximumSize = new System.Drawing.Size(210, 29);
-            this.TxtTicketCons.MinimumSize = new System.Drawing.Size(210, 29);
-            this.TxtTicketCons.Name = "TxtTicketCons";
-            this.TxtTicketCons.Size = new System.Drawing.Size(210, 26);
-            this.TxtTicketCons.TabIndex = 1;
-            this.TxtTicketCons.TextChanged += new System.EventHandler(this.TxtTicketCons_TextChanged);
-            // 
-            // label11
-            // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(505, 20);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(101, 20);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Peso (Kgs):";
-            // 
-            // LblTotalPeso
-            // 
-            this.LblTotalPeso.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.LblTotalPeso.AutoSize = true;
-            this.LblTotalPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTotalPeso.Location = new System.Drawing.Point(613, 20);
-            this.LblTotalPeso.Name = "LblTotalPeso";
-            this.LblTotalPeso.Size = new System.Drawing.Size(29, 20);
-            this.LblTotalPeso.TabIndex = 0;
-            this.LblTotalPeso.Text = "00";
-            // 
-            // label10
-            // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(366, 20);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(64, 20);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Sacos:";
-            // 
-            // LblTotalSacos
-            // 
-            this.LblTotalSacos.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.LblTotalSacos.AutoSize = true;
-            this.LblTotalSacos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTotalSacos.Location = new System.Drawing.Point(433, 20);
-            this.LblTotalSacos.Name = "LblTotalSacos";
-            this.LblTotalSacos.Size = new System.Drawing.Size(29, 20);
-            this.LblTotalSacos.TabIndex = 0;
-            this.LblTotalSacos.Text = "00";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(25, 20);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(110, 20);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "N° de Ticket:";
             // 
             // PlFiltros
             // 
             this.PlFiltros.Controls.Add(this.BtnFiltrar);
             this.PlFiltros.Controls.Add(this.CLBFiltros);
             this.PlFiltros.Controls.Add(this.PlCerrar);
-            this.PlFiltros.Location = new System.Drawing.Point(1140, 236);
+            this.PlFiltros.Location = new System.Drawing.Point(1128, 71);
             this.PlFiltros.MaximumSize = new System.Drawing.Size(233, 395);
             this.PlFiltros.MinimumSize = new System.Drawing.Size(233, 395);
             this.PlFiltros.Name = "PlFiltros";
@@ -1889,25 +1769,228 @@
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.Width = 546;
             // 
-            // Eliminar
+            // CbAreaCons
             // 
-            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.Image = global::ProyectoOFI.Properties.Resources.Delete;
-            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eliminar.MinimumWidth = 10;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Width = 10;
+            this.CbAreaCons.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.CbAreaCons.Enabled = false;
+            this.CbAreaCons.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbAreaCons.FormattingEnabled = true;
+            this.CbAreaCons.Items.AddRange(new object[] {
+            "Secado Mecanico",
+            "Control Patio"});
+            this.CbAreaCons.Location = new System.Drawing.Point(155, 17);
+            this.CbAreaCons.Name = "CbAreaCons";
+            this.CbAreaCons.Size = new System.Drawing.Size(23, 28);
+            this.CbAreaCons.TabIndex = 17;
             // 
-            // Consolidar
+            // TxtFolio
             // 
-            this.Consolidar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Consolidar.HeaderText = "";
-            this.Consolidar.Image = global::ProyectoOFI.Properties.Resources.join;
-            this.Consolidar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Consolidar.Name = "Consolidar";
-            this.Consolidar.ReadOnly = true;
+            this.TxtFolio.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtFolio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtFolio.Enabled = false;
+            this.TxtFolio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtFolio.Location = new System.Drawing.Point(108, 16);
+            this.TxtFolio.MaximumSize = new System.Drawing.Size(210, 29);
+            this.TxtFolio.MinimumSize = new System.Drawing.Size(210, 29);
+            this.TxtFolio.Name = "TxtFolio";
+            this.TxtFolio.Size = new System.Drawing.Size(210, 29);
+            this.TxtFolio.TabIndex = 16;
+            // 
+            // label13
+            // 
+            this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(142, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(7, 62);
+            this.label13.TabIndex = 14;
+            this.label13.Text = "Área de Secado:";
+            // 
+            // label12
+            // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(94, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(8, 62);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "N° de Folio:";
+            // 
+            // BtnCancelar
+            // 
+            this.BtnCancelar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.BtnCancelar.FlatAppearance.BorderSize = 0;
+            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCancelar.ForeColor = System.Drawing.Color.White;
+            this.BtnCancelar.Location = new System.Drawing.Point(203, 12);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(25, 37);
+            this.BtnCancelar.TabIndex = 12;
+            this.BtnCancelar.Text = "Cerrar";
+            this.BtnCancelar.UseVisualStyleBackColor = false;
+            // 
+            // BtnConsolidar
+            // 
+            this.BtnConsolidar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.BtnConsolidar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.BtnConsolidar.Enabled = false;
+            this.BtnConsolidar.FlatAppearance.BorderSize = 0;
+            this.BtnConsolidar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnConsolidar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnConsolidar.Location = new System.Drawing.Point(184, 12);
+            this.BtnConsolidar.Name = "BtnConsolidar";
+            this.BtnConsolidar.Size = new System.Drawing.Size(13, 37);
+            this.BtnConsolidar.TabIndex = 13;
+            this.BtnConsolidar.Text = "Consolidar";
+            this.BtnConsolidar.UseVisualStyleBackColor = false;
+            // 
+            // TxtTicketCons
+            // 
+            this.TxtTicketCons.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TxtTicketCons.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtTicketCons.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtTicketCons.Location = new System.Drawing.Point(19, 16);
+            this.TxtTicketCons.MaximumSize = new System.Drawing.Size(210, 29);
+            this.TxtTicketCons.MinimumSize = new System.Drawing.Size(210, 29);
+            this.TxtTicketCons.Name = "TxtTicketCons";
+            this.TxtTicketCons.Size = new System.Drawing.Size(210, 29);
+            this.TxtTicketCons.TabIndex = 11;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(70, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(4, 62);
+            this.label11.TabIndex = 6;
+            this.label11.Text = "Peso (Kgs):";
+            // 
+            // LblTotalPeso
+            // 
+            this.LblTotalPeso.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LblTotalPeso.AutoSize = true;
+            this.LblTotalPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTotalPeso.Location = new System.Drawing.Point(80, 11);
+            this.LblTotalPeso.Name = "LblTotalPeso";
+            this.LblTotalPeso.Size = new System.Drawing.Size(8, 40);
+            this.LblTotalPeso.TabIndex = 7;
+            this.LblTotalPeso.Text = "00";
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(50, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(5, 62);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Sacos:";
+            // 
+            // LblTotalSacos
+            // 
+            this.LblTotalSacos.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LblTotalSacos.AutoSize = true;
+            this.LblTotalSacos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTotalSacos.Location = new System.Drawing.Point(61, 11);
+            this.LblTotalSacos.Name = "LblTotalSacos";
+            this.LblTotalSacos.Size = new System.Drawing.Size(3, 40);
+            this.LblTotalSacos.TabIndex = 9;
+            this.LblTotalSacos.Text = "00";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(3, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(10, 62);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "N° de Ticket:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 12;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.05951F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.59393F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.784131F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.142357F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.725788F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.359393F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.242707F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.99417F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5.950992F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.6021F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.518086F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.96849F));
+            this.tableLayoutPanel1.Controls.Add(this.CbAreaCons, 9, 0);
+            this.tableLayoutPanel1.Controls.Add(this.BtnConsolidar, 10, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label13, 8, 0);
+            this.tableLayoutPanel1.Controls.Add(this.TxtFolio, 7, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label10, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label12, 6, 0);
+            this.tableLayoutPanel1.Controls.Add(this.LblTotalSacos, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label11, 4, 0);
+            this.tableLayoutPanel1.Controls.Add(this.LblTotalPeso, 5, 0);
+            this.tableLayoutPanel1.Controls.Add(this.BtnCancelar, 11, 0);
+            this.tableLayoutPanel1.Controls.Add(this.TxtTicketCons, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(231, 62);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // BtnRangoFecha
+            // 
+            this.BtnRangoFecha.Location = new System.Drawing.Point(1116, 3);
+            this.BtnRangoFecha.Name = "BtnRangoFecha";
+            this.BtnRangoFecha.Size = new System.Drawing.Size(97, 53);
+            this.BtnRangoFecha.TabIndex = 6;
+            this.BtnRangoFecha.Text = "Insertar Rango de fechas";
+            this.BtnRangoFecha.UseVisualStyleBackColor = true;
+            this.BtnRangoFecha.Visible = false;
+            this.BtnRangoFecha.Click += new System.EventHandler(this.BtnRangoFecha_Click);
+            // 
+            // PlFiltroFecha
+            // 
+            this.PlFiltroFecha.Controls.Add(this.DtpFin);
+            this.PlFiltroFecha.Controls.Add(this.BtnFiltroFecha);
+            this.PlFiltroFecha.Controls.Add(this.DtpBuscar);
+            this.PlFiltroFecha.Location = new System.Drawing.Point(1219, 3);
+            this.PlFiltroFecha.Name = "PlFiltroFecha";
+            this.PlFiltroFecha.Size = new System.Drawing.Size(341, 50);
+            this.PlFiltroFecha.TabIndex = 7;
+            this.PlFiltroFecha.Visible = false;
+            // 
+            // DtpFin
+            // 
+            this.DtpFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.DtpFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpFin.Location = new System.Drawing.Point(140, 11);
+            this.DtpFin.Name = "DtpFin";
+            this.DtpFin.Size = new System.Drawing.Size(118, 26);
+            this.DtpFin.TabIndex = 5;
+            // 
+            // BtnFiltroFecha
+            // 
+            this.BtnFiltroFecha.Location = new System.Drawing.Point(264, 3);
+            this.BtnFiltroFecha.Name = "BtnFiltroFecha";
+            this.BtnFiltroFecha.Size = new System.Drawing.Size(65, 44);
+            this.BtnFiltroFecha.TabIndex = 6;
+            this.BtnFiltroFecha.Text = "Filtrar";
+            this.BtnFiltroFecha.UseVisualStyleBackColor = true;
+            this.BtnFiltroFecha.Click += new System.EventHandler(this.BtnFiltroFecha_Click);
             // 
             // Transferencia
             // 
@@ -1954,9 +2037,11 @@
             this.PnTKCons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtTKCons)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.PlFiltros.ResumeLayout(false);
             this.PlCerrar.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.PlFiltroFecha.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2065,17 +2150,9 @@
         private System.Windows.Forms.Panel PnTKCons;
         private System.Windows.Forms.DataGridView dtTKCons;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button BtnCancelar;
-        private System.Windows.Forms.Button BtnConsolidar;
-        private System.Windows.Forms.TextBox TxtTicketCons;
-        private System.Windows.Forms.Label LblTotalPeso;
-        private System.Windows.Forms.Label LblTotalSacos;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel PlBuscar;
         private System.Windows.Forms.TextBox TxtBuscar;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tickets;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sacos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Peso;
@@ -2083,10 +2160,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EsFisico;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cali;
         private System.Windows.Forms.DataGridViewTextBoxColumn Danio;
-        private System.Windows.Forms.TextBox TxtFolio;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox CbAreaCons;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox PbFiltro;
         private System.Windows.Forms.Panel PlFiltros;
         private System.Windows.Forms.Panel PlCerrar;
@@ -2096,5 +2169,23 @@
         private System.Windows.Forms.Button BtnFiltrar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         private System.Windows.Forms.DataGridViewImageColumn Consolidar;
+        private System.Windows.Forms.DateTimePicker DtpBuscar;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.ComboBox CbAreaCons;
+        private System.Windows.Forms.TextBox TxtFolio;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button BtnCancelar;
+        private System.Windows.Forms.Button BtnConsolidar;
+        private System.Windows.Forms.TextBox TxtTicketCons;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label LblTotalPeso;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label LblTotalSacos;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel PlFiltroFecha;
+        private System.Windows.Forms.DateTimePicker DtpFin;
+        private System.Windows.Forms.Button BtnFiltroFecha;
+        private System.Windows.Forms.Button BtnRangoFecha;
     }
 }

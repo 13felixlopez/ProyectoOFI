@@ -283,6 +283,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap OFi {
+            get {
+                object obj = ResourceManager.GetObject("OFi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap OFI_Make {
             get {
                 object obj = ResourceManager.GetObject("OFI Make", resourceCulture);

@@ -45,7 +45,6 @@ namespace ProyectoOFI.Recepcion
             dtInventario.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             MostrarLotes();
             ReiniciarPaginado();
-            MostrarAgencia();
             await Task.Delay(1000);
         }
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -521,108 +520,6 @@ namespace ProyectoOFI.Recepcion
                 MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        //private void ObtenerDatos()
-        //{
-        //    DRecepcion funcion = new DRecepcion();
-        //    DataTable dt = new DataTable();
-
-        //    try
-        //    {
-        //        funcion.MostrarDetalle(ref dt, Ticket);
-
-        //        if (dt.Rows.Count > 0)
-        //        {
-        //            DataRow row = dt.Rows[0];
-        //            // Convertir la fecha de envío si existe
-        //            if (DateTime.TryParse(row["FEnvio"].ToString(), out DateTime fEnvio))
-        //            {
-        //                dtFEnvio.Value = fEnvio;
-        //            }
-        //            else
-        //            {
-        //                dtFEnvio.Value = DateTime.Today;
-        //            }
-
-        //            // Asignar agencia
-        //            cbAgencia.Text = row["Agencia"].ToString();
-
-        //            // Asignar valores a los controles de UI
-        //            cbAcopio.Text = row["Acopio"].ToString();
-        //            cbCliente.Text = row["Cliente"].ToString();
-        //            cbCompra.Text = row["Tipo_Compra"].ToString();
-        //            txtMTNT.Text = row["MTNT"].ToString();
-        //            cbCertificacion.Text = row["Certificacion"].ToString();
-        //            cbEsFisico.Text = row["EsFisico"].ToString();
-        //            cbCalidadE.Text = row["CalidadE"].ToString();
-        //            cbDanioE.Text = row["DanioE"].ToString();
-
-        //            // Asignar el valor de sacos de entrada y calcular QQs en base a eso
-        //            if (int.TryParse(row["SacosE"].ToString(), out int sacosE))
-        //            {
-        //                nudSacosE.Value = sacosE;
-        //                double kilose = double.Parse(txtPesoE.Text);
-        //                kilose /= 46;
-        //                LblQQsEn.Text = Math.Round(kilose, 2).ToString();
-        //            }
-        //            else
-        //            {
-        //                // Si no se puede convertir a entero, establecer a 0
-        //                nudSacosE.Value = 0;
-        //                LblQQsEn.Text = "0";
-        //            }
-
-        //            // Asignar valor de Ticket
-        //            txtTK.Text = Ticket.ToString();
-
-        //            // Convertir la fecha recibida si existe
-        //            if (DateTime.TryParse(row["FechaRecibido"].ToString(), out DateTime fechaRecibido))
-        //            {
-        //                dtpRecibido.Value = fechaRecibido;
-        //            }
-        //            else
-        //            {
-        //                dtpRecibido.Value = DateTime.Today;
-        //            }
-
-        //            // Asignar valores adicionales
-        //            cbArea.Text = row["AreaSecado"].ToString();
-        //            txtMTNR.Text = row["MTNR"].ToString();
-        //            cbEstadoFisico.Text = row["EstadoFisico"].ToString();
-        //            cbCalidad.Text = row["Calidad"].ToString();
-        //            cbDaño.Text = row["Danio"].ToString();
-
-        //            // Asignar el valor de sacos y calcular QQs
-        //            if (int.TryParse(row["Sacos"].ToString(), out int sacos))
-        //            {
-        //                nudSacos.Value = sacos;
-        //                double kilos = double.Parse(txtKgs.Text);
-        //                kilos /= 46;
-        //                LblQQs.Text = Math.Round(kilos, 2).ToString();
-        //            }
-        //            else
-        //            {
-        //                // Si no se puede convertir a entero, establecer a 0
-        //                nudSacos.Value = 0;
-        //                LblQQs.Text = "0";
-        //            }
-
-        //            // Asignar valor de merma, recibidor y digitador
-        //            txtMerma.Text = row["Merma"].ToString();
-        //            cbRecibidor.Text = row["Recibidor"].ToString();
-        //            cbDigitador.Text = row["Digitador"].ToString();
-
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("No se encontraron datos para el ticket especificado.");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
-
         private void cbEsFisico_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbEstadoFisico.Text = (cbEsFisico.Text);
@@ -1316,6 +1213,35 @@ namespace ProyectoOFI.Recepcion
                     column.Visible = true;
                 }
             }
+        }
+        private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CbBuscar.Text == "Ticket")
+            {
+                DtpBuscar.Visible = false;
+                txtBuscador.Visible = true;
+            }
+        }
+        private void BuscarRangoFecha()
+        {
+            DataTable dt = new DataTable();
+            DRecepcion funcion = new DRecepcion();
+            DateTime Inicio = DtpBuscar.Value;
+            Inicio = Convert.ToDateTime(Inicio.ToString("yyyy/MM/dd").ToString());
+            DateTime Fin=DtpFin.Value;
+            Fin = Convert.ToDateTime(Fin.ToString("yyyy/MM/dd").ToString());
+            funcion.BuscarFecha(Inicio,Fin, ref dt);
+            dtInventario.DataSource = dt;
+            ContarBusqueda = int.Parse(funcion.contador.ToString());
+            Base.DiseñoDtvEliminar(ref dtInventario);
+        }
+        private void BtnFiltroFecha_Click(object sender, EventArgs e)
+        {
+            BuscarRangoFecha();
+        }
+        private void BtnRangoFecha_Click(object sender, EventArgs e)
+        {
+            PlFiltroFecha.Visible = true;
         }
         private void MostrarAgencia()
         {

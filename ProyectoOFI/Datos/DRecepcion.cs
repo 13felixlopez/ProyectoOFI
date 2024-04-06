@@ -1,14 +1,9 @@
-﻿using System;
+﻿using ProyectoOFI.Logica;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ProyectoOFI.Logica;
-using System.Data.SqlClient;
 using System.Data;
+using System.Data.SqlClient;
 using System.Windows.Forms;
-using System.Security.Cryptography;
-using System.Security.Policy;
 
 namespace ProyectoOFI.Datos
 {
@@ -303,7 +298,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public bool Consolidar(LRecepcion parametros, LEnvio Par,List<string> lstcons,int folio)
+        public bool Consolidar(LRecepcion parametros, LEnvio Par,List<string> lstcons,string folio)
         {
             try
             {

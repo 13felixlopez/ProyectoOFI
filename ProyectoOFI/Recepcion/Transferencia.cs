@@ -73,7 +73,15 @@ namespace ProyectoOFI.Recepcion
                     {
                         if (dtFEnvio.Value <= dtpRecibido.Value)
                         {
-                            carga();
+                            if (!string.IsNullOrWhiteSpace(txtMTNT.Text))
+                            {
+                                carga();
+                            }
+                            else
+                            {
+                                MessageBox.Show("La MTNT/Recibo no puede quedar vacia","ERROR",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                txtMTNT.Focus();
+                            }
                         }
                         else
                         {
@@ -243,7 +251,7 @@ namespace ProyectoOFI.Recepcion
                 return false;
             }
             return !(txtPesoE.Text == "" || cbAgencia.Text == "" || cbAcopio.Text == "" || cbCliente.Text == "" ||
-                cbCompra.Text == "" || txtMTNT.Text == "" || cbDanioE.Text == ""
+                cbCompra.Text == "" || cbDanioE.Text == ""
             || cbCertificacion.Text == "" || cbEsFisico.Text == "" || cbCalidadE.Text == "");
         }
         private bool validar()
@@ -255,6 +263,16 @@ namespace ProyectoOFI.Recepcion
             }
             return !(txtKgs.Text == "" || txtMerma.Text == "" || txtTK.Text == "" || cbArea.Text == "" || cbCalidad.Text == "" || cbDaño.Text == ""
             || cbDigitador.Text == "" || cbEstadoFisico.Text == "" || cbRecibidor.Text == "");
+        }
+        private bool validarEditar()
+        {
+            double entero;
+            if (!double.TryParse(txtPesoE.Text,out entero))
+            {
+                return false;
+            }
+            return !(cbCertificacion.Text == "" || cbEstadoFisico.Text == "" || cbCalidadE.Text == "" || cbDaño.Text == "" || txtPesoE.Text == "" || cbArea.Text == "" || cbEsFisico.Text == ""
+               || cbCalidad.Text == "" || cbDanioE.Text == "" || txtKgs.Text == "");
         }
         public void MostrarLotes()
         {
@@ -920,7 +938,7 @@ namespace ProyectoOFI.Recepcion
         {
             try
             {
-                if (validar() && ValidarE())
+                if (validarEditar())
                 {
                     LRecepcion parametros = new LRecepcion();
                     DRecepcion funcion = new DRecepcion();
@@ -1014,23 +1032,7 @@ namespace ProyectoOFI.Recepcion
                 ActualizarTotales();
             }
         }
-        private void cbAgencia_Leave(object sender, EventArgs e)
-        {
-            if (cbAgencia.Text == "Cliente Directo")
-            {
-                txtMTNR.Visible = false;
-                label27.Visible = false;
-                txtMTNT.Visible = false;
-                label50.Visible = false;
-            }
-            else
-            {
-                txtMTNR.Visible = true;
-                label27.Visible = true;
-                txtMTNT.Visible = true;
-                label50.Visible = true;
-            }
-        }
+        
         private async void CargaEditar()
         {
             PlCargaTran.Dock = DockStyle.Fill;
@@ -1243,6 +1245,7 @@ namespace ProyectoOFI.Recepcion
         {
             PlFiltroFecha.Visible = true;
         }
+
         private void MostrarAgencia()
         {
             DRecepcion funcion = new DRecepcion();
@@ -1275,7 +1278,7 @@ namespace ProyectoOFI.Recepcion
                 parametros.Daño = Daño;
                 parametros.Digitador = "Prueba";
                 parametros.Area = CbAreaCons.Text;
-                int folio=int.Parse(TxtFolio.Text);
+                string folio = TxtFolio.Text;
                 DRecepcion funcion = new DRecepcion();
                 if (funcion.Consolidar(parametros, Par, lstTickets, folio) == true)
                 {

@@ -1250,6 +1250,7 @@ namespace ProyectoOFI.Recepcion
         {
             DRecepcion funcion = new DRecepcion();
             funcion.MostrarAgencia(cbAgencia);
+            funcion.MostrarRecibidor(cbRecibidor);
         }
         private async void CrearConsolidado()
         {

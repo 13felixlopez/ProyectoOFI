@@ -75,5 +75,12 @@ namespace ProyectoOFI
             Ac.ShowDialog();
             PlOpciones.Visible = false;
         }
+
+        private void BtnRecibidor_Click(object sender, EventArgs e)
+        {
+            Recibidor REC= new Recibidor();
+            REC.ShowDialog();
+            PlOpciones.Visible = false;
+        }
     }
 }

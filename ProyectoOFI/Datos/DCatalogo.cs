@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Xml.Schema;
 
 namespace ProyectoOFI.Datos
 {
@@ -170,5 +171,87 @@ namespace ProyectoOFI.Datos
 				Conexion.cerrar();
 			}
 		}
+		public void MostrarRecibidor(ref DataTable dt)
+		{
+			try
+			{
+				Conexion.abrir();
+				SqlDataAdapter cmd = new SqlDataAdapter("MostrarRecibidor", Conexion.conectar);
+				cmd.SelectCommand.CommandType = CommandType.StoredProcedure;
+				cmd.Fill(dt);
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Error al cargar los datos "+ex.Message,"ERROR",MessageBoxButtons.OK, MessageBoxIcon.Error);
+			}
+			finally
+			{
+				Conexion.cerrar();
+			}
+		}
+		public bool AgregarRecibidor(string Nombre)
+		{
+			try
+			{
+				Conexion.abrir();
+				SqlCommand cmd = new SqlCommand("InsertarRecibidor", Conexion.conectar);
+				cmd.CommandType = CommandType.StoredProcedure;
+				cmd.Parameters.AddWithValue("@Nombre",Nombre);
+				cmd.ExecuteNonQuery();
+				return true;
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("Error al insertar Recibidor " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
+			finally 
+			{
+				Conexion.cerrar();
+			}
+		}
+		public bool EditarRecibidor(int Idrecibidor,string Nombre)
+		{
+			try
+			{
+				Conexion.abrir();
+				SqlCommand cmd = new SqlCommand("EditarRecibidor", Conexion.conectar);
+				cmd.CommandType= CommandType.StoredProcedure;
+				cmd.Parameters.AddWithValue("@IdRecibidor",Idrecibidor);
+				cmd.Parameters.AddWithValue("@Nombre",Nombre.Trim());
+				cmd.ExecuteNonQuery();
+				return true;
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("No se ah podido editar el Nombre del Recibidor" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return false;
+			}
+			finally
+			{
+				Conexion.cerrar();
+			}
+		}
+        public bool EliminarRecibidor(int Idrecibidor)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EliminarRecibidor", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Idrecibidor", Idrecibidor);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
     }
 }

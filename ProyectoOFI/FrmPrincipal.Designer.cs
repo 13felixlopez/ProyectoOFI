@@ -43,6 +43,7 @@ namespace ProyectoOFI
             this.timerAct = new System.Windows.Forms.Timer(this.components);
             this.PlPrincipal = new System.Windows.Forms.Panel();
             this.LblPrincipal = new System.Windows.Forms.Label();
+            this.BtnRecibidor = new System.Windows.Forms.Button();
             this.BtnAcopio = new System.Windows.Forms.Button();
             this.BtnAgencia = new System.Windows.Forms.Button();
             this.BtnCatalogo = new System.Windows.Forms.Button();
@@ -105,12 +106,13 @@ namespace ProyectoOFI
             // 
             // PlOpciones
             // 
+            this.PlOpciones.Controls.Add(this.BtnRecibidor);
             this.PlOpciones.Controls.Add(this.BtnAcopio);
             this.PlOpciones.Controls.Add(this.BtnAgencia);
             this.PlOpciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlOpciones.Location = new System.Drawing.Point(11, 391);
             this.PlOpciones.Name = "PlOpciones";
-            this.PlOpciones.Size = new System.Drawing.Size(186, 113);
+            this.PlOpciones.Size = new System.Drawing.Size(186, 170);
             this.PlOpciones.TabIndex = 21;
             this.PlOpciones.Visible = false;
             // 
@@ -199,6 +201,20 @@ namespace ProyectoOFI
             this.LblPrincipal.TabIndex = 0;
             this.LblPrincipal.Text = "Bienvenido al \r\nSistema 👋";
             this.LblPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnRecibidor
+            // 
+            this.BtnRecibidor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnRecibidor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRecibidor.Image = global::ProyectoOFI.Properties.Resources.icons8_usuario_masculino_en_círculo;
+            this.BtnRecibidor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnRecibidor.Location = new System.Drawing.Point(0, 110);
+            this.BtnRecibidor.Name = "BtnRecibidor";
+            this.BtnRecibidor.Size = new System.Drawing.Size(186, 55);
+            this.BtnRecibidor.TabIndex = 3;
+            this.BtnRecibidor.Text = "Recibidor";
+            this.BtnRecibidor.UseVisualStyleBackColor = true;
+            this.BtnRecibidor.Click += new System.EventHandler(this.BtnRecibidor_Click);
             // 
             // BtnAcopio
             // 
@@ -375,6 +391,7 @@ namespace ProyectoOFI
         private System.Windows.Forms.Panel PlOpciones;
         private System.Windows.Forms.Button BtnAgencia;
         private System.Windows.Forms.Button BtnAcopio;
+        private System.Windows.Forms.Button BtnRecibidor;
     }
 }
 

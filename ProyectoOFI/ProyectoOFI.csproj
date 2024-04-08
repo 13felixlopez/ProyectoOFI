@@ -75,6 +75,12 @@
     <Compile Include="Otros\FrmAcopios.Designer.cs">
       <DependentUpon>FrmAcopios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Otros\Recibidor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Otros\Recibidor.Designer.cs">
+      <DependentUpon>Recibidor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Otros\FrmAcopios.resx">
       <DependentUpon>FrmAcopios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Otros\Recibidor.resx">
+      <DependentUpon>Recibidor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -260,6 +269,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\OFi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transfer_within_a_station_FILL0_wght400_GRAD0_opsz24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-usuario-masculino-en-círculo.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

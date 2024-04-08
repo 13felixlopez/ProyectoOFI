@@ -183,9 +183,29 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_agregar_a_carrito_de_compras {
+            get {
+                object obj = ResourceManager.GetObject("icons8-agregar-a-carrito-de-compras", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_cerrar_ventana {
             get {
                 object obj = ResourceManager.GetObject("icons8-cerrar-ventana", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_grupos_de_usuarios {
+            get {
+                object obj = ResourceManager.GetObject("icons8-grupos-de-usuarios", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

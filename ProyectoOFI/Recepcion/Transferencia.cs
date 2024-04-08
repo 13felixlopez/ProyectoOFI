@@ -1032,7 +1032,6 @@ namespace ProyectoOFI.Recepcion
                 ActualizarTotales();
             }
         }
-        
         private async void CargaEditar()
         {
             PlCargaTran.Dock = DockStyle.Fill;
@@ -1245,12 +1244,13 @@ namespace ProyectoOFI.Recepcion
         {
             PlFiltroFecha.Visible = true;
         }
-
         private void MostrarAgencia()
         {
             DRecepcion funcion = new DRecepcion();
             funcion.MostrarAgencia(cbAgencia);
             funcion.MostrarRecibidor(cbRecibidor);
+            funcion.MostrarCliente(cbCliente);
+            funcion.MostrarCompra(cbCompra);
         }
         private async void CrearConsolidado()
         {

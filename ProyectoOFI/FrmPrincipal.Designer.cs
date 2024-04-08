@@ -43,6 +43,8 @@ namespace ProyectoOFI
             this.timerAct = new System.Windows.Forms.Timer(this.components);
             this.PlPrincipal = new System.Windows.Forms.Panel();
             this.LblPrincipal = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.BtnClientes = new System.Windows.Forms.Button();
             this.BtnRecibidor = new System.Windows.Forms.Button();
             this.BtnAcopio = new System.Windows.Forms.Button();
             this.BtnAgencia = new System.Windows.Forms.Button();
@@ -101,18 +103,20 @@ namespace ProyectoOFI
             this.plfooter.Dock = System.Windows.Forms.DockStyle.Left;
             this.plfooter.Location = new System.Drawing.Point(0, 74);
             this.plfooter.Name = "plfooter";
-            this.plfooter.Size = new System.Drawing.Size(197, 733);
+            this.plfooter.Size = new System.Drawing.Size(197, 884);
             this.plfooter.TabIndex = 3;
             // 
             // PlOpciones
             // 
+            this.PlOpciones.Controls.Add(this.button1);
+            this.PlOpciones.Controls.Add(this.BtnClientes);
             this.PlOpciones.Controls.Add(this.BtnRecibidor);
             this.PlOpciones.Controls.Add(this.BtnAcopio);
             this.PlOpciones.Controls.Add(this.BtnAgencia);
             this.PlOpciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlOpciones.Location = new System.Drawing.Point(11, 391);
             this.PlOpciones.Name = "PlOpciones";
-            this.PlOpciones.Size = new System.Drawing.Size(186, 170);
+            this.PlOpciones.Size = new System.Drawing.Size(186, 345);
             this.PlOpciones.TabIndex = 21;
             this.PlOpciones.Visible = false;
             // 
@@ -174,7 +178,7 @@ namespace ProyectoOFI
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(2);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(11, 733);
+            this.panel11.Size = new System.Drawing.Size(11, 884);
             this.panel11.TabIndex = 14;
             // 
             // timerAct
@@ -188,7 +192,7 @@ namespace ProyectoOFI
             this.PlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlPrincipal.Location = new System.Drawing.Point(197, 74);
             this.PlPrincipal.Name = "PlPrincipal";
-            this.PlPrincipal.Size = new System.Drawing.Size(1599, 733);
+            this.PlPrincipal.Size = new System.Drawing.Size(1599, 884);
             this.PlPrincipal.TabIndex = 4;
             // 
             // LblPrincipal
@@ -197,10 +201,38 @@ namespace ProyectoOFI
             this.LblPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblPrincipal.Location = new System.Drawing.Point(0, 0);
             this.LblPrincipal.Name = "LblPrincipal";
-            this.LblPrincipal.Size = new System.Drawing.Size(1599, 733);
+            this.LblPrincipal.Size = new System.Drawing.Size(1599, 884);
             this.LblPrincipal.TabIndex = 0;
             this.LblPrincipal.Text = "Bienvenido al \r\nSistema 👋";
             this.LblPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::ProyectoOFI.Properties.Resources.icons8_agregar_a_carrito_de_compras;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 230);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(186, 60);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "Comprar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // BtnClientes
+            // 
+            this.BtnClientes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnClientes.Image = global::ProyectoOFI.Properties.Resources.icons8_grupos_de_usuarios;
+            this.BtnClientes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnClientes.Location = new System.Drawing.Point(0, 170);
+            this.BtnClientes.Name = "BtnClientes";
+            this.BtnClientes.Size = new System.Drawing.Size(186, 60);
+            this.BtnClientes.TabIndex = 4;
+            this.BtnClientes.Text = "Clientes";
+            this.BtnClientes.UseVisualStyleBackColor = true;
+            this.BtnClientes.Click += new System.EventHandler(this.BtnClientes_Click);
             // 
             // BtnRecibidor
             // 
@@ -210,7 +242,7 @@ namespace ProyectoOFI
             this.BtnRecibidor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnRecibidor.Location = new System.Drawing.Point(0, 110);
             this.BtnRecibidor.Name = "BtnRecibidor";
-            this.BtnRecibidor.Size = new System.Drawing.Size(186, 55);
+            this.BtnRecibidor.Size = new System.Drawing.Size(186, 60);
             this.BtnRecibidor.TabIndex = 3;
             this.BtnRecibidor.Text = "Recibidor";
             this.BtnRecibidor.UseVisualStyleBackColor = true;
@@ -305,7 +337,7 @@ namespace ProyectoOFI
             // 
             this.btnSalir.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnSalir.Image = global::ProyectoOFI.Properties.Resources.Atras;
-            this.btnSalir.Location = new System.Drawing.Point(11, 667);
+            this.btnSalir.Location = new System.Drawing.Point(11, 818);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(186, 66);
             this.btnSalir.TabIndex = 1;
@@ -348,7 +380,7 @@ namespace ProyectoOFI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1796, 807);
+            this.ClientSize = new System.Drawing.Size(1796, 958);
             this.Controls.Add(this.PlPrincipal);
             this.Controls.Add(this.plfooter);
             this.Controls.Add(this.plTitulo);
@@ -392,6 +424,8 @@ namespace ProyectoOFI
         private System.Windows.Forms.Button BtnAgencia;
         private System.Windows.Forms.Button BtnAcopio;
         private System.Windows.Forms.Button BtnRecibidor;
+        private System.Windows.Forms.Button BtnClientes;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -84,7 +84,6 @@ namespace ProyectoOFI.Otros
         {
             EditarRecibidor();
         }
-
         private void DtRecibidor_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Idrecibidor = int.Parse(DtRecibidor.SelectedCells[1].Value.ToString());
@@ -97,7 +96,6 @@ namespace ProyectoOFI.Otros
                 }
             }
         }
-
         private void EliminarRecibidor()
         {
             DCatalogo funcion = new DCatalogo();

@@ -82,5 +82,19 @@ namespace ProyectoOFI
             REC.ShowDialog();
             PlOpciones.Visible = false;
         }
+
+        private void BtnClientes_Click(object sender, EventArgs e)
+        {
+            FrmCliente CL= new FrmCliente();
+            PlOpciones.Visible = false;
+            CL.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmCompra cp= new FrmCompra();
+            cp.ShowDialog();
+            PlOpciones.Visible=false;
+        }
     }
 }

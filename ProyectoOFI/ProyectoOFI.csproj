@@ -363,5 +363,11 @@
   <ItemGroup>
     <None Include="Resources\icons8-garantía.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-diversidad.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-ubicación-en-todo-el-mundo %281%29.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

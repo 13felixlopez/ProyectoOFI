@@ -273,7 +273,7 @@
             // BtnDaño
             // 
             this.BtnDaño.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDaño.Image = global::ProyectoOFI.Properties.Resources.icons8_grupos_de_usuarios;
+            this.BtnDaño.Image = global::ProyectoOFI.Properties.Resources.icons8_diversidad;
             this.BtnDaño.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnDaño.Location = new System.Drawing.Point(238, 267);
             this.BtnDaño.Name = "BtnDaño";
@@ -299,7 +299,7 @@
             // BtnAreaS
             // 
             this.BtnAreaS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAreaS.Image = global::ProyectoOFI.Properties.Resources.icons8_agregar_a_carrito_de_compras;
+            this.BtnAreaS.Image = global::ProyectoOFI.Properties.Resources.icons8_ubicación_en_todo_el_mundo__1_;
             this.BtnAreaS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnAreaS.Location = new System.Drawing.Point(238, 351);
             this.BtnAreaS.Name = "BtnAreaS";

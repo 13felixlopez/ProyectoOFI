@@ -62,10 +62,10 @@
             this.cbAgencia = new System.Windows.Forms.ComboBox();
             this.cbCompra = new System.Windows.Forms.ComboBox();
             this.PlRecepcion = new System.Windows.Forms.Panel();
-            this.PlAlerta = new System.Windows.Forms.Panel();
-            this.LblAlerta = new System.Windows.Forms.Label();
             this.PlCargaTran = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PlAlerta = new System.Windows.Forms.Panel();
+            this.LblAlerta = new System.Windows.Forms.Label();
             this.PRecepcion = new System.Windows.Forms.Panel();
             this.PlRecibido = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -181,9 +181,9 @@
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.PlEnvio.SuspendLayout();
             this.PlRecepcion.SuspendLayout();
-            this.PlAlerta.SuspendLayout();
             this.PlCargaTran.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.PlAlerta.SuspendLayout();
             this.PRecepcion.SuspendLayout();
             this.PlRecibido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudSacos)).BeginInit();
@@ -514,6 +514,27 @@
             this.PlRecepcion.TabIndex = 9;
             this.PlRecepcion.Visible = false;
             // 
+            // PlCargaTran
+            // 
+            this.PlCargaTran.Controls.Add(this.pictureBox1);
+            this.PlCargaTran.Location = new System.Drawing.Point(1489, 293);
+            this.PlCargaTran.Name = "PlCargaTran";
+            this.PlCargaTran.Size = new System.Drawing.Size(83, 51);
+            this.PlCargaTran.TabIndex = 109;
+            this.PlCargaTran.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.loading_12;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(83, 51);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // PlAlerta
             // 
             this.PlAlerta.Controls.Add(this.LblAlerta);
@@ -535,27 +556,6 @@
             this.LblAlerta.TabIndex = 0;
             this.LblAlerta.Text = "Registro realizado con éxito ✅";
             this.LblAlerta.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PlCargaTran
-            // 
-            this.PlCargaTran.Controls.Add(this.pictureBox1);
-            this.PlCargaTran.Location = new System.Drawing.Point(1489, 293);
-            this.PlCargaTran.Name = "PlCargaTran";
-            this.PlCargaTran.Size = new System.Drawing.Size(83, 51);
-            this.PlCargaTran.TabIndex = 109;
-            this.PlCargaTran.Visible = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.loading_12;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(83, 51);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // PRecepcion
             // 
@@ -2043,9 +2043,9 @@
             this.Load += new System.EventHandler(this.Transferencia_Load);
             this.PlEnvio.ResumeLayout(false);
             this.PlRecepcion.ResumeLayout(false);
-            this.PlAlerta.ResumeLayout(false);
             this.PlCargaTran.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.PlAlerta.ResumeLayout(false);
             this.PRecepcion.ResumeLayout(false);
             this.PRecepcion.PerformLayout();
             this.PlRecibido.ResumeLayout(false);

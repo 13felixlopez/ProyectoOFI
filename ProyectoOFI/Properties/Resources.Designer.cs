@@ -213,6 +213,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_diversidad {
+            get {
+                object obj = ResourceManager.GetObject("icons8-diversidad", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_garantía {
             get {
                 object obj = ResourceManager.GetObject("icons8-garantía", resourceCulture);
@@ -276,6 +286,16 @@ namespace ProyectoOFI.Properties {
         internal static System.Drawing.Bitmap icons8_ok_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8_ok_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_ubicación_en_todo_el_mundo__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icons8-ubicación-en-todo-el-mundo (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

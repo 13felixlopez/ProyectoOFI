@@ -188,11 +188,13 @@
             // 
             // PlTitulo
             // 
-            this.PlTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.PlTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(192)))));
+            this.PlTitulo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PlTitulo.Controls.Add(this.LblTitulo);
             this.PlTitulo.Controls.Add(this.BtnCerrar);
             this.PlTitulo.Controls.Add(this.pictureBox1);
             this.PlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PlTitulo.ForeColor = System.Drawing.Color.White;
             this.PlTitulo.Location = new System.Drawing.Point(0, 0);
             this.PlTitulo.Name = "PlTitulo";
             this.PlTitulo.Size = new System.Drawing.Size(579, 65);
@@ -204,7 +206,7 @@
             this.LblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTitulo.Location = new System.Drawing.Point(100, 0);
             this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(404, 65);
+            this.LblTitulo.Size = new System.Drawing.Size(400, 61);
             this.LblTitulo.TabIndex = 2;
             this.LblTitulo.Text = "Agregar Compra";
             this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -214,9 +216,9 @@
             this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrar.Location = new System.Drawing.Point(504, 0);
+            this.BtnCerrar.Location = new System.Drawing.Point(500, 0);
             this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(75, 65);
+            this.BtnCerrar.Size = new System.Drawing.Size(75, 61);
             this.BtnCerrar.TabIndex = 1;
             this.BtnCerrar.UseVisualStyleBackColor = true;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
@@ -227,7 +229,7 @@
             this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.OFI_Make;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 65);
+            this.pictureBox1.Size = new System.Drawing.Size(100, 61);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;

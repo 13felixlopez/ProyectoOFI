@@ -32,25 +32,25 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DtAcopio = new System.Windows.Forms.DataGridView();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.PlTitulo = new System.Windows.Forms.Panel();
             this.LblTitulo = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.CbAgencia = new System.Windows.Forms.ComboBox();
-            this.TxtAcopio = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.BtnEditar = new System.Windows.Forms.Button();
-            this.BtnGuardar = new System.Windows.Forms.Button();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CbAgencia = new System.Windows.Forms.ComboBox();
+            this.BtnEditar = new System.Windows.Forms.Button();
+            this.BtnGuardar = new System.Windows.Forms.Button();
+            this.TxtAcopio = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.LblAgencia = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DtAcopio)).BeginInit();
             this.PlTitulo.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // DtAcopio
@@ -98,9 +98,19 @@
             this.DtAcopio.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtAcopio_CellClick);
             this.DtAcopio.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtAcopio_CellContentClick);
             // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Image = global::ProyectoOFI.Properties.Resources.Delete;
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Width = 5;
+            // 
             // PlTitulo
             // 
-            this.PlTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.PlTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(192)))));
             this.PlTitulo.Controls.Add(this.LblTitulo);
             this.PlTitulo.Controls.Add(this.BtnCerrar);
             this.PlTitulo.Controls.Add(this.pictureBox1);
@@ -114,12 +124,36 @@
             // 
             this.LblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitulo.ForeColor = System.Drawing.Color.White;
             this.LblTitulo.Location = new System.Drawing.Point(100, 0);
             this.LblTitulo.Name = "LblTitulo";
             this.LblTitulo.Size = new System.Drawing.Size(452, 65);
             this.LblTitulo.TabIndex = 2;
             this.LblTitulo.Text = "Agregar Acopio";
             this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrar.Location = new System.Drawing.Point(552, 0);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(75, 65);
+            this.BtnCerrar.TabIndex = 1;
+            this.BtnCerrar.UseVisualStyleBackColor = true;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.OFI_Make;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 65);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // groupBox1
             // 
@@ -150,41 +184,6 @@
             this.CbAgencia.Size = new System.Drawing.Size(375, 28);
             this.CbAgencia.TabIndex = 3;
             // 
-            // TxtAcopio
-            // 
-            this.TxtAcopio.Location = new System.Drawing.Point(166, 120);
-            this.TxtAcopio.Name = "TxtAcopio";
-            this.TxtAcopio.Size = new System.Drawing.Size(308, 26);
-            this.TxtAcopio.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(0, 123);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(160, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Nombre del Acopio";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 74);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(191, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Seleccione la Agencia:";
-            // 
-            // dataGridViewImageColumn1
-            // 
-            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = global::ProyectoOFI.Properties.Resources.Delete;
-            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 5;
-            // 
             // BtnEditar
             // 
             this.BtnEditar.Image = global::ProyectoOFI.Properties.Resources.wired_outline_35_edit;
@@ -212,38 +211,31 @@
             this.BtnGuardar.UseVisualStyleBackColor = true;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
-            // Eliminar
+            // TxtAcopio
             // 
-            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.Image = global::ProyectoOFI.Properties.Resources.Delete;
-            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Width = 5;
+            this.TxtAcopio.Location = new System.Drawing.Point(166, 120);
+            this.TxtAcopio.Name = "TxtAcopio";
+            this.TxtAcopio.Size = new System.Drawing.Size(308, 26);
+            this.TxtAcopio.TabIndex = 1;
             // 
-            // BtnCerrar
+            // label2
             // 
-            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrar.Location = new System.Drawing.Point(552, 0);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(75, 65);
-            this.BtnCerrar.TabIndex = 1;
-            this.BtnCerrar.UseVisualStyleBackColor = true;
-            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(0, 123);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(160, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Nombre del Acopio";
             // 
-            // pictureBox1
+            // LblAgencia
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.OFI_Make;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 65);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.LblAgencia.AutoSize = true;
+            this.LblAgencia.Location = new System.Drawing.Point(203, 35);
+            this.LblAgencia.Name = "LblAgencia";
+            this.LblAgencia.Size = new System.Drawing.Size(21, 20);
+            this.LblAgencia.TabIndex = 0;
+            this.LblAgencia.Text = "--";
+            this.LblAgencia.Visible = false;
             // 
             // label3
             // 
@@ -255,15 +247,23 @@
             this.label3.Text = "Agencia Actual:";
             this.label3.Visible = false;
             // 
-            // LblAgencia
+            // label1
             // 
-            this.LblAgencia.AutoSize = true;
-            this.LblAgencia.Location = new System.Drawing.Point(203, 35);
-            this.LblAgencia.Name = "LblAgencia";
-            this.LblAgencia.Size = new System.Drawing.Size(21, 20);
-            this.LblAgencia.TabIndex = 0;
-            this.LblAgencia.Text = "--";
-            this.LblAgencia.Visible = false;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 74);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(191, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Seleccione la Agencia:";
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::ProyectoOFI.Properties.Resources.Delete;
+            this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
             // 
             // FrmAcopios
             // 
@@ -282,9 +282,9 @@
             this.Load += new System.EventHandler(this.FrmAcopios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DtAcopio)).EndInit();
             this.PlTitulo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

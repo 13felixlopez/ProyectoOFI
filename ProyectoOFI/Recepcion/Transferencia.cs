@@ -73,15 +73,7 @@ namespace ProyectoOFI.Recepcion
                     {
                         if (dtFEnvio.Value <= dtpRecibido.Value)
                         {
-                            if (!string.IsNullOrWhiteSpace(txtMTNT.Text))
-                            {
-                                carga();
-                            }
-                            else
-                            {
-                                MessageBox.Show("La MTNT/Recibo no puede quedar vacia","ERROR",MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                txtMTNT.Focus();
-                            }
+                            carga();
                         }
                         else
                         {
@@ -193,6 +185,7 @@ namespace ProyectoOFI.Recepcion
             dtpRecibido.Value = DateTime.Today;
             LblQQs.Text = "--";
             lblTransferencia.Text = "Agregar Transferencia";
+            TxtTally.Clear();
         }
         private void txtMTNT_TextChanged(object sender, EventArgs e)
         {
@@ -250,7 +243,7 @@ namespace ProyectoOFI.Recepcion
             {
                 return false;
             }
-            return !(txtPesoE.Text == "" || cbAgencia.Text == "" || cbAcopio.Text == "" || cbCliente.Text == "" ||
+            return !(txtPesoE.Text == "" ||
                 cbCompra.Text == "" || cbDanioE.Text == ""
             || cbCertificacion.Text == "" || cbEsFisico.Text == "" || cbCalidadE.Text == "");
         }
@@ -316,6 +309,7 @@ namespace ProyectoOFI.Recepcion
                 par.DanioE = cbDanioE.Text;
                 par.SacosE = Convert.ToInt32(nudSacosE.Value);
                 par.PesoE = Convert.ToDouble(txtPesoE.Text);
+                par.Tally=TxtTally.Text;
 
                 if (funcion.InsertarLote2(parametros, par) == true)
                 {
@@ -359,6 +353,7 @@ namespace ProyectoOFI.Recepcion
         }
         private void dtInventario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            MostrarAgencia();
             ObtenerTK();
             ObtenerDatos();
             lblTransferencia.Text = "Editar Transferencia";
@@ -405,7 +400,7 @@ namespace ProyectoOFI.Recepcion
                     }
                     else
                     {
-                        cbAgencia.ForeColor=Color.White;
+                        cbAgencia.ForeColor = Color.White;
                     }
                     if (row["Acopio"].ToString() != null)
                     {
@@ -439,7 +434,7 @@ namespace ProyectoOFI.Recepcion
                     {
                         txtMTNT.Text = "";
                     }
-                    if(row["Certificacion"].ToString()!=null)
+                    if (row["Certificacion"].ToString() != null)
                     {
                         cbCertificacion.Text = row["Certificacion"].ToString();
                     }
@@ -447,56 +442,56 @@ namespace ProyectoOFI.Recepcion
                     {
                         cbCertificacion.Text = "";
                     }
-                    if(row["EsFisico"].ToString() != null)
+                    if (row["EsFisico"].ToString() != null)
                     {
-                    cbEsFisico.Text = row["EsFisico"].ToString();
+                        cbEsFisico.Text = row["EsFisico"].ToString();
                     }
                     else
                     {
                         cbEsFisico.Text = "";
                     }
-                    if(row["CalidadE"].ToString() != null)
+                    if (row["CalidadE"].ToString() != null)
                     {
-                    cbCalidadE.Text = row["CalidadE"].ToString();
+                        cbCalidadE.Text = row["CalidadE"].ToString();
                     }
                     else
                     {
-                        cbCalidadE.Text= "";
+                        cbCalidadE.Text = "";
                     }
-                    if(row["DanioE"].ToString() != null)
+                    if (row["DanioE"].ToString() != null)
                     {
-                    cbDanioE.Text = row["DanioE"].ToString();
+                        cbDanioE.Text = row["DanioE"].ToString();
                     }
                     else
                     {
                         cbDanioE.Text = "";
                     }
-                    if(row["SacosE"].ToString() != null)
+                    if (row["SacosE"].ToString() != null)
                     {
-                    nudSacosE.Value = int.Parse(row["SacosE"].ToString());
+                        nudSacosE.Value = int.Parse(row["SacosE"].ToString());
                     }
                     else
                     {
                         nudSacos.Value = 0;
                     }
-                    if(row["PesoE"].ToString()!= null)
+                    if (row["PesoE"].ToString() != null)
                     {
-                    txtPesoE.Text = row["PesoE"].ToString();
-                    kilose = double.Parse(txtPesoE.Text);
-                    kilose = kilose / 46;
-                    LblQQsEn.Text = Math.Round(kilose, 2).ToString();
+                        txtPesoE.Text = row["PesoE"].ToString();
+                        kilose = double.Parse(txtPesoE.Text);
+                        kilose = kilose / 46;
+                        LblQQsEn.Text = Math.Round(kilose, 2).ToString();
                     }
                     else
                     {
-                        txtPesoE.Text= "0";
-                        LblQQsEn.Text= "0";
+                        txtPesoE.Text = "0";
+                        LblQQsEn.Text = "0";
                     }
                     txtTK.Text = Ticket.ToString();
                     dtpRecibido.Value = DateTime.Parse(row["FechaRecibido"].ToString());
                     cbArea.Text = row["AreaSecado"].ToString();
                     if (row["MTNR"].ToString() != null)
                     {
-                    txtMTNR.Text = row["MTNR"].ToString();
+                        txtMTNR.Text = row["MTNR"].ToString();
                     }
                     else
                     {
@@ -512,21 +507,29 @@ namespace ProyectoOFI.Recepcion
                     LblQQs.Text = Math.Round(kilos, 2).ToString();
                     if (row["Merma"].ToString() != null)
                     {
-                    txtMerma.Text = row["Merma"].ToString();
+                        txtMerma.Text = row["Merma"].ToString();
                     }
                     else
                     {
                         txtMerma.Text = "";
                     }
-                    if(row["Recibidor"].ToString() == null)
+                    if (row["Recibidor"].ToString() != null)
                     {
-                    cbRecibidor.Text = row["Recibidor"].ToString();
+                        cbRecibidor.Text = row["Recibidor"].ToString();
                     }
                     else
                     {
                         cbRecibidor.Text = "";
                     }
                     cbDigitador.Text = row["Digitador"].ToString();
+                    if (row["TallySheet"].ToString()!=null)
+                    {
+                        TxtTally.Text = row["TallySheet"].ToString();
+                    }
+                    else
+                    {
+                        TxtTally.Text = "";
+                    }
                 }
                 else
                 {
@@ -958,7 +961,7 @@ namespace ProyectoOFI.Recepcion
 
                     LEnvio par = new LEnvio();
                     par.Ticket = txtTK.Text;
-                    par.FEnvio = dtFEnvio.Value;
+                    par.FEnvio = Convert.ToDateTime(dtFEnvio.Text);
                     par.Agencia = cbAgencia.Text;
                     par.Acopio = cbAcopio.Text;
                     par.Cliente = cbCliente.Text;
@@ -970,6 +973,7 @@ namespace ProyectoOFI.Recepcion
                     par.DanioE = cbDanioE.Text;
                     par.SacosE = Convert.ToInt32(nudSacosE.Value);
                     par.PesoE = Convert.ToDouble(txtPesoE.Text);
+                    par.Tally=TxtTally.Text;
 
                     if (funcion.EditarTK(parametros, par) == true)
                     {

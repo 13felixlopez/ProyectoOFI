@@ -10,108 +10,108 @@ namespace ProyectoOFI.Datos
     {
         public bool AgregarAgencia(string Agencia)
         {
-			try
-			{
-				Conexion.abrir();
-				SqlCommand sqlCommand = new SqlCommand("AgregarAgencia", Conexion.conectar);
-				sqlCommand.CommandType = CommandType.StoredProcedure;
-				sqlCommand.Parameters.AddWithValue("@Agencia", Agencia);
-				sqlCommand.ExecuteNonQuery();
-				return true;
-			}
-			catch (Exception ex)
-			{
+            try
+            {
+                Conexion.abrir();
+                SqlCommand sqlCommand = new SqlCommand("AgregarAgencia", Conexion.conectar);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@Agencia", Agencia);
+                sqlCommand.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
-			}
-			finally
-			{
-				Conexion.cerrar();
-			}
-        }
-		public void MostrarAgencias(ref DataTable dt)
-		{
-			try
-			{
-				Conexion.abrir();
-				SqlDataAdapter da = new SqlDataAdapter("MostrarAgencias", Conexion.conectar);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-				da.Fill(dt);
             }
-			catch (Exception ex)
-			{
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarAgencias(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("MostrarAgencias", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-			finally
-			{
-				Conexion.cerrar();
-			}
-		}
-		public bool EliminarAgencia(string Agencia)
-		{
-			try
-			{
-				Conexion.abrir();
-				SqlCommand cmd= new SqlCommand("EliminarAgencia",Conexion.conectar);
-				cmd.CommandType = CommandType.StoredProcedure;
-				cmd.Parameters.AddWithValue("@Agencia", Agencia);
-				cmd.ExecuteNonQuery();
-				return true;
-			}
-			catch (Exception ex)
-			{
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EliminarAgencia(string Agencia)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EliminarAgencia", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Agencia", Agencia);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-			finally
-			{
-				Conexion.cerrar();
-			}
-		}
-		public bool EditarAgencia(int idagencia,string Agencia)
-		{
-			try
-			{
-				Conexion.abrir();
-				SqlCommand cmd = new SqlCommand("EditarAgencia", Conexion.conectar);
-				cmd.CommandType = CommandType.StoredProcedure;
-				cmd.Parameters.AddWithValue("@IdAgencia", idagencia);
-				cmd.Parameters.AddWithValue("@Agencia",Agencia);
-				cmd.ExecuteNonQuery();
-				return true;
-			}
-			catch (Exception ex)
-			{
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EditarAgencia(int idagencia, string Agencia)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EditarAgencia", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdAgencia", idagencia);
+                cmd.Parameters.AddWithValue("@Agencia", Agencia);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-			finally
-			{
-				Conexion.cerrar();
-			}
-		}
-		public bool InsertarAcopio(string Acopio,int idagencia)
-		{
-			try
-			{
-				Conexion.abrir();
-				SqlCommand cmd = new SqlCommand("InsertarAcopio", Conexion.conectar);
-				cmd.CommandType= CommandType.StoredProcedure;
-				cmd.Parameters.AddWithValue("@IdAgencia", idagencia);
-				cmd.Parameters.AddWithValue("@Acopio", Acopio);
-				cmd.ExecuteNonQuery();
-				return true;
-			}
-			catch (Exception ex)
-			{
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool InsertarAcopio(string Acopio, int idagencia)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("InsertarAcopio", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdAgencia", idagencia);
+                cmd.Parameters.AddWithValue("@Acopio", Acopio);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-			finally
-			{
-				Conexion.cerrar();
-			}
-		}
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
         public void MostrarAcopios(ref DataTable dt)
         {
             try
@@ -130,108 +130,108 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-		public bool EditarAcopio(int idacopio,string acopio,int idagencia)
-		{
-			try
-			{
-				Conexion.abrir();
-				SqlCommand cmd = new SqlCommand("EditarAcopio",Conexion.conectar);
-				cmd.CommandType = CommandType.StoredProcedure;
-				cmd.Parameters.AddWithValue("@IdAcopio",idacopio);
-				cmd.Parameters.AddWithValue("@Acopio",acopio);
-				cmd.Parameters.AddWithValue("@IdAgencia",idagencia);
-				cmd.ExecuteNonQuery();
-				return true;
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show(ex.Message, "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return false;
-			}
-			finally { Conexion.cerrar(); }
-		}
-		public bool EliminarAcopio(int IdAcopio)
-		{
-			try
-			{
-				Conexion.abrir();
-				SqlCommand cmd = new SqlCommand("EliminarAcopio", Conexion.conectar);
-				cmd.CommandType= CommandType.StoredProcedure;
-				cmd.Parameters.AddWithValue("@IdAcopio",IdAcopio);
-				cmd.ExecuteNonQuery();
-				return true;
-			}
-			catch (Exception ex)
-			{
+        public bool EditarAcopio(int idacopio, string acopio, int idagencia)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EditarAcopio", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdAcopio", idacopio);
+                cmd.Parameters.AddWithValue("@Acopio", acopio);
+                cmd.Parameters.AddWithValue("@IdAgencia", idagencia);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally { Conexion.cerrar(); }
+        }
+        public bool EliminarAcopio(int IdAcopio)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EliminarAcopio", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdAcopio", IdAcopio);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-			finally
-			{
-				Conexion.cerrar();
-			}
-		}
-		public void MostrarRecibidor(ref DataTable dt)
-		{
-			try
-			{
-				Conexion.abrir();
-				SqlDataAdapter cmd = new SqlDataAdapter("MostrarRecibidor", Conexion.conectar);
-				cmd.SelectCommand.CommandType = CommandType.StoredProcedure;
-				cmd.Fill(dt);
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show("Error al cargar los datos "+ex.Message,"ERROR",MessageBoxButtons.OK, MessageBoxIcon.Error);
-			}
-			finally
-			{
-				Conexion.cerrar();
-			}
-		}
-		public bool AgregarRecibidor(string Nombre)
-		{
-			try
-			{
-				Conexion.abrir();
-				SqlCommand cmd = new SqlCommand("InsertarRecibidor", Conexion.conectar);
-				cmd.CommandType = CommandType.StoredProcedure;
-				cmd.Parameters.AddWithValue("@Nombre",Nombre);
-				cmd.ExecuteNonQuery();
-				return true;
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show("Error al insertar Recibidor " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return false;
-			}
-			finally 
-			{
-				Conexion.cerrar();
-			}
-		}
-		public bool EditarRecibidor(int Idrecibidor,string Nombre)
-		{
-			try
-			{
-				Conexion.abrir();
-				SqlCommand cmd = new SqlCommand("EditarRecibidor", Conexion.conectar);
-				cmd.CommandType= CommandType.StoredProcedure;
-				cmd.Parameters.AddWithValue("@IdRecibidor",Idrecibidor);
-				cmd.Parameters.AddWithValue("@Nombre",Nombre.Trim());
-				cmd.ExecuteNonQuery();
-				return true;
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show("No se ah podido editar el Nombre del Recibidor" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return false;
-			}
-			finally
-			{
-				Conexion.cerrar();
-			}
-		}
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarRecibidor(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter cmd = new SqlDataAdapter("MostrarRecibidor", Conexion.conectar);
+                cmd.SelectCommand.CommandType = CommandType.StoredProcedure;
+                cmd.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool AgregarRecibidor(string Nombre)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("InsertarRecibidor", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Nombre", Nombre);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar Recibidor " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EditarRecibidor(int Idrecibidor, string Nombre)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EditarRecibidor", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdRecibidor", Idrecibidor);
+                cmd.Parameters.AddWithValue("@Nombre", Nombre.Trim());
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se ah podido editar el Nombre del Recibidor" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
         public bool EliminarRecibidor(int Idrecibidor)
         {
             try
@@ -272,14 +272,14 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public bool AgregarCliente(string Identificacion,string Nombre)
+        public bool AgregarCliente(string Identificacion, string Nombre)
         {
             try
             {
                 Conexion.abrir();
                 SqlCommand cmd = new SqlCommand("AgregarClientes", Conexion.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-				cmd.Parameters.AddWithValue("@Identificacion",Identificacion);
+                cmd.Parameters.AddWithValue("@Identificacion", Identificacion);
                 cmd.Parameters.AddWithValue("@Nombre", Nombre);
                 cmd.ExecuteNonQuery();
                 return true;
@@ -294,7 +294,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public bool EditarCliente(int idcliente,string Identificacion, string Nombre)
+        public bool EditarCliente(int idcliente, string Identificacion, string Nombre)
         {
             try
             {
@@ -302,7 +302,7 @@ namespace ProyectoOFI.Datos
                 SqlCommand cmd = new SqlCommand("EditarCliente", Conexion.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Idcliente", idcliente);
-				cmd.Parameters.AddWithValue("@Identificacion", Identificacion);
+                cmd.Parameters.AddWithValue("@Identificacion", Identificacion);
                 cmd.Parameters.AddWithValue("@Nombre", Nombre.Trim());
                 cmd.ExecuteNonQuery();
                 return true;
@@ -493,6 +493,342 @@ namespace ProyectoOFI.Datos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@IdCertificacion", Idcert);
                 cmd.Parameters.AddWithValue("@Cert", Cert);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        #endregion
+        #region EstFis
+        public bool AgregarEstFist(string EstFis)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand sqlCommand = new SqlCommand("InsertarEstFis", Conexion.conectar);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@EstFisico", EstFis);
+                sqlCommand.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarEstFis(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("MostrarEstFis", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EliminarEstFis(int EstFis)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EliminarEstFis", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdEstFis", EstFis);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EditarEstFis(int IdEstFis, string EstFis)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EditarEstFis", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdEstFis", IdEstFis);
+                cmd.Parameters.AddWithValue("@EstFisico", EstFis);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        #endregion
+        #region Calidad
+        public bool AgregarCalidad(string Calidad)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand sqlCommand = new SqlCommand("AgregarCalidad", Conexion.conectar);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@Calidad", Calidad);
+                sqlCommand.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarCalidad(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("MostrarCalidad", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EliminarCalidad(int Calidad)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EliminarCalidad", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdCalidad", Calidad);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EditarCalidad(int IdCalidad, string Calidad)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EditarCalidad", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdCalidad", IdCalidad);
+                cmd.Parameters.AddWithValue("@Calidad", Calidad);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        #endregion
+        #region Daño
+        public bool AgregarDanio(string Danio)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand sqlCommand = new SqlCommand("AgregarDanio", Conexion.conectar);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@Danio", Danio);
+                sqlCommand.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarDanio(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("MostrarDanio", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EliminarDanio(int IdDanio)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EliminarDanio", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdDanio", IdDanio);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EditarDanio(int IdDanio, string Danio)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EditarDanio", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdDanio", IdDanio);
+                cmd.Parameters.AddWithValue("@Danio", Danio);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        #endregion
+        #region AreaSecado
+        public bool AgregarAreaSecado(string AreaSecado)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand sqlCommand = new SqlCommand("AgregarAreaSecado", Conexion.conectar);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@AreaSecado", AreaSecado);
+                sqlCommand.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarAreaSecado(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("MostrarAreaSecado", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EliminarAreaSecado(int IdAreaSecado)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EliminarAreaSecado", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdAreaSecado", IdAreaSecado);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EditarAreaSecado(int IdAreaSecado, string AreaSecado)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EditarAreaSecado", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdAreaSecado", IdAreaSecado);
+                cmd.Parameters.AddWithValue("@AreaSecado", AreaSecado);
                 cmd.ExecuteNonQuery();
                 return true;
             }

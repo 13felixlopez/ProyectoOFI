@@ -54,5 +54,35 @@ namespace ProyectoOFI.Otros
             FrmCompra AA = new FrmCompra();
             AA.ShowDialog();
         }
+
+        private void BtnCert_Click(object sender, EventArgs e)
+        {
+            FrmCert AA = new FrmCert();
+            AA.ShowDialog();
+        }
+
+        private void BtnEstf_Click(object sender, EventArgs e)
+        {
+            FrmEstFis AA = new FrmEstFis();
+            AA.ShowDialog();
+        }
+
+        private void BtnCalidad_Click(object sender, EventArgs e)
+        {
+            FrmCalidad AA = new FrmCalidad();
+            AA.ShowDialog();
+        }
+
+        private void BtnDaño_Click(object sender, EventArgs e)
+        {
+            FrmDanio AA = new FrmDanio();
+            AA.ShowDialog();
+        }
+
+        private void BtnAreaS_Click(object sender, EventArgs e)
+        {
+            FrmAreaSecado AA = new FrmAreaSecado();
+            AA.ShowDialog();
+        }
     }
 }

@@ -27,7 +27,7 @@ namespace ProyectoOFI.Recepcion
         DataTable Cons = new DataTable();
         // Crear un arreglo bidimensional para almacenar los datos del DataTable
         object[,] dataArray;
-        List<string> filtro=new List<string>();
+        List<string> filtro = new List<string>();
         public Transferencia()
         {
             InitializeComponent();
@@ -50,7 +50,7 @@ namespace ProyectoOFI.Recepcion
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             AbrirFormulario();
-            MostrarAgencia();
+            CargarCombos();
             PnGuardar.Visible = true;
             BtnEditar.Visible = false;
         }
@@ -260,7 +260,7 @@ namespace ProyectoOFI.Recepcion
         private bool validarEditar()
         {
             double entero;
-            if (!double.TryParse(txtPesoE.Text,out entero))
+            if (!double.TryParse(txtPesoE.Text, out entero))
             {
                 return false;
             }
@@ -309,7 +309,7 @@ namespace ProyectoOFI.Recepcion
                 par.DanioE = cbDanioE.Text;
                 par.SacosE = Convert.ToInt32(nudSacosE.Value);
                 par.PesoE = Convert.ToDouble(txtPesoE.Text);
-                par.Tally=TxtTally.Text;
+                par.Tally = TxtTally.Text;
 
                 if (funcion.InsertarLote2(parametros, par) == true)
                 {
@@ -340,6 +340,7 @@ namespace ProyectoOFI.Recepcion
         private async void carga()
         {
             timerAct.Enabled = true;
+            PlCarga.BringToFront();
             PlCargaTran.Dock = DockStyle.Fill;
             PlCargaTran.Visible = true;
             await Task.Delay(1500);
@@ -353,7 +354,7 @@ namespace ProyectoOFI.Recepcion
         }
         private void dtInventario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            MostrarAgencia();
+            CargarCombos();
             ObtenerTK();
             ObtenerDatos();
             lblTransferencia.Text = "Editar Transferencia";
@@ -522,7 +523,7 @@ namespace ProyectoOFI.Recepcion
                         cbRecibidor.Text = "";
                     }
                     cbDigitador.Text = row["Digitador"].ToString();
-                    if (row["TallySheet"].ToString()!=null)
+                    if (row["TallySheet"].ToString() != null)
                     {
                         TxtTally.Text = row["TallySheet"].ToString();
                     }
@@ -973,7 +974,7 @@ namespace ProyectoOFI.Recepcion
                     par.DanioE = cbDanioE.Text;
                     par.SacosE = Convert.ToInt32(nudSacosE.Value);
                     par.PesoE = Convert.ToDouble(txtPesoE.Text);
-                    par.Tally=TxtTally.Text;
+                    par.Tally = TxtTally.Text;
 
                     if (funcion.EditarTK(parametros, par) == true)
                     {
@@ -1191,7 +1192,7 @@ namespace ProyectoOFI.Recepcion
         private void CLBFiltros_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             string seleccion = CLBFiltros.Items[e.Index].ToString();
-            if (e.NewValue==CheckState.Checked)
+            if (e.NewValue == CheckState.Checked)
             {
                 filtro.Add(seleccion);
             }
@@ -1233,9 +1234,9 @@ namespace ProyectoOFI.Recepcion
             DRecepcion funcion = new DRecepcion();
             DateTime Inicio = DtpBuscar.Value;
             Inicio = Convert.ToDateTime(Inicio.ToString("yyyy/MM/dd").ToString());
-            DateTime Fin=DtpFin.Value;
+            DateTime Fin = DtpFin.Value;
             Fin = Convert.ToDateTime(Fin.ToString("yyyy/MM/dd").ToString());
-            funcion.BuscarFecha(Inicio,Fin, ref dt);
+            funcion.BuscarFecha(Inicio, Fin, ref dt);
             dtInventario.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventario);
@@ -1248,13 +1249,23 @@ namespace ProyectoOFI.Recepcion
         {
             PlFiltroFecha.Visible = true;
         }
-        private void MostrarAgencia()
+        private void CargarCombos()
         {
             DRecepcion funcion = new DRecepcion();
             funcion.MostrarAgencia(cbAgencia);
             funcion.MostrarRecibidor(cbRecibidor);
             funcion.MostrarCliente(cbCliente);
             funcion.MostrarCompra(cbCompra);
+            funcion.MostrarCert(cbCertificacion);
+            funcion.MostrarCert(CbCertCons);
+            funcion.MostrarEstFis(cbEsFisico);
+            funcion.MostrarEstFis(cbEstadoFisico);
+            funcion.MostrarCalidad(cbCalidad);
+            funcion.MostrarCalidad(cbCalidadE);
+            funcion.MostrarDaño(cbDanioE);
+            funcion.MostrarDaño(cbDaño);
+            funcion.MostrarAreaSecado(cbArea);
+            funcion.MostrarAreaSecado(CbAreaCons);
         }
         private async void CrearConsolidado()
         {

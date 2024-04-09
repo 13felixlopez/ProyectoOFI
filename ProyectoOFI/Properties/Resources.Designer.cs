@@ -203,6 +203,26 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_diploma_1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-diploma-1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_garantía {
+            get {
+                object obj = ResourceManager.GetObject("icons8-garantía", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_grupos_de_usuarios {
             get {
                 object obj = ResourceManager.GetObject("icons8-grupos-de-usuarios", resourceCulture);
@@ -216,6 +236,16 @@ namespace ProyectoOFI.Properties {
         internal static System.Drawing.Bitmap icons8_guardar {
             get {
                 object obj = ResourceManager.GetObject("icons8-guardar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_humedad {
+            get {
+                object obj = ResourceManager.GetObject("icons8-humedad", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

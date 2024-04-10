@@ -625,6 +625,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        #region Buscadores
         public void BuscarTkExcel(string Buscar, ref DataTable dt)
         {
             try
@@ -678,5 +679,198 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public void BuscarCert(string Buscar, ref DataTable dt, int desde, int hasta, int Contar)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("BuscarCert", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Desde", desde);
+                cmd.Parameters.AddWithValue("@Hasta", hasta);
+                cmd.Parameters.AddWithValue("@Buscador", Buscar);
+
+                // Parámetro de salida para el contador
+                SqlParameter contarParam = new SqlParameter("@Contar", SqlDbType.Int);
+                contarParam.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(contarParam);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                // Obtener el valor del contador
+                Contar = Convert.ToInt32(contarParam.Value);
+                contador = Contar;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void BuscarDanio(string Buscar, ref DataTable dt, int desde, int hasta, int Contar)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("BuscarDanio", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Desde", desde);
+                cmd.Parameters.AddWithValue("@Hasta", hasta);
+                cmd.Parameters.AddWithValue("@Buscador", Buscar);
+
+                // Parámetro de salida para el contador
+                SqlParameter contarParam = new SqlParameter("@Contar", SqlDbType.Int);
+                contarParam.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(contarParam);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                // Obtener el valor del contador
+                Contar = Convert.ToInt32(contarParam.Value);
+                contador = Contar;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void BuscarTipoCompra(string Buscar, ref DataTable dt, int desde, int hasta, int Contar)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("BuscarTipoCompra", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Desde", desde);
+                cmd.Parameters.AddWithValue("@Hasta", hasta);
+                cmd.Parameters.AddWithValue("@Buscador", Buscar);
+
+                // Parámetro de salida para el contador
+                SqlParameter contarParam = new SqlParameter("@Contar", SqlDbType.Int);
+                contarParam.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(contarParam);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                // Obtener el valor del contador
+                Contar = Convert.ToInt32(contarParam.Value);
+                contador = Contar;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void BuscarMTNT(string Buscar, ref DataTable dt, int desde, int hasta, int Contar)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("BuscarMTNT", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Desde", desde);
+                cmd.Parameters.AddWithValue("@Hasta", hasta);
+                cmd.Parameters.AddWithValue("@Buscador", Buscar);
+
+                // Parámetro de salida para el contador
+                SqlParameter contarParam = new SqlParameter("@Contar", SqlDbType.Int);
+                contarParam.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(contarParam);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                // Obtener el valor del contador
+                Contar = Convert.ToInt32(contarParam.Value);
+                contador = Contar;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void BuscarPeso(string Buscar, ref DataTable dt, int desde, int hasta, int Contar)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("BuscarPeso", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Desde", desde);
+                cmd.Parameters.AddWithValue("@Hasta", hasta);
+                cmd.Parameters.AddWithValue("@Buscador", Buscar);
+
+                // Parámetro de salida para el contador
+                SqlParameter contarParam = new SqlParameter("@Contar", SqlDbType.Int);
+                contarParam.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(contarParam);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                // Obtener el valor del contador
+                Contar = Convert.ToInt32(contarParam.Value);
+                contador = Contar;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void BuscarAreaSecado(string Buscar, ref DataTable dt, int desde, int hasta, int Contar)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("BuscarAreaSecado", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Desde", desde);
+                cmd.Parameters.AddWithValue("@Hasta", hasta);
+                cmd.Parameters.AddWithValue("@Buscador", Buscar);
+
+                // Parámetro de salida para el contador
+                SqlParameter contarParam = new SqlParameter("@Contar", SqlDbType.Int);
+                contarParam.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(contarParam);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                // Obtener el valor del contador
+                Contar = Convert.ToInt32(contarParam.Value);
+                contador = Contar;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        #endregion
     }
 }

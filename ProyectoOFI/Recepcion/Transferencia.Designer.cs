@@ -63,13 +63,11 @@
             this.cbCompra = new System.Windows.Forms.ComboBox();
             this.PlRecepcion = new System.Windows.Forms.Panel();
             this.PlCargaTran = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PlAlerta = new System.Windows.Forms.Panel();
             this.LblAlerta = new System.Windows.Forms.Label();
             this.PRecepcion = new System.Windows.Forms.Panel();
             this.PlRecibido = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnAnt = new System.Windows.Forms.Button();
             this.txtMerma = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.LblQQs = new System.Windows.Forms.Label();
@@ -85,7 +83,6 @@
             this.PEnvio = new System.Windows.Forms.Panel();
             this.LblQQsEn = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnSig = new System.Windows.Forms.Button();
             this.label48 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.cbCalidadE = new System.Windows.Forms.ComboBox();
@@ -106,22 +103,15 @@
             this.dtFEnvio = new System.Windows.Forms.DateTimePicker();
             this.PlTexto = new System.Windows.Forms.Panel();
             this.lblTransferencia = new System.Windows.Forms.Label();
-            this.bntAtras = new System.Windows.Forms.Button();
             this.PnGuardar = new System.Windows.Forms.Panel();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.BtnEditar = new System.Windows.Forms.Button();
             this.dtInventario = new System.Windows.Forms.DataGridView();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Consolidar = new System.Windows.Forms.DataGridViewImageColumn();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.PlFiltroFecha = new System.Windows.Forms.Panel();
             this.DtpFin = new System.Windows.Forms.DateTimePicker();
             this.BtnFiltroFecha = new System.Windows.Forms.Button();
             this.DtpBuscar = new System.Windows.Forms.DateTimePicker();
             this.BtnRangoFecha = new System.Windows.Forms.Button();
-            this.PbFiltro = new System.Windows.Forms.PictureBox();
             this.plAgregar = new System.Windows.Forms.Panel();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.CbBuscar = new System.Windows.Forms.ComboBox();
             this.CbOrdenar = new System.Windows.Forms.ComboBox();
@@ -139,7 +129,6 @@
             this.lbl_Pagina = new System.Windows.Forms.Label();
             this.Label25 = new System.Windows.Forms.Label();
             this.PlCarga = new System.Windows.Forms.Panel();
-            this.PbCarga = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.PnConsolidar = new System.Windows.Forms.Panel();
             this.PnTickets = new System.Windows.Forms.Panel();
@@ -172,17 +161,28 @@
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.TxtTicketCons = new System.Windows.Forms.TextBox();
             this.PlFiltros = new System.Windows.Forms.Panel();
-            this.BtnFiltrar = new System.Windows.Forms.Button();
             this.CLBFiltros = new System.Windows.Forms.CheckedListBox();
             this.PlCerrar = new System.Windows.Forms.Panel();
             this.LblFiltros = new System.Windows.Forms.Label();
-            this.BtnCerrar = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.BtnFiltrar = new System.Windows.Forms.Button();
+            this.BtnCerrar = new System.Windows.Forms.Button();
+            this.PbCarga = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAnt = new System.Windows.Forms.Button();
+            this.btnSig = new System.Windows.Forms.Button();
+            this.bntAtras = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.BtnEditar = new System.Windows.Forms.Button();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Consolidar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.PbExcel = new System.Windows.Forms.PictureBox();
+            this.PbFiltro = new System.Windows.Forms.PictureBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.PlEnvio.SuspendLayout();
             this.PlRecepcion.SuspendLayout();
             this.PlCargaTran.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PlAlerta.SuspendLayout();
             this.PRecepcion.SuspendLayout();
             this.PlRecibido.SuspendLayout();
@@ -194,11 +194,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtInventario)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.PlFiltroFecha.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).BeginInit();
             this.plAgregar.SuspendLayout();
             this.plfooter.SuspendLayout();
             this.PlCarga.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.PnConsolidar.SuspendLayout();
             this.PnTickets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtTickets)).BeginInit();
@@ -208,6 +206,10 @@
             this.panel1.SuspendLayout();
             this.PlFiltros.SuspendLayout();
             this.PlCerrar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).BeginInit();
             this.SuspendLayout();
             // 
             // PlEnvio
@@ -523,18 +525,6 @@
             this.PlCargaTran.TabIndex = 109;
             this.PlCargaTran.Visible = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.loading_12;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(83, 51);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // PlAlerta
             // 
             this.PlAlerta.Controls.Add(this.LblAlerta);
@@ -618,21 +608,6 @@
             this.label6.Text = "Detalles de Recepción";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label6.UseCompatibleTextRendering = true;
-            // 
-            // btnAnt
-            // 
-            this.btnAnt.BackColor = System.Drawing.Color.Transparent;
-            this.btnAnt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAnt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnt.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnAnt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnt.Image = global::ProyectoOFI.Properties.Resources.Ant_642;
-            this.btnAnt.Location = new System.Drawing.Point(1158, 230);
-            this.btnAnt.Name = "btnAnt";
-            this.btnAnt.Size = new System.Drawing.Size(106, 57);
-            this.btnAnt.TabIndex = 154;
-            this.btnAnt.UseVisualStyleBackColor = false;
-            this.btnAnt.Click += new System.EventHandler(this.btnAnt_Click);
             // 
             // txtMerma
             // 
@@ -817,20 +792,6 @@
             this.label7.Size = new System.Drawing.Size(49, 20);
             this.label7.TabIndex = 156;
             this.label7.Text = "QQs:";
-            // 
-            // btnSig
-            // 
-            this.btnSig.BackColor = System.Drawing.Color.Transparent;
-            this.btnSig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSig.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnSig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSig.Image = global::ProyectoOFI.Properties.Resources.Next_64;
-            this.btnSig.Location = new System.Drawing.Point(1126, 243);
-            this.btnSig.Name = "btnSig";
-            this.btnSig.Size = new System.Drawing.Size(106, 57);
-            this.btnSig.TabIndex = 153;
-            this.btnSig.UseVisualStyleBackColor = false;
-            this.btnSig.Click += new System.EventHandler(this.btnSig_Click);
             // 
             // label48
             // 
@@ -1067,20 +1028,6 @@
             this.lblTransferencia.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblTransferencia.UseCompatibleTextRendering = true;
             // 
-            // bntAtras
-            // 
-            this.bntAtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.bntAtras.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bntAtras.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.bntAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntAtras.Image = global::ProyectoOFI.Properties.Resources.Atras;
-            this.bntAtras.Location = new System.Drawing.Point(1299, 0);
-            this.bntAtras.Name = "bntAtras";
-            this.bntAtras.Size = new System.Drawing.Size(91, 63);
-            this.bntAtras.TabIndex = 58;
-            this.bntAtras.UseVisualStyleBackColor = false;
-            this.bntAtras.Click += new System.EventHandler(this.bntAtras_Click);
-            // 
             // PnGuardar
             // 
             this.PnGuardar.Controls.Add(this.btnGuardar);
@@ -1089,35 +1036,6 @@
             this.PnGuardar.Name = "PnGuardar";
             this.PnGuardar.Size = new System.Drawing.Size(91, 63);
             this.PnGuardar.TabIndex = 57;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnGuardar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Image = global::ProyectoOFI.Properties.Resources.icons8_ok_64;
-            this.btnGuardar.Location = new System.Drawing.Point(0, 0);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(91, 63);
-            this.btnGuardar.TabIndex = 0;
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // BtnEditar
-            // 
-            this.BtnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.BtnEditar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnEditar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEditar.Image = global::ProyectoOFI.Properties.Resources.edit_property_30px;
-            this.BtnEditar.Location = new System.Drawing.Point(1481, 0);
-            this.BtnEditar.Name = "BtnEditar";
-            this.BtnEditar.Size = new System.Drawing.Size(91, 63);
-            this.BtnEditar.TabIndex = 59;
-            this.BtnEditar.UseVisualStyleBackColor = false;
-            this.BtnEditar.Visible = false;
-            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
             // 
             // dtInventario
             // 
@@ -1168,31 +1086,12 @@
             this.dtInventario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtInventario_CellDoubleClick);
             this.dtInventario.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dtInventario_CellPainting);
             // 
-            // Eliminar
-            // 
-            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.Image = global::ProyectoOFI.Properties.Resources.Delete;
-            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eliminar.MinimumWidth = 10;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Width = 10;
-            // 
-            // Consolidar
-            // 
-            this.Consolidar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Consolidar.HeaderText = "";
-            this.Consolidar.Image = global::ProyectoOFI.Properties.Resources.join;
-            this.Consolidar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Consolidar.Name = "Consolidar";
-            this.Consolidar.ReadOnly = true;
-            // 
             // plOpciones
             // 
             this.plOpciones.BackColor = System.Drawing.Color.White;
             this.plOpciones.Controls.Add(this.PlFiltroFecha);
             this.plOpciones.Controls.Add(this.BtnRangoFecha);
+            this.plOpciones.Controls.Add(this.PbExcel);
             this.plOpciones.Controls.Add(this.PbFiltro);
             this.plOpciones.Controls.Add(this.plAgregar);
             this.plOpciones.Controls.Add(this.txtBuscador);
@@ -1212,7 +1111,7 @@
             this.PlFiltroFecha.Controls.Add(this.DtpFin);
             this.PlFiltroFecha.Controls.Add(this.BtnFiltroFecha);
             this.PlFiltroFecha.Controls.Add(this.DtpBuscar);
-            this.PlFiltroFecha.Location = new System.Drawing.Point(1219, 3);
+            this.PlFiltroFecha.Location = new System.Drawing.Point(1213, 3);
             this.PlFiltroFecha.Name = "PlFiltroFecha";
             this.PlFiltroFecha.Size = new System.Drawing.Size(341, 50);
             this.PlFiltroFecha.TabIndex = 7;
@@ -1248,7 +1147,7 @@
             // 
             // BtnRangoFecha
             // 
-            this.BtnRangoFecha.Location = new System.Drawing.Point(1116, 3);
+            this.BtnRangoFecha.Location = new System.Drawing.Point(1110, 3);
             this.BtnRangoFecha.Name = "BtnRangoFecha";
             this.BtnRangoFecha.Size = new System.Drawing.Size(97, 53);
             this.BtnRangoFecha.TabIndex = 6;
@@ -1256,17 +1155,6 @@
             this.BtnRangoFecha.UseVisualStyleBackColor = true;
             this.BtnRangoFecha.Visible = false;
             this.BtnRangoFecha.Click += new System.EventHandler(this.BtnRangoFecha_Click);
-            // 
-            // PbFiltro
-            // 
-            this.PbFiltro.Image = global::ProyectoOFI.Properties.Resources.filter_list_FILL0_wght400_GRAD0_opsz24;
-            this.PbFiltro.Location = new System.Drawing.Point(1003, 6);
-            this.PbFiltro.Name = "PbFiltro";
-            this.PbFiltro.Size = new System.Drawing.Size(64, 50);
-            this.PbFiltro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbFiltro.TabIndex = 4;
-            this.PbFiltro.TabStop = false;
-            this.PbFiltro.Click += new System.EventHandler(this.PbFiltro_Click);
             // 
             // plAgregar
             // 
@@ -1277,25 +1165,10 @@
             this.plAgregar.Size = new System.Drawing.Size(91, 62);
             this.plAgregar.TabIndex = 3;
             // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAgregar.FlatAppearance.BorderSize = 0;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAgregar.Image = global::ProyectoOFI.Properties.Resources.add_64px;
-            this.btnAgregar.Location = new System.Drawing.Point(0, 0);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(91, 62);
-            this.btnAgregar.TabIndex = 0;
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
             // txtBuscador
             // 
             this.txtBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.txtBuscador.Location = new System.Drawing.Point(792, 17);
+            this.txtBuscador.Location = new System.Drawing.Point(780, 17);
             this.txtBuscador.Name = "txtBuscador";
             this.txtBuscador.Size = new System.Drawing.Size(161, 26);
             this.txtBuscador.TabIndex = 2;
@@ -1308,8 +1181,9 @@
             this.CbBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.CbBuscar.FormattingEnabled = true;
             this.CbBuscar.Items.AddRange(new object[] {
-            "Ticket"});
-            this.CbBuscar.Location = new System.Drawing.Point(522, 16);
+            "Ticket",
+            "Calidad"});
+            this.CbBuscar.Location = new System.Drawing.Point(510, 16);
             this.CbBuscar.Name = "CbBuscar";
             this.CbBuscar.Size = new System.Drawing.Size(168, 28);
             this.CbBuscar.TabIndex = 1;
@@ -1329,7 +1203,7 @@
             "Estado Fisico",
             "Recibidor",
             "Digitador"});
-            this.CbOrdenar.Location = new System.Drawing.Point(107, 16);
+            this.CbOrdenar.Location = new System.Drawing.Point(95, 16);
             this.CbOrdenar.Name = "CbOrdenar";
             this.CbOrdenar.Size = new System.Drawing.Size(168, 28);
             this.CbOrdenar.TabIndex = 1;
@@ -1339,7 +1213,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(706, 20);
+            this.label3.Location = new System.Drawing.Point(694, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 20);
             this.label3.TabIndex = 0;
@@ -1349,7 +1223,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(291, 20);
+            this.label4.Location = new System.Drawing.Point(279, 20);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(215, 20);
             this.label4.TabIndex = 0;
@@ -1359,7 +1233,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(17, 20);
+            this.label2.Location = new System.Drawing.Point(5, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 20);
             this.label2.TabIndex = 0;
@@ -1502,18 +1376,6 @@
             this.PlCarga.Name = "PlCarga";
             this.PlCarga.Size = new System.Drawing.Size(250, 172);
             this.PlCarga.TabIndex = 10;
-            // 
-            // PbCarga
-            // 
-            this.PbCarga.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.PbCarga.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PbCarga.Image = global::ProyectoOFI.Properties.Resources.loading_12;
-            this.PbCarga.Location = new System.Drawing.Point(0, 0);
-            this.PbCarga.Name = "PbCarga";
-            this.PbCarga.Size = new System.Drawing.Size(250, 172);
-            this.PbCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbCarga.TabIndex = 0;
-            this.PbCarga.TabStop = false;
             // 
             // dataGridViewImageColumn1
             // 
@@ -1932,21 +1794,6 @@
             this.PlFiltros.TabIndex = 13;
             this.PlFiltros.Visible = false;
             // 
-            // BtnFiltrar
-            // 
-            this.BtnFiltrar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BtnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnFiltrar.Image = global::ProyectoOFI.Properties.Resources.task_alt_FILL1_wght400_GRAD0_opsz24;
-            this.BtnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnFiltrar.Location = new System.Drawing.Point(0, 336);
-            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(10);
-            this.BtnFiltrar.Name = "BtnFiltrar";
-            this.BtnFiltrar.Size = new System.Drawing.Size(233, 59);
-            this.BtnFiltrar.TabIndex = 2;
-            this.BtnFiltrar.Text = "Aplicar Filtro";
-            this.BtnFiltrar.UseVisualStyleBackColor = true;
-            this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
-            // 
             // CLBFiltros
             // 
             this.CLBFiltros.CheckOnClick = true;
@@ -1998,6 +1845,41 @@
             this.LblFiltros.Text = "Filtros";
             this.LblFiltros.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::ProyectoOFI.Properties.Resources.Delete;
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.MinimumWidth = 10;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Width = 10;
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewImageColumn3.HeaderText = "Cons";
+            this.dataGridViewImageColumn3.Image = global::ProyectoOFI.Properties.Resources.join;
+            this.dataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.ReadOnly = true;
+            // 
+            // BtnFiltrar
+            // 
+            this.BtnFiltrar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BtnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnFiltrar.Image = global::ProyectoOFI.Properties.Resources.task_alt_FILL1_wght400_GRAD0_opsz24;
+            this.BtnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnFiltrar.Location = new System.Drawing.Point(0, 336);
+            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(10);
+            this.BtnFiltrar.Name = "BtnFiltrar";
+            this.BtnFiltrar.Size = new System.Drawing.Size(233, 59);
+            this.BtnFiltrar.TabIndex = 2;
+            this.BtnFiltrar.Text = "Aplicar Filtro";
+            this.BtnFiltrar.UseVisualStyleBackColor = true;
+            this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
+            // 
             // BtnCerrar
             // 
             this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -2010,22 +1892,158 @@
             this.BtnCerrar.UseVisualStyleBackColor = true;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
-            // dataGridViewImageColumn2
+            // PbCarga
             // 
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::ProyectoOFI.Properties.Resources.Delete;
-            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn2.MinimumWidth = 10;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Width = 1092;
+            this.PbCarga.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.PbCarga.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PbCarga.Image = global::ProyectoOFI.Properties.Resources.loading_12;
+            this.PbCarga.Location = new System.Drawing.Point(0, 0);
+            this.PbCarga.Name = "PbCarga";
+            this.PbCarga.Size = new System.Drawing.Size(250, 172);
+            this.PbCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbCarga.TabIndex = 0;
+            this.PbCarga.TabStop = false;
             // 
-            // dataGridViewImageColumn3
+            // pictureBox1
             // 
-            this.dataGridViewImageColumn3.HeaderText = "Cons";
-            this.dataGridViewImageColumn3.Image = global::ProyectoOFI.Properties.Resources.join;
-            this.dataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
-            this.dataGridViewImageColumn3.Width = 546;
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.loading_12;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(83, 51);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnAnt
+            // 
+            this.btnAnt.BackColor = System.Drawing.Color.Transparent;
+            this.btnAnt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAnt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnt.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAnt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnt.Image = global::ProyectoOFI.Properties.Resources.Ant_642;
+            this.btnAnt.Location = new System.Drawing.Point(1158, 230);
+            this.btnAnt.Name = "btnAnt";
+            this.btnAnt.Size = new System.Drawing.Size(106, 57);
+            this.btnAnt.TabIndex = 154;
+            this.btnAnt.UseVisualStyleBackColor = false;
+            this.btnAnt.Click += new System.EventHandler(this.btnAnt_Click);
+            // 
+            // btnSig
+            // 
+            this.btnSig.BackColor = System.Drawing.Color.Transparent;
+            this.btnSig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSig.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnSig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSig.Image = global::ProyectoOFI.Properties.Resources.Next_64;
+            this.btnSig.Location = new System.Drawing.Point(1126, 243);
+            this.btnSig.Name = "btnSig";
+            this.btnSig.Size = new System.Drawing.Size(106, 57);
+            this.btnSig.TabIndex = 153;
+            this.btnSig.UseVisualStyleBackColor = false;
+            this.btnSig.Click += new System.EventHandler(this.btnSig_Click);
+            // 
+            // bntAtras
+            // 
+            this.bntAtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bntAtras.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bntAtras.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.bntAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntAtras.Image = global::ProyectoOFI.Properties.Resources.Atras;
+            this.bntAtras.Location = new System.Drawing.Point(1299, 0);
+            this.bntAtras.Name = "bntAtras";
+            this.bntAtras.Size = new System.Drawing.Size(91, 63);
+            this.bntAtras.TabIndex = 58;
+            this.bntAtras.UseVisualStyleBackColor = false;
+            this.bntAtras.Click += new System.EventHandler(this.bntAtras_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnGuardar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Image = global::ProyectoOFI.Properties.Resources.icons8_ok_64;
+            this.btnGuardar.Location = new System.Drawing.Point(0, 0);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(91, 63);
+            this.btnGuardar.TabIndex = 0;
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // BtnEditar
+            // 
+            this.BtnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.BtnEditar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnEditar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEditar.Image = global::ProyectoOFI.Properties.Resources.edit_property_30px;
+            this.BtnEditar.Location = new System.Drawing.Point(1481, 0);
+            this.BtnEditar.Name = "BtnEditar";
+            this.BtnEditar.Size = new System.Drawing.Size(91, 63);
+            this.BtnEditar.TabIndex = 59;
+            this.BtnEditar.UseVisualStyleBackColor = false;
+            this.BtnEditar.Visible = false;
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Image = global::ProyectoOFI.Properties.Resources.Delete;
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.MinimumWidth = 10;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Width = 10;
+            // 
+            // Consolidar
+            // 
+            this.Consolidar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Consolidar.HeaderText = "";
+            this.Consolidar.Image = global::ProyectoOFI.Properties.Resources.join;
+            this.Consolidar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Consolidar.Name = "Consolidar";
+            this.Consolidar.ReadOnly = true;
+            // 
+            // PbExcel
+            // 
+            this.PbExcel.Image = global::ProyectoOFI.Properties.Resources.sobresalir;
+            this.PbExcel.Location = new System.Drawing.Point(1038, 6);
+            this.PbExcel.Name = "PbExcel";
+            this.PbExcel.Size = new System.Drawing.Size(64, 50);
+            this.PbExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbExcel.TabIndex = 4;
+            this.PbExcel.TabStop = false;
+            this.PbExcel.Click += new System.EventHandler(this.PbExcel_Click);
+            // 
+            // PbFiltro
+            // 
+            this.PbFiltro.Image = global::ProyectoOFI.Properties.Resources.filter_list_FILL0_wght400_GRAD0_opsz24;
+            this.PbFiltro.Location = new System.Drawing.Point(948, 6);
+            this.PbFiltro.Name = "PbFiltro";
+            this.PbFiltro.Size = new System.Drawing.Size(64, 50);
+            this.PbFiltro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbFiltro.TabIndex = 4;
+            this.PbFiltro.TabStop = false;
+            this.PbFiltro.Click += new System.EventHandler(this.PbFiltro_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregar.Image = global::ProyectoOFI.Properties.Resources.add_64px;
+            this.btnAgregar.Location = new System.Drawing.Point(0, 0);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(91, 62);
+            this.btnAgregar.TabIndex = 0;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // Transferencia
             // 
@@ -2044,7 +2062,6 @@
             this.PlEnvio.ResumeLayout(false);
             this.PlRecepcion.ResumeLayout(false);
             this.PlCargaTran.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PlAlerta.ResumeLayout(false);
             this.PRecepcion.ResumeLayout(false);
             this.PRecepcion.PerformLayout();
@@ -2059,12 +2076,10 @@
             this.plOpciones.ResumeLayout(false);
             this.plOpciones.PerformLayout();
             this.PlFiltroFecha.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).EndInit();
             this.plAgregar.ResumeLayout(false);
             this.plfooter.ResumeLayout(false);
             this.plfooter.PerformLayout();
             this.PlCarga.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
             this.PnConsolidar.ResumeLayout(false);
             this.PnTickets.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtTickets)).EndInit();
@@ -2076,6 +2091,10 @@
             this.panel1.PerformLayout();
             this.PlFiltros.ResumeLayout(false);
             this.PlCerrar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2224,5 +2243,6 @@
         private System.Windows.Forms.TextBox TxtTally;
         private System.Windows.Forms.ComboBox CbCertCons;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.PictureBox PbExcel;
     }
 }

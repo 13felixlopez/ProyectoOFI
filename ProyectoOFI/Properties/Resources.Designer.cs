@@ -273,6 +273,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_nube_comprobado {
+            get {
+                object obj = ResourceManager.GetObject("icons8-nube-comprobado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_ok_32 {
             get {
                 object obj = ResourceManager.GetObject("icons8_ok_32", resourceCulture);
@@ -386,6 +396,16 @@ namespace ProyectoOFI.Properties {
         internal static System.Drawing.Bitmap Plan {
             get {
                 object obj = ResourceManager.GetObject("Plan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sobresalir {
+            get {
+                object obj = ResourceManager.GetObject("sobresalir", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -853,7 +853,14 @@ namespace ProyectoOFI.Recepcion
         {
             DataTable dt = new DataTable();
             DRecepcion funcion = new DRecepcion();
-            funcion.BuscarTK(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            if (CbBuscar.Text == "Ticket")
+            {
+                funcion.BuscarTK(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            }
+            else if (CbBuscar.Text=="Calidad")
+            {
+                funcion.BuscarCalidad(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            }
             dtInventario.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventario);
@@ -1249,6 +1256,14 @@ namespace ProyectoOFI.Recepcion
         {
             PlFiltroFecha.Visible = true;
         }
+
+        private void PbExcel_Click(object sender, EventArgs e)
+        {
+            FrmExportExcel excel = new FrmExportExcel();
+            excel.BringToFront();
+            excel.ShowDialog();
+        }
+
         private void CargarCombos()
         {
             DRecepcion funcion = new DRecepcion();

@@ -6,7 +6,6 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.Recepcion
@@ -24,7 +23,7 @@ namespace ProyectoOFI.Recepcion
         private void MostrarLotes()
         {
             DRecepcion funcion = new DRecepcion();
-            System.Data.DataTable dt = new System.Data.DataTable();
+            DataTable dt = new DataTable();
             funcion.MostrarLotesExcel(ref dt);
             DtLotes.DataSource = dt;
         }
@@ -36,7 +35,8 @@ namespace ProyectoOFI.Recepcion
 
         private void PbExcel_Click(object sender, EventArgs e)
         {
-            string fe = "Transferencias";
+            DateTime hoy=DateTime.Now;
+            string fe = "Transferencias" + hoy.ToString();
             DtExcel(DtLotes, fe);
         }
 
@@ -52,16 +52,6 @@ namespace ProyectoOFI.Recepcion
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
                         string filePath = saveFileDialog.FileName;
-
-                        // Si el archivo ya existe, añadir un sufijo numérico al nombre
-                        int fileCount = 1;
-                        while (File.Exists(filePath))
-                        {
-                            string fileName = Path.GetFileNameWithoutExtension(filePath);
-                            string fileExtension = Path.GetExtension(filePath);
-                            filePath = Path.Combine(Path.GetDirectoryName(filePath), $"{fileName}{fileCount}{fileExtension}");
-                            fileCount++;
-                        }
 
                         using (var package = new ExcelPackage())
                         {

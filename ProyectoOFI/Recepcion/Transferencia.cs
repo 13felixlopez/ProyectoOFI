@@ -1353,14 +1353,12 @@ namespace ProyectoOFI.Recepcion
         {
             PlFiltroFecha.Visible = true;
         }
-
         private void PbExcel_Click(object sender, EventArgs e)
         {
             FrmExportExcel excel = new FrmExportExcel();
             excel.BringToFront();
             excel.ShowDialog();
         }
-
         private void CbBuscador_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CbBuscador.Text == "")
@@ -1374,7 +1372,6 @@ namespace ProyectoOFI.Recepcion
                 ReiniciarPaginado();
             }
         }
-
         private void CargarCombos()
         {
             DRecepcion funcion = new DRecepcion();

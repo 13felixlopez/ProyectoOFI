@@ -72,7 +72,7 @@ namespace ProyectoOFI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1796, 74);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Control de Cafe Recepción OFI";
+            this.label1.Text = "Control de Cafe Recepción ofi";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.UseCompatibleTextRendering = true;
             // 

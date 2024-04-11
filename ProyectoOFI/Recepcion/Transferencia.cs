@@ -1293,7 +1293,7 @@ namespace ProyectoOFI.Recepcion
         private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
         {
             DRecepcion funcion = new DRecepcion();
-            if (CbBuscar.Text == "Ticket")
+            if (CbBuscar.Text == "Ticket" || CbBuscar.Text == "MTNT" || CbBuscar.Text == "Peso")
             {
                 CbBuscador.Text = "";
                 txtBuscador.Visible = true;
@@ -1331,6 +1331,8 @@ namespace ProyectoOFI.Recepcion
             txtBuscador.Clear();
             txtBuscador.Visible = false;
             CbBuscador.Visible = true;
+            CbBuscador.DataSource = null;
+            CbBuscador.SelectedIndex = -1;
         }
         private void BuscarRangoFecha()
         {

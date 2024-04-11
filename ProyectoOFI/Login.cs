@@ -16,5 +16,15 @@ namespace ProyectoOFI
         {
             InitializeComponent();
         }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void BtnInicio_Click(object sender, EventArgs e)
+        {
+            frmInicio fr=new frmInicio();
+            fr.Show();
+        }
     }
 }

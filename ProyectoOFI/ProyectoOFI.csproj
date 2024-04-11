@@ -393,5 +393,14 @@
   <ItemGroup>
     <None Include="Resources\sobresalir.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-usuario.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-bloquear.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

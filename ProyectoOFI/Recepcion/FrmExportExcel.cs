@@ -16,7 +16,6 @@ namespace ProyectoOFI.Recepcion
         public FrmExportExcel()
         {
             InitializeComponent();
-
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             MostrarLotes();
         }

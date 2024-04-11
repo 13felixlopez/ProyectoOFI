@@ -173,13 +173,14 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public bool EditarTK(LRecepcion parametros, LEnvio par)
+        public bool EditarTK(LRecepcion parametros, LEnvio par, string TicketAnteriror)
         {
             try
             {
                 Conexion.abrir();
                 SqlCommand cmd = new SqlCommand("EditarTK", Conexion.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TicketAnterior",TicketAnteriror);
                 cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
                 cmd.Parameters.AddWithValue("@FechaRecibido", parametros.FRecibido);
                 cmd.Parameters.AddWithValue("@AreaSecado", parametros.Area);

@@ -16,6 +16,7 @@ namespace ProyectoOFI.Recepcion
     public partial class Transferencia : UserControl
     {
         string Ticket;
+        string TicketAnterior;
         string Estado;
         int Contador;
         int ContarBusqueda;
@@ -28,6 +29,7 @@ namespace ProyectoOFI.Recepcion
         // Crear un arreglo bidimensional para almacenar los datos del DataTable
         object[,] dataArray;
         List<string> filtro = new List<string>();
+        private Form FrmActivo = null;
         public Transferencia()
         {
             InitializeComponent();
@@ -332,6 +334,7 @@ namespace ProyectoOFI.Recepcion
         private async void Alerta()
         {
             timerAct.Enabled = true;
+            PlAlerta.BringToFront();
             PlAlerta.Visible = true;
             await Task.Delay(2000);
             PlAlerta.Visible = false;
@@ -359,7 +362,16 @@ namespace ProyectoOFI.Recepcion
             ObtenerDatos();
             lblTransferencia.Text = "Editar Transferencia";
             AbrirFormulario();
-            txtTK.Enabled = false;
+            if (txtTK.Text.Trim().StartsWith("Cons#", StringComparison.OrdinalIgnoreCase))
+            {
+                // Si el texto inicia con "Cons#", habilitar el TextBox
+                txtTK.Enabled = true;
+            }
+            else
+            {
+                // Si no inicia con "Cons#", deshabilitar el TextBox
+                txtTK.Enabled = false;
+            }
             BtnEditar.Visible = true;
             PnGuardar.Visible = false;
         }
@@ -368,6 +380,7 @@ namespace ProyectoOFI.Recepcion
             string nombrecolumna = "Ticket";
             int indice = dtInventario.Columns[nombrecolumna].Index;
             Ticket = dtInventario.SelectedCells[indice].Value.ToString();
+            TicketAnterior = dtInventario.SelectedCells[indice].Value.ToString();
 
             string nombrecolum = "Proceso";
             int num = dtInventario.Columns[nombrecolum].Index;
@@ -885,7 +898,7 @@ namespace ProyectoOFI.Recepcion
                 ReiniciarPaginado();
                 MostrarLotes();
             }
-            else if (CbBuscar.Text=="MTNT")
+            else if (CbBuscar.Text == "MTNT")
             {
                 BuscarDatos();
                 ReiniciarPaginado();
@@ -1006,7 +1019,7 @@ namespace ProyectoOFI.Recepcion
                     par.PesoE = Convert.ToDouble(txtPesoE.Text);
                     par.Tally = TxtTally.Text;
 
-                    if (funcion.EditarTK(parametros, par) == true)
+                    if (funcion.EditarTK(parametros, par, TicketAnterior) == true)
                     {
                         DataTable dt = new DataTable();
                         funcion.MostrarLote(ref dt, desde, hasta);
@@ -1070,6 +1083,7 @@ namespace ProyectoOFI.Recepcion
         private async void CargaEditar()
         {
             PlCargaTran.Dock = DockStyle.Fill;
+            PlCargaTran.BringToFront();
             PlCargaTran.Visible = true;
             await Task.Delay(1500);
             EditarTK();
@@ -1262,15 +1276,15 @@ namespace ProyectoOFI.Recepcion
             {
                 funcion.BuscarCalidad(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
             }
-            if (CbBuscar.Text=="Certificación")
+            if (CbBuscar.Text == "Certificación")
             {
                 funcion.BuscarCert(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
             }
-            if (CbBuscar.Text=="Daño")
+            if (CbBuscar.Text == "Daño")
             {
                 funcion.BuscarDanio(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
             }
-            if (CbBuscar.Text== "Tipo Compra")
+            if (CbBuscar.Text == "Tipo Compra")
             {
                 funcion.BuscarTipoCompra(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
             }
@@ -1282,7 +1296,7 @@ namespace ProyectoOFI.Recepcion
             {
                 funcion.BuscarPeso(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
             }
-            if (CbBuscar.Text== "Área Secado")
+            if (CbBuscar.Text == "Área Secado")
             {
                 funcion.BuscarAreaSecado(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
             }
@@ -1357,7 +1371,9 @@ namespace ProyectoOFI.Recepcion
         }
         private void PbExcel_Click(object sender, EventArgs e)
         {
+            //AbrirFrm(new FrmExportExcel());
             FrmExportExcel excel = new FrmExportExcel();
+            excel.Dock = DockStyle.Fill;
             excel.BringToFront();
             excel.ShowDialog();
         }
@@ -1446,6 +1462,21 @@ namespace ProyectoOFI.Recepcion
             TxtTicketCons.Clear();
             TxtFolio.Clear();
             TxtBuscar.Clear();
+        }
+        private void AbrirFrm(Form hijo)
+        {
+            if (FrmActivo != null)
+            {
+                FrmActivo.Close();
+            }
+
+            FrmActivo = hijo;
+            hijo.TopLevel = false;
+            hijo.Dock = DockStyle.Fill;
+            PlContenedor.Controls.Add(hijo);
+            PlContenedor.Tag = hijo;
+            hijo.BringToFront();
+            hijo.Show();
         }
     }
 }

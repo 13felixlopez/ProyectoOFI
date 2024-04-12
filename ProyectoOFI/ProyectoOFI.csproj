@@ -51,9 +51,12 @@
   <ItemGroup>
     <Compile Include="Datos\Conexion.cs" />
     <Compile Include="Datos\DCatalogo.cs" />
+    <Compile Include="Datos\DModulos.cs" />
+    <Compile Include="Datos\DPermisos.cs" />
     <Compile Include="Datos\DPOAV.cs" />
     <Compile Include="Datos\DRecepcion.cs" />
     <Compile Include="Datos\DSM.cs" />
+    <Compile Include="Datos\DUsuarios.cs" />
     <Compile Include="Datos\DVerticales.cs" />
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -62,8 +65,11 @@
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Logica\LEnvio.cs" />
+    <Compile Include="Logica\LModulos.cs" />
+    <Compile Include="Logica\LPermisos.cs" />
     <Compile Include="Logica\LPOAV.cs" />
     <Compile Include="Logica\LRecepcion.cs" />
+    <Compile Include="Logica\LUsuarios.cs" />
     <Compile Include="Logica\LVertical.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -187,6 +193,12 @@
     <Compile Include="SM\TolvasVerticales.Designer.cs">
       <DependentUpon>TolvasVerticales.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usuario\UCUsuario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Usuario\UCUsuario.Designer.cs">
+      <DependentUpon>UCUsuario.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -251,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SM\TolvasVerticales.resx">
       <DependentUpon>TolvasVerticales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario\UCUsuario.resx">
+      <DependentUpon>UCUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -401,6 +416,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-bloquear.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-búsqueda.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

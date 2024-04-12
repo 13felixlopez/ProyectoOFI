@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoOFI
@@ -23,8 +16,13 @@ namespace ProyectoOFI
         }
         private void BtnInicio_Click(object sender, EventArgs e)
         {
-            frmInicio fr=new frmInicio();
-            fr.Show();
+            Logue();
+        }
+        private void Logue()
+        {
+            Dispose();
+            frmInicio fr = new frmInicio();
+            fr.ShowDialog();
         }
     }
 }

@@ -53,7 +53,7 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             finally
@@ -141,7 +141,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void BuscarTK(string Buscar, ref DataTable dt, int desde, int hasta,int Contar)
+        public void BuscarTK(string Buscar, ref DataTable dt, int desde, int hasta, int Contar)
         {
             try
             {
@@ -180,7 +180,7 @@ namespace ProyectoOFI.Datos
                 Conexion.abrir();
                 SqlCommand cmd = new SqlCommand("EditarTK", Conexion.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@TicketAnterior",TicketAnteriror);
+                cmd.Parameters.AddWithValue("@TicketAnterior", TicketAnteriror);
                 cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
                 cmd.Parameters.AddWithValue("@FechaRecibido", parametros.FRecibido);
                 cmd.Parameters.AddWithValue("@AreaSecado", parametros.Area);
@@ -195,9 +195,9 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
                 //Envio
                 cmd.Parameters.AddWithValue("@FEnvio", par.FEnvio);
-                cmd.Parameters.AddWithValue("@Agencia",par.Agencia);
+                cmd.Parameters.AddWithValue("@Agencia", par.Agencia);
                 cmd.Parameters.AddWithValue("@Acopio", par.Acopio);
-                cmd.Parameters.AddWithValue("@Cliente",par.Cliente);
+                cmd.Parameters.AddWithValue("@Cliente", par.Cliente);
                 cmd.Parameters.AddWithValue("@MTNT", par.MTNT);
                 cmd.Parameters.AddWithValue("@Tipo_Compra", par.TCompra);
                 cmd.Parameters.AddWithValue("@Certificacion", par.CertificacionE);
@@ -271,7 +271,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void MostrarAcopioAgencia(ComboBox combo,int IdAgencia)
+        public void MostrarAcopioAgencia(ComboBox combo, int IdAgencia)
         {
             try
             {
@@ -301,7 +301,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public bool Consolidar(LRecepcion parametros, LEnvio Par,List<string> lstcons,string folio)
+        public bool Consolidar(LRecepcion parametros, LEnvio Par, List<string> lstcons, string folio)
         {
             try
             {
@@ -329,15 +329,15 @@ namespace ProyectoOFI.Datos
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cmd.Parameters.Add(paramertlist);
-                cmd.Parameters.AddWithValue("@Ticket",parametros.Ticket);
-                cmd.Parameters.AddWithValue("@sacos",parametros.Sacos);
+                cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                cmd.Parameters.AddWithValue("@sacos", parametros.Sacos);
                 cmd.Parameters.AddWithValue("@Peso", parametros.Peso);
-                cmd.Parameters.AddWithValue("@Calidad",parametros.Calidad);
+                cmd.Parameters.AddWithValue("@Calidad", parametros.Calidad);
                 cmd.Parameters.AddWithValue("@Certificacion", Par.CertificacionE);
-                cmd.Parameters.AddWithValue("@EstFisico",parametros.EstadoFisico);
-                cmd.Parameters.AddWithValue("@Digitador",parametros.Digitador);
-                cmd.Parameters.AddWithValue("@FRecibido",parametros.FRecibido);
-                cmd.Parameters.AddWithValue("@Danio",parametros.Daño);
+                cmd.Parameters.AddWithValue("@EstFisico", parametros.EstadoFisico);
+                cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+                cmd.Parameters.AddWithValue("@FRecibido", parametros.FRecibido);
+                cmd.Parameters.AddWithValue("@Danio", parametros.Daño);
                 cmd.Parameters.AddWithValue("@AreaSecado", parametros.Area);
                 cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
                 cmd.Parameters.AddWithValue("@Folio", folio);
@@ -356,7 +356,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void BuscarFecha(DateTime Inicio,DateTime Fin, ref DataTable dt)
+        public void BuscarFecha(DateTime Inicio, DateTime Fin, ref DataTable dt)
         {
             try
             {

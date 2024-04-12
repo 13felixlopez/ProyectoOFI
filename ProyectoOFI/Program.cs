@@ -16,7 +16,15 @@ namespace ProyectoOFI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Login frm = new Login();
+            frm.FormClosed += Frm_FormClosed;
+            frm.ShowDialog();
             Application.Run(new Login());
+        }
+        private static void Frm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.ExitThread();
+            Application.Exit();
         }
     }
 }

@@ -41,6 +41,8 @@ namespace ProyectoOFI
             this.panel11 = new System.Windows.Forms.Panel();
             this.PlPrincipal = new System.Windows.Forms.Panel();
             this.LblPrincipal = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.BtnUser = new System.Windows.Forms.Button();
             this.BtnCatalogo = new System.Windows.Forms.Button();
             this.BtnSM = new System.Windows.Forms.Button();
             this.BtnCPatio = new System.Windows.Forms.Button();
@@ -80,6 +82,8 @@ namespace ProyectoOFI
             // plfooter
             // 
             this.plfooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(0)))), ((int)(((byte)(99)))));
+            this.plfooter.Controls.Add(this.BtnUser);
+            this.plfooter.Controls.Add(this.panel3);
             this.plfooter.Controls.Add(this.BtnCatalogo);
             this.plfooter.Controls.Add(this.panel2);
             this.plfooter.Controls.Add(this.BtnSM);
@@ -178,6 +182,35 @@ namespace ProyectoOFI
             this.LblPrincipal.TabIndex = 0;
             this.LblPrincipal.Text = "Bienvenido al \r\nSistema 👋";
             this.LblPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(0)))), ((int)(((byte)(99)))));
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(11, 391);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(186, 10);
+            this.panel3.TabIndex = 21;
+            // 
+            // BtnUser
+            // 
+            this.BtnUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.BtnUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnUser.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnUser.FlatAppearance.BorderSize = 0;
+            this.BtnUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnUser.Image = global::ProyectoOFI.Properties.Resources.icons8_magazine_50;
+            this.BtnUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnUser.Location = new System.Drawing.Point(11, 401);
+            this.BtnUser.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnUser.Name = "BtnUser";
+            this.BtnUser.Size = new System.Drawing.Size(186, 66);
+            this.BtnUser.TabIndex = 22;
+            this.BtnUser.Text = "Usuario";
+            this.BtnUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnUser.UseVisualStyleBackColor = false;
+            this.BtnUser.Click += new System.EventHandler(this.BtnUser_Click);
             // 
             // BtnCatalogo
             // 
@@ -320,6 +353,8 @@ namespace ProyectoOFI
         private System.Windows.Forms.Button BtnCatalogo;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pbIcono;
+        private System.Windows.Forms.Button BtnUser;
+        private System.Windows.Forms.Panel panel3;
     }
 }
 

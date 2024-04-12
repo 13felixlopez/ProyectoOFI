@@ -17,7 +17,21 @@ namespace ProyectoOFI.Otros
                     row.DefaultCellStyle.ForeColor = Color.FromArgb(41, 128, 185);
                 }
             }
-
+        }
+        public static void DiseñoDtv(ref DataGridView Listado)
+        {
+            Listado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            Listado.BackgroundColor = Color.FromArgb(29, 29, 29);
+            Listado.EnableHeadersVisualStyles = false;
+            Listado.BorderStyle = BorderStyle.None;
+            Listado.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            Listado.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            Listado.RowHeadersVisible = false;
+            DataGridViewCellStyle cabecera = new DataGridViewCellStyle();
+            cabecera.BackColor = Color.FromArgb(29, 29, 29);
+            cabecera.ForeColor = Color.White;
+            cabecera.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+            Listado.ColumnHeadersDefaultCellStyle = cabecera;
         }
     }
 }

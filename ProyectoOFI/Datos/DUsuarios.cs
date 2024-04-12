@@ -67,5 +67,46 @@ namespace ProyectoOFI.Datos
             }
             finally { Conexion.cerrar(); }
         }
+        public void VerificarUsuario(ref string Indicador)
+        {
+            try
+            {
+                int IdUser;
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("Select IdUser from Usuarios", Conexion.conectar);
+                IdUser = Convert.ToInt32(cmd.ExecuteScalar());
+                Conexion.cerrar();
+                Indicador = "Correcto";
+            }
+            catch (Exception)
+            {
+                Indicador = "Incorrecto";
+            }
+        }
+        public DataTable D_Usuarios(LUsuarios parametros)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("Login", Conexion.conectar)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@Login", parametros.Login);
+                cmd.Parameters.AddWithValue("@Pass", parametros.Pass);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Datos incorrectos");
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
     }
 }

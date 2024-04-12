@@ -30,25 +30,25 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.PlTitulo = new System.Windows.Forms.Panel();
+            this.BtnCerrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtUser = new System.Windows.Forms.TextBox();
             this.PlUser = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PlPass = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TxtPass = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.BtnCerrar = new System.Windows.Forms.Button();
             this.PbLogo = new System.Windows.Forms.PictureBox();
             this.PlBotones = new System.Windows.Forms.Panel();
-            this.BtnInicio = new System.Windows.Forms.Button();
             this.Lblrestablecer = new System.Windows.Forms.LinkLabel();
+            this.BtnInicio = new System.Windows.Forms.Button();
             this.PlTitulo.SuspendLayout();
             this.PlUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PlPass.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbLogo)).BeginInit();
             this.PlBotones.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +61,18 @@
             this.PlTitulo.Name = "PlTitulo";
             this.PlTitulo.Size = new System.Drawing.Size(460, 52);
             this.PlTitulo.TabIndex = 0;
+            // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrar.Location = new System.Drawing.Point(411, 0);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(49, 52);
+            this.BtnCerrar.TabIndex = 3;
+            this.BtnCerrar.UseVisualStyleBackColor = true;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // label1
             // 
@@ -102,6 +114,16 @@
             this.PlUser.Size = new System.Drawing.Size(460, 100);
             this.PlUser.TabIndex = 5;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.icons8_usuario;
+            this.pictureBox1.Location = new System.Drawing.Point(39, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(63, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
             // PlPass
             // 
             this.PlPass.Controls.Add(this.pictureBox2);
@@ -112,6 +134,16 @@
             this.PlPass.Name = "PlPass";
             this.PlPass.Size = new System.Drawing.Size(460, 100);
             this.PlPass.TabIndex = 6;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::ProyectoOFI.Properties.Resources.icons8_bloquear;
+            this.pictureBox2.Location = new System.Drawing.Point(39, 28);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(63, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
             // 
             // label3
             // 
@@ -130,38 +162,6 @@
             this.TxtPass.Name = "TxtPass";
             this.TxtPass.Size = new System.Drawing.Size(301, 26);
             this.TxtPass.TabIndex = 4;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::ProyectoOFI.Properties.Resources.icons8_bloquear;
-            this.pictureBox2.Location = new System.Drawing.Point(39, 28);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(63, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.icons8_usuario;
-            this.pictureBox1.Location = new System.Drawing.Point(39, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(63, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
-            // BtnCerrar
-            // 
-            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrar.Location = new System.Drawing.Point(411, 0);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(49, 52);
-            this.BtnCerrar.TabIndex = 3;
-            this.BtnCerrar.UseVisualStyleBackColor = true;
-            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // PbLogo
             // 
@@ -184,17 +184,6 @@
             this.PlBotones.Size = new System.Drawing.Size(460, 100);
             this.PlBotones.TabIndex = 7;
             // 
-            // BtnInicio
-            // 
-            this.BtnInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.BtnInicio.Location = new System.Drawing.Point(163, 14);
-            this.BtnInicio.Name = "BtnInicio";
-            this.BtnInicio.Size = new System.Drawing.Size(135, 44);
-            this.BtnInicio.TabIndex = 0;
-            this.BtnInicio.Text = "Iniciar Sesión";
-            this.BtnInicio.UseVisualStyleBackColor = true;
-            this.BtnInicio.Click += new System.EventHandler(this.BtnInicio_Click);
-            // 
             // Lblrestablecer
             // 
             this.Lblrestablecer.AutoSize = true;
@@ -205,6 +194,17 @@
             this.Lblrestablecer.TabIndex = 1;
             this.Lblrestablecer.TabStop = true;
             this.Lblrestablecer.Text = "¿Olvidó su contraseña?";
+            // 
+            // BtnInicio
+            // 
+            this.BtnInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.BtnInicio.Location = new System.Drawing.Point(163, 14);
+            this.BtnInicio.Name = "BtnInicio";
+            this.BtnInicio.Size = new System.Drawing.Size(135, 44);
+            this.BtnInicio.TabIndex = 0;
+            this.BtnInicio.Text = "Iniciar Sesión";
+            this.BtnInicio.UseVisualStyleBackColor = true;
+            this.BtnInicio.Click += new System.EventHandler(this.BtnInicio_Click);
             // 
             // Login
             // 
@@ -222,13 +222,14 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.PlTitulo.ResumeLayout(false);
             this.PlUser.ResumeLayout(false);
             this.PlUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PlPass.ResumeLayout(false);
             this.PlPass.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbLogo)).EndInit();
             this.PlBotones.ResumeLayout(false);
             this.PlBotones.PerformLayout();

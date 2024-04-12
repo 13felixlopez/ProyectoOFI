@@ -58,12 +58,22 @@
     <Compile Include="Datos\DSM.cs" />
     <Compile Include="Datos\DUsuarios.cs" />
     <Compile Include="Datos\DVerticales.cs" />
+    <Compile Include="Datos\NUser.cs" />
+    <Compile Include="FrmConexionIP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmConexionIP.Designer.cs">
+      <DependentUpon>FrmConexionIP.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Logica\AES.cs" />
+    <Compile Include="Logica\Desencryptacion.cs" />
+    <Compile Include="Logica\Encrip.cs" />
     <Compile Include="Logica\LEnvio.cs" />
     <Compile Include="Logica\LModulos.cs" />
     <Compile Include="Logica\LPermisos.cs" />
@@ -199,6 +209,9 @@
     <Compile Include="Usuario\UCUsuario.Designer.cs">
       <DependentUpon>UCUsuario.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmConexionIP.resx">
+      <DependentUpon>FrmConexionIP.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>

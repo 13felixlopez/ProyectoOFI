@@ -40,7 +40,6 @@ namespace ProyectoOFI.Recepcion
             await CargarDatos();
             Base.DiseñoDtvEliminar(ref dtInventario);
             PlCarga.Visible = false;
-            LblDigitador.Text = Login.NombreA;
         }
         private async Task CargarDatos()
         {
@@ -56,7 +55,7 @@ namespace ProyectoOFI.Recepcion
             CargarCombos();
             PnGuardar.Visible = true;
             BtnEditar.Visible = false;
-            LblDigitador.Text= Login.NombreA;
+            LblDigitador.Text = Login.NombreA;
         }
         private void AbrirFormulario()
         {

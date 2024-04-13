@@ -160,8 +160,10 @@
             this.TxtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.TxtPass.Location = new System.Drawing.Point(120, 52);
             this.TxtPass.Name = "TxtPass";
+            this.TxtPass.PasswordChar = '*';
             this.TxtPass.Size = new System.Drawing.Size(301, 26);
             this.TxtPass.TabIndex = 4;
+            this.TxtPass.UseSystemPasswordChar = true;
             // 
             // PbLogo
             // 

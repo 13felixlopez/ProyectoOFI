@@ -11,8 +11,7 @@ namespace ProyectoOFI
     {
         public frmInicio()
         {
-            InitializeComponent();
-
+            InitializeComponent();    
         }
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -52,6 +51,11 @@ namespace ProyectoOFI
                 Dock = DockStyle.Fill
             };
             PlPrincipal.Controls.Add(tr);
+        }
+
+        private void frmInicio_Load(object sender, EventArgs e)
+        {
+            LblPrincipal.Text = Login.NombreA + "\r\nBienvenido al \r\nSistema 👋";
         }
     }
 }

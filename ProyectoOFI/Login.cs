@@ -8,8 +8,7 @@ namespace ProyectoOFI
 {
     public partial class Login : Form
     {
-        string Usuario;
-        int IdUser;
+        
         int Contador;
         string Indicador;
         readonly NUser nuser = new NUser();
@@ -56,7 +55,7 @@ namespace ProyectoOFI
 
                     if (dt != null && dt.Rows.Count > 0)
                     {
-                        IdUser = Convert.ToInt32(dt.Rows[0][0]);
+                        Iduser = Convert.ToInt32(dt.Rows[0][0]);
                         NombreA = dt.Rows[0][1].ToString();
                         login = dt.Rows[0][6].ToString();
 
@@ -94,9 +93,7 @@ namespace ProyectoOFI
             }
             else
             {
-                //Dispose();
-                //FrmConexionIP iP = new FrmConexionIP();
-                //iP.ShowDialog();
+                login = null;
             }
         }
         private void VerificarConexion()

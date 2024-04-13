@@ -40,6 +40,7 @@ namespace ProyectoOFI.Recepcion
             await CargarDatos();
             Base.DiseñoDtvEliminar(ref dtInventario);
             PlCarga.Visible = false;
+            LblDigitador.Text = Login.NombreA;
         }
         private async Task CargarDatos()
         {
@@ -55,6 +56,7 @@ namespace ProyectoOFI.Recepcion
             CargarCombos();
             PnGuardar.Visible = true;
             BtnEditar.Visible = false;
+            LblDigitador.Text= Login.NombreA;
         }
         private void AbrirFormulario()
         {
@@ -182,7 +184,7 @@ namespace ProyectoOFI.Recepcion
             nudSacos.Value = nudSacosE.Value;
             txtKgs.Text = txtPesoE.Text;
             cbRecibidor.Text = "";
-            cbDigitador.Text = "";
+            LblDigitador.Text = "";
             plOpciones.Enabled = true;
             dtpRecibido.Value = DateTime.Today;
             LblQQs.Text = "--";
@@ -257,7 +259,7 @@ namespace ProyectoOFI.Recepcion
                 return false;
             }
             return !(txtKgs.Text == "" || txtMerma.Text == "" || txtTK.Text == "" || cbArea.Text == "" || cbCalidad.Text == "" || cbDaño.Text == ""
-            || cbDigitador.Text == "" || cbEstadoFisico.Text == "" || cbRecibidor.Text == "");
+            || cbEstadoFisico.Text == "" || cbRecibidor.Text == "");
         }
         private bool validarEditar()
         {
@@ -294,7 +296,7 @@ namespace ProyectoOFI.Recepcion
                 parametros.Peso = Convert.ToDouble(txtKgs.Text);
                 parametros.Merma = Convert.ToDouble(txtMerma.Text);
                 parametros.Recibidor = cbRecibidor.Text;
-                parametros.Digitador = cbDigitador.Text;
+                parametros.Digitador = LblDigitador.Text;
 
 
                 LEnvio par = new LEnvio();
@@ -535,7 +537,7 @@ namespace ProyectoOFI.Recepcion
                     {
                         cbRecibidor.Text = "";
                     }
-                    cbDigitador.Text = row["Digitador"].ToString();
+                    LblDigitador.Text = row["Digitador"].ToString();
                     if (row["TallySheet"].ToString() != null)
                     {
                         TxtTally.Text = row["TallySheet"].ToString();
@@ -1000,7 +1002,7 @@ namespace ProyectoOFI.Recepcion
                     parametros.Peso = Convert.ToDouble(txtKgs.Text);
                     parametros.Merma = Convert.ToDouble(txtMerma.Text);
                     parametros.Recibidor = cbRecibidor.Text;
-                    parametros.Digitador = cbDigitador.Text;
+                    parametros.Digitador = LblDigitador.Text;
 
 
                     LEnvio par = new LEnvio();

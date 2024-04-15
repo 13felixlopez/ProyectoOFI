@@ -108,5 +108,52 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public bool EliminarUser(int IdUser)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EliminarUser", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdUser", IdUser);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un erro al eliminar el Ususario, " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EditarUser(LUsuarios parametros)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EditarUser", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdUser", parametros.IdUser);
+                cmd.Parameters.AddWithValue("@NombreApellidos", parametros.NombreA);
+                cmd.Parameters.AddWithValue("@Correo", parametros.Correo);
+                cmd.Parameters.AddWithValue("@Cedula", parametros.Cedula);
+                cmd.Parameters.AddWithValue("@Login", parametros.Login);
+                cmd.Parameters.AddWithValue("@Pass", parametros.Pass);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
     }
 }

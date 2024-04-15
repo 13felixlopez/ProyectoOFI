@@ -8,7 +8,7 @@ namespace ProyectoOFI
 {
     public partial class Login : Form
     {
-        
+
         int Contador;
         string Indicador;
         readonly NUser nuser = new NUser();
@@ -33,7 +33,7 @@ namespace ProyectoOFI
         {
             Logueo();
         }
-        
+
         frmInicio fr = new frmInicio();
         private void Logueo()
         {
@@ -46,8 +46,7 @@ namespace ProyectoOFI
             {
                 DataTable dt = new DataTable();
                 parametros.Login = TxtUser.Text;
-                //parametros.Pass = Encrip.Encriptar(Encrip.Encriptar(TxtPass.Text));
-                parametros.Pass = TxtPass.Text;
+                parametros.Pass = Encrip.Encriptar(Encrip.Encriptar(TxtPass.Text));
 
                 try
                 {

@@ -58,7 +58,7 @@ namespace ProyectoOFI
             // 
             // plTitulo
             // 
-            this.plTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.plTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
             this.plTitulo.Controls.Add(this.label1);
             this.plTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.plTitulo.Location = new System.Drawing.Point(0, 0);
@@ -81,7 +81,7 @@ namespace ProyectoOFI
             // 
             // plfooter
             // 
-            this.plfooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(0)))), ((int)(((byte)(99)))));
+            this.plfooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
             this.plfooter.Controls.Add(this.BtnUser);
             this.plfooter.Controls.Add(this.panel3);
             this.plfooter.Controls.Add(this.BtnCatalogo);
@@ -122,7 +122,7 @@ namespace ProyectoOFI
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(0)))), ((int)(((byte)(99)))));
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(11, 391);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
@@ -151,7 +151,7 @@ namespace ProyectoOFI
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(0)))), ((int)(((byte)(99)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(11, 315);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
@@ -180,7 +180,7 @@ namespace ProyectoOFI
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(0)))), ((int)(((byte)(99)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(11, 238);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
@@ -219,7 +219,7 @@ namespace ProyectoOFI
             // 
             // panel9
             // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(0)))), ((int)(((byte)(99)))));
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(11, 162);
             this.panel9.Margin = new System.Windows.Forms.Padding(2);
@@ -248,7 +248,7 @@ namespace ProyectoOFI
             // 
             // panel8
             // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(3)))), ((int)(((byte)(117)))));
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(11, 91);
             this.panel8.Margin = new System.Windows.Forms.Padding(2);
@@ -269,7 +269,7 @@ namespace ProyectoOFI
             // 
             // pbIcono
             // 
-            this.pbIcono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(0)))), ((int)(((byte)(99)))));
+            this.pbIcono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
             this.pbIcono.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pbIcono.Image = global::ProyectoOFI.Properties.Resources.OFi;
             this.pbIcono.Location = new System.Drawing.Point(0, 0);
@@ -281,7 +281,7 @@ namespace ProyectoOFI
             // 
             // panel11
             // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(0)))), ((int)(((byte)(99)))));
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
             this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(2);

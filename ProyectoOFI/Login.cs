@@ -24,7 +24,6 @@ namespace ProyectoOFI
         {
             InitializeComponent();
         }
-
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -33,7 +32,6 @@ namespace ProyectoOFI
         {
             Logueo();
         }
-
         frmInicio fr = new frmInicio();
         private void Logueo()
         {
@@ -100,7 +98,6 @@ namespace ProyectoOFI
             DUsuarios funcion = new DUsuarios();
             funcion.VerificarUsuario(ref Indicador);
         }
-
         private void Login_Load(object sender, EventArgs e)
         {
             Validar_Conexion();

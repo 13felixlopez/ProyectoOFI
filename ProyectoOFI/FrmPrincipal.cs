@@ -1,8 +1,11 @@
-﻿using ProyectoOFI.Otros;
+﻿using ProyectoOFI.Datos;
+using ProyectoOFI.Logica;
+using ProyectoOFI.Otros;
 using ProyectoOFI.Recepcion;
 using ProyectoOFI.SM;
 using ProyectoOFI.Usuario;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace ProyectoOFI
@@ -55,6 +58,46 @@ namespace ProyectoOFI
         private void frmInicio_Load(object sender, EventArgs e)
         {
             LblPrincipal.Text = Login.NombreA + "\r\nBienvenido al \r\nSistema 👋";
+            ValidarPermisos();
+        }
+        private void ValidarPermisos()
+        {
+            DataTable dt = new DataTable();
+            DModulos funcion = new DModulos();
+            LPermisos parametros = new LPermisos();
+            parametros.IdUser = Login.Iduser;
+            funcion.PermisosUser(ref dt, Login.Iduser);
+            foreach (DataRow rowpermisos in dt.Rows)
+            {
+                string Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                if (Modulo == "Transferencia")
+                {
+                    btnTransferencia.Visible = true;
+                }
+                if (Modulo == "ControlPatio")
+                {
+                    BtnCPatio.Visible = true;
+                }
+                if(Modulo == "SM")
+                {
+                    BtnSM.Visible = true;
+                }
+                if ((Modulo == "Catalogo"))
+                {
+                    BtnCatalogo.Visible = true;
+                }
+                if (Modulo == "Usuarios")
+                {
+                    BtnUser.Visible = true;
+                }
+            }
+        }
+
+        private void BtnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            Dispose();
+            Login lg = new Login();
+            lg.ShowDialog();
         }
     }
 }

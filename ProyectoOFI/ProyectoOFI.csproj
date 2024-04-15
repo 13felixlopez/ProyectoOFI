@@ -436,5 +436,8 @@
   <ItemGroup>
     <None Include="Resources\icons8-ver.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cerrar-sesión.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

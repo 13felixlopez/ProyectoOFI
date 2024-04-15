@@ -15,6 +15,7 @@ namespace ProyectoOFI.Recepcion
 {
     public partial class Transferencia : UserControl
     {
+        string Modulo;
         string Ticket;
         string TicketAnterior;
         string Estado;
@@ -26,6 +27,7 @@ namespace ProyectoOFI.Recepcion
         private int items_por_pagina = 100;
         int totalPaginas;
         string Calidad, EstadoFisico, Daño, CertificacionE;
+        int ContadorEdit;
         DataTable Cons = new DataTable();
         // Crear un arreglo bidimensional para almacenar los datos del DataTable
         object[,] dataArray;
@@ -41,6 +43,7 @@ namespace ProyectoOFI.Recepcion
             await CargarDatos();
             Base.DiseñoDtvEliminar(ref dtInventario);
             PlCarga.Visible = false;
+            ValidarPermisos();
         }
         private async Task CargarDatos()
         {
@@ -364,15 +367,22 @@ namespace ProyectoOFI.Recepcion
             ObtenerDatos();
             lblTransferencia.Text = "Editar Transferencia";
             AbrirFormulario();
-            if (txtTK.Text.Trim().StartsWith("Cons#", StringComparison.OrdinalIgnoreCase))
+            if (Login.login == "Admin" || Modulo == "EditarTK")
             {
-                // Si el texto inicia con "Cons#", habilitar el TextBox
                 txtTK.Enabled = true;
             }
             else
             {
-                // Si no inicia con "Cons#", deshabilitar el TextBox
-                txtTK.Enabled = false;
+                if (txtTK.Text.Trim().StartsWith("Cons#", StringComparison.OrdinalIgnoreCase))
+                {
+                    // Si el texto inicia con "Cons#", habilitar el TextBox
+                    txtTK.Enabled = true;
+                }
+                else
+                {
+                    // Si no inicia con "Cons#", deshabilitar el TextBox
+                    txtTK.Enabled = false;
+                }
             }
             if (Consolidado == "Si")
             {
@@ -554,6 +564,14 @@ namespace ProyectoOFI.Recepcion
                     else
                     {
                         TxtTally.Text = "";
+                    }
+                    if (row["ContadorEdit"].ToString() !=null)
+                    {
+                        ContadorEdit = int.Parse(row["ContadorEdit"].ToString());
+                    }
+                    else
+                    {
+                        ContadorEdit = 0;
                     }
                 }
                 else
@@ -1011,7 +1029,8 @@ namespace ProyectoOFI.Recepcion
                     parametros.Peso = Convert.ToDouble(txtKgs.Text);
                     parametros.Merma = Convert.ToDouble(txtMerma.Text);
                     parametros.Recibidor = cbRecibidor.Text;
-                    parametros.Digitador = LblDigitador.Text;
+                    parametros.Digitador = Login.NombreA;
+                    parametros.ContadorEdit = ContadorEdit + 1;
 
 
                     LEnvio par = new LEnvio();
@@ -1029,22 +1048,27 @@ namespace ProyectoOFI.Recepcion
                     par.SacosE = Convert.ToInt32(nudSacosE.Value);
                     par.PesoE = Convert.ToDouble(txtPesoE.Text);
                     par.Tally = TxtTally.Text;
-
-                    if (funcion.EditarTK(parametros, par, TicketAnterior) == true)
+                    if (ContadorEdit < 3 || Login.login == "Admin")
                     {
-                        DataTable dt = new DataTable();
-                        funcion.MostrarLote(ref dt, desde, hasta);
-                        dtInventario.DataSource = dt;
-                        PRecepcion.Visible = false;
-                        Alerta();
-                        PlRecepcion.Visible = false;
-                        PRecepcion.Visible = false;
-                        PEnvio.Dock = DockStyle.Fill;
-                        PEnvio.Visible = true;
-                        Limpiar();
-                        txtTK.Enabled = true;
+                        if (funcion.EditarTK(parametros, par, TicketAnterior) == true)
+                        {
+                            DataTable dt = new DataTable();
+                            funcion.MostrarLote(ref dt, desde, hasta);
+                            dtInventario.DataSource = dt;
+                            PRecepcion.Visible = false;
+                            Alerta();
+                            PlRecepcion.Visible = false;
+                            PRecepcion.Visible = false;
+                            PEnvio.Dock = DockStyle.Fill;
+                            PEnvio.Visible = true;
+                            Limpiar();
+                            txtTK.Enabled = true;
+                        }
                     }
-
+                    else
+                    {
+                        MessageBox.Show("Ya supero los 3 intentos de edición, comuniquese con un administrador","Superó los intentos de edición",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                    }
                 }
                 else
                 {
@@ -1419,7 +1443,6 @@ namespace ProyectoOFI.Recepcion
             funcion.MostrarAreaSecado(cbArea);
             funcion.MostrarAreaSecado(CbAreaCons);
         }
-
         private void BtnVerCons_Click(object sender, EventArgs e)
         {
             PlVerCons.Size = new Size(1512, 422);
@@ -1433,7 +1456,6 @@ namespace ProyectoOFI.Recepcion
             DtVerCons.DataSource = dt;
             Base.DiseñoDtvEliminar(ref DtVerCons);
         }
-
         private void BtnCerrarVerCons_Click(object sender, EventArgs e)
         {
             PlVerCons.Size = new Size(129, 194);
@@ -1449,7 +1471,6 @@ namespace ProyectoOFI.Recepcion
             plOpciones.Enabled = false;
             PEnvio.Dock = DockStyle.Fill;
         }
-
         private void DtVerCons_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             if (e.RowIndex == -1 && e.ColumnIndex >= 0)
@@ -1486,7 +1507,6 @@ namespace ProyectoOFI.Recepcion
                 e.Handled = true;
             }
         }
-
         private async void CrearConsolidado()
         {
             try
@@ -1556,6 +1576,40 @@ namespace ProyectoOFI.Recepcion
             PlContenedor.Tag = hijo;
             hijo.BringToFront();
             hijo.Show();
+        }
+        private void ValidarPermisos()
+        {
+            DataTable dt = new DataTable();
+            DModulos funcion = new DModulos();
+            LPermisos parametros = new LPermisos();
+            parametros.IdUser = Login.Iduser;
+            funcion.PermisosUser(ref dt, Login.Iduser);
+            foreach (DataRow rowpermisos in dt.Rows)
+            {
+                Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                if (Modulo == "InsertarTranferencia")
+                {
+                    btnAgregar.Visible = true;
+                }
+                if (Modulo == "EditarTransferencia")
+                {
+                    BtnEditar.Visible = true;
+                    PlRecepcion.Enabled = true;
+                    PlEnvio.Enabled = true;
+                }
+                if (Modulo == "Consolidar")
+                {
+                    dtInventario.Columns["Consolidar"].Visible = true;
+                }
+                if ((Modulo == "Eliminar"))
+                {
+                    dtInventario.Columns["Eliminar"].Visible = true;
+                }
+                if (Modulo == "EditarTK")
+                {
+                    txtTK.Enabled = true;
+                }
+            }
         }
     }
 }

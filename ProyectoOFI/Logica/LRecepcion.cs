@@ -21,5 +21,6 @@ namespace ProyectoOFI.Logica
         public string Recibidor { get; set; }
         public string Digitador { get; set; }
         public string Estado { get; set; }
+        public int ContadorEdit { get; set; }
     }
 }

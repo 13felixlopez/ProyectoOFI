@@ -23,6 +23,7 @@ namespace ProyectoOFI
 
         private void BtnTransferencia_Click(object sender, EventArgs e)
         {
+            BtnUser.Enabled = true;
             PlPrincipal.Controls.Clear();
             Transferencia tr = new Transferencia
             {
@@ -47,6 +48,8 @@ namespace ProyectoOFI
 
         private void BtnUser_Click(object sender, EventArgs e)
         {
+            btnTransferencia.Enabled=true;
+            BtnUser.Enabled=false;
             PlPrincipal.Controls.Clear();
             UCUsuario tr = new UCUsuario
             {

@@ -193,6 +193,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@Merma", parametros.Merma);
                 cmd.Parameters.AddWithValue("@Recibidor", parametros.Recibidor);
                 cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+                cmd.Parameters.AddWithValue("@ContadorEdit", parametros.ContadorEdit);
                 //Envio
                 cmd.Parameters.AddWithValue("@FEnvio", par.FEnvio);
                 cmd.Parameters.AddWithValue("@Agencia", par.Agencia);

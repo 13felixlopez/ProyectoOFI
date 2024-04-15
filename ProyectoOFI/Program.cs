@@ -19,7 +19,7 @@ namespace ProyectoOFI
             Login frm = new Login();
             frm.FormClosed += Frm_FormClosed;
             frm.ShowDialog();
-            Application.Run(new Login());
+            Application.Run();
         }
         private static void Frm_FormClosed(object sender, FormClosedEventArgs e)
         {

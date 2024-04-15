@@ -34,8 +34,7 @@ namespace ProyectoOFI.Recepcion
 
         private void PbExcel_Click(object sender, EventArgs e)
         {
-            DateTime hoy=DateTime.Now;
-            string fe = "Transferencias" + hoy.ToString("dd_MM_yyyy_hh_mm_ss").ToString();
+            string fe = "Transferencias " + DateTime.Now.Day + "_" + DateTime.Today.Month + "_" + DateTime.Today.Year + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + DateTime.Now.Second;
             DtExcel(DtLotes, fe);
         }
 

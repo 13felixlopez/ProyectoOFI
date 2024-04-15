@@ -18,6 +18,7 @@ namespace ProyectoOFI.Recepcion
         string Ticket;
         string TicketAnterior;
         string Estado;
+        string Consolidado;
         int Contador;
         int ContarBusqueda;
         int desde = 1;
@@ -373,6 +374,14 @@ namespace ProyectoOFI.Recepcion
                 // Si no inicia con "Cons#", deshabilitar el TextBox
                 txtTK.Enabled = false;
             }
+            if (Consolidado == "Si")
+            {
+                BtnVerCons.Visible = true;
+            }
+            else
+            {
+                BtnVerCons.Visible = false;
+            }
             BtnEditar.Visible = true;
             PnGuardar.Visible = false;
         }
@@ -401,6 +410,7 @@ namespace ProyectoOFI.Recepcion
                 {
                     double kilos, kilose;
                     DataRow row = dt.Rows[0];
+                    Consolidado = row["Consolidado"].ToString();
                     if (DateTime.Parse(row["FEnvio"].ToString()) != null)
                     {
                         dtFEnvio.Value = DateTime.Parse(row["FEnvio"].ToString());
@@ -1409,6 +1419,74 @@ namespace ProyectoOFI.Recepcion
             funcion.MostrarAreaSecado(cbArea);
             funcion.MostrarAreaSecado(CbAreaCons);
         }
+
+        private void BtnVerCons_Click(object sender, EventArgs e)
+        {
+            PlVerCons.Size = new Size(1512, 422);
+            AbrirVerCons(PlVerCons);
+            PlVerCons.Visible = true;
+            PlRecepcion.Visible = false;
+            LblVerCons.Text = "Detalle de Consolidación de Ticket: " + txtTK.Text;
+            DRecepcion funcion = new DRecepcion();
+            DataTable dt = new DataTable();
+            funcion.VerCons(ref dt, txtTK.Text);
+            DtVerCons.DataSource = dt;
+            Base.DiseñoDtvEliminar(ref DtVerCons);
+        }
+
+        private void BtnCerrarVerCons_Click(object sender, EventArgs e)
+        {
+            PlVerCons.Size = new Size(129, 194);
+            PlVerCons.Visible = false;
+            PlRecepcion.Visible = true;
+        }
+        private void AbrirVerCons(Panel Pl)
+        {
+            Pl.Location = new Point(dtInventario.Width / 2
+                - Pl.Width / 2, dtInventario.Height / 2 - Pl.Height / 2);
+            Pl.Visible = true;
+            Pl.BringToFront();
+            plOpciones.Enabled = false;
+            PEnvio.Dock = DockStyle.Fill;
+        }
+
+        private void DtVerCons_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex == -1 && e.ColumnIndex >= 0)
+            {
+                // Determinar si la celda es de alguno de los encabezados especificados
+                string headerText = DtVerCons.Columns[e.ColumnIndex].HeaderText;
+                bool isTargetHeader = headerText == "Ticket" ||
+                                      headerText == "Fecha de Recibido" ||
+                                      headerText == "Sacos" ||
+                                      headerText == "Peso" ||
+                                      headerText == "MTNR" ||
+                                      headerText == "Área de Secado" ||
+                                      headerText == "Recibidor" ||
+                                      headerText == "Calidad" ||
+                                      headerText == "Estado Físico" ||
+                                      headerText == "Daño" ||
+                                      headerText == "Digitador";
+
+                // Definir los colores y la fuente según el tipo de encabezado
+                Color backColor = isTargetHeader ? Color.Green : Color.Blue;
+                Color textColor = Color.White;
+                Font font = new Font(DtVerCons.Font.FontFamily, 10, FontStyle.Bold);
+
+                // Dibujar el fondo
+                e.Graphics.FillRectangle(new SolidBrush(backColor), e.CellBounds);
+
+                // Dibujar el texto centrado
+                StringFormat stringFormat = new StringFormat();
+                stringFormat.Alignment = StringAlignment.Center;
+                stringFormat.LineAlignment = StringAlignment.Center;
+                e.Graphics.DrawString(headerText, font, new SolidBrush(textColor), e.CellBounds, stringFormat);
+
+                // Indicar que ya se ha manejado el evento de pintura
+                e.Handled = true;
+            }
+        }
+
         private async void CrearConsolidado()
         {
             try

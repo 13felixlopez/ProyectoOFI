@@ -38,9 +38,8 @@ namespace ProyectoOFI
 
         private void BtnCatalogo_Click(object sender, EventArgs e)
         {
-            this.Hide();
             FrmConfig Cg = new FrmConfig();
-            Cg.ShowDialog();
+            Cg.Show();
         }
 
         private void BtnUser_Click(object sender, EventArgs e)

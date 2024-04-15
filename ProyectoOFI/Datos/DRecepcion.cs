@@ -220,87 +220,6 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void MostrarTKConsolidar(ref DataTable dt, LRecepcion parametros, LEnvio par)
-        {
-            try
-            {
-                Conexion.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("MostrarTKConsolidar", Conexion.conectar);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Calidad", parametros.Calidad);
-                da.SelectCommand.Parameters.AddWithValue("@Cert", par.CertificacionE);
-                da.SelectCommand.Parameters.AddWithValue("@EsFi", parametros.EstadoFisico);
-                da.SelectCommand.Parameters.AddWithValue("@Danio", parametros.Daño);
-                da.Fill(dt);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                Conexion.cerrar();
-            }
-        }
-        public void MostrarAgencia(ComboBox combo)
-        {
-            try
-            {
-                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("MostrarAgencias", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter cb = new SqlDataAdapter(da);
-                DataTable dt = new DataTable();
-                cb.Fill(dt);
-                combo.ValueMember = "IdAgencia";
-                combo.DisplayMember = "Agencia";
-                combo.DataSource = dt;
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    lista.Add(dt.Rows[i]["Agencia"].ToString());
-                }
-                combo.AutoCompleteCustomSource = lista;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                Conexion.cerrar();
-            }
-        }
-        public void MostrarAcopioAgencia(ComboBox combo, int IdAgencia)
-        {
-            try
-            {
-                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("MostrarAcopioAgencia", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                da.Parameters.AddWithValue("@IdAgencia", IdAgencia);
-                SqlDataAdapter cb = new SqlDataAdapter(da);
-                DataTable dt = new DataTable();
-                cb.Fill(dt);
-                combo.ValueMember = "IdAcopio";
-                combo.DisplayMember = "Acopio";
-                combo.DataSource = dt;
-                for (int i = 0; i < dt.Rows.Count; i++)
-                {
-                    lista.Add(dt.Rows[i]["Acopio"].ToString());
-                }
-                combo.AutoCompleteCustomSource = lista;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                Conexion.cerrar();
-            }
-        }
         public bool Consolidar(LRecepcion parametros, LEnvio Par, List<string> lstcons, string folio)
         {
             try
@@ -370,6 +289,88 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        #region Mostrar
+        public void MostrarAcopioAgencia(ComboBox combo, int IdAgencia)
+        {
+            try
+            {
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("MostrarAcopioAgencia", Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+                da.Parameters.AddWithValue("@IdAgencia", IdAgencia);
+                SqlDataAdapter cb = new SqlDataAdapter(da);
+                DataTable dt = new DataTable();
+                cb.Fill(dt);
+                combo.ValueMember = "IdAcopio";
+                combo.DisplayMember = "Acopio";
+                combo.DataSource = dt;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    lista.Add(dt.Rows[i]["Acopio"].ToString());
+                }
+                combo.AutoCompleteCustomSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarTKConsolidar(ref DataTable dt, LRecepcion parametros, LEnvio par)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("MostrarTKConsolidar", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Calidad", parametros.Calidad);
+                da.SelectCommand.Parameters.AddWithValue("@Cert", par.CertificacionE);
+                da.SelectCommand.Parameters.AddWithValue("@EsFi", parametros.EstadoFisico);
+                da.SelectCommand.Parameters.AddWithValue("@Danio", parametros.Daño);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarAgencia(ComboBox combo)
+        {
+            try
+            {
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("MostrarAgencias", Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter cb = new SqlDataAdapter(da);
+                DataTable dt = new DataTable();
+                cb.Fill(dt);
+                combo.ValueMember = "IdAgencia";
+                combo.DisplayMember = "Agencia";
+                combo.DataSource = dt;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    lista.Add(dt.Rows[i]["Agencia"].ToString());
+                }
+                combo.AutoCompleteCustomSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -626,6 +627,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        #endregion
         #region Buscadores
         public void BuscarTkExcel(string Buscar, ref DataTable dt)
         {
@@ -873,5 +875,24 @@ namespace ProyectoOFI.Datos
             }
         }
         #endregion
+        public void VerCons(ref DataTable dt,string TkPadre)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da=new SqlDataAdapter("VerCons",Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Ticket", TkPadre);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
     }
 }

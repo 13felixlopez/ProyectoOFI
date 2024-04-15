@@ -433,5 +433,8 @@
   <ItemGroup>
     <None Include="Resources\icons8-búsqueda.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-ver.gif" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -283,6 +283,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_historial_médico {
+            get {
+                object obj = ResourceManager.GetObject("icons8-historial-médico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_humedad {
             get {
                 object obj = ResourceManager.GetObject("icons8-humedad", resourceCulture);

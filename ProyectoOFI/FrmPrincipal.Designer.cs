@@ -42,6 +42,8 @@ namespace ProyectoOFI
             this.panel11 = new System.Windows.Forms.Panel();
             this.PlPrincipal = new System.Windows.Forms.Panel();
             this.LblPrincipal = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.BtnHistorial = new System.Windows.Forms.Button();
             this.BtnCerrarSesion = new System.Windows.Forms.Button();
             this.BtnUser = new System.Windows.Forms.Button();
             this.BtnCatalogo = new System.Windows.Forms.Button();
@@ -83,6 +85,8 @@ namespace ProyectoOFI
             // plfooter
             // 
             this.plfooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
+            this.plfooter.Controls.Add(this.BtnHistorial);
+            this.plfooter.Controls.Add(this.panel5);
             this.plfooter.Controls.Add(this.BtnCerrarSesion);
             this.plfooter.Controls.Add(this.BtnUser);
             this.plfooter.Controls.Add(this.panel3);
@@ -176,7 +180,7 @@ namespace ProyectoOFI
             // 
             // PlPrincipal
             // 
-            this.PlPrincipal.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.PlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
             this.PlPrincipal.Controls.Add(this.LblPrincipal);
             this.PlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlPrincipal.Location = new System.Drawing.Point(191, 74);
@@ -186,14 +190,45 @@ namespace ProyectoOFI
             // 
             // LblPrincipal
             // 
+            this.LblPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(181)))));
             this.LblPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LblPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPrincipal.ForeColor = System.Drawing.Color.White;
             this.LblPrincipal.Location = new System.Drawing.Point(0, 0);
             this.LblPrincipal.Name = "LblPrincipal";
             this.LblPrincipal.Size = new System.Drawing.Size(1605, 884);
             this.LblPrincipal.TabIndex = 0;
             this.LblPrincipal.Text = "Bienvenido al \r\nSistema 👋";
             this.LblPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(11, 467);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(180, 10);
+            this.panel5.TabIndex = 24;
+            // 
+            // BtnHistorial
+            // 
+            this.BtnHistorial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.BtnHistorial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnHistorial.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnHistorial.FlatAppearance.BorderSize = 0;
+            this.BtnHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnHistorial.Image = global::ProyectoOFI.Properties.Resources.icons8_historial_médico;
+            this.BtnHistorial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnHistorial.Location = new System.Drawing.Point(11, 477);
+            this.BtnHistorial.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnHistorial.Name = "BtnHistorial";
+            this.BtnHistorial.Size = new System.Drawing.Size(180, 66);
+            this.BtnHistorial.TabIndex = 25;
+            this.BtnHistorial.Text = "Historial";
+            this.BtnHistorial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnHistorial.UseVisualStyleBackColor = false;
+            this.BtnHistorial.Click += new System.EventHandler(this.BtnHistorial_Click);
             // 
             // BtnCerrarSesion
             // 
@@ -375,6 +410,8 @@ namespace ProyectoOFI
         private System.Windows.Forms.Button BtnUser;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button BtnCerrarSesion;
+        private System.Windows.Forms.Button BtnHistorial;
+        private System.Windows.Forms.Panel panel5;
     }
 }
 

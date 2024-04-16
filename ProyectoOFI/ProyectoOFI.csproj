@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Datos\Conexion.cs" />
     <Compile Include="Datos\DCatalogo.cs" />
+    <Compile Include="Datos\DHistorial.cs" />
     <Compile Include="Datos\DModulos.cs" />
     <Compile Include="Datos\DPermisos.cs" />
     <Compile Include="Datos\DPOAV.cs" />
@@ -185,6 +186,12 @@
     <Compile Include="Recepcion\Transferencia.Designer.cs">
       <DependentUpon>Transferencia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\FrmHistorial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FrmHistorial.Designer.cs">
+      <DependentUpon>FrmHistorial.cs</DependentUpon>
+    </Compile>
     <Compile Include="SM\SecadoMecanico.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -268,6 +275,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recepcion\Transferencia.resx">
       <DependentUpon>Transferencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FrmHistorial.resx">
+      <DependentUpon>FrmHistorial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SM\SecadoMecanico.resx">
       <DependentUpon>SecadoMecanico.cs</DependentUpon>
@@ -443,6 +453,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ofi2024.sql" />
+    <None Include="Resources\icons8-historial-médico.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

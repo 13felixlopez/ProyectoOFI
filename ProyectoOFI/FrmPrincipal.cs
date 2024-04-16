@@ -2,6 +2,7 @@
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
 using ProyectoOFI.Recepcion;
+using ProyectoOFI.Reportes;
 using ProyectoOFI.SM;
 using ProyectoOFI.Usuario;
 using System;
@@ -101,6 +102,12 @@ namespace ProyectoOFI
             Dispose();
             Login lg = new Login();
             lg.ShowDialog();
+        }
+
+        private void BtnHistorial_Click(object sender, EventArgs e)
+        {
+            FrmHistorial HI=new FrmHistorial();
+            HI.ShowDialog();
         }
     }
 }

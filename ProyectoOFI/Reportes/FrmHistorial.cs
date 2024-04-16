@@ -68,7 +68,6 @@ namespace ProyectoOFI.Reportes
             }
             Paginar();
         }
-
         private void btn_Sig_Click(object sender, EventArgs e)
         {
             desde += 10;
@@ -87,7 +86,6 @@ namespace ProyectoOFI.Reportes
             }
             Paginar();
         }
-
         private void btn_Ultima_Click(object sender, EventArgs e)
         {
             hasta = totalPaginas * items_por_pagina;
@@ -106,7 +104,6 @@ namespace ProyectoOFI.Reportes
             }
             Paginar();
         }
-
         private void btn_Primera_Click(object sender, EventArgs e)
         {
             ReiniciarPaginado();

@@ -368,7 +368,7 @@ namespace ProyectoOFI.Recepcion
             ObtenerDatos();
             lblTransferencia.Text = "Editar Transferencia";
             AbrirFormulario();
-            if (Login.login == "Admin" || Modulo == "EditarTK")
+            if (Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase) || Modulo == "EditarTK")
             {
                 txtTK.Enabled = true;
             }
@@ -1050,7 +1050,7 @@ namespace ProyectoOFI.Recepcion
                     par.SacosE = Convert.ToInt32(nudSacosE.Value);
                     par.PesoE = Convert.ToDouble(txtPesoE.Text);
                     par.Tally = TxtTally.Text;
-                    if (ContadorEdit < 3 || Login.login == "Admin")
+                    if (ContadorEdit < 3 || Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
                     {
                         if (funcion.EditarTK(parametros, par, TicketAnterior) == true)
                         {

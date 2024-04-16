@@ -21,7 +21,7 @@ namespace ProyectoOFI.Otros
         public static void DiseñoDtv(ref DataGridView Listado)
         {
             Listado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            Listado.BackgroundColor = Color.FromArgb(29, 29, 29);
+            Listado.BackgroundColor = Color.FromArgb(192, 192, 192);
             Listado.EnableHeadersVisualStyles = false;
             Listado.BorderStyle = BorderStyle.None;
             Listado.CellBorderStyle = DataGridViewCellBorderStyle.None;

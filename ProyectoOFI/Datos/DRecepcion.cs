@@ -129,7 +129,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("select Count(Ticket) from Recepcion", Conexion.conectar);
+                SqlCommand cmd = new SqlCommand("select Count(Ticket) from Recepcion Where Estado='ACTIVO'", Conexion.conectar);
                 Contador = Convert.ToInt32(cmd.ExecuteScalar());
             }
             catch (Exception)

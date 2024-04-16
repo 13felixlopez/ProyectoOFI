@@ -177,6 +177,7 @@
             this.DtUser.AllowUserToOrderColumns = true;
             this.DtUser.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtUser.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DtUser.BackgroundColor = System.Drawing.Color.Silver;
             this.DtUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar,

@@ -44,6 +44,7 @@ namespace ProyectoOFI.Recepcion
             Base.DiseñoDtvEliminar(ref dtInventario);
             PlCarga.Visible = false;
             ValidarPermisos();
+            dtInventario.Columns["Estado"].Visible = false;
         }
         private async Task CargarDatos()
         {

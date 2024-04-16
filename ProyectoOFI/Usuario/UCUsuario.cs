@@ -27,6 +27,7 @@ namespace ProyectoOFI.Usuario
             HabilitarPaneles();
             MostrarUsuarios();
             MostrarModulos();
+            PlPass.Visible = true;
             contraseñaGenerada = Validaciones.GenerarContraseñaAleatoria();
             txtContraseña.Text = contraseñaGenerada;
             Validaciones.ActualizarVisibilidadEtiquetas(contraseñaGenerada, lblMayu, lblMin, lblNum);
@@ -189,7 +190,7 @@ namespace ProyectoOFI.Usuario
                 DtPermisos.Enabled = true;
             }
             txtContraseña.Text = Encrip.DesEncriptar(Encrip.DesEncriptar(DtUser.SelectedCells[6].Value.ToString()));
-
+            PlPass.Visible = false;
             PlRegistro.Visible = true;
             PlRegistro.Dock = DockStyle.Fill;
             btnActualizar.Visible = true;

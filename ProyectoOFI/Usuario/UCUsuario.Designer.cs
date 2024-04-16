@@ -78,6 +78,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.PlPass = new System.Windows.Forms.Panel();
             this.Plheader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbBuscar)).BeginInit();
             this.panel1.SuspendLayout();
@@ -86,6 +87,7 @@
             this.PlPermisos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtPermisos)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            this.PlPass.SuspendLayout();
             this.SuspendLayout();
             // 
             // Plheader
@@ -198,28 +200,13 @@
             // 
             // PlRegistro
             // 
+            this.PlRegistro.Controls.Add(this.PlPass);
             this.PlRegistro.Controls.Add(this.panel11);
             this.PlRegistro.Controls.Add(this.TxtUser);
             this.PlRegistro.Controls.Add(this.label20);
             this.PlRegistro.Controls.Add(this.btnVolverPersonal);
             this.PlRegistro.Controls.Add(this.PlPermisos);
-            this.PlRegistro.Controls.Add(this.label19);
             this.PlRegistro.Controls.Add(this.flowLayoutPanel1);
-            this.PlRegistro.Controls.Add(this.label18);
-            this.PlRegistro.Controls.Add(this.lblCarEsp);
-            this.PlRegistro.Controls.Add(this.label17);
-            this.PlRegistro.Controls.Add(this.lblNum);
-            this.PlRegistro.Controls.Add(this.label16);
-            this.PlRegistro.Controls.Add(this.lblMin);
-            this.PlRegistro.Controls.Add(this.lblMayu);
-            this.PlRegistro.Controls.Add(this.label13);
-            this.PlRegistro.Controls.Add(this.LblPass);
-            this.PlRegistro.Controls.Add(this.panel8);
-            this.PlRegistro.Controls.Add(this.label7);
-            this.PlRegistro.Controls.Add(this.panel10);
-            this.PlRegistro.Controls.Add(this.label12);
-            this.PlRegistro.Controls.Add(this.txtContraseña);
-            this.PlRegistro.Controls.Add(this.label6);
             this.PlRegistro.Controls.Add(this.lblCorreo);
             this.PlRegistro.Controls.Add(this.LblUser);
             this.PlRegistro.Controls.Add(this.lblNombreApellidos);
@@ -330,7 +317,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.DimGray;
-            this.label19.Location = new System.Drawing.Point(308, 367);
+            this.label19.Location = new System.Drawing.Point(277, 75);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(106, 15);
             this.label19.TabIndex = 658;
@@ -386,7 +373,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.DimGray;
-            this.label18.Location = new System.Drawing.Point(308, 341);
+            this.label18.Location = new System.Drawing.Point(277, 57);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(56, 15);
             this.label18.TabIndex = 659;
@@ -397,7 +384,7 @@
             this.lblCarEsp.AutoSize = true;
             this.lblCarEsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCarEsp.ForeColor = System.Drawing.Color.DimGray;
-            this.lblCarEsp.Location = new System.Drawing.Point(308, 367);
+            this.lblCarEsp.Location = new System.Drawing.Point(277, 75);
             this.lblCarEsp.Name = "lblCarEsp";
             this.lblCarEsp.Size = new System.Drawing.Size(106, 15);
             this.lblCarEsp.TabIndex = 658;
@@ -408,7 +395,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.DimGray;
-            this.label17.Location = new System.Drawing.Point(220, 367);
+            this.label17.Location = new System.Drawing.Point(189, 75);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(68, 15);
             this.label17.TabIndex = 660;
@@ -419,7 +406,7 @@
             this.lblNum.AutoSize = true;
             this.lblNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNum.ForeColor = System.Drawing.Color.DimGray;
-            this.lblNum.Location = new System.Drawing.Point(308, 341);
+            this.lblNum.Location = new System.Drawing.Point(277, 57);
             this.lblNum.Name = "lblNum";
             this.lblNum.Size = new System.Drawing.Size(56, 15);
             this.lblNum.TabIndex = 659;
@@ -430,7 +417,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.DimGray;
-            this.label16.Location = new System.Drawing.Point(220, 341);
+            this.label16.Location = new System.Drawing.Point(189, 57);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(70, 15);
             this.label16.TabIndex = 657;
@@ -441,7 +428,7 @@
             this.lblMin.AutoSize = true;
             this.lblMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMin.ForeColor = System.Drawing.Color.DimGray;
-            this.lblMin.Location = new System.Drawing.Point(220, 367);
+            this.lblMin.Location = new System.Drawing.Point(189, 75);
             this.lblMin.Name = "lblMin";
             this.lblMin.Size = new System.Drawing.Size(68, 15);
             this.lblMin.TabIndex = 660;
@@ -452,7 +439,7 @@
             this.lblMayu.AutoSize = true;
             this.lblMayu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMayu.ForeColor = System.Drawing.Color.DimGray;
-            this.lblMayu.Location = new System.Drawing.Point(220, 341);
+            this.lblMayu.Location = new System.Drawing.Point(189, 57);
             this.lblMayu.Name = "lblMayu";
             this.lblMayu.Size = new System.Drawing.Size(70, 15);
             this.lblMayu.TabIndex = 657;
@@ -462,7 +449,7 @@
             // 
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.DimGray;
-            this.label13.Location = new System.Drawing.Point(496, 290);
+            this.label13.Location = new System.Drawing.Point(465, 6);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(103, 53);
             this.label13.TabIndex = 655;
@@ -473,7 +460,7 @@
             this.LblPass.AutoSize = true;
             this.LblPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblPass.ForeColor = System.Drawing.Color.Red;
-            this.LblPass.Location = new System.Drawing.Point(466, 303);
+            this.LblPass.Location = new System.Drawing.Point(435, 19);
             this.LblPass.Name = "LblPass";
             this.LblPass.Size = new System.Drawing.Size(21, 26);
             this.LblPass.TabIndex = 656;
@@ -482,7 +469,7 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel8.Location = new System.Drawing.Point(174, 329);
+            this.panel8.Location = new System.Drawing.Point(143, 45);
             this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(280, 1);
@@ -492,7 +479,7 @@
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(496, 290);
+            this.label7.Location = new System.Drawing.Point(465, 6);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(103, 53);
             this.label7.TabIndex = 655;
@@ -501,7 +488,7 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel10.Location = new System.Drawing.Point(174, 329);
+            this.panel10.Location = new System.Drawing.Point(143, 45);
             this.panel10.Margin = new System.Windows.Forms.Padding(2);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(280, 1);
@@ -510,7 +497,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(62, 306);
+            this.label12.Location = new System.Drawing.Point(31, 22);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(96, 20);
@@ -522,7 +509,7 @@
             this.txtContraseña.BackColor = System.Drawing.SystemColors.Control;
             this.txtContraseña.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseña.Location = new System.Drawing.Point(174, 303);
+            this.txtContraseña.Location = new System.Drawing.Point(143, 19);
             this.txtContraseña.Margin = new System.Windows.Forms.Padding(2);
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(280, 26);
@@ -532,7 +519,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(62, 306);
+            this.label6.Location = new System.Drawing.Point(31, 22);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 20);
@@ -674,6 +661,29 @@
             this.label1.TabIndex = 640;
             this.label1.Text = "Nombre y apellidos:";
             // 
+            // PlPass
+            // 
+            this.PlPass.Controls.Add(this.txtContraseña);
+            this.PlPass.Controls.Add(this.label6);
+            this.PlPass.Controls.Add(this.label12);
+            this.PlPass.Controls.Add(this.panel10);
+            this.PlPass.Controls.Add(this.label7);
+            this.PlPass.Controls.Add(this.panel8);
+            this.PlPass.Controls.Add(this.label19);
+            this.PlPass.Controls.Add(this.LblPass);
+            this.PlPass.Controls.Add(this.label13);
+            this.PlPass.Controls.Add(this.label18);
+            this.PlPass.Controls.Add(this.lblMayu);
+            this.PlPass.Controls.Add(this.lblCarEsp);
+            this.PlPass.Controls.Add(this.lblMin);
+            this.PlPass.Controls.Add(this.label17);
+            this.PlPass.Controls.Add(this.label16);
+            this.PlPass.Controls.Add(this.lblNum);
+            this.PlPass.Location = new System.Drawing.Point(41, 288);
+            this.PlPass.Name = "PlPass";
+            this.PlPass.Size = new System.Drawing.Size(577, 104);
+            this.PlPass.TabIndex = 667;
+            // 
             // UCUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -695,6 +705,8 @@
             this.PlPermisos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtPermisos)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.PlPass.ResumeLayout(false);
+            this.PlPass.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -751,5 +763,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
+        private System.Windows.Forms.Panel PlPass;
     }
 }

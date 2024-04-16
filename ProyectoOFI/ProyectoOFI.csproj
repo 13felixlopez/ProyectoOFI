@@ -209,6 +209,7 @@
     <Compile Include="Usuario\UCUsuario.Designer.cs">
       <DependentUpon>UCUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usuario\Validaciones.cs" />
     <EmbeddedResource Include="FrmConexionIP.resx">
       <DependentUpon>FrmConexionIP.cs</DependentUpon>
     </EmbeddedResource>

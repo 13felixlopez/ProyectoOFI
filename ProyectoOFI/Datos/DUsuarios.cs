@@ -19,7 +19,6 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@Pass", parametros.Pass);
                 cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
                 cmd.Parameters.AddWithValue("@Correo", parametros.Correo);
-                cmd.Parameters.AddWithValue("@Cedula", parametros.Cedula);
                 cmd.Parameters.AddWithValue("@Login", parametros.Login);
                 cmd.ExecuteNonQuery();
                 return true;
@@ -139,7 +138,6 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@IdUser", parametros.IdUser);
                 cmd.Parameters.AddWithValue("@NombreApellidos", parametros.NombreA);
                 cmd.Parameters.AddWithValue("@Correo", parametros.Correo);
-                cmd.Parameters.AddWithValue("@Cedula", parametros.Cedula);
                 cmd.Parameters.AddWithValue("@Login", parametros.Login);
                 cmd.Parameters.AddWithValue("@Pass", parametros.Pass);
                 cmd.ExecuteNonQuery();

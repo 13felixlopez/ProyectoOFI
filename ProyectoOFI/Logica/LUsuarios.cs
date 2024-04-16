@@ -13,7 +13,6 @@ namespace ProyectoOFI.Logica
         public string Pass { get; set; }
         public string Estado { get; set; }
         public string Correo { get; set; }
-        public string Cedula { get; set; }
         public string Login { get; set; }
     }
 }

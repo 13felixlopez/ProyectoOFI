@@ -54,7 +54,7 @@ namespace ProyectoOFI
                     {
                         Iduser = Convert.ToInt32(dt.Rows[0][0]);
                         NombreA = dt.Rows[0][1].ToString();
-                        login = dt.Rows[0][6].ToString();
+                        login = dt.Rows[0][5].ToString();
 
                         Pass = dt.Rows[0][2].ToString();
                         Correo = dt.Rows[0][4].ToString();

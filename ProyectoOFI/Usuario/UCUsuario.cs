@@ -3,6 +3,7 @@ using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
 using System;
 using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -13,6 +14,8 @@ namespace ProyectoOFI.Usuario
         int IdUser;
         string Estado;
         string login;
+        string contraseñaGenerada;
+        private bool labelsVerdes = false;
         public UCUsuario()
         {
             InitializeComponent();
@@ -24,6 +27,9 @@ namespace ProyectoOFI.Usuario
             HabilitarPaneles();
             MostrarUsuarios();
             MostrarModulos();
+            contraseñaGenerada = Validaciones.GenerarContraseñaAleatoria();
+            txtContraseña.Text = contraseñaGenerada;
+            Validaciones.ActualizarVisibilidadEtiquetas(contraseñaGenerada, lblMayu, lblMin, lblNum);
         }
         private void MostrarModulos()
         {
@@ -38,7 +44,7 @@ namespace ProyectoOFI.Usuario
             txtNombreApellidos.Clear();
             txtCorreo.Clear();
             txtContraseña.Clear();
-            TxtCedula.Clear();
+            TxtUser.Clear();
             Plheader.Visible = false;
         }
         private void HabilitarPaneles()
@@ -49,33 +55,24 @@ namespace ProyectoOFI.Usuario
             btnGuardar.Visible = true;
             btnActualizar.Visible = false;
         }
-
         private void btnVolverPersonal_Click(object sender, EventArgs e)
         {
             PlRegistro.Visible = false;
             Plheader.Visible = true;
         }
-
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtNombreApellidos.Text))
             {
                 if (!string.IsNullOrEmpty(txtCorreo.Text))
                 {
-                    if (!string.IsNullOrEmpty(TxtCedula.Text))
+                    if (!string.IsNullOrEmpty(txtContraseña.Text))
                     {
-                        if (!string.IsNullOrEmpty(txtContraseña.Text))
-                        {
-                            InsertarUser();
-                        }
-                        else
-                        {
-                            MessageBox.Show("La contraseña ingresada no cumple con los requerimientos necesarios", "ERROR Contraseña", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                        InsertarUser();
                     }
                     else
                     {
-                        MessageBox.Show("Ingrese la cudula", "Error Cedula", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("La contraseña ingresada no cumple con los requerimientos necesarios", "ERROR Contraseña", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
@@ -95,7 +92,6 @@ namespace ProyectoOFI.Usuario
             parametros.NombreA = txtNombreApellidos.Text;
             parametros.Pass = Encrip.Encriptar(Encrip.Encriptar(txtContraseña.Text));
             parametros.Correo = txtCorreo.Text;
-            parametros.Cedula = TxtCedula.Text;
             parametros.Login = TxtUser.Text;
             if (funcion.InsertarUsuario(parametros) == true)
             {
@@ -126,7 +122,6 @@ namespace ProyectoOFI.Usuario
             MostrarUsuarios();
             PlRegistro.Visible = false;
         }
-
         private void MostrarUsuarios()
         {
             DataTable dt = new DataTable();
@@ -135,7 +130,6 @@ namespace ProyectoOFI.Usuario
             DtUser.DataSource = dt;
             DiseñarDtvUsuarios();
         }
-
         private void UCUsuario_Load(object sender, EventArgs e)
         {
             MostrarUsuarios();
@@ -146,7 +140,6 @@ namespace ProyectoOFI.Usuario
             DtUser.Columns["IdUser"].Visible = false;
             DtUser.Columns["Pass"].Visible = false;
         }
-
         private void DtUser_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == DtUser.Columns["Editar"].Index)
@@ -156,7 +149,7 @@ namespace ProyectoOFI.Usuario
             }
             if (e.ColumnIndex == DtUser.Columns["Eliminar"].Index)
             {
-                string admin = DtUser.SelectedCells[6].Value.ToString();
+                string admin = DtUser.SelectedCells[5].Value.ToString();
                 DialogResult resultado = MessageBox.Show("¿Realmente desea eliminar este Registro?", "Eliminando registros", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (resultado == DialogResult.OK)
                 {
@@ -167,26 +160,24 @@ namespace ProyectoOFI.Usuario
                     }
                     else
                     {
-                        MessageBox.Show("No se puede eliminar el usuario Admin","ERROR",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("No se puede eliminar el usuario Admin", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
 
             }
         }
-
         private void capturarIdUsuario()
         {
             IdUser = Convert.ToInt32(DtUser.SelectedCells[2].Value);
-            login = DtUser.SelectedCells[6].Value.ToString();
+            login = DtUser.SelectedCells[5].Value.ToString();
         }
-
         private void ObtenerDatos()
         {
+            Limpiar();
             capturarIdUsuario();
             txtNombreApellidos.Text = DtUser.SelectedCells[3].Value.ToString();
-            TxtUser.Text = DtUser.SelectedCells[6].Value.ToString();
+            TxtUser.Text = DtUser.SelectedCells[5].Value.ToString();
             txtCorreo.Text = DtUser.SelectedCells[4].Value.ToString();
-            TxtCedula.Text = DtUser.SelectedCells[5].Value.ToString();
             if (TxtUser.Text == "Admin")
             {
                 TxtUser.Enabled = false;
@@ -197,7 +188,7 @@ namespace ProyectoOFI.Usuario
                 TxtUser.Enabled = true;
                 DtPermisos.Enabled = true;
             }
-            txtContraseña.Text = Encrip.DesEncriptar(Encrip.DesEncriptar(DtUser.SelectedCells[7].Value.ToString()));
+            txtContraseña.Text = Encrip.DesEncriptar(Encrip.DesEncriptar(DtUser.SelectedCells[6].Value.ToString()));
 
             PlRegistro.Visible = true;
             PlRegistro.Dock = DockStyle.Fill;
@@ -206,7 +197,6 @@ namespace ProyectoOFI.Usuario
             MostrarModulos();
             MostrarPermisos();
         }
-
         private void MostrarPermisos()
         {
             DataTable dt = new DataTable();
@@ -227,7 +217,6 @@ namespace ProyectoOFI.Usuario
                 }
             }
         }
-
         private void EliminarUser()
         {
             string nombrecolumna = "IdUser";
@@ -239,12 +228,10 @@ namespace ProyectoOFI.Usuario
                 MostrarUsuarios();
             }
         }
-
         private void ObtenerEstado()
         {
-            Estado = DtUser.SelectedCells[8].Value.ToString();
+            Estado = DtUser.SelectedCells[7].Value.ToString();
         }
-
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtNombreApellidos.Text))
@@ -255,15 +242,7 @@ namespace ProyectoOFI.Usuario
                     {
                         if (!string.IsNullOrEmpty(txtCorreo.Text))
                         {
-                            if (!string.IsNullOrEmpty(TxtCedula.Text))
-                            {
-                                EditarUsuarios();
-                            }
-                            else
-                            {
-                                MessageBox.Show("Ingrese una Cedula");
-
-                            }
+                            EditarUsuarios();
                         }
                         else
                         {
@@ -292,7 +271,6 @@ namespace ProyectoOFI.Usuario
                 MessageBox.Show("Ingrese el Nombre");
             }
         }
-
         private void EditarUsuarios()
         {
             LUsuarios parametros = new LUsuarios();
@@ -302,14 +280,12 @@ namespace ProyectoOFI.Usuario
             parametros.Login = TxtUser.Text;
             parametros.Pass = Encrip.Encriptar(Encrip.Encriptar(txtContraseña.Text));
             parametros.Correo = txtCorreo.Text;
-            parametros.Cedula = TxtCedula.Text;
             if (funcion.EditarUser(parametros) == true)
             {
                 EliminarPermisos();
                 InsertarPermisos();
             }
         }
-
         private void EliminarPermisos()
         {
             LPermisos parametros = new LPermisos();
@@ -317,5 +293,81 @@ namespace ProyectoOFI.Usuario
             parametros.IdUser = IdUser;
             funcion.EliminarPermisos(parametros);
         }
+        #region Validaciones
+        private void txtContraseña_TextChanged(object sender, EventArgs e)
+        {
+            string contra = txtContraseña.Text;
+            Validaciones.ActualizarVisibilidadEtiquetas(contra, lblMayu, lblMin, lblNum);
+
+            //// Verificar si la contraseña cumple con los criterios
+            bool cumpleCriterios = Validaciones.ContraseñaCumpleCriterios(contra) && contra.Length >= 6;
+
+            // Cambiar el color del Label según si cumple los criterios
+            LblPass.ForeColor = cumpleCriterios ? Color.Green : Color.Red;
+            // Actualizar los colores de los labels y validar si todos están en verde
+            labelsVerdes = Validaciones.ValidarLabelsVerdes(lblNombreApellidos,LblUser , LblPass, lblCorreo);
+
+            // Habilitar o deshabilitar el botón btnGuardar
+            btnGuardar.Enabled = cumpleCriterios && labelsVerdes;
+            btnActualizar.Enabled = cumpleCriterios && labelsVerdes;
+        }
+        private void TextBox_TextChanged(object sender, EventArgs e)
+        {
+            var textBox = (TextBox)sender;
+
+            if (textBox == TxtUser)
+            {
+                LblUser.ForeColor = string.IsNullOrEmpty(TxtUser.Text) ? Color.Red : Color.Green;
+
+                // Actualizar los colores de los labels y validar si todos están en verde
+                labelsVerdes = Validaciones.ValidarLabelsVerdes(lblNombreApellidos, LblUser, LblPass, lblCorreo);
+
+                // Habilitar o deshabilitar el botón guardar según el estado de los labels
+                btnGuardar.Enabled = labelsVerdes;
+                btnActualizar.Enabled = labelsVerdes;
+            }
+
+            if (textBox == txtNombreApellidos)
+            {
+                lblNombreApellidos.ForeColor = string.IsNullOrEmpty(txtNombreApellidos.Text) ? Color.Red : Color.Green;
+
+                // Actualizar los colores de los labels y validar si todos están en verde
+                labelsVerdes = Validaciones.ValidarLabelsVerdes(lblNombreApellidos, LblUser, LblPass, lblCorreo);
+
+                // Habilitar o deshabilitar el botón guardar según el estado de los labels
+                btnGuardar.Enabled = labelsVerdes;
+                btnActualizar.Enabled = labelsVerdes;
+            }
+
+            if (textBox == txtContraseña)
+            {
+                if (int.TryParse(txtContraseña.Text, out int celular) && celular.ToString().Length >= 8)
+                {
+                    LblPass.ForeColor = Color.Green;
+                }
+                else
+                {
+                    LblPass.ForeColor = Color.Red;
+                }
+                // Actualizar los colores de los labels y validar si todos están en verde
+                labelsVerdes = Validaciones.ValidarLabelsVerdes(lblNombreApellidos, LblUser, LblPass, lblCorreo);
+
+                // Habilitar o deshabilitar el botón guardar según el estado de los labels
+                btnGuardar.Enabled = labelsVerdes;
+                btnActualizar.Enabled = labelsVerdes;
+            }
+
+            if (textBox == txtCorreo)
+            {
+                lblCorreo.ForeColor = Validaciones.EsCorreoValido(txtCorreo.Text) ? Color.Green : Color.Red;
+                // Actualizar los colores de los labels y validar si todos están en verde
+                labelsVerdes = Validaciones.ValidarLabelsVerdes(lblNombreApellidos, LblUser, LblPass, lblCorreo);
+
+                // Habilitar o deshabilitar el botón guardar según el estado de los labels
+                btnGuardar.Enabled = labelsVerdes;
+                btnActualizar.Enabled = labelsVerdes;
+            }
+        }
+        #endregion
     }
 }

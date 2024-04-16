@@ -110,6 +110,7 @@ namespace ProyectoOFI.Datos
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd.Parameters.AddWithValue("@TK", parametros.Ticket);
+                cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("La Ticket= " + parametros.Ticket + " Ha sido eliminada.", "Eliminado con éxito ✅", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return true;

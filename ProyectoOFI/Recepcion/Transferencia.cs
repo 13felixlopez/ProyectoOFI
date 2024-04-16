@@ -222,7 +222,7 @@ namespace ProyectoOFI.Recepcion
                 kgs = Convert.ToDecimal(txtKgs.Text);
                 merma = kgs - PesoE;
                 //txtMerma.Text = Convert.ToString(fin);
-                txtMerma.Text = Math.Round(merma, 2).ToString();
+                LblMerma.Text = Math.Round(merma, 2).ToString();
             }
             catch (Exception)
             {
@@ -233,7 +233,7 @@ namespace ProyectoOFI.Recepcion
         {
             try
             {
-                txtMerma.Text = txtPesoE.Text;
+                LblMerma.Text = txtPesoE.Text;
                 double Kilos = double.Parse(txtPesoE.Text);
                 Kilos = Kilos / 46;
                 LblQQsEn.Text = Math.Round(Kilos, 2).ToString();
@@ -258,11 +258,11 @@ namespace ProyectoOFI.Recepcion
         private bool validar()
         {
             double entero;
-            if (!double.TryParse(txtKgs.Text, out entero) || !double.TryParse(txtMerma.Text, out entero))
+            if (!double.TryParse(txtKgs.Text, out entero))
             {
                 return false;
             }
-            return !(txtKgs.Text == "" || txtMerma.Text == "" || txtTK.Text == "" || cbArea.Text == "" || cbCalidad.Text == "" || cbDaño.Text == ""
+            return !(txtKgs.Text == "" || txtTK.Text == "" || cbArea.Text == "" || cbCalidad.Text == "" || cbDaño.Text == ""
             || cbEstadoFisico.Text == "" || cbRecibidor.Text == "");
         }
         private bool validarEditar()
@@ -298,7 +298,7 @@ namespace ProyectoOFI.Recepcion
                 parametros.Daño = cbDaño.Text;
                 parametros.Sacos = Convert.ToInt32(nudSacos.Value);
                 parametros.Peso = Convert.ToDouble(txtKgs.Text);
-                parametros.Merma = Convert.ToDouble(txtMerma.Text);
+                parametros.Merma = Convert.ToDouble(LblMerma.Text);
                 parametros.Recibidor = cbRecibidor.Text;
                 parametros.Digitador = LblDigitador.Text;
 
@@ -543,11 +543,11 @@ namespace ProyectoOFI.Recepcion
                     LblQQs.Text = Math.Round(kilos, 2).ToString();
                     if (row["Merma"].ToString() != null)
                     {
-                        txtMerma.Text = row["Merma"].ToString();
+                        LblMerma.Text = row["Merma"].ToString();
                     }
                     else
                     {
-                        txtMerma.Text = "";
+                        LblMerma.Text = "";
                     }
                     if (row["Recibidor"].ToString() != null)
                     {
@@ -903,6 +903,7 @@ namespace ProyectoOFI.Recepcion
             LRecepcion parametros = new LRecepcion();
             DRecepcion funcion = new DRecepcion();
             parametros.Ticket = Ticket;
+            parametros.Digitador = Login.NombreA;
             if (funcion.EliminarTK(parametros) == true)
             {
                 MostrarLotes();
@@ -1028,7 +1029,7 @@ namespace ProyectoOFI.Recepcion
                     parametros.Daño = cbDaño.Text;
                     parametros.Sacos = Convert.ToInt32(nudSacos.Value);
                     parametros.Peso = Convert.ToDouble(txtKgs.Text);
-                    parametros.Merma = Convert.ToDouble(txtMerma.Text);
+                    parametros.Merma = Convert.ToDouble(LblMerma.Text);
                     parametros.Recibidor = cbRecibidor.Text;
                     parametros.Digitador = Login.NombreA;
                     parametros.ContadorEdit = ContadorEdit + 1;
@@ -1533,7 +1534,7 @@ namespace ProyectoOFI.Recepcion
                 parametros.EstadoFisico = EstadoFisico;
                 parametros.FRecibido = DateTime.Now;
                 parametros.Daño = Daño;
-                parametros.Digitador = "Prueba";
+                parametros.Digitador = Login.NombreA;
                 parametros.Area = CbAreaCons.Text;
                 string folio = TxtFolio.Text;
                 DRecepcion funcion = new DRecepcion();

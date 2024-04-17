@@ -15,7 +15,7 @@ namespace ProyectoOFI
     {
         public frmInicio()
         {
-            InitializeComponent();    
+            InitializeComponent();
         }
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -61,6 +61,7 @@ namespace ProyectoOFI
 
         private void frmInicio_Load(object sender, EventArgs e)
         {
+            LblUser.Text = Login.NombreA;
             LblPrincipal.Text = Login.NombreA + "\r\nBienvenido al \r\nSistema 👋";
             ValidarPermisos();
         }
@@ -108,6 +109,13 @@ namespace ProyectoOFI
         {
             FrmHistorial HI=new FrmHistorial();
             HI.ShowDialog();
+        }
+
+        private void PbPerfil_Click(object sender, EventArgs e)
+        {
+            Dispose();
+            FrmPerfil perfil = new FrmPerfil();
+            perfil.ShowDialog();
         }
     }
 }

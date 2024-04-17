@@ -233,6 +233,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_configuración_del_administrador {
+            get {
+                object obj = ResourceManager.GetObject("icons8-configuración-del-administrador", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_diploma_1 {
             get {
                 object obj = ResourceManager.GetObject("icons8-diploma-1", resourceCulture);

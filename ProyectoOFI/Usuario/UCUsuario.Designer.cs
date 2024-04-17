@@ -39,6 +39,17 @@
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.PlRegistro = new System.Windows.Forms.Panel();
+            this.PlPass = new System.Windows.Forms.Panel();
+            this.txtContraseña = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.LblPass = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lblMayu = new System.Windows.Forms.Label();
+            this.lblMin = new System.Windows.Forms.Label();
+            this.lblNum = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.TxtUser = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -46,25 +57,9 @@
             this.PlPermisos = new System.Windows.Forms.Panel();
             this.DtPermisos = new System.Windows.Forms.DataGridView();
             this.Marcar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.label19 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.lblCarEsp = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.lblNum = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.lblMin = new System.Windows.Forms.Label();
-            this.lblMayu = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.LblPass = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtContraseña = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.lblCorreo = new System.Windows.Forms.Label();
             this.LblUser = new System.Windows.Forms.Label();
             this.lblNombreApellidos = new System.Windows.Forms.Label();
@@ -78,16 +73,15 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.PlPass = new System.Windows.Forms.Panel();
             this.Plheader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbBuscar)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtUser)).BeginInit();
             this.PlRegistro.SuspendLayout();
+            this.PlPass.SuspendLayout();
             this.PlPermisos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtPermisos)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
-            this.PlPass.SuspendLayout();
             this.SuspendLayout();
             // 
             // Plheader
@@ -227,6 +221,127 @@
             this.PlRegistro.TabIndex = 2;
             this.PlRegistro.Visible = false;
             // 
+            // PlPass
+            // 
+            this.PlPass.Controls.Add(this.txtContraseña);
+            this.PlPass.Controls.Add(this.label6);
+            this.PlPass.Controls.Add(this.label12);
+            this.PlPass.Controls.Add(this.panel10);
+            this.PlPass.Controls.Add(this.panel8);
+            this.PlPass.Controls.Add(this.LblPass);
+            this.PlPass.Controls.Add(this.label13);
+            this.PlPass.Controls.Add(this.lblMayu);
+            this.PlPass.Controls.Add(this.lblMin);
+            this.PlPass.Controls.Add(this.lblNum);
+            this.PlPass.Location = new System.Drawing.Point(30, 288);
+            this.PlPass.Name = "PlPass";
+            this.PlPass.Size = new System.Drawing.Size(565, 104);
+            this.PlPass.TabIndex = 667;
+            // 
+            // txtContraseña
+            // 
+            this.txtContraseña.BackColor = System.Drawing.SystemColors.Control;
+            this.txtContraseña.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContraseña.Location = new System.Drawing.Point(143, 19);
+            this.txtContraseña.Margin = new System.Windows.Forms.Padding(2);
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.Size = new System.Drawing.Size(280, 26);
+            this.txtContraseña.TabIndex = 653;
+            this.txtContraseña.TextChanged += new System.EventHandler(this.txtContraseña_TextChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(31, 22);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(96, 20);
+            this.label6.TabIndex = 652;
+            this.label6.Text = "Contraseña:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(31, 22);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(96, 20);
+            this.label12.TabIndex = 652;
+            this.label12.Text = "Contraseña:";
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel10.Location = new System.Drawing.Point(143, 45);
+            this.panel10.Margin = new System.Windows.Forms.Padding(2);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(280, 1);
+            this.panel10.TabIndex = 654;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel8.Location = new System.Drawing.Point(143, 45);
+            this.panel8.Margin = new System.Windows.Forms.Padding(2);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(280, 1);
+            this.panel8.TabIndex = 654;
+            // 
+            // LblPass
+            // 
+            this.LblPass.AutoSize = true;
+            this.LblPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPass.ForeColor = System.Drawing.Color.Red;
+            this.LblPass.Location = new System.Drawing.Point(435, 19);
+            this.LblPass.Name = "LblPass";
+            this.LblPass.Size = new System.Drawing.Size(21, 26);
+            this.LblPass.TabIndex = 656;
+            this.LblPass.Text = "*";
+            // 
+            // label13
+            // 
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.DimGray;
+            this.label13.Location = new System.Drawing.Point(455, 16);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(103, 53);
+            this.label13.TabIndex = 655;
+            this.label13.Text = "La contraseña no puede ser menor a 6 caracteres";
+            // 
+            // lblMayu
+            // 
+            this.lblMayu.AutoSize = true;
+            this.lblMayu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMayu.ForeColor = System.Drawing.Color.DimGray;
+            this.lblMayu.Location = new System.Drawing.Point(179, 57);
+            this.lblMayu.Name = "lblMayu";
+            this.lblMayu.Size = new System.Drawing.Size(70, 15);
+            this.lblMayu.TabIndex = 657;
+            this.lblMayu.Text = "-Mayúscula";
+            // 
+            // lblMin
+            // 
+            this.lblMin.AutoSize = true;
+            this.lblMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMin.ForeColor = System.Drawing.Color.DimGray;
+            this.lblMin.Location = new System.Drawing.Point(329, 57);
+            this.lblMin.Name = "lblMin";
+            this.lblMin.Size = new System.Drawing.Size(68, 15);
+            this.lblMin.TabIndex = 660;
+            this.lblMin.Text = "-Minúscula";
+            // 
+            // lblNum
+            // 
+            this.lblNum.AutoSize = true;
+            this.lblNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNum.ForeColor = System.Drawing.Color.DimGray;
+            this.lblNum.Location = new System.Drawing.Point(261, 57);
+            this.lblNum.Name = "lblNum";
+            this.lblNum.Size = new System.Drawing.Size(56, 15);
+            this.lblNum.TabIndex = 659;
+            this.lblNum.Text = "-Número";
+            // 
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -312,17 +427,6 @@
             this.Marcar.HeaderText = "Marcar";
             this.Marcar.Name = "Marcar";
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.DimGray;
-            this.label19.Location = new System.Drawing.Point(277, 75);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(106, 15);
-            this.label19.TabIndex = 658;
-            this.label19.Text = "-Caracter especial";
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.btnGuardar);
@@ -367,164 +471,6 @@
             this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.DimGray;
-            this.label18.Location = new System.Drawing.Point(277, 57);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(56, 15);
-            this.label18.TabIndex = 659;
-            this.label18.Text = "-Número";
-            // 
-            // lblCarEsp
-            // 
-            this.lblCarEsp.AutoSize = true;
-            this.lblCarEsp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCarEsp.ForeColor = System.Drawing.Color.DimGray;
-            this.lblCarEsp.Location = new System.Drawing.Point(277, 75);
-            this.lblCarEsp.Name = "lblCarEsp";
-            this.lblCarEsp.Size = new System.Drawing.Size(106, 15);
-            this.lblCarEsp.TabIndex = 658;
-            this.lblCarEsp.Text = "-Caracter especial";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.DimGray;
-            this.label17.Location = new System.Drawing.Point(189, 75);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(68, 15);
-            this.label17.TabIndex = 660;
-            this.label17.Text = "-Minúscula";
-            // 
-            // lblNum
-            // 
-            this.lblNum.AutoSize = true;
-            this.lblNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNum.ForeColor = System.Drawing.Color.DimGray;
-            this.lblNum.Location = new System.Drawing.Point(277, 57);
-            this.lblNum.Name = "lblNum";
-            this.lblNum.Size = new System.Drawing.Size(56, 15);
-            this.lblNum.TabIndex = 659;
-            this.lblNum.Text = "-Número";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.DimGray;
-            this.label16.Location = new System.Drawing.Point(189, 57);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(70, 15);
-            this.label16.TabIndex = 657;
-            this.label16.Text = "-Mayúscula";
-            // 
-            // lblMin
-            // 
-            this.lblMin.AutoSize = true;
-            this.lblMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMin.ForeColor = System.Drawing.Color.DimGray;
-            this.lblMin.Location = new System.Drawing.Point(189, 75);
-            this.lblMin.Name = "lblMin";
-            this.lblMin.Size = new System.Drawing.Size(68, 15);
-            this.lblMin.TabIndex = 660;
-            this.lblMin.Text = "-Minúscula";
-            // 
-            // lblMayu
-            // 
-            this.lblMayu.AutoSize = true;
-            this.lblMayu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMayu.ForeColor = System.Drawing.Color.DimGray;
-            this.lblMayu.Location = new System.Drawing.Point(189, 57);
-            this.lblMayu.Name = "lblMayu";
-            this.lblMayu.Size = new System.Drawing.Size(70, 15);
-            this.lblMayu.TabIndex = 657;
-            this.lblMayu.Text = "-Mayúscula";
-            // 
-            // label13
-            // 
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.DimGray;
-            this.label13.Location = new System.Drawing.Point(465, 6);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(103, 53);
-            this.label13.TabIndex = 655;
-            this.label13.Text = "La contraseña no puede ser menor a 8 caracteres";
-            // 
-            // LblPass
-            // 
-            this.LblPass.AutoSize = true;
-            this.LblPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPass.ForeColor = System.Drawing.Color.Red;
-            this.LblPass.Location = new System.Drawing.Point(435, 19);
-            this.LblPass.Name = "LblPass";
-            this.LblPass.Size = new System.Drawing.Size(21, 26);
-            this.LblPass.TabIndex = 656;
-            this.LblPass.Text = "*";
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel8.Location = new System.Drawing.Point(143, 45);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(280, 1);
-            this.panel8.TabIndex = 654;
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.DimGray;
-            this.label7.Location = new System.Drawing.Point(465, 6);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(103, 53);
-            this.label7.TabIndex = 655;
-            this.label7.Text = "La contraseña no puede ser menor a 8 caracteres";
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel10.Location = new System.Drawing.Point(143, 45);
-            this.panel10.Margin = new System.Windows.Forms.Padding(2);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(280, 1);
-            this.panel10.TabIndex = 654;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(31, 22);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(96, 20);
-            this.label12.TabIndex = 652;
-            this.label12.Text = "Contraseña:";
-            // 
-            // txtContraseña
-            // 
-            this.txtContraseña.BackColor = System.Drawing.SystemColors.Control;
-            this.txtContraseña.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtContraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseña.Location = new System.Drawing.Point(143, 19);
-            this.txtContraseña.Margin = new System.Windows.Forms.Padding(2);
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(280, 26);
-            this.txtContraseña.TabIndex = 653;
-            this.txtContraseña.TextChanged += new System.EventHandler(this.txtContraseña_TextChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(31, 22);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(96, 20);
-            this.label6.TabIndex = 652;
-            this.label6.Text = "Contraseña:";
             // 
             // lblCorreo
             // 
@@ -661,29 +607,6 @@
             this.label1.TabIndex = 640;
             this.label1.Text = "Nombre y apellidos:";
             // 
-            // PlPass
-            // 
-            this.PlPass.Controls.Add(this.txtContraseña);
-            this.PlPass.Controls.Add(this.label6);
-            this.PlPass.Controls.Add(this.label12);
-            this.PlPass.Controls.Add(this.panel10);
-            this.PlPass.Controls.Add(this.label7);
-            this.PlPass.Controls.Add(this.panel8);
-            this.PlPass.Controls.Add(this.label19);
-            this.PlPass.Controls.Add(this.LblPass);
-            this.PlPass.Controls.Add(this.label13);
-            this.PlPass.Controls.Add(this.label18);
-            this.PlPass.Controls.Add(this.lblMayu);
-            this.PlPass.Controls.Add(this.lblCarEsp);
-            this.PlPass.Controls.Add(this.lblMin);
-            this.PlPass.Controls.Add(this.label17);
-            this.PlPass.Controls.Add(this.label16);
-            this.PlPass.Controls.Add(this.lblNum);
-            this.PlPass.Location = new System.Drawing.Point(41, 288);
-            this.PlPass.Name = "PlPass";
-            this.PlPass.Size = new System.Drawing.Size(577, 104);
-            this.PlPass.TabIndex = 667;
-            // 
             // UCUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -702,11 +625,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.DtUser)).EndInit();
             this.PlRegistro.ResumeLayout(false);
             this.PlRegistro.PerformLayout();
+            this.PlPass.ResumeLayout(false);
+            this.PlPass.PerformLayout();
             this.PlPermisos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtPermisos)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
-            this.PlPass.ResumeLayout(false);
-            this.PlPass.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -722,12 +645,10 @@
         private System.Windows.Forms.TextBox TxtBuscar;
         private System.Windows.Forms.DataGridView DtUser;
         private System.Windows.Forms.Panel PlRegistro;
-        private System.Windows.Forms.Label lblCarEsp;
         private System.Windows.Forms.Label lblNum;
         private System.Windows.Forms.Label lblMin;
         private System.Windows.Forms.Label lblMayu;
         private System.Windows.Forms.Label LblPass;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.TextBox txtContraseña;
         private System.Windows.Forms.Label label6;
@@ -751,10 +672,6 @@
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.TextBox TxtUser;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label12;

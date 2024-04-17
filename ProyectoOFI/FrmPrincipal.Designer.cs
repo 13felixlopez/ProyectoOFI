@@ -33,6 +33,7 @@ namespace ProyectoOFI
             this.plTitulo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.plfooter = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -42,7 +43,7 @@ namespace ProyectoOFI
             this.panel11 = new System.Windows.Forms.Panel();
             this.PlPrincipal = new System.Windows.Forms.Panel();
             this.LblPrincipal = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.PlPerfil = new System.Windows.Forms.Panel();
             this.BtnHistorial = new System.Windows.Forms.Button();
             this.BtnCerrarSesion = new System.Windows.Forms.Button();
             this.BtnUser = new System.Windows.Forms.Button();
@@ -52,16 +53,22 @@ namespace ProyectoOFI
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnTransferencia = new System.Windows.Forms.Button();
             this.pbIcono = new System.Windows.Forms.PictureBox();
+            this.PbPerfil = new System.Windows.Forms.PictureBox();
+            this.LblUser = new System.Windows.Forms.Label();
             this.plTitulo.SuspendLayout();
             this.plfooter.SuspendLayout();
             this.panel4.SuspendLayout();
             this.PlPrincipal.SuspendLayout();
+            this.PlPerfil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcono)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbPerfil)).BeginInit();
             this.SuspendLayout();
             // 
             // plTitulo
             // 
             this.plTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.plTitulo.Controls.Add(this.LblUser);
+            this.plTitulo.Controls.Add(this.PlPerfil);
             this.plTitulo.Controls.Add(this.label1);
             this.plTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.plTitulo.Location = new System.Drawing.Point(0, 0);
@@ -106,6 +113,16 @@ namespace ProyectoOFI
             this.plfooter.Name = "plfooter";
             this.plfooter.Size = new System.Drawing.Size(191, 884);
             this.plfooter.TabIndex = 3;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(11, 467);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(180, 10);
+            this.panel5.TabIndex = 24;
             // 
             // panel3
             // 
@@ -201,15 +218,14 @@ namespace ProyectoOFI
             this.LblPrincipal.Text = "Bienvenido al \r\nSistema 👋";
             this.LblPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel5
+            // PlPerfil
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(11, 467);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(180, 10);
-            this.panel5.TabIndex = 24;
+            this.PlPerfil.Controls.Add(this.PbPerfil);
+            this.PlPerfil.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PlPerfil.Location = new System.Drawing.Point(1697, 0);
+            this.PlPerfil.Name = "PlPerfil";
+            this.PlPerfil.Size = new System.Drawing.Size(99, 74);
+            this.PlPerfil.TabIndex = 5;
             // 
             // BtnHistorial
             // 
@@ -355,13 +371,37 @@ namespace ProyectoOFI
             // 
             this.pbIcono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
             this.pbIcono.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbIcono.Image = global::ProyectoOFI.Properties.Resources.OFi;
+            this.pbIcono.Image = global::ProyectoOFI.Properties.Resources.Logo;
             this.pbIcono.Location = new System.Drawing.Point(0, 0);
             this.pbIcono.Name = "pbIcono";
             this.pbIcono.Size = new System.Drawing.Size(180, 91);
             this.pbIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbIcono.TabIndex = 2;
             this.pbIcono.TabStop = false;
+            // 
+            // PbPerfil
+            // 
+            this.PbPerfil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PbPerfil.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PbPerfil.Image = global::ProyectoOFI.Properties.Resources.icons8_configuración_del_administrador;
+            this.PbPerfil.Location = new System.Drawing.Point(0, 0);
+            this.PbPerfil.Name = "PbPerfil";
+            this.PbPerfil.Size = new System.Drawing.Size(99, 74);
+            this.PbPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbPerfil.TabIndex = 0;
+            this.PbPerfil.TabStop = false;
+            this.PbPerfil.Click += new System.EventHandler(this.PbPerfil_Click);
+            // 
+            // LblUser
+            // 
+            this.LblUser.Dock = System.Windows.Forms.DockStyle.Right;
+            this.LblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblUser.Location = new System.Drawing.Point(1453, 0);
+            this.LblUser.Name = "LblUser";
+            this.LblUser.Size = new System.Drawing.Size(244, 74);
+            this.LblUser.TabIndex = 6;
+            this.LblUser.Text = "--";
+            this.LblUser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmInicio
             // 
@@ -383,7 +423,9 @@ namespace ProyectoOFI
             this.plfooter.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.PlPrincipal.ResumeLayout(false);
+            this.PlPerfil.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbIcono)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbPerfil)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -412,6 +454,9 @@ namespace ProyectoOFI
         private System.Windows.Forms.Button BtnCerrarSesion;
         private System.Windows.Forms.Button BtnHistorial;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel PlPerfil;
+        private System.Windows.Forms.PictureBox PbPerfil;
+        private System.Windows.Forms.Label LblUser;
     }
 }
 

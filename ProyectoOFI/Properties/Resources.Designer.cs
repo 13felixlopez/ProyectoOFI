@@ -193,6 +193,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_avión_de_papel {
+            get {
+                object obj = ResourceManager.GetObject("icons8-avión-de-papel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_bloquear {
             get {
                 object obj = ResourceManager.GetObject("icons8-bloquear", resourceCulture);
@@ -476,6 +486,16 @@ namespace ProyectoOFI.Properties {
         internal static System.Drawing.Bitmap Plan {
             get {
                 object obj = ResourceManager.GetObject("Plan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap send_30px {
+            get {
+                object obj = ResourceManager.GetObject("send_30px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

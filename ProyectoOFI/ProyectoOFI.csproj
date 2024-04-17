@@ -210,12 +210,14 @@
     <Compile Include="SM\TolvasVerticales.Designer.cs">
       <DependentUpon>TolvasVerticales.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usuario\DCorreoSoporte.cs" />
     <Compile Include="Usuario\FrmPerfil.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Usuario\FrmPerfil.Designer.cs">
       <DependentUpon>FrmPerfil.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usuario\Recuperacion.cs" />
     <Compile Include="Usuario\UCUsuario.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -462,6 +464,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ofi2024.sql" />
+    <None Include="Resources\send_30px.png" />
+    <None Include="Resources\icons8-avión-de-papel.gif" />
     <None Include="Resources\icons8-configuración-del-administrador.gif" />
     <None Include="Resources\icons8-historial-médico.gif" />
   </ItemGroup>

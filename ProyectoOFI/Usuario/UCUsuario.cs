@@ -164,21 +164,41 @@ namespace ProyectoOFI.Usuario
                         MessageBox.Show("No se puede eliminar el usuario Admin", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
-
             }
+            if (e.ColumnIndex == DtUser.Columns["Msj"].Index)
+            {
+                if (DtUser.SelectedCells[5].Value.ToString() == "")
+                {
+                    MessageBox.Show("No existe correo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    DialogResult resultado = MessageBox.Show("¿Está seguro de enviar este correo para restablecer la contraseña de este usuario?", "Enviar Correo de Recuperación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (resultado == DialogResult.Yes)
+                    {
+                        contraseñaGenerada = Validaciones.GenerarContraseñaAleatoria();
+                        var result = RecuperarPass(DtUser.SelectedCells[6].Value.ToString());
+                        MessageBox.Show(result, "Recuperacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+        }
+        private string RecuperarPass(string pass)
+        {
+            return new Recuperacion().RecoverPassword2(pass, contraseñaGenerada);
         }
         private void capturarIdUsuario()
         {
-            IdUser = Convert.ToInt32(DtUser.SelectedCells[2].Value);
-            login = DtUser.SelectedCells[5].Value.ToString();
+            IdUser = Convert.ToInt32(DtUser.SelectedCells[3].Value);
+            login = DtUser.SelectedCells[6].Value.ToString();
         }
         private void ObtenerDatos()
         {
             Limpiar();
             capturarIdUsuario();
-            txtNombreApellidos.Text = DtUser.SelectedCells[3].Value.ToString();
-            TxtUser.Text = DtUser.SelectedCells[5].Value.ToString();
-            txtCorreo.Text = DtUser.SelectedCells[4].Value.ToString();
+            txtNombreApellidos.Text = DtUser.SelectedCells[4].Value.ToString();
+            TxtUser.Text = DtUser.SelectedCells[6].Value.ToString();
+            txtCorreo.Text = DtUser.SelectedCells[5].Value.ToString();
             if (TxtUser.Text == "Admin")
             {
                 TxtUser.Enabled = false;
@@ -189,7 +209,7 @@ namespace ProyectoOFI.Usuario
                 TxtUser.Enabled = true;
                 DtPermisos.Enabled = true;
             }
-            txtContraseña.Text = Encrip.DesEncriptar(Encrip.DesEncriptar(DtUser.SelectedCells[6].Value.ToString()));
+            txtContraseña.Text = Encrip.DesEncriptar(Encrip.DesEncriptar(DtUser.SelectedCells[7].Value.ToString()));
             PlPass.Visible = false;
             PlRegistro.Visible = true;
             PlRegistro.Dock = DockStyle.Fill;
@@ -231,7 +251,7 @@ namespace ProyectoOFI.Usuario
         }
         private void ObtenerEstado()
         {
-            Estado = DtUser.SelectedCells[7].Value.ToString();
+            Estado = DtUser.SelectedCells[8].Value.ToString();
         }
         private void btnActualizar_Click(object sender, EventArgs e)
         {
@@ -306,7 +326,7 @@ namespace ProyectoOFI.Usuario
             // Cambiar el color del Label según si cumple los criterios
             LblPass.ForeColor = cumpleCriterios ? Color.Green : Color.Red;
             // Actualizar los colores de los labels y validar si todos están en verde
-            labelsVerdes = Validaciones.ValidarLabelsVerdes(lblNombreApellidos,LblUser , LblPass, lblCorreo);
+            labelsVerdes = Validaciones.ValidarLabelsVerdes(lblNombreApellidos, LblUser, LblPass, lblCorreo);
 
             // Habilitar o deshabilitar el botón btnGuardar
             btnGuardar.Enabled = cumpleCriterios && labelsVerdes;

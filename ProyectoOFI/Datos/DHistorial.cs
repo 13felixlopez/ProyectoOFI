@@ -26,6 +26,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al MostrarHistorial ✖️✖️" + ex.Message);
             }
             finally
             {

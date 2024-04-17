@@ -26,6 +26,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                Log.Writeerror("Se produjo un error en InsertarUsuario DUsuario ❌❌");
                 return false;
             }
             finally
@@ -44,6 +45,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                Log.Writeerror("Error al cargar MostrarUsuarios DUsuarios ✖️✖️");
             }
             finally
             {
@@ -63,6 +65,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                Log.Writeerror("Error Al ObtenerIdUser DUsarios ✖️✖️");
             }
             finally { Conexion.cerrar(); }
         }
@@ -121,6 +124,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un erro al eliminar el Ususario, " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en EliminarUser DUsuario ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -146,6 +150,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                Log.Writeerror("Error EditarUser Dusuario ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -166,6 +171,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron cargar los datos del usuario " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al MostrarUsuarioLogueado DUsuario ✖️✖️" + ex.Message);
             }
             finally
             {

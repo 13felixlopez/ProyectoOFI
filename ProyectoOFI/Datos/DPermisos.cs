@@ -27,7 +27,8 @@ namespace ProyectoOFI.Datos
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
-				return false;
+                Log.Writeerror("Error en InsertarPermisos ✖️✖️" + ex.Message);
+                return false;
 			}
 			finally
 			{
@@ -47,7 +48,8 @@ namespace ProyectoOFI.Datos
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
-			}
+                Log.Writeerror("Error en MostrarPermisos ✖️✖️" + ex.Message);
+            }
 			finally
 			{
 				Conexion.cerrar();
@@ -67,7 +69,8 @@ namespace ProyectoOFI.Datos
 			catch (Exception ex)
 			{
 				MessageBox.Show (ex.Message);
-				return false;
+                Log.Writeerror("Error en EliminarPermisos ✖️✖️" + ex.Message);
+                return false;
 			}
 			finally
 			{

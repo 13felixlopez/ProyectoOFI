@@ -22,6 +22,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al AgregarAgencia DAgencia ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -41,6 +42,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al MostrarAgencias DAgencias" + ex.Message);
             }
             finally
             {
@@ -61,6 +63,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EliminarAgencia ✖️✖️"+ex.Message);
                 return false;
             }
             finally
@@ -83,6 +86,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EditarAgencia ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -105,6 +109,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al InsertarAcopio ✖️✖️"+ex.Message);
                 return false;
             }
             finally
@@ -124,6 +129,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al MostrarAcopios ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -146,6 +152,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error al actualizar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EditarAcopios ✖️✖️" + ex.Message);
                 return false;
             }
             finally { Conexion.cerrar(); }
@@ -164,6 +171,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EliminarAcopios ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -183,6 +191,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al MostrarRecibidor ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -203,6 +212,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Error al insertar Recibidor " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al InsertarRecibidor ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -225,6 +235,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("No se ah podido editar el Nombre del Recibidor" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EditarRecibidor ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -246,6 +257,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EliminarRecibidor ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -266,6 +278,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al MostrarCliente ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -287,6 +300,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Error al insertar Cliente " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al AgregarClientes ✖️✖️"+ex.Message);
                 return false;
             }
             finally
@@ -310,6 +324,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("No se ah podido editar los datos del cliente" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EditarCliente ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -331,6 +346,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EliminarCliente ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -354,6 +370,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al AgregarCompra ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -373,6 +390,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al MostrarCompra ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -393,6 +411,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EliminarCompra ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -415,6 +434,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EditarCompra ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -438,6 +458,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al AgregarCertificación ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -457,6 +478,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al MostrarCertificación ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -477,6 +499,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EliminarCertificación ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -499,6 +522,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EditarCertificación ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -522,6 +546,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al InsertarEstFis ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -541,6 +566,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al MostrarEstFis ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -561,6 +587,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EliminarEstFis ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -583,6 +610,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EditarEstFis ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -606,6 +634,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al AgregarCalidad ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -625,6 +654,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al MostrarCalidad ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -645,6 +675,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EliminarCalidad ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -667,6 +698,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EditarCalidad ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -690,6 +722,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al AgregarDanio ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -709,6 +742,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al MostrarDanio ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -729,6 +763,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EliminarDanio ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -751,6 +786,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EditarDanio ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -774,6 +810,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al AgregarAreaSecado ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -793,6 +830,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al MostrarAreaSecado ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -813,6 +851,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EliminarAreaSecado ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -835,6 +874,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EditarAreaSecado ✖️✖️" + ex.Message);
                 return false;
             }
             finally

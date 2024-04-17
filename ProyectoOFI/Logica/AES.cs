@@ -90,7 +90,7 @@ namespace ProyectoOFI.Logica
                     return String.Concat(Bits);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return String.Concat(Bits);
             }

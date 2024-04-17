@@ -2,6 +2,7 @@
 using ProyectoOFI.Logica;
 using System;
 using System.Data;
+using System.IO;
 using System.Windows.Forms;
 
 namespace ProyectoOFI
@@ -23,6 +24,7 @@ namespace ProyectoOFI
         public Login()
         {
             InitializeComponent();
+            CrearArchivo();
         }
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
@@ -101,6 +103,34 @@ namespace ProyectoOFI
         private void Login_Load(object sender, EventArgs e)
         {
             Validar_Conexion();
+        }
+        private void CrearArchivo()
+        {
+            // Ruta donde se creará la carpeta y el archivo
+            string rutaCarpeta = @"C:\Log";
+            string rutaArchivo = Path.Combine(rutaCarpeta, "logerror.txt");
+
+            try
+            {
+                // Verificar si la carpeta ya existe
+                if (!Directory.Exists(rutaCarpeta))
+                {
+                    // Crear la carpeta si no existe
+                    Directory.CreateDirectory(rutaCarpeta);
+
+                    // Crear el archivo dentro de la carpeta
+                    File.Create(rutaArchivo);
+                    Console.WriteLine("Se creó la carpeta y el archivo correctamente.");
+                }
+                else
+                {
+                    Console.WriteLine("La carpeta y el archivo ya existen.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al crear la carpeta y el archivo: " + ex.Message);
+            }
         }
     }
 }

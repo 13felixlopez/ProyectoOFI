@@ -19,6 +19,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                Log.Writeerror("Error al MostrarModulos ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -39,6 +40,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron cargar los datos" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en PermisosUser ✖️✖️" + ex.Message);
             }
             finally
             {

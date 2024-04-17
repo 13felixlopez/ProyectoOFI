@@ -32,6 +32,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.StackTrace);
+                Log.Writeerror("Error en InsertarPOAV ✖️✖️" + ex.Message);
                 return false;
             }
             finally

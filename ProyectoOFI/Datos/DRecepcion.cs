@@ -54,6 +54,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en InsertarLote ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -75,6 +76,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarLotes ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -94,6 +96,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarDetalle ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -118,6 +121,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR DRecepcion", "El elemento no ha sido eliminado " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en EliminarTK ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -168,6 +172,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarTK ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -215,6 +220,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("No se ha podido editar el registro " + ex.Message, "ERROR al actualizar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en EditarTK ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -270,6 +276,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Ups! Ha ocurrido un error al agregar el Consolidado por favor revise los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                Log.Writeerror("Error en Consolidar ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -291,6 +298,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarrangoFecha ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -322,6 +330,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarAcopioAgencia ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -344,6 +353,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarTKConsolidar ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -373,6 +383,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarAgencias ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -402,6 +413,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarRecibidor ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -431,6 +443,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarClientes ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -460,6 +473,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarCompra ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -489,6 +503,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarCertificación ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -518,6 +533,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarEstFis ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -547,6 +563,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarCalidad ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -576,6 +593,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarDanio ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -605,6 +623,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarAreaSecado ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -623,6 +642,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarLotesExcel ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -646,6 +666,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarExcel ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -678,6 +699,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarCalidad ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -710,6 +732,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarCert ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -742,6 +765,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarDanio ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -774,6 +798,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarTipoCompra ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -806,6 +831,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarMTNT ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -838,6 +864,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarPeso ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -870,6 +897,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarAreaSecado ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -890,6 +918,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en VerCons ✖️✖️" + ex.Message);
             }
             finally
             {

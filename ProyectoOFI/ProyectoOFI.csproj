@@ -49,6 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlPatio\CUControlPatio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlPatio\CUControlPatio.Designer.cs">
+      <DependentUpon>CUControlPatio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Datos\Conexion.cs" />
     <Compile Include="Datos\DCatalogo.cs" />
     <Compile Include="Datos\DHistorial.cs" />
@@ -57,6 +63,7 @@
     <Compile Include="Datos\DPOAV.cs" />
     <Compile Include="Datos\DRecepcion.cs" />
     <Compile Include="Datos\DSM.cs" />
+    <Compile Include="Datos\DTendido.cs" />
     <Compile Include="Datos\DUsuarios.cs" />
     <Compile Include="Datos\DVerticales.cs" />
     <Compile Include="Datos\NUser.cs" />
@@ -226,6 +233,9 @@
       <DependentUpon>UCUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuario\Validaciones.cs" />
+    <EmbeddedResource Include="ControlPatio\CUControlPatio.resx">
+      <DependentUpon>CUControlPatio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmConexionIP.resx">
       <DependentUpon>FrmConexionIP.cs</DependentUpon>
     </EmbeddedResource>

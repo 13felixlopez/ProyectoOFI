@@ -20,9 +20,9 @@ namespace ProyectoOFI.Otros
 
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
-            frmInicio fr=new frmInicio();
-            fr.Show();
-            this.Close();
+            Dispose();
+            //frmInicio fr=new frmInicio();
+            //fr.ShowDialog();
         }
 
         private void BtnAgencia_Click(object sender, EventArgs e)

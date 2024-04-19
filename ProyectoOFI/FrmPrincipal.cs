@@ -1,4 +1,5 @@
-﻿using ProyectoOFI.Datos;
+﻿using ProyectoOFI.ControlPatio;
+using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
 using ProyectoOFI.Recepcion;
@@ -25,6 +26,7 @@ namespace ProyectoOFI
         private void BtnTransferencia_Click(object sender, EventArgs e)
         {
             BtnUser.Enabled = true;
+            BtnCPatio.Enabled = true;
             PlPrincipal.Controls.Clear();
             Transferencia tr = new Transferencia
             {
@@ -44,13 +46,14 @@ namespace ProyectoOFI
         private void BtnCatalogo_Click(object sender, EventArgs e)
         {
             FrmConfig Cg = new FrmConfig();
-            Cg.Show();
+            Cg.ShowDialog();
         }
 
         private void BtnUser_Click(object sender, EventArgs e)
         {
             btnTransferencia.Enabled=true;
             BtnUser.Enabled=false;
+            BtnCPatio.Enabled=true;
             PlPrincipal.Controls.Clear();
             UCUsuario tr = new UCUsuario
             {
@@ -116,6 +119,19 @@ namespace ProyectoOFI
             Dispose();
             FrmPerfil perfil = new FrmPerfil();
             perfil.ShowDialog();
+        }
+
+        private void BtnCPatio_Click(object sender, EventArgs e)
+        {
+            btnTransferencia.Enabled = true;
+            BtnUser.Enabled = true;
+            BtnCPatio.Enabled = false;
+            PlPrincipal.Controls.Clear();
+            CUControlPatio tr = new CUControlPatio
+            {
+                Dock = DockStyle.Fill
+            };
+            PlPrincipal.Controls.Add(tr);
         }
     }
 }

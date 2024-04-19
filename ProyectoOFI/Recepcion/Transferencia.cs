@@ -17,7 +17,7 @@ namespace ProyectoOFI.Recepcion
     {
         string Modulo;
         string Ticket;
-        string TicketAnterior;
+        //string TicketAnterior;
         string Estado;
         string Consolidado;
         int Contador;
@@ -26,7 +26,9 @@ namespace ProyectoOFI.Recepcion
         int hasta = 100;
         private int items_por_pagina = 100;
         int totalPaginas;
-        string Calidad, EstadoFisico, Daño, CertificacionE;
+        string Calidad, EstadoFisico, Daño;
+        int IdCertificacionE;
+        string CertificacionE;
         int ContadorEdit;
         DataTable Cons = new DataTable();
         // Crear un arreglo bidimensional para almacenar los datos del DataTable
@@ -44,7 +46,7 @@ namespace ProyectoOFI.Recepcion
             Base.DiseñoDtvEliminar(ref dtInventario);
             PlCarga.Visible = false;
             ValidarPermisos();
-            dtInventario.Columns["Estado"].Visible = false;
+            //dtInventario.Columns["Estado"].Visible = false;
         }
         private async Task CargarDatos()
         {
@@ -306,12 +308,12 @@ namespace ProyectoOFI.Recepcion
                 LEnvio par = new LEnvio();
                 par.Ticket = txtTK.Text;
                 par.FEnvio = dtFEnvio.Value;
-                par.Agencia = cbAgencia.Text;
-                par.Acopio = cbAcopio.Text;
-                par.Cliente = cbCliente.Text;
+                par.IdAgencia = int.Parse(cbAgencia.SelectedValue.ToString());
+                par.IdAcopio = int.Parse(cbAcopio.SelectedValue.ToString());
+                par.IdCliente = int.Parse(cbCliente.SelectedValue.ToString());
                 par.MTNT = txtMTNT.Text;
                 par.TCompra = cbCompra.Text;
-                par.CertificacionE = cbCertificacion.Text;
+                par.IdCertificacionE = int.Parse(cbCertificacion.SelectedValue.ToString());
                 par.EsFisico = cbEsFisico.Text;
                 par.CalidadE = cbCalidadE.Text;
                 par.DanioE = cbDanioE.Text;
@@ -401,7 +403,7 @@ namespace ProyectoOFI.Recepcion
             string nombrecolumna = "Ticket";
             int indice = dtInventario.Columns[nombrecolumna].Index;
             Ticket = dtInventario.SelectedCells[indice].Value.ToString();
-            TicketAnterior = dtInventario.SelectedCells[indice].Value.ToString();
+            //TicketAnterior = Ticket.ToString();
 
             string nombrecolum = "Proceso";
             int num = dtInventario.Columns[nombrecolum].Index;
@@ -454,9 +456,9 @@ namespace ProyectoOFI.Recepcion
                     {
                         cbCliente.Text = "";
                     }
-                    if (row["Tipo_Compra"].ToString() != null)
+                    if (row["Compra"].ToString() != null)
                     {
-                        cbCompra.Text = row["Tipo_Compra"].ToString();
+                        cbCompra.Text = row["Compra"].ToString();
                     }
                     else
                     {
@@ -478,9 +480,9 @@ namespace ProyectoOFI.Recepcion
                     {
                         cbCertificacion.Text = "";
                     }
-                    if (row["EsFisico"].ToString() != null)
+                    if (row["EstadoFísicoE"].ToString() != null)
                     {
-                        cbEsFisico.Text = row["EsFisico"].ToString();
+                        cbEsFisico.Text = row["EstadoFísicoE"].ToString();
                     }
                     else
                     {
@@ -494,9 +496,9 @@ namespace ProyectoOFI.Recepcion
                     {
                         cbCalidadE.Text = "";
                     }
-                    if (row["DanioE"].ToString() != null)
+                    if (row["DañoE"].ToString() != null)
                     {
-                        cbDanioE.Text = row["DanioE"].ToString();
+                        cbDanioE.Text = row["DañoE"].ToString();
                     }
                     else
                     {
@@ -523,7 +525,7 @@ namespace ProyectoOFI.Recepcion
                         LblQQsEn.Text = "0";
                     }
                     txtTK.Text = Ticket.ToString();
-                    dtpRecibido.Value = DateTime.Parse(row["FechaRecibido"].ToString());
+                    dtpRecibido.Value = DateTime.Parse(row["Fecha Recibido"].ToString());
                     cbArea.Text = row["AreaSecado"].ToString();
                     if (row["MTNR"].ToString() != null)
                     {
@@ -533,9 +535,9 @@ namespace ProyectoOFI.Recepcion
                     {
                         txtMTNR.Text = "";
                     }
-                    cbEstadoFisico.Text = row["EstadoFisico"].ToString();
+                    cbEstadoFisico.Text = row["Estado Físico"].ToString();
                     cbCalidad.Text = row["Calidad"].ToString();
-                    cbDaño.Text = row["Danio"].ToString();
+                    cbDaño.Text = row["Daño"].ToString();
                     nudSacos.Value = int.Parse(row["Sacos"].ToString());
                     txtKgs.Text = row["Peso"].ToString();
                     kilos = double.Parse(txtKgs.Text);
@@ -566,7 +568,7 @@ namespace ProyectoOFI.Recepcion
                     {
                         TxtTally.Text = "";
                     }
-                    if (row["ContadorEdit"].ToString() !=null)
+                    if (row["ContadorEdit"].ToString() != null)
                     {
                         ContadorEdit = int.Parse(row["ContadorEdit"].ToString());
                     }
@@ -843,7 +845,7 @@ namespace ProyectoOFI.Recepcion
 
             nombrecolumna = "Certificación";
             indice = dtInventario.Columns[nombrecolumna].Index;
-            par.CertificacionE = dtInventario.SelectedCells[indice].Value.ToString();
+            par.CertificacionE = (dtInventario.SelectedCells[indice].Value.ToString());
 
             nombrecolumna = "Estado Fisico";
             indice = dtInventario.Columns[nombrecolumna].Index;
@@ -858,6 +860,8 @@ namespace ProyectoOFI.Recepcion
             EstadoFisico = parametros.EstadoFisico;
             Daño = parametros.Daño;
 
+            funcion.MostrarCert(CbCertCons);
+            funcion.MostrarAreaSecado(CbAreaCons);
             funcion.MostrarTKConsolidar(ref Cons, parametros, par);
             //DtTickets.DataSource = Cons;
             DtAADT();
@@ -1038,12 +1042,12 @@ namespace ProyectoOFI.Recepcion
                     LEnvio par = new LEnvio();
                     par.Ticket = txtTK.Text;
                     par.FEnvio = Convert.ToDateTime(dtFEnvio.Text);
-                    par.Agencia = cbAgencia.Text;
-                    par.Acopio = cbAcopio.Text;
-                    par.Cliente = cbCliente.Text;
+                    par.IdAgencia = int.Parse(cbAgencia.SelectedValue.ToString());
+                    par.IdAcopio = int.Parse(cbAcopio.SelectedValue.ToString());
+                    par.IdCliente = int.Parse(cbCliente.SelectedValue.ToString());
                     par.MTNT = txtMTNT.Text;
                     par.TCompra = cbCompra.Text;
-                    par.CertificacionE = cbCertificacion.Text;
+                    par.IdCertificacionE = int.Parse(cbCertificacion.SelectedValue.ToString());
                     par.EsFisico = cbEsFisico.Text;
                     par.CalidadE = cbCalidadE.Text;
                     par.DanioE = cbDanioE.Text;
@@ -1052,7 +1056,7 @@ namespace ProyectoOFI.Recepcion
                     par.Tally = TxtTally.Text;
                     if (ContadorEdit < 3 || Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
                     {
-                        if (funcion.EditarTK(parametros, par, TicketAnterior) == true)
+                        if (funcion.EditarTK(parametros, par, Ticket) == true)
                         {
                             DataTable dt = new DataTable();
                             funcion.MostrarLote(ref dt, desde, hasta);
@@ -1069,7 +1073,7 @@ namespace ProyectoOFI.Recepcion
                     }
                     else
                     {
-                        MessageBox.Show("Ya supero los 3 intentos de edición, comuniquese con un administrador","Superó los intentos de edición",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                        MessageBox.Show("Ya supero los 3 intentos de edición, comuniquese con un administrador", "Superó los intentos de edición", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     }
                 }
                 else
@@ -1530,15 +1534,16 @@ namespace ProyectoOFI.Recepcion
                 parametros.Sacos = int.Parse(LblTotalSacos.Text);
                 parametros.Peso = double.Parse(LblTotalPeso.Text);
                 parametros.Calidad = Calidad;
-                Par.CertificacionE = CertificacionE;
+                Par.IdCertificacionE = int.Parse(CbCertCons.SelectedValue.ToString());
                 parametros.EstadoFisico = EstadoFisico;
                 parametros.FRecibido = DateTime.Now;
                 parametros.Daño = Daño;
                 parametros.Digitador = Login.NombreA;
-                parametros.Area = CbAreaCons.Text;
+                parametros.IdArea = int.Parse(CbAreaCons.SelectedValue.ToString());
                 string folio = TxtFolio.Text;
+                string proceso = CbAreaCons.Text;
                 DRecepcion funcion = new DRecepcion();
-                if (funcion.Consolidar(parametros, Par, lstTickets, folio) == true)
+                if (funcion.Consolidar(parametros, Par, lstTickets, folio, proceso) == true)
                 {
                     MessageBox.Show("Se ha realizado la consolidacion con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     PnConsolidar.Visible = false;

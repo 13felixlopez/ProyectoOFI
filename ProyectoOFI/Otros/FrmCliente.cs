@@ -85,8 +85,8 @@ namespace ProyectoOFI.Otros
         {
             string Nombre;
             string Identificacion;
-            Identificacion = DtCliente.SelectedCells[2].Value.ToString();
-            Nombre = DtCliente.SelectedCells[3].Value.ToString();
+            Identificacion = DtCliente.SelectedCells[3].Value.ToString();
+            Nombre = DtCliente.SelectedCells[2].Value.ToString();
             TxtCliente.Text = Nombre;
             TxtIdentificacion.Text = Identificacion;
             idcliente = Convert.ToInt32(DtCliente.SelectedCells[1].Value.ToString());
@@ -99,7 +99,7 @@ namespace ProyectoOFI.Otros
             idcliente = int.Parse(DtCliente.SelectedCells[1].Value.ToString());
             if (e.ColumnIndex == DtCliente.Columns["Eliminar"].Index)
             {
-                DialogResult result = MessageBox.Show("¿Esta seguro de eliminar el Recibidor, Desea Continuar?", "Eliminando registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("¿Esta seguro de eliminar el Cliente, Desea Continuar?", "Eliminando registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
                 {
                     EliminarCliente();

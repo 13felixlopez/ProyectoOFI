@@ -35,12 +35,12 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@IDEnvio", parametro.IDEnvio);
                 cmd.Parameters.AddWithValue("@TicketE", parametros.Ticket);
                 cmd.Parameters.AddWithValue("@FEnvio", parametro.FEnvio);
-                cmd.Parameters.AddWithValue("@Agencia", parametro.Agencia);
-                cmd.Parameters.AddWithValue("@Acopio", parametro.Acopio);
-                cmd.Parameters.AddWithValue("@Cliente", parametro.Cliente);
+                cmd.Parameters.AddWithValue("@IdAgencia", parametro.IdAgencia);
+                cmd.Parameters.AddWithValue("@IdAcopio", parametro.IdAcopio);
+                cmd.Parameters.AddWithValue("@IdCliente", parametro.IdCliente);
                 cmd.Parameters.AddWithValue("@MTNT", parametro.MTNT);
                 cmd.Parameters.AddWithValue("@Tipo_Compra", parametro.TCompra);
-                cmd.Parameters.AddWithValue("@Certificacion", parametro.CertificacionE);
+                cmd.Parameters.AddWithValue("@IdCertificacion", parametro.IdCertificacionE);
                 cmd.Parameters.AddWithValue("@EsFisico", parametro.EsFisico);
                 cmd.Parameters.AddWithValue("@Calidad", parametro.CalidadE);
                 cmd.Parameters.AddWithValue("@Danio", parametro.DanioE);
@@ -192,9 +192,9 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@AreaSecado", parametros.Area);
                 cmd.Parameters.AddWithValue("@MTNR", parametros.MTNR);
                 cmd.Parameters.AddWithValue("@EstadoFisico", parametros.EstadoFisico);
-                cmd.Parameters.AddWithValue("@CalidadE", parametros.Calidad);
-                cmd.Parameters.AddWithValue("@DanioE", parametros.Daño);
-                cmd.Parameters.AddWithValue("@SacosE", parametros.Sacos);
+                cmd.Parameters.AddWithValue("@Calidad", parametros.Calidad);
+                cmd.Parameters.AddWithValue("@Danio", parametros.Daño);
+                cmd.Parameters.AddWithValue("@Sacos", parametros.Sacos);
                 cmd.Parameters.AddWithValue("@Peso", parametros.Peso);
                 cmd.Parameters.AddWithValue("@Merma", parametros.Merma);
                 cmd.Parameters.AddWithValue("@Recibidor", parametros.Recibidor);
@@ -202,16 +202,16 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@ContadorEdit", parametros.ContadorEdit);
                 //Envio
                 cmd.Parameters.AddWithValue("@FEnvio", par.FEnvio);
-                cmd.Parameters.AddWithValue("@Agencia", par.Agencia);
-                cmd.Parameters.AddWithValue("@Acopio", par.Acopio);
-                cmd.Parameters.AddWithValue("@Cliente", par.Cliente);
+                cmd.Parameters.AddWithValue("@IdAgencia", par.IdAgencia);
+                cmd.Parameters.AddWithValue("@IdAcopio", par.IdAcopio);
+                cmd.Parameters.AddWithValue("@IdCliente", par.IdCliente);
                 cmd.Parameters.AddWithValue("@MTNT", par.MTNT);
                 cmd.Parameters.AddWithValue("@Tipo_Compra", par.TCompra);
-                cmd.Parameters.AddWithValue("@Certificacion", par.CertificacionE);
+                cmd.Parameters.AddWithValue("@IdCertificacion", par.IdCertificacionE);
                 cmd.Parameters.AddWithValue("@EsFisico", par.EsFisico);
-                cmd.Parameters.AddWithValue("@Calidad", par.CalidadE);
-                cmd.Parameters.AddWithValue("@Danio", par.DanioE);
-                cmd.Parameters.AddWithValue("@Sacos", par.SacosE);
+                cmd.Parameters.AddWithValue("@CalidadE", par.CalidadE);
+                cmd.Parameters.AddWithValue("@DanioE", par.DanioE);
+                cmd.Parameters.AddWithValue("@SacosE", par.SacosE);
                 cmd.Parameters.AddWithValue("@PesoE", par.PesoE);
                 cmd.Parameters.AddWithValue("@Tally", par.Tally);
                 cmd.ExecuteNonQuery();
@@ -228,7 +228,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public bool Consolidar(LRecepcion parametros, LEnvio Par, List<string> lstcons, string folio)
+        public bool Consolidar(LRecepcion parametros, LEnvio Par, List<string> lstcons, string folio, string proceso)
         {
             try
             {
@@ -260,16 +260,17 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@sacos", parametros.Sacos);
                 cmd.Parameters.AddWithValue("@Peso", parametros.Peso);
                 cmd.Parameters.AddWithValue("@Calidad", parametros.Calidad);
-                cmd.Parameters.AddWithValue("@Certificacion", Par.CertificacionE);
+                cmd.Parameters.AddWithValue("@IdCertificacion", Par.IdCertificacionE);
                 cmd.Parameters.AddWithValue("@EstFisico", parametros.EstadoFisico);
                 cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
                 cmd.Parameters.AddWithValue("@FRecibido", parametros.FRecibido);
                 cmd.Parameters.AddWithValue("@Danio", parametros.Daño);
-                cmd.Parameters.AddWithValue("@AreaSecado", parametros.Area);
+                cmd.Parameters.AddWithValue("@AreaSecado", parametros.IdArea);
                 cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
                 cmd.Parameters.AddWithValue("@Folio", folio);
-                cmd.Parameters.AddWithValue("@Proceso", parametros.Area);
+                cmd.Parameters.AddWithValue("@Proceso", proceso);
                 cmd.Parameters.AddWithValue("@Consolidado", "Si");
+                cmd.Parameters.AddWithValue("@ContadorEdit", 0);
                 cmd.ExecuteNonQuery();
                 return true;
             }

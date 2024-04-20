@@ -483,6 +483,7 @@
     <None Include="Resources\icons8-cerrar-sesión.gif" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ofi20.sql" />
     <Content Include="ofi2024.sql" />
     <None Include="Resources\icons8-fields-50.png" />
     <None Include="Resources\send_30px.png" />

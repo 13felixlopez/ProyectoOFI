@@ -862,6 +862,8 @@
             // 
             // cbCliente
             // 
+            this.cbCliente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.cbCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cbCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCliente.FormattingEnabled = true;
             this.cbCliente.Items.AddRange(new object[] {

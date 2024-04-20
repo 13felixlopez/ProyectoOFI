@@ -60,6 +60,7 @@ namespace ProyectoOFI.Recepcion
         {
             AbrirFormulario();
             CargarCombos();
+            BtnVerCons.Visible = false;
             PnGuardar.Visible = true;
             BtnEditar.Visible = false;
             LblDigitador.Text = Login.NombreA;
@@ -293,15 +294,15 @@ namespace ProyectoOFI.Recepcion
                 DRecepcion funcion = new DRecepcion();
                 parametros.Ticket = txtTK.Text;
                 parametros.FRecibido = Convert.ToDateTime(dtpRecibido.Text);
-                parametros.Area = cbArea.Text;
+                parametros.IdArea = int.Parse(cbArea.SelectedValue.ToString());
                 parametros.MTNR = txtMTNR.Text;
-                parametros.EstadoFisico = cbEstadoFisico.Text;
-                parametros.Calidad = cbCalidad.Text;
-                parametros.Daño = cbDaño.Text;
+                parametros.IdEstFis = int.Parse(cbEstadoFisico.SelectedValue.ToString());
+                parametros.IdCalidad = int.Parse(cbCalidad.SelectedValue.ToString());
+                parametros.IdDaño = int.Parse(cbDaño.SelectedValue.ToString());
                 parametros.Sacos = Convert.ToInt32(nudSacos.Value);
                 parametros.Peso = Convert.ToDouble(txtKgs.Text);
                 parametros.Merma = Convert.ToDouble(LblMerma.Text);
-                parametros.Recibidor = cbRecibidor.Text;
+                parametros.IdRecibidor = int.Parse(cbRecibidor.SelectedValue.ToString());
                 parametros.Digitador = LblDigitador.Text;
 
 
@@ -312,11 +313,11 @@ namespace ProyectoOFI.Recepcion
                 par.IdAcopio = int.Parse(cbAcopio.SelectedValue.ToString());
                 par.IdCliente = int.Parse(cbCliente.SelectedValue.ToString());
                 par.MTNT = txtMTNT.Text;
-                par.TCompra = cbCompra.Text;
+                par.IdTCompra = int.Parse(cbCompra.SelectedValue.ToString());
                 par.IdCertificacionE = int.Parse(cbCertificacion.SelectedValue.ToString());
-                par.EsFisico = cbEsFisico.Text;
-                par.CalidadE = cbCalidadE.Text;
-                par.DanioE = cbDanioE.Text;
+                par.IdEsFisico = int.Parse(cbEsFisico.SelectedValue.ToString());
+                par.IdCalidadE = int.Parse(cbCalidadE.SelectedValue.ToString());
+                par.IdDanioE = int.Parse(cbDanioE.SelectedValue.ToString());
                 par.SacosE = Convert.ToInt32(nudSacosE.Value);
                 par.PesoE = Convert.ToDouble(txtPesoE.Text);
                 par.Tally = TxtTally.Text;
@@ -351,9 +352,9 @@ namespace ProyectoOFI.Recepcion
         private async void carga()
         {
             timerAct.Enabled = true;
-            PlCarga.BringToFront();
             PlCargaTran.Dock = DockStyle.Fill;
             PlCargaTran.Visible = true;
+            PlCarga.BringToFront();
             await Task.Delay(1500);
             InsertarLote();
             ReiniciarPaginado();
@@ -1026,15 +1027,15 @@ namespace ProyectoOFI.Recepcion
                     DRecepcion funcion = new DRecepcion();
                     parametros.Ticket = txtTK.Text;
                     parametros.FRecibido = Convert.ToDateTime(dtpRecibido.Text);
-                    parametros.Area = cbArea.Text;
+                    parametros.IdArea = int.Parse(cbArea.SelectedValue.ToString());
                     parametros.MTNR = txtMTNR.Text;
-                    parametros.EstadoFisico = cbEstadoFisico.Text;
-                    parametros.Calidad = cbCalidad.Text;
-                    parametros.Daño = cbDaño.Text;
+                    parametros.IdEstFis = int.Parse(cbEstadoFisico.SelectedValue.ToString());
+                    parametros.IdCalidad = int.Parse(cbCalidad.SelectedValue.ToString());
+                    parametros.IdDaño = int.Parse(cbDaño.SelectedValue.ToString());
                     parametros.Sacos = Convert.ToInt32(nudSacos.Value);
                     parametros.Peso = Convert.ToDouble(txtKgs.Text);
                     parametros.Merma = Convert.ToDouble(LblMerma.Text);
-                    parametros.Recibidor = cbRecibidor.Text;
+                    parametros.IdRecibidor = int.Parse(cbRecibidor.SelectedValue.ToString());
                     parametros.Digitador = Login.NombreA;
                     parametros.ContadorEdit = ContadorEdit + 1;
 
@@ -1046,11 +1047,11 @@ namespace ProyectoOFI.Recepcion
                     par.IdAcopio = int.Parse(cbAcopio.SelectedValue.ToString());
                     par.IdCliente = int.Parse(cbCliente.SelectedValue.ToString());
                     par.MTNT = txtMTNT.Text;
-                    par.TCompra = cbCompra.Text;
+                    par.IdTCompra = int.Parse(cbCompra.SelectedValue.ToString());
                     par.IdCertificacionE = int.Parse(cbCertificacion.SelectedValue.ToString());
-                    par.EsFisico = cbEsFisico.Text;
-                    par.CalidadE = cbCalidadE.Text;
-                    par.DanioE = cbDanioE.Text;
+                    par.IdEsFisico = int.Parse(cbEsFisico.SelectedValue.ToString());
+                    par.IdCalidadE = int.Parse(cbCalidadE.SelectedValue.ToString());
+                    par.IdDanioE = int.Parse(cbDanioE.SelectedValue.ToString());
                     par.SacosE = Convert.ToInt32(nudSacosE.Value);
                     par.PesoE = Convert.ToDouble(txtPesoE.Text);
                     par.Tally = TxtTally.Text;

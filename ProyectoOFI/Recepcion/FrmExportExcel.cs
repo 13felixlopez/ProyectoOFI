@@ -1,5 +1,6 @@
 ﻿using OfficeOpenXml;
 using ProyectoOFI.Datos;
+using ProyectoOFI.Otros;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -25,6 +26,7 @@ namespace ProyectoOFI.Recepcion
             DataTable dt = new DataTable();
             funcion.MostrarLotesExcel(ref dt);
             DtLotes.DataSource = dt;
+            Base.DiseñoDtvEliminar(ref DtLotes);
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)
@@ -197,6 +199,7 @@ namespace ProyectoOFI.Recepcion
             DRecepcion funcion = new DRecepcion();
             funcion.BuscarTkExcel(txtBuscador.Text, ref dt);
             DtLotes.DataSource = dt;
+            Base.DiseñoDtvEliminar(ref DtLotes);
         }
     }
 }

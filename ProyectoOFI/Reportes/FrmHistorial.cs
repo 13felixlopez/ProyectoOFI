@@ -48,8 +48,8 @@ namespace ProyectoOFI.Reportes
         #region Paginado Btn
         private void btn_atras_Click(object sender, EventArgs e)
         {
-            desde -= 10;
-            hasta -= 10;
+            desde -= 100;
+            hasta -= 100;
             MostrarHistorial();
             Contar();
             if (Contador > hasta)
@@ -70,8 +70,8 @@ namespace ProyectoOFI.Reportes
         }
         private void btn_Sig_Click(object sender, EventArgs e)
         {
-            desde += 10;
-            hasta += 10;
+            desde += 100;
+            hasta += 100;
             MostrarHistorial();
             Contar();
             if (Contador > hasta)
@@ -89,7 +89,7 @@ namespace ProyectoOFI.Reportes
         private void btn_Ultima_Click(object sender, EventArgs e)
         {
             hasta = totalPaginas * items_por_pagina;
-            desde = hasta - 9;
+            desde = hasta - 99;
             MostrarHistorial();
             Contar();
             if (Contador > hasta)

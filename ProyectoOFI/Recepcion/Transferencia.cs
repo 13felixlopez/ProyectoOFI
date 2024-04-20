@@ -1542,7 +1542,7 @@ namespace ProyectoOFI.Recepcion
                 parametros.Digitador = Login.NombreA;
                 parametros.IdArea = int.Parse(CbAreaCons.SelectedValue.ToString());
                 string folio = TxtFolio.Text;
-                string proceso = CbAreaCons.Text;
+                string proceso = "No Asignado";
                 DRecepcion funcion = new DRecepcion();
                 if (funcion.Consolidar(parametros, Par, lstTickets, folio, proceso) == true)
                 {

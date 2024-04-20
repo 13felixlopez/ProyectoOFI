@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Sig = new System.Windows.Forms.Button();
             this.btn_Primera = new System.Windows.Forms.Button();
             this.btn_Ultima = new System.Windows.Forms.Button();
@@ -69,62 +69,65 @@
             this.LblFiltros = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.PlContenedor = new System.Windows.Forms.Panel();
-            this.dtInventariocp = new System.Windows.Forms.DataGridView();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.PlControl = new System.Windows.Forms.Panel();
-            this.POpciones = new System.Windows.Forms.Panel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.PlTendido = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TxtFolio = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.DTPFechaTendido = new System.Windows.Forms.DateTimePicker();
-            this.CbPatio = new System.Windows.Forms.ComboBox();
-            this.CbUbicacionP = new System.Windows.Forms.ComboBox();
-            this.BtnTendido = new System.Windows.Forms.Button();
+            this.PlEnvio = new System.Windows.Forms.Panel();
+            this.BtnEnviar = new System.Windows.Forms.Button();
+            this.CbDestino = new System.Windows.Forms.ComboBox();
+            this.CbEstFis = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.DTEnvio = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.PlEnfarde = new System.Windows.Forms.Panel();
             this.BtnEnfarde = new System.Windows.Forms.Button();
             this.DTPEnfarde = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.LblDiasSecado = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.TxtHHunedadLevante = new System.Windows.Forms.TextBox();
+            this.TxtSacosEnfardados = new System.Windows.Forms.TextBox();
+            this.PlTendido = new System.Windows.Forms.Panel();
+            this.BtnTendido = new System.Windows.Forms.Button();
+            this.CbUbicacionP = new System.Windows.Forms.ComboBox();
+            this.CbPatio = new System.Windows.Forms.ComboBox();
+            this.DTPFechaTendido = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.TxtFolio = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.TSLTendido = new System.Windows.Forms.ToolStripLabel();
             this.TSLEnfarde = new System.Windows.Forms.ToolStripLabel();
-            this.label11 = new System.Windows.Forms.Label();
-            this.LblDiasSecado = new System.Windows.Forms.Label();
-            this.TxtSacosEnfardados = new System.Windows.Forms.TextBox();
-            this.TxtHHunedadLevante = new System.Windows.Forms.TextBox();
             this.TSLEnvio = new System.Windows.Forms.ToolStripLabel();
-            this.PlEnvio = new System.Windows.Forms.Panel();
-            this.BtnEnviar = new System.Windows.Forms.Button();
-            this.DTEnvio = new System.Windows.Forms.DateTimePicker();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.CbEstFis = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.CbDestino = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.LblTicket = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.LblSacos = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.LblPeso = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.LblQQs = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.LblEstFis = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.LblCalidad = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.LblDanio = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
+            this.PlDatos = new System.Windows.Forms.Panel();
             this.LblCert = new System.Windows.Forms.Label();
+            this.LblDanio = new System.Windows.Forms.Label();
+            this.LblCalidad = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.LblEstFis = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.LblQQs = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.LblPeso = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.LblSacos = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.LblTicket = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.dtInventariocp = new System.Windows.Forms.DataGridView();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.PlCerrarDetalle = new System.Windows.Forms.Panel();
+            this.BtnCerrarDetalleCp = new System.Windows.Forms.Button();
+            this.LblTituloCP = new System.Windows.Forms.Label();
             this.PlCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.plOpciones.SuspendLayout();
@@ -135,13 +138,14 @@
             this.PlFiltros.SuspendLayout();
             this.PlCerrar.SuspendLayout();
             this.PlContenedor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).BeginInit();
             this.PlControl.SuspendLayout();
-            this.POpciones.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            this.PlTendido.SuspendLayout();
-            this.PlEnfarde.SuspendLayout();
             this.PlEnvio.SuspendLayout();
+            this.PlEnfarde.SuspendLayout();
+            this.PlTendido.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
+            this.PlDatos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).BeginInit();
+            this.PlCerrarDetalle.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Sig
@@ -508,7 +512,7 @@
             this.PlFiltros.Controls.Add(this.BtnFiltrar);
             this.PlFiltros.Controls.Add(this.CLBFiltros);
             this.PlFiltros.Controls.Add(this.PlCerrar);
-            this.PlFiltros.Location = new System.Drawing.Point(1722, 344);
+            this.PlFiltros.Location = new System.Drawing.Point(1529, 289);
             this.PlFiltros.MaximumSize = new System.Drawing.Size(233, 395);
             this.PlFiltros.MinimumSize = new System.Drawing.Size(233, 395);
             this.PlFiltros.Name = "PlFiltros";
@@ -605,230 +609,121 @@
             this.PlContenedor.Size = new System.Drawing.Size(1825, 842);
             this.PlContenedor.TabIndex = 15;
             // 
-            // dtInventariocp
-            // 
-            this.dtInventariocp.AllowUserToAddRows = false;
-            this.dtInventariocp.AllowUserToDeleteRows = false;
-            this.dtInventariocp.AllowUserToOrderColumns = true;
-            this.dtInventariocp.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.NullValue = "--";
-            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.dtInventariocp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtInventariocp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtInventariocp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            this.dtInventariocp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtInventariocp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Eliminar,
-            this.Consolidar});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.NullValue = "--";
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle15;
-            this.dtInventariocp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtInventariocp.Location = new System.Drawing.Point(0, 62);
-            this.dtInventariocp.Name = "dtInventariocp";
-            this.dtInventariocp.ReadOnly = true;
-            this.dtInventariocp.RowHeadersVisible = false;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle16;
-            this.dtInventariocp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtInventariocp.ShowCellToolTips = false;
-            this.dtInventariocp.ShowEditingIcon = false;
-            this.dtInventariocp.Size = new System.Drawing.Size(1825, 720);
-            this.dtInventariocp.TabIndex = 6;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.Image = global::ProyectoOFI.Properties.Resources.Delete;
-            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eliminar.MinimumWidth = 10;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Visible = false;
-            // 
-            // dataGridViewImageColumn3
-            // 
-            this.dataGridViewImageColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewImageColumn3.HeaderText = "Cons";
-            this.dataGridViewImageColumn3.Image = global::ProyectoOFI.Properties.Resources.join;
-            this.dataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
-            this.dataGridViewImageColumn3.ReadOnly = true;
-            this.dataGridViewImageColumn3.Visible = false;
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = global::ProyectoOFI.Properties.Resources.Delete;
-            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.dataGridViewImageColumn2.MinimumWidth = 10;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            this.dataGridViewImageColumn2.Visible = false;
-            // 
             // PlControl
             // 
+            this.PlControl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.PlControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PlControl.Controls.Add(this.PlEnvio);
             this.PlControl.Controls.Add(this.PlEnfarde);
             this.PlControl.Controls.Add(this.PlTendido);
             this.PlControl.Controls.Add(this.toolStrip1);
-            this.PlControl.Controls.Add(this.POpciones);
+            this.PlControl.Controls.Add(this.PlDatos);
+            this.PlControl.Controls.Add(this.PlCerrarDetalle);
             this.PlControl.Location = new System.Drawing.Point(190, 93);
             this.PlControl.Name = "PlControl";
-            this.PlControl.Size = new System.Drawing.Size(927, 622);
+            this.PlControl.Size = new System.Drawing.Size(976, 622);
             this.PlControl.TabIndex = 14;
             this.PlControl.Visible = false;
             // 
-            // POpciones
+            // PlEnvio
             // 
-            this.POpciones.Controls.Add(this.LblCert);
-            this.POpciones.Controls.Add(this.LblDanio);
-            this.POpciones.Controls.Add(this.LblCalidad);
-            this.POpciones.Controls.Add(this.label23);
-            this.POpciones.Controls.Add(this.LblEstFis);
-            this.POpciones.Controls.Add(this.label22);
-            this.POpciones.Controls.Add(this.LblQQs);
-            this.POpciones.Controls.Add(this.label21);
-            this.POpciones.Controls.Add(this.LblPeso);
-            this.POpciones.Controls.Add(this.label20);
-            this.POpciones.Controls.Add(this.LblSacos);
-            this.POpciones.Controls.Add(this.label19);
-            this.POpciones.Controls.Add(this.LblTicket);
-            this.POpciones.Controls.Add(this.label18);
-            this.POpciones.Controls.Add(this.label17);
-            this.POpciones.Controls.Add(this.label16);
-            this.POpciones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.POpciones.Location = new System.Drawing.Point(0, 0);
-            this.POpciones.Name = "POpciones";
-            this.POpciones.Size = new System.Drawing.Size(927, 138);
-            this.POpciones.TabIndex = 0;
+            this.PlEnvio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.PlEnvio.Controls.Add(this.BtnEnviar);
+            this.PlEnvio.Controls.Add(this.CbDestino);
+            this.PlEnvio.Controls.Add(this.CbEstFis);
+            this.PlEnvio.Controls.Add(this.label15);
+            this.PlEnvio.Controls.Add(this.DTEnvio);
+            this.PlEnvio.Controls.Add(this.label12);
+            this.PlEnvio.Controls.Add(this.label13);
+            this.PlEnvio.Controls.Add(this.label14);
+            this.PlEnvio.Controls.Add(this.textBox2);
+            this.PlEnvio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PlEnvio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlEnvio.Location = new System.Drawing.Point(0, 487);
+            this.PlEnvio.Name = "PlEnvio";
+            this.PlEnvio.Size = new System.Drawing.Size(974, 135);
+            this.PlEnvio.TabIndex = 2;
+            this.PlEnvio.Visible = false;
             // 
-            // toolStrip1
+            // BtnEnviar
             // 
-            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TSLTendido,
-            this.TSLEnfarde,
-            this.TSLEnvio});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 138);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(927, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
+            this.BtnEnviar.Location = new System.Drawing.Point(745, 33);
+            this.BtnEnviar.Name = "BtnEnviar";
+            this.BtnEnviar.Size = new System.Drawing.Size(154, 71);
+            this.BtnEnviar.TabIndex = 4;
+            this.BtnEnviar.Text = "Enviar";
+            this.BtnEnviar.UseVisualStyleBackColor = true;
             // 
-            // PlTendido
+            // CbDestino
             // 
-            this.PlTendido.Controls.Add(this.BtnTendido);
-            this.PlTendido.Controls.Add(this.CbUbicacionP);
-            this.PlTendido.Controls.Add(this.CbPatio);
-            this.PlTendido.Controls.Add(this.DTPFechaTendido);
-            this.PlTendido.Controls.Add(this.label7);
-            this.PlTendido.Controls.Add(this.label6);
-            this.PlTendido.Controls.Add(this.label5);
-            this.PlTendido.Controls.Add(this.TxtFolio);
-            this.PlTendido.Controls.Add(this.label1);
-            this.PlTendido.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PlTendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlTendido.Location = new System.Drawing.Point(0, 163);
-            this.PlTendido.Name = "PlTendido";
-            this.PlTendido.Size = new System.Drawing.Size(927, 135);
-            this.PlTendido.TabIndex = 2;
+            this.CbDestino.FormattingEnabled = true;
+            this.CbDestino.Location = new System.Drawing.Point(473, 15);
+            this.CbDestino.Name = "CbDestino";
+            this.CbDestino.Size = new System.Drawing.Size(221, 28);
+            this.CbDestino.TabIndex = 3;
             // 
-            // label1
+            // CbEstFis
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "N° de Folio:";
+            this.CbEstFis.FormattingEnabled = true;
+            this.CbEstFis.Location = new System.Drawing.Point(472, 76);
+            this.CbEstFis.Name = "CbEstFis";
+            this.CbEstFis.Size = new System.Drawing.Size(221, 28);
+            this.CbEstFis.TabIndex = 3;
             // 
-            // TxtFolio
+            // label15
             // 
-            this.TxtFolio.Location = new System.Drawing.Point(153, 19);
-            this.TxtFolio.Name = "TxtFolio";
-            this.TxtFolio.Size = new System.Drawing.Size(158, 26);
-            this.TxtFolio.TabIndex = 1;
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(360, 19);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(76, 20);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Destino:";
             // 
-            // label5
+            // DTEnvio
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(348, 22);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(158, 20);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Fecha de Tendido:";
+            this.DTEnvio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DTEnvio.Location = new System.Drawing.Point(191, 16);
+            this.DTEnvio.Name = "DTEnvio";
+            this.DTEnvio.Size = new System.Drawing.Size(132, 26);
+            this.DTEnvio.TabIndex = 2;
             // 
-            // label6
+            // label12
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 84);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 20);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Patio:";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(341, 80);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(123, 20);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Estado Fisico:";
             // 
-            // label7
+            // label13
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(319, 84);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(164, 20);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Ubicación de Patio:";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(15, 80);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(124, 20);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "DNIN-DNOUT:";
             // 
-            // DTPFechaTendido
+            // label14
             // 
-            this.DTPFechaTendido.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPFechaTendido.Location = new System.Drawing.Point(543, 19);
-            this.DTPFechaTendido.Name = "DTPFechaTendido";
-            this.DTPFechaTendido.Size = new System.Drawing.Size(132, 26);
-            this.DTPFechaTendido.TabIndex = 2;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(16, 19);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(138, 20);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Fecha de Envio:";
             // 
-            // CbPatio
+            // textBox2
             // 
-            this.CbPatio.FormattingEnabled = true;
-            this.CbPatio.Location = new System.Drawing.Point(84, 80);
-            this.CbPatio.Name = "CbPatio";
-            this.CbPatio.Size = new System.Drawing.Size(221, 28);
-            this.CbPatio.TabIndex = 3;
-            // 
-            // CbUbicacionP
-            // 
-            this.CbUbicacionP.FormattingEnabled = true;
-            this.CbUbicacionP.Location = new System.Drawing.Point(497, 80);
-            this.CbUbicacionP.Name = "CbUbicacionP";
-            this.CbUbicacionP.Size = new System.Drawing.Size(221, 28);
-            this.CbUbicacionP.TabIndex = 3;
-            // 
-            // BtnTendido
-            // 
-            this.BtnTendido.Location = new System.Drawing.Point(745, 33);
-            this.BtnTendido.Name = "BtnTendido";
-            this.BtnTendido.Size = new System.Drawing.Size(154, 71);
-            this.BtnTendido.TabIndex = 4;
-            this.BtnTendido.Text = "Tendido";
-            this.BtnTendido.UseVisualStyleBackColor = true;
+            this.textBox2.Location = new System.Drawing.Point(147, 77);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(186, 26);
+            this.textBox2.TabIndex = 1;
             // 
             // PlEnfarde
             // 
+            this.PlEnfarde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.PlEnfarde.Controls.Add(this.BtnEnfarde);
             this.PlEnfarde.Controls.Add(this.DTPEnfarde);
             this.PlEnfarde.Controls.Add(this.label8);
@@ -840,9 +735,9 @@
             this.PlEnfarde.Controls.Add(this.TxtSacosEnfardados);
             this.PlEnfarde.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlEnfarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlEnfarde.Location = new System.Drawing.Point(0, 298);
+            this.PlEnfarde.Location = new System.Drawing.Point(0, 352);
             this.PlEnfarde.Name = "PlEnfarde";
-            this.PlEnfarde.Size = new System.Drawing.Size(927, 135);
+            this.PlEnfarde.Size = new System.Drawing.Size(974, 135);
             this.PlEnfarde.TabIndex = 2;
             this.PlEnfarde.Visible = false;
             // 
@@ -890,20 +785,14 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Fecha de Enfarde:";
             // 
-            // TSLTendido
+            // LblDiasSecado
             // 
-            this.TSLTendido.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TSLTendido.Name = "TSLTendido";
-            this.TSLTendido.Size = new System.Drawing.Size(72, 22);
-            this.TSLTendido.Text = "Tendido";
-            // 
-            // TSLEnfarde
-            // 
-            this.TSLEnfarde.Enabled = false;
-            this.TSLEnfarde.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.TSLEnfarde.Name = "TSLEnfarde";
-            this.TSLEnfarde.Size = new System.Drawing.Size(69, 22);
-            this.TSLEnfarde.Text = "Enfarde";
+            this.LblDiasSecado.AutoSize = true;
+            this.LblDiasSecado.Location = new System.Drawing.Point(529, 20);
+            this.LblDiasSecado.Name = "LblDiasSecado";
+            this.LblDiasSecado.Size = new System.Drawing.Size(21, 20);
+            this.LblDiasSecado.TabIndex = 0;
+            this.LblDiasSecado.Text = "--";
             // 
             // label11
             // 
@@ -914,14 +803,12 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Dias de Secado:";
             // 
-            // LblDiasSecado
+            // TxtHHunedadLevante
             // 
-            this.LblDiasSecado.AutoSize = true;
-            this.LblDiasSecado.Location = new System.Drawing.Point(529, 20);
-            this.LblDiasSecado.Name = "LblDiasSecado";
-            this.LblDiasSecado.Size = new System.Drawing.Size(21, 20);
-            this.LblDiasSecado.TabIndex = 0;
-            this.LblDiasSecado.Text = "--";
+            this.TxtHHunedadLevante.Location = new System.Drawing.Point(511, 81);
+            this.TxtHHunedadLevante.Name = "TxtHHunedadLevante";
+            this.TxtHHunedadLevante.Size = new System.Drawing.Size(91, 26);
+            this.TxtHHunedadLevante.TabIndex = 1;
             // 
             // TxtSacosEnfardados
             // 
@@ -930,214 +817,232 @@
             this.TxtSacosEnfardados.Size = new System.Drawing.Size(119, 26);
             this.TxtSacosEnfardados.TabIndex = 1;
             // 
-            // TxtHHunedadLevante
+            // PlTendido
             // 
-            this.TxtHHunedadLevante.Location = new System.Drawing.Point(511, 81);
-            this.TxtHHunedadLevante.Name = "TxtHHunedadLevante";
-            this.TxtHHunedadLevante.Size = new System.Drawing.Size(91, 26);
-            this.TxtHHunedadLevante.TabIndex = 1;
+            this.PlTendido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.PlTendido.Controls.Add(this.BtnTendido);
+            this.PlTendido.Controls.Add(this.CbUbicacionP);
+            this.PlTendido.Controls.Add(this.CbPatio);
+            this.PlTendido.Controls.Add(this.DTPFechaTendido);
+            this.PlTendido.Controls.Add(this.label7);
+            this.PlTendido.Controls.Add(this.label6);
+            this.PlTendido.Controls.Add(this.label5);
+            this.PlTendido.Controls.Add(this.TxtFolio);
+            this.PlTendido.Controls.Add(this.label1);
+            this.PlTendido.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PlTendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlTendido.Location = new System.Drawing.Point(0, 217);
+            this.PlTendido.Name = "PlTendido";
+            this.PlTendido.Size = new System.Drawing.Size(974, 135);
+            this.PlTendido.TabIndex = 2;
+            // 
+            // BtnTendido
+            // 
+            this.BtnTendido.Location = new System.Drawing.Point(745, 33);
+            this.BtnTendido.Name = "BtnTendido";
+            this.BtnTendido.Size = new System.Drawing.Size(154, 71);
+            this.BtnTendido.TabIndex = 4;
+            this.BtnTendido.Text = "Tendido";
+            this.BtnTendido.UseVisualStyleBackColor = true;
+            // 
+            // CbUbicacionP
+            // 
+            this.CbUbicacionP.FormattingEnabled = true;
+            this.CbUbicacionP.Location = new System.Drawing.Point(497, 80);
+            this.CbUbicacionP.Name = "CbUbicacionP";
+            this.CbUbicacionP.Size = new System.Drawing.Size(221, 28);
+            this.CbUbicacionP.TabIndex = 3;
+            // 
+            // CbPatio
+            // 
+            this.CbPatio.FormattingEnabled = true;
+            this.CbPatio.Location = new System.Drawing.Point(84, 80);
+            this.CbPatio.Name = "CbPatio";
+            this.CbPatio.Size = new System.Drawing.Size(221, 28);
+            this.CbPatio.TabIndex = 3;
+            // 
+            // DTPFechaTendido
+            // 
+            this.DTPFechaTendido.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DTPFechaTendido.Location = new System.Drawing.Point(543, 19);
+            this.DTPFechaTendido.Name = "DTPFechaTendido";
+            this.DTPFechaTendido.Size = new System.Drawing.Size(132, 26);
+            this.DTPFechaTendido.TabIndex = 2;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(319, 84);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(164, 20);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Ubicación de Patio:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(15, 84);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(55, 20);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Patio:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(348, 22);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(158, 20);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Fecha de Tendido:";
+            // 
+            // TxtFolio
+            // 
+            this.TxtFolio.Location = new System.Drawing.Point(153, 19);
+            this.TxtFolio.Name = "TxtFolio";
+            this.TxtFolio.Size = new System.Drawing.Size(158, 26);
+            this.TxtFolio.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "N° de Folio:";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.BackColor = System.Drawing.Color.Silver;
+            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TSLTendido,
+            this.TSLEnfarde,
+            this.TSLEnvio});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 186);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(974, 31);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // TSLTendido
+            // 
+            this.TSLTendido.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TSLTendido.Name = "TSLTendido";
+            this.TSLTendido.Size = new System.Drawing.Size(87, 28);
+            this.TSLTendido.Text = "Tendido";
+            // 
+            // TSLEnfarde
+            // 
+            this.TSLEnfarde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TSLEnfarde.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.TSLEnfarde.Name = "TSLEnfarde";
+            this.TSLEnfarde.Size = new System.Drawing.Size(85, 28);
+            this.TSLEnfarde.Text = "Enfarde";
+            this.TSLEnfarde.Visible = false;
             // 
             // TSLEnvio
             // 
-            this.TSLEnvio.Enabled = false;
+            this.TSLEnvio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.TSLEnvio.Name = "TSLEnvio";
-            this.TSLEnvio.Size = new System.Drawing.Size(53, 22);
+            this.TSLEnvio.Size = new System.Drawing.Size(64, 28);
             this.TSLEnvio.Text = "Envio";
+            this.TSLEnvio.Visible = false;
             // 
-            // PlEnvio
+            // PlDatos
             // 
-            this.PlEnvio.Controls.Add(this.BtnEnviar);
-            this.PlEnvio.Controls.Add(this.CbDestino);
-            this.PlEnvio.Controls.Add(this.CbEstFis);
-            this.PlEnvio.Controls.Add(this.label15);
-            this.PlEnvio.Controls.Add(this.DTEnvio);
-            this.PlEnvio.Controls.Add(this.label12);
-            this.PlEnvio.Controls.Add(this.label13);
-            this.PlEnvio.Controls.Add(this.label14);
-            this.PlEnvio.Controls.Add(this.textBox2);
-            this.PlEnvio.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PlEnvio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlEnvio.Location = new System.Drawing.Point(0, 433);
-            this.PlEnvio.Name = "PlEnvio";
-            this.PlEnvio.Size = new System.Drawing.Size(927, 135);
-            this.PlEnvio.TabIndex = 2;
-            this.PlEnvio.Visible = false;
+            this.PlDatos.Controls.Add(this.LblCert);
+            this.PlDatos.Controls.Add(this.LblDanio);
+            this.PlDatos.Controls.Add(this.LblCalidad);
+            this.PlDatos.Controls.Add(this.label23);
+            this.PlDatos.Controls.Add(this.LblEstFis);
+            this.PlDatos.Controls.Add(this.label22);
+            this.PlDatos.Controls.Add(this.LblQQs);
+            this.PlDatos.Controls.Add(this.label21);
+            this.PlDatos.Controls.Add(this.LblPeso);
+            this.PlDatos.Controls.Add(this.label20);
+            this.PlDatos.Controls.Add(this.LblSacos);
+            this.PlDatos.Controls.Add(this.label19);
+            this.PlDatos.Controls.Add(this.LblTicket);
+            this.PlDatos.Controls.Add(this.label18);
+            this.PlDatos.Controls.Add(this.label17);
+            this.PlDatos.Controls.Add(this.label16);
+            this.PlDatos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PlDatos.Location = new System.Drawing.Point(0, 48);
+            this.PlDatos.Name = "PlDatos";
+            this.PlDatos.Size = new System.Drawing.Size(974, 138);
+            this.PlDatos.TabIndex = 0;
             // 
-            // BtnEnviar
+            // LblCert
             // 
-            this.BtnEnviar.Location = new System.Drawing.Point(745, 33);
-            this.BtnEnviar.Name = "BtnEnviar";
-            this.BtnEnviar.Size = new System.Drawing.Size(154, 71);
-            this.BtnEnviar.TabIndex = 4;
-            this.BtnEnviar.Text = "Enviar";
-            this.BtnEnviar.UseVisualStyleBackColor = true;
+            this.LblCert.AutoSize = true;
+            this.LblCert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCert.Location = new System.Drawing.Point(770, 79);
+            this.LblCert.Name = "LblCert";
+            this.LblCert.Size = new System.Drawing.Size(19, 20);
+            this.LblCert.TabIndex = 0;
+            this.LblCert.Text = "--";
             // 
-            // DTEnvio
+            // LblDanio
             // 
-            this.DTEnvio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTEnvio.Location = new System.Drawing.Point(191, 16);
-            this.DTEnvio.Name = "DTEnvio";
-            this.DTEnvio.Size = new System.Drawing.Size(132, 26);
-            this.DTEnvio.TabIndex = 2;
+            this.LblDanio.AutoSize = true;
+            this.LblDanio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDanio.Location = new System.Drawing.Point(536, 79);
+            this.LblDanio.Name = "LblDanio";
+            this.LblDanio.Size = new System.Drawing.Size(19, 20);
+            this.LblDanio.TabIndex = 0;
+            this.LblDanio.Text = "--";
             // 
-            // label12
+            // LblCalidad
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(341, 80);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(123, 20);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Estado Fisico:";
+            this.LblCalidad.AutoSize = true;
+            this.LblCalidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCalidad.Location = new System.Drawing.Point(367, 79);
+            this.LblCalidad.Name = "LblCalidad";
+            this.LblCalidad.Size = new System.Drawing.Size(19, 20);
+            this.LblCalidad.TabIndex = 0;
+            this.LblCalidad.Text = "--";
             // 
-            // label13
+            // label23
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(15, 80);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(124, 20);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "DNIN-DNOUT:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(16, 19);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(138, 20);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Fecha de Envio:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(147, 77);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(186, 26);
-            this.textBox2.TabIndex = 1;
-            // 
-            // CbEstFis
-            // 
-            this.CbEstFis.FormattingEnabled = true;
-            this.CbEstFis.Location = new System.Drawing.Point(472, 76);
-            this.CbEstFis.Name = "CbEstFis";
-            this.CbEstFis.Size = new System.Drawing.Size(221, 28);
-            this.CbEstFis.TabIndex = 3;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(360, 19);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(76, 20);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Destino:";
-            // 
-            // CbDestino
-            // 
-            this.CbDestino.FormattingEnabled = true;
-            this.CbDestino.Location = new System.Drawing.Point(473, 15);
-            this.CbDestino.Name = "CbDestino";
-            this.CbDestino.Size = new System.Drawing.Size(221, 28);
-            this.CbDestino.TabIndex = 3;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(17, 16);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(62, 20);
-            this.label16.TabIndex = 0;
-            this.label16.Text = "Ticket:";
-            // 
-            // LblTicket
-            // 
-            this.LblTicket.AutoSize = true;
-            this.LblTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTicket.Location = new System.Drawing.Point(89, 16);
-            this.LblTicket.Name = "LblTicket";
-            this.LblTicket.Size = new System.Drawing.Size(21, 20);
-            this.LblTicket.TabIndex = 0;
-            this.LblTicket.Text = "--";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(250, 16);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(64, 20);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Sacos:";
-            // 
-            // LblSacos
-            // 
-            this.LblSacos.AutoSize = true;
-            this.LblSacos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblSacos.Location = new System.Drawing.Point(324, 16);
-            this.LblSacos.Name = "LblSacos";
-            this.LblSacos.Size = new System.Drawing.Size(21, 20);
-            this.LblSacos.TabIndex = 0;
-            this.LblSacos.Text = "--";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(485, 16);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(44, 20);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Kgs:";
-            // 
-            // LblPeso
-            // 
-            this.LblPeso.AutoSize = true;
-            this.LblPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPeso.Location = new System.Drawing.Point(539, 16);
-            this.LblPeso.Name = "LblPeso";
-            this.LblPeso.Size = new System.Drawing.Size(21, 20);
-            this.LblPeso.TabIndex = 0;
-            this.LblPeso.Text = "--";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(700, 16);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(49, 20);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "QQs:";
-            // 
-            // LblQQs
-            // 
-            this.LblQQs.AutoSize = true;
-            this.LblQQs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblQQs.Location = new System.Drawing.Point(759, 16);
-            this.LblQQs.Name = "LblQQs";
-            this.LblQQs.Size = new System.Drawing.Size(21, 20);
-            this.LblQQs.TabIndex = 0;
-            this.LblQQs.Text = "--";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(21, 79);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(123, 20);
-            this.label20.TabIndex = 0;
-            this.label20.Text = "Estado Fisico:";
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(650, 79);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(114, 20);
+            this.label23.TabIndex = 0;
+            this.label23.Text = "Certificación:";
             // 
             // LblEstFis
             // 
             this.LblEstFis.AutoSize = true;
-            this.LblEstFis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblEstFis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEstFis.Location = new System.Drawing.Point(150, 79);
             this.LblEstFis.Name = "LblEstFis";
-            this.LblEstFis.Size = new System.Drawing.Size(21, 20);
+            this.LblEstFis.Size = new System.Drawing.Size(19, 20);
             this.LblEstFis.TabIndex = 0;
             this.LblEstFis.Text = "--";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(473, 79);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(57, 20);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "Daño:";
+            // 
+            // LblQQs
+            // 
+            this.LblQQs.AutoSize = true;
+            this.LblQQs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblQQs.Location = new System.Drawing.Point(759, 16);
+            this.LblQQs.Name = "LblQQs";
+            this.LblQQs.Size = new System.Drawing.Size(19, 20);
+            this.LblQQs.TabIndex = 0;
+            this.LblQQs.Text = "--";
             // 
             // label21
             // 
@@ -1149,55 +1054,198 @@
             this.label21.TabIndex = 0;
             this.label21.Text = "Calidad:";
             // 
-            // LblCalidad
+            // LblPeso
             // 
-            this.LblCalidad.AutoSize = true;
-            this.LblCalidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCalidad.Location = new System.Drawing.Point(367, 79);
-            this.LblCalidad.Name = "LblCalidad";
-            this.LblCalidad.Size = new System.Drawing.Size(21, 20);
-            this.LblCalidad.TabIndex = 0;
-            this.LblCalidad.Text = "--";
+            this.LblPeso.AutoSize = true;
+            this.LblPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPeso.Location = new System.Drawing.Point(539, 16);
+            this.LblPeso.Name = "LblPeso";
+            this.LblPeso.Size = new System.Drawing.Size(19, 20);
+            this.LblPeso.TabIndex = 0;
+            this.LblPeso.Text = "--";
             // 
-            // label22
+            // label20
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(504, 79);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(57, 20);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "Daño:";
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(21, 79);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(123, 20);
+            this.label20.TabIndex = 0;
+            this.label20.Text = "Estado Fisico:";
             // 
-            // LblDanio
+            // LblSacos
             // 
-            this.LblDanio.AutoSize = true;
-            this.LblDanio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDanio.Location = new System.Drawing.Point(567, 79);
-            this.LblDanio.Name = "LblDanio";
-            this.LblDanio.Size = new System.Drawing.Size(21, 20);
-            this.LblDanio.TabIndex = 0;
-            this.LblDanio.Text = "--";
+            this.LblSacos.AutoSize = true;
+            this.LblSacos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblSacos.Location = new System.Drawing.Point(324, 16);
+            this.LblSacos.Name = "LblSacos";
+            this.LblSacos.Size = new System.Drawing.Size(19, 20);
+            this.LblSacos.TabIndex = 0;
+            this.LblSacos.Text = "--";
             // 
-            // label23
+            // label19
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(704, 79);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(114, 20);
-            this.label23.TabIndex = 0;
-            this.label23.Text = "Certificación:";
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(700, 16);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(49, 20);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "QQs:";
             // 
-            // LblCert
+            // LblTicket
             // 
-            this.LblCert.AutoSize = true;
-            this.LblCert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCert.Location = new System.Drawing.Point(824, 79);
-            this.LblCert.Name = "LblCert";
-            this.LblCert.Size = new System.Drawing.Size(21, 20);
-            this.LblCert.TabIndex = 0;
-            this.LblCert.Text = "--";
+            this.LblTicket.AutoSize = true;
+            this.LblTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTicket.Location = new System.Drawing.Point(89, 16);
+            this.LblTicket.Name = "LblTicket";
+            this.LblTicket.Size = new System.Drawing.Size(19, 20);
+            this.LblTicket.TabIndex = 0;
+            this.LblTicket.Text = "--";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(485, 16);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(44, 20);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Kgs:";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(250, 16);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(64, 20);
+            this.label17.TabIndex = 0;
+            this.label17.Text = "Sacos:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(17, 16);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(62, 20);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Ticket:";
+            // 
+            // dtInventariocp
+            // 
+            this.dtInventariocp.AllowUserToAddRows = false;
+            this.dtInventariocp.AllowUserToDeleteRows = false;
+            this.dtInventariocp.AllowUserToOrderColumns = true;
+            this.dtInventariocp.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.NullValue = "--";
+            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dtInventariocp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtInventariocp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dtInventariocp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dtInventariocp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtInventariocp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Eliminar,
+            this.Consolidar});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.NullValue = "--";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dtInventariocp.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dtInventariocp.Location = new System.Drawing.Point(0, 62);
+            this.dtInventariocp.Name = "dtInventariocp";
+            this.dtInventariocp.ReadOnly = true;
+            this.dtInventariocp.RowHeadersVisible = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dtInventariocp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtInventariocp.ShowCellToolTips = false;
+            this.dtInventariocp.ShowEditingIcon = false;
+            this.dtInventariocp.Size = new System.Drawing.Size(1825, 720);
+            this.dtInventariocp.TabIndex = 6;
+            this.dtInventariocp.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtInventariocp_CellDoubleClick);
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Image = global::ProyectoOFI.Properties.Resources.Delete;
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.MinimumWidth = 10;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Visible = false;
+            // 
+            // dataGridViewImageColumn3
+            // 
+            this.dataGridViewImageColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewImageColumn3.HeaderText = "Cons";
+            this.dataGridViewImageColumn3.Image = global::ProyectoOFI.Properties.Resources.join;
+            this.dataGridViewImageColumn3.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
+            this.dataGridViewImageColumn3.ReadOnly = true;
+            this.dataGridViewImageColumn3.Visible = false;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = global::ProyectoOFI.Properties.Resources.Delete;
+            this.dataGridViewImageColumn2.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.dataGridViewImageColumn2.MinimumWidth = 10;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Visible = false;
+            // 
+            // PlCerrarDetalle
+            // 
+            this.PlCerrarDetalle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PlCerrarDetalle.Controls.Add(this.LblTituloCP);
+            this.PlCerrarDetalle.Controls.Add(this.BtnCerrarDetalleCp);
+            this.PlCerrarDetalle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PlCerrarDetalle.Location = new System.Drawing.Point(0, 0);
+            this.PlCerrarDetalle.Name = "PlCerrarDetalle";
+            this.PlCerrarDetalle.Size = new System.Drawing.Size(974, 48);
+            this.PlCerrarDetalle.TabIndex = 3;
+            // 
+            // BtnCerrarDetalleCp
+            // 
+            this.BtnCerrarDetalleCp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrarDetalleCp.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrarDetalleCp.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrarDetalleCp.Location = new System.Drawing.Point(895, 0);
+            this.BtnCerrarDetalleCp.Name = "BtnCerrarDetalleCp";
+            this.BtnCerrarDetalleCp.Size = new System.Drawing.Size(75, 44);
+            this.BtnCerrarDetalleCp.TabIndex = 3;
+            this.BtnCerrarDetalleCp.UseVisualStyleBackColor = true;
+            this.BtnCerrarDetalleCp.Click += new System.EventHandler(this.BtnCerrarDetalleCp_Click);
+            // 
+            // LblTituloCP
+            // 
+            this.LblTituloCP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblTituloCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTituloCP.Location = new System.Drawing.Point(0, 0);
+            this.LblTituloCP.Name = "LblTituloCP";
+            this.LblTituloCP.Size = new System.Drawing.Size(895, 44);
+            this.LblTituloCP.TabIndex = 4;
+            this.LblTituloCP.Text = "Editar Control Patio";
+            this.LblTituloCP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // CUControlPatio
             // 
@@ -1219,19 +1267,20 @@
             this.PlFiltros.ResumeLayout(false);
             this.PlCerrar.ResumeLayout(false);
             this.PlContenedor.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).EndInit();
             this.PlControl.ResumeLayout(false);
             this.PlControl.PerformLayout();
-            this.POpciones.ResumeLayout(false);
-            this.POpciones.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.PlTendido.ResumeLayout(false);
-            this.PlTendido.PerformLayout();
-            this.PlEnfarde.ResumeLayout(false);
-            this.PlEnfarde.PerformLayout();
             this.PlEnvio.ResumeLayout(false);
             this.PlEnvio.PerformLayout();
+            this.PlEnfarde.ResumeLayout(false);
+            this.PlEnfarde.PerformLayout();
+            this.PlTendido.ResumeLayout(false);
+            this.PlTendido.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
+            this.PlDatos.ResumeLayout(false);
+            this.PlDatos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).EndInit();
+            this.PlCerrarDetalle.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1280,7 +1329,7 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.Panel PlControl;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.Panel POpciones;
+        private System.Windows.Forms.Panel PlDatos;
         private System.Windows.Forms.Panel PlTendido;
         private System.Windows.Forms.ComboBox CbUbicacionP;
         private System.Windows.Forms.ComboBox CbPatio;
@@ -1330,5 +1379,8 @@
         private System.Windows.Forms.Label LblTicket;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Panel PlCerrarDetalle;
+        private System.Windows.Forms.Button BtnCerrarDetalleCp;
+        private System.Windows.Forms.Label LblTituloCP;
     }
 }

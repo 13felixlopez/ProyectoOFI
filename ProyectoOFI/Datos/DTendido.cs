@@ -37,7 +37,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("select Count(Ticket) from Recepcion Where Estado='ACTIVO' and AreaSecado='Control Patio'", Conexion.conectar);
+                SqlCommand cmd = new SqlCommand("select COUNT (ticket) from Recepcion where Estado='ACTIVO' AND IdAreaSecado=1", Conexion.conectar);
                 Contador = Convert.ToInt32(cmd.ExecuteScalar());
             }
             catch (Exception)

@@ -84,5 +84,11 @@ namespace ProyectoOFI.Otros
             FrmAreaSecado AA = new FrmAreaSecado();
             AA.ShowDialog();
         }
+
+        private void BtnPatio_Click(object sender, EventArgs e)
+        {
+            FrmPatio AA = new FrmPatio();
+            AA.ShowDialog();
+        }
     }
 }

@@ -1,9 +1,13 @@
 ﻿using ProyectoOFI.Datos;
+using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
+using ProyectoOFI.Recepcion;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace ProyectoOFI.ControlPatio
 {
@@ -15,6 +19,10 @@ namespace ProyectoOFI.ControlPatio
         int totalPaginas;
         int Contador;
         int ContarBusqueda;
+        string Modulo;
+        string Ticket, Estado;
+        DateTime Frecibido;
+        string Proceso;
         public CUControlPatio()
         {
             InitializeComponent();
@@ -38,9 +46,9 @@ namespace ProyectoOFI.ControlPatio
 
         private void MostrarLotes()
         {
-            DataTable dt=new DataTable();
+            DataTable dt = new DataTable();
             DTendido funcion = new DTendido();
-            funcion.MostrarLotesCP(ref dt,desde,hasta);
+            funcion.MostrarLotesCP(ref dt, desde, hasta);
             dtInventariocp.DataSource = dt;
             Base.DiseñoDtvEliminar(ref dtInventariocp);
         }
@@ -104,7 +112,7 @@ namespace ProyectoOFI.ControlPatio
             hasta -= 100;
             if (txtBuscador.Text != "")
             {
-               // BuscarTK();
+                // BuscarTK();
             }
             else if (CbBuscador.Visible == true)
             {
@@ -206,5 +214,146 @@ namespace ProyectoOFI.ControlPatio
             }
         }
         #endregion
+
+        private void dtInventariocp_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ObtenerTK();
+            ObtenerDatos();
+            //lblTransferencia.Text = "Editar Transferencia";
+            AbrirFormulario();
+            if (Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase) || Modulo == "EditarTK")
+            {
+                PlEnfarde.Visible = true;
+                PlEnvio.Visible = true;
+            }
+            else
+            {
+                if (Proceso == "No Asignado")
+                {
+                    PlTendido.Enabled = true;
+                }
+                if (Proceso == "Tendido")
+                {
+                    PlTendido.Enabled = false;
+                    PlEnfarde.Visible = true;
+                }
+                else if (Proceso == "Enfardado")
+                {
+                    PlTendido.Enabled = false;
+                    PlEnfarde.Enabled = false;
+                    PlEnfarde.Visible = true;
+                    PlEnvio.Visible = true;
+                    TSLEnfarde.Visible = true;
+                }
+                else if(Proceso =="Enviado")
+                {
+                    PlTendido.Enabled = false;
+                    PlEnfarde.Enabled = false;
+                    PlEnfarde.Visible = true;
+                    PlEnvio.Visible = true;
+                    PlEnvio.Enabled = false;
+                    TSLEnvio.Visible = true;
+                }
+            }
+        }
+
+        private void AbrirFormulario()
+        {
+            PlControl.Location = new Point(dtInventariocp.Width / 2
+                - PlControl.Width / 2, dtInventariocp.Height / 2 - PlControl.Height / 2);
+            PlControl.Visible = true;
+            PlControl.BringToFront();
+            plOpciones.Enabled = false;
+            if (LblCert.Text=="Convencional")
+            {
+                PlDatos.BackColor = Color.FromArgb(192, 255, 192);
+            }
+            else
+            {
+                PlDatos.BackColor = Color.FromArgb(192, 255, 255);
+            }
+            //PEnvio.Dock = DockStyle.Fill;
+        }
+
+        private void ObtenerDatos()
+        {
+            DRecepcion funcion = new DRecepcion();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                funcion.MostrarDetalle(ref dt, Ticket);
+
+                if (dt.Rows.Count > 0)
+                {
+                    double kilos;
+                    DataRow row = dt.Rows[0];
+                    if (row["Certificacion"].ToString() != null)
+                    {
+                        LblCert.Text = row["Certificacion"].ToString();
+                    }
+                    else
+                    {
+                        LblCert.Text = "";
+                    }
+                    LblTicket.Text = Ticket.ToString();
+                    Frecibido = DateTime.Parse(row["Fecha Recibido"].ToString());
+                    LblEstFis.Text = row["Estado Físico"].ToString();
+                    LblCalidad.Text = row["Calidad"].ToString();
+                    LblDanio.Text = row["Daño"].ToString();
+                    LblSacos.Text = row["Sacos"].ToString();
+                    LblPeso.Text = row["Peso"].ToString();
+                    kilos = double.Parse(LblPeso.Text);
+                    kilos = kilos / 46;
+                    LblQQs.Text = Math.Round(kilos, 2).ToString();
+                    Proceso = row["Proceso"].ToString();
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron datos para el ticket especificado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void TSLCerrar_Click(object sender, EventArgs e)
+        {
+            PlControl.Visible = false;
+            Limpiar();
+        }
+
+        private void Limpiar()
+        {
+            LblTicket.Text = "--";
+            LblSacos.Text = "--";
+            LblPeso.Text = "--";
+            LblQQs.Text = "--";
+            LblEstFis.Text = "--";
+            LblCalidad.Text = "--";
+            LblDanio.Text = "--";
+            LblCert.Text = "--";
+            Proceso = null;
+            Ticket = null;
+        }
+
+        private void BtnCerrarDetalleCp_Click(object sender, EventArgs e)
+        {
+            PlControl.Visible = false;
+            Limpiar();
+        }
+
+        private void ObtenerTK()
+        {
+            string nombrecolumna = "Ticket";
+            int indice = dtInventariocp.Columns[nombrecolumna].Index;
+            Ticket = dtInventariocp.SelectedCells[indice].Value.ToString();
+
+            string nombrecolum = "Proceso";
+            int num = dtInventariocp.Columns[nombrecolum].Index;
+            Estado = dtInventariocp.SelectedCells[num].Value.ToString();
+        }
     }
 }

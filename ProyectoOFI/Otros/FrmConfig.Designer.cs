@@ -31,9 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConfig));
             this.PlTitulo = new System.Windows.Forms.Panel();
             this.LblTitulo = new System.Windows.Forms.Label();
-            this.BtnCerrar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.GbTransfer = new System.Windows.Forms.GroupBox();
+            this.GbControlPatio = new System.Windows.Forms.GroupBox();
+            this.GbSM = new System.Windows.Forms.GroupBox();
+            this.BtnOperadores = new System.Windows.Forms.Button();
+            this.BtnTurnos = new System.Windows.Forms.Button();
+            this.BtnParos = new System.Windows.Forms.Button();
+            this.BtnPatio = new System.Windows.Forms.Button();
+            this.BtnUbicacionesPatio = new System.Windows.Forms.Button();
             this.BtnAgencia = new System.Windows.Forms.Button();
             this.BtnCert = new System.Windows.Forms.Button();
             this.BtnCompra = new System.Windows.Forms.Button();
@@ -44,17 +49,13 @@
             this.BtnDaño = new System.Windows.Forms.Button();
             this.BtnAcopio = new System.Windows.Forms.Button();
             this.BtnAreaS = new System.Windows.Forms.Button();
-            this.GbControlPatio = new System.Windows.Forms.GroupBox();
-            this.BtnUbicacionesPatio = new System.Windows.Forms.Button();
-            this.GbSM = new System.Windows.Forms.GroupBox();
-            this.BtnOperadores = new System.Windows.Forms.Button();
-            this.BtnTurnos = new System.Windows.Forms.Button();
-            this.BtnParos = new System.Windows.Forms.Button();
+            this.BtnCerrar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PlTitulo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.GbTransfer.SuspendLayout();
             this.GbControlPatio.SuspendLayout();
             this.GbSM.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // PlTitulo
@@ -80,29 +81,6 @@
             this.LblTitulo.Text = "Configuraciones";
             this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // BtnCerrar
-            // 
-            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrar.Location = new System.Drawing.Point(995, 0);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(75, 65);
-            this.BtnCerrar.TabIndex = 1;
-            this.BtnCerrar.UseVisualStyleBackColor = true;
-            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.OFI_Make;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 65);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // GbTransfer
             // 
             this.GbTransfer.Controls.Add(this.BtnAgencia);
@@ -122,6 +100,99 @@
             this.GbTransfer.TabIndex = 23;
             this.GbTransfer.TabStop = false;
             this.GbTransfer.Text = "Tranferencias";
+            // 
+            // GbControlPatio
+            // 
+            this.GbControlPatio.Controls.Add(this.BtnPatio);
+            this.GbControlPatio.Controls.Add(this.BtnUbicacionesPatio);
+            this.GbControlPatio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GbControlPatio.Location = new System.Drawing.Point(453, 71);
+            this.GbControlPatio.Name = "GbControlPatio";
+            this.GbControlPatio.Size = new System.Drawing.Size(251, 159);
+            this.GbControlPatio.TabIndex = 24;
+            this.GbControlPatio.TabStop = false;
+            this.GbControlPatio.Text = "Control de Patio";
+            // 
+            // GbSM
+            // 
+            this.GbSM.Controls.Add(this.BtnOperadores);
+            this.GbSM.Controls.Add(this.BtnTurnos);
+            this.GbSM.Controls.Add(this.BtnParos);
+            this.GbSM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GbSM.Location = new System.Drawing.Point(453, 232);
+            this.GbSM.Name = "GbSM";
+            this.GbSM.Size = new System.Drawing.Size(251, 267);
+            this.GbSM.TabIndex = 24;
+            this.GbSM.TabStop = false;
+            this.GbSM.Text = "Secado Mecánico";
+            // 
+            // BtnOperadores
+            // 
+            this.BtnOperadores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnOperadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnOperadores.Image = global::ProyectoOFI.Properties.Resources.MdiBank;
+            this.BtnOperadores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnOperadores.Location = new System.Drawing.Point(44, 44);
+            this.BtnOperadores.Name = "BtnOperadores";
+            this.BtnOperadores.Size = new System.Drawing.Size(162, 55);
+            this.BtnOperadores.TabIndex = 13;
+            this.BtnOperadores.Text = "Operadores";
+            this.BtnOperadores.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnOperadores.UseVisualStyleBackColor = true;
+            // 
+            // BtnTurnos
+            // 
+            this.BtnTurnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTurnos.Image = global::ProyectoOFI.Properties.Resources.icons8_grupos_de_usuarios;
+            this.BtnTurnos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTurnos.Location = new System.Drawing.Point(44, 121);
+            this.BtnTurnos.Name = "BtnTurnos";
+            this.BtnTurnos.Size = new System.Drawing.Size(162, 55);
+            this.BtnTurnos.TabIndex = 19;
+            this.BtnTurnos.Text = "Turnos";
+            this.BtnTurnos.UseVisualStyleBackColor = true;
+            // 
+            // BtnParos
+            // 
+            this.BtnParos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnParos.Image = global::ProyectoOFI.Properties.Resources.icons8_agregar_a_carrito_de_compras;
+            this.BtnParos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnParos.Location = new System.Drawing.Point(44, 198);
+            this.BtnParos.Name = "BtnParos";
+            this.BtnParos.Size = new System.Drawing.Size(162, 55);
+            this.BtnParos.TabIndex = 21;
+            this.BtnParos.Text = "Paros";
+            this.BtnParos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnParos.UseVisualStyleBackColor = true;
+            // 
+            // BtnPatio
+            // 
+            this.BtnPatio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPatio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPatio.Image = global::ProyectoOFI.Properties.Resources.icons8_fields_50;
+            this.BtnPatio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPatio.Location = new System.Drawing.Point(71, 30);
+            this.BtnPatio.Name = "BtnPatio";
+            this.BtnPatio.Size = new System.Drawing.Size(109, 55);
+            this.BtnPatio.TabIndex = 13;
+            this.BtnPatio.Text = "Patio";
+            this.BtnPatio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnPatio.UseVisualStyleBackColor = true;
+            this.BtnPatio.Click += new System.EventHandler(this.BtnPatio_Click);
+            // 
+            // BtnUbicacionesPatio
+            // 
+            this.BtnUbicacionesPatio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnUbicacionesPatio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnUbicacionesPatio.Image = global::ProyectoOFI.Properties.Resources.MdiBank;
+            this.BtnUbicacionesPatio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnUbicacionesPatio.Location = new System.Drawing.Point(18, 96);
+            this.BtnUbicacionesPatio.Name = "BtnUbicacionesPatio";
+            this.BtnUbicacionesPatio.Size = new System.Drawing.Size(215, 55);
+            this.BtnUbicacionesPatio.TabIndex = 13;
+            this.BtnUbicacionesPatio.Text = "Ubicaciones de Patio";
+            this.BtnUbicacionesPatio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnUbicacionesPatio.UseVisualStyleBackColor = true;
             // 
             // BtnAgencia
             // 
@@ -257,82 +328,28 @@
             this.BtnAreaS.UseVisualStyleBackColor = true;
             this.BtnAreaS.Click += new System.EventHandler(this.BtnAreaS_Click);
             // 
-            // GbControlPatio
+            // BtnCerrar
             // 
-            this.GbControlPatio.Controls.Add(this.BtnUbicacionesPatio);
-            this.GbControlPatio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbControlPatio.Location = new System.Drawing.Point(453, 71);
-            this.GbControlPatio.Name = "GbControlPatio";
-            this.GbControlPatio.Size = new System.Drawing.Size(251, 100);
-            this.GbControlPatio.TabIndex = 24;
-            this.GbControlPatio.TabStop = false;
-            this.GbControlPatio.Text = "Control de Patio";
+            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrar.Location = new System.Drawing.Point(995, 0);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(75, 65);
+            this.BtnCerrar.TabIndex = 1;
+            this.BtnCerrar.UseVisualStyleBackColor = true;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
-            // BtnUbicacionesPatio
+            // pictureBox1
             // 
-            this.BtnUbicacionesPatio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnUbicacionesPatio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnUbicacionesPatio.Image = global::ProyectoOFI.Properties.Resources.MdiBank;
-            this.BtnUbicacionesPatio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnUbicacionesPatio.Location = new System.Drawing.Point(23, 25);
-            this.BtnUbicacionesPatio.Name = "BtnUbicacionesPatio";
-            this.BtnUbicacionesPatio.Size = new System.Drawing.Size(215, 55);
-            this.BtnUbicacionesPatio.TabIndex = 13;
-            this.BtnUbicacionesPatio.Text = "Ubicaciones de Patio";
-            this.BtnUbicacionesPatio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnUbicacionesPatio.UseVisualStyleBackColor = true;
-            // 
-            // GbSM
-            // 
-            this.GbSM.Controls.Add(this.BtnOperadores);
-            this.GbSM.Controls.Add(this.BtnTurnos);
-            this.GbSM.Controls.Add(this.BtnParos);
-            this.GbSM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbSM.Location = new System.Drawing.Point(453, 203);
-            this.GbSM.Name = "GbSM";
-            this.GbSM.Size = new System.Drawing.Size(251, 296);
-            this.GbSM.TabIndex = 24;
-            this.GbSM.TabStop = false;
-            this.GbSM.Text = "Secado Mecánico";
-            // 
-            // BtnOperadores
-            // 
-            this.BtnOperadores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnOperadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnOperadores.Image = global::ProyectoOFI.Properties.Resources.MdiBank;
-            this.BtnOperadores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnOperadores.Location = new System.Drawing.Point(44, 44);
-            this.BtnOperadores.Name = "BtnOperadores";
-            this.BtnOperadores.Size = new System.Drawing.Size(162, 55);
-            this.BtnOperadores.TabIndex = 13;
-            this.BtnOperadores.Text = "Operadores";
-            this.BtnOperadores.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnOperadores.UseVisualStyleBackColor = true;
-            // 
-            // BtnTurnos
-            // 
-            this.BtnTurnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnTurnos.Image = global::ProyectoOFI.Properties.Resources.icons8_grupos_de_usuarios;
-            this.BtnTurnos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnTurnos.Location = new System.Drawing.Point(44, 121);
-            this.BtnTurnos.Name = "BtnTurnos";
-            this.BtnTurnos.Size = new System.Drawing.Size(162, 55);
-            this.BtnTurnos.TabIndex = 19;
-            this.BtnTurnos.Text = "Turnos";
-            this.BtnTurnos.UseVisualStyleBackColor = true;
-            // 
-            // BtnParos
-            // 
-            this.BtnParos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnParos.Image = global::ProyectoOFI.Properties.Resources.icons8_agregar_a_carrito_de_compras;
-            this.BtnParos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnParos.Location = new System.Drawing.Point(44, 198);
-            this.BtnParos.Name = "BtnParos";
-            this.BtnParos.Size = new System.Drawing.Size(162, 55);
-            this.BtnParos.TabIndex = 21;
-            this.BtnParos.Text = "Paros";
-            this.BtnParos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnParos.UseVisualStyleBackColor = true;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.OFI_Make;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 65);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmConfig
             // 
@@ -349,10 +366,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmConfig";
             this.PlTitulo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.GbTransfer.ResumeLayout(false);
             this.GbControlPatio.ResumeLayout(false);
             this.GbSM.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -380,5 +397,6 @@
         private System.Windows.Forms.Button BtnOperadores;
         private System.Windows.Forms.Button BtnTurnos;
         private System.Windows.Forms.Button BtnParos;
+        private System.Windows.Forms.Button BtnPatio;
     }
 }

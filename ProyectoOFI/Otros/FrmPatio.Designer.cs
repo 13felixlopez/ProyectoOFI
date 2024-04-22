@@ -256,6 +256,7 @@
             this.Name = "FrmPatio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPatio";
+            this.Load += new System.EventHandler(this.FrmPatio_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.PlPrincipal.ResumeLayout(false);

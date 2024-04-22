@@ -89,7 +89,7 @@ namespace ProyectoOFI.Otros
             IdPatio = int.Parse(DtPatio.SelectedCells[1].Value.ToString());
             if (e.ColumnIndex == DtPatio.Columns["Eliminar"].Index)
             {
-                DialogResult result = MessageBox.Show("¿Esta seguro de eliminar el Recibidor, Desea Continuar?", "Eliminando registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("¿Esta seguro de eliminar el Patio, Desea Continuar?", "Eliminando registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
                 {
                     EliminarPatio();
@@ -103,6 +103,11 @@ namespace ProyectoOFI.Otros
             {
                 MostrarPatio();
             }
+        }
+
+        private void FrmPatio_Load(object sender, EventArgs e)
+        {
+            MostrarPatio();
         }
     }
 }

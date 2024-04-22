@@ -88,6 +88,7 @@
     <Compile Include="Logica\LPermisos.cs" />
     <Compile Include="Logica\LPOAV.cs" />
     <Compile Include="Logica\LRecepcion.cs" />
+    <Compile Include="Logica\LTendido.cs" />
     <Compile Include="Logica\LUsuarios.cs" />
     <Compile Include="Logica\LVertical.cs" />
     <Compile Include="Login.cs">
@@ -156,6 +157,12 @@
     </Compile>
     <Compile Include="Otros\FrmPatio.Designer.cs">
       <DependentUpon>FrmPatio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\FrmUbicacionP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Otros\FrmUbicacionP.Designer.cs">
+      <DependentUpon>FrmUbicacionP.cs</DependentUpon>
     </Compile>
     <Compile Include="Otros\Recibidor.cs">
       <SubType>Form</SubType>
@@ -280,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Otros\FrmPatio.resx">
       <DependentUpon>FrmPatio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Otros\FrmUbicacionP.resx">
+      <DependentUpon>FrmUbicacionP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Otros\Recibidor.resx">
       <DependentUpon>Recibidor.cs</DependentUpon>

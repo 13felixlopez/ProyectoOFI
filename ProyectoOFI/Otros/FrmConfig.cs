@@ -90,5 +90,11 @@ namespace ProyectoOFI.Otros
             FrmPatio AA = new FrmPatio();
             AA.ShowDialog();
         }
+
+        private void BtnUbicacionesPatio_Click(object sender, EventArgs e)
+        {
+            FrmUbicacionP AA = new FrmUbicacionP();
+            AA.ShowDialog();
+        }
     }
 }

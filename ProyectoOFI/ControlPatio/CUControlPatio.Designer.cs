@@ -75,6 +75,7 @@
             this.CbDestino = new System.Windows.Forms.ComboBox();
             this.CbEstFis = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
+            this.LblDigiEnvio = new System.Windows.Forms.Label();
             this.DTEnvio = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -85,6 +86,7 @@
             this.DTPEnfarde = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.LblDigitadorEnfar = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.LblDiasSecado = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -95,6 +97,7 @@
             this.CbUbicacionP = new System.Windows.Forms.ComboBox();
             this.CbPatio = new System.Windows.Forms.ComboBox();
             this.DTPFechaTendido = new System.Windows.Forms.DateTimePicker();
+            this.LblDigitadorCp = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -121,13 +124,13 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.PlCerrarDetalle = new System.Windows.Forms.Panel();
+            this.LblTituloCP = new System.Windows.Forms.Label();
+            this.BtnCerrarDetalleCp = new System.Windows.Forms.Button();
             this.dtInventariocp = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.PlCerrarDetalle = new System.Windows.Forms.Panel();
-            this.BtnCerrarDetalleCp = new System.Windows.Forms.Button();
-            this.LblTituloCP = new System.Windows.Forms.Label();
             this.PlCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.plOpciones.SuspendLayout();
@@ -144,8 +147,8 @@
             this.PlTendido.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.PlDatos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).BeginInit();
             this.PlCerrarDetalle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Sig
@@ -632,6 +635,7 @@
             this.PlEnvio.Controls.Add(this.CbDestino);
             this.PlEnvio.Controls.Add(this.CbEstFis);
             this.PlEnvio.Controls.Add(this.label15);
+            this.PlEnvio.Controls.Add(this.LblDigiEnvio);
             this.PlEnvio.Controls.Add(this.DTEnvio);
             this.PlEnvio.Controls.Add(this.label12);
             this.PlEnvio.Controls.Add(this.label13);
@@ -647,9 +651,9 @@
             // 
             // BtnEnviar
             // 
-            this.BtnEnviar.Location = new System.Drawing.Point(745, 33);
+            this.BtnEnviar.Location = new System.Drawing.Point(814, 15);
             this.BtnEnviar.Name = "BtnEnviar";
-            this.BtnEnviar.Size = new System.Drawing.Size(154, 71);
+            this.BtnEnviar.Size = new System.Drawing.Size(142, 40);
             this.BtnEnviar.TabIndex = 4;
             this.BtnEnviar.Text = "Enviar";
             this.BtnEnviar.UseVisualStyleBackColor = true;
@@ -678,6 +682,15 @@
             this.label15.Size = new System.Drawing.Size(76, 20);
             this.label15.TabIndex = 0;
             this.label15.Text = "Destino:";
+            // 
+            // LblDigiEnvio
+            // 
+            this.LblDigiEnvio.Location = new System.Drawing.Point(734, 59);
+            this.LblDigiEnvio.Name = "LblDigiEnvio";
+            this.LblDigiEnvio.Size = new System.Drawing.Size(228, 62);
+            this.LblDigiEnvio.TabIndex = 0;
+            this.LblDigiEnvio.Text = "--";
+            this.LblDigiEnvio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DTEnvio
             // 
@@ -728,6 +741,7 @@
             this.PlEnfarde.Controls.Add(this.DTPEnfarde);
             this.PlEnfarde.Controls.Add(this.label8);
             this.PlEnfarde.Controls.Add(this.label9);
+            this.PlEnfarde.Controls.Add(this.LblDigitadorEnfar);
             this.PlEnfarde.Controls.Add(this.label10);
             this.PlEnfarde.Controls.Add(this.LblDiasSecado);
             this.PlEnfarde.Controls.Add(this.label11);
@@ -743,9 +757,9 @@
             // 
             // BtnEnfarde
             // 
-            this.BtnEnfarde.Location = new System.Drawing.Point(745, 33);
+            this.BtnEnfarde.Location = new System.Drawing.Point(814, 6);
             this.BtnEnfarde.Name = "BtnEnfarde";
-            this.BtnEnfarde.Size = new System.Drawing.Size(154, 71);
+            this.BtnEnfarde.Size = new System.Drawing.Size(142, 40);
             this.BtnEnfarde.TabIndex = 4;
             this.BtnEnfarde.Text = "Enfarde";
             this.BtnEnfarde.UseVisualStyleBackColor = true;
@@ -775,6 +789,15 @@
             this.label9.Size = new System.Drawing.Size(162, 20);
             this.label9.TabIndex = 0;
             this.label9.Text = "Sacos Enfardados:";
+            // 
+            // LblDigitadorEnfar
+            // 
+            this.LblDigitadorEnfar.Location = new System.Drawing.Point(734, 62);
+            this.LblDigitadorEnfar.Name = "LblDigitadorEnfar";
+            this.LblDigitadorEnfar.Size = new System.Drawing.Size(228, 62);
+            this.LblDigitadorEnfar.TabIndex = 0;
+            this.LblDigitadorEnfar.Text = "--";
+            this.LblDigitadorEnfar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
             // 
@@ -824,6 +847,7 @@
             this.PlTendido.Controls.Add(this.CbUbicacionP);
             this.PlTendido.Controls.Add(this.CbPatio);
             this.PlTendido.Controls.Add(this.DTPFechaTendido);
+            this.PlTendido.Controls.Add(this.LblDigitadorCp);
             this.PlTendido.Controls.Add(this.label7);
             this.PlTendido.Controls.Add(this.label6);
             this.PlTendido.Controls.Add(this.label5);
@@ -838,12 +862,13 @@
             // 
             // BtnTendido
             // 
-            this.BtnTendido.Location = new System.Drawing.Point(745, 33);
+            this.BtnTendido.Location = new System.Drawing.Point(814, 5);
             this.BtnTendido.Name = "BtnTendido";
-            this.BtnTendido.Size = new System.Drawing.Size(154, 71);
+            this.BtnTendido.Size = new System.Drawing.Size(142, 37);
             this.BtnTendido.TabIndex = 4;
             this.BtnTendido.Text = "Tendido";
             this.BtnTendido.UseVisualStyleBackColor = true;
+            this.BtnTendido.Click += new System.EventHandler(this.BtnTendido_Click);
             // 
             // CbUbicacionP
             // 
@@ -860,6 +885,7 @@
             this.CbPatio.Name = "CbPatio";
             this.CbPatio.Size = new System.Drawing.Size(221, 28);
             this.CbPatio.TabIndex = 3;
+            this.CbPatio.SelectedIndexChanged += new System.EventHandler(this.CbPatio_SelectedIndexChanged);
             // 
             // DTPFechaTendido
             // 
@@ -868,6 +894,15 @@
             this.DTPFechaTendido.Name = "DTPFechaTendido";
             this.DTPFechaTendido.Size = new System.Drawing.Size(132, 26);
             this.DTPFechaTendido.TabIndex = 2;
+            // 
+            // LblDigitadorCp
+            // 
+            this.LblDigitadorCp.Location = new System.Drawing.Point(747, 54);
+            this.LblDigitadorCp.Name = "LblDigitadorCp";
+            this.LblDigitadorCp.Size = new System.Drawing.Size(209, 62);
+            this.LblDigitadorCp.TabIndex = 0;
+            this.LblDigitadorCp.Text = "--";
+            this.LblDigitadorCp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
@@ -932,6 +967,7 @@
             this.TSLTendido.Name = "TSLTendido";
             this.TSLTendido.Size = new System.Drawing.Size(87, 28);
             this.TSLTendido.Text = "Tendido";
+            this.TSLTendido.Click += new System.EventHandler(this.TSLTendido_Click);
             // 
             // TSLEnfarde
             // 
@@ -1134,6 +1170,40 @@
             this.label16.TabIndex = 0;
             this.label16.Text = "Ticket:";
             // 
+            // PlCerrarDetalle
+            // 
+            this.PlCerrarDetalle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PlCerrarDetalle.Controls.Add(this.LblTituloCP);
+            this.PlCerrarDetalle.Controls.Add(this.BtnCerrarDetalleCp);
+            this.PlCerrarDetalle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PlCerrarDetalle.Location = new System.Drawing.Point(0, 0);
+            this.PlCerrarDetalle.Name = "PlCerrarDetalle";
+            this.PlCerrarDetalle.Size = new System.Drawing.Size(974, 48);
+            this.PlCerrarDetalle.TabIndex = 3;
+            // 
+            // LblTituloCP
+            // 
+            this.LblTituloCP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblTituloCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTituloCP.Location = new System.Drawing.Point(0, 0);
+            this.LblTituloCP.Name = "LblTituloCP";
+            this.LblTituloCP.Size = new System.Drawing.Size(895, 44);
+            this.LblTituloCP.TabIndex = 4;
+            this.LblTituloCP.Text = "Editar Control Patio";
+            this.LblTituloCP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnCerrarDetalleCp
+            // 
+            this.BtnCerrarDetalleCp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrarDetalleCp.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrarDetalleCp.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrarDetalleCp.Location = new System.Drawing.Point(895, 0);
+            this.BtnCerrarDetalleCp.Name = "BtnCerrarDetalleCp";
+            this.BtnCerrarDetalleCp.Size = new System.Drawing.Size(75, 44);
+            this.BtnCerrarDetalleCp.TabIndex = 3;
+            this.BtnCerrarDetalleCp.UseVisualStyleBackColor = true;
+            this.BtnCerrarDetalleCp.Click += new System.EventHandler(this.BtnCerrarDetalleCp_Click);
+            // 
             // dtInventariocp
             // 
             this.dtInventariocp.AllowUserToAddRows = false;
@@ -1213,40 +1283,6 @@
             this.dataGridViewImageColumn2.ReadOnly = true;
             this.dataGridViewImageColumn2.Visible = false;
             // 
-            // PlCerrarDetalle
-            // 
-            this.PlCerrarDetalle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.PlCerrarDetalle.Controls.Add(this.LblTituloCP);
-            this.PlCerrarDetalle.Controls.Add(this.BtnCerrarDetalleCp);
-            this.PlCerrarDetalle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PlCerrarDetalle.Location = new System.Drawing.Point(0, 0);
-            this.PlCerrarDetalle.Name = "PlCerrarDetalle";
-            this.PlCerrarDetalle.Size = new System.Drawing.Size(974, 48);
-            this.PlCerrarDetalle.TabIndex = 3;
-            // 
-            // BtnCerrarDetalleCp
-            // 
-            this.BtnCerrarDetalleCp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCerrarDetalleCp.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCerrarDetalleCp.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrarDetalleCp.Location = new System.Drawing.Point(895, 0);
-            this.BtnCerrarDetalleCp.Name = "BtnCerrarDetalleCp";
-            this.BtnCerrarDetalleCp.Size = new System.Drawing.Size(75, 44);
-            this.BtnCerrarDetalleCp.TabIndex = 3;
-            this.BtnCerrarDetalleCp.UseVisualStyleBackColor = true;
-            this.BtnCerrarDetalleCp.Click += new System.EventHandler(this.BtnCerrarDetalleCp_Click);
-            // 
-            // LblTituloCP
-            // 
-            this.LblTituloCP.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LblTituloCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTituloCP.Location = new System.Drawing.Point(0, 0);
-            this.LblTituloCP.Name = "LblTituloCP";
-            this.LblTituloCP.Size = new System.Drawing.Size(895, 44);
-            this.LblTituloCP.TabIndex = 4;
-            this.LblTituloCP.Text = "Editar Control Patio";
-            this.LblTituloCP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // CUControlPatio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1279,8 +1315,8 @@
             this.toolStrip1.PerformLayout();
             this.PlDatos.ResumeLayout(false);
             this.PlDatos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).EndInit();
             this.PlCerrarDetalle.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1382,5 +1418,8 @@
         private System.Windows.Forms.Panel PlCerrarDetalle;
         private System.Windows.Forms.Button BtnCerrarDetalleCp;
         private System.Windows.Forms.Label LblTituloCP;
+        private System.Windows.Forms.Label LblDigiEnvio;
+        private System.Windows.Forms.Label LblDigitadorEnfar;
+        private System.Windows.Forms.Label LblDigitadorCp;
     }
 }

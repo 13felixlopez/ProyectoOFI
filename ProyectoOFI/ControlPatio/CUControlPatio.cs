@@ -1,7 +1,7 @@
-﻿using ProyectoOFI.Datos;
+﻿using OfficeOpenXml.FormulaParsing.Excel.Functions;
+using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
-using ProyectoOFI.Recepcion;
 using System;
 using System.Data;
 using System.Drawing;
@@ -17,7 +17,7 @@ namespace ProyectoOFI.ControlPatio
         int hasta = 100;
         private int items_por_pagina = 100;
         int totalPaginas;
-        int Contador;
+        int Contador, edit;
         int ContarBusqueda;
         string Modulo;
         string Ticket, Estado;
@@ -43,7 +43,6 @@ namespace ProyectoOFI.ControlPatio
             ReiniciarPaginado();
             await Task.Delay(1000);
         }
-
         private void MostrarLotes()
         {
             DataTable dt = new DataTable();
@@ -214,7 +213,6 @@ namespace ProyectoOFI.ControlPatio
             }
         }
         #endregion
-
         private void dtInventariocp_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             ObtenerTK();
@@ -236,6 +234,7 @@ namespace ProyectoOFI.ControlPatio
                 {
                     PlTendido.Enabled = false;
                     PlEnfarde.Visible = true;
+                    VerTendidio();
                 }
                 else if (Proceso == "Enfardado")
                 {
@@ -245,7 +244,7 @@ namespace ProyectoOFI.ControlPatio
                     PlEnvio.Visible = true;
                     TSLEnfarde.Visible = true;
                 }
-                else if(Proceso =="Enviado")
+                else if (Proceso == "Enviado")
                 {
                     PlTendido.Enabled = false;
                     PlEnfarde.Enabled = false;
@@ -256,7 +255,47 @@ namespace ProyectoOFI.ControlPatio
                 }
             }
         }
+        private void VerTendidio()
+        {
+            DTendido funcion = new DTendido();
+            DataTable dt = new DataTable();
+            try
+            {
+                funcion.MostrarDetalleTendido(ref dt, Ticket);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow row = dt.Rows[0];
+                    if (row["Folio"].ToString() != null)
+                    {
+                        TxtFolio.Text = row["Folio"].ToString();
+                    }
+                    else
+                    {
+                        TxtFolio.Text = "";
+                    }
+                    if (row["Edit"].ToString() != null)
+                    {
+                        edit = int.Parse(row["Edit"].ToString());
+                    }
+                    else
+                    {
+                        edit = 0;
+                    }
+                    DTPFechaTendido.Value = DateTime.Parse(row["Fecha Tendido"].ToString());
+                    CbPatio.Text = row["Patio"].ToString();
+                    CbUbicacionP.Text = row["Ubicación Patio"].ToString();
 
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron datos para el ticket especificado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron cargar los datos Tendido " + ex.Message, "ERROR Tendido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void AbrirFormulario()
         {
             PlControl.Location = new Point(dtInventariocp.Width / 2
@@ -264,7 +303,7 @@ namespace ProyectoOFI.ControlPatio
             PlControl.Visible = true;
             PlControl.BringToFront();
             plOpciones.Enabled = false;
-            if (LblCert.Text=="Convencional")
+            if (LblCert.Text == "Convencional")
             {
                 PlDatos.BackColor = Color.FromArgb(192, 255, 192);
             }
@@ -272,17 +311,18 @@ namespace ProyectoOFI.ControlPatio
             {
                 PlDatos.BackColor = Color.FromArgb(192, 255, 255);
             }
-            //PEnvio.Dock = DockStyle.Fill;
+            DTendido Ten = new DTendido();
+            Ten.MostrarPatio(CbPatio);
+            LblDigitadorCp.Text = Login.NombreA;
         }
-
         private void ObtenerDatos()
         {
-            DRecepcion funcion = new DRecepcion();
+            DTendido funcion = new DTendido();
             DataTable dt = new DataTable();
 
             try
             {
-                funcion.MostrarDetalle(ref dt, Ticket);
+                funcion.MostrarDetalleTendido(ref dt, Ticket);
 
                 if (dt.Rows.Count > 0)
                 {
@@ -318,13 +358,6 @@ namespace ProyectoOFI.ControlPatio
                 MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void TSLCerrar_Click(object sender, EventArgs e)
-        {
-            PlControl.Visible = false;
-            Limpiar();
-        }
-
         private void Limpiar()
         {
             LblTicket.Text = "--";
@@ -338,13 +371,12 @@ namespace ProyectoOFI.ControlPatio
             Proceso = null;
             Ticket = null;
         }
-
         private void BtnCerrarDetalleCp_Click(object sender, EventArgs e)
         {
             PlControl.Visible = false;
+            plOpciones.Enabled = true;
             Limpiar();
         }
-
         private void ObtenerTK()
         {
             string nombrecolumna = "Ticket";
@@ -354,6 +386,89 @@ namespace ProyectoOFI.ControlPatio
             string nombrecolum = "Proceso";
             int num = dtInventariocp.Columns[nombrecolum].Index;
             Estado = dtInventariocp.SelectedCells[num].Value.ToString();
+        }
+        private void InsertarTendido()
+        {
+            if (validar())
+            {
+                LTendido parametros = new LTendido();
+                DTendido funcion = new DTendido();
+                parametros.Ticket = LblTicket.Text;
+                parametros.Folio = int.Parse(TxtFolio.Text);
+                parametros.FechaT = DateTime.Parse(DTPFechaTendido.Value.ToString());
+                parametros.IdPatio = int.Parse(CbPatio.SelectedValue.ToString());
+                parametros.IdUbicacionP = int.Parse(CbUbicacionP.SelectedValue.ToString());
+                parametros.Digitador = LblDigitadorCp.Text;
+                if (funcion.InsertarTendido(parametros) == true)
+                {
+                    MessageBox.Show("Tendido realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MostrarLotes();
+                    Limpiar();
+                    PlControl.Visible = false;
+                }
+            }
+        }
+        private void EditarTendido()
+        {
+            if (validar())
+            {
+                if (edit < 3 || Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
+                {
+                    LTendido parametros = new LTendido();
+                    DTendido funcion = new DTendido();
+                    parametros.Ticket = LblTicket.Text;
+                    parametros.Folio = int.Parse(TxtFolio.Text);
+                    parametros.FechaT = DateTime.Parse(DTPFechaTendido.Value.ToString());
+                    parametros.IdPatio = int.Parse(CbPatio.SelectedValue.ToString());
+                    parametros.IdUbicacionP = int.Parse(CbUbicacionP.SelectedValue.ToString());
+                    parametros.Digitador = LblDigitadorCp.Text;
+                    edit = edit + 1;
+                    if (funcion.EditarTendido(parametros, edit) == true)
+                    {
+                        MessageBox.Show("Edición de Tendido realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MostrarLotes();
+                        Limpiar();
+                        PlControl.Visible = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ya supero los 3 intentos de edición, comuniquese con un administrador", "Superó los intentos de edición", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
+        }
+        private void BtnTendido_Click(object sender, EventArgs e)
+        {
+            if (BtnTendido.Text == "Tendido")
+            {
+                InsertarTendido();
+                plOpciones.Enabled = true;
+            }
+            else
+            {
+                EditarTendido();
+                PlTendido.Enabled = false;
+                BtnTendido.Text = "Tendido";
+            }
+        }
+        private void CbPatio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DTendido funcion = new DTendido();
+            funcion.MostrarPatioUbicacion(CbUbicacionP, (int)CbPatio.SelectedValue);
+        }
+        private void TSLTendido_Click(object sender, EventArgs e)
+        {
+            PlTendido.Enabled = true;
+            BtnTendido.Text = "Actualizar";
+        }
+        private bool validar()
+        {
+            double entero;
+            if (!double.TryParse(TxtFolio.Text, out entero))
+            {
+                return false;
+            }
+            return !(TxtFolio.Text == "" || CbPatio.Text == "" || CbUbicacionP.Text == "");
         }
     }
 }

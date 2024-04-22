@@ -971,5 +971,95 @@ namespace ProyectoOFI.Datos
             }
         }
         #endregion
+        #region UbicacionP
+        public bool AgregarUbicacionP(string UbicacionP, int IdPatio)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand sqlCommand = new SqlCommand("AgregarUbicacionP", Conexion.conectar);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@Ubicacion", UbicacionP);
+                sqlCommand.Parameters.AddWithValue("@IdPatio", IdPatio);
+                sqlCommand.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al AgregarUbicacionP ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarUbicacionP(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("MostrarUbicacionP", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al MostrarUbicacionP ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EliminarUbicacionP(int IdUbicacionP)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EliminarUbicacionP", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdUbicacionP", IdUbicacionP);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EliminarUbicacionP ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EditarUbicacionP(int IdUbicacionP, string UbicacionP,int idPatio)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EditarUbicacionP", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdUbicacion", IdUbicacionP);
+                cmd.Parameters.AddWithValue("@Ubicacion", UbicacionP);
+                cmd.Parameters.AddWithValue("@IdPatio", idPatio);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EditarUbicacionP ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        #endregion
     }
 }

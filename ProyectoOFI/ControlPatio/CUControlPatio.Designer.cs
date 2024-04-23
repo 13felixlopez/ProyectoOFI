@@ -80,7 +80,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxtDNIN = new System.Windows.Forms.TextBox();
             this.PlEnfarde = new System.Windows.Forms.Panel();
             this.BtnEnfarde = new System.Windows.Forms.Button();
             this.DTPEnfarde = new System.Windows.Forms.DateTimePicker();
@@ -90,7 +90,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.LblDiasSecado = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.TxtHHunedadLevante = new System.Windows.Forms.TextBox();
+            this.TxtHumedadLevante = new System.Windows.Forms.TextBox();
             this.TxtSacosEnfardados = new System.Windows.Forms.TextBox();
             this.PlTendido = new System.Windows.Forms.Panel();
             this.BtnTendido = new System.Windows.Forms.Button();
@@ -640,7 +640,7 @@
             this.PlEnvio.Controls.Add(this.label12);
             this.PlEnvio.Controls.Add(this.label13);
             this.PlEnvio.Controls.Add(this.label14);
-            this.PlEnvio.Controls.Add(this.textBox2);
+            this.PlEnvio.Controls.Add(this.TxtDNIN);
             this.PlEnvio.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlEnvio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlEnvio.Location = new System.Drawing.Point(0, 487);
@@ -727,12 +727,12 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "Fecha de Envio:";
             // 
-            // textBox2
+            // TxtDNIN
             // 
-            this.textBox2.Location = new System.Drawing.Point(147, 77);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(186, 26);
-            this.textBox2.TabIndex = 1;
+            this.TxtDNIN.Location = new System.Drawing.Point(147, 77);
+            this.TxtDNIN.Name = "TxtDNIN";
+            this.TxtDNIN.Size = new System.Drawing.Size(186, 26);
+            this.TxtDNIN.TabIndex = 1;
             // 
             // PlEnfarde
             // 
@@ -745,7 +745,7 @@
             this.PlEnfarde.Controls.Add(this.label10);
             this.PlEnfarde.Controls.Add(this.LblDiasSecado);
             this.PlEnfarde.Controls.Add(this.label11);
-            this.PlEnfarde.Controls.Add(this.TxtHHunedadLevante);
+            this.PlEnfarde.Controls.Add(this.TxtHumedadLevante);
             this.PlEnfarde.Controls.Add(this.TxtSacosEnfardados);
             this.PlEnfarde.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlEnfarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -826,12 +826,12 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Dias de Secado:";
             // 
-            // TxtHHunedadLevante
+            // TxtHumedadLevante
             // 
-            this.TxtHHunedadLevante.Location = new System.Drawing.Point(511, 81);
-            this.TxtHHunedadLevante.Name = "TxtHHunedadLevante";
-            this.TxtHHunedadLevante.Size = new System.Drawing.Size(91, 26);
-            this.TxtHHunedadLevante.TabIndex = 1;
+            this.TxtHumedadLevante.Location = new System.Drawing.Point(511, 81);
+            this.TxtHumedadLevante.Name = "TxtHumedadLevante";
+            this.TxtHumedadLevante.Size = new System.Drawing.Size(91, 26);
+            this.TxtHumedadLevante.TabIndex = 1;
             // 
             // TxtSacosEnfardados
             // 
@@ -1386,7 +1386,7 @@
         private System.Windows.Forms.Button BtnTendido;
         private System.Windows.Forms.ToolStripLabel TSLTendido;
         private System.Windows.Forms.ToolStripLabel TSLEnfarde;
-        private System.Windows.Forms.TextBox TxtHHunedadLevante;
+        private System.Windows.Forms.TextBox TxtHumedadLevante;
         private System.Windows.Forms.TextBox TxtSacosEnfardados;
         private System.Windows.Forms.ToolStripLabel TSLEnvio;
         private System.Windows.Forms.Panel PlEnvio;
@@ -1395,7 +1395,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxtDNIN;
         private System.Windows.Forms.ComboBox CbDestino;
         private System.Windows.Forms.ComboBox CbEstFis;
         private System.Windows.Forms.Label label15;

@@ -200,6 +200,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@Recibidor", parametros.IdRecibidor);
                 cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
                 cmd.Parameters.AddWithValue("@ContadorEdit", parametros.ContadorEdit);
+                cmd.Parameters.AddWithValue("@Proceso", parametros.Proceso);
                 //Envio
                 cmd.Parameters.AddWithValue("@FEnvio", par.FEnvio);
                 cmd.Parameters.AddWithValue("@IdAgencia", par.IdAgencia);

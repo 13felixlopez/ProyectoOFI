@@ -30,6 +30,7 @@ namespace ProyectoOFI.Recepcion
         int IdCertificacionE;
         string CertificacionE;
         int ContadorEdit;
+        string Proceso;
         DataTable Cons = new DataTable();
         // Crear un arreglo bidimensional para almacenar los datos del DataTable
         object[,] dataArray;
@@ -577,6 +578,7 @@ namespace ProyectoOFI.Recepcion
                     {
                         ContadorEdit = 0;
                     }
+                    Proceso = row["Proceso"].ToString();
                 }
                 else
                 {
@@ -1023,58 +1025,67 @@ namespace ProyectoOFI.Recepcion
             {
                 if (validarEditar())
                 {
-                    LRecepcion parametros = new LRecepcion();
-                    DRecepcion funcion = new DRecepcion();
-                    parametros.Ticket = txtTK.Text;
-                    parametros.FRecibido = Convert.ToDateTime(dtpRecibido.Text);
-                    parametros.IdArea = int.Parse(cbArea.SelectedValue.ToString());
-                    parametros.MTNR = txtMTNR.Text;
-                    parametros.IdEstFis = int.Parse(cbEstadoFisico.SelectedValue.ToString());
-                    parametros.IdCalidad = int.Parse(cbCalidad.SelectedValue.ToString());
-                    parametros.IdDaño = int.Parse(cbDaño.SelectedValue.ToString());
-                    parametros.Sacos = Convert.ToInt32(nudSacos.Value);
-                    parametros.Peso = Convert.ToDouble(txtKgs.Text);
-                    parametros.Merma = Convert.ToDouble(LblMerma.Text);
-                    parametros.IdRecibidor = int.Parse(cbRecibidor.SelectedValue.ToString());
-                    parametros.Digitador = Login.NombreA;
-                    parametros.ContadorEdit = ContadorEdit + 1;
-
-
-                    LEnvio par = new LEnvio();
-                    par.Ticket = txtTK.Text;
-                    par.FEnvio = Convert.ToDateTime(dtFEnvio.Text);
-                    par.IdAgencia = int.Parse(cbAgencia.SelectedValue.ToString());
-                    par.IdAcopio = int.Parse(cbAcopio.SelectedValue.ToString());
-                    par.IdCliente = int.Parse(cbCliente.SelectedValue.ToString());
-                    par.MTNT = txtMTNT.Text;
-                    par.IdTCompra = int.Parse(cbCompra.SelectedValue.ToString());
-                    par.IdCertificacionE = int.Parse(cbCertificacion.SelectedValue.ToString());
-                    par.IdEsFisico = int.Parse(cbEsFisico.SelectedValue.ToString());
-                    par.IdCalidadE = int.Parse(cbCalidadE.SelectedValue.ToString());
-                    par.IdDanioE = int.Parse(cbDanioE.SelectedValue.ToString());
-                    par.SacosE = Convert.ToInt32(nudSacosE.Value);
-                    par.PesoE = Convert.ToDouble(txtPesoE.Text);
-                    par.Tally = TxtTally.Text;
-                    if (ContadorEdit < 3 || Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
+                    if (Proceso != "No Asignado")
                     {
-                        if (funcion.EditarTK(parametros, par, Ticket) == true)
-                        {
-                            DataTable dt = new DataTable();
-                            funcion.MostrarLote(ref dt, desde, hasta);
-                            dtInventario.DataSource = dt;
-                            PRecepcion.Visible = false;
-                            Alerta();
-                            PlRecepcion.Visible = false;
-                            PRecepcion.Visible = false;
-                            PEnvio.Dock = DockStyle.Fill;
-                            PEnvio.Visible = true;
-                            Limpiar();
-                            txtTK.Enabled = true;
-                        }
+                        MessageBox.Show("No puede cambiar el área de secado, ya que este lote tiene un proceso en curso.", "Error de cambio de área de secado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        MessageBox.Show("Ya supero los 3 intentos de edición, comuniquese con un administrador", "Superó los intentos de edición", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+
+                        LRecepcion parametros = new LRecepcion();
+                        DRecepcion funcion = new DRecepcion();
+                        parametros.Ticket = txtTK.Text;
+                        parametros.FRecibido = Convert.ToDateTime(dtpRecibido.Text);
+                        parametros.IdArea = int.Parse(cbArea.SelectedValue.ToString());
+                        parametros.MTNR = txtMTNR.Text;
+                        parametros.IdEstFis = int.Parse(cbEstadoFisico.SelectedValue.ToString());
+                        parametros.IdCalidad = int.Parse(cbCalidad.SelectedValue.ToString());
+                        parametros.IdDaño = int.Parse(cbDaño.SelectedValue.ToString());
+                        parametros.Sacos = Convert.ToInt32(nudSacos.Value);
+                        parametros.Peso = Convert.ToDouble(txtKgs.Text);
+                        parametros.Merma = Convert.ToDouble(LblMerma.Text);
+                        parametros.IdRecibidor = int.Parse(cbRecibidor.SelectedValue.ToString());
+                        parametros.Digitador = Login.NombreA;
+                        parametros.ContadorEdit = ContadorEdit + 1;
+                        parametros.Proceso = Proceso;
+
+
+                        LEnvio par = new LEnvio();
+                        par.Ticket = txtTK.Text;
+                        par.FEnvio = Convert.ToDateTime(dtFEnvio.Text);
+                        par.IdAgencia = int.Parse(cbAgencia.SelectedValue.ToString());
+                        par.IdAcopio = int.Parse(cbAcopio.SelectedValue.ToString());
+                        par.IdCliente = int.Parse(cbCliente.SelectedValue.ToString());
+                        par.MTNT = txtMTNT.Text;
+                        par.IdTCompra = int.Parse(cbCompra.SelectedValue.ToString());
+                        par.IdCertificacionE = int.Parse(cbCertificacion.SelectedValue.ToString());
+                        par.IdEsFisico = int.Parse(cbEsFisico.SelectedValue.ToString());
+                        par.IdCalidadE = int.Parse(cbCalidadE.SelectedValue.ToString());
+                        par.IdDanioE = int.Parse(cbDanioE.SelectedValue.ToString());
+                        par.SacosE = Convert.ToInt32(nudSacosE.Value);
+                        par.PesoE = Convert.ToDouble(txtPesoE.Text);
+                        par.Tally = TxtTally.Text;
+                        if (ContadorEdit < 3 || Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
+                        {
+                            if (funcion.EditarTK(parametros, par, Ticket) == true)
+                            {
+                                DataTable dt = new DataTable();
+                                funcion.MostrarLote(ref dt, desde, hasta);
+                                dtInventario.DataSource = dt;
+                                PRecepcion.Visible = false;
+                                Alerta();
+                                PlRecepcion.Visible = false;
+                                PRecepcion.Visible = false;
+                                PEnvio.Dock = DockStyle.Fill;
+                                PEnvio.Visible = true;
+                                Limpiar();
+                                txtTK.Enabled = true;
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ya supero los 3 intentos de edición, comuniquese con un administrador", "Superó los intentos de edición", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        }
                     }
                 }
                 else

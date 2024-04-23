@@ -219,40 +219,45 @@ namespace ProyectoOFI.ControlPatio
             ObtenerDatos();
             //lblTransferencia.Text = "Editar Transferencia";
             AbrirFormulario();
-            if (Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase) || Modulo == "EditarTK")
+            if (Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
             {
                 PlEnfarde.Visible = true;
                 PlEnvio.Visible = true;
+                TipoProceso();
             }
             else
             {
-                if (Proceso == "No Asignado")
-                {
-                    PlTendido.Enabled = true;
-                }
-                if (Proceso == "Tendido")
-                {
-                    PlTendido.Enabled = false;
-                    PlEnfarde.Visible = true;
-                    VerTendidio();
-                }
-                else if (Proceso == "Enfardado")
-                {
-                    PlTendido.Enabled = false;
-                    PlEnfarde.Enabled = false;
-                    PlEnfarde.Visible = true;
-                    PlEnvio.Visible = true;
-                    TSLEnfarde.Visible = true;
-                }
-                else if (Proceso == "Enviado")
-                {
-                    PlTendido.Enabled = false;
-                    PlEnfarde.Enabled = false;
-                    PlEnfarde.Visible = true;
-                    PlEnvio.Visible = true;
-                    PlEnvio.Enabled = false;
-                    TSLEnvio.Visible = true;
-                }
+                TipoProceso();
+            }
+        }
+        private void TipoProceso()
+        {
+            if (Proceso == "No Asignado")
+            {
+                PlTendido.Enabled = true;
+            }
+            if (Proceso == "Tendido")
+            {
+                PlTendido.Enabled = false;
+                PlEnfarde.Visible = true;
+                VerTendidio();
+            }
+            else if (Proceso == "Enfardado")
+            {
+                PlTendido.Enabled = false;
+                PlEnfarde.Enabled = false;
+                PlEnfarde.Visible = true;
+                PlEnvio.Visible = true;
+                TSLEnfarde.Visible = true;
+            }
+            else if (Proceso == "Enviado")
+            {
+                PlTendido.Enabled = false;
+                PlEnfarde.Enabled = false;
+                PlEnfarde.Visible = true;
+                PlEnvio.Visible = true;
+                PlEnvio.Enabled = false;
+                TSLEnvio.Visible = true;
             }
         }
         private void VerTendidio()
@@ -284,7 +289,7 @@ namespace ProyectoOFI.ControlPatio
                     DTPFechaTendido.Value = DateTime.Parse(row["Fecha Tendido"].ToString());
                     CbPatio.Text = row["Patio"].ToString();
                     CbUbicacionP.Text = row["Ubicación Patio"].ToString();
-
+                    LblDigitadorCp.Text = row["Digitador"].ToString();
                 }
                 else
                 {
@@ -370,6 +375,19 @@ namespace ProyectoOFI.ControlPatio
             LblCert.Text = "--";
             Proceso = null;
             Ticket = null;
+            //Tendido
+            TxtFolio.Clear();
+            CbPatio.Text = "--";
+            CbUbicacionP.Text = "--";
+            LblDigitadorCp.Text = "--";
+            //Enfarde
+            LblDiasSecado.Text = "--";
+            TxtSacosEnfardados.Clear();
+            TxtHumedadLevante.Clear();
+            //Envio
+            CbDestino.Text = "--";
+            TxtDNIN.Clear();
+            CbEstFis.Text = "--";
         }
         private void BtnCerrarDetalleCp_Click(object sender, EventArgs e)
         {
@@ -421,7 +439,7 @@ namespace ProyectoOFI.ControlPatio
                     parametros.FechaT = DateTime.Parse(DTPFechaTendido.Value.ToString());
                     parametros.IdPatio = int.Parse(CbPatio.SelectedValue.ToString());
                     parametros.IdUbicacionP = int.Parse(CbUbicacionP.SelectedValue.ToString());
-                    parametros.Digitador = LblDigitadorCp.Text;
+                    parametros.Digitador = Login.NombreA;
                     edit = edit + 1;
                     if (funcion.EditarTendido(parametros, edit) == true)
                     {
@@ -450,6 +468,7 @@ namespace ProyectoOFI.ControlPatio
                 PlTendido.Enabled = false;
                 BtnTendido.Text = "Tendido";
             }
+            Limpiar();
         }
         private void CbPatio_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -458,8 +477,16 @@ namespace ProyectoOFI.ControlPatio
         }
         private void TSLTendido_Click(object sender, EventArgs e)
         {
-            PlTendido.Enabled = true;
-            BtnTendido.Text = "Actualizar";
+            if (PlTendido.Enabled == true)
+            {
+                PlTendido.Enabled = false;
+                BtnTendido.Text = "Tendido";
+            }
+            else
+            {
+                PlTendido.Enabled = true;
+                BtnTendido.Text = "Actualizar";
+            }
         }
         private bool validar()
         {

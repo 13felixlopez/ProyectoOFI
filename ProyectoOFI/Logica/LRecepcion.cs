@@ -27,5 +27,6 @@ namespace ProyectoOFI.Logica
         public string Digitador { get; set; }
         public string Estado { get; set; }
         public int ContadorEdit { get; set; }
+        public string Proceso { get; set; }
     }
 }

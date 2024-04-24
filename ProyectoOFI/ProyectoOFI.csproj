@@ -63,7 +63,7 @@
     <Compile Include="Datos\DPOAV.cs" />
     <Compile Include="Datos\DRecepcion.cs" />
     <Compile Include="Datos\DSM.cs" />
-    <Compile Include="Datos\DTendido.cs" />
+    <Compile Include="Datos\DControlPatio.cs" />
     <Compile Include="Datos\DUsuarios.cs" />
     <Compile Include="Datos\DVerticales.cs" />
     <Compile Include="Datos\NUser.cs" />
@@ -88,7 +88,7 @@
     <Compile Include="Logica\LPermisos.cs" />
     <Compile Include="Logica\LPOAV.cs" />
     <Compile Include="Logica\LRecepcion.cs" />
-    <Compile Include="Logica\LTendido.cs" />
+    <Compile Include="Logica\LControlPatio.cs" />
     <Compile Include="Logica\LUsuarios.cs" />
     <Compile Include="Logica\LVertical.cs" />
     <Compile Include="Login.cs">

@@ -24,7 +24,7 @@ namespace ProyectoOFI.Otros
 
         private void FrmUbicacionP_Load(object sender, EventArgs e)
         {
-            DTendido funcion = new DTendido();
+            DControlPatio funcion = new DControlPatio();
             funcion.MostrarPatio(CbPatio);
         }
         private void InsertarUbicacion()

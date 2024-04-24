@@ -17,12 +17,14 @@ namespace ProyectoOFI.ControlPatio
         int hasta = 100;
         private int items_por_pagina = 100;
         int totalPaginas;
-        int Contador, edit;
+        int Contador, edit, editenf;
         int ContarBusqueda;
         string Modulo;
         string Ticket, Estado;
         DateTime Frecibido;
         string Proceso;
+        int IdTendido, IdEnfarde;
+        int dias;
         public CUControlPatio()
         {
             InitializeComponent();
@@ -46,7 +48,7 @@ namespace ProyectoOFI.ControlPatio
         private void MostrarLotes()
         {
             DataTable dt = new DataTable();
-            DTendido funcion = new DTendido();
+            DControlPatio funcion = new DControlPatio();
             funcion.MostrarLotesCP(ref dt, desde, hasta);
             dtInventariocp.DataSource = dt;
             Base.DiseñoDtvEliminar(ref dtInventariocp);
@@ -78,7 +80,7 @@ namespace ProyectoOFI.ControlPatio
         }
         private void Contar()
         {
-            DTendido funcion = new DTendido();
+            DControlPatio funcion = new DControlPatio();
             if (txtBuscador.Text != "")
             {
                 Contador = ContarBusqueda;
@@ -221,9 +223,21 @@ namespace ProyectoOFI.ControlPatio
             AbrirFormulario();
             if (Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
             {
-                PlEnfarde.Visible = true;
                 PlEnvio.Visible = true;
-                TipoProceso();
+                PlEnfarde.Visible = true;
+                if (Proceso == "Tendido")
+                {
+                    VerTendidio();
+                }
+                else if (Proceso == "Enfarde")
+                {
+                    VerTendidio();
+                    VerEnfarde();
+                }
+                else if (Proceso == "Enviado")
+                {
+                    //VerEnvio();
+                }
             }
             else
             {
@@ -235,34 +249,48 @@ namespace ProyectoOFI.ControlPatio
             if (Proceso == "No Asignado")
             {
                 PlTendido.Enabled = true;
+                PlEnvio.Visible = false;
+                PlEnfarde.Visible = false;
+                TSLEnfarde.Visible = false;
+                TSLEnvio.Visible = false;
             }
             if (Proceso == "Tendido")
             {
                 PlTendido.Enabled = false;
+                PlEnvio.Visible = false;
+                TSLEnvio.Visible = false;
+                TSLEnfarde.Visible = true;
+                TSLEnfarde.Enabled = true;
                 PlEnfarde.Visible = true;
+                PlEnfarde.Enabled = true;
                 VerTendidio();
             }
-            else if (Proceso == "Enfardado")
+            else if (Proceso == "Enfarde")
             {
                 PlTendido.Enabled = false;
+                PlEnvio.Visible = true;
                 PlEnfarde.Enabled = false;
                 PlEnfarde.Visible = true;
-                PlEnvio.Visible = true;
+                TSLEnfarde.Enabled = true;
                 TSLEnfarde.Visible = true;
+                VerTendidio();
+                VerEnfarde();
             }
             else if (Proceso == "Enviado")
             {
                 PlTendido.Enabled = false;
-                PlEnfarde.Enabled = false;
-                PlEnfarde.Visible = true;
                 PlEnvio.Visible = true;
                 PlEnvio.Enabled = false;
+                PlEnfarde.Enabled = false;
+                PlEnfarde.Visible = true;
                 TSLEnvio.Visible = true;
+
+                TSLEnvio.Enabled = true;
             }
         }
         private void VerTendidio()
         {
-            DTendido funcion = new DTendido();
+            DControlPatio funcion = new DControlPatio();
             DataTable dt = new DataTable();
             try
             {
@@ -286,10 +314,18 @@ namespace ProyectoOFI.ControlPatio
                     {
                         edit = 0;
                     }
-                    DTPFechaTendido.Value = DateTime.Parse(row["Fecha Tendido"].ToString());
+                    if (row["Fecha Tendido"].ToString() != null)
+                    {
+                        DTPFechaTendido.Value = DateTime.Parse(row["Fecha Tendido"].ToString());
+                    }
+                    else
+                    {
+                        DTPFechaTendido.Value = DateTime.Today;
+                    }
                     CbPatio.Text = row["Patio"].ToString();
                     CbUbicacionP.Text = row["Ubicación Patio"].ToString();
                     LblDigitadorCp.Text = row["Digitador"].ToString();
+                    IdTendido = int.Parse(row["IdTendido"].ToString());
                 }
                 else
                 {
@@ -316,13 +352,14 @@ namespace ProyectoOFI.ControlPatio
             {
                 PlDatos.BackColor = Color.FromArgb(192, 255, 255);
             }
-            DTendido Ten = new DTendido();
+            DControlPatio Ten = new DControlPatio();
             Ten.MostrarPatio(CbPatio);
+            //Ten.MostrarPatioUbicacion(CbUbicacionP,(int)CbPatio.SelectedValue);
             LblDigitadorCp.Text = Login.NombreA;
         }
         private void ObtenerDatos()
         {
-            DTendido funcion = new DTendido();
+            DControlPatio funcion = new DControlPatio();
             DataTable dt = new DataTable();
 
             try
@@ -384,10 +421,12 @@ namespace ProyectoOFI.ControlPatio
             LblDiasSecado.Text = "--";
             TxtSacosEnfardados.Clear();
             TxtHumedadLevante.Clear();
+            LblDigitadorEnfar.Text = "--";
             //Envio
             CbDestino.Text = "--";
             TxtDNIN.Clear();
             CbEstFis.Text = "--";
+            LblDigiEnvio.Text = "--";
         }
         private void BtnCerrarDetalleCp_Click(object sender, EventArgs e)
         {
@@ -409,14 +448,14 @@ namespace ProyectoOFI.ControlPatio
         {
             if (validar())
             {
-                LTendido parametros = new LTendido();
-                DTendido funcion = new DTendido();
+                LControlPatio parametros = new LControlPatio();
+                DControlPatio funcion = new DControlPatio();
                 parametros.Ticket = LblTicket.Text;
                 parametros.Folio = int.Parse(TxtFolio.Text);
                 parametros.FechaT = DateTime.Parse(DTPFechaTendido.Value.ToString());
                 parametros.IdPatio = int.Parse(CbPatio.SelectedValue.ToString());
                 parametros.IdUbicacionP = int.Parse(CbUbicacionP.SelectedValue.ToString());
-                parametros.Digitador = LblDigitadorCp.Text;
+                parametros.Digitador = Login.NombreA;
                 if (funcion.InsertarTendido(parametros) == true)
                 {
                     MessageBox.Show("Tendido realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -432,8 +471,8 @@ namespace ProyectoOFI.ControlPatio
             {
                 if (edit < 3 || Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
                 {
-                    LTendido parametros = new LTendido();
-                    DTendido funcion = new DTendido();
+                    LControlPatio parametros = new LControlPatio();
+                    DControlPatio funcion = new DControlPatio();
                     parametros.Ticket = LblTicket.Text;
                     parametros.Folio = int.Parse(TxtFolio.Text);
                     parametros.FechaT = DateTime.Parse(DTPFechaTendido.Value.ToString());
@@ -472,7 +511,7 @@ namespace ProyectoOFI.ControlPatio
         }
         private void CbPatio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DTendido funcion = new DTendido();
+            DControlPatio funcion = new DControlPatio();
             funcion.MostrarPatioUbicacion(CbUbicacionP, (int)CbPatio.SelectedValue);
         }
         private void TSLTendido_Click(object sender, EventArgs e)
@@ -496,6 +535,177 @@ namespace ProyectoOFI.ControlPatio
                 return false;
             }
             return !(TxtFolio.Text == "" || CbPatio.Text == "" || CbUbicacionP.Text == "");
+        }
+        private void BtnEnfarde_Click(object sender, EventArgs e)
+        {
+            if (BtnEnfarde.Text == "Enfarde")
+            {
+                InsertarEnfarde();
+                plOpciones.Enabled = true;
+            }
+            else
+            {
+                EditarEnfarde();
+                PlTendido.Enabled = false;
+                PlEnfarde.Enabled = false;
+                BtnEnfarde.Text = "Enfarde";
+            }
+            Limpiar();
+        }
+
+        private void TSLEnfarde_Click(object sender, EventArgs e)
+        {
+            if (PlEnfarde.Enabled == true)
+            {
+                PlEnfarde.Enabled = false;
+                BtnEnfarde.Text = "Enfarde";
+            }
+            else
+            {
+                PlEnfarde.Enabled = true;
+                BtnEnfarde.Text = "Actualizar";
+            }
+        }
+
+        private void DTPEnfarde_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime Enfarde = DTPEnfarde.Value;
+            DateTime Tendido = DTPFechaTendido.Value;
+            TimeSpan Diferencia = Enfarde - Tendido;
+            dias = Diferencia.Days;
+            LblDiasSecado.Text = dias.ToString();
+        }
+
+        private void InsertarEnfarde()
+        {
+            if (validarEnfarde())
+            {
+                LControlPatio parametros = new LControlPatio();
+                DControlPatio funcion = new DControlPatio();
+                parametros.IdTendido = IdTendido;
+                parametros.FEnfarde = DateTime.Parse(DTPEnfarde.Value.ToString());
+                parametros.DiasSecado = int.Parse(LblDiasSecado.Text.ToString());
+                parametros.Sacos = int.Parse(TxtSacosEnfardados.Text.ToString());
+                parametros.HumedadL = double.Parse(TxtHumedadLevante.Text.ToString());
+                parametros.Digitador = Login.NombreA;
+                if (funcion.InsertarEnfarde(parametros) == true)
+                {
+                    MessageBox.Show("Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MostrarLotes();
+                    Limpiar();
+                    PlControl.Visible = false;
+                }
+            }
+        }
+        private bool validarEnfarde()
+        {
+            double entero;
+            if (!double.TryParse(TxtSacosEnfardados.Text, out entero) || !double.TryParse(TxtHumedadLevante.Text, out entero))
+            {
+                return false;
+            }
+            return !(TxtSacosEnfardados.Text == "" || TxtHumedadLevante.Text == "");
+        }
+        private void VerEnfarde()
+        {
+            DControlPatio funcion = new DControlPatio();
+            DataTable dt = new DataTable();
+            try
+            {
+                funcion.MostrarDetalleEnfarde(ref dt, Ticket);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow row = dt.Rows[0];
+                    if (row["Días Secado"].ToString() != null)
+                    {
+                        LblDiasSecado.Text = row["Días Secado"].ToString();
+                    }
+                    else
+                    {
+                        LblDiasSecado.Text = "00";
+                    }
+                    if (row["Edit"].ToString() != null)
+                    {
+                        editenf = int.Parse(row["Edit"].ToString());
+                    }
+                    else
+                    {
+                        editenf = 0;
+                    }
+                    if (row["Fecha Enfarde"].ToString() != null)
+                    {
+                        DTPEnfarde.Value = DateTime.Parse(row["Fecha Enfarde"].ToString());
+                    }
+                    else
+                    {
+                        DTPEnfarde.Value = DateTime.Today;
+                    }
+                    if (row["Sacos Enfardados"].ToString() != null)
+                    {
+                        TxtSacosEnfardados.Text = row["Sacos Enfardados"].ToString();
+                    }
+                    else
+                    {
+                        TxtSacosEnfardados.Clear();
+                    }
+                    if (row["Humedad Levante"].ToString() != null)
+                    {
+                        TxtHumedadLevante.Text = row["Humedad Levante"].ToString();
+                    }
+                    else
+                    {
+                        TxtHumedadLevante.Clear();
+                    }
+                    if (row["Digitador"].ToString() != null)
+                    {
+                        LblDigitadorEnfar.Text = row["Digitador"].ToString();
+                    }
+                    else
+                    {
+                        LblDigitadorEnfar.Text = "--";
+                    }
+                    IdEnfarde = int.Parse(row["IdEnfarde"].ToString());
+                    TSLEnfarde.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron datos para el ticket especificado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron cargar los datos Tendido " + ex.Message, "ERROR Tendido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void EditarEnfarde()
+        {
+            if (validar())
+            {
+                if (editenf < 3 || Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
+                {
+                    LControlPatio parametros = new LControlPatio();
+                    DControlPatio funcion = new DControlPatio();
+                    parametros.IdEnfarde = IdEnfarde;
+                    parametros.IdTendido = IdTendido;
+                    parametros.DiasSecado = int.Parse(LblDiasSecado.Text);
+                    parametros.FEnfarde = DateTime.Parse(DTPEnfarde.Value.ToString());
+                    parametros.HumedadL = double.Parse(TxtHumedadLevante.Text.ToString());
+                    parametros.Sacos = int.Parse(TxtSacosEnfardados.Text.ToString());
+                    parametros.Digitador = Login.NombreA;
+                    editenf = editenf + 1;
+                    if (funcion.EditarEnfarde(parametros, editenf) == true)
+                    {
+                        MessageBox.Show("Edición de Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MostrarLotes();
+                        Limpiar();
+                        PlControl.Visible = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ya supero los 3 intentos de edición, comuniquese con un administrador", "Superó los intentos de edición", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
         }
     }
 }

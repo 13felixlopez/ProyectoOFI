@@ -18,7 +18,7 @@ namespace ProyectoOFI.Recepcion
         string Modulo;
         string Ticket;
         //string TicketAnterior;
-        string Estado;
+        string Estado, areaAc;
         string Consolidado;
         int Contador;
         int ContarBusqueda;
@@ -529,6 +529,7 @@ namespace ProyectoOFI.Recepcion
                     txtTK.Text = Ticket.ToString();
                     dtpRecibido.Value = DateTime.Parse(row["Fecha Recibido"].ToString());
                     cbArea.Text = row["AreaSecado"].ToString();
+                    areaAc = row["AreaSecado"].ToString();
                     if (row["MTNR"].ToString() != null)
                     {
                         txtMTNR.Text = row["MTNR"].ToString();
@@ -1025,7 +1026,8 @@ namespace ProyectoOFI.Recepcion
             {
                 if (validarEditar())
                 {
-                    if (Proceso != "No Asignado")
+                    bool cbAreaCambio = cbArea.Text != areaAc;
+                    if (cbAreaCambio && Proceso != "No Asignado")
                     {
                         MessageBox.Show("No puede cambiar el área de secado, ya que este lote tiene un proceso en curso.", "Error de cambio de área de secado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }

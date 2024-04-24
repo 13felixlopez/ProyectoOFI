@@ -97,11 +97,12 @@
             // 
             // TxtUser
             // 
+            this.TxtUser.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
             this.TxtUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.TxtUser.Location = new System.Drawing.Point(120, 52);
             this.TxtUser.Name = "TxtUser";
             this.TxtUser.Size = new System.Drawing.Size(301, 26);
-            this.TxtUser.TabIndex = 4;
+            this.TxtUser.TabIndex = 1;
             // 
             // PlUser
             // 

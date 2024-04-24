@@ -1,17 +1,13 @@
-﻿using DocumentFormat.OpenXml.Office2016.Drawing.Charts;
+﻿using DocumentFormat.OpenXml.Office2010.PowerPoint;
 using ProyectoOFI.Logica;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.Datos
 {
-    public class DTendido
+    public class DControlPatio
     {
         public void MostrarLotesCP(ref DataTable dt, int Desde, int Hasta)
         {
@@ -51,7 +47,8 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public bool InsertarTendido(LTendido parametros)
+        #region Tendido
+        public bool InsertarTendido(LControlPatio parametros)
         {
             try
             {
@@ -78,7 +75,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public bool EditarTendido(LTendido parametros,int edit)
+        public bool EditarTendido(LControlPatio parametros, int edit)
         {
             try
             {
@@ -126,6 +123,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        #endregion
         #region MostrarCombos
         public void MostrarPatio(ComboBox combo)
         {
@@ -189,5 +187,160 @@ namespace ProyectoOFI.Datos
             }
         }
         #endregion
+        #region Enfarde
+        public bool InsertarEnfarde(LControlPatio parametros)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("InsertarEnfarde", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdTendido", parametros.IdTendido);
+                cmd.Parameters.AddWithValue("@FEnfarde", parametros.FEnfarde);
+                cmd.Parameters.AddWithValue("@DiasSecado", parametros.DiasSecado);
+                cmd.Parameters.AddWithValue("@HumedadL", parametros.HumedadL);
+                cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+                cmd.Parameters.AddWithValue("@SacosEnf", parametros.Sacos);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Enfandar el lote " + ex.Message, "ERROR Enfarde", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en InsertarEnfarde ✖️✖️ " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarDetalleEnfarde(ref DataTable dt, string Tk)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("MostrarDetalleEnfarde", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Ticket", Tk);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarDetalleEnfarde ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EditarEnfarde(LControlPatio parametros, int edit)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EditarEnfarde", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdEnfarde", parametros.IdEnfarde);
+                cmd.Parameters.AddWithValue("@IdTendido", parametros.IdTendido);
+                cmd.Parameters.AddWithValue("@FEnfarde", parametros.FEnfarde);
+                cmd.Parameters.AddWithValue("@DiasSecado", parametros.DiasSecado);
+                cmd.Parameters.AddWithValue("@HumedadL", parametros.HumedadL);
+                cmd.Parameters.AddWithValue("@SacosEnf", parametros.Sacos);
+                cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+                cmd.Parameters.AddWithValue("@Edit", edit);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se ha podido editar el registro " + ex.Message, "ERROR al actualizar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en EditarEnfarde ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        #endregion
+        //#region Envio
+        //public bool InsertarEnvio(LControlPatio parametros)
+        //{
+        //    try
+        //    {
+        //        Conexion.abrir();
+        //        SqlCommand cmd = new SqlCommand("InsertarEnvio", Conexion.conectar);
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        cmd.Parameters.AddWithValue("@IdTendido", parametros.IdTendido);
+        //        cmd.Parameters.AddWithValue("@FEnvio", parametros.FEnvio);
+        //        cmd.Parameters.AddWithValue("@DiasSecado", parametros.DiasSecado);
+        //        cmd.Parameters.AddWithValue("@HumedadL", parametros.HumedadL);
+        //        cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+        //        cmd.Parameters.AddWithValue("@SacosEnf", parametros.Sacos);
+        //        cmd.ExecuteNonQuery();
+        //        return true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error al Enfandar el lote " + ex.Message, "ERROR Envio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        Log.Writeerror("Error en InsertarEnvio ✖️✖️ " + ex.Message);
+        //        return false;
+        //    }
+        //    finally
+        //    {
+        //        Conexion.cerrar();
+        //    }
+        //}
+        //public void MostrarDetalleEnvio(ref DataTable dt, string Tk)
+        //{
+        //    try
+        //    {
+        //        Conexion.abrir();
+        //        SqlDataAdapter da = new SqlDataAdapter("MostrarDetalleEnvio", Conexion.conectar);
+        //        da.SelectCommand.CommandType = CommandType.StoredProcedure;
+        //        da.SelectCommand.Parameters.AddWithValue("@Ticket", Tk);
+        //        da.Fill(dt);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("ERROR", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        Log.Writeerror("Error en MostrarDetalleEnvio ✖️✖️" + ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        Conexion.cerrar();
+        //    }
+        //}
+        //public bool EditarEnvio(LControlPatio parametros, int edit)
+        //{
+        //    try
+        //    {
+        //        Conexion.abrir();
+        //        SqlCommand cmd = new SqlCommand("EditarEnvio", Conexion.conectar);
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        cmd.Parameters.AddWithValue("@IdTendido", parametros.IdTendido);
+        //        cmd.Parameters.AddWithValue("@FEnvio", parametros.FEnvio);
+        //        cmd.Parameters.AddWithValue("@DiasSecado", parametros.DiasSecado);
+        //        cmd.Parameters.AddWithValue("@HumedadL", parametros.HumedadL);
+        //        cmd.Parameters.AddWithValue("@SacosEnf", parametros.Sacos);
+        //        cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+        //        cmd.Parameters.AddWithValue("@Edit", edit);
+        //        cmd.ExecuteNonQuery();
+        //        return true;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("No se ha podido editar el registro " + ex.Message, "ERROR al actualizar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        Log.Writeerror("Error en EditarEnvio ✖️✖️" + ex.Message);
+        //        return false;
+        //    }
+        //    finally
+        //    {
+        //        Conexion.cerrar();
+        //    }
+        //}
+        //#endregion
     }
 }

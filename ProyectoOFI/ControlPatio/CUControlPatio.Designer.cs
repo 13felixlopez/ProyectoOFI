@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Sig = new System.Windows.Forms.Button();
             this.btn_Primera = new System.Windows.Forms.Button();
             this.btn_Ultima = new System.Windows.Forms.Button();
@@ -641,12 +641,12 @@
             this.PlEnvio.Controls.Add(this.label13);
             this.PlEnvio.Controls.Add(this.label14);
             this.PlEnvio.Controls.Add(this.TxtDNIN);
-            this.PlEnvio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PlEnvio.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PlEnvio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlEnvio.Location = new System.Drawing.Point(0, 487);
+            this.PlEnvio.Location = new System.Drawing.Point(0, 485);
             this.PlEnvio.Name = "PlEnvio";
             this.PlEnvio.Size = new System.Drawing.Size(974, 135);
-            this.PlEnvio.TabIndex = 2;
+            this.PlEnvio.TabIndex = 20;
             this.PlEnvio.Visible = false;
             // 
             // BtnEnviar
@@ -752,7 +752,7 @@
             this.PlEnfarde.Location = new System.Drawing.Point(0, 352);
             this.PlEnfarde.Name = "PlEnfarde";
             this.PlEnfarde.Size = new System.Drawing.Size(974, 135);
-            this.PlEnfarde.TabIndex = 2;
+            this.PlEnfarde.TabIndex = 18;
             this.PlEnfarde.Visible = false;
             // 
             // BtnEnfarde
@@ -763,6 +763,7 @@
             this.BtnEnfarde.TabIndex = 4;
             this.BtnEnfarde.Text = "Enfarde";
             this.BtnEnfarde.UseVisualStyleBackColor = true;
+            this.BtnEnfarde.Click += new System.EventHandler(this.BtnEnfarde_Click);
             // 
             // DTPEnfarde
             // 
@@ -771,6 +772,7 @@
             this.DTPEnfarde.Name = "DTPEnfarde";
             this.DTPEnfarde.Size = new System.Drawing.Size(132, 26);
             this.DTPEnfarde.TabIndex = 2;
+            this.DTPEnfarde.ValueChanged += new System.EventHandler(this.DTPEnfarde_ValueChanged);
             // 
             // label8
             // 
@@ -858,7 +860,7 @@
             this.PlTendido.Location = new System.Drawing.Point(0, 217);
             this.PlTendido.Name = "PlTendido";
             this.PlTendido.Size = new System.Drawing.Size(974, 135);
-            this.PlTendido.TabIndex = 2;
+            this.PlTendido.TabIndex = 17;
             // 
             // BtnTendido
             // 
@@ -976,7 +978,7 @@
             this.TSLEnfarde.Name = "TSLEnfarde";
             this.TSLEnfarde.Size = new System.Drawing.Size(85, 28);
             this.TSLEnfarde.Text = "Enfarde";
-            this.TSLEnfarde.Visible = false;
+            this.TSLEnfarde.Click += new System.EventHandler(this.TSLEnfarde_Click);
             // 
             // TSLEnvio
             // 
@@ -984,7 +986,6 @@
             this.TSLEnvio.Name = "TSLEnvio";
             this.TSLEnvio.Size = new System.Drawing.Size(64, 28);
             this.TSLEnvio.Text = "Envio";
-            this.TSLEnvio.Visible = false;
             // 
             // PlDatos
             // 
@@ -1210,40 +1211,40 @@
             this.dtInventariocp.AllowUserToDeleteRows = false;
             this.dtInventariocp.AllowUserToOrderColumns = true;
             this.dtInventariocp.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.NullValue = "--";
-            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.NullValue = "--";
+            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dtInventariocp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventariocp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventariocp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dtInventariocp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventariocp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar,
             this.Consolidar});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.NullValue = "--";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.NullValue = "--";
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle7;
             this.dtInventariocp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventariocp.Location = new System.Drawing.Point(0, 62);
             this.dtInventariocp.Name = "dtInventariocp";
             this.dtInventariocp.ReadOnly = true;
             this.dtInventariocp.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dtInventariocp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventariocp.ShowCellToolTips = false;
             this.dtInventariocp.ShowEditingIcon = false;
@@ -1366,39 +1367,9 @@
         private System.Windows.Forms.Panel PlControl;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.Panel PlDatos;
-        private System.Windows.Forms.Panel PlTendido;
-        private System.Windows.Forms.ComboBox CbUbicacionP;
-        private System.Windows.Forms.ComboBox CbPatio;
-        private System.Windows.Forms.DateTimePicker DTPFechaTendido;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox TxtFolio;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel PlEnfarde;
-        private System.Windows.Forms.Button BtnEnfarde;
-        private System.Windows.Forms.DateTimePicker DTPEnfarde;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label LblDiasSecado;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button BtnTendido;
         private System.Windows.Forms.ToolStripLabel TSLTendido;
         private System.Windows.Forms.ToolStripLabel TSLEnfarde;
-        private System.Windows.Forms.TextBox TxtHumedadLevante;
-        private System.Windows.Forms.TextBox TxtSacosEnfardados;
         private System.Windows.Forms.ToolStripLabel TSLEnvio;
-        private System.Windows.Forms.Panel PlEnvio;
-        private System.Windows.Forms.Button BtnEnviar;
-        private System.Windows.Forms.DateTimePicker DTEnvio;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox TxtDNIN;
-        private System.Windows.Forms.ComboBox CbDestino;
-        private System.Windows.Forms.ComboBox CbEstFis;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label LblCert;
         private System.Windows.Forms.Label LblDanio;
@@ -1418,8 +1389,38 @@
         private System.Windows.Forms.Panel PlCerrarDetalle;
         private System.Windows.Forms.Button BtnCerrarDetalleCp;
         private System.Windows.Forms.Label LblTituloCP;
-        private System.Windows.Forms.Label LblDigiEnvio;
+        private System.Windows.Forms.Panel PlEnfarde;
+        private System.Windows.Forms.Button BtnEnfarde;
+        private System.Windows.Forms.DateTimePicker DTPEnfarde;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label LblDigitadorEnfar;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label LblDiasSecado;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox TxtHumedadLevante;
+        private System.Windows.Forms.TextBox TxtSacosEnfardados;
+        private System.Windows.Forms.Panel PlTendido;
+        private System.Windows.Forms.Button BtnTendido;
+        private System.Windows.Forms.ComboBox CbUbicacionP;
+        private System.Windows.Forms.ComboBox CbPatio;
+        private System.Windows.Forms.DateTimePicker DTPFechaTendido;
         private System.Windows.Forms.Label LblDigitadorCp;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox TxtFolio;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel PlEnvio;
+        private System.Windows.Forms.Button BtnEnviar;
+        private System.Windows.Forms.ComboBox CbDestino;
+        private System.Windows.Forms.ComboBox CbEstFis;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label LblDigiEnvio;
+        private System.Windows.Forms.DateTimePicker DTEnvio;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox TxtDNIN;
     }
 }

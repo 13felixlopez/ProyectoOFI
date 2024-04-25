@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProyectoOFI.Logica
 {
@@ -20,5 +16,11 @@ namespace ProyectoOFI.Logica
         public int Sacos { get; set; }
         public double HumedadL { get; set; }
         public int IdEnfarde { get; set; }
+        public int IdEnvio { get; set; }
+        public DateTime FEnvio { get; set; }
+        public int DNIN { get; set; }
+        public int IdEstFis { get; set; }
+        public int IdAreaSecado { get; set; }
+        public string ProcesoCP { get; set; }
     }
 }

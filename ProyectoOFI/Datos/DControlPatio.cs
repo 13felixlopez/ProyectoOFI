@@ -8,6 +8,8 @@ namespace ProyectoOFI.Datos
 {
     public class DControlPatio
     {
+        public int contador;
+
         public void MostrarLotesCP(ref DataTable dt, int Desde, int Hasta)
         {
             try
@@ -395,6 +397,41 @@ namespace ProyectoOFI.Datos
                 MessageBox.Show("No se ha podido editar el registro " + ex.Message, "ERROR al actualizar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en EditarEnvio ✖️✖️" + ex.Message);
                 return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        #endregion
+        #region Buscar
+        public void BuscarTKCP(string Buscar, ref DataTable dt, int desde, int hasta, int Contar)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("BuscarTKCP", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Desde", desde);
+                cmd.Parameters.AddWithValue("@Hasta", hasta);
+                cmd.Parameters.AddWithValue("@Buscador", Buscar);
+
+                // Parámetro de salida para el contador
+                SqlParameter contarParam = new SqlParameter("@Contar", SqlDbType.Int);
+                contarParam.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(contarParam);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                // Obtener el valor del contador
+                Contar = Convert.ToInt32(contarParam.Value);
+                contador = Contar;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarTKCP ✖️✖️" + ex.Message);
             }
             finally
             {

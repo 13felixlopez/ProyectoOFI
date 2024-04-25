@@ -48,6 +48,7 @@ namespace ProyectoOFI.ControlPatio
             DControlPatio funcion = new DControlPatio();
             funcion.MostrarLotesCP(ref dt, desde, hasta);
             dtInventariocp.DataSource = dt;
+            dtInventariocp.Columns["Proceso"].Visible = false;
             Base.DiseñoDtvEliminar(ref dtInventariocp);
         }
         #region Paginado
@@ -77,7 +78,7 @@ namespace ProyectoOFI.ControlPatio
         }
         private void Contar()
         {
-            DControlPatio funcion = new DControlPatio();
+            DRecepcion funcion = new DRecepcion();
             if (txtBuscador.Text != "")
             {
                 Contador = ContarBusqueda;
@@ -88,7 +89,7 @@ namespace ProyectoOFI.ControlPatio
             }
             else
             {
-                funcion.ContarTKCP(ref Contador);
+                funcion.ContarTK(ref Contador);
             }
         }
         private void Paginar()
@@ -110,7 +111,7 @@ namespace ProyectoOFI.ControlPatio
             hasta -= 100;
             if (txtBuscador.Text != "")
             {
-                // BuscarTK();
+                Buscar();
             }
             else if (CbBuscador.Visible == true)
             {
@@ -143,7 +144,7 @@ namespace ProyectoOFI.ControlPatio
             hasta += 100;
             if (txtBuscador.Text != "")
             {
-                //BuscarTK();
+                Buscar();
             }
             else if (CbBuscador.Visible == true)
             {
@@ -172,7 +173,7 @@ namespace ProyectoOFI.ControlPatio
             desde = hasta - 99;
             if (txtBuscador.Text != "")
             {
-                //BuscarTK();
+                Buscar();
             }
             else if (CbBuscador.Visible == true)
             {
@@ -200,7 +201,7 @@ namespace ProyectoOFI.ControlPatio
             ReiniciarPaginado();
             if (txtBuscador.Text != "")
             {
-                //BuscarTK();
+                Buscar();
             }
             else if (CbBuscador.Visible == true)
             {
@@ -720,6 +721,11 @@ namespace ProyectoOFI.ControlPatio
                 MessageBox.Show("No se pudieron cargar los datos Tendido " + ex.Message, "ERROR Tendido", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void txtBuscador_TextChanged(object sender, EventArgs e)
+        {
+            //BuscarTK();
+            Buscar();
+        }
         private void EditarEnfarde()
         {
             if (validar())
@@ -750,6 +756,20 @@ namespace ProyectoOFI.ControlPatio
                 }
             }
         }
+        private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CbBuscar.Text == "Ticket")
+            {
+                CbBuscador.Visible = false;
+                txtBuscador.Visible = true;
+            }
+            if (CbBuscar.Text == "Certificación")
+            {
+                CbBuscador.Visible = true;
+                txtBuscador.Visible = false;
+            }
+        }
+
         private void InsertarEnvio()
         {
             if (validarEnvio())
@@ -876,6 +896,15 @@ namespace ProyectoOFI.ControlPatio
                     MessageBox.Show("Existen campos vacios", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+        private void Buscar()
+        {
+            DataTable dt = new DataTable();
+            DControlPatio dc = new DControlPatio();
+            dc.BuscarTKCP(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            dtInventariocp.DataSource = dt;
+            ContarBusqueda = int.Parse(dc.contador.ToString());
+            Base.DiseñoDtvEliminar(ref dtInventariocp);
         }
     }
 }

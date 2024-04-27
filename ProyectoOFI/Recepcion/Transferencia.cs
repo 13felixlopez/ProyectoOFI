@@ -119,7 +119,11 @@ namespace ProyectoOFI.Recepcion
             PEnvio.Visible = true;
             Limpiar();
             txtTK.Enabled = true;
-
+            CHBConsSM.Visible = true;
+            nudSacos.Enabled = true;
+            nudSacosE.Enabled = true;
+            txtPesoE.Enabled = true;
+            txtKgs.Enabled = true;
         }
         private void btnSig_Click(object sender, EventArgs e)
         {
@@ -385,6 +389,7 @@ namespace ProyectoOFI.Recepcion
             ObtenerTK();
             ObtenerDatos();
             lblTransferencia.Text = "Editar Transferencia";
+            CHBConsSM.Visible = false;
             AbrirFormulario();
             if (Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase) || Modulo == "EditarTK")
             {
@@ -406,6 +411,10 @@ namespace ProyectoOFI.Recepcion
             if (Consolidado == "Si")
             {
                 BtnVerCons.Visible = true;
+                nudSacos.Enabled = false;
+                nudSacosE.Enabled = false;
+                txtPesoE.Enabled = false;
+                txtKgs.Enabled = false;
             }
             else
             {
@@ -1606,8 +1615,6 @@ namespace ProyectoOFI.Recepcion
                         lstTickets.Add(ticketValue);
                     }
                 }
-
-
                 LRecepcion parametros = new LRecepcion();
                 LEnvio Par = new LEnvio();
                 parametros.Ticket = TxtTicketCons.Text;
@@ -1654,8 +1661,6 @@ namespace ProyectoOFI.Recepcion
                         lstTickets.Add(ticketValue);
                     }
                 }
-
-
                 LRecepcion parametros = new LRecepcion();
                 LEnvio Par = new LEnvio();
                 parametros.Ticket = TxtTicketCons.Text;
@@ -1760,6 +1765,7 @@ namespace ProyectoOFI.Recepcion
                 if (Modulo == "Consolidar")
                 {
                     dtInventario.Columns["Consolidar"].Visible = true;
+                    BtnAddTK.Visible = true;
                 }
                 if ((Modulo == "Eliminar"))
                 {

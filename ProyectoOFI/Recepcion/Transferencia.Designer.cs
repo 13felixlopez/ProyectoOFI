@@ -66,6 +66,7 @@
             this.PlAlerta = new System.Windows.Forms.Panel();
             this.LblAlerta = new System.Windows.Forms.Label();
             this.PRecepcion = new System.Windows.Forms.Panel();
+            this.CHBConsSM = new System.Windows.Forms.CheckBox();
             this.LblDigitador = new System.Windows.Forms.Label();
             this.PlRecibido = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -161,6 +162,8 @@
             this.PnTKCons = new System.Windows.Forms.Panel();
             this.dtTKCons = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LblTextsacos = new System.Windows.Forms.Label();
+            this.LblSacosSM = new System.Windows.Forms.Label();
             this.CbCertCons = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.CbAreaCons = new System.Windows.Forms.ComboBox();
@@ -186,14 +189,11 @@
             this.PlVerCons = new System.Windows.Forms.Panel();
             this.DtVerCons = new System.Windows.Forms.DataGridView();
             this.PlSalirVerCons = new System.Windows.Forms.Panel();
+            this.BtnAddTK = new System.Windows.Forms.Button();
             this.LblVerCons = new System.Windows.Forms.Label();
             this.BtnCerrarVerCons = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.CHBConsSM = new System.Windows.Forms.CheckBox();
-            this.BtnAddTK = new System.Windows.Forms.Button();
-            this.LblTextsacos = new System.Windows.Forms.Label();
-            this.LblSacosSM = new System.Windows.Forms.Label();
             this.PlEnvio.SuspendLayout();
             this.PlRecepcion.SuspendLayout();
             this.PlAlerta.SuspendLayout();
@@ -593,6 +593,18 @@
             this.PRecepcion.Size = new System.Drawing.Size(1450, 291);
             this.PRecepcion.TabIndex = 106;
             this.PRecepcion.Visible = false;
+            // 
+            // CHBConsSM
+            // 
+            this.CHBConsSM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.CHBConsSM.Location = new System.Drawing.Point(1276, 172);
+            this.CHBConsSM.Name = "CHBConsSM";
+            this.CHBConsSM.Size = new System.Drawing.Size(154, 46);
+            this.CHBConsSM.TabIndex = 156;
+            this.CHBConsSM.Text = "Consolidado de SM";
+            this.CHBConsSM.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.CHBConsSM.UseVisualStyleBackColor = true;
+            this.CHBConsSM.CheckedChanged += new System.EventHandler(this.CHBConsSM_CheckedChanged);
             // 
             // LblDigitador
             // 
@@ -1597,9 +1609,9 @@
             this.PnConsolidar.Controls.Add(this.PlBuscar);
             this.PnConsolidar.Controls.Add(this.PnTKCons);
             this.PnConsolidar.Controls.Add(this.panel1);
-            this.PnConsolidar.Location = new System.Drawing.Point(181, 172);
+            this.PnConsolidar.Location = new System.Drawing.Point(1529, 172);
             this.PnConsolidar.Name = "PnConsolidar";
-            this.PnConsolidar.Size = new System.Drawing.Size(1693, 169);
+            this.PnConsolidar.Size = new System.Drawing.Size(345, 169);
             this.PnConsolidar.TabIndex = 12;
             this.PnConsolidar.Visible = false;
             // 
@@ -1610,7 +1622,7 @@
             this.PnTickets.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnTickets.Location = new System.Drawing.Point(0, 484);
             this.PnTickets.Name = "PnTickets";
-            this.PnTickets.Size = new System.Drawing.Size(1676, 0);
+            this.PnTickets.Size = new System.Drawing.Size(328, 0);
             this.PnTickets.TabIndex = 5;
             // 
             // DtTickets
@@ -1654,7 +1666,7 @@
             this.DtTickets.ReadOnly = true;
             this.DtTickets.RowHeadersVisible = false;
             this.DtTickets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtTickets.Size = new System.Drawing.Size(1676, 0);
+            this.DtTickets.Size = new System.Drawing.Size(328, 0);
             this.DtTickets.TabIndex = 0;
             this.DtTickets.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtTickets_CellDoubleClick);
             // 
@@ -1708,7 +1720,7 @@
             this.PlBuscar.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlBuscar.Location = new System.Drawing.Point(0, 439);
             this.PlBuscar.Name = "PlBuscar";
-            this.PlBuscar.Size = new System.Drawing.Size(1676, 45);
+            this.PlBuscar.Size = new System.Drawing.Size(328, 45);
             this.PlBuscar.TabIndex = 6;
             // 
             // TxtBuscar
@@ -1747,7 +1759,7 @@
             this.PnTKCons.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnTKCons.Location = new System.Drawing.Point(0, 62);
             this.PnTKCons.Name = "PnTKCons";
-            this.PnTKCons.Size = new System.Drawing.Size(1676, 377);
+            this.PnTKCons.Size = new System.Drawing.Size(328, 377);
             this.PnTKCons.TabIndex = 4;
             // 
             // dtTKCons
@@ -1782,7 +1794,7 @@
             this.dtTKCons.ReadOnly = true;
             this.dtTKCons.RowHeadersVisible = false;
             this.dtTKCons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtTKCons.Size = new System.Drawing.Size(1676, 377);
+            this.dtTKCons.Size = new System.Drawing.Size(328, 377);
             this.dtTKCons.TabIndex = 0;
             this.dtTKCons.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTKCons_CellDoubleClick);
             // 
@@ -1809,8 +1821,31 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1676, 62);
+            this.panel1.Size = new System.Drawing.Size(328, 62);
             this.panel1.TabIndex = 3;
+            // 
+            // LblTextsacos
+            // 
+            this.LblTextsacos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LblTextsacos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTextsacos.Location = new System.Drawing.Point(351, 12);
+            this.LblTextsacos.Name = "LblTextsacos";
+            this.LblTextsacos.Size = new System.Drawing.Size(77, 47);
+            this.LblTextsacos.TabIndex = 141;
+            this.LblTextsacos.Text = "Total de Sacos:";
+            this.LblTextsacos.Visible = false;
+            // 
+            // LblSacosSM
+            // 
+            this.LblSacosSM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LblSacosSM.AutoSize = true;
+            this.LblSacosSM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblSacosSM.Location = new System.Drawing.Point(429, 21);
+            this.LblSacosSM.Name = "LblSacosSM";
+            this.LblSacosSM.Size = new System.Drawing.Size(23, 16);
+            this.LblSacosSM.TabIndex = 142;
+            this.LblSacosSM.Text = "00";
+            this.LblSacosSM.Visible = false;
             // 
             // CbCertCons
             // 
@@ -1853,7 +1888,7 @@
             this.BtnConsolidar.FlatAppearance.BorderSize = 2;
             this.BtnConsolidar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnConsolidar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnConsolidar.Location = new System.Drawing.Point(1466, 0);
+            this.BtnConsolidar.Location = new System.Drawing.Point(118, 0);
             this.BtnConsolidar.Name = "BtnConsolidar";
             this.BtnConsolidar.Size = new System.Drawing.Size(104, 62);
             this.BtnConsolidar.TabIndex = 25;
@@ -1961,7 +1996,7 @@
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(1570, 0);
+            this.panel2.Location = new System.Drawing.Point(222, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 62);
             this.panel2.TabIndex = 140;
@@ -1974,7 +2009,7 @@
             this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCancelar.ForeColor = System.Drawing.Color.White;
-            this.BtnCancelar.Location = new System.Drawing.Point(1580, 0);
+            this.BtnCancelar.Location = new System.Drawing.Point(232, 0);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(96, 62);
             this.BtnCancelar.TabIndex = 24;
@@ -2132,6 +2167,22 @@
             this.PlSalirVerCons.Size = new System.Drawing.Size(996, 53);
             this.PlSalirVerCons.TabIndex = 1;
             // 
+            // BtnAddTK
+            // 
+            this.BtnAddTK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnAddTK.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAddTK.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnAddTK.FlatAppearance.BorderSize = 0;
+            this.BtnAddTK.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnAddTK.Image = global::ProyectoOFI.Properties.Resources.add_64px;
+            this.BtnAddTK.Location = new System.Drawing.Point(830, 0);
+            this.BtnAddTK.Name = "BtnAddTK";
+            this.BtnAddTK.Size = new System.Drawing.Size(91, 53);
+            this.BtnAddTK.TabIndex = 4;
+            this.BtnAddTK.UseVisualStyleBackColor = false;
+            this.BtnAddTK.Visible = false;
+            this.BtnAddTK.Click += new System.EventHandler(this.BtnAddTK_Click);
+            // 
             // LblVerCons
             // 
             this.LblVerCons.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
@@ -2177,57 +2228,6 @@
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
-            // 
-            // CHBConsSM
-            // 
-            this.CHBConsSM.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.CHBConsSM.Location = new System.Drawing.Point(1276, 172);
-            this.CHBConsSM.Name = "CHBConsSM";
-            this.CHBConsSM.Size = new System.Drawing.Size(154, 46);
-            this.CHBConsSM.TabIndex = 156;
-            this.CHBConsSM.Text = "Consolidado de SM";
-            this.CHBConsSM.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.CHBConsSM.UseVisualStyleBackColor = true;
-            this.CHBConsSM.CheckedChanged += new System.EventHandler(this.CHBConsSM_CheckedChanged);
-            // 
-            // BtnAddTK
-            // 
-            this.BtnAddTK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnAddTK.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnAddTK.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnAddTK.FlatAppearance.BorderSize = 0;
-            this.BtnAddTK.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnAddTK.Image = global::ProyectoOFI.Properties.Resources.add_64px;
-            this.BtnAddTK.Location = new System.Drawing.Point(830, 0);
-            this.BtnAddTK.Name = "BtnAddTK";
-            this.BtnAddTK.Size = new System.Drawing.Size(91, 53);
-            this.BtnAddTK.TabIndex = 4;
-            this.BtnAddTK.UseVisualStyleBackColor = false;
-            this.BtnAddTK.Visible = false;
-            this.BtnAddTK.Click += new System.EventHandler(this.BtnAddTK_Click);
-            // 
-            // LblTextsacos
-            // 
-            this.LblTextsacos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.LblTextsacos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTextsacos.Location = new System.Drawing.Point(351, 12);
-            this.LblTextsacos.Name = "LblTextsacos";
-            this.LblTextsacos.Size = new System.Drawing.Size(77, 47);
-            this.LblTextsacos.TabIndex = 141;
-            this.LblTextsacos.Text = "Total de Sacos:";
-            this.LblTextsacos.Visible = false;
-            // 
-            // LblSacosSM
-            // 
-            this.LblSacosSM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.LblSacosSM.AutoSize = true;
-            this.LblSacosSM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblSacosSM.Location = new System.Drawing.Point(429, 21);
-            this.LblSacosSM.Name = "LblSacosSM";
-            this.LblSacosSM.Size = new System.Drawing.Size(23, 16);
-            this.LblSacosSM.TabIndex = 142;
-            this.LblSacosSM.Text = "00";
-            this.LblSacosSM.Visible = false;
             // 
             // Transferencia
             // 

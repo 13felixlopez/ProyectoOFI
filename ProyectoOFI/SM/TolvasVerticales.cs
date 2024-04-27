@@ -3,9 +3,7 @@ using ProyectoOFI.Logica;
 using System;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Text;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace ProyectoOFI.SM
 {
@@ -21,7 +19,7 @@ namespace ProyectoOFI.SM
             MostrarTicketsEnLabels();
             Estilo();
         }
-
+       
         protected void MostrarTicketsEnLabels()
         {
             DSM datos = new DSM();
@@ -160,7 +158,7 @@ namespace ProyectoOFI.SM
 
         private void btnTV2_Click(object sender, EventArgs e)
         {
-            PLDatos.Visible = true;
+
             //PLDatos.Dock = DockStyle.Fill;
             txtTolvaV.Text = "2";
             if (lblTV2.Text != "--")
@@ -178,10 +176,10 @@ namespace ProyectoOFI.SM
 
         private void btnTV1_Click(object sender, EventArgs e)
         {
-            PLDatos.Visible = true;
+
             //PLDatos.Dock = DockStyle.Fill;
             txtTolvaV.Text = "1";
-            if (lblTV1.Text!="--")
+            if (lblTV1.Text != "--")
             {
                 CargaTV(lblTV1);
             }
@@ -195,13 +193,15 @@ namespace ProyectoOFI.SM
         }
         private void AbrirFormulario()
         {
-            PLDatos.Location = new Point(panel1.Width / 2
-                - PLDatos.Width / 2, panel1.Height / 2 - PLDatos.Height / 2);
+            PLDatos.Size = new Size(1233, 466);
+            PLDatos.Visible = true;
+            PLDatos.Location = new Point(TLPPlTolvas.Width / 2
+                - PLDatos.Width / 2, TLPPlTolvas.Height / 2 - PLDatos.Height / 2);
             PLDatos.BringToFront();
         }
         private void btnTV3_Click(object sender, EventArgs e)
         {
-            PLDatos.Visible = true;
+
             //PLDatos.Dock = DockStyle.Fill;
             txtTolvaV.Text = "3";
             if (lblTV3.Text != "--")
@@ -219,7 +219,7 @@ namespace ProyectoOFI.SM
 
         private void btnTV4_Click(object sender, EventArgs e)
         {
-            PLDatos.Visible = true;
+
             //PLDatos.Dock = DockStyle.Fill;
             txtTolvaV.Text = "4";
             if (lblTV4.Text != "--")
@@ -237,7 +237,7 @@ namespace ProyectoOFI.SM
 
         private void btnTV5_Click(object sender, EventArgs e)
         {
-            PLDatos.Visible = true;
+
             //PLDatos.Dock = DockStyle.Fill;
             txtTolvaV.Text = "5";
             if (lblTV5.Text != "--")
@@ -255,7 +255,7 @@ namespace ProyectoOFI.SM
 
         private void btnTV6_Click(object sender, EventArgs e)
         {
-            PLDatos.Visible = true;
+
             //PLDatos.Dock = DockStyle.Fill;
             txtTolvaV.Text = "6";
             if (lblTV6.Text != "--")
@@ -273,7 +273,7 @@ namespace ProyectoOFI.SM
 
         private void btnTV7_Click(object sender, EventArgs e)
         {
-            PLDatos.Visible = true;
+
             //PLDatos.Dock = DockStyle.Fill;
             txtTolvaV.Text = "7";
             if (lblTV7.Text != "--")
@@ -291,7 +291,7 @@ namespace ProyectoOFI.SM
 
         private void btnTV8_Click(object sender, EventArgs e)
         {
-            PLDatos.Visible = true;
+
             //PLDatos.Dock = DockStyle.Fill;
             txtTolvaV.Text = "8";
             if (lblTV8.Text != "--")
@@ -314,7 +314,7 @@ namespace ProyectoOFI.SM
                 if (dtFechaPV.Value >= Convert.ToDateTime(LblFRecibido.Text))
                 {
                     InsertarPOAV();
-                    PLDatos.Visible=false;
+                    PLDatos.Visible = false;
                     Limpiar();
                     MostrarTicketsEnLabels();
                     Estilo();
@@ -379,7 +379,7 @@ namespace ProyectoOFI.SM
         {
             if (ValidarDes())
             {
-                if (dtFProcV.Value>=dtFechaPV.Value)
+                if (dtFProcV.Value >= dtFechaPV.Value)
                 {
                     DescargarTV();
                 }
@@ -457,13 +457,14 @@ namespace ProyectoOFI.SM
             cbTurnoPV.Text = dt.Rows[0]["TurnoPV"].ToString();
             dtFechaPV.Text = dt.Rows[0]["FRecibidoPV"].ToString();
             txtHumedadPV.Text = dt.Rows[0]["HumedadPV"].ToString();
-            LblFRecibido.Text= dt.Rows[0]["FRecibido"].ToString();
+            LblFRecibido.Text = dt.Rows[0]["FRecibido"].ToString();
             btnGuardarPV.Visible = false;
             btnDescargarPV.Visible = true;
             cbOperadorPV.Enabled = false;
             cbTurnoPV.Enabled = false;
             dtFechaPV.Enabled = false;
             txtHumedadPV.Enabled = false;
+            AbrirFormulario();
         }
 
         private void Limpiar()
@@ -487,7 +488,14 @@ namespace ProyectoOFI.SM
             {
                 AbrirFormulario();
                 DSM sm = new DSM();
-                sm.MostrarDatosTKSM(LblSacos, LblKilos, LblQQsV, LblCalidadV, LblDanioV, LblEFisicoV,LblFRecibido, cbTicketV.Text);
+                sm.MostrarDatosTKSM(LblSacos, LblKilos, LblQQsV, LblCalidadV, LblDanioV, LblEFisicoV, LblFRecibido, cbTicketV.Text);
+                cbTicketV.Enabled = true;
+                btnGuardarPV.Visible = true;
+                btnDescargarPV.Visible = false;
+                cbOperadorPV.Enabled = true;
+                cbTurnoPV.Enabled = true;
+                dtFechaPV.Enabled = true;
+                txtHumedadPV.Enabled = true;
             }
             else
             {

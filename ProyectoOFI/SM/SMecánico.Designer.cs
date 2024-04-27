@@ -30,22 +30,22 @@
         {
             this.plTitulo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.bntAtras = new System.Windows.Forms.Button();
+            this.pbIcono = new System.Windows.Forms.PictureBox();
             this.plfooter = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnTverticales = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.btnTransferencia = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.PlSM = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.BtnTverticales = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnTransferencia = new System.Windows.Forms.Button();
-            this.bntAtras = new System.Windows.Forms.Button();
-            this.pbIcono = new System.Windows.Forms.PictureBox();
             this.plTitulo.SuspendLayout();
-            this.plfooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcono)).BeginInit();
+            this.plfooter.SuspendLayout();
             this.SuspendLayout();
             // 
             // plTitulo
@@ -72,6 +72,30 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.UseCompatibleTextRendering = true;
             // 
+            // bntAtras
+            // 
+            this.bntAtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bntAtras.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bntAtras.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.bntAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntAtras.Image = global::ProyectoOFI.Properties.Resources.Atras;
+            this.bntAtras.Location = new System.Drawing.Point(1188, 0);
+            this.bntAtras.Name = "bntAtras";
+            this.bntAtras.Size = new System.Drawing.Size(91, 74);
+            this.bntAtras.TabIndex = 59;
+            this.bntAtras.UseVisualStyleBackColor = false;
+            // 
+            // pbIcono
+            // 
+            this.pbIcono.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pbIcono.Image = global::ProyectoOFI.Properties.Resources.OFI_Make;
+            this.pbIcono.Location = new System.Drawing.Point(0, 0);
+            this.pbIcono.Name = "pbIcono";
+            this.pbIcono.Size = new System.Drawing.Size(101, 74);
+            this.pbIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbIcono.TabIndex = 1;
+            this.pbIcono.TabStop = false;
+            // 
             // plfooter
             // 
             this.plfooter.BackColor = System.Drawing.Color.Fuchsia;
@@ -90,6 +114,24 @@
             this.plfooter.Size = new System.Drawing.Size(1279, 77);
             this.plfooter.TabIndex = 4;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = global::ProyectoOFI.Properties.Resources.business_report_48px;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(337, 5);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(170, 62);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Verticales";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Fuchsia;
@@ -100,6 +142,36 @@
             this.panel1.Size = new System.Drawing.Size(8, 62);
             this.panel1.TabIndex = 16;
             // 
+            // BtnTverticales
+            // 
+            this.BtnTverticales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.BtnTverticales.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTverticales.Dock = System.Windows.Forms.DockStyle.Left;
+            this.BtnTverticales.FlatAppearance.BorderSize = 0;
+            this.BtnTverticales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTverticales.Image = global::ProyectoOFI.Properties.Resources.business_report_48px;
+            this.BtnTverticales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTverticales.Location = new System.Drawing.Point(159, 5);
+            this.BtnTverticales.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnTverticales.Name = "BtnTverticales";
+            this.BtnTverticales.Size = new System.Drawing.Size(170, 62);
+            this.BtnTverticales.TabIndex = 15;
+            this.BtnTverticales.Text = "Tolvas Verticales";
+            this.BtnTverticales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnTverticales.UseVisualStyleBackColor = false;
+            this.BtnTverticales.Click += new System.EventHandler(this.BtnTverticales_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSalir.Image = global::ProyectoOFI.Properties.Resources.Atras;
+            this.btnSalir.Location = new System.Drawing.Point(1204, 5);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 62);
+            this.btnSalir.TabIndex = 1;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.Fuchsia;
@@ -109,6 +181,25 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(8, 62);
             this.panel9.TabIndex = 11;
+            // 
+            // btnTransferencia
+            // 
+            this.btnTransferencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.btnTransferencia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTransferencia.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnTransferencia.FlatAppearance.BorderSize = 0;
+            this.btnTransferencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTransferencia.Image = global::ProyectoOFI.Properties.Resources.Plan;
+            this.btnTransferencia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTransferencia.Location = new System.Drawing.Point(11, 5);
+            this.btnTransferencia.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTransferencia.Name = "btnTransferencia";
+            this.btnTransferencia.Size = new System.Drawing.Size(140, 62);
+            this.btnTransferencia.TabIndex = 10;
+            this.btnTransferencia.Text = "Inventario";
+            this.btnTransferencia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTransferencia.UseVisualStyleBackColor = false;
+            this.btnTransferencia.Click += new System.EventHandler(this.btnTransferencia_Click);
             // 
             // panel8
             // 
@@ -149,97 +240,6 @@
             this.PlSM.Size = new System.Drawing.Size(1279, 350);
             this.PlSM.TabIndex = 5;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Image = global::ProyectoOFI.Properties.Resources.business_report_48px;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(337, 5);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(170, 62);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Verticales";
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // BtnTverticales
-            // 
-            this.BtnTverticales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
-            this.BtnTverticales.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnTverticales.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BtnTverticales.FlatAppearance.BorderSize = 0;
-            this.BtnTverticales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnTverticales.Image = global::ProyectoOFI.Properties.Resources.business_report_48px;
-            this.BtnTverticales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnTverticales.Location = new System.Drawing.Point(159, 5);
-            this.BtnTverticales.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnTverticales.Name = "BtnTverticales";
-            this.BtnTverticales.Size = new System.Drawing.Size(170, 62);
-            this.BtnTverticales.TabIndex = 15;
-            this.BtnTverticales.Text = "Tolvas Verticales";
-            this.BtnTverticales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnTverticales.UseVisualStyleBackColor = false;
-            this.BtnTverticales.Click += new System.EventHandler(this.BtnTverticales_Click);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSalir.Image = global::ProyectoOFI.Properties.Resources.Atras;
-            this.btnSalir.Location = new System.Drawing.Point(1204, 5);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 62);
-            this.btnSalir.TabIndex = 1;
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnTransferencia
-            // 
-            this.btnTransferencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
-            this.btnTransferencia.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTransferencia.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTransferencia.FlatAppearance.BorderSize = 0;
-            this.btnTransferencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTransferencia.Image = global::ProyectoOFI.Properties.Resources.Plan;
-            this.btnTransferencia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTransferencia.Location = new System.Drawing.Point(11, 5);
-            this.btnTransferencia.Margin = new System.Windows.Forms.Padding(2);
-            this.btnTransferencia.Name = "btnTransferencia";
-            this.btnTransferencia.Size = new System.Drawing.Size(140, 62);
-            this.btnTransferencia.TabIndex = 10;
-            this.btnTransferencia.Text = "Inventario";
-            this.btnTransferencia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTransferencia.UseVisualStyleBackColor = false;
-            this.btnTransferencia.Click += new System.EventHandler(this.btnTransferencia_Click);
-            // 
-            // bntAtras
-            // 
-            this.bntAtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.bntAtras.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bntAtras.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.bntAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntAtras.Image = global::ProyectoOFI.Properties.Resources.Atras;
-            this.bntAtras.Location = new System.Drawing.Point(1188, 0);
-            this.bntAtras.Name = "bntAtras";
-            this.bntAtras.Size = new System.Drawing.Size(91, 74);
-            this.bntAtras.TabIndex = 59;
-            this.bntAtras.UseVisualStyleBackColor = false;
-            // 
-            // pbIcono
-            // 
-            this.pbIcono.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbIcono.Image = global::ProyectoOFI.Properties.Resources.OFI_Make;
-            this.pbIcono.Location = new System.Drawing.Point(0, 0);
-            this.pbIcono.Name = "pbIcono";
-            this.pbIcono.Size = new System.Drawing.Size(101, 74);
-            this.pbIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbIcono.TabIndex = 1;
-            this.pbIcono.TabStop = false;
-            // 
             // SMecánico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -256,8 +256,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.SMecánico_Load);
             this.plTitulo.ResumeLayout(false);
-            this.plfooter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbIcono)).EndInit();
+            this.plfooter.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

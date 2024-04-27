@@ -1,6 +1,8 @@
 ﻿using ProyectoOFI.Datos;
+using ProyectoOFI.Otros;
 using System;
 using System.Data;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.SM
@@ -12,9 +14,20 @@ namespace ProyectoOFI.SM
             InitializeComponent();
         }
 
-        private void SecadoMecanico_Load(object sender, EventArgs e)
+        private async void SecadoMecanico_Load(object sender, EventArgs e)
         {
+            PlCarga.Dock = DockStyle.Fill;
+            await CargarDatos();
+            //Base.DiseñoDtvEliminar(ref dtInventarioSM);
+            PlCarga.Visible = false;
+        }
+        private async Task CargarDatos()
+        {
+            await Task.Delay(1500);
+            dtInventarioSM.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             MostrarSM();
+            //ReiniciarPaginado();
+            await Task.Delay(1000);
         }
         private void MostrarSM()
         {

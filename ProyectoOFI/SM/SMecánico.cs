@@ -26,7 +26,7 @@ namespace ProyectoOFI.SM
             ir.BringToFront();
             PlSM.Controls.Add(ir);
         }
-
+        
         private void btnTransferencia_Click(object sender, EventArgs e)
         {
             SecadoMecanico ir = new SecadoMecanico();

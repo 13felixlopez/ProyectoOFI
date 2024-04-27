@@ -121,12 +121,12 @@ namespace ProyectoOFI.Datos
                 QQS.Text = Math.Round(QQs, 2).ToString();
                 calidad.Text = dt.Rows[0]["Calidad"].ToString();
                 daño.Text = dt.Rows[0]["Danio"].ToString();
-                esfisico.Text = dt.Rows[0]["EstadoFisico"].ToString();
+                esfisico.Text = dt.Rows[0]["Estado Fisico"].ToString();
                 FRecibido.Text= dt.Rows[0]["FRecibido"].ToString();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error "+ex.Message, "Error mostrar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocurrió un error "+ex.Message, "Error mostrar datos DSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {

@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioSM = new System.Windows.Forms.DataGridView();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.plAgregar = new System.Windows.Forms.Panel();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -50,10 +49,14 @@
             this.lbl_Pagina = new System.Windows.Forms.Label();
             this.Label25 = new System.Windows.Forms.Label();
             this.timerAct = new System.Windows.Forms.Timer(this.components);
+            this.PlCarga = new System.Windows.Forms.Panel();
+            this.PbCarga = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioSM)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.plAgregar.SuspendLayout();
             this.plfooter.SuspendLayout();
+            this.PlCarga.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.SuspendLayout();
             // 
             // dtInventarioSM
@@ -74,8 +77,6 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dtInventarioSM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtInventarioSM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtInventarioSM.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Eliminar});
             this.dtInventarioSM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioSM.Location = new System.Drawing.Point(0, 62);
             this.dtInventarioSM.Name = "dtInventarioSM";
@@ -89,15 +90,6 @@
             this.dtInventarioSM.ShowEditingIcon = false;
             this.dtInventarioSM.Size = new System.Drawing.Size(1225, 398);
             this.dtInventarioSM.TabIndex = 9;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.Image = global::ProyectoOFI.Properties.Resources.Delete;
-            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eliminar.MinimumWidth = 10;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
             // 
             // plOpciones
             // 
@@ -309,10 +301,31 @@
             this.Label25.TabIndex = 23;
             this.Label25.Text = "de";
             // 
+            // PlCarga
+            // 
+            this.PlCarga.Controls.Add(this.PbCarga);
+            this.PlCarga.Location = new System.Drawing.Point(487, 174);
+            this.PlCarga.Name = "PlCarga";
+            this.PlCarga.Size = new System.Drawing.Size(250, 172);
+            this.PlCarga.TabIndex = 12;
+            // 
+            // PbCarga
+            // 
+            this.PbCarga.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.PbCarga.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PbCarga.Image = global::ProyectoOFI.Properties.Resources.loading_12;
+            this.PbCarga.Location = new System.Drawing.Point(0, 0);
+            this.PbCarga.Name = "PbCarga";
+            this.PbCarga.Size = new System.Drawing.Size(250, 172);
+            this.PbCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbCarga.TabIndex = 0;
+            this.PbCarga.TabStop = false;
+            // 
             // SecadoMecanico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.PlCarga);
             this.Controls.Add(this.dtInventarioSM);
             this.Controls.Add(this.plOpciones);
             this.Controls.Add(this.plfooter);
@@ -325,6 +338,8 @@
             this.plAgregar.ResumeLayout(false);
             this.plfooter.ResumeLayout(false);
             this.plfooter.PerformLayout();
+            this.PlCarga.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -332,7 +347,6 @@
         #endregion
 
         public System.Windows.Forms.DataGridView dtInventarioSM;
-        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         private System.Windows.Forms.Panel plOpciones;
         private System.Windows.Forms.Panel plAgregar;
         private System.Windows.Forms.Button btnAgregar;
@@ -350,5 +364,7 @@
         internal System.Windows.Forms.Label lbl_Pagina;
         internal System.Windows.Forms.Label Label25;
         private System.Windows.Forms.Timer timerAct;
+        private System.Windows.Forms.Panel PlCarga;
+        private System.Windows.Forms.PictureBox PbCarga;
     }
 }

@@ -31,6 +31,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@Merma", parametros.Merma);
                 cmd.Parameters.AddWithValue("@Recibidor", parametros.IdRecibidor);
                 cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+                cmd.Parameters.AddWithValue("@Consolidado", parametros.Consolidado);
                 //Envio
                 cmd.Parameters.AddWithValue("@IDEnvio", parametro.IDEnvio);
                 cmd.Parameters.AddWithValue("@TicketE", parametros.Ticket);
@@ -272,6 +273,61 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@Proceso", proceso);
                 cmd.Parameters.AddWithValue("@Consolidado", "Si");
                 cmd.Parameters.AddWithValue("@ContadorEdit", 0);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ups! Ha ocurrido un error al agregar el Consolidado por favor revise los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                Log.Writeerror("Error en Consolidar ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool Consolidar2(LRecepcion parametros, LEnvio Par, List<string> lstcons, string folio)
+        {
+            try
+            {
+                var dt = new DataTable();
+                dt.Columns.Add("Id");
+                dt.Columns.Add("TicketH");
+                int i = 1;
+                foreach (string ticket in lstcons)
+                {
+                    if (ticket != null)
+                    {
+                        DataRow row = dt.NewRow();  // Crear una nueva fila
+                        row["Id"] = i;  // Establecer el valor del Id en la fila actual
+                        row["TicketH"] = ticket;  // Establecer el valor del TicketH en la fila actual
+                        dt.Rows.Add(row);  // Agregar la fila al DataTable
+                        i++; // Incrementar el contador de Id
+                    }
+                }
+
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("Consolidar2", Conexion.conectar);
+                var paramertlist = new SqlParameter("@lstCons", SqlDbType.Structured);
+                paramertlist.TypeName = "Con";
+                paramertlist.Value = dt;
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(paramertlist);
+                cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                cmd.Parameters.AddWithValue("@sacos", parametros.Sacos);
+                cmd.Parameters.AddWithValue("@Peso", parametros.Peso);
+                cmd.Parameters.AddWithValue("@Calidad", parametros.Calidad);
+                cmd.Parameters.AddWithValue("@IdCertificacion", Par.IdCertificacionE);
+                cmd.Parameters.AddWithValue("@EstFisico", parametros.EstadoFisico);
+                cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+                cmd.Parameters.AddWithValue("@FRecibido", parametros.FRecibido);
+                cmd.Parameters.AddWithValue("@Danio", parametros.Daño);
+                cmd.Parameters.AddWithValue("@AreaSecado", parametros.IdArea);
+                cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
+                cmd.Parameters.AddWithValue("@Folio", folio);
+                cmd.Parameters.AddWithValue("@Consolidado", "Si");
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -907,12 +963,12 @@ namespace ProyectoOFI.Datos
             }
         }
         #endregion
-        public void VerCons(ref DataTable dt,string TkPadre)
+        public void VerCons(ref DataTable dt, string TkPadre)
         {
             try
             {
                 Conexion.abrir();
-                SqlDataAdapter da=new SqlDataAdapter("VerCons",Conexion.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("VerCons", Conexion.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@Ticket", TkPadre);
                 da.Fill(dt);

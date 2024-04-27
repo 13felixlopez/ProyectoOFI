@@ -109,12 +109,17 @@ namespace ProyectoOFI.Recepcion
         }
         private void bntAtras_Click(object sender, EventArgs e)
         {
+            CerrarPlRec();
+        }
+        private void CerrarPlRec()
+        {
             PlRecepcion.Visible = false;
             PRecepcion.Visible = false;
             PEnvio.Dock = DockStyle.Fill;
             PEnvio.Visible = true;
             Limpiar();
             txtTK.Enabled = true;
+
         }
         private void btnSig_Click(object sender, EventArgs e)
         {
@@ -197,6 +202,7 @@ namespace ProyectoOFI.Recepcion
             LblQQs.Text = "--";
             lblTransferencia.Text = "Agregar Transferencia";
             TxtTally.Clear();
+            CHBConsSM.Checked = false;
         }
         private void txtMTNT_TextChanged(object sender, EventArgs e)
         {
@@ -290,6 +296,14 @@ namespace ProyectoOFI.Recepcion
         {
             if (validar() && ValidarE())
             {
+                if (CHBConsSM.Checked == true)
+                {
+                    Consolidado = "Si";
+                }
+                else
+                {
+                    Consolidado = null;
+                }
                 LRecepcion parametros = new LRecepcion();
                 DRecepcion funcion = new DRecepcion();
                 parametros.Ticket = txtTK.Text;
@@ -304,6 +318,7 @@ namespace ProyectoOFI.Recepcion
                 parametros.Merma = Convert.ToDouble(LblMerma.Text);
                 parametros.IdRecibidor = int.Parse(cbRecibidor.SelectedValue.ToString());
                 parametros.Digitador = LblDigitador.Text;
+                parametros.Consolidado = Consolidado;
 
 
                 LEnvio par = new LEnvio();
@@ -832,6 +847,8 @@ namespace ProyectoOFI.Recepcion
                 plOpciones.Visible = false;
                 PnConsolidar.Visible = true;
                 PnConsolidar.Dock = DockStyle.Fill;
+                LblTextsacos.Visible = false;
+                LblSacosSM.Visible = false;
                 //Consolidar cons = new Consolidar(Calidad, CertificacionE, EstadoFisico, Daño);
                 //cons.Dock = DockStyle.Fill;
             }
@@ -876,8 +893,7 @@ namespace ProyectoOFI.Recepcion
         /// </summary>
         private void DtAADT()
         {
-
-            //// Crear un arreglo bidimensional para almacenar los datos del DataTable
+            // Crear un arreglo bidimensional para almacenar los datos del DataTable
             dataArray = new object[Cons.Rows.Count, Cons.Columns.Count];
 
             // Iterar sobre las filas y columnas del DataTable y almacenar los datos en el arreglo
@@ -889,18 +905,27 @@ namespace ProyectoOFI.Recepcion
                 }
             }
 
-            // Establecer el arreglo como la fuente de datos del DataGridView
-            DtTickets.Rows.Clear(); // Limpiar el DataGridView antes de agregar datos
+            // Limpiar el DataGridView antes de agregar datos
+            DtTickets.Rows.Clear();
+
+            // Agregar las filas al DataGridView excepto la que coincide con TxtTicketCons
             for (int i = 0; i < Cons.Rows.Count; i++)
             {
-                DtTickets.Rows.Add(); // Agregar una nueva fila al DataGridView
-                for (int j = 0; j < Cons.Columns.Count; j++)
+                // Verificar si la Ticket coincide con TxtTicketCons, si coincide, omitir esa fila
+                if (Cons.Rows[i]["Ticket"].ToString() != TxtTicketCons.Text)
                 {
-                    DtTickets.Rows[i].Cells[j].Value = dataArray[i, j]; // Asignar los valores del arreglo a las celdas del DataGridView
+                    // Agregar una nueva fila al DataGridView
+                    int rowIndex = DtTickets.Rows.Add();
+
+                    // Asignar los valores del arreglo a las celdas del DataGridView
+                    for (int j = 0; j < Cons.Columns.Count; j++)
+                    {
+                        DtTickets.Rows[rowIndex].Cells[j].Value = dataArray[i, j];
+                    }
                 }
             }
-
         }
+
         private void EliminarTK()
         {
             string nombrecolumna = "Ticket";
@@ -1000,6 +1025,7 @@ namespace ProyectoOFI.Recepcion
             // Inicializar las variables para los totales de sacos y peso
             int totalSacos = 0;
             double totalPeso = 0;
+            int sacossm = int.Parse(LblSacosSM.Text);
 
             // Verificar si hay filas en dtTKCons
             if (dtTKCons.Rows.Count > 0)
@@ -1012,9 +1038,26 @@ namespace ProyectoOFI.Recepcion
 
                     // Sumar el peso
                     totalPeso += Convert.ToDouble(row.Cells["Peso"].Value);
+                    if (LblSacosSM.Visible == true)
+                    {
+                        BtnConsolidar.Enabled = false;
+                        if (totalSacos > sacossm)
+                        {
+                            DtTickets.Enabled = false;
+                            BtnConsolidar.Enabled = false;
+                            MessageBox.Show("No puede superar el total de sacos del consolidado", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        }
+                        else if (totalSacos == sacossm)
+                        {
+                            BtnConsolidar.Enabled = true;
+                        }
+                        else
+                        {
+                            DtTickets.Enabled = true;
+                        }
+                    }
                 }
             }
-
             // Establecer los valores en los controles de etiqueta
             LblTotalSacos.Text = totalSacos.ToString();
             LblTotalPeso.Text = totalPeso.ToString();
@@ -1163,7 +1206,14 @@ namespace ProyectoOFI.Recepcion
         {
             if (!string.IsNullOrEmpty(TxtTicketCons.Text) && !string.IsNullOrEmpty(TxtFolio.Text) && !string.IsNullOrEmpty(CbAreaCons.Text))
             {
-                CrearConsolidado();
+                if (LblSacosSM.Visible == false)
+                {
+                    CrearConsolidado();
+                }
+                else
+                {
+                    CrearConsolidado2();
+                }
             }
             else
             {
@@ -1229,6 +1279,15 @@ namespace ProyectoOFI.Recepcion
             else
             {
                 CbAreaCons.Enabled = false;
+            }
+            CbCertCons.Text = cbCertificacion.Text;
+            if (CbCertCons.Text == "Convencional")
+            {
+                CbCertCons.Enabled = false;
+            }
+            else
+            {
+                CbCertCons.Enabled = true;
             }
         }
         private void CbAreaCons_SelectedIndexChanged(object sender, EventArgs e)
@@ -1474,6 +1533,14 @@ namespace ProyectoOFI.Recepcion
             funcion.VerCons(ref dt, txtTK.Text);
             DtVerCons.DataSource = dt;
             Base.DiseñoDtvEliminar(ref DtVerCons);
+            if (dt.Rows.Count > 0)
+            {
+                BtnAddTK.Visible = false;
+            }
+            else
+            {
+                BtnAddTK.Visible = true;
+            }
         }
         private void BtnCerrarVerCons_Click(object sender, EventArgs e)
         {
@@ -1574,6 +1641,79 @@ namespace ProyectoOFI.Recepcion
                 MessageBox.Show("Lo sentimos ha ocurrido un error al consolidar", "ERROR en consolidar", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private async void CrearConsolidado2()
+        {
+            try
+            {
+                List<string> lstTickets = new List<string>();
+                foreach (DataGridViewRow dr in dtTKCons.Rows)
+                {
+                    if (dr.Cells[0].Value != null)
+                    {
+                        string ticketValue = dr.Cells[0].Value.ToString();
+                        lstTickets.Add(ticketValue);
+                    }
+                }
+
+
+                LRecepcion parametros = new LRecepcion();
+                LEnvio Par = new LEnvio();
+                parametros.Ticket = TxtTicketCons.Text;
+                parametros.Sacos = int.Parse(LblTotalSacos.Text);
+                parametros.Peso = double.Parse(LblTotalPeso.Text);
+                parametros.Calidad = Calidad;
+                Par.IdCertificacionE = int.Parse(CbCertCons.SelectedValue.ToString());
+                parametros.EstadoFisico = EstadoFisico;
+                parametros.FRecibido = DateTime.Now;
+                parametros.Daño = Daño;
+                parametros.Digitador = Login.NombreA;
+                parametros.IdArea = int.Parse(CbAreaCons.SelectedValue.ToString());
+                string folio = TxtFolio.Text;
+                DRecepcion funcion = new DRecepcion();
+                if (funcion.Consolidar2(parametros, Par, lstTickets, folio) == true)
+                {
+                    MessageBox.Show("Se ha realizado la consolidacion con exito", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    PnConsolidar.Visible = false;
+                    PnConsolidar.Dock = DockStyle.None;
+                    plfooter.Visible = true;
+                    plOpciones.Visible = true;
+                    dtTKCons.Rows.Clear();
+                    Cons.Rows.Clear();
+                    await CargarDatos();
+                    LimpiarCons();
+                    PlVerCons.Size = new Size(129, 194);
+                    PlVerCons.Visible = false;
+                    CerrarPlRec();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Lo sentimos ha ocurrido un error al consolidar", "ERROR en consolidar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void CHBConsSM_CheckedChanged(object sender, EventArgs e)
+        {
+            cbArea.Text = "Secado Mecánico";
+        }
+
+        private void BtnAddTK_Click(object sender, EventArgs e)
+        {
+            LblSacosSM.Visible = true;
+            LblTextsacos.Visible = true;
+            TxtTicketCons.Text = txtTK.Text;
+            LblSacosSM.Text = nudSacos.Text;
+            CbAreaCons.Text = "Secado Mecánico";
+            LblTextAreaCons.Visible = false;
+            CbAreaCons.Visible = false;
+            Datos();
+            plfooter.Visible = false;
+            plOpciones.Visible = false;
+            PnConsolidar.Visible = true;
+            PnConsolidar.Dock = DockStyle.Fill;
+            PnConsolidar.BringToFront();
+            TxtTicketCons.Enabled = false;
+        }
+
         private void LimpiarCons()
         {
             LblTotalPeso.Text = "00";

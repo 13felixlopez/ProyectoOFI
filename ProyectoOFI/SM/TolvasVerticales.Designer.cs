@@ -38,15 +38,6 @@
             this.lblTV2 = new System.Windows.Forms.Label();
             this.lblTV1 = new System.Windows.Forms.Label();
             this.PPTV = new System.Windows.Forms.Panel();
-            this.btnTV8 = new System.Windows.Forms.Button();
-            this.btnTV7 = new System.Windows.Forms.Button();
-            this.btnTV6 = new System.Windows.Forms.Button();
-            this.btnTV5 = new System.Windows.Forms.Button();
-            this.btnTV4 = new System.Windows.Forms.Button();
-            this.btnTV3 = new System.Windows.Forms.Button();
-            this.btnTV2 = new System.Windows.Forms.Button();
-            this.btnTV1 = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.PLDatos = new System.Windows.Forms.Panel();
             this.gbVertical = new System.Windows.Forms.GroupBox();
             this.btnGuardarV = new System.Windows.Forms.Button();
@@ -79,6 +70,7 @@
             this.cbTurnoPV = new System.Windows.Forms.ComboBox();
             this.gbDatos = new System.Windows.Forms.GroupBox();
             this.cbTicketV = new System.Windows.Forms.ComboBox();
+            this.LblFRecibido = new System.Windows.Forms.Label();
             this.LblEFisicoV = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.LblDanioV = new System.Windows.Forms.Label();
@@ -92,13 +84,24 @@
             this.LblSacos = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.LblFRecibido = new System.Windows.Forms.Label();
+            this.btnTV8 = new System.Windows.Forms.Button();
+            this.btnTV7 = new System.Windows.Forms.Button();
+            this.btnTV6 = new System.Windows.Forms.Button();
+            this.btnTV5 = new System.Windows.Forms.Button();
+            this.btnTV4 = new System.Windows.Forms.Button();
+            this.btnTV3 = new System.Windows.Forms.Button();
+            this.btnTV2 = new System.Windows.Forms.Button();
+            this.btnTV1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnCerrarVerCons = new System.Windows.Forms.Button();
             this.PPTV.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.PLDatos.SuspendLayout();
             this.gbVertical.SuspendLayout();
             this.gbPOAV.SuspendLayout();
             this.gbDatos.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTV8
@@ -180,7 +183,6 @@
             // 
             // lblTV1
             // 
-            this.lblTV1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTV1.BackColor = System.Drawing.Color.White;
             this.lblTV1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTV1.Location = new System.Drawing.Point(3, 23);
@@ -192,6 +194,10 @@
             // 
             // PPTV
             // 
+            this.PPTV.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PPTV.Controls.Add(this.PLDatos);
             this.PPTV.Controls.Add(this.lblTV8);
             this.PPTV.Controls.Add(this.lblTV7);
             this.PPTV.Controls.Add(this.lblTV6);
@@ -208,156 +214,10 @@
             this.PPTV.Controls.Add(this.btnTV3);
             this.PPTV.Controls.Add(this.btnTV2);
             this.PPTV.Controls.Add(this.btnTV1);
-            this.PPTV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PPTV.Location = new System.Drawing.Point(0, 0);
             this.PPTV.Name = "PPTV";
             this.PPTV.Size = new System.Drawing.Size(1370, 553);
             this.PPTV.TabIndex = 0;
-            // 
-            // btnTV8
-            // 
-            this.btnTV8.BackColor = System.Drawing.SystemColors.Control;
-            this.btnTV8.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTV8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
-            this.btnTV8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTV8.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnTV8.Image = ((System.Drawing.Image)(resources.GetObject("btnTV8.Image")));
-            this.btnTV8.Location = new System.Drawing.Point(1197, 0);
-            this.btnTV8.Name = "btnTV8";
-            this.btnTV8.Size = new System.Drawing.Size(171, 553);
-            this.btnTV8.TabIndex = 43;
-            this.btnTV8.Text = "Tolva #8";
-            this.btnTV8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnTV8.UseVisualStyleBackColor = false;
-            this.btnTV8.Click += new System.EventHandler(this.btnTV8_Click);
-            // 
-            // btnTV7
-            // 
-            this.btnTV7.BackColor = System.Drawing.SystemColors.Control;
-            this.btnTV7.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTV7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
-            this.btnTV7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTV7.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnTV7.Image = ((System.Drawing.Image)(resources.GetObject("btnTV7.Image")));
-            this.btnTV7.Location = new System.Drawing.Point(1026, 0);
-            this.btnTV7.Name = "btnTV7";
-            this.btnTV7.Size = new System.Drawing.Size(171, 553);
-            this.btnTV7.TabIndex = 42;
-            this.btnTV7.Text = "Tolva #7";
-            this.btnTV7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnTV7.UseVisualStyleBackColor = false;
-            this.btnTV7.Click += new System.EventHandler(this.btnTV7_Click);
-            // 
-            // btnTV6
-            // 
-            this.btnTV6.BackColor = System.Drawing.SystemColors.Control;
-            this.btnTV6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTV6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
-            this.btnTV6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTV6.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnTV6.Image = ((System.Drawing.Image)(resources.GetObject("btnTV6.Image")));
-            this.btnTV6.Location = new System.Drawing.Point(855, 0);
-            this.btnTV6.Name = "btnTV6";
-            this.btnTV6.Size = new System.Drawing.Size(171, 553);
-            this.btnTV6.TabIndex = 41;
-            this.btnTV6.Text = "Tolva #6";
-            this.btnTV6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnTV6.UseVisualStyleBackColor = false;
-            this.btnTV6.Click += new System.EventHandler(this.btnTV6_Click);
-            // 
-            // btnTV5
-            // 
-            this.btnTV5.BackColor = System.Drawing.SystemColors.Control;
-            this.btnTV5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTV5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
-            this.btnTV5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTV5.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnTV5.Image = ((System.Drawing.Image)(resources.GetObject("btnTV5.Image")));
-            this.btnTV5.Location = new System.Drawing.Point(684, 0);
-            this.btnTV5.Name = "btnTV5";
-            this.btnTV5.Size = new System.Drawing.Size(171, 553);
-            this.btnTV5.TabIndex = 40;
-            this.btnTV5.Text = "Tolva #5";
-            this.btnTV5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnTV5.UseVisualStyleBackColor = false;
-            this.btnTV5.Click += new System.EventHandler(this.btnTV5_Click);
-            // 
-            // btnTV4
-            // 
-            this.btnTV4.BackColor = System.Drawing.SystemColors.Control;
-            this.btnTV4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTV4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
-            this.btnTV4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTV4.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnTV4.Image = ((System.Drawing.Image)(resources.GetObject("btnTV4.Image")));
-            this.btnTV4.Location = new System.Drawing.Point(513, 0);
-            this.btnTV4.Name = "btnTV4";
-            this.btnTV4.Size = new System.Drawing.Size(171, 553);
-            this.btnTV4.TabIndex = 39;
-            this.btnTV4.Text = "Tolva #4";
-            this.btnTV4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnTV4.UseVisualStyleBackColor = false;
-            this.btnTV4.Click += new System.EventHandler(this.btnTV4_Click);
-            // 
-            // btnTV3
-            // 
-            this.btnTV3.BackColor = System.Drawing.SystemColors.Control;
-            this.btnTV3.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTV3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
-            this.btnTV3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTV3.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnTV3.Image = ((System.Drawing.Image)(resources.GetObject("btnTV3.Image")));
-            this.btnTV3.Location = new System.Drawing.Point(342, 0);
-            this.btnTV3.Name = "btnTV3";
-            this.btnTV3.Size = new System.Drawing.Size(171, 553);
-            this.btnTV3.TabIndex = 38;
-            this.btnTV3.Text = "Tolva #3";
-            this.btnTV3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnTV3.UseVisualStyleBackColor = false;
-            this.btnTV3.Click += new System.EventHandler(this.btnTV3_Click);
-            // 
-            // btnTV2
-            // 
-            this.btnTV2.BackColor = System.Drawing.SystemColors.Control;
-            this.btnTV2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTV2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
-            this.btnTV2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTV2.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnTV2.Image = ((System.Drawing.Image)(resources.GetObject("btnTV2.Image")));
-            this.btnTV2.Location = new System.Drawing.Point(171, 0);
-            this.btnTV2.Name = "btnTV2";
-            this.btnTV2.Size = new System.Drawing.Size(171, 553);
-            this.btnTV2.TabIndex = 37;
-            this.btnTV2.Text = "Tolva #2";
-            this.btnTV2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnTV2.UseVisualStyleBackColor = false;
-            this.btnTV2.Click += new System.EventHandler(this.btnTV2_Click);
-            // 
-            // btnTV1
-            // 
-            this.btnTV1.BackColor = System.Drawing.SystemColors.Control;
-            this.btnTV1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTV1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
-            this.btnTV1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTV1.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnTV1.Image = ((System.Drawing.Image)(resources.GetObject("btnTV1.Image")));
-            this.btnTV1.Location = new System.Drawing.Point(0, 0);
-            this.btnTV1.Name = "btnTV1";
-            this.btnTV1.Size = new System.Drawing.Size(171, 553);
-            this.btnTV1.TabIndex = 36;
-            this.btnTV1.Text = "Tolva #1";
-            this.btnTV1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnTV1.UseVisualStyleBackColor = false;
-            this.btnTV1.Click += new System.EventHandler(this.btnTV1_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.PPTV);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1370, 553);
-            this.panel1.TabIndex = 3;
             // 
             // PLDatos
             // 
@@ -366,7 +226,9 @@
             this.PLDatos.Controls.Add(this.gbVertical);
             this.PLDatos.Controls.Add(this.gbPOAV);
             this.PLDatos.Controls.Add(this.gbDatos);
-            this.PLDatos.Location = new System.Drawing.Point(35, 46);
+            this.PLDatos.Controls.Add(this.panel2);
+            this.PLDatos.Location = new System.Drawing.Point(117, 23);
+            this.PLDatos.MaximumSize = new System.Drawing.Size(1233, 466);
             this.PLDatos.Name = "PLDatos";
             this.PLDatos.Size = new System.Drawing.Size(1233, 466);
             this.PLDatos.TabIndex = 53;
@@ -391,9 +253,9 @@
             this.gbVertical.Controls.Add(this.label21);
             this.gbVertical.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbVertical.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbVertical.Location = new System.Drawing.Point(0, 249);
+            this.gbVertical.Location = new System.Drawing.Point(0, 292);
             this.gbVertical.Name = "gbVertical";
-            this.gbVertical.Size = new System.Drawing.Size(1233, 186);
+            this.gbVertical.Size = new System.Drawing.Size(1216, 186);
             this.gbVertical.TabIndex = 9;
             this.gbVertical.TabStop = false;
             this.gbVertical.Text = "Vertical";
@@ -545,9 +407,9 @@
             this.gbPOAV.Controls.Add(this.cbTurnoPV);
             this.gbPOAV.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbPOAV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPOAV.Location = new System.Drawing.Point(0, 125);
+            this.gbPOAV.Location = new System.Drawing.Point(0, 168);
             this.gbPOAV.Name = "gbPOAV";
-            this.gbPOAV.Size = new System.Drawing.Size(1233, 124);
+            this.gbPOAV.Size = new System.Drawing.Size(1216, 124);
             this.gbPOAV.TabIndex = 8;
             this.gbPOAV.TabStop = false;
             this.gbPOAV.Text = "Tolvas POA Vertical";
@@ -680,9 +542,9 @@
             this.gbDatos.Controls.Add(this.label1);
             this.gbDatos.Dock = System.Windows.Forms.DockStyle.Top;
             this.gbDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbDatos.Location = new System.Drawing.Point(0, 0);
+            this.gbDatos.Location = new System.Drawing.Point(0, 43);
             this.gbDatos.Name = "gbDatos";
-            this.gbDatos.Size = new System.Drawing.Size(1233, 125);
+            this.gbDatos.Size = new System.Drawing.Size(1216, 125);
             this.gbDatos.TabIndex = 7;
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Datos Ticket";
@@ -699,6 +561,16 @@
             this.cbTicketV.Size = new System.Drawing.Size(166, 26);
             this.cbTicketV.TabIndex = 19;
             this.cbTicketV.SelectedIndexChanged += new System.EventHandler(this.cbTicketV_SelectedIndexChanged);
+            // 
+            // LblFRecibido
+            // 
+            this.LblFRecibido.AutoSize = true;
+            this.LblFRecibido.Location = new System.Drawing.Point(1028, 74);
+            this.LblFRecibido.Name = "LblFRecibido";
+            this.LblFRecibido.Size = new System.Drawing.Size(21, 20);
+            this.LblFRecibido.TabIndex = 6;
+            this.LblFRecibido.Text = "--";
+            this.LblFRecibido.Visible = false;
             // 
             // LblEFisicoV
             // 
@@ -817,29 +689,183 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Ticket";
             // 
-            // LblFRecibido
+            // btnTV8
             // 
-            this.LblFRecibido.AutoSize = true;
-            this.LblFRecibido.Location = new System.Drawing.Point(1028, 74);
-            this.LblFRecibido.Name = "LblFRecibido";
-            this.LblFRecibido.Size = new System.Drawing.Size(21, 20);
-            this.LblFRecibido.TabIndex = 6;
-            this.LblFRecibido.Text = "--";
-            this.LblFRecibido.Visible = false;
+            this.btnTV8.BackColor = System.Drawing.SystemColors.Control;
+            this.btnTV8.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnTV8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
+            this.btnTV8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTV8.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnTV8.Image = ((System.Drawing.Image)(resources.GetObject("btnTV8.Image")));
+            this.btnTV8.Location = new System.Drawing.Point(1197, 0);
+            this.btnTV8.Name = "btnTV8";
+            this.btnTV8.Size = new System.Drawing.Size(171, 553);
+            this.btnTV8.TabIndex = 43;
+            this.btnTV8.Text = "Tolva #8";
+            this.btnTV8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnTV8.UseVisualStyleBackColor = false;
+            this.btnTV8.Click += new System.EventHandler(this.btnTV8_Click);
+            // 
+            // btnTV7
+            // 
+            this.btnTV7.BackColor = System.Drawing.SystemColors.Control;
+            this.btnTV7.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnTV7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
+            this.btnTV7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTV7.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnTV7.Image = ((System.Drawing.Image)(resources.GetObject("btnTV7.Image")));
+            this.btnTV7.Location = new System.Drawing.Point(1026, 0);
+            this.btnTV7.Name = "btnTV7";
+            this.btnTV7.Size = new System.Drawing.Size(171, 553);
+            this.btnTV7.TabIndex = 42;
+            this.btnTV7.Text = "Tolva #7";
+            this.btnTV7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnTV7.UseVisualStyleBackColor = false;
+            this.btnTV7.Click += new System.EventHandler(this.btnTV7_Click);
+            // 
+            // btnTV6
+            // 
+            this.btnTV6.BackColor = System.Drawing.SystemColors.Control;
+            this.btnTV6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnTV6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
+            this.btnTV6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTV6.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnTV6.Image = ((System.Drawing.Image)(resources.GetObject("btnTV6.Image")));
+            this.btnTV6.Location = new System.Drawing.Point(855, 0);
+            this.btnTV6.Name = "btnTV6";
+            this.btnTV6.Size = new System.Drawing.Size(171, 553);
+            this.btnTV6.TabIndex = 41;
+            this.btnTV6.Text = "Tolva #6";
+            this.btnTV6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnTV6.UseVisualStyleBackColor = false;
+            this.btnTV6.Click += new System.EventHandler(this.btnTV6_Click);
+            // 
+            // btnTV5
+            // 
+            this.btnTV5.BackColor = System.Drawing.SystemColors.Control;
+            this.btnTV5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnTV5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
+            this.btnTV5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTV5.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnTV5.Image = ((System.Drawing.Image)(resources.GetObject("btnTV5.Image")));
+            this.btnTV5.Location = new System.Drawing.Point(684, 0);
+            this.btnTV5.Name = "btnTV5";
+            this.btnTV5.Size = new System.Drawing.Size(171, 553);
+            this.btnTV5.TabIndex = 40;
+            this.btnTV5.Text = "Tolva #5";
+            this.btnTV5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnTV5.UseVisualStyleBackColor = false;
+            this.btnTV5.Click += new System.EventHandler(this.btnTV5_Click);
+            // 
+            // btnTV4
+            // 
+            this.btnTV4.BackColor = System.Drawing.SystemColors.Control;
+            this.btnTV4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnTV4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
+            this.btnTV4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTV4.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnTV4.Image = ((System.Drawing.Image)(resources.GetObject("btnTV4.Image")));
+            this.btnTV4.Location = new System.Drawing.Point(513, 0);
+            this.btnTV4.Name = "btnTV4";
+            this.btnTV4.Size = new System.Drawing.Size(171, 553);
+            this.btnTV4.TabIndex = 39;
+            this.btnTV4.Text = "Tolva #4";
+            this.btnTV4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnTV4.UseVisualStyleBackColor = false;
+            this.btnTV4.Click += new System.EventHandler(this.btnTV4_Click);
+            // 
+            // btnTV3
+            // 
+            this.btnTV3.BackColor = System.Drawing.SystemColors.Control;
+            this.btnTV3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnTV3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
+            this.btnTV3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTV3.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnTV3.Image = ((System.Drawing.Image)(resources.GetObject("btnTV3.Image")));
+            this.btnTV3.Location = new System.Drawing.Point(342, 0);
+            this.btnTV3.Name = "btnTV3";
+            this.btnTV3.Size = new System.Drawing.Size(171, 553);
+            this.btnTV3.TabIndex = 38;
+            this.btnTV3.Text = "Tolva #3";
+            this.btnTV3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnTV3.UseVisualStyleBackColor = false;
+            this.btnTV3.Click += new System.EventHandler(this.btnTV3_Click);
+            // 
+            // btnTV2
+            // 
+            this.btnTV2.BackColor = System.Drawing.SystemColors.Control;
+            this.btnTV2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnTV2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
+            this.btnTV2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTV2.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnTV2.Image = ((System.Drawing.Image)(resources.GetObject("btnTV2.Image")));
+            this.btnTV2.Location = new System.Drawing.Point(171, 0);
+            this.btnTV2.Name = "btnTV2";
+            this.btnTV2.Size = new System.Drawing.Size(171, 553);
+            this.btnTV2.TabIndex = 37;
+            this.btnTV2.Text = "Tolva #2";
+            this.btnTV2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnTV2.UseVisualStyleBackColor = false;
+            this.btnTV2.Click += new System.EventHandler(this.btnTV2_Click);
+            // 
+            // btnTV1
+            // 
+            this.btnTV1.BackColor = System.Drawing.SystemColors.Control;
+            this.btnTV1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnTV1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
+            this.btnTV1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTV1.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnTV1.Image = ((System.Drawing.Image)(resources.GetObject("btnTV1.Image")));
+            this.btnTV1.Location = new System.Drawing.Point(0, 0);
+            this.btnTV1.Name = "btnTV1";
+            this.btnTV1.Size = new System.Drawing.Size(171, 553);
+            this.btnTV1.TabIndex = 36;
+            this.btnTV1.Text = "Tolva #1";
+            this.btnTV1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnTV1.UseVisualStyleBackColor = false;
+            this.btnTV1.Click += new System.EventHandler(this.btnTV1_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.PPTV);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1370, 553);
+            this.panel1.TabIndex = 3;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.BtnCerrarVerCons);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1216, 43);
+            this.panel2.TabIndex = 11;
+            // 
+            // BtnCerrarVerCons
+            // 
+            this.BtnCerrarVerCons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrarVerCons.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrarVerCons.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrarVerCons.Location = new System.Drawing.Point(1169, 0);
+            this.BtnCerrarVerCons.Name = "BtnCerrarVerCons";
+            this.BtnCerrarVerCons.Size = new System.Drawing.Size(47, 43);
+            this.BtnCerrarVerCons.TabIndex = 11;
+            this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
+            this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
             // 
             // TolvasVerticales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.PLDatos);
             this.Controls.Add(this.panel1);
-            this.MaximumSize = new System.Drawing.Size(1370, 553);
-            this.MinimumSize = new System.Drawing.Size(1370, 553);
             this.Name = "TolvasVerticales";
             this.Size = new System.Drawing.Size(1370, 553);
             this.Load += new System.EventHandler(this.TolvasVerticales_Load);
             this.PPTV.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.PLDatos.ResumeLayout(false);
             this.gbVertical.ResumeLayout(false);
             this.gbVertical.PerformLayout();
@@ -847,6 +873,8 @@
             this.gbPOAV.PerformLayout();
             this.gbDatos.ResumeLayout(false);
             this.gbDatos.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -917,5 +945,7 @@
         private System.Windows.Forms.Label LblKilos;
         private System.Windows.Forms.Label LblEFisicoV;
         private System.Windows.Forms.Label LblFRecibido;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button BtnCerrarVerCons;
     }
 }

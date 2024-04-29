@@ -89,6 +89,7 @@
     <Compile Include="Logica\LPOAV.cs" />
     <Compile Include="Logica\LRecepcion.cs" />
     <Compile Include="Logica\LControlPatio.cs" />
+    <Compile Include="Logica\LSM.cs" />
     <Compile Include="Logica\LUsuarios.cs" />
     <Compile Include="Logica\LVertical.cs" />
     <Compile Include="Login.cs">
@@ -151,6 +152,12 @@
     </Compile>
     <Compile Include="Otros\FrmEstFis.Designer.cs">
       <DependentUpon>FrmEstFis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\FrmOperadorSM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Otros\FrmOperadorSM.Designer.cs">
+      <DependentUpon>FrmOperadorSM.cs</DependentUpon>
     </Compile>
     <Compile Include="Otros\FrmPatio.cs">
       <SubType>Form</SubType>
@@ -284,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Otros\FrmEstFis.resx">
       <DependentUpon>FrmEstFis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Otros\FrmOperadorSM.resx">
+      <DependentUpon>FrmOperadorSM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Otros\FrmPatio.resx">
       <DependentUpon>FrmPatio.cs</DependentUpon>
@@ -495,6 +505,7 @@
   <ItemGroup>
     <Content Include="ofi20.sql" />
     <Content Include="ofi2024.sql" />
+    <None Include="Resources\Operador.png" />
     <None Include="Resources\icons8-fields-50.png" />
     <None Include="Resources\send_30px.png" />
     <None Include="Resources\icons8-avión-de-papel.gif" />

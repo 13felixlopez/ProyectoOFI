@@ -96,5 +96,11 @@ namespace ProyectoOFI.Otros
             FrmUbicacionP AA = new FrmUbicacionP();
             AA.ShowDialog();
         }
+
+        private void BtnOperadores_Click(object sender, EventArgs e)
+        {
+            FrmOperadorSM AA= new FrmOperadorSM();
+            AA.ShowDialog();
+        }
     }
 }

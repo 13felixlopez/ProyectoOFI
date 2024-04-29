@@ -2,7 +2,6 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace ProyectoOFI.Datos
 {
@@ -22,13 +21,13 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarSM ✖️✖️" + ex.Message);
             }
             finally
             {
                 Conexion.cerrar();
             }
         }
-
         public DataTable MostrarTV()
         {
                 DataTable tablaTickets = new DataTable();
@@ -51,7 +50,6 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-
         public void CargarTV(string TK, DataTable dt)
         {
             try
@@ -101,7 +99,6 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-
         public void MostrarDatosTKSM(Label sacos, Label kilos, Label QQS, Label calidad, Label daño, Label esfisico, Label FRecibido, string TK)
         {
             try
@@ -127,6 +124,57 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error "+ex.Message, "Error mostrar datos DSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarOperador(ComboBox combo)
+        {
+            try
+            {
+                Conexion.abrir();
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("MostrarOperadores", Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter cb = new SqlDataAdapter(da);
+                DataTable dt = new DataTable();
+                cb.Fill(dt);
+                combo.ValueMember = "IdOperador";
+                combo.DisplayMember = "Nombre";
+                combo.DataSource = dt;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    lista.Add(dt.Rows[i]["Nombre"].ToString());
+                }
+                combo.AutoCompleteCustomSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los operadores " + ex.Message, "ERROR Operadores", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al cargar los operadores, MostrarOperador ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void VerDetalleTkSM(ref DataTable dt,string Tk)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da=new SqlDataAdapter("VerDetalleTkSM",Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Ticket",Tk);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en VerDetalleTkSM ✖️✖️" + ex.Message);
             }
             finally
             {

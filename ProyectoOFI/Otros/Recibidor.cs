@@ -71,6 +71,14 @@ namespace ProyectoOFI.Otros
                 }
             }
         }
+        private void EliminarRecibidor()
+        {
+            DCatalogo funcion = new DCatalogo();
+            if (funcion.EliminarRecibidor(Idrecibidor) == true)
+            {
+                MostrarRecibidor();
+            }
+        }
         private void DtRecibidor_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string Nombre;
@@ -95,19 +103,6 @@ namespace ProyectoOFI.Otros
                     EliminarRecibidor();
                 }
             }
-        }
-        private void EliminarRecibidor()
-        {
-            DCatalogo funcion = new DCatalogo();
-            if (funcion.EliminarRecibidor(Idrecibidor) == true)
-            {
-                MostrarRecibidor();
-            }
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

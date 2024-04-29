@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioSM = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.plAgregar = new System.Windows.Forms.Panel();
@@ -51,12 +51,65 @@
             this.timerAct = new System.Windows.Forms.Timer(this.components);
             this.PlCarga = new System.Windows.Forms.Panel();
             this.PbCarga = new System.Windows.Forms.PictureBox();
+            this.PLDatos = new System.Windows.Forms.Panel();
+            this.gbVertical = new System.Windows.Forms.GroupBox();
+            this.dtHoraFinV = new System.Windows.Forms.DateTimePicker();
+            this.dtHorainicioV = new System.Windows.Forms.DateTimePicker();
+            this.dtFProcV = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.gbPOAV = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dtFechaPV = new System.Windows.Forms.DateTimePicker();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.gbDatos = new System.Windows.Forms.GroupBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnCerrarVerCons = new System.Windows.Forms.Button();
+            this.LblCert = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.LblFRecibido = new System.Windows.Forms.Label();
+            this.LblEFisicoV = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.LblDanioV = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.LblCalidadV = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.LblQQsV = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.LblKilos = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.LblSacos = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.LblTk = new System.Windows.Forms.Label();
+            this.LblPOAV = new System.Windows.Forms.Label();
+            this.LblOperadorPV = new System.Windows.Forms.Label();
+            this.LblTurnoPV = new System.Windows.Forms.Label();
+            this.LblHumedadPV = new System.Windows.Forms.Label();
+            this.LblVer = new System.Windows.Forms.Label();
+            this.LblOperadorV = new System.Windows.Forms.Label();
+            this.LblTurnoV = new System.Windows.Forms.Label();
+            this.LblDuracion = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioSM)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.plAgregar.SuspendLayout();
             this.plfooter.SuspendLayout();
             this.PlCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
+            this.PLDatos.SuspendLayout();
+            this.gbVertical.SuspendLayout();
+            this.gbPOAV.SuspendLayout();
+            this.gbDatos.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtInventarioSM
@@ -68,28 +121,29 @@
             this.dtInventarioSM.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioSM.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioSM.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioSM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioSM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dtInventarioSM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioSM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioSM.Location = new System.Drawing.Point(0, 62);
             this.dtInventarioSM.Name = "dtInventarioSM";
             this.dtInventarioSM.ReadOnly = true;
             this.dtInventarioSM.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioSM.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioSM.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dtInventarioSM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioSM.ShowCellToolTips = false;
             this.dtInventarioSM.ShowEditingIcon = false;
-            this.dtInventarioSM.Size = new System.Drawing.Size(1225, 398);
+            this.dtInventarioSM.Size = new System.Drawing.Size(1730, 665);
             this.dtInventarioSM.TabIndex = 9;
+            this.dtInventarioSM.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtInventarioSM_CellDoubleClick);
             // 
             // plOpciones
             // 
@@ -102,14 +156,14 @@
             this.plOpciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.plOpciones.Location = new System.Drawing.Point(0, 0);
             this.plOpciones.Name = "plOpciones";
-            this.plOpciones.Size = new System.Drawing.Size(1225, 62);
+            this.plOpciones.Size = new System.Drawing.Size(1730, 62);
             this.plOpciones.TabIndex = 10;
             // 
             // plAgregar
             // 
             this.plAgregar.Controls.Add(this.btnAgregar);
             this.plAgregar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.plAgregar.Location = new System.Drawing.Point(1134, 0);
+            this.plAgregar.Location = new System.Drawing.Point(1639, 0);
             this.plAgregar.Name = "plAgregar";
             this.plAgregar.Size = new System.Drawing.Size(91, 62);
             this.plAgregar.TabIndex = 3;
@@ -187,9 +241,9 @@
             this.plfooter.Controls.Add(this.lbl_Pagina);
             this.plfooter.Controls.Add(this.Label25);
             this.plfooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plfooter.Location = new System.Drawing.Point(0, 460);
+            this.plfooter.Location = new System.Drawing.Point(0, 727);
             this.plfooter.Name = "plfooter";
-            this.plfooter.Size = new System.Drawing.Size(1225, 60);
+            this.plfooter.Size = new System.Drawing.Size(1730, 60);
             this.plfooter.TabIndex = 11;
             // 
             // btn_atras
@@ -304,7 +358,7 @@
             // PlCarga
             // 
             this.PlCarga.Controls.Add(this.PbCarga);
-            this.PlCarga.Location = new System.Drawing.Point(487, 174);
+            this.PlCarga.Location = new System.Drawing.Point(19, 98);
             this.PlCarga.Name = "PlCarga";
             this.PlCarga.Size = new System.Drawing.Size(250, 172);
             this.PlCarga.TabIndex = 12;
@@ -321,16 +375,504 @@
             this.PbCarga.TabIndex = 0;
             this.PbCarga.TabStop = false;
             // 
+            // PLDatos
+            // 
+            this.PLDatos.AutoScroll = true;
+            this.PLDatos.BackColor = System.Drawing.Color.White;
+            this.PLDatos.Controls.Add(this.gbVertical);
+            this.PLDatos.Controls.Add(this.gbPOAV);
+            this.PLDatos.Controls.Add(this.gbDatos);
+            this.PLDatos.Controls.Add(this.panel2);
+            this.PLDatos.Location = new System.Drawing.Point(497, 133);
+            this.PLDatos.MaximumSize = new System.Drawing.Size(1233, 542);
+            this.PLDatos.Name = "PLDatos";
+            this.PLDatos.Size = new System.Drawing.Size(1233, 542);
+            this.PLDatos.TabIndex = 54;
+            this.PLDatos.Visible = false;
+            // 
+            // gbVertical
+            // 
+            this.gbVertical.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.gbVertical.Controls.Add(this.LblVer);
+            this.gbVertical.Controls.Add(this.dtHoraFinV);
+            this.gbVertical.Controls.Add(this.dtHorainicioV);
+            this.gbVertical.Controls.Add(this.dtFProcV);
+            this.gbVertical.Controls.Add(this.label8);
+            this.gbVertical.Controls.Add(this.label9);
+            this.gbVertical.Controls.Add(this.LblDuracion);
+            this.gbVertical.Controls.Add(this.LblTurnoV);
+            this.gbVertical.Controls.Add(this.label10);
+            this.gbVertical.Controls.Add(this.label11);
+            this.gbVertical.Controls.Add(this.LblOperadorV);
+            this.gbVertical.Controls.Add(this.label12);
+            this.gbVertical.Controls.Add(this.label13);
+            this.gbVertical.Controls.Add(this.label21);
+            this.gbVertical.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbVertical.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbVertical.Location = new System.Drawing.Point(0, 292);
+            this.gbVertical.Name = "gbVertical";
+            this.gbVertical.Size = new System.Drawing.Size(1233, 186);
+            this.gbVertical.TabIndex = 9;
+            this.gbVertical.TabStop = false;
+            this.gbVertical.Text = "Vertical";
+            this.gbVertical.Visible = false;
+            // 
+            // dtHoraFinV
+            // 
+            this.dtHoraFinV.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtHoraFinV.Location = new System.Drawing.Point(735, 107);
+            this.dtHoraFinV.Name = "dtHoraFinV";
+            this.dtHoraFinV.Size = new System.Drawing.Size(92, 26);
+            this.dtHoraFinV.TabIndex = 10;
+            // 
+            // dtHorainicioV
+            // 
+            this.dtHorainicioV.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtHorainicioV.Location = new System.Drawing.Point(492, 107);
+            this.dtHorainicioV.Name = "dtHorainicioV";
+            this.dtHorainicioV.Size = new System.Drawing.Size(92, 26);
+            this.dtHorainicioV.TabIndex = 10;
+            // 
+            // dtFProcV
+            // 
+            this.dtFProcV.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFProcV.Location = new System.Drawing.Point(214, 107);
+            this.dtFProcV.Name = "dtFProcV";
+            this.dtFProcV.Size = new System.Drawing.Size(135, 26);
+            this.dtFProcV.TabIndex = 9;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(870, 110);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 20);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Duracion:";
+            // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(627, 99);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 43);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Hora Fin:";
+            // 
+            // label10
+            // 
+            this.label10.Location = new System.Drawing.Point(392, 99);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(57, 43);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Hora Inicio:";
+            // 
+            // label11
+            // 
+            this.label11.Location = new System.Drawing.Point(78, 99);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(93, 43);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Fecha de Recibido:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(842, 47);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(60, 20);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Turno:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(430, 47);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(89, 20);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Operador:";
+            // 
+            // label21
+            // 
+            this.label21.Location = new System.Drawing.Point(246, 45);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(85, 24);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Vertical #";
+            // 
+            // gbPOAV
+            // 
+            this.gbPOAV.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.gbPOAV.Controls.Add(this.LblPOAV);
+            this.gbPOAV.Controls.Add(this.label14);
+            this.gbPOAV.Controls.Add(this.dtFechaPV);
+            this.gbPOAV.Controls.Add(this.label15);
+            this.gbPOAV.Controls.Add(this.label18);
+            this.gbPOAV.Controls.Add(this.LblHumedadPV);
+            this.gbPOAV.Controls.Add(this.LblTurnoPV);
+            this.gbPOAV.Controls.Add(this.label19);
+            this.gbPOAV.Controls.Add(this.LblOperadorPV);
+            this.gbPOAV.Controls.Add(this.label20);
+            this.gbPOAV.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbPOAV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbPOAV.Location = new System.Drawing.Point(0, 168);
+            this.gbPOAV.Name = "gbPOAV";
+            this.gbPOAV.Size = new System.Drawing.Size(1233, 124);
+            this.gbPOAV.TabIndex = 8;
+            this.gbPOAV.TabStop = false;
+            this.gbPOAV.Text = "Tolvas POA Vertical";
+            // 
+            // label14
+            // 
+            this.label14.Location = new System.Drawing.Point(148, 25);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(76, 24);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "Tolva #";
+            // 
+            // dtFechaPV
+            // 
+            this.dtFechaPV.Enabled = false;
+            this.dtFechaPV.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaPV.Location = new System.Drawing.Point(568, 71);
+            this.dtFechaPV.Name = "dtFechaPV";
+            this.dtFechaPV.Size = new System.Drawing.Size(135, 26);
+            this.dtFechaPV.TabIndex = 9;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(719, 74);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(91, 20);
+            this.label15.TabIndex = 6;
+            this.label15.Text = "Humedad:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(379, 74);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(164, 20);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "Fecha de Recibido:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(195, 74);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(60, 20);
+            this.label19.TabIndex = 2;
+            this.label19.Text = "Turno:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(362, 27);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(89, 20);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "Operador:";
+            // 
+            // gbDatos
+            // 
+            this.gbDatos.Controls.Add(this.LblCert);
+            this.gbDatos.Controls.Add(this.label17);
+            this.gbDatos.Controls.Add(this.LblFRecibido);
+            this.gbDatos.Controls.Add(this.LblEFisicoV);
+            this.gbDatos.Controls.Add(this.label7);
+            this.gbDatos.Controls.Add(this.LblDanioV);
+            this.gbDatos.Controls.Add(this.label6);
+            this.gbDatos.Controls.Add(this.LblTk);
+            this.gbDatos.Controls.Add(this.LblCalidadV);
+            this.gbDatos.Controls.Add(this.label5);
+            this.gbDatos.Controls.Add(this.LblQQsV);
+            this.gbDatos.Controls.Add(this.label4);
+            this.gbDatos.Controls.Add(this.LblKilos);
+            this.gbDatos.Controls.Add(this.label1);
+            this.gbDatos.Controls.Add(this.LblSacos);
+            this.gbDatos.Controls.Add(this.label16);
+            this.gbDatos.Controls.Add(this.label22);
+            this.gbDatos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbDatos.Location = new System.Drawing.Point(0, 43);
+            this.gbDatos.Name = "gbDatos";
+            this.gbDatos.Size = new System.Drawing.Size(1233, 125);
+            this.gbDatos.TabIndex = 7;
+            this.gbDatos.TabStop = false;
+            this.gbDatos.Text = "Datos Ticket";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label23);
+            this.panel2.Controls.Add(this.BtnCerrarVerCons);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1233, 43);
+            this.panel2.TabIndex = 11;
+            // 
+            // BtnCerrarVerCons
+            // 
+            this.BtnCerrarVerCons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrarVerCons.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrarVerCons.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrarVerCons.Location = new System.Drawing.Point(1184, 0);
+            this.BtnCerrarVerCons.Name = "BtnCerrarVerCons";
+            this.BtnCerrarVerCons.Size = new System.Drawing.Size(47, 41);
+            this.BtnCerrarVerCons.TabIndex = 11;
+            this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
+            this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
+            // 
+            // LblCert
+            // 
+            this.LblCert.AutoSize = true;
+            this.LblCert.Location = new System.Drawing.Point(188, 75);
+            this.LblCert.Name = "LblCert";
+            this.LblCert.Size = new System.Drawing.Size(21, 20);
+            this.LblCert.TabIndex = 37;
+            this.LblCert.Text = "--";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(61, 75);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(114, 20);
+            this.label17.TabIndex = 38;
+            this.label17.Text = "Certificación:";
+            // 
+            // LblFRecibido
+            // 
+            this.LblFRecibido.AutoSize = true;
+            this.LblFRecibido.Location = new System.Drawing.Point(1081, 75);
+            this.LblFRecibido.Name = "LblFRecibido";
+            this.LblFRecibido.Size = new System.Drawing.Size(21, 20);
+            this.LblFRecibido.TabIndex = 34;
+            this.LblFRecibido.Text = "--";
+            this.LblFRecibido.Visible = false;
+            // 
+            // LblEFisicoV
+            // 
+            this.LblEFisicoV.AutoSize = true;
+            this.LblEFisicoV.Location = new System.Drawing.Point(931, 75);
+            this.LblEFisicoV.Name = "LblEFisicoV";
+            this.LblEFisicoV.Size = new System.Drawing.Size(21, 20);
+            this.LblEFisicoV.TabIndex = 33;
+            this.LblEFisicoV.Text = "--";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(795, 75);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(123, 20);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "Estado Fisico:";
+            // 
+            // LblDanioV
+            // 
+            this.LblDanioV.AutoSize = true;
+            this.LblDanioV.Location = new System.Drawing.Point(645, 75);
+            this.LblDanioV.Name = "LblDanioV";
+            this.LblDanioV.Size = new System.Drawing.Size(21, 20);
+            this.LblDanioV.TabIndex = 31;
+            this.LblDanioV.Text = "--";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(575, 75);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 20);
+            this.label6.TabIndex = 35;
+            this.label6.Text = "Daño:";
+            // 
+            // LblCalidadV
+            // 
+            this.LblCalidadV.AutoSize = true;
+            this.LblCalidadV.Location = new System.Drawing.Point(425, 75);
+            this.LblCalidadV.Name = "LblCalidadV";
+            this.LblCalidadV.Size = new System.Drawing.Size(21, 20);
+            this.LblCalidadV.TabIndex = 30;
+            this.LblCalidadV.Text = "--";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(338, 75);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 20);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Calidad:";
+            // 
+            // LblQQsV
+            // 
+            this.LblQQsV.AutoSize = true;
+            this.LblQQsV.Location = new System.Drawing.Point(1151, 33);
+            this.LblQQsV.Name = "LblQQsV";
+            this.LblQQsV.Size = new System.Drawing.Size(21, 20);
+            this.LblQQsV.TabIndex = 27;
+            this.LblQQsV.Text = "--";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1034, 33);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 20);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "QQs:";
+            // 
+            // LblKilos
+            // 
+            this.LblKilos.AutoSize = true;
+            this.LblKilos.Location = new System.Drawing.Point(945, 33);
+            this.LblKilos.Name = "LblKilos";
+            this.LblKilos.Size = new System.Drawing.Size(21, 20);
+            this.LblKilos.TabIndex = 25;
+            this.LblKilos.Text = "--";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(825, 33);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 20);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Kilos:";
+            // 
+            // LblSacos
+            // 
+            this.LblSacos.AutoSize = true;
+            this.LblSacos.Location = new System.Drawing.Point(736, 33);
+            this.LblSacos.Name = "LblSacos";
+            this.LblSacos.Size = new System.Drawing.Size(21, 20);
+            this.LblSacos.TabIndex = 23;
+            this.LblSacos.Text = "--";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(604, 33);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(64, 20);
+            this.label16.TabIndex = 28;
+            this.label16.Text = "Sacos:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(245, 33);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(57, 20);
+            this.label22.TabIndex = 22;
+            this.label22.Text = "Ticket";
+            // 
+            // LblTk
+            // 
+            this.LblTk.AutoSize = true;
+            this.LblTk.Location = new System.Drawing.Point(322, 33);
+            this.LblTk.Name = "LblTk";
+            this.LblTk.Size = new System.Drawing.Size(21, 20);
+            this.LblTk.TabIndex = 30;
+            this.LblTk.Text = "--";
+            // 
+            // LblPOAV
+            // 
+            this.LblPOAV.Location = new System.Drawing.Point(216, 25);
+            this.LblPOAV.Name = "LblPOAV";
+            this.LblPOAV.Size = new System.Drawing.Size(131, 24);
+            this.LblPOAV.TabIndex = 12;
+            this.LblPOAV.Text = "--";
+            // 
+            // LblOperadorPV
+            // 
+            this.LblOperadorPV.AutoSize = true;
+            this.LblOperadorPV.Location = new System.Drawing.Point(454, 25);
+            this.LblOperadorPV.Name = "LblOperadorPV";
+            this.LblOperadorPV.Size = new System.Drawing.Size(21, 20);
+            this.LblOperadorPV.TabIndex = 2;
+            this.LblOperadorPV.Text = "--";
+            // 
+            // LblTurnoPV
+            // 
+            this.LblTurnoPV.AutoSize = true;
+            this.LblTurnoPV.Location = new System.Drawing.Point(261, 74);
+            this.LblTurnoPV.Name = "LblTurnoPV";
+            this.LblTurnoPV.Size = new System.Drawing.Size(21, 20);
+            this.LblTurnoPV.TabIndex = 2;
+            this.LblTurnoPV.Text = "--";
+            // 
+            // LblHumedadPV
+            // 
+            this.LblHumedadPV.AutoSize = true;
+            this.LblHumedadPV.Location = new System.Drawing.Point(816, 74);
+            this.LblHumedadPV.Name = "LblHumedadPV";
+            this.LblHumedadPV.Size = new System.Drawing.Size(21, 20);
+            this.LblHumedadPV.TabIndex = 2;
+            this.LblHumedadPV.Text = "--";
+            // 
+            // LblVer
+            // 
+            this.LblVer.Location = new System.Drawing.Point(347, 45);
+            this.LblVer.Name = "LblVer";
+            this.LblVer.Size = new System.Drawing.Size(49, 24);
+            this.LblVer.TabIndex = 12;
+            this.LblVer.Text = "--";
+            // 
+            // LblOperadorV
+            // 
+            this.LblOperadorV.AutoSize = true;
+            this.LblOperadorV.Location = new System.Drawing.Point(535, 47);
+            this.LblOperadorV.Name = "LblOperadorV";
+            this.LblOperadorV.Size = new System.Drawing.Size(21, 20);
+            this.LblOperadorV.TabIndex = 2;
+            this.LblOperadorV.Text = "--";
+            // 
+            // LblTurnoV
+            // 
+            this.LblTurnoV.AutoSize = true;
+            this.LblTurnoV.Location = new System.Drawing.Point(918, 47);
+            this.LblTurnoV.Name = "LblTurnoV";
+            this.LblTurnoV.Size = new System.Drawing.Size(21, 20);
+            this.LblTurnoV.TabIndex = 2;
+            this.LblTurnoV.Text = "--";
+            // 
+            // LblDuracion
+            // 
+            this.LblDuracion.AutoSize = true;
+            this.LblDuracion.Location = new System.Drawing.Point(999, 110);
+            this.LblDuracion.Name = "LblDuracion";
+            this.LblDuracion.Size = new System.Drawing.Size(21, 20);
+            this.LblDuracion.TabIndex = 2;
+            this.LblDuracion.Text = "--";
+            // 
+            // label23
+            // 
+            this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(0, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(1184, 41);
+            this.label23.TabIndex = 12;
+            this.label23.Text = "Detalle de Pre-Secado";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // SecadoMecanico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.PLDatos);
             this.Controls.Add(this.PlCarga);
             this.Controls.Add(this.dtInventarioSM);
             this.Controls.Add(this.plOpciones);
             this.Controls.Add(this.plfooter);
             this.Name = "SecadoMecanico";
-            this.Size = new System.Drawing.Size(1225, 520);
+            this.Size = new System.Drawing.Size(1730, 787);
             this.Load += new System.EventHandler(this.SecadoMecanico_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioSM)).EndInit();
             this.plOpciones.ResumeLayout(false);
@@ -340,6 +882,14 @@
             this.plfooter.PerformLayout();
             this.PlCarga.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
+            this.PLDatos.ResumeLayout(false);
+            this.gbVertical.ResumeLayout(false);
+            this.gbVertical.PerformLayout();
+            this.gbPOAV.ResumeLayout(false);
+            this.gbPOAV.PerformLayout();
+            this.gbDatos.ResumeLayout(false);
+            this.gbDatos.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -366,5 +916,53 @@
         private System.Windows.Forms.Timer timerAct;
         private System.Windows.Forms.Panel PlCarga;
         private System.Windows.Forms.PictureBox PbCarga;
+        private System.Windows.Forms.Panel PLDatos;
+        public System.Windows.Forms.GroupBox gbVertical;
+        public System.Windows.Forms.DateTimePicker dtHoraFinV;
+        public System.Windows.Forms.DateTimePicker dtHorainicioV;
+        public System.Windows.Forms.DateTimePicker dtFProcV;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        public System.Windows.Forms.Label label21;
+        public System.Windows.Forms.GroupBox gbPOAV;
+        public System.Windows.Forms.Label label14;
+        public System.Windows.Forms.DateTimePicker dtFechaPV;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        public System.Windows.Forms.GroupBox gbDatos;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button BtnCerrarVerCons;
+        private System.Windows.Forms.Label LblCert;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label LblFRecibido;
+        private System.Windows.Forms.Label LblEFisicoV;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label LblDanioV;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label LblTk;
+        private System.Windows.Forms.Label LblCalidadV;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LblQQsV;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label LblKilos;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LblSacos;
+        private System.Windows.Forms.Label label16;
+        public System.Windows.Forms.Label label22;
+        public System.Windows.Forms.Label LblPOAV;
+        public System.Windows.Forms.Label LblVer;
+        private System.Windows.Forms.Label LblDuracion;
+        private System.Windows.Forms.Label LblTurnoV;
+        private System.Windows.Forms.Label LblOperadorV;
+        private System.Windows.Forms.Label LblHumedadPV;
+        private System.Windows.Forms.Label LblTurnoPV;
+        private System.Windows.Forms.Label LblOperadorPV;
+        private System.Windows.Forms.Label label23;
     }
 }

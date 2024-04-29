@@ -19,7 +19,7 @@ namespace ProyectoOFI.SM
             MostrarTicketsEnLabels();
             Estilo();
         }
-       
+
         protected void MostrarTicketsEnLabels()
         {
             DSM datos = new DSM();
@@ -193,7 +193,7 @@ namespace ProyectoOFI.SM
         }
         private void AbrirFormulario()
         {
-            PLDatos.Size = new Size(1233, 466);
+            PLDatos.Size = new Size(1233, 542);
             PLDatos.Visible = true;
             PLDatos.Location = new Point(TLPPlTolvas.Width / 2
                 - PLDatos.Width / 2, TLPPlTolvas.Height / 2 - PLDatos.Height / 2);
@@ -458,6 +458,7 @@ namespace ProyectoOFI.SM
             dtFechaPV.Text = dt.Rows[0]["FRecibidoPV"].ToString();
             txtHumedadPV.Text = dt.Rows[0]["HumedadPV"].ToString();
             LblFRecibido.Text = dt.Rows[0]["FRecibido"].ToString();
+            LblCert.Text = dt.Rows[0]["Certificacion"].ToString();
             btnGuardarPV.Visible = false;
             btnDescargarPV.Visible = true;
             cbOperadorPV.Enabled = false;
@@ -496,12 +497,19 @@ namespace ProyectoOFI.SM
                 cbTurnoPV.Enabled = true;
                 dtFechaPV.Enabled = true;
                 txtHumedadPV.Enabled = true;
+                CargarCombos();
             }
             else
             {
                 Limpiar();
             }
 
+        }
+        private void CargarCombos()
+        {
+            DSM sm = new DSM();
+            sm.MostrarOperador(cbOperadorPV);
+            sm.MostrarOperador(cbOperadorV);
         }
     }
 }

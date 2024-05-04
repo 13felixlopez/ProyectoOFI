@@ -62,6 +62,7 @@
     <Compile Include="Datos\DPermisos.cs" />
     <Compile Include="Datos\DPOAV.cs" />
     <Compile Include="Datos\DRecepcion.cs" />
+    <Compile Include="Datos\DReporteTK.cs" />
     <Compile Include="Datos\DSM.cs" />
     <Compile Include="Datos\DControlPatio.cs" />
     <Compile Include="Datos\DUsuarios.cs" />
@@ -214,6 +215,12 @@
     <Compile Include="Recepcion\Transferencia.Designer.cs">
       <DependentUpon>Transferencia.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\CUReporteTK.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reportes\CUReporteTK.Designer.cs">
+      <DependentUpon>CUReporteTK.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\FrmHistorial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,6 +330,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recepcion\Transferencia.resx">
       <DependentUpon>Transferencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CUReporteTK.resx">
+      <DependentUpon>CUReporteTK.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmHistorial.resx">
       <DependentUpon>FrmHistorial.cs</DependentUpon>

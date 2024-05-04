@@ -133,5 +133,19 @@ namespace ProyectoOFI
             };
             PlPrincipal.Controls.Add(tr);
         }
+
+        private void BtnReTK_Click(object sender, EventArgs e)
+        {
+            btnTransferencia.Enabled = true;
+            BtnUser.Enabled = true;
+            BtnCPatio.Enabled = true;
+            BtnReTK.Enabled = false;
+            PlPrincipal.Controls.Clear();
+            CUReporteTK tK = new CUReporteTK
+            {
+                Dock = DockStyle.Fill
+            };
+            PlPrincipal.Controls.Add(tK);
+        }
     }
 }

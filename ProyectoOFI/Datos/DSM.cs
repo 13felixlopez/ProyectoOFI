@@ -9,13 +9,15 @@ namespace ProyectoOFI.Datos
     {
         //Variables
         public string TV1, TV2, TV3, TV4, TV5, TV6, TV7, TV8;
-        public void MostrarSM(ref DataTable dt)
+        public void MostrarSM(ref DataTable dt, int Desde, int Hasta)
         {
 			try
 			{
                 Conexion.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("MostrarSM", Conexion.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Desde", Desde);
+                da.SelectCommand.Parameters.AddWithValue("@Hasta", Hasta);
                 da.Fill(dt);
             }
             catch (Exception ex)
@@ -175,6 +177,24 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en VerDetalleTkSM ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void ContarTK(ref int Contador)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("select COUNT (Ticket) from Recepcion INNER JOIN AreaSecado AS ASe ON Recepcion.IdAreaSecado = ASe.IdAreaSecado where " +
+                    "Estado='ACTIVO' AND AreaSecado='Secado Mecánico'", Conexion.conectar);
+                Contador = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception)
+            {
+                Contador = 0;
             }
             finally
             {

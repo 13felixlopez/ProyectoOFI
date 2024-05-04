@@ -3,6 +3,7 @@ using ProyectoOFI.Otros;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,6 +13,11 @@ namespace ProyectoOFI.SM
     {
         string Ticket, Proceso;
         DateTime Frecibido;
+        int desde, hasta;
+        int Contador, totalPaginas;
+        int ContarBusqueda;
+        int items_por_pagina;
+
         public SecadoMecanico()
         {
             InitializeComponent();
@@ -29,14 +35,14 @@ namespace ProyectoOFI.SM
             await Task.Delay(1500);
             dtInventarioSM.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             MostrarSM();
-            //ReiniciarPaginado();
+            ReiniciarPaginado();
             await Task.Delay(1000);
         }
         private void MostrarSM()
         {
             DSM SM = new DSM();
             DataTable dt = new DataTable();
-            SM.MostrarSM(ref dt);
+            SM.MostrarSM(ref dt, desde, hasta);
             dtInventarioSM.DataSource = dt;
             dtInventarioSM.Columns["Proceso"].Visible = false;
         }
@@ -47,7 +53,6 @@ namespace ProyectoOFI.SM
             Ticket = dtInventarioSM.SelectedCells[indice].Value.ToString();
 
         }
-
         private void dtInventarioSM_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             ObtenerTK();
@@ -75,7 +80,6 @@ namespace ProyectoOFI.SM
             PLDatos.Visible = false;
             plOpciones.Enabled = true;
         }
-
         private void VerDetalleTkSM()
         {
             try
@@ -154,5 +158,167 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("Error al cargar datos en controles" + ex.Message, "ERROR en Secado Mecanico", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        #region Paginado
+        private void ReiniciarPaginado()
+        {
+            desde = 1;
+            hasta = 100;
+            Contar();
+
+            if (Contador > hasta)
+            {
+
+                btn_Sig.Visible = true;
+                btn_atras.Visible = false;
+                btn_Ultima.Visible = true;
+                btn_Primera.Visible = true;
+            }
+            else
+            {
+
+                btn_Sig.Visible = false;
+                btn_atras.Visible = false;
+                btn_Ultima.Visible = false;
+                btn_Primera.Visible = false;
+            }
+            Paginar();
+        }
+        private void Contar()
+        {
+            DSM funcion = new DSM();
+            if (txtBuscador.Text != "")
+            {
+                Contador = ContarBusqueda;
+            }
+            //else if (CbBuscador.Visible == true)
+            //{
+            //    Contador = ContarBusqueda;
+            //}
+            else
+            {
+                funcion.ContarTK(ref Contador);
+            }
+        }
+        private void Paginar()
+        {
+            try
+            {
+                lbl_Pagina.Text = (hasta / items_por_pagina).ToString();
+                lbl_totalPaginas.Text = Math.Ceiling(Convert.ToSingle(Contador) / items_por_pagina).ToString();
+                totalPaginas = Convert.ToInt32(lbl_totalPaginas.Text);
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+        private void btn_atras_Click(object sender, EventArgs e)
+        {
+            desde -= 100;
+            hasta -= 100;
+            if (txtBuscador.Text != "")
+            {
+                //Buscar();
+            }
+            //else if (CbBuscador.Visible == true)
+            //{
+            //    //BuscarDatos();
+            //}
+            else
+            {
+                MostrarSM();
+            }
+            Contar();
+            if (Contador > hasta)
+            {
+                btn_Sig.Visible = true;
+                btn_atras.Visible = true;
+            }
+            else
+            {
+                btn_Sig.Visible = false;
+                btn_atras.Visible = true;
+            }
+            if (desde == 1)
+            {
+                ReiniciarPaginado();
+            }
+            Paginar();
+        }
+        private void btn_Sig_Click(object sender, EventArgs e)
+        {
+            desde += 100;
+            hasta += 100;
+            if (txtBuscador.Text != "")
+            {
+                //Buscar();
+            }
+            //else if (CbBuscador.Visible == true)
+            //{
+            //    //BuscarDatos();
+            //}
+            else
+            {
+                MostrarSM();
+            }
+            Contar();
+            if (Contador > hasta)
+            {
+                btn_Sig.Visible = true;
+                btn_atras.Visible = true;
+            }
+            else
+            {
+                btn_Sig.Visible = false;
+                btn_atras.Visible = true;
+            }
+            Paginar();
+        }
+        private void btn_Ultima_Click(object sender, EventArgs e)
+        {
+            hasta = totalPaginas * items_por_pagina;
+            desde = hasta - 99;
+            if (txtBuscador.Text != "")
+            {
+                //Buscar();
+            }
+            //else if (CbBuscador.Visible == true)
+            //{
+            //    //BuscarDatos();
+            //}
+            else
+            {
+                MostrarSM();
+            }
+            Contar();
+            if (Contador > hasta)
+            {
+                btn_Sig.Visible = true;
+                btn_atras.Visible = true;
+            }
+            else
+            {
+                btn_Sig.Visible = false;
+                btn_atras.Visible = true;
+            }
+            Paginar();
+        }
+        private void btn_Primera_Click(object sender, EventArgs e)
+        {
+            ReiniciarPaginado();
+            if (txtBuscador.Text != "")
+            {
+                //Buscar();
+            }
+            //else if (CbBuscador.Visible == true)
+            //{
+            //    //BuscarDatos();
+            //}
+            else
+            {
+                MostrarSM();
+            }
+        }
+        #endregion
     }
 }

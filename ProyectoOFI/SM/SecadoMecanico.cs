@@ -13,10 +13,11 @@ namespace ProyectoOFI.SM
     {
         string Ticket, Proceso;
         DateTime Frecibido;
-        int desde, hasta;
+        int desde = 1;
+        int hasta = 100;
         int Contador, totalPaginas;
         int ContarBusqueda;
-        int items_por_pagina;
+        private int items_por_pagina = 100;
 
         public SecadoMecanico()
         {

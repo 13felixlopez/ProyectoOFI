@@ -166,6 +166,12 @@
     <Compile Include="Otros\FrmPatio.Designer.cs">
       <DependentUpon>FrmPatio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Otros\FrmTurnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Otros\FrmTurnos.Designer.cs">
+      <DependentUpon>FrmTurnos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Otros\FrmUbicacionP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,6 +251,12 @@
     <Compile Include="SM\TolvasVerticales.Designer.cs">
       <DependentUpon>TolvasVerticales.cs</DependentUpon>
     </Compile>
+    <Compile Include="SM\Verticales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SM\Verticales.Designer.cs">
+      <DependentUpon>Verticales.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usuario\DCorreoSoporte.cs" />
     <Compile Include="Usuario\FrmPerfil.cs">
       <SubType>Form</SubType>
@@ -305,6 +317,9 @@
     <EmbeddedResource Include="Otros\FrmPatio.resx">
       <DependentUpon>FrmPatio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Otros\FrmTurnos.resx">
+      <DependentUpon>FrmTurnos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Otros\FrmUbicacionP.resx">
       <DependentUpon>FrmUbicacionP.cs</DependentUpon>
     </EmbeddedResource>
@@ -345,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SM\TolvasVerticales.resx">
       <DependentUpon>TolvasVerticales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\Verticales.resx">
+      <DependentUpon>Verticales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuario\FrmPerfil.resx">
       <DependentUpon>FrmPerfil.cs</DependentUpon>
@@ -515,6 +533,7 @@
   <ItemGroup>
     <Content Include="ofi20.sql" />
     <Content Include="ofi2024.sql" />
+    <None Include="Resources\Vertical.png" />
     <None Include="Resources\Operador.png" />
     <None Include="Resources\icons8-fields-50.png" />
     <None Include="Resources\send_30px.png" />

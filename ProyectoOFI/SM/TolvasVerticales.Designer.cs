@@ -64,6 +64,8 @@
             this.label20 = new System.Windows.Forms.Label();
             this.cbTurnoPV = new System.Windows.Forms.ComboBox();
             this.gbDatos = new System.Windows.Forms.GroupBox();
+            this.LblCert = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.cbTicketV = new System.Windows.Forms.ComboBox();
             this.LblFRecibido = new System.Windows.Forms.Label();
             this.LblEFisicoV = new System.Windows.Forms.Label();
@@ -80,12 +82,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnCerrarVerCons = new System.Windows.Forms.Button();
             this.TLPPlTolvas = new System.Windows.Forms.TableLayoutPanel();
             this.lblTV1 = new System.Windows.Forms.Label();
             this.lblTV6 = new System.Windows.Forms.Label();
             this.lblTV7 = new System.Windows.Forms.Label();
-            this.lblTV8 = new System.Windows.Forms.Label();
-            this.BtnCerrarVerCons = new System.Windows.Forms.Button();
             this.btnTV6 = new System.Windows.Forms.Button();
             this.btnTV1 = new System.Windows.Forms.Button();
             this.btnTV8 = new System.Windows.Forms.Button();
@@ -94,8 +95,7 @@
             this.btnTV4 = new System.Windows.Forms.Button();
             this.btnTV3 = new System.Windows.Forms.Button();
             this.btnTV2 = new System.Windows.Forms.Button();
-            this.LblCert = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
+            this.lblTV8 = new System.Windows.Forms.Label();
             this.PLDatos.SuspendLayout();
             this.gbVertical.SuspendLayout();
             this.gbPOAV.SuspendLayout();
@@ -160,10 +160,10 @@
             this.PLDatos.Controls.Add(this.gbPOAV);
             this.PLDatos.Controls.Add(this.gbDatos);
             this.PLDatos.Controls.Add(this.panel2);
-            this.PLDatos.Location = new System.Drawing.Point(128, 49);
-            this.PLDatos.MaximumSize = new System.Drawing.Size(1233, 466);
+            this.PLDatos.Location = new System.Drawing.Point(7, 49);
+            this.PLDatos.MaximumSize = new System.Drawing.Size(1354, 517);
             this.PLDatos.Name = "PLDatos";
-            this.PLDatos.Size = new System.Drawing.Size(1230, 455);
+            this.PLDatos.Size = new System.Drawing.Size(1354, 517);
             this.PLDatos.TabIndex = 53;
             this.PLDatos.Visible = false;
             // 
@@ -188,7 +188,7 @@
             this.gbVertical.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbVertical.Location = new System.Drawing.Point(0, 292);
             this.gbVertical.Name = "gbVertical";
-            this.gbVertical.Size = new System.Drawing.Size(1213, 186);
+            this.gbVertical.Size = new System.Drawing.Size(1354, 186);
             this.gbVertical.TabIndex = 9;
             this.gbVertical.TabStop = false;
             this.gbVertical.Text = "Vertical";
@@ -281,7 +281,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(195, 103);
+            this.label12.Location = new System.Drawing.Point(102, 103);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(60, 20);
             this.label12.TabIndex = 2;
@@ -306,14 +306,15 @@
             // 
             // cbTurnoV
             // 
+            this.cbTurnoV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTurnoV.FormattingEnabled = true;
             this.cbTurnoV.Items.AddRange(new object[] {
             "1",
             "2",
             "3"});
-            this.cbTurnoV.Location = new System.Drawing.Point(267, 99);
+            this.cbTurnoV.Location = new System.Drawing.Point(175, 99);
             this.cbTurnoV.Name = "cbTurnoV";
-            this.cbTurnoV.Size = new System.Drawing.Size(76, 28);
+            this.cbTurnoV.Size = new System.Drawing.Size(168, 24);
             this.cbTurnoV.TabIndex = 1;
             // 
             // label21
@@ -342,7 +343,7 @@
             this.gbPOAV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbPOAV.Location = new System.Drawing.Point(0, 168);
             this.gbPOAV.Name = "gbPOAV";
-            this.gbPOAV.Size = new System.Drawing.Size(1213, 124);
+            this.gbPOAV.Size = new System.Drawing.Size(1354, 124);
             this.gbPOAV.TabIndex = 8;
             this.gbPOAV.TabStop = false;
             this.gbPOAV.Text = "Tolvas POA Vertical";
@@ -421,7 +422,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(195, 74);
+            this.label19.Location = new System.Drawing.Point(121, 74);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(60, 20);
             this.label19.TabIndex = 2;
@@ -446,14 +447,15 @@
             // 
             // cbTurnoPV
             // 
+            this.cbTurnoPV.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTurnoPV.FormattingEnabled = true;
             this.cbTurnoPV.Items.AddRange(new object[] {
             "1",
             "2",
             "3"});
-            this.cbTurnoPV.Location = new System.Drawing.Point(286, 70);
+            this.cbTurnoPV.Location = new System.Drawing.Point(194, 70);
             this.cbTurnoPV.Name = "cbTurnoPV";
-            this.cbTurnoPV.Size = new System.Drawing.Size(77, 28);
+            this.cbTurnoPV.Size = new System.Drawing.Size(169, 24);
             this.cbTurnoPV.TabIndex = 1;
             // 
             // gbDatos
@@ -479,10 +481,28 @@
             this.gbDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDatos.Location = new System.Drawing.Point(0, 43);
             this.gbDatos.Name = "gbDatos";
-            this.gbDatos.Size = new System.Drawing.Size(1213, 125);
+            this.gbDatos.Size = new System.Drawing.Size(1354, 125);
             this.gbDatos.TabIndex = 7;
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Datos Ticket";
+            // 
+            // LblCert
+            // 
+            this.LblCert.AutoSize = true;
+            this.LblCert.Location = new System.Drawing.Point(133, 74);
+            this.LblCert.Name = "LblCert";
+            this.LblCert.Size = new System.Drawing.Size(21, 20);
+            this.LblCert.TabIndex = 20;
+            this.LblCert.Text = "--";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 74);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(114, 20);
+            this.label17.TabIndex = 21;
+            this.label17.Text = "Certificación:";
             // 
             // cbTicketV
             // 
@@ -630,8 +650,20 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1213, 43);
+            this.panel2.Size = new System.Drawing.Size(1354, 43);
             this.panel2.TabIndex = 11;
+            // 
+            // BtnCerrarVerCons
+            // 
+            this.BtnCerrarVerCons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrarVerCons.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrarVerCons.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrarVerCons.Location = new System.Drawing.Point(1307, 0);
+            this.BtnCerrarVerCons.Name = "BtnCerrarVerCons";
+            this.BtnCerrarVerCons.Size = new System.Drawing.Size(47, 43);
+            this.BtnCerrarVerCons.TabIndex = 11;
+            this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
+            this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
             // 
             // TLPPlTolvas
             // 
@@ -705,30 +737,6 @@
             this.lblTV7.TabIndex = 50;
             this.lblTV7.Text = "--";
             this.lblTV7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblTV8
-            // 
-            this.lblTV8.BackColor = System.Drawing.Color.White;
-            this.lblTV8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTV8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTV8.Location = new System.Drawing.Point(1200, 0);
-            this.lblTV8.Name = "lblTV8";
-            this.lblTV8.Size = new System.Drawing.Size(169, 45);
-            this.lblTV8.TabIndex = 53;
-            this.lblTV8.Text = "--";
-            this.lblTV8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BtnCerrarVerCons
-            // 
-            this.BtnCerrarVerCons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCerrarVerCons.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCerrarVerCons.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrarVerCons.Location = new System.Drawing.Point(1166, 0);
-            this.BtnCerrarVerCons.Name = "BtnCerrarVerCons";
-            this.BtnCerrarVerCons.Size = new System.Drawing.Size(47, 43);
-            this.BtnCerrarVerCons.TabIndex = 11;
-            this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
-            this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
             // 
             // btnTV6
             // 
@@ -866,23 +874,17 @@
             this.btnTV2.UseVisualStyleBackColor = false;
             this.btnTV2.Click += new System.EventHandler(this.btnTV2_Click);
             // 
-            // LblCert
+            // lblTV8
             // 
-            this.LblCert.AutoSize = true;
-            this.LblCert.Location = new System.Drawing.Point(133, 74);
-            this.LblCert.Name = "LblCert";
-            this.LblCert.Size = new System.Drawing.Size(21, 20);
-            this.LblCert.TabIndex = 20;
-            this.LblCert.Text = "--";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(6, 74);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(114, 20);
-            this.label17.TabIndex = 21;
-            this.label17.Text = "Certificación:";
+            this.lblTV8.BackColor = System.Drawing.Color.White;
+            this.lblTV8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTV8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTV8.Location = new System.Drawing.Point(1200, 0);
+            this.lblTV8.Name = "lblTV8";
+            this.lblTV8.Size = new System.Drawing.Size(169, 45);
+            this.lblTV8.TabIndex = 53;
+            this.lblTV8.Text = "--";
+            this.lblTV8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TolvasVerticales
             // 

@@ -5,19 +5,21 @@ using System.Data;
 using System.Drawing;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.SM
 {
     public partial class SecadoMecanico : UserControl
     {
-        string Ticket, Proceso;
+        string Ticket, Proceso, Estado;
         DateTime Frecibido;
         int desde = 1;
         int hasta = 100;
         int Contador, totalPaginas;
         int ContarBusqueda;
         private int items_por_pagina = 100;
+        int IdVer;
 
         public SecadoMecanico()
         {
@@ -53,12 +55,31 @@ namespace ProyectoOFI.SM
             int indice = dtInventarioSM.Columns[nombrecolumna].Index;
             Ticket = dtInventarioSM.SelectedCells[indice].Value.ToString();
 
+            string nombrecolum = "ProcesoSM";
+            int num = dtInventarioSM.Columns[nombrecolum].Index;
+            Proceso = dtInventarioSM.SelectedCells[num].Value.ToString();
         }
         private void dtInventarioSM_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             ObtenerTK();
-            VerDetalleTkSM();
+            VerDetalleTK();
             AbrirFormulario();
+            if (Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
+            {
+                if (Proceso == "POAV")
+                {
+                    VerPOAV();
+                }
+                else if (Proceso == "Vertical")
+                {
+                    VerPOAV();
+                    VerVertical();
+                }
+            }
+            else
+            {
+                TipoProceso();
+            }
             if (LblCert.Text != "Convencional")
             {
                 PLDatos.BackColor = Color.FromArgb(192, 255, 255);
@@ -68,9 +89,109 @@ namespace ProyectoOFI.SM
                 PLDatos.BackColor = Color.FromArgb(192, 255, 192);
             }
         }
+
+        private void TipoProceso()
+        {
+            if (Proceso == "No Asignado" || Proceso == "")
+            {
+                gbPOAV.Visible = false;
+                gbVertical.Visible = false;
+            }
+            if (Proceso == "POAV")
+            {
+                gbPOAV.Visible = true;
+                gbVertical.Visible = false;
+                VerPOAV();
+            }
+            if (Proceso == "Vertical")
+            {
+                gbPOAV.Visible = true;
+                gbVertical.Visible = true;
+                VerPOAV();
+                VerVertical();
+            }
+        }
+
+        private void VerVertical()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                DSM SM = new DSM();
+                SM.VerVertical(ref dt, Ticket);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow dr = dt.Rows[0];
+                    IdVer = int.Parse(dr["IDV"].ToString());
+                    if (dr["Ver"].ToString() != null)
+                    {
+                        LblVer.Text = dr["Ver"].ToString();
+                    }
+                    else
+                    {
+                        LblVer.Text = "";
+                    }
+                    if (dr["Turno"].ToString() != null)
+                    {
+                        LblTurnoV.Text = dr["Turno"].ToString();
+                    }
+                    else
+                    {
+                        LblTurnoV.Text = "";
+                    }
+                    if (dr["FRecibidoV"].ToString() != null)
+                    {
+                        dtFProcV.Value = DateTime.Parse(dr["FRecibidoV"].ToString());
+                    }
+                    else
+                    {
+                        dtFProcV.Value = DateTime.Today;
+                    }
+                    if (dr["HrInicioV"].ToString() != null)
+                    {
+                        dtHorainicioV.Value = DateTime.Parse(dr["HrInicioV"].ToString());
+                    }
+                    else
+                    {
+                        dtHorainicioV.Format = DateTimePickerFormat.Time;
+                    }
+                    if (dr["HrFin"].ToString() != null)
+                    {
+                        dtHoraFinV.Value = DateTime.Parse(dr["HrFin"].ToString());
+                    }
+                    else
+                    {
+                        dtHoraFinV.Format = DateTimePickerFormat.Time;
+                    }
+                    if (dr["Duracion"].ToString() != null)
+                    {
+                        TimeSpan tiempo= (TimeSpan)dr["Duracion"];
+                        string duracionFormateada = $"{tiempo.Hours:D2}:{tiempo.Minutes:D2}";
+                        LblDuracion.Text = duracionFormateada;
+                    }
+                    else
+                    {
+                        LblDuracion.Text = "";
+                    }
+                    if (dr["Nombre"].ToString() != null)
+                    {
+                        LblOperadorV.Text = dr["Nombre"].ToString() ;
+                    }
+                    else
+                    {
+                        LblOperadorV.Text = "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos en controles" + ex.Message, "ERROR en Secado Mecanico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void AbrirFormulario()
         {
-            PLDatos.Location = new Point(dtInventarioSM.Width / 2
+            PLDatos.Location = new System.Drawing.Point(dtInventarioSM.Width / 2
                 - PLDatos.Width / 2, dtInventarioSM.Height / 2 - PLDatos.Height / 2);
             PLDatos.Visible = true;
             PLDatos.BringToFront();
@@ -81,13 +202,51 @@ namespace ProyectoOFI.SM
             PLDatos.Visible = false;
             plOpciones.Enabled = true;
         }
-        private void VerDetalleTkSM()
+        private void VerDetalleTK()
         {
             try
             {
                 DataTable dt = new DataTable();
                 DSM SM = new DSM();
-                SM.VerDetalleTkSM(ref dt, Ticket);
+                SM.VerPOAV(ref dt, Ticket);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow row = dt.Rows[0];
+                    double kilos;
+                    if (row["Certificacion"].ToString() != null)
+                    {
+                        LblCert.Text = row["Certificacion"].ToString();
+                    }
+                    else
+                    {
+                        LblCert.Text = "";
+                    }
+                    LblTk.Text = Ticket.ToString();
+                    Frecibido = DateTime.Parse(row["FechaRecibido"].ToString());
+                    LblFRecibido.Text = Frecibido.ToString();
+                    LblEFisicoV.Text = row["EstFisico"].ToString();
+                    LblCalidadV.Text = row["Calidad"].ToString();
+                    LblDanioV.Text = row["Danio"].ToString();
+                    LblSacos.Text = row["Sacos"].ToString();
+                    LblKilos.Text = row["Peso"].ToString();
+                    kilos = double.Parse(LblKilos.Text);
+                    kilos = kilos / 46;
+                    LblQQsV.Text = Math.Round(kilos, 2).ToString();
+                    Proceso = row["ProcesoSM"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos en controles" + ex.Message, "ERROR en Secado Mecanico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void VerPOAV()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                DSM SM = new DSM();
+                SM.VerPOAV(ref dt, Ticket);
                 if (dt.Rows.Count > 0)
                 {
                     DataRow row = dt.Rows[0];
@@ -120,9 +279,9 @@ namespace ProyectoOFI.SM
                     {
                         LblPOAV.Text = "";
                     }
-                    if (row["TurnoPV"].ToString() != null)
+                    if (row["Turno"].ToString() != null)
                     {
-                        LblTurnoPV.Text = row["TurnoPV"].ToString();
+                        LblTurnoPV.Text = row["Turno"].ToString();
                     }
                     else
                     {

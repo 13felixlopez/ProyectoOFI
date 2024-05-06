@@ -15,5 +15,6 @@ namespace ProyectoOFI.Logica
         public int TurnoPV { get; set; }
         public DateTime FRecibidoPV { get; set; }
         public double HumedadPV { get; set; }
+        public string DigitadorPOA { get; set; } 
     }
 }

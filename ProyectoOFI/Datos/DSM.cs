@@ -11,8 +11,8 @@ namespace ProyectoOFI.Datos
         public string TV1, TV2, TV3, TV4, TV5, TV6, TV7, TV8;
         public void MostrarSM(ref DataTable dt, int Desde, int Hasta)
         {
-			try
-			{
+            try
+            {
                 Conexion.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("MostrarSM", Conexion.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -32,7 +32,7 @@ namespace ProyectoOFI.Datos
         }
         public DataTable MostrarTV()
         {
-                DataTable tablaTickets = new DataTable();
+            DataTable tablaTickets = new DataTable();
             try
             {
                 Conexion.abrir();
@@ -43,7 +43,7 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message+ex.StackTrace);
+                MessageBox.Show(ex.Message + ex.StackTrace);
                 return tablaTickets;
                 //MessageBox.Show("No se ha podido cargar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -116,16 +116,16 @@ namespace ProyectoOFI.Datos
                 sacos.Text = dt.Rows[0]["Sacos"].ToString();
                 kilos.Text = dt.Rows[0]["Peso"].ToString();
                 double QQs = double.Parse(kilos.Text);
-                QQs= QQs / 46;
+                QQs = QQs / 46;
                 QQS.Text = Math.Round(QQs, 2).ToString();
                 calidad.Text = dt.Rows[0]["Calidad"].ToString();
                 daño.Text = dt.Rows[0]["Danio"].ToString();
                 esfisico.Text = dt.Rows[0]["Estado Fisico"].ToString();
-                FRecibido.Text= dt.Rows[0]["FRecibido"].ToString();
+                FRecibido.Text = dt.Rows[0]["FRecibido"].ToString();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error "+ex.Message, "Error mostrar datos DSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocurrió un error " + ex.Message, "Error mostrar datos DSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -163,20 +163,40 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void VerDetalleTkSM(ref DataTable dt,string Tk)
+        public void VerDetalleTkSM(ref DataTable dt, string Tk)
         {
             try
             {
                 Conexion.abrir();
-                SqlDataAdapter da=new SqlDataAdapter("VerDetalleTkSM",Conexion.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("VerDetalleTkSM", Conexion.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Ticket",Tk);
+                da.SelectCommand.Parameters.AddWithValue("@Ticket", Tk);
                 da.Fill(dt);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en VerDetalleTkSM ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void VerPOAV(ref DataTable dt, string TK)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("VerPOAV", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Ticket", TK);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en VerPOAV ✖️✖️" + ex.Message);
             }
             finally
             {
@@ -195,6 +215,27 @@ namespace ProyectoOFI.Datos
             catch (Exception)
             {
                 Contador = 0;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+
+        public void VerVertical(ref DataTable dt, string ticket)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("VerVertical", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Ticket", ticket);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en VerVertical ✖️✖️" + ex.Message);
             }
             finally
             {

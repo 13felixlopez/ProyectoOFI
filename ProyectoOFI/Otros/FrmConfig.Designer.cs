@@ -152,6 +152,7 @@
             this.BtnTurnos.TabIndex = 19;
             this.BtnTurnos.Text = "Turnos";
             this.BtnTurnos.UseVisualStyleBackColor = true;
+            this.BtnTurnos.Click += new System.EventHandler(this.BtnTurnos_Click);
             // 
             // BtnParos
             // 

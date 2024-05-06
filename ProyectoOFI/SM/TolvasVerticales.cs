@@ -198,6 +198,8 @@ namespace ProyectoOFI.SM
             PLDatos.Location = new Point(TLPPlTolvas.Width / 2
                 - PLDatos.Width / 2, TLPPlTolvas.Height / 2 - PLDatos.Height / 2);
             PLDatos.BringToFront();
+            DPOAV funcion= new DPOAV();
+            funcion.MostrarTurno(cbTurnoPV);
         }
         private void btnTV3_Click(object sender, EventArgs e)
         {
@@ -347,9 +349,10 @@ namespace ProyectoOFI.SM
             parametros.Ticket = cbTicketV.Text;
             parametros.POAV = Convert.ToInt32(txtTolvaV.Text);
             parametros.OperadorPV = cbOperadorPV.Text;
-            parametros.TurnoPV = Convert.ToInt32(cbTurnoPV.Text);
+            parametros.TurnoPV = Convert.ToInt32(cbTurnoPV.SelectedValue);
             parametros.FRecibidoPV = Convert.ToDateTime(dtFechaPV.Value);
             parametros.HumedadPV = Convert.ToDouble(txtHumedadPV.Text);
+            parametros.DigitadorPOA = Login.NombreA;
             if (funcion.InsertarPOAV(parametros) == true)
             {
                 MessageBox.Show("Carga realizada con exito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -373,6 +376,10 @@ namespace ProyectoOFI.SM
             gbPOAV.Enabled = false;
             txtVertical.Text = txtTolvaV.Text;
             cbOperadorV.Focus();
+            DPOAV funcion= new DPOAV();
+            DSM sm= new DSM();
+            funcion.MostrarTurno(cbTurnoV);
+            sm.MostrarOperador(cbOperadorV);
         }
 
         private void btnGuardarV_Click(object sender, EventArgs e)
@@ -401,12 +408,13 @@ namespace ProyectoOFI.SM
             DVerticales funcion = new DVerticales();
             parametros.Ticket = cbTicketV.Text;
             parametros.Ver = int.Parse(txtVertical.Text);
-            parametros.OperadorV = cbOperadorV.Text;
-            parametros.TurnoV = Convert.ToInt32(cbTurnoPV.Text);
+            parametros.OperadorV = int.Parse(cbOperadorV.SelectedValue.ToString());
+            parametros.TurnoV = int.Parse(cbTurnoPV.SelectedValue.ToString());
             parametros.FRecibidoV = Convert.ToDateTime(dtFechaPV.Text);
             parametros.HrInicoV = Convert.ToDateTime(dtHorainicioV.Text);
             parametros.HrFin = Convert.ToDateTime(dtHoraFinV.Text);
             parametros.Duracion = Convert.ToDateTime(txtDuracionV.Text);
+            parametros.DigitadorV = Login.NombreA;
             if (funcion.InsertarVertical(parametros) == true)
             {
                 string TK = cbTicketV.Text;

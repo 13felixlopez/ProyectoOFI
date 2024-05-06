@@ -321,7 +321,7 @@ namespace ProyectoOFI.Recepcion
                 parametros.Peso = Convert.ToDouble(txtKgs.Text);
                 parametros.Merma = Convert.ToDouble(LblMerma.Text);
                 parametros.IdRecibidor = int.Parse(cbRecibidor.SelectedValue.ToString());
-                parametros.Digitador = LblDigitador.Text;
+                parametros.Digitador = Login.NombreA;
                 parametros.Consolidado = Consolidado;
 
 
@@ -858,6 +858,14 @@ namespace ProyectoOFI.Recepcion
                 PnConsolidar.Dock = DockStyle.Fill;
                 LblTextsacos.Visible = false;
                 LblSacosSM.Visible = false;
+                if (CertificacionE == "Convencional")
+                {
+                    CbCertCons.Enabled = false;
+                }
+                else
+                {
+                    CbCertCons.Enabled = true;
+                }
                 //Consolidar cons = new Consolidar(Calidad, CertificacionE, EstadoFisico, Daño);
                 //cons.Dock = DockStyle.Fill;
             }
@@ -889,6 +897,21 @@ namespace ProyectoOFI.Recepcion
             EstadoFisico = parametros.EstadoFisico;
             Daño = parametros.Daño;
 
+            funcion.MostrarCert(CbCertCons);
+            funcion.MostrarAreaSecado(CbAreaCons);
+            funcion.MostrarTKConsolidar(ref Cons, parametros, par);
+            //DtTickets.DataSource = Cons;
+            DtAADT();
+        }
+        private void Datos2()
+        {
+            DRecepcion funcion = new DRecepcion();
+            LRecepcion parametros = new LRecepcion();
+            LEnvio par = new LEnvio();
+            parametros.Calidad = cbCalidad.Text;
+            par.CertificacionE = cbCertificacion.Text;
+            parametros.EstadoFisico = cbEsFisico.Text;
+            parametros.Daño = cbDaño.Text;
             funcion.MostrarCert(CbCertCons);
             funcion.MostrarAreaSecado(CbAreaCons);
             funcion.MostrarTKConsolidar(ref Cons, parametros, par);
@@ -934,7 +957,6 @@ namespace ProyectoOFI.Recepcion
                 }
             }
         }
-
         private void EliminarTK()
         {
             string nombrecolumna = "Ticket";
@@ -1035,6 +1057,11 @@ namespace ProyectoOFI.Recepcion
             int totalSacos = 0;
             double totalPeso = 0;
             int sacossm = int.Parse(LblSacosSM.Text);
+
+            if (dtTKCons.Rows.Count == 0)
+            {
+                DtTickets.Enabled = true;
+            }
 
             // Verificar si hay filas en dtTKCons
             if (dtTKCons.Rows.Count > 0)
@@ -1700,7 +1727,6 @@ namespace ProyectoOFI.Recepcion
         {
             cbArea.Text = "Secado Mecánico";
         }
-
         private void BtnAddTK_Click(object sender, EventArgs e)
         {
             LblSacosSM.Visible = true;
@@ -1710,15 +1736,22 @@ namespace ProyectoOFI.Recepcion
             CbAreaCons.Text = "Secado Mecánico";
             LblTextAreaCons.Visible = false;
             CbAreaCons.Visible = false;
-            Datos();
+            Datos2();
             plfooter.Visible = false;
             plOpciones.Visible = false;
             PnConsolidar.Visible = true;
             PnConsolidar.Dock = DockStyle.Fill;
             PnConsolidar.BringToFront();
             TxtTicketCons.Enabled = false;
+            if (CertificacionE == "Convencional")
+            {
+                CbCertCons.Enabled = false;
+            }
+            else
+            {
+                CbCertCons.Enabled = true;
+            }
         }
-
         private void LimpiarCons()
         {
             LblTotalPeso.Text = "00";

@@ -438,6 +438,41 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+
+        internal void BuscarCalidad(string text, ref DataTable dt, int desde, int hasta, int contarBusqueda)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void BuscarCert(string text, ref DataTable dt, int desde, int hasta, int contarBusqueda)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void BuscarDanio(string text, ref DataTable dt, int desde, int hasta, int contarBusqueda)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void BuscarTipoCompra(string text, ref DataTable dt, int desde, int hasta, int contarBusqueda)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void BuscarMTNT(string text, ref DataTable dt, int desde, int hasta, int contarBusqueda)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void BuscarPeso(string text, ref DataTable dt, int desde, int hasta, int contarBusqueda)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void BuscarAreaSecado(string text, ref DataTable dt, int desde, int hasta, int contarBusqueda)
+        {
+            throw new NotImplementedException();
+        }
         #endregion
     }
 }

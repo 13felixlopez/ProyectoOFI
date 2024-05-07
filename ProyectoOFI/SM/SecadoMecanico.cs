@@ -405,6 +405,7 @@ namespace ProyectoOFI.SM
             }
             Paginar();
         }
+
         private void btn_Sig_Click(object sender, EventArgs e)
         {
             desde += 100;

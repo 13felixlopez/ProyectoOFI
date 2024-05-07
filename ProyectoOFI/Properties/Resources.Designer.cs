@@ -543,6 +543,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap TolvaV_Btn {
+            get {
+                object obj = ResourceManager.GetObject("TolvaV Btn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap transfer_within_a_station_FILL0_wght400_GRAD0_opsz24 {
             get {
                 object obj = ResourceManager.GetObject("transfer_within_a_station_FILL0_wght400_GRAD0_opsz24", resourceCulture);
@@ -556,6 +566,16 @@ namespace ProyectoOFI.Properties {
         internal static System.Drawing.Bitmap Vertical {
             get {
                 object obj = ResourceManager.GetObject("Vertical", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Vertical_Btn {
+            get {
+                object obj = ResourceManager.GetObject("Vertical Btn", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

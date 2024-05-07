@@ -200,6 +200,7 @@ namespace ProyectoOFI.SM
             PLDatos.BringToFront();
             DPOAV funcion= new DPOAV();
             funcion.MostrarTurno(cbTurnoPV);
+            TLPPlTolvas.Enabled = false;
         }
         private void btnTV3_Click(object sender, EventArgs e)
         {
@@ -348,7 +349,7 @@ namespace ProyectoOFI.SM
             DPOAV funcion = new DPOAV();
             parametros.Ticket = cbTicketV.Text;
             parametros.POAV = Convert.ToInt32(txtTolvaV.Text);
-            parametros.OperadorPV = cbOperadorPV.Text;
+            parametros.OperadorPV = cbOperadorPV.SelectedValue.ToString();
             parametros.TurnoPV = Convert.ToInt32(cbTurnoPV.SelectedValue);
             parametros.FRecibidoPV = Convert.ToDateTime(dtFechaPV.Value);
             parametros.HumedadPV = Convert.ToDouble(txtHumedadPV.Text);
@@ -443,6 +444,9 @@ namespace ProyectoOFI.SM
         private void BtnCerrarVerCons_Click(object sender, EventArgs e)
         {
             PLDatos.Visible = false;
+            gbVertical.Visible=false;
+            gbPOAV.Enabled = true;
+            TLPPlTolvas.Enabled = true;
             Limpiar();
         }
 

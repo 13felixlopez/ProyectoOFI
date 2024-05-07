@@ -49,5 +49,14 @@ namespace ProyectoOFI.SM
             TV.BringToFront();
             PlSM.Controls.Add(TV);
         }
+
+        private void BtnVerticales_Click(object sender, EventArgs e)
+        {
+            Verticales ver = new Verticales();
+            PlSM.Controls.Clear();
+            ver.Dock = DockStyle.Fill;
+            ver.BringToFront();
+            PlSM.Controls.Add(ver);
+        }
     }
 }

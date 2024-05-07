@@ -82,11 +82,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.BtnCerrarVerCons = new System.Windows.Forms.Button();
             this.TLPPlTolvas = new System.Windows.Forms.TableLayoutPanel();
             this.lblTV1 = new System.Windows.Forms.Label();
             this.lblTV6 = new System.Windows.Forms.Label();
             this.lblTV7 = new System.Windows.Forms.Label();
+            this.lblTV8 = new System.Windows.Forms.Label();
+            this.BtnCerrarVerCons = new System.Windows.Forms.Button();
             this.btnTV6 = new System.Windows.Forms.Button();
             this.btnTV1 = new System.Windows.Forms.Button();
             this.btnTV8 = new System.Windows.Forms.Button();
@@ -95,7 +96,7 @@
             this.btnTV4 = new System.Windows.Forms.Button();
             this.btnTV3 = new System.Windows.Forms.Button();
             this.btnTV2 = new System.Windows.Forms.Button();
-            this.lblTV8 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.PLDatos.SuspendLayout();
             this.gbVertical.SuspendLayout();
             this.gbPOAV.SuspendLayout();
@@ -646,24 +647,13 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.BtnCerrarVerCons);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1354, 43);
             this.panel2.TabIndex = 11;
-            // 
-            // BtnCerrarVerCons
-            // 
-            this.BtnCerrarVerCons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCerrarVerCons.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCerrarVerCons.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrarVerCons.Location = new System.Drawing.Point(1307, 0);
-            this.BtnCerrarVerCons.Name = "BtnCerrarVerCons";
-            this.BtnCerrarVerCons.Size = new System.Drawing.Size(47, 43);
-            this.BtnCerrarVerCons.TabIndex = 11;
-            this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
-            this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
             // 
             // TLPPlTolvas
             // 
@@ -737,6 +727,30 @@
             this.lblTV7.TabIndex = 50;
             this.lblTV7.Text = "--";
             this.lblTV7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTV8
+            // 
+            this.lblTV8.BackColor = System.Drawing.Color.White;
+            this.lblTV8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblTV8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTV8.Location = new System.Drawing.Point(1200, 0);
+            this.lblTV8.Name = "lblTV8";
+            this.lblTV8.Size = new System.Drawing.Size(169, 45);
+            this.lblTV8.TabIndex = 53;
+            this.lblTV8.Text = "--";
+            this.lblTV8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnCerrarVerCons
+            // 
+            this.BtnCerrarVerCons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrarVerCons.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrarVerCons.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrarVerCons.Location = new System.Drawing.Point(1307, 0);
+            this.BtnCerrarVerCons.Name = "BtnCerrarVerCons";
+            this.BtnCerrarVerCons.Size = new System.Drawing.Size(47, 43);
+            this.BtnCerrarVerCons.TabIndex = 11;
+            this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
+            this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
             // 
             // btnTV6
             // 
@@ -874,17 +888,16 @@
             this.btnTV2.UseVisualStyleBackColor = false;
             this.btnTV2.Click += new System.EventHandler(this.btnTV2_Click);
             // 
-            // lblTV8
+            // label16
             // 
-            this.lblTV8.BackColor = System.Drawing.Color.White;
-            this.lblTV8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblTV8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTV8.Location = new System.Drawing.Point(1200, 0);
-            this.lblTV8.Name = "lblTV8";
-            this.lblTV8.Size = new System.Drawing.Size(169, 45);
-            this.lblTV8.TabIndex = 53;
-            this.lblTV8.Text = "--";
-            this.lblTV8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(0, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(1307, 43);
+            this.label16.TabIndex = 12;
+            this.label16.Text = "Detalles de lote en Tolva Vertical";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TolvasVerticales
             // 
@@ -977,5 +990,6 @@
         private System.Windows.Forms.Button btnTV2;
         private System.Windows.Forms.Label LblCert;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label16;
     }
 }

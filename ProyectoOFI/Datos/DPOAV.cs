@@ -22,6 +22,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@TurnoPV", parametros.TurnoPV);
                 cmd.Parameters.AddWithValue("@FRecibidoPV", parametros.FRecibidoPV);
                 cmd.Parameters.AddWithValue("@HumedadPV", parametros.HumedadPV);
+                cmd.Parameters.AddWithValue("@DigitadorPOA",parametros.DigitadorPOA);
                 cmd.ExecuteNonQuery();
                 return true;
             }

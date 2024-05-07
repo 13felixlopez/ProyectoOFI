@@ -33,8 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioSM = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
-            this.plAgregar = new System.Windows.Forms.Panel();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.CbOrdenar = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,7 +48,6 @@
             this.Label25 = new System.Windows.Forms.Label();
             this.timerAct = new System.Windows.Forms.Timer(this.components);
             this.PlCarga = new System.Windows.Forms.Panel();
-            this.PbCarga = new System.Windows.Forms.PictureBox();
             this.PLDatos = new System.Windows.Forms.Panel();
             this.gbVertical = new System.Windows.Forms.GroupBox();
             this.LblVer = new System.Windows.Forms.Label();
@@ -99,17 +96,35 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
             this.BtnCerrarVerCons = new System.Windows.Forms.Button();
+            this.PbCarga = new System.Windows.Forms.PictureBox();
+            this.GbPreSecado = new System.Windows.Forms.GroupBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.LblFDescargue = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.LblHrDescIn = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.LblHrDesfin = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.LblParos = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.LblTotalPre = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.LblG1 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.LblG2 = new System.Windows.Forms.Label();
+            this.LblHumedadSF = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioSM)).BeginInit();
             this.plOpciones.SuspendLayout();
-            this.plAgregar.SuspendLayout();
             this.plfooter.SuspendLayout();
             this.PlCarga.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.PLDatos.SuspendLayout();
             this.gbVertical.SuspendLayout();
             this.gbPOAV.SuspendLayout();
             this.gbDatos.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
+            this.GbPreSecado.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtInventarioSM
@@ -148,7 +163,6 @@
             // plOpciones
             // 
             this.plOpciones.BackColor = System.Drawing.Color.White;
-            this.plOpciones.Controls.Add(this.plAgregar);
             this.plOpciones.Controls.Add(this.txtBuscador);
             this.plOpciones.Controls.Add(this.CbOrdenar);
             this.plOpciones.Controls.Add(this.label3);
@@ -158,29 +172,6 @@
             this.plOpciones.Name = "plOpciones";
             this.plOpciones.Size = new System.Drawing.Size(1730, 62);
             this.plOpciones.TabIndex = 10;
-            // 
-            // plAgregar
-            // 
-            this.plAgregar.Controls.Add(this.btnAgregar);
-            this.plAgregar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.plAgregar.Location = new System.Drawing.Point(1639, 0);
-            this.plAgregar.Name = "plAgregar";
-            this.plAgregar.Size = new System.Drawing.Size(91, 62);
-            this.plAgregar.TabIndex = 3;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAgregar.FlatAppearance.BorderSize = 0;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAgregar.Image = global::ProyectoOFI.Properties.Resources.add_64px;
-            this.btnAgregar.Location = new System.Drawing.Point(0, 0);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(91, 62);
-            this.btnAgregar.TabIndex = 0;
-            this.btnAgregar.UseVisualStyleBackColor = false;
             // 
             // txtBuscador
             // 
@@ -367,30 +358,19 @@
             this.PlCarga.Size = new System.Drawing.Size(250, 172);
             this.PlCarga.TabIndex = 12;
             // 
-            // PbCarga
-            // 
-            this.PbCarga.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.PbCarga.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PbCarga.Image = global::ProyectoOFI.Properties.Resources.loading_12;
-            this.PbCarga.Location = new System.Drawing.Point(0, 0);
-            this.PbCarga.Name = "PbCarga";
-            this.PbCarga.Size = new System.Drawing.Size(250, 172);
-            this.PbCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbCarga.TabIndex = 0;
-            this.PbCarga.TabStop = false;
-            // 
             // PLDatos
             // 
             this.PLDatos.AutoScroll = true;
             this.PLDatos.BackColor = System.Drawing.Color.White;
+            this.PLDatos.Controls.Add(this.GbPreSecado);
             this.PLDatos.Controls.Add(this.gbVertical);
             this.PLDatos.Controls.Add(this.gbPOAV);
             this.PLDatos.Controls.Add(this.gbDatos);
             this.PLDatos.Controls.Add(this.panel2);
-            this.PLDatos.Location = new System.Drawing.Point(497, 133);
-            this.PLDatos.MaximumSize = new System.Drawing.Size(1233, 542);
+            this.PLDatos.Location = new System.Drawing.Point(298, 80);
+            this.PLDatos.MinimumSize = new System.Drawing.Size(1233, 542);
             this.PLDatos.Name = "PLDatos";
-            this.PLDatos.Size = new System.Drawing.Size(1233, 542);
+            this.PLDatos.Size = new System.Drawing.Size(1233, 641);
             this.PLDatos.TabIndex = 54;
             this.PLDatos.Visible = false;
             // 
@@ -881,6 +861,183 @@
             this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
             this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
             // 
+            // PbCarga
+            // 
+            this.PbCarga.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.PbCarga.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PbCarga.Image = global::ProyectoOFI.Properties.Resources.loading_12;
+            this.PbCarga.Location = new System.Drawing.Point(0, 0);
+            this.PbCarga.Name = "PbCarga";
+            this.PbCarga.Size = new System.Drawing.Size(250, 172);
+            this.PbCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbCarga.TabIndex = 0;
+            this.PbCarga.TabStop = false;
+            // 
+            // GbPreSecado
+            // 
+            this.GbPreSecado.Controls.Add(this.LblG2);
+            this.GbPreSecado.Controls.Add(this.LblG1);
+            this.GbPreSecado.Controls.Add(this.label38);
+            this.GbPreSecado.Controls.Add(this.label41);
+            this.GbPreSecado.Controls.Add(this.label36);
+            this.GbPreSecado.Controls.Add(this.LblHumedadSF);
+            this.GbPreSecado.Controls.Add(this.LblTotalPre);
+            this.GbPreSecado.Controls.Add(this.label33);
+            this.GbPreSecado.Controls.Add(this.LblParos);
+            this.GbPreSecado.Controls.Add(this.label31);
+            this.GbPreSecado.Controls.Add(this.LblHrDesfin);
+            this.GbPreSecado.Controls.Add(this.label29);
+            this.GbPreSecado.Controls.Add(this.LblHrDescIn);
+            this.GbPreSecado.Controls.Add(this.label27);
+            this.GbPreSecado.Controls.Add(this.LblFDescargue);
+            this.GbPreSecado.Controls.Add(this.label24);
+            this.GbPreSecado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.GbPreSecado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.GbPreSecado.Location = new System.Drawing.Point(0, 478);
+            this.GbPreSecado.Name = "GbPreSecado";
+            this.GbPreSecado.Size = new System.Drawing.Size(1233, 149);
+            this.GbPreSecado.TabIndex = 12;
+            this.GbPreSecado.TabStop = false;
+            this.GbPreSecado.Text = "Datos de Pre-Secado";
+            // 
+            // label24
+            // 
+            this.label24.Location = new System.Drawing.Point(48, 38);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(112, 52);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Fecha de Descargue:";
+            // 
+            // LblFDescargue
+            // 
+            this.LblFDescargue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFDescargue.Location = new System.Drawing.Point(175, 52);
+            this.LblFDescargue.Name = "LblFDescargue";
+            this.LblFDescargue.Size = new System.Drawing.Size(157, 24);
+            this.LblFDescargue.TabIndex = 12;
+            this.LblFDescargue.Text = "--";
+            // 
+            // label27
+            // 
+            this.label27.Location = new System.Drawing.Point(347, 38);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(85, 52);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "Hora de Inicio:";
+            // 
+            // LblHrDescIn
+            // 
+            this.LblHrDescIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblHrDescIn.Location = new System.Drawing.Point(447, 52);
+            this.LblHrDescIn.Name = "LblHrDescIn";
+            this.LblHrDescIn.Size = new System.Drawing.Size(111, 24);
+            this.LblHrDescIn.TabIndex = 12;
+            this.LblHrDescIn.Text = "--";
+            // 
+            // label29
+            // 
+            this.label29.Location = new System.Drawing.Point(573, 44);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(85, 40);
+            this.label29.TabIndex = 0;
+            this.label29.Text = "Hora de Fin:";
+            // 
+            // LblHrDesfin
+            // 
+            this.LblHrDesfin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblHrDesfin.Location = new System.Drawing.Point(673, 52);
+            this.LblHrDesfin.Name = "LblHrDesfin";
+            this.LblHrDesfin.Size = new System.Drawing.Size(101, 24);
+            this.LblHrDesfin.TabIndex = 12;
+            this.LblHrDesfin.Text = "--";
+            // 
+            // label31
+            // 
+            this.label31.Location = new System.Drawing.Point(789, 52);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(85, 24);
+            this.label31.TabIndex = 0;
+            this.label31.Text = "Paros:";
+            // 
+            // LblParos
+            // 
+            this.LblParos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblParos.Location = new System.Drawing.Point(855, 52);
+            this.LblParos.Name = "LblParos";
+            this.LblParos.Size = new System.Drawing.Size(97, 24);
+            this.LblParos.TabIndex = 12;
+            this.LblParos.Text = "--";
+            // 
+            // label33
+            // 
+            this.label33.Location = new System.Drawing.Point(1001, 38);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(120, 52);
+            this.label33.TabIndex = 0;
+            this.label33.Text = "Total de Pre-Secado:";
+            // 
+            // LblTotalPre
+            // 
+            this.LblTotalPre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTotalPre.Location = new System.Drawing.Point(1113, 52);
+            this.LblTotalPre.Name = "LblTotalPre";
+            this.LblTotalPre.Size = new System.Drawing.Size(91, 24);
+            this.LblTotalPre.TabIndex = 12;
+            this.LblTotalPre.Text = "--";
+            // 
+            // label36
+            // 
+            this.label36.Location = new System.Drawing.Point(48, 112);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(121, 24);
+            this.label36.TabIndex = 0;
+            this.label36.Text = "Guardiola #1:";
+            // 
+            // LblG1
+            // 
+            this.LblG1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblG1.Location = new System.Drawing.Point(175, 112);
+            this.LblG1.Name = "LblG1";
+            this.LblG1.Size = new System.Drawing.Size(49, 24);
+            this.LblG1.TabIndex = 12;
+            this.LblG1.Text = "--";
+            // 
+            // label38
+            // 
+            this.label38.Location = new System.Drawing.Point(362, 112);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(121, 24);
+            this.label38.TabIndex = 0;
+            this.label38.Text = "Guardiola #2:";
+            // 
+            // LblG2
+            // 
+            this.LblG2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblG2.Location = new System.Drawing.Point(489, 112);
+            this.LblG2.Name = "LblG2";
+            this.LblG2.Size = new System.Drawing.Size(49, 24);
+            this.LblG2.TabIndex = 12;
+            this.LblG2.Text = "--";
+            // 
+            // LblHumedadSF
+            // 
+            this.LblHumedadSF.AutoSize = true;
+            this.LblHumedadSF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblHumedadSF.Location = new System.Drawing.Point(724, 112);
+            this.LblHumedadSF.Name = "LblHumedadSF";
+            this.LblHumedadSF.Size = new System.Drawing.Size(19, 20);
+            this.LblHumedadSF.TabIndex = 2;
+            this.LblHumedadSF.Text = "--";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(627, 112);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(91, 20);
+            this.label41.TabIndex = 6;
+            this.label41.Text = "Humedad:";
+            // 
             // SecadoMecanico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -896,11 +1053,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioSM)).EndInit();
             this.plOpciones.ResumeLayout(false);
             this.plOpciones.PerformLayout();
-            this.plAgregar.ResumeLayout(false);
             this.plfooter.ResumeLayout(false);
             this.plfooter.PerformLayout();
             this.PlCarga.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
             this.PLDatos.ResumeLayout(false);
             this.gbVertical.ResumeLayout(false);
             this.gbVertical.PerformLayout();
@@ -909,6 +1064,9 @@
             this.gbDatos.ResumeLayout(false);
             this.gbDatos.PerformLayout();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
+            this.GbPreSecado.ResumeLayout(false);
+            this.GbPreSecado.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -917,8 +1075,6 @@
 
         public System.Windows.Forms.DataGridView dtInventarioSM;
         private System.Windows.Forms.Panel plOpciones;
-        private System.Windows.Forms.Panel plAgregar;
-        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TextBox txtBuscador;
         private System.Windows.Forms.ComboBox CbOrdenar;
         private System.Windows.Forms.Label label3;
@@ -983,5 +1139,22 @@
         private System.Windows.Forms.Label LblTurnoPV;
         private System.Windows.Forms.Label LblOperadorPV;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.GroupBox GbPreSecado;
+        public System.Windows.Forms.Label LblG1;
+        public System.Windows.Forms.Label label36;
+        public System.Windows.Forms.Label LblTotalPre;
+        public System.Windows.Forms.Label label33;
+        public System.Windows.Forms.Label LblParos;
+        public System.Windows.Forms.Label label31;
+        public System.Windows.Forms.Label LblHrDesfin;
+        public System.Windows.Forms.Label label29;
+        public System.Windows.Forms.Label LblHrDescIn;
+        public System.Windows.Forms.Label label27;
+        public System.Windows.Forms.Label LblFDescargue;
+        public System.Windows.Forms.Label label24;
+        public System.Windows.Forms.Label LblG2;
+        public System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label LblHumedadSF;
     }
 }

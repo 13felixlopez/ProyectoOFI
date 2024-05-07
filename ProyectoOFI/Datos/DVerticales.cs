@@ -1,11 +1,8 @@
-﻿using ProyectoOFI.Logica;
+﻿using ExcelDataReader.Log;
+using ProyectoOFI.Logica;
 using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.Datos
@@ -40,6 +37,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@HrInicioV", parametros.HrInicoV);
                 cmd.Parameters.AddWithValue("@HrFin", parametros.HrFin);
                 cmd.Parameters.AddWithValue("@Duracion", parametros.Duracion);
+                cmd.Parameters.AddWithValue("@DigitadorV", parametros.DigitadorV);
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -47,6 +45,50 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show(ex.Message, ex.StackTrace);
                 return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public DataTable MostrarV()
+        {
+            DataTable tablaTickets = new DataTable();
+            try
+            {
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("MostrarV", Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+                tablaTickets.Load(da.ExecuteReader());
+                return tablaTickets;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+                return tablaTickets;
+                //MessageBox.Show("No se ha podido cargar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+
+        internal void CargarVer(string TK, DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("CargaVer", Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+                da.Parameters.AddWithValue("@Ticket", TK);
+                SqlDataAdapter cb = new SqlDataAdapter(da);
+                cb.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron cargar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("No se pudieron cargar los datos en CargarVer ✖️✖️ " + ex.Message); 
             }
             finally
             {

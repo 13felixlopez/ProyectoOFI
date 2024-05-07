@@ -533,6 +533,8 @@
   <ItemGroup>
     <Content Include="ofi20.sql" />
     <Content Include="ofi2024.sql" />
+    <None Include="Resources\TolvaV Btn.png" />
+    <None Include="Resources\Vertical Btn.png" />
     <None Include="Resources\Vertical.png" />
     <None Include="Resources\Operador.png" />
     <None Include="Resources\icons8-fields-50.png" />

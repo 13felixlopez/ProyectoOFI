@@ -221,7 +221,6 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-
         public void VerVertical(ref DataTable dt, string ticket)
         {
             try

@@ -101,5 +101,11 @@ namespace ProyectoOFI.Otros
             FrmTurnos AA = new FrmTurnos();
             AA.ShowDialog();
         }
+
+        private void BtnParos_Click(object sender, EventArgs e)
+        {
+            FrmParos AA = new FrmParos();
+            AA.ShowDialog();
+        }
     }
 }

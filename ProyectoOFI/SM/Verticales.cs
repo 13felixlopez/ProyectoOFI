@@ -162,6 +162,7 @@ namespace ProyectoOFI.SM
         {
             PlDatos.Visible = false;
             TLPPlTolvas.Enabled = true;
+            GbSF.Visible = false;
         }
         private void CargaVer(Label V)
         {
@@ -200,7 +201,7 @@ namespace ProyectoOFI.SM
         }
         private void AbrirFormulario()
         {
-            PlDatos.Size = new Size(1233, 542);
+            PlDatos.Size = new Size(1398, 619);
             PlDatos.Visible = true;
             PlDatos.Location = new Point(TLPPlTolvas.Width / 2
                 - PlDatos.Width / 2, TLPPlTolvas.Height / 2 - PlDatos.Height / 2);
@@ -315,6 +316,13 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("Vertical Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 PlDatos.Visible = false;
             }
+        }
+
+        private void BtnEnviarSF_Click(object sender, EventArgs e)
+        {
+            GbSF.Visible = true;
+            DVerticales funcion = new DVerticales();
+            funcion.MostrarParos(CHParos);
         }
     }
 }

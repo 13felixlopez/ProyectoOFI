@@ -373,6 +373,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_tiempo_de_propiedades {
+            get {
+                object obj = ResourceManager.GetObject("icons8-tiempo-de-propiedades", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_ubicación_en_todo_el_mundo__1_ {
             get {
                 object obj = ResourceManager.GetObject("icons8-ubicación-en-todo-el-mundo (1)", resourceCulture);

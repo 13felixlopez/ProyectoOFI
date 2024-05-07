@@ -97,6 +97,8 @@
             this.btnTV3 = new System.Windows.Forms.Button();
             this.btnTV2 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.LblCapacidad = new System.Windows.Forms.Label();
             this.PLDatos.SuspendLayout();
             this.gbVertical.SuspendLayout();
             this.gbPOAV.SuspendLayout();
@@ -471,6 +473,8 @@
             this.gbDatos.Controls.Add(this.label6);
             this.gbDatos.Controls.Add(this.LblCalidadV);
             this.gbDatos.Controls.Add(this.label5);
+            this.gbDatos.Controls.Add(this.LblCapacidad);
+            this.gbDatos.Controls.Add(this.label22);
             this.gbDatos.Controls.Add(this.LblQQsV);
             this.gbDatos.Controls.Add(this.label4);
             this.gbDatos.Controls.Add(this.LblKilos);
@@ -521,7 +525,7 @@
             // LblFRecibido
             // 
             this.LblFRecibido.AutoSize = true;
-            this.LblFRecibido.Location = new System.Drawing.Point(1026, 74);
+            this.LblFRecibido.Location = new System.Drawing.Point(1286, 74);
             this.LblFRecibido.Name = "LblFRecibido";
             this.LblFRecibido.Size = new System.Drawing.Size(21, 20);
             this.LblFRecibido.TabIndex = 6;
@@ -899,6 +903,24 @@
             this.label16.Text = "Detalles de lote en Tolva Vertical";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(964, 74);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(99, 20);
+            this.label22.TabIndex = 2;
+            this.label22.Text = "Capacidad:";
+            // 
+            // LblCapacidad
+            // 
+            this.LblCapacidad.AutoSize = true;
+            this.LblCapacidad.Location = new System.Drawing.Point(1081, 74);
+            this.LblCapacidad.Name = "LblCapacidad";
+            this.LblCapacidad.Size = new System.Drawing.Size(21, 20);
+            this.LblCapacidad.TabIndex = 2;
+            this.LblCapacidad.Text = "--";
+            // 
             // TolvasVerticales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -991,5 +1013,7 @@
         private System.Windows.Forms.Label LblCert;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label LblCapacidad;
+        private System.Windows.Forms.Label label22;
     }
 }

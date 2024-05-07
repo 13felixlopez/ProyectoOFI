@@ -63,7 +63,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error al EliminarAgencia ✖️✖️"+ex.Message);
+                Log.Writeerror("Error al EliminarAgencia ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -109,7 +109,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error al InsertarAcopio ✖️✖️"+ex.Message);
+                Log.Writeerror("Error al InsertarAcopio ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -300,7 +300,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Error al insertar Cliente " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error al AgregarClientes ✖️✖️"+ex.Message);
+                Log.Writeerror("Error al AgregarClientes ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -1036,7 +1036,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public bool EditarUbicacionP(int IdUbicacionP, string UbicacionP,int idPatio)
+        public bool EditarUbicacionP(int IdUbicacionP, string UbicacionP, int idPatio)
         {
             try
             {
@@ -1229,6 +1229,94 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error al EditarTurnos ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        #endregion
+        #region Paros
+        public bool AgregarParos(string Paros)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand sqlCommand = new SqlCommand("AgregarParos", Conexion.conectar);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@Paros", Paros);
+                sqlCommand.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al AgregarParos ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarParo(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("MostrarParo", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al MostrarParo ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EliminarParo(int IdParo)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EliminarParo", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdParo", IdParo);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EliminarParos ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EditarParos(int IdParos, string Paros)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EditarParos", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdParos", IdParos);
+                cmd.Parameters.AddWithValue("@Paros", Paros);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EditarParos ✖️✖️" + ex.Message);
                 return false;
             }
             finally

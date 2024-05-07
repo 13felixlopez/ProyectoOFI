@@ -98,5 +98,15 @@ namespace ProyectoOFI.Otros
             }
         }
         #endregion
+
+        private void DtTurnos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string Nombre;
+            Nombre = DtTurnos.SelectedCells[2].Value.ToString();
+            TxtTurnos.Text = Nombre;
+            IdTurno = Convert.ToInt32(DtTurnos.SelectedCells[1].Value.ToString());
+            BtnEditar.Visible = true;
+            BtnGuardar.Visible = false;
+        }
     }
 }

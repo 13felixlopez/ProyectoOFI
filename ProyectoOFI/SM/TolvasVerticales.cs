@@ -1,4 +1,5 @@
-﻿using ProyectoOFI.Datos;
+﻿using DocumentFormat.OpenXml.Presentation;
+using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using System;
 using System.Data;
@@ -36,7 +37,7 @@ namespace ProyectoOFI.SM
         {
             // Encuentra el Label correspondiente a la POAV
             string lblName = "lblTV" + poav;
-            Control[] controls = Controls.Find(lblName, true);
+            System.Windows.Forms.Control[] controls = Controls.Find(lblName, true);
             if (controls.Length > 0 && controls[0] is Label)
             {
                 // Muestra el ticket en el Label
@@ -198,7 +199,7 @@ namespace ProyectoOFI.SM
             PLDatos.Location = new Point(TLPPlTolvas.Width / 2
                 - PLDatos.Width / 2, TLPPlTolvas.Height / 2 - PLDatos.Height / 2);
             PLDatos.BringToFront();
-            DPOAV funcion= new DPOAV();
+            DPOAV funcion = new DPOAV();
             funcion.MostrarTurno(cbTurnoPV);
             TLPPlTolvas.Enabled = false;
         }
@@ -377,8 +378,8 @@ namespace ProyectoOFI.SM
             gbPOAV.Enabled = false;
             txtVertical.Text = txtTolvaV.Text;
             cbOperadorV.Focus();
-            DPOAV funcion= new DPOAV();
-            DSM sm= new DSM();
+            DPOAV funcion = new DPOAV();
+            DSM sm = new DSM();
             funcion.MostrarTurno(cbTurnoV);
             sm.MostrarOperador(cbOperadorV);
         }
@@ -444,9 +445,10 @@ namespace ProyectoOFI.SM
         private void BtnCerrarVerCons_Click(object sender, EventArgs e)
         {
             PLDatos.Visible = false;
-            gbVertical.Visible=false;
+            gbVertical.Visible = false;
             gbPOAV.Enabled = true;
             TLPPlTolvas.Enabled = true;
+            gbDatos.BackColor = Color.White;
             Limpiar();
         }
 
@@ -477,9 +479,29 @@ namespace ProyectoOFI.SM
             cbTurnoPV.Enabled = false;
             dtFechaPV.Enabled = false;
             txtHumedadPV.Enabled = false;
+            Capacidad();
             AbrirFormulario();
         }
-
+        private void Capacidad()
+        {
+            double capacidad;
+            double QQs = double.Parse(LblQQsV.Text);
+            capacidad = (QQs / 600) * 100;
+            capacidad = Math.Round(capacidad, 2);
+            LblCapacidad.Text = capacidad.ToString() + " %";
+            if (capacidad >= 100)
+            {
+                gbDatos.BackColor = Color.FromArgb(255, 150, 136);
+            }
+            else if (capacidad <= 50)
+            {
+                gbDatos.BackColor = Color.FromArgb(244, 250, 180);
+            }
+            else
+            {
+                gbDatos.BackColor = Color.White;
+            }
+        }
         private void Limpiar()
         {
             LblSacos.Text = "--";
@@ -510,6 +532,7 @@ namespace ProyectoOFI.SM
                 dtFechaPV.Enabled = true;
                 txtHumedadPV.Enabled = true;
                 CargarCombos();
+                Capacidad();
             }
             else
             {

@@ -198,6 +198,7 @@
             this.DtTurnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DtTurnos.Size = new System.Drawing.Size(627, 342);
             this.DtTurnos.TabIndex = 22;
+            this.DtTurnos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtTurnos_CellClick);
             this.DtTurnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtTurnos_CellContentClick);
             // 
             // Eliminar

@@ -38,14 +38,6 @@
             this.lblV6 = new System.Windows.Forms.Label();
             this.lblV7 = new System.Windows.Forms.Label();
             this.lblV8 = new System.Windows.Forms.Label();
-            this.btnV6 = new System.Windows.Forms.Button();
-            this.btnV1 = new System.Windows.Forms.Button();
-            this.btnV8 = new System.Windows.Forms.Button();
-            this.btnV7 = new System.Windows.Forms.Button();
-            this.btnV5 = new System.Windows.Forms.Button();
-            this.btnV4 = new System.Windows.Forms.Button();
-            this.btnV3 = new System.Windows.Forms.Button();
-            this.btnV2 = new System.Windows.Forms.Button();
             this.PlDatos = new System.Windows.Forms.Panel();
             this.gbDatos = new System.Windows.Forms.GroupBox();
             this.LblCert = new System.Windows.Forms.Label();
@@ -65,7 +57,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.BtnCerrarVerCons = new System.Windows.Forms.Button();
             this.LblTicket = new System.Windows.Forms.Label();
             this.gbVertical = new System.Windows.Forms.GroupBox();
             this.BtnEnviarSF = new System.Windows.Forms.Button();
@@ -84,11 +75,48 @@
             this.LblDuracion = new System.Windows.Forms.Label();
             this.Lblver = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.GbSF = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.CHParos = new System.Windows.Forms.CheckedListBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.label25 = new System.Windows.Forms.Label();
+            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
+            this.label26 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.LblTiempoPre = new System.Windows.Forms.Label();
+            this.BtnCerrarVerCons = new System.Windows.Forms.Button();
+            this.btnV6 = new System.Windows.Forms.Button();
+            this.btnV1 = new System.Windows.Forms.Button();
+            this.btnV8 = new System.Windows.Forms.Button();
+            this.btnV7 = new System.Windows.Forms.Button();
+            this.btnV5 = new System.Windows.Forms.Button();
+            this.btnV4 = new System.Windows.Forms.Button();
+            this.btnV3 = new System.Windows.Forms.Button();
+            this.btnV2 = new System.Windows.Forms.Button();
+            this.label28 = new System.Windows.Forms.Label();
+            this.BtnSF = new System.Windows.Forms.Button();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.TLPPlTolvas.SuspendLayout();
             this.PlDatos.SuspendLayout();
             this.gbDatos.SuspendLayout();
             this.panel2.SuspendLayout();
             this.gbVertical.SuspendLayout();
+            this.GbSF.SuspendLayout();
             this.SuspendLayout();
             // 
             // TLPPlTolvas
@@ -224,150 +252,15 @@
             this.lblV8.Text = "--";
             this.lblV8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnV6
-            // 
-            this.btnV6.BackColor = System.Drawing.SystemColors.Control;
-            this.btnV6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnV6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
-            this.btnV6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnV6.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnV6.Image = ((System.Drawing.Image)(resources.GetObject("btnV6.Image")));
-            this.btnV6.Location = new System.Drawing.Point(1093, 58);
-            this.btnV6.Name = "btnV6";
-            this.btnV6.Size = new System.Drawing.Size(212, 732);
-            this.btnV6.TabIndex = 55;
-            this.btnV6.Text = "Vertical #6";
-            this.btnV6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnV6.UseVisualStyleBackColor = false;
-            this.btnV6.Click += new System.EventHandler(this.btnV6_Click);
-            // 
-            // btnV1
-            // 
-            this.btnV1.BackColor = System.Drawing.SystemColors.Control;
-            this.btnV1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnV1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
-            this.btnV1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnV1.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnV1.Image = ((System.Drawing.Image)(resources.GetObject("btnV1.Image")));
-            this.btnV1.Location = new System.Drawing.Point(3, 58);
-            this.btnV1.Name = "btnV1";
-            this.btnV1.Size = new System.Drawing.Size(212, 732);
-            this.btnV1.TabIndex = 60;
-            this.btnV1.Text = "Vertical #1";
-            this.btnV1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnV1.UseVisualStyleBackColor = false;
-            this.btnV1.Click += new System.EventHandler(this.btnV1_Click);
-            // 
-            // btnV8
-            // 
-            this.btnV8.BackColor = System.Drawing.SystemColors.Control;
-            this.btnV8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnV8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
-            this.btnV8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnV8.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnV8.Image = ((System.Drawing.Image)(resources.GetObject("btnV8.Image")));
-            this.btnV8.Location = new System.Drawing.Point(1529, 58);
-            this.btnV8.Name = "btnV8";
-            this.btnV8.Size = new System.Drawing.Size(218, 732);
-            this.btnV8.TabIndex = 52;
-            this.btnV8.Text = "Vertical #8";
-            this.btnV8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnV8.UseVisualStyleBackColor = false;
-            this.btnV8.Click += new System.EventHandler(this.btnV8_Click);
-            // 
-            // btnV7
-            // 
-            this.btnV7.BackColor = System.Drawing.SystemColors.Control;
-            this.btnV7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnV7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
-            this.btnV7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnV7.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnV7.Image = ((System.Drawing.Image)(resources.GetObject("btnV7.Image")));
-            this.btnV7.Location = new System.Drawing.Point(1311, 58);
-            this.btnV7.Name = "btnV7";
-            this.btnV7.Size = new System.Drawing.Size(212, 732);
-            this.btnV7.TabIndex = 54;
-            this.btnV7.Text = "Vertical #7";
-            this.btnV7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnV7.UseVisualStyleBackColor = false;
-            this.btnV7.Click += new System.EventHandler(this.btnV7_Click);
-            // 
-            // btnV5
-            // 
-            this.btnV5.BackColor = System.Drawing.SystemColors.Control;
-            this.btnV5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnV5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
-            this.btnV5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnV5.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnV5.Image = ((System.Drawing.Image)(resources.GetObject("btnV5.Image")));
-            this.btnV5.Location = new System.Drawing.Point(875, 58);
-            this.btnV5.Name = "btnV5";
-            this.btnV5.Size = new System.Drawing.Size(212, 732);
-            this.btnV5.TabIndex = 56;
-            this.btnV5.Text = "Vertical #5";
-            this.btnV5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnV5.UseVisualStyleBackColor = false;
-            this.btnV5.Click += new System.EventHandler(this.btnV5_Click);
-            // 
-            // btnV4
-            // 
-            this.btnV4.BackColor = System.Drawing.SystemColors.Control;
-            this.btnV4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnV4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
-            this.btnV4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnV4.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnV4.Image = ((System.Drawing.Image)(resources.GetObject("btnV4.Image")));
-            this.btnV4.Location = new System.Drawing.Point(657, 58);
-            this.btnV4.Name = "btnV4";
-            this.btnV4.Size = new System.Drawing.Size(212, 732);
-            this.btnV4.TabIndex = 57;
-            this.btnV4.Text = "Vertical #4";
-            this.btnV4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnV4.UseVisualStyleBackColor = false;
-            this.btnV4.Click += new System.EventHandler(this.btnV4_Click);
-            // 
-            // btnV3
-            // 
-            this.btnV3.BackColor = System.Drawing.SystemColors.Control;
-            this.btnV3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnV3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
-            this.btnV3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnV3.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnV3.Image = ((System.Drawing.Image)(resources.GetObject("btnV3.Image")));
-            this.btnV3.Location = new System.Drawing.Point(439, 58);
-            this.btnV3.Name = "btnV3";
-            this.btnV3.Size = new System.Drawing.Size(212, 732);
-            this.btnV3.TabIndex = 58;
-            this.btnV3.Text = "Vertical #3";
-            this.btnV3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnV3.UseVisualStyleBackColor = false;
-            this.btnV3.Click += new System.EventHandler(this.btnV3_Click);
-            // 
-            // btnV2
-            // 
-            this.btnV2.BackColor = System.Drawing.SystemColors.Control;
-            this.btnV2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnV2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
-            this.btnV2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnV2.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnV2.Image = ((System.Drawing.Image)(resources.GetObject("btnV2.Image")));
-            this.btnV2.Location = new System.Drawing.Point(221, 58);
-            this.btnV2.Name = "btnV2";
-            this.btnV2.Size = new System.Drawing.Size(212, 732);
-            this.btnV2.TabIndex = 59;
-            this.btnV2.Text = "Vertical #2";
-            this.btnV2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnV2.UseVisualStyleBackColor = false;
-            this.btnV2.Click += new System.EventHandler(this.btnV2_Click);
-            // 
             // PlDatos
             // 
+            this.PlDatos.Controls.Add(this.GbSF);
             this.PlDatos.Controls.Add(this.gbVertical);
             this.PlDatos.Controls.Add(this.gbDatos);
             this.PlDatos.Controls.Add(this.panel2);
-            this.PlDatos.Location = new System.Drawing.Point(225, 95);
+            this.PlDatos.Location = new System.Drawing.Point(312, 16);
             this.PlDatos.Name = "PlDatos";
-            this.PlDatos.Size = new System.Drawing.Size(1354, 647);
+            this.PlDatos.Size = new System.Drawing.Size(1398, 619);
             this.PlDatos.TabIndex = 3;
             this.PlDatos.Visible = false;
             // 
@@ -394,7 +287,7 @@
             this.gbDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDatos.Location = new System.Drawing.Point(0, 43);
             this.gbDatos.Name = "gbDatos";
-            this.gbDatos.Size = new System.Drawing.Size(1354, 125);
+            this.gbDatos.Size = new System.Drawing.Size(1398, 125);
             this.gbDatos.TabIndex = 12;
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Datos Ticket";
@@ -551,20 +444,8 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1354, 43);
+            this.panel2.Size = new System.Drawing.Size(1398, 43);
             this.panel2.TabIndex = 13;
-            // 
-            // BtnCerrarVerCons
-            // 
-            this.BtnCerrarVerCons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCerrarVerCons.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCerrarVerCons.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrarVerCons.Location = new System.Drawing.Point(1307, 0);
-            this.BtnCerrarVerCons.Name = "BtnCerrarVerCons";
-            this.BtnCerrarVerCons.Size = new System.Drawing.Size(47, 43);
-            this.BtnCerrarVerCons.TabIndex = 11;
-            this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
-            this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
             // 
             // LblTicket
             // 
@@ -596,25 +477,26 @@
             this.gbVertical.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbVertical.Location = new System.Drawing.Point(0, 168);
             this.gbVertical.Name = "gbVertical";
-            this.gbVertical.Size = new System.Drawing.Size(1354, 186);
+            this.gbVertical.Size = new System.Drawing.Size(1398, 186);
             this.gbVertical.TabIndex = 14;
             this.gbVertical.TabStop = false;
             this.gbVertical.Text = "Vertical";
             // 
             // BtnEnviarSF
             // 
-            this.BtnEnviarSF.Location = new System.Drawing.Point(1141, 55);
+            this.BtnEnviarSF.Location = new System.Drawing.Point(1061, 60);
             this.BtnEnviarSF.Name = "BtnEnviarSF";
             this.BtnEnviarSF.Size = new System.Drawing.Size(140, 80);
             this.BtnEnviarSF.TabIndex = 11;
             this.BtnEnviarSF.Text = "Enviar a Secado Final";
             this.BtnEnviarSF.UseVisualStyleBackColor = true;
+            this.BtnEnviarSF.Click += new System.EventHandler(this.BtnEnviarSF_Click);
             // 
             // dtHoraFinV
             // 
             this.dtHoraFinV.Enabled = false;
             this.dtHoraFinV.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtHoraFinV.Location = new System.Drawing.Point(936, 98);
+            this.dtHoraFinV.Location = new System.Drawing.Point(860, 98);
             this.dtHoraFinV.Name = "dtHoraFinV";
             this.dtHoraFinV.Size = new System.Drawing.Size(132, 26);
             this.dtHoraFinV.TabIndex = 10;
@@ -623,7 +505,7 @@
             // 
             this.dtHorainicioV.Enabled = false;
             this.dtHorainicioV.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtHorainicioV.Location = new System.Drawing.Point(676, 100);
+            this.dtHorainicioV.Location = new System.Drawing.Point(600, 100);
             this.dtHorainicioV.Name = "dtHorainicioV";
             this.dtHorainicioV.Size = new System.Drawing.Size(146, 26);
             this.dtHorainicioV.TabIndex = 10;
@@ -632,7 +514,7 @@
             // 
             this.dtFProcV.Enabled = false;
             this.dtFProcV.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFProcV.Location = new System.Drawing.Point(460, 100);
+            this.dtFProcV.Location = new System.Drawing.Point(384, 100);
             this.dtFProcV.Name = "dtFProcV";
             this.dtFProcV.Size = new System.Drawing.Size(135, 26);
             this.dtFProcV.TabIndex = 9;
@@ -640,7 +522,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(459, 157);
+            this.label8.Location = new System.Drawing.Point(383, 157);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(86, 20);
             this.label8.TabIndex = 6;
@@ -648,7 +530,7 @@
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(874, 90);
+            this.label9.Location = new System.Drawing.Point(798, 90);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 43);
             this.label9.TabIndex = 4;
@@ -656,7 +538,7 @@
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(607, 92);
+            this.label10.Location = new System.Drawing.Point(531, 92);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 43);
             this.label10.TabIndex = 4;
@@ -664,7 +546,7 @@
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(355, 92);
+            this.label11.Location = new System.Drawing.Point(279, 92);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(93, 43);
             this.label11.TabIndex = 2;
@@ -673,7 +555,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(102, 103);
+            this.label12.Location = new System.Drawing.Point(26, 103);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(60, 20);
             this.label12.TabIndex = 2;
@@ -682,7 +564,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(362, 41);
+            this.label13.Location = new System.Drawing.Point(286, 41);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(89, 20);
             this.label13.TabIndex = 2;
@@ -690,7 +572,7 @@
             // 
             // label21
             // 
-            this.label21.Location = new System.Drawing.Point(195, 39);
+            this.label21.Location = new System.Drawing.Point(119, 39);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(85, 24);
             this.label21.TabIndex = 0;
@@ -699,7 +581,7 @@
             // LblOperador
             // 
             this.LblOperador.AutoSize = true;
-            this.LblOperador.Location = new System.Drawing.Point(459, 44);
+            this.LblOperador.Location = new System.Drawing.Point(383, 44);
             this.LblOperador.Name = "LblOperador";
             this.LblOperador.Size = new System.Drawing.Size(21, 20);
             this.LblOperador.TabIndex = 6;
@@ -708,7 +590,7 @@
             // LblTurno
             // 
             this.LblTurno.AutoSize = true;
-            this.LblTurno.Location = new System.Drawing.Point(168, 103);
+            this.LblTurno.Location = new System.Drawing.Point(92, 103);
             this.LblTurno.Name = "LblTurno";
             this.LblTurno.Size = new System.Drawing.Size(21, 20);
             this.LblTurno.TabIndex = 6;
@@ -717,7 +599,7 @@
             // LblDuracion
             // 
             this.LblDuracion.AutoSize = true;
-            this.LblDuracion.Location = new System.Drawing.Point(556, 157);
+            this.LblDuracion.Location = new System.Drawing.Point(480, 157);
             this.LblDuracion.Name = "LblDuracion";
             this.LblDuracion.Size = new System.Drawing.Size(21, 20);
             this.LblDuracion.TabIndex = 6;
@@ -726,7 +608,7 @@
             // Lblver
             // 
             this.Lblver.AutoSize = true;
-            this.Lblver.Location = new System.Drawing.Point(286, 39);
+            this.Lblver.Location = new System.Drawing.Point(210, 39);
             this.Lblver.Name = "Lblver";
             this.Lblver.Size = new System.Drawing.Size(21, 20);
             this.Lblver.TabIndex = 6;
@@ -738,10 +620,450 @@
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(0, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(1307, 43);
+            this.label16.Size = new System.Drawing.Size(1351, 43);
             this.label16.TabIndex = 13;
             this.label16.Text = "Detalles de lote en Vertical";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // GbSF
+            // 
+            this.GbSF.Controls.Add(this.comboBox3);
+            this.GbSF.Controls.Add(this.BtnSF);
+            this.GbSF.Controls.Add(this.label27);
+            this.GbSF.Controls.Add(this.textBox2);
+            this.GbSF.Controls.Add(this.textBox1);
+            this.GbSF.Controls.Add(this.CHParos);
+            this.GbSF.Controls.Add(this.dateTimePicker6);
+            this.GbSF.Controls.Add(this.dateTimePicker1);
+            this.GbSF.Controls.Add(this.dateTimePicker5);
+            this.GbSF.Controls.Add(this.label25);
+            this.GbSF.Controls.Add(this.dateTimePicker3);
+            this.GbSF.Controls.Add(this.dateTimePicker4);
+            this.GbSF.Controls.Add(this.label15);
+            this.GbSF.Controls.Add(this.comboBox2);
+            this.GbSF.Controls.Add(this.dateTimePicker2);
+            this.GbSF.Controls.Add(this.label28);
+            this.GbSF.Controls.Add(this.label24);
+            this.GbSF.Controls.Add(this.comboBox1);
+            this.GbSF.Controls.Add(this.LblTiempoPre);
+            this.GbSF.Controls.Add(this.label23);
+            this.GbSF.Controls.Add(this.label14);
+            this.GbSF.Controls.Add(this.label18);
+            this.GbSF.Controls.Add(this.label22);
+            this.GbSF.Controls.Add(this.label26);
+            this.GbSF.Controls.Add(this.label20);
+            this.GbSF.Controls.Add(this.label19);
+            this.GbSF.Dock = System.Windows.Forms.DockStyle.Top;
+            this.GbSF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.GbSF.Location = new System.Drawing.Point(0, 354);
+            this.GbSF.Name = "GbSF";
+            this.GbSF.Size = new System.Drawing.Size(1398, 236);
+            this.GbSF.TabIndex = 15;
+            this.GbSF.TabStop = false;
+            this.GbSF.Text = "Envío para Secado Final";
+            this.GbSF.Visible = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(86, 32);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(76, 17);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Tolva #1:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18"});
+            this.comboBox1.Location = new System.Drawing.Point(173, 29);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 1;
+            // 
+            // label15
+            // 
+            this.label15.Location = new System.Drawing.Point(331, 20);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(102, 43);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "Fecha de Descarga:";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(428, 26);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(129, 23);
+            this.dateTimePicker1.TabIndex = 3;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker2.Location = new System.Drawing.Point(676, 22);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(146, 23);
+            this.dateTimePicker2.TabIndex = 10;
+            // 
+            // label18
+            // 
+            this.label18.Location = new System.Drawing.Point(596, 15);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(57, 43);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Hora Inicio:";
+            // 
+            // label19
+            // 
+            this.label19.Location = new System.Drawing.Point(853, 14);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(65, 43);
+            this.label19.TabIndex = 4;
+            this.label19.Text = "Hora Fin:";
+            // 
+            // dateTimePicker3
+            // 
+            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker3.Location = new System.Drawing.Point(920, 22);
+            this.dateTimePicker3.Name = "dateTimePicker3";
+            this.dateTimePicker3.Size = new System.Drawing.Size(132, 23);
+            this.dateTimePicker3.TabIndex = 10;
+            // 
+            // CHParos
+            // 
+            this.CHParos.CheckOnClick = true;
+            this.CHParos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.CHParos.FormattingEnabled = true;
+            this.CHParos.HorizontalScrollbar = true;
+            this.CHParos.Location = new System.Drawing.Point(1100, 16);
+            this.CHParos.Name = "CHParos";
+            this.CHParos.ScrollAlwaysVisible = true;
+            this.CHParos.Size = new System.Drawing.Size(251, 214);
+            this.CHParos.TabIndex = 11;
+            // 
+            // label20
+            // 
+            this.label20.Location = new System.Drawing.Point(348, 131);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(81, 43);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "Total de Paros:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(459, 141);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 23);
+            this.textBox1.TabIndex = 12;
+            // 
+            // label22
+            // 
+            this.label22.Location = new System.Drawing.Point(853, 70);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(65, 43);
+            this.label22.TabIndex = 4;
+            this.label22.Text = "Hora Fin:";
+            // 
+            // label23
+            // 
+            this.label23.Location = new System.Drawing.Point(596, 71);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(57, 43);
+            this.label23.TabIndex = 4;
+            this.label23.Text = "Hora Inicio:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(86, 88);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(76, 17);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Tolva #2:";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18"});
+            this.comboBox2.Location = new System.Drawing.Point(173, 85);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 24);
+            this.comboBox2.TabIndex = 1;
+            // 
+            // dateTimePicker4
+            // 
+            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker4.Location = new System.Drawing.Point(676, 78);
+            this.dateTimePicker4.Name = "dateTimePicker4";
+            this.dateTimePicker4.Size = new System.Drawing.Size(146, 23);
+            this.dateTimePicker4.TabIndex = 10;
+            // 
+            // label25
+            // 
+            this.label25.Location = new System.Drawing.Point(331, 76);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(102, 43);
+            this.label25.TabIndex = 2;
+            this.label25.Text = "Fecha de Descarga:";
+            // 
+            // dateTimePicker5
+            // 
+            this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker5.Location = new System.Drawing.Point(920, 78);
+            this.dateTimePicker5.Name = "dateTimePicker5";
+            this.dateTimePicker5.Size = new System.Drawing.Size(132, 23);
+            this.dateTimePicker5.TabIndex = 10;
+            // 
+            // dateTimePicker6
+            // 
+            this.dateTimePicker6.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker6.Location = new System.Drawing.Point(428, 82);
+            this.dateTimePicker6.Name = "dateTimePicker6";
+            this.dateTimePicker6.Size = new System.Drawing.Size(129, 23);
+            this.dateTimePicker6.TabIndex = 3;
+            // 
+            // label26
+            // 
+            this.label26.Location = new System.Drawing.Point(86, 138);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(102, 28);
+            this.label26.TabIndex = 4;
+            this.label26.Text = "Humedad:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(218, 141);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 23);
+            this.textBox2.TabIndex = 12;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(589, 144);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(216, 17);
+            this.label27.TabIndex = 13;
+            this.label27.Text = "Tiempo total de Pre-Secado:";
+            // 
+            // LblTiempoPre
+            // 
+            this.LblTiempoPre.AutoSize = true;
+            this.LblTiempoPre.Location = new System.Drawing.Point(835, 144);
+            this.LblTiempoPre.Name = "LblTiempoPre";
+            this.LblTiempoPre.Size = new System.Drawing.Size(20, 17);
+            this.LblTiempoPre.TabIndex = 4;
+            this.LblTiempoPre.Text = "--";
+            // 
+            // BtnCerrarVerCons
+            // 
+            this.BtnCerrarVerCons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrarVerCons.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrarVerCons.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrarVerCons.Location = new System.Drawing.Point(1351, 0);
+            this.BtnCerrarVerCons.Name = "BtnCerrarVerCons";
+            this.BtnCerrarVerCons.Size = new System.Drawing.Size(47, 43);
+            this.BtnCerrarVerCons.TabIndex = 11;
+            this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
+            this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
+            // 
+            // btnV6
+            // 
+            this.btnV6.BackColor = System.Drawing.SystemColors.Control;
+            this.btnV6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnV6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
+            this.btnV6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnV6.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnV6.Image = ((System.Drawing.Image)(resources.GetObject("btnV6.Image")));
+            this.btnV6.Location = new System.Drawing.Point(1093, 58);
+            this.btnV6.Name = "btnV6";
+            this.btnV6.Size = new System.Drawing.Size(212, 732);
+            this.btnV6.TabIndex = 55;
+            this.btnV6.Text = "Vertical #6";
+            this.btnV6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnV6.UseVisualStyleBackColor = false;
+            this.btnV6.Click += new System.EventHandler(this.btnV6_Click);
+            // 
+            // btnV1
+            // 
+            this.btnV1.BackColor = System.Drawing.SystemColors.Control;
+            this.btnV1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnV1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
+            this.btnV1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnV1.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnV1.Image = ((System.Drawing.Image)(resources.GetObject("btnV1.Image")));
+            this.btnV1.Location = new System.Drawing.Point(3, 58);
+            this.btnV1.Name = "btnV1";
+            this.btnV1.Size = new System.Drawing.Size(212, 732);
+            this.btnV1.TabIndex = 60;
+            this.btnV1.Text = "Vertical #1";
+            this.btnV1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnV1.UseVisualStyleBackColor = false;
+            this.btnV1.Click += new System.EventHandler(this.btnV1_Click);
+            // 
+            // btnV8
+            // 
+            this.btnV8.BackColor = System.Drawing.SystemColors.Control;
+            this.btnV8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnV8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
+            this.btnV8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnV8.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnV8.Image = ((System.Drawing.Image)(resources.GetObject("btnV8.Image")));
+            this.btnV8.Location = new System.Drawing.Point(1529, 58);
+            this.btnV8.Name = "btnV8";
+            this.btnV8.Size = new System.Drawing.Size(218, 732);
+            this.btnV8.TabIndex = 52;
+            this.btnV8.Text = "Vertical #8";
+            this.btnV8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnV8.UseVisualStyleBackColor = false;
+            this.btnV8.Click += new System.EventHandler(this.btnV8_Click);
+            // 
+            // btnV7
+            // 
+            this.btnV7.BackColor = System.Drawing.SystemColors.Control;
+            this.btnV7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnV7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
+            this.btnV7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnV7.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnV7.Image = ((System.Drawing.Image)(resources.GetObject("btnV7.Image")));
+            this.btnV7.Location = new System.Drawing.Point(1311, 58);
+            this.btnV7.Name = "btnV7";
+            this.btnV7.Size = new System.Drawing.Size(212, 732);
+            this.btnV7.TabIndex = 54;
+            this.btnV7.Text = "Vertical #7";
+            this.btnV7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnV7.UseVisualStyleBackColor = false;
+            this.btnV7.Click += new System.EventHandler(this.btnV7_Click);
+            // 
+            // btnV5
+            // 
+            this.btnV5.BackColor = System.Drawing.SystemColors.Control;
+            this.btnV5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnV5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
+            this.btnV5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnV5.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnV5.Image = ((System.Drawing.Image)(resources.GetObject("btnV5.Image")));
+            this.btnV5.Location = new System.Drawing.Point(875, 58);
+            this.btnV5.Name = "btnV5";
+            this.btnV5.Size = new System.Drawing.Size(212, 732);
+            this.btnV5.TabIndex = 56;
+            this.btnV5.Text = "Vertical #5";
+            this.btnV5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnV5.UseVisualStyleBackColor = false;
+            this.btnV5.Click += new System.EventHandler(this.btnV5_Click);
+            // 
+            // btnV4
+            // 
+            this.btnV4.BackColor = System.Drawing.SystemColors.Control;
+            this.btnV4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnV4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
+            this.btnV4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnV4.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnV4.Image = ((System.Drawing.Image)(resources.GetObject("btnV4.Image")));
+            this.btnV4.Location = new System.Drawing.Point(657, 58);
+            this.btnV4.Name = "btnV4";
+            this.btnV4.Size = new System.Drawing.Size(212, 732);
+            this.btnV4.TabIndex = 57;
+            this.btnV4.Text = "Vertical #4";
+            this.btnV4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnV4.UseVisualStyleBackColor = false;
+            this.btnV4.Click += new System.EventHandler(this.btnV4_Click);
+            // 
+            // btnV3
+            // 
+            this.btnV3.BackColor = System.Drawing.SystemColors.Control;
+            this.btnV3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnV3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
+            this.btnV3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnV3.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnV3.Image = ((System.Drawing.Image)(resources.GetObject("btnV3.Image")));
+            this.btnV3.Location = new System.Drawing.Point(439, 58);
+            this.btnV3.Name = "btnV3";
+            this.btnV3.Size = new System.Drawing.Size(212, 732);
+            this.btnV3.TabIndex = 58;
+            this.btnV3.Text = "Vertical #3";
+            this.btnV3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnV3.UseVisualStyleBackColor = false;
+            this.btnV3.Click += new System.EventHandler(this.btnV3_Click);
+            // 
+            // btnV2
+            // 
+            this.btnV2.BackColor = System.Drawing.SystemColors.Control;
+            this.btnV2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnV2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
+            this.btnV2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnV2.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnV2.Image = ((System.Drawing.Image)(resources.GetObject("btnV2.Image")));
+            this.btnV2.Location = new System.Drawing.Point(221, 58);
+            this.btnV2.Name = "btnV2";
+            this.btnV2.Size = new System.Drawing.Size(212, 732);
+            this.btnV2.TabIndex = 59;
+            this.btnV2.Text = "Vertical #2";
+            this.btnV2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnV2.UseVisualStyleBackColor = false;
+            this.btnV2.Click += new System.EventHandler(this.btnV2_Click);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(85, 196);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(82, 17);
+            this.label28.TabIndex = 2;
+            this.label28.Text = "Operador:";
+            // 
+            // BtnSF
+            // 
+            this.BtnSF.Location = new System.Drawing.Point(774, 181);
+            this.BtnSF.Name = "BtnSF";
+            this.BtnSF.Size = new System.Drawing.Size(123, 47);
+            this.BtnSF.TabIndex = 14;
+            this.BtnSF.Text = "Descargar";
+            this.BtnSF.UseVisualStyleBackColor = true;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(172, 196);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(456, 24);
+            this.comboBox3.TabIndex = 15;
             // 
             // Verticales
             // 
@@ -759,6 +1081,8 @@
             this.panel2.ResumeLayout(false);
             this.gbVertical.ResumeLayout(false);
             this.gbVertical.PerformLayout();
+            this.GbSF.ResumeLayout(false);
+            this.GbSF.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -820,5 +1144,32 @@
         private System.Windows.Forms.Label LblDuracion;
         private System.Windows.Forms.Label Lblver;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.GroupBox GbSF;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckedListBox CHParos;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        public System.Windows.Forms.DateTimePicker dateTimePicker3;
+        public System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker6;
+        public System.Windows.Forms.DateTimePicker dateTimePicker5;
+        private System.Windows.Forms.Label label25;
+        public System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label LblTiempoPre;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Button BtnSF;
+        private System.Windows.Forms.Label label28;
     }
 }

@@ -95,5 +95,41 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public void MostrarParos(CheckedListBox checkListBox)
+        {
+            try
+            {
+                Conexion.abrir(); // Suponiendo que esto abre la conexión a la base de datos
+
+                // Crear un DataTable para almacenar los datos
+                DataTable dt = new DataTable();
+
+                // Crear el SqlDataAdapter con el nombre del procedimiento almacenado
+                SqlDataAdapter da = new SqlDataAdapter("MostrarParo", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                // Llenar el DataTable con los datos del SqlDataAdapter
+                da.Fill(dt);
+
+                // Limpiar el CheckListBox antes de cargar nuevos datos
+                checkListBox.Items.Clear();
+
+                // Recorrer el DataTable y agregar los elementos al CheckListBox
+                foreach (DataRow row in dt.Rows)
+                {
+                    checkListBox.Items.Add(row["Paros"].ToString()); // Reemplaza "Nombre" por el nombre de la columna que deseas mostrar
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al MostrarParo ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar(); // Suponiendo que esto cierra la conexión a la base de datos
+            }
+
+        }
     }
 }

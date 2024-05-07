@@ -157,7 +157,7 @@
             // BtnParos
             // 
             this.BtnParos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnParos.Image = global::ProyectoOFI.Properties.Resources.icons8_agregar_a_carrito_de_compras;
+            this.BtnParos.Image = global::ProyectoOFI.Properties.Resources.icons8_tiempo_de_propiedades;
             this.BtnParos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnParos.Location = new System.Drawing.Point(44, 198);
             this.BtnParos.Name = "BtnParos";
@@ -166,6 +166,7 @@
             this.BtnParos.Text = "Paros";
             this.BtnParos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnParos.UseVisualStyleBackColor = true;
+            this.BtnParos.Click += new System.EventHandler(this.BtnParos_Click);
             // 
             // BtnPatio
             // 
@@ -346,7 +347,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.OFI_Make;
+            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.Logo;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 65);

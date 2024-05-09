@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioSM = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.txtBuscador = new System.Windows.Forms.TextBox();
@@ -48,7 +48,23 @@
             this.Label25 = new System.Windows.Forms.Label();
             this.timerAct = new System.Windows.Forms.Timer(this.components);
             this.PlCarga = new System.Windows.Forms.Panel();
+            this.PbCarga = new System.Windows.Forms.PictureBox();
             this.PLDatos = new System.Windows.Forms.Panel();
+            this.GbPreSecado = new System.Windows.Forms.GroupBox();
+            this.LblG2 = new System.Windows.Forms.Label();
+            this.LblG1 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.LblHumedadSF = new System.Windows.Forms.Label();
+            this.LblTotalPre = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.LblParos = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.LblHrDesfin = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.LblHrDescIn = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.LblFDescargue = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.gbVertical = new System.Windows.Forms.GroupBox();
             this.LblVer = new System.Windows.Forms.Label();
             this.dtHoraFinV = new System.Windows.Forms.DateTimePicker();
@@ -96,35 +112,19 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label23 = new System.Windows.Forms.Label();
             this.BtnCerrarVerCons = new System.Windows.Forms.Button();
-            this.PbCarga = new System.Windows.Forms.PictureBox();
-            this.GbPreSecado = new System.Windows.Forms.GroupBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.LblFDescargue = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.LblHrDescIn = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.LblHrDesfin = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.LblParos = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.LblTotalPre = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.LblG1 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.LblG2 = new System.Windows.Forms.Label();
-            this.LblHumedadSF = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
+            this.TLPDatos = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioSM)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.plfooter.SuspendLayout();
             this.PlCarga.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.PLDatos.SuspendLayout();
+            this.GbPreSecado.SuspendLayout();
             this.gbVertical.SuspendLayout();
             this.gbPOAV.SuspendLayout();
             this.gbDatos.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
-            this.GbPreSecado.SuspendLayout();
+            this.TLPDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtInventarioSM
@@ -136,23 +136,23 @@
             this.dtInventarioSM.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioSM.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioSM.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioSM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioSM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dtInventarioSM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioSM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioSM.Location = new System.Drawing.Point(0, 62);
             this.dtInventarioSM.Name = "dtInventarioSM";
             this.dtInventarioSM.ReadOnly = true;
             this.dtInventarioSM.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioSM.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioSM.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dtInventarioSM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioSM.ShowCellToolTips = false;
             this.dtInventarioSM.ShowEditingIcon = false;
@@ -358,21 +358,181 @@
             this.PlCarga.Size = new System.Drawing.Size(250, 172);
             this.PlCarga.TabIndex = 12;
             // 
+            // PbCarga
+            // 
+            this.PbCarga.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.PbCarga.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PbCarga.Image = global::ProyectoOFI.Properties.Resources.loading_12;
+            this.PbCarga.Location = new System.Drawing.Point(0, 0);
+            this.PbCarga.Name = "PbCarga";
+            this.PbCarga.Size = new System.Drawing.Size(250, 172);
+            this.PbCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbCarga.TabIndex = 0;
+            this.PbCarga.TabStop = false;
+            // 
             // PLDatos
             // 
             this.PLDatos.AutoScroll = true;
             this.PLDatos.BackColor = System.Drawing.Color.White;
-            this.PLDatos.Controls.Add(this.GbPreSecado);
-            this.PLDatos.Controls.Add(this.gbVertical);
-            this.PLDatos.Controls.Add(this.gbPOAV);
+            this.PLDatos.Controls.Add(this.TLPDatos);
             this.PLDatos.Controls.Add(this.gbDatos);
             this.PLDatos.Controls.Add(this.panel2);
-            this.PLDatos.Location = new System.Drawing.Point(298, 80);
+            this.PLDatos.Location = new System.Drawing.Point(59, 80);
             this.PLDatos.MinimumSize = new System.Drawing.Size(1233, 542);
             this.PLDatos.Name = "PLDatos";
-            this.PLDatos.Size = new System.Drawing.Size(1233, 641);
+            this.PLDatos.Size = new System.Drawing.Size(1511, 633);
             this.PLDatos.TabIndex = 54;
             this.PLDatos.Visible = false;
+            // 
+            // GbPreSecado
+            // 
+            this.GbPreSecado.Controls.Add(this.LblG2);
+            this.GbPreSecado.Controls.Add(this.LblG1);
+            this.GbPreSecado.Controls.Add(this.label41);
+            this.GbPreSecado.Controls.Add(this.LblHumedadSF);
+            this.GbPreSecado.Controls.Add(this.LblTotalPre);
+            this.GbPreSecado.Controls.Add(this.label33);
+            this.GbPreSecado.Controls.Add(this.LblParos);
+            this.GbPreSecado.Controls.Add(this.label31);
+            this.GbPreSecado.Controls.Add(this.LblHrDesfin);
+            this.GbPreSecado.Controls.Add(this.label29);
+            this.GbPreSecado.Controls.Add(this.LblHrDescIn);
+            this.GbPreSecado.Controls.Add(this.label27);
+            this.GbPreSecado.Controls.Add(this.LblFDescargue);
+            this.GbPreSecado.Controls.Add(this.label24);
+            this.GbPreSecado.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GbPreSecado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.GbPreSecado.Location = new System.Drawing.Point(3, 235);
+            this.GbPreSecado.Name = "GbPreSecado";
+            this.GbPreSecado.Size = new System.Drawing.Size(749, 227);
+            this.GbPreSecado.TabIndex = 12;
+            this.GbPreSecado.TabStop = false;
+            this.GbPreSecado.Text = "Datos de Pre-Secado";
+            this.GbPreSecado.Visible = false;
+            // 
+            // LblG2
+            // 
+            this.LblG2.AutoSize = true;
+            this.LblG2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblG2.Location = new System.Drawing.Point(388, 183);
+            this.LblG2.Name = "LblG2";
+            this.LblG2.Size = new System.Drawing.Size(21, 20);
+            this.LblG2.TabIndex = 12;
+            this.LblG2.Text = "--";
+            // 
+            // LblG1
+            // 
+            this.LblG1.AutoSize = true;
+            this.LblG1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblG1.Location = new System.Drawing.Point(49, 182);
+            this.LblG1.Name = "LblG1";
+            this.LblG1.Size = new System.Drawing.Size(21, 20);
+            this.LblG1.TabIndex = 12;
+            this.LblG1.Text = "--";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(250, 123);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(91, 20);
+            this.label41.TabIndex = 6;
+            this.label41.Text = "Humedad:";
+            // 
+            // LblHumedadSF
+            // 
+            this.LblHumedadSF.AutoSize = true;
+            this.LblHumedadSF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblHumedadSF.Location = new System.Drawing.Point(344, 123);
+            this.LblHumedadSF.Name = "LblHumedadSF";
+            this.LblHumedadSF.Size = new System.Drawing.Size(19, 20);
+            this.LblHumedadSF.TabIndex = 2;
+            this.LblHumedadSF.Text = "--";
+            // 
+            // LblTotalPre
+            // 
+            this.LblTotalPre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTotalPre.Location = new System.Drawing.Point(581, 121);
+            this.LblTotalPre.Name = "LblTotalPre";
+            this.LblTotalPre.Size = new System.Drawing.Size(91, 24);
+            this.LblTotalPre.TabIndex = 12;
+            this.LblTotalPre.Text = "--";
+            // 
+            // label33
+            // 
+            this.label33.Location = new System.Drawing.Point(458, 107);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(120, 52);
+            this.label33.TabIndex = 0;
+            this.label33.Text = "Total de Pre-Secado:";
+            // 
+            // LblParos
+            // 
+            this.LblParos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblParos.Location = new System.Drawing.Point(88, 121);
+            this.LblParos.Name = "LblParos";
+            this.LblParos.Size = new System.Drawing.Size(97, 24);
+            this.LblParos.TabIndex = 12;
+            this.LblParos.Text = "--";
+            // 
+            // label31
+            // 
+            this.label31.Location = new System.Drawing.Point(18, 121);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(85, 24);
+            this.label31.TabIndex = 0;
+            this.label31.Text = "Paros:";
+            // 
+            // LblHrDesfin
+            // 
+            this.LblHrDesfin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblHrDesfin.Location = new System.Drawing.Point(586, 49);
+            this.LblHrDesfin.Name = "LblHrDesfin";
+            this.LblHrDesfin.Size = new System.Drawing.Size(101, 24);
+            this.LblHrDesfin.TabIndex = 12;
+            this.LblHrDesfin.Text = "--";
+            // 
+            // label29
+            // 
+            this.label29.Location = new System.Drawing.Point(495, 41);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(85, 40);
+            this.label29.TabIndex = 0;
+            this.label29.Text = "Hora de Fin:";
+            // 
+            // LblHrDescIn
+            // 
+            this.LblHrDescIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblHrDescIn.Location = new System.Drawing.Point(378, 49);
+            this.LblHrDescIn.Name = "LblHrDescIn";
+            this.LblHrDescIn.Size = new System.Drawing.Size(111, 24);
+            this.LblHrDescIn.TabIndex = 12;
+            this.LblHrDescIn.Text = "--";
+            // 
+            // label27
+            // 
+            this.label27.Location = new System.Drawing.Point(287, 35);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(85, 52);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "Hora de Inicio:";
+            // 
+            // LblFDescargue
+            // 
+            this.LblFDescargue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFDescargue.Location = new System.Drawing.Point(124, 49);
+            this.LblFDescargue.Name = "LblFDescargue";
+            this.LblFDescargue.Size = new System.Drawing.Size(157, 24);
+            this.LblFDescargue.TabIndex = 12;
+            this.LblFDescargue.Text = "--";
+            // 
+            // label24
+            // 
+            this.label24.Location = new System.Drawing.Point(6, 35);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(112, 52);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "Fecha de Descargue:";
             // 
             // gbVertical
             // 
@@ -391,11 +551,11 @@
             this.gbVertical.Controls.Add(this.label12);
             this.gbVertical.Controls.Add(this.label13);
             this.gbVertical.Controls.Add(this.label21);
-            this.gbVertical.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbVertical.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbVertical.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbVertical.Location = new System.Drawing.Point(0, 292);
+            this.gbVertical.Location = new System.Drawing.Point(758, 3);
             this.gbVertical.Name = "gbVertical";
-            this.gbVertical.Size = new System.Drawing.Size(1233, 186);
+            this.gbVertical.Size = new System.Drawing.Size(750, 226);
             this.gbVertical.TabIndex = 9;
             this.gbVertical.TabStop = false;
             this.gbVertical.Text = "Vertical";
@@ -404,7 +564,7 @@
             // LblVer
             // 
             this.LblVer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblVer.Location = new System.Drawing.Point(347, 45);
+            this.LblVer.Location = new System.Drawing.Point(118, 43);
             this.LblVer.Name = "LblVer";
             this.LblVer.Size = new System.Drawing.Size(49, 24);
             this.LblVer.TabIndex = 12;
@@ -415,7 +575,7 @@
             this.dtHoraFinV.Enabled = false;
             this.dtHoraFinV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtHoraFinV.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtHoraFinV.Location = new System.Drawing.Point(701, 107);
+            this.dtHoraFinV.Location = new System.Drawing.Point(339, 162);
             this.dtHoraFinV.Name = "dtHoraFinV";
             this.dtHoraFinV.Size = new System.Drawing.Size(131, 26);
             this.dtHoraFinV.TabIndex = 10;
@@ -425,7 +585,7 @@
             this.dtHorainicioV.Enabled = false;
             this.dtHorainicioV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtHorainicioV.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtHorainicioV.Location = new System.Drawing.Point(458, 107);
+            this.dtHorainicioV.Location = new System.Drawing.Point(93, 162);
             this.dtHorainicioV.Name = "dtHorainicioV";
             this.dtHorainicioV.Size = new System.Drawing.Size(131, 26);
             this.dtHorainicioV.TabIndex = 10;
@@ -435,7 +595,7 @@
             this.dtFProcV.Enabled = false;
             this.dtFProcV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtFProcV.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFProcV.Location = new System.Drawing.Point(214, 107);
+            this.dtFProcV.Location = new System.Drawing.Point(412, 97);
             this.dtFProcV.Name = "dtFProcV";
             this.dtFProcV.Size = new System.Drawing.Size(135, 26);
             this.dtFProcV.TabIndex = 9;
@@ -443,7 +603,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(870, 110);
+            this.label8.Location = new System.Drawing.Point(495, 165);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(86, 20);
             this.label8.TabIndex = 6;
@@ -451,7 +611,7 @@
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(627, 99);
+            this.label9.Location = new System.Drawing.Point(249, 154);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 43);
             this.label9.TabIndex = 4;
@@ -461,7 +621,7 @@
             // 
             this.LblDuracion.AutoSize = true;
             this.LblDuracion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDuracion.Location = new System.Drawing.Point(999, 110);
+            this.LblDuracion.Location = new System.Drawing.Point(606, 165);
             this.LblDuracion.Name = "LblDuracion";
             this.LblDuracion.Size = new System.Drawing.Size(19, 20);
             this.LblDuracion.TabIndex = 2;
@@ -471,7 +631,7 @@
             // 
             this.LblTurnoV.AutoSize = true;
             this.LblTurnoV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTurnoV.Location = new System.Drawing.Point(918, 47);
+            this.LblTurnoV.Location = new System.Drawing.Point(73, 100);
             this.LblTurnoV.Name = "LblTurnoV";
             this.LblTurnoV.Size = new System.Drawing.Size(19, 20);
             this.LblTurnoV.TabIndex = 2;
@@ -479,7 +639,7 @@
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(392, 99);
+            this.label10.Location = new System.Drawing.Point(11, 153);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 43);
             this.label10.TabIndex = 4;
@@ -487,7 +647,7 @@
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(78, 99);
+            this.label11.Location = new System.Drawing.Point(260, 89);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(93, 43);
             this.label11.TabIndex = 2;
@@ -497,7 +657,7 @@
             // 
             this.LblOperadorV.AutoSize = true;
             this.LblOperadorV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblOperadorV.Location = new System.Drawing.Point(535, 47);
+            this.LblOperadorV.Location = new System.Drawing.Point(300, 45);
             this.LblOperadorV.Name = "LblOperadorV";
             this.LblOperadorV.Size = new System.Drawing.Size(19, 20);
             this.LblOperadorV.TabIndex = 2;
@@ -506,7 +666,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(842, 47);
+            this.label12.Location = new System.Drawing.Point(11, 100);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(60, 20);
             this.label12.TabIndex = 2;
@@ -515,7 +675,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(430, 47);
+            this.label13.Location = new System.Drawing.Point(189, 45);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(89, 20);
             this.label13.TabIndex = 2;
@@ -523,7 +683,7 @@
             // 
             // label21
             // 
-            this.label21.Location = new System.Drawing.Point(246, 45);
+            this.label21.Location = new System.Drawing.Point(11, 43);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(85, 24);
             this.label21.TabIndex = 0;
@@ -542,11 +702,11 @@
             this.gbPOAV.Controls.Add(this.label19);
             this.gbPOAV.Controls.Add(this.LblOperadorPV);
             this.gbPOAV.Controls.Add(this.label20);
-            this.gbPOAV.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbPOAV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbPOAV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPOAV.Location = new System.Drawing.Point(0, 168);
+            this.gbPOAV.Location = new System.Drawing.Point(3, 3);
             this.gbPOAV.Name = "gbPOAV";
-            this.gbPOAV.Size = new System.Drawing.Size(1233, 124);
+            this.gbPOAV.Size = new System.Drawing.Size(749, 226);
             this.gbPOAV.TabIndex = 8;
             this.gbPOAV.TabStop = false;
             this.gbPOAV.Text = "Tolvas POA Vertical";
@@ -554,7 +714,7 @@
             // LblPOAV
             // 
             this.LblPOAV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPOAV.Location = new System.Drawing.Point(216, 25);
+            this.LblPOAV.Location = new System.Drawing.Point(120, 25);
             this.LblPOAV.Name = "LblPOAV";
             this.LblPOAV.Size = new System.Drawing.Size(131, 24);
             this.LblPOAV.TabIndex = 12;
@@ -562,7 +722,7 @@
             // 
             // label14
             // 
-            this.label14.Location = new System.Drawing.Point(148, 25);
+            this.label14.Location = new System.Drawing.Point(27, 25);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(76, 24);
             this.label14.TabIndex = 12;
@@ -573,7 +733,7 @@
             this.dtFechaPV.Enabled = false;
             this.dtFechaPV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtFechaPV.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaPV.Location = new System.Drawing.Point(568, 71);
+            this.dtFechaPV.Location = new System.Drawing.Point(494, 94);
             this.dtFechaPV.Name = "dtFechaPV";
             this.dtFechaPV.Size = new System.Drawing.Size(135, 26);
             this.dtFechaPV.TabIndex = 9;
@@ -581,7 +741,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(719, 74);
+            this.label15.Location = new System.Drawing.Point(27, 165);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(91, 20);
             this.label15.TabIndex = 6;
@@ -590,7 +750,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(379, 74);
+            this.label18.Location = new System.Drawing.Point(283, 97);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(164, 20);
             this.label18.TabIndex = 2;
@@ -600,7 +760,7 @@
             // 
             this.LblHumedadPV.AutoSize = true;
             this.LblHumedadPV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblHumedadPV.Location = new System.Drawing.Point(816, 74);
+            this.LblHumedadPV.Location = new System.Drawing.Point(132, 166);
             this.LblHumedadPV.Name = "LblHumedadPV";
             this.LblHumedadPV.Size = new System.Drawing.Size(19, 20);
             this.LblHumedadPV.TabIndex = 2;
@@ -610,7 +770,7 @@
             // 
             this.LblTurnoPV.AutoSize = true;
             this.LblTurnoPV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTurnoPV.Location = new System.Drawing.Point(155, 74);
+            this.LblTurnoPV.Location = new System.Drawing.Point(89, 97);
             this.LblTurnoPV.Name = "LblTurnoPV";
             this.LblTurnoPV.Size = new System.Drawing.Size(19, 20);
             this.LblTurnoPV.TabIndex = 2;
@@ -619,7 +779,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(89, 74);
+            this.label19.Location = new System.Drawing.Point(27, 97);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(60, 20);
             this.label19.TabIndex = 2;
@@ -629,7 +789,7 @@
             // 
             this.LblOperadorPV.AutoSize = true;
             this.LblOperadorPV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblOperadorPV.Location = new System.Drawing.Point(454, 25);
+            this.LblOperadorPV.Location = new System.Drawing.Point(374, 27);
             this.LblOperadorPV.Name = "LblOperadorPV";
             this.LblOperadorPV.Size = new System.Drawing.Size(19, 20);
             this.LblOperadorPV.TabIndex = 2;
@@ -638,7 +798,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(362, 27);
+            this.label20.Location = new System.Drawing.Point(268, 27);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(89, 20);
             this.label20.TabIndex = 2;
@@ -667,7 +827,7 @@
             this.gbDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDatos.Location = new System.Drawing.Point(0, 43);
             this.gbDatos.Name = "gbDatos";
-            this.gbDatos.Size = new System.Drawing.Size(1233, 125);
+            this.gbDatos.Size = new System.Drawing.Size(1511, 125);
             this.gbDatos.TabIndex = 7;
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Datos Ticket";
@@ -835,7 +995,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1233, 43);
+            this.panel2.Size = new System.Drawing.Size(1511, 43);
             this.panel2.TabIndex = 11;
             // 
             // label23
@@ -844,7 +1004,7 @@
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.Location = new System.Drawing.Point(0, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(1184, 41);
+            this.label23.Size = new System.Drawing.Size(1462, 41);
             this.label23.TabIndex = 12;
             this.label23.Text = "Detalle de Pre-Secado";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -854,189 +1014,30 @@
             this.BtnCerrarVerCons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnCerrarVerCons.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnCerrarVerCons.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrarVerCons.Location = new System.Drawing.Point(1184, 0);
+            this.BtnCerrarVerCons.Location = new System.Drawing.Point(1462, 0);
             this.BtnCerrarVerCons.Name = "BtnCerrarVerCons";
             this.BtnCerrarVerCons.Size = new System.Drawing.Size(47, 41);
             this.BtnCerrarVerCons.TabIndex = 11;
             this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
             this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
             // 
-            // PbCarga
+            // TLPDatos
             // 
-            this.PbCarga.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.PbCarga.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PbCarga.Image = global::ProyectoOFI.Properties.Resources.loading_12;
-            this.PbCarga.Location = new System.Drawing.Point(0, 0);
-            this.PbCarga.Name = "PbCarga";
-            this.PbCarga.Size = new System.Drawing.Size(250, 172);
-            this.PbCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbCarga.TabIndex = 0;
-            this.PbCarga.TabStop = false;
-            // 
-            // GbPreSecado
-            // 
-            this.GbPreSecado.Controls.Add(this.LblG2);
-            this.GbPreSecado.Controls.Add(this.LblG1);
-            this.GbPreSecado.Controls.Add(this.label38);
-            this.GbPreSecado.Controls.Add(this.label41);
-            this.GbPreSecado.Controls.Add(this.label36);
-            this.GbPreSecado.Controls.Add(this.LblHumedadSF);
-            this.GbPreSecado.Controls.Add(this.LblTotalPre);
-            this.GbPreSecado.Controls.Add(this.label33);
-            this.GbPreSecado.Controls.Add(this.LblParos);
-            this.GbPreSecado.Controls.Add(this.label31);
-            this.GbPreSecado.Controls.Add(this.LblHrDesfin);
-            this.GbPreSecado.Controls.Add(this.label29);
-            this.GbPreSecado.Controls.Add(this.LblHrDescIn);
-            this.GbPreSecado.Controls.Add(this.label27);
-            this.GbPreSecado.Controls.Add(this.LblFDescargue);
-            this.GbPreSecado.Controls.Add(this.label24);
-            this.GbPreSecado.Dock = System.Windows.Forms.DockStyle.Top;
-            this.GbPreSecado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.GbPreSecado.Location = new System.Drawing.Point(0, 478);
-            this.GbPreSecado.Name = "GbPreSecado";
-            this.GbPreSecado.Size = new System.Drawing.Size(1233, 149);
-            this.GbPreSecado.TabIndex = 12;
-            this.GbPreSecado.TabStop = false;
-            this.GbPreSecado.Text = "Datos de Pre-Secado";
-            // 
-            // label24
-            // 
-            this.label24.Location = new System.Drawing.Point(48, 38);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(112, 52);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "Fecha de Descargue:";
-            // 
-            // LblFDescargue
-            // 
-            this.LblFDescargue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFDescargue.Location = new System.Drawing.Point(175, 52);
-            this.LblFDescargue.Name = "LblFDescargue";
-            this.LblFDescargue.Size = new System.Drawing.Size(157, 24);
-            this.LblFDescargue.TabIndex = 12;
-            this.LblFDescargue.Text = "--";
-            // 
-            // label27
-            // 
-            this.label27.Location = new System.Drawing.Point(347, 38);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(85, 52);
-            this.label27.TabIndex = 0;
-            this.label27.Text = "Hora de Inicio:";
-            // 
-            // LblHrDescIn
-            // 
-            this.LblHrDescIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblHrDescIn.Location = new System.Drawing.Point(447, 52);
-            this.LblHrDescIn.Name = "LblHrDescIn";
-            this.LblHrDescIn.Size = new System.Drawing.Size(111, 24);
-            this.LblHrDescIn.TabIndex = 12;
-            this.LblHrDescIn.Text = "--";
-            // 
-            // label29
-            // 
-            this.label29.Location = new System.Drawing.Point(573, 44);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(85, 40);
-            this.label29.TabIndex = 0;
-            this.label29.Text = "Hora de Fin:";
-            // 
-            // LblHrDesfin
-            // 
-            this.LblHrDesfin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblHrDesfin.Location = new System.Drawing.Point(673, 52);
-            this.LblHrDesfin.Name = "LblHrDesfin";
-            this.LblHrDesfin.Size = new System.Drawing.Size(101, 24);
-            this.LblHrDesfin.TabIndex = 12;
-            this.LblHrDesfin.Text = "--";
-            // 
-            // label31
-            // 
-            this.label31.Location = new System.Drawing.Point(789, 52);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(85, 24);
-            this.label31.TabIndex = 0;
-            this.label31.Text = "Paros:";
-            // 
-            // LblParos
-            // 
-            this.LblParos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblParos.Location = new System.Drawing.Point(855, 52);
-            this.LblParos.Name = "LblParos";
-            this.LblParos.Size = new System.Drawing.Size(97, 24);
-            this.LblParos.TabIndex = 12;
-            this.LblParos.Text = "--";
-            // 
-            // label33
-            // 
-            this.label33.Location = new System.Drawing.Point(1001, 38);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(120, 52);
-            this.label33.TabIndex = 0;
-            this.label33.Text = "Total de Pre-Secado:";
-            // 
-            // LblTotalPre
-            // 
-            this.LblTotalPre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTotalPre.Location = new System.Drawing.Point(1113, 52);
-            this.LblTotalPre.Name = "LblTotalPre";
-            this.LblTotalPre.Size = new System.Drawing.Size(91, 24);
-            this.LblTotalPre.TabIndex = 12;
-            this.LblTotalPre.Text = "--";
-            // 
-            // label36
-            // 
-            this.label36.Location = new System.Drawing.Point(48, 112);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(121, 24);
-            this.label36.TabIndex = 0;
-            this.label36.Text = "Guardiola #1:";
-            // 
-            // LblG1
-            // 
-            this.LblG1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblG1.Location = new System.Drawing.Point(175, 112);
-            this.LblG1.Name = "LblG1";
-            this.LblG1.Size = new System.Drawing.Size(49, 24);
-            this.LblG1.TabIndex = 12;
-            this.LblG1.Text = "--";
-            // 
-            // label38
-            // 
-            this.label38.Location = new System.Drawing.Point(362, 112);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(121, 24);
-            this.label38.TabIndex = 0;
-            this.label38.Text = "Guardiola #2:";
-            // 
-            // LblG2
-            // 
-            this.LblG2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblG2.Location = new System.Drawing.Point(489, 112);
-            this.LblG2.Name = "LblG2";
-            this.LblG2.Size = new System.Drawing.Size(49, 24);
-            this.LblG2.TabIndex = 12;
-            this.LblG2.Text = "--";
-            // 
-            // LblHumedadSF
-            // 
-            this.LblHumedadSF.AutoSize = true;
-            this.LblHumedadSF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblHumedadSF.Location = new System.Drawing.Point(724, 112);
-            this.LblHumedadSF.Name = "LblHumedadSF";
-            this.LblHumedadSF.Size = new System.Drawing.Size(19, 20);
-            this.LblHumedadSF.TabIndex = 2;
-            this.LblHumedadSF.Text = "--";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(627, 112);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(91, 20);
-            this.label41.TabIndex = 6;
-            this.label41.Text = "Humedad:";
+            this.TLPDatos.AutoScroll = true;
+            this.TLPDatos.ColumnCount = 2;
+            this.TLPDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TLPDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TLPDatos.Controls.Add(this.gbPOAV, 0, 0);
+            this.TLPDatos.Controls.Add(this.gbVertical, 1, 0);
+            this.TLPDatos.Controls.Add(this.GbPreSecado, 0, 1);
+            this.TLPDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TLPDatos.Location = new System.Drawing.Point(0, 168);
+            this.TLPDatos.Name = "TLPDatos";
+            this.TLPDatos.RowCount = 2;
+            this.TLPDatos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TLPDatos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TLPDatos.Size = new System.Drawing.Size(1511, 465);
+            this.TLPDatos.TabIndex = 13;
             // 
             // SecadoMecanico
             // 
@@ -1056,7 +1057,10 @@
             this.plfooter.ResumeLayout(false);
             this.plfooter.PerformLayout();
             this.PlCarga.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
             this.PLDatos.ResumeLayout(false);
+            this.GbPreSecado.ResumeLayout(false);
+            this.GbPreSecado.PerformLayout();
             this.gbVertical.ResumeLayout(false);
             this.gbVertical.PerformLayout();
             this.gbPOAV.ResumeLayout(false);
@@ -1064,9 +1068,7 @@
             this.gbDatos.ResumeLayout(false);
             this.gbDatos.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
-            this.GbPreSecado.ResumeLayout(false);
-            this.GbPreSecado.PerformLayout();
+            this.TLPDatos.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1141,7 +1143,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.GroupBox GbPreSecado;
         public System.Windows.Forms.Label LblG1;
-        public System.Windows.Forms.Label label36;
         public System.Windows.Forms.Label LblTotalPre;
         public System.Windows.Forms.Label label33;
         public System.Windows.Forms.Label LblParos;
@@ -1153,8 +1154,8 @@
         public System.Windows.Forms.Label LblFDescargue;
         public System.Windows.Forms.Label label24;
         public System.Windows.Forms.Label LblG2;
-        public System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label LblHumedadSF;
+        private System.Windows.Forms.TableLayoutPanel TLPDatos;
     }
 }

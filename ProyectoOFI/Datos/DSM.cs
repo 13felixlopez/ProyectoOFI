@@ -241,5 +241,56 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+
+        internal void VerPreSecado(ref DataTable dt, string ticket,Label LblG1,Label LblG2)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("VerPreSecado", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Ticket", ticket);
+                da.Fill(dt);
+
+                if (dt.Rows.Count == 2)
+                {
+                    foreach (DataRow dr in dt.Rows)
+                    {
+                        string resultado = dr["POA"].ToString();
+                        if (resultado.EndsWith("-Parte1"))
+                        {
+                            LblG1.Text = resultado;
+                        }
+                        else if (resultado.EndsWith("-Parte2"))
+                        {
+                            LblG2.Text = resultado;
+                        }
+                    }
+                }
+                else if (dt.Rows.Count == 1)
+                {
+                    DataRow dr = dt.Rows[0];
+                    string resultado = dr["POA"].ToString();
+                    if (resultado.EndsWith("-Parte1"))
+                    {
+                        LblG1.Text = resultado;
+                    }
+                    else if (resultado.EndsWith("-Parte2"))
+                    {
+                        LblG2.Text = resultado;
+                    }
+                    // Si solo hay un resultado, el otro Label quedará sin cambio
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en VerPreSecado ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
     }
 }

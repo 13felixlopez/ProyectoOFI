@@ -44,6 +44,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.StackTrace);
+                Log.Writeerror("Error al Insertar los datos en InsertarVertical ✖️✖️" + ex.Message);
                 return false;
             }
             finally
@@ -73,7 +74,6 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-
         internal void CargarVer(string TK, DataTable dt)
         {
             try
@@ -88,7 +88,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron cargar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("No se pudieron cargar los datos en CargarVer ✖️✖️ " + ex.Message); 
+                Log.Writeerror("No se pudieron cargar los datos en CargarVer ✖️✖️ " + ex.Message);
             }
             finally
             {
@@ -130,6 +130,43 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar(); // Suponiendo que esto cierra la conexión a la base de datos
             }
 
+        }
+        public bool InsertarPreSecado(LVertical parametros)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("InsertarPreSecado", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IDV", parametros.IDV);
+                cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                cmd.Parameters.AddWithValue("@FechaDes", parametros.FechaDes);
+                cmd.Parameters.AddWithValue("@HoradesIn", parametros.HoradesIn);
+                cmd.Parameters.AddWithValue("@HoraFin", parametros.HoraFin);
+                cmd.Parameters.AddWithValue("@Humedad", parametros.Humedad);
+                cmd.Parameters.AddWithValue("@Paros", parametros.Paros);
+                cmd.Parameters.AddWithValue("@Observacion", parametros.Observacion);
+                cmd.Parameters.AddWithValue("@Total", parametros.Total);
+                cmd.Parameters.AddWithValue("@ProcesoSF", parametros.ProcesoSF);
+                cmd.Parameters.AddWithValue("@IdOperador", parametros.OperadorV);
+                cmd.Parameters.AddWithValue("@IdTurno", parametros.TurnoV);
+                cmd.Parameters.AddWithValue("@POA1", parametros.POA1);
+                cmd.Parameters.AddWithValue("POA2", parametros.POA2);
+                cmd.Parameters.AddWithValue("@DigitadorSF", parametros.DigitadorV);
+                cmd.ExecuteNonQuery();
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Insertar los datos " + ex.Message, "ERROR Pre-Secado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al Insertar los datos en InsertarPreSecado ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
         }
     }
 }

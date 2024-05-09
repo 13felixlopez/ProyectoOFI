@@ -1,18 +1,16 @@
 ﻿using ProyectoOFI.Datos;
+using ProyectoOFI.Logica;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.SM
 {
     public partial class Verticales : UserControl
     {
+        string Observacion = "";
+        int IDV;
         public Verticales()
         {
             InitializeComponent();
@@ -157,7 +155,6 @@ namespace ProyectoOFI.SM
             }
             #endregion
         }
-
         private void BtnCerrarVerCons_Click(object sender, EventArgs e)
         {
             PlDatos.Visible = false;
@@ -189,6 +186,7 @@ namespace ProyectoOFI.SM
             LblFRecibido.Text = dt.Rows[0]["FRecibido"].ToString();
             LblCert.Text = dt.Rows[0]["Certificacion"].ToString();
             Lblver.Text = dt.Rows[0]["Ver"].ToString();
+            IDV = int.Parse(dt.Rows[0]["IDV"].ToString());
             if (LblCert.Text != "Convencional")
             {
                 PlDatos.BackColor = Color.FromArgb(192, 255, 255);
@@ -207,8 +205,11 @@ namespace ProyectoOFI.SM
                 - PlDatos.Width / 2, TLPPlTolvas.Height / 2 - PlDatos.Height / 2);
             PlDatos.BringToFront();
             TLPPlTolvas.Enabled = false;
+            DPOAV funcion = new DPOAV();
+            funcion.MostrarTurno(CbTurno);
+            DSM fun = new DSM();
+            fun.MostrarOperador(CbOperadores);
         }
-
         private void btnV1_Click(object sender, EventArgs e)
         {
             if (lblV1.Text != "--")
@@ -218,13 +219,27 @@ namespace ProyectoOFI.SM
             else
             {
                 MessageBox.Show("Vertical Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                PlDatos.Visible=false;
+                PlDatos.Visible = false;
             }
         }
 
         private void Limpiar()
         {
-            throw new NotImplementedException();
+            CbPOA1.Text = "1";
+            CbPOA2.Text = "2";
+            DtPFDes1.Value = DateTime.Now;
+            DtPFDes2.Value = DateTime.Now;
+            DtHInicio1.Value = DateTime.Now;
+            DtHInicio2.Value = DateTime.Now;
+            DtHoraFin1.Value = DateTime.Now;
+            DtHoraFin2.Value = DateTime.Now;
+            TxtHumedad.Clear();
+            TxtParos.Text = "0";
+            LblTiempoPre.Text = "--";
+            for (int i = 0; i < CHParos.Items.Count; i++)
+            {
+                CHParos.SetItemChecked(i, false);
+            }
         }
 
         private void btnV2_Click(object sender, EventArgs e)
@@ -323,6 +338,103 @@ namespace ProyectoOFI.SM
             GbSF.Visible = true;
             DVerticales funcion = new DVerticales();
             funcion.MostrarParos(CHParos);
+        }
+
+        private void BtnSF_Click(object sender, EventArgs e)
+        {
+            if (Validar())
+            {
+                InsertarPreSecado();
+            }
+            else
+            {
+                MessageBox.Show("Existen campos vacios","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void InsertarPreSecado()
+        {
+            try
+            {
+                LVertical parametros = new LVertical();
+                DVerticales funcion = new DVerticales();
+                parametros.Ticket = LblTicket.Text;
+                parametros.FechaDes = DtPFDes1.Value;
+                parametros.HoradesIn = DtHInicio1.Value;
+                parametros.HoraFin = DtHInicio2.Value;
+                parametros.Humedad = double.Parse(TxtHumedad.Text);
+                parametros.Paros = double.Parse(TxtParos.Text);
+                Paros();
+                parametros.Observacion = Observacion;
+                parametros.Total = DateTime.Parse(LblTiempoPre.Text);
+                parametros.ProcesoSF = "POA";
+                parametros.OperadorV = int.Parse(CbOperadores.SelectedValue.ToString());
+                parametros.TurnoV = int.Parse(CbTurno.SelectedValue.ToString());
+                parametros.POA1 = int.Parse(CbPOA1.Text.Trim());
+                parametros.POA2 = int.Parse(CbPOA2.Text.Trim());
+                parametros.DigitadorV = Login.NombreA;
+                parametros.IDV = IDV;
+                if (funcion.InsertarPreSecado(parametros) == true)
+                {
+                    MessageBox.Show("Operación realizada con éxito", "Secado final", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    PlDatos.Visible = false;
+                    TLPPlTolvas.Enabled = true;
+                    Limpiar();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar datos Pre-Secado " + ex.Message, "ERROR Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void Paros()
+        {
+            foreach (var item in CHParos.CheckedItems)
+            {
+                Observacion += item.ToString() + ", ";
+            }
+
+            //// Quitar la coma adicional al final si hay elementos seleccionados
+            //if (!string.IsNullOrEmpty(Observacion))
+            //{
+            //    Observacion = Observacion.TrimEnd(',', ' ');
+            //}
+        }
+        private bool Validar()
+        {
+            double entero;
+            if (!double.TryParse(TxtParos.Text, out entero) || !double.TryParse(TxtHumedad.Text, out entero))
+            {
+                return false;
+            }
+            return !(CbPOA1.Text == "" || CbPOA2.Text == "" || TxtHumedad.Text == "" || TxtParos.Text == "" || CbOperadores.Text == ""
+                || CbTurno.Text == "");
+        }
+
+        private void TxtParos_TextChanged(object sender, EventArgs e)
+        {
+            // Obtener el valor de Txtparos y convertirlo a un TimeSpan
+            TimeSpan paros;
+            if (!TimeSpan.TryParse(TxtParos.Text, out paros))
+            {
+                // Manejar el caso en que el valor ingresado en Txtparos no sea válido
+                MessageBox.Show("El valor ingresado en Txtparos no es válido.");
+                return;
+            }
+
+            // Calcular el tiempo total y restarle el tiempo de paros
+            DateTime FInicio, FechaFin, HoraInicio, HoraFin;
+            FInicio = dtFProcV.Value;
+            FechaFin = DtPFDes1.Value;
+            HoraInicio = dtHorainicioV.Value;
+            HoraFin = DtHoraFin2.Value;
+
+            TimeSpan tiempoTotal = (FechaFin.Date + HoraFin.TimeOfDay) - (FInicio.Date + HoraInicio.TimeOfDay);
+            tiempoTotal -= paros;
+
+            // Convertir el resultado a formato HH:MM y mostrarlo
+            string resultado = tiempoTotal.ToString(@"hh\:mm");
+            LblTiempoPre.Text = resultado;
+
         }
     }
 }

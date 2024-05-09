@@ -365,6 +365,7 @@ namespace ProyectoOFI.SM
                 txtHumedadPV.Enabled = false;
                 btnDescargarPV.Visible = true;
                 cbTicketV.Enabled = false;
+                TLPPlTolvas.Enabled = true;
             }
             else
             {
@@ -391,6 +392,7 @@ namespace ProyectoOFI.SM
                 if (dtFProcV.Value >= dtFechaPV.Value)
                 {
                     DescargarTV();
+                    
                 }
                 else
                 {
@@ -419,12 +421,17 @@ namespace ProyectoOFI.SM
             parametros.DigitadorV = Login.NombreA;
             if (funcion.InsertarVertical(parametros) == true)
             {
-                string TK = cbTicketV.Text;
-                LPOAV parametro = new LPOAV();
-                DPOAV fun = new DPOAV();
-                parametro.Ticket = TK;
+                //string TK = cbTicketV.Text;
+                //LPOAV parametro = new LPOAV();
+                //DPOAV fun = new DPOAV();
+                //parametro.Ticket = TK;
                 MessageBox.Show("Se ha Guardado el registro", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                PLDatos.Visible = false;
+                Limpiar();
+                MostrarTicketsEnLabels();
+                Estilo();
                 gbVertical.Visible = false;
+                TLPPlTolvas.Enabled = true;
             }
             else
             {

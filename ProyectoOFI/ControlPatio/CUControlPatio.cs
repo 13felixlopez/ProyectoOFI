@@ -278,11 +278,12 @@ namespace ProyectoOFI.ControlPatio
                 PlTendido.Enabled = false;
                 //Enfarde
                 PlEnfarde.Visible = true;
+                PlEnfarde.Enabled= false;
                 TSLEnfarde.Enabled = true;
                 TSLEnfarde.Visible = true;
                 //Envio
                 PlEnvio.Visible = true;
-                PlEnfarde.Enabled = true;
+                PlEnvio.Enabled = true;
                 VerTendidio();
                 VerEnfarde();
             }
@@ -829,6 +830,18 @@ namespace ProyectoOFI.ControlPatio
             CbBuscador.Visible = true;
             CbBuscador.DataSource = null;
             CbBuscador.SelectedIndex = -1;
+        }
+
+        private void CbDestino_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CbDestino.Text == "Secado Mecánico")
+            {
+                CbEstFis.Text = "Pre-Seco";
+            }
+            else if(CbDestino.Text == "Almacén")
+            {
+                CbEstFis.Text = "Seco";
+            }
         }
 
         private void InsertarEnvio()

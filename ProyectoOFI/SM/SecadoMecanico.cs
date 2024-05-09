@@ -20,6 +20,8 @@ namespace ProyectoOFI.SM
         int ContarBusqueda;
         private int items_por_pagina = 100;
         int IdVer;
+        string origen;
+        Label labelPreSeco = new Label();
 
         public SecadoMecanico()
         {
@@ -110,6 +112,96 @@ namespace ProyectoOFI.SM
                 VerPOAV();
                 VerVertical();
             }
+            if (Proceso == "POA")
+            {
+                GbPreSecado.Visible = true;
+                gbPOAV.Visible = true;
+                gbVertical.Visible = true;
+                VerPOAV();
+                VerVertical();
+                VerPreSecado();
+            }
+        }
+
+        private void VerPreSecado()
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                DSM SM = new DSM();
+                SM.VerPreSecado(ref dt, Ticket, LblG1, LblG2);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow dr = dt.Rows[0];
+                    if (dr["FechaDes"].ToString() != null)
+                    {
+                        LblFDescargue.Text = Convert.ToDateTime(dr["FechaDes"]).ToShortDateString();
+                    }
+                    else
+                    {
+                        LblFDescargue.Text = "--";
+                    }
+                    if (dr["HoradesIn"].ToString() != null)
+                    {
+                        TimeSpan horaMinutos = (TimeSpan)dr["HoradesIn"];
+                        LblHrDescIn.Text = horaMinutos.ToString(@"hh\:mm");
+                    }
+                    else
+                    {
+                        LblHrDescIn.Text = "--";
+                    }
+                    if (dr["HoraFin"].ToString() != null)
+                    {
+                        TimeSpan horaMaxutos = (TimeSpan)dr["HoraFin"];
+                        LblHrDesfin.Text = horaMaxutos.ToString(@"hh\:mm");
+                    }
+                    else
+                    {
+                        LblHrDesfin.Text = "--";
+                    }
+                    if (dr["Paros"].ToString() != null)
+                    {
+                        LblParos.Text = dr["Paros"].ToString();
+                    }
+                    else
+                    {
+                        LblParos.Text = "--";
+                    }
+                    if (dr["Total"].ToString() != null)
+                    {
+                        LblTotalPre.Text = dr["Total"].ToString();
+                    }
+                    else
+                    {
+                        LblTotalPre.Text = "--";
+                    }
+                    //if (dr["POA"].ToString()!=null)
+                    //{
+                    //    string resultado = dr["POA"].ToString();
+                    //    if (resultado.EndsWith("-Parte1"))
+                    //    {
+                    //        LblG1.Text = resultado;
+                    //    }
+                    //    else if (resultado.EndsWith("-Parte2"))
+                    //    {
+                    //        LblG2.Text = resultado;
+                    //    }
+                    //}
+                    if (dr["Humedad"].ToString() != null)
+                    {
+                        LblHumedadSF.Text = dr["Humedad"].ToString();
+                    }
+                    else
+                    {
+                        LblHumedadSF.Text = "--";
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         private void VerVertical()
@@ -165,7 +257,7 @@ namespace ProyectoOFI.SM
                     }
                     if (dr["Duracion"].ToString() != null)
                     {
-                        TimeSpan tiempo= (TimeSpan)dr["Duracion"];
+                        TimeSpan tiempo = (TimeSpan)dr["Duracion"];
                         string duracionFormateada = $"{tiempo.Hours:D2}:{tiempo.Minutes:D2}";
                         LblDuracion.Text = duracionFormateada;
                     }
@@ -175,7 +267,7 @@ namespace ProyectoOFI.SM
                     }
                     if (dr["Nombre"].ToString() != null)
                     {
-                        LblOperadorV.Text = dr["Nombre"].ToString() ;
+                        LblOperadorV.Text = dr["Nombre"].ToString();
                     }
                     else
                     {
@@ -201,6 +293,9 @@ namespace ProyectoOFI.SM
         {
             PLDatos.Visible = false;
             plOpciones.Enabled = true;
+            GbPreSecado.Visible = false;
+            labelPreSeco.Text = "";
+            labelPreSeco.BackColor = Color.Transparent;
         }
         private void VerDetalleTK()
         {
@@ -233,6 +328,18 @@ namespace ProyectoOFI.SM
                     kilos = kilos / 46;
                     LblQQsV.Text = Math.Round(kilos, 2).ToString();
                     Proceso = row["ProcesoSM"].ToString();
+                    origen = row["ProcesoCP"].ToString();
+                    if (origen == "Envio SM")
+                    {
+                        labelPreSeco.Text = "Pre-Seco";
+                        gbDatos.Controls.Add(labelPreSeco);
+                        labelPreSeco.Location = new System.Drawing.Point(1132, 81);
+                        labelPreSeco.BackColor = Color.OrangeRed;
+                    }
+                    else
+                    {
+                        labelPreSeco.Text = "";
+                    }
                 }
             }
             catch (Exception ex)

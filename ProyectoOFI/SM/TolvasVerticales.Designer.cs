@@ -74,6 +74,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.LblCalidadV = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.LblCapacidad = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.LblQQsV = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.LblKilos = new System.Windows.Forms.Label();
@@ -82,6 +84,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
             this.TLPPlTolvas = new System.Windows.Forms.TableLayoutPanel();
             this.lblTV1 = new System.Windows.Forms.Label();
             this.lblTV6 = new System.Windows.Forms.Label();
@@ -96,9 +99,6 @@
             this.btnTV4 = new System.Windows.Forms.Button();
             this.btnTV3 = new System.Windows.Forms.Button();
             this.btnTV2 = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.LblCapacidad = new System.Windows.Forms.Label();
             this.PLDatos.SuspendLayout();
             this.gbVertical.SuspendLayout();
             this.gbPOAV.SuspendLayout();
@@ -586,6 +586,24 @@
             this.label5.TabIndex = 4;
             this.label5.Text = "Calidad:";
             // 
+            // LblCapacidad
+            // 
+            this.LblCapacidad.AutoSize = true;
+            this.LblCapacidad.Location = new System.Drawing.Point(1081, 74);
+            this.LblCapacidad.Name = "LblCapacidad";
+            this.LblCapacidad.Size = new System.Drawing.Size(21, 20);
+            this.LblCapacidad.TabIndex = 2;
+            this.LblCapacidad.Text = "--";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(964, 74);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(99, 20);
+            this.label22.TabIndex = 2;
+            this.label22.Text = "Capacidad:";
+            // 
             // LblQQsV
             // 
             this.LblQQsV.AutoSize = true;
@@ -658,6 +676,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1354, 43);
             this.panel2.TabIndex = 11;
+            // 
+            // label16
+            // 
+            this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(0, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(1307, 43);
+            this.label16.TabIndex = 12;
+            this.label16.Text = "Detalles de lote en Tolva Vertical";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TLPPlTolvas
             // 
@@ -882,7 +911,7 @@
             this.btnTV2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
             this.btnTV2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTV2.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnTV2.Image = ((System.Drawing.Image)(resources.GetObject("btnTV2.Image")));
+            this.btnTV2.Image = global::ProyectoOFI.Properties.Resources.TolvaV;
             this.btnTV2.Location = new System.Drawing.Point(174, 48);
             this.btnTV2.Name = "btnTV2";
             this.btnTV2.Size = new System.Drawing.Size(165, 608);
@@ -891,35 +920,6 @@
             this.btnTV2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnTV2.UseVisualStyleBackColor = false;
             this.btnTV2.Click += new System.EventHandler(this.btnTV2_Click);
-            // 
-            // label16
-            // 
-            this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(0, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(1307, 43);
-            this.label16.TabIndex = 12;
-            this.label16.Text = "Detalles de lote en Tolva Vertical";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(964, 74);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(99, 20);
-            this.label22.TabIndex = 2;
-            this.label22.Text = "Capacidad:";
-            // 
-            // LblCapacidad
-            // 
-            this.LblCapacidad.AutoSize = true;
-            this.LblCapacidad.Location = new System.Drawing.Point(1081, 74);
-            this.LblCapacidad.Name = "LblCapacidad";
-            this.LblCapacidad.Size = new System.Drawing.Size(21, 20);
-            this.LblCapacidad.TabIndex = 2;
-            this.LblCapacidad.Text = "--";
             // 
             // TolvasVerticales
             // 

@@ -39,15 +39,14 @@
             this.lblV7 = new System.Windows.Forms.Label();
             this.btnV6 = new System.Windows.Forms.Button();
             this.btnV1 = new System.Windows.Forms.Button();
-            this.btnV8 = new System.Windows.Forms.Button();
             this.btnV7 = new System.Windows.Forms.Button();
             this.btnV5 = new System.Windows.Forms.Button();
             this.btnV4 = new System.Windows.Forms.Button();
             this.btnV3 = new System.Windows.Forms.Button();
             this.btnV2 = new System.Windows.Forms.Button();
-            this.lblV8 = new System.Windows.Forms.Label();
             this.PlDatos = new System.Windows.Forms.Panel();
             this.GbSF = new System.Windows.Forms.GroupBox();
+            this.CbTurno = new System.Windows.Forms.ComboBox();
             this.CbOperadores = new System.Windows.Forms.ComboBox();
             this.BtnSF = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
@@ -62,6 +61,7 @@
             this.DtHInicio2 = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
             this.CbPOA2 = new System.Windows.Forms.ComboBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.DtHInicio1 = new System.Windows.Forms.DateTimePicker();
             this.label28 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
@@ -111,8 +111,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.BtnCerrarVerCons = new System.Windows.Forms.Button();
-            this.label29 = new System.Windows.Forms.Label();
-            this.CbTurno = new System.Windows.Forms.ComboBox();
+            this.lblV8 = new System.Windows.Forms.Label();
+            this.btnV8 = new System.Windows.Forms.Button();
             this.TLPPlTolvas.SuspendLayout();
             this.PlDatos.SuspendLayout();
             this.GbSF.SuspendLayout();
@@ -276,23 +276,6 @@
             this.btnV1.UseVisualStyleBackColor = false;
             this.btnV1.Click += new System.EventHandler(this.btnV1_Click);
             // 
-            // btnV8
-            // 
-            this.btnV8.BackColor = System.Drawing.SystemColors.Control;
-            this.btnV8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnV8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
-            this.btnV8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnV8.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnV8.Image = ((System.Drawing.Image)(resources.GetObject("btnV8.Image")));
-            this.btnV8.Location = new System.Drawing.Point(1529, 58);
-            this.btnV8.Name = "btnV8";
-            this.btnV8.Size = new System.Drawing.Size(218, 732);
-            this.btnV8.TabIndex = 52;
-            this.btnV8.Text = "Vertical #8";
-            this.btnV8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnV8.UseVisualStyleBackColor = false;
-            this.btnV8.Click += new System.EventHandler(this.btnV8_Click);
-            // 
             // btnV7
             // 
             this.btnV7.BackColor = System.Drawing.SystemColors.Control;
@@ -378,18 +361,6 @@
             this.btnV2.UseVisualStyleBackColor = false;
             this.btnV2.Click += new System.EventHandler(this.btnV2_Click);
             // 
-            // lblV8
-            // 
-            this.lblV8.BackColor = System.Drawing.Color.White;
-            this.lblV8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblV8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblV8.Location = new System.Drawing.Point(1529, 0);
-            this.lblV8.Name = "lblV8";
-            this.lblV8.Size = new System.Drawing.Size(218, 55);
-            this.lblV8.TabIndex = 53;
-            this.lblV8.Text = "--";
-            this.lblV8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // PlDatos
             // 
             this.PlDatos.Controls.Add(this.GbSF);
@@ -441,6 +412,14 @@
             this.GbSF.TabStop = false;
             this.GbSF.Text = "Envío para Secado Final";
             this.GbSF.Visible = false;
+            // 
+            // CbTurno
+            // 
+            this.CbTurno.FormattingEnabled = true;
+            this.CbTurno.Location = new System.Drawing.Point(729, 196);
+            this.CbTurno.Name = "CbTurno";
+            this.CbTurno.Size = new System.Drawing.Size(182, 24);
+            this.CbTurno.TabIndex = 15;
             // 
             // CbOperadores
             // 
@@ -578,6 +557,15 @@
             this.CbPOA2.Name = "CbPOA2";
             this.CbPOA2.Size = new System.Drawing.Size(121, 24);
             this.CbPOA2.TabIndex = 1;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(667, 198);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(56, 17);
+            this.label29.TabIndex = 2;
+            this.label29.Text = "Turno:";
             // 
             // DtHInicio1
             // 
@@ -1071,22 +1059,34 @@
             this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
             this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
             // 
-            // label29
+            // lblV8
             // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(667, 198);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(56, 17);
-            this.label29.TabIndex = 2;
-            this.label29.Text = "Turno:";
+            this.lblV8.BackColor = System.Drawing.Color.White;
+            this.lblV8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblV8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblV8.Location = new System.Drawing.Point(1529, 0);
+            this.lblV8.Name = "lblV8";
+            this.lblV8.Size = new System.Drawing.Size(218, 55);
+            this.lblV8.TabIndex = 53;
+            this.lblV8.Text = "--";
+            this.lblV8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // CbTurno
+            // btnV8
             // 
-            this.CbTurno.FormattingEnabled = true;
-            this.CbTurno.Location = new System.Drawing.Point(729, 196);
-            this.CbTurno.Name = "CbTurno";
-            this.CbTurno.Size = new System.Drawing.Size(182, 24);
-            this.CbTurno.TabIndex = 15;
+            this.btnV8.BackColor = System.Drawing.SystemColors.Control;
+            this.btnV8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnV8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
+            this.btnV8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnV8.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnV8.Image = ((System.Drawing.Image)(resources.GetObject("btnV8.Image")));
+            this.btnV8.Location = new System.Drawing.Point(1529, 58);
+            this.btnV8.Name = "btnV8";
+            this.btnV8.Size = new System.Drawing.Size(218, 732);
+            this.btnV8.TabIndex = 52;
+            this.btnV8.Text = "Vertical #8";
+            this.btnV8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnV8.UseVisualStyleBackColor = false;
+            this.btnV8.Click += new System.EventHandler(this.btnV8_Click);
             // 
             // Verticales
             // 
@@ -1122,13 +1122,11 @@
         private System.Windows.Forms.Label lblV7;
         private System.Windows.Forms.Button btnV6;
         private System.Windows.Forms.Button btnV1;
-        private System.Windows.Forms.Button btnV8;
         private System.Windows.Forms.Button btnV7;
         private System.Windows.Forms.Button btnV5;
         private System.Windows.Forms.Button btnV4;
         private System.Windows.Forms.Button btnV3;
         private System.Windows.Forms.Button btnV2;
-        private System.Windows.Forms.Label lblV8;
         private System.Windows.Forms.Panel PlDatos;
         public System.Windows.Forms.GroupBox gbDatos;
         private System.Windows.Forms.Label LblTicket;
@@ -1196,5 +1194,7 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.ComboBox CbTurno;
         private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Button btnV8;
+        private System.Windows.Forms.Label lblV8;
     }
 }

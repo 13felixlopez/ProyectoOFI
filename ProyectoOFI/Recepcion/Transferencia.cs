@@ -25,7 +25,7 @@ namespace ProyectoOFI.Recepcion
         int hasta = 100;
         private int items_por_pagina = 100;
         int totalPaginas;
-        string Calidad, EstadoFisico, Daño;
+        static string Calidad, EstadoFisico, Daño;
         int IdCertificacionE;
         string CertificacionE;
         int ContadorEdit;
@@ -916,6 +916,10 @@ namespace ProyectoOFI.Recepcion
             funcion.MostrarAreaSecado(CbAreaCons);
             funcion.MostrarTKConsolidar(ref Cons, parametros, par);
             //DtTickets.DataSource = Cons;
+            Calidad = parametros.Calidad;
+            CertificacionE = par.CertificacionE;
+            EstadoFisico = parametros.EstadoFisico;
+            Daño = parametros.Daño;
             DtAADT();
         }
         /// <summary>

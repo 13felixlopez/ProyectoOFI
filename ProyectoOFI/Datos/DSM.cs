@@ -19,6 +19,19 @@ namespace ProyectoOFI.Datos
                 da.SelectCommand.Parameters.AddWithValue("@Desde", Desde);
                 da.SelectCommand.Parameters.AddWithValue("@Hasta", Hasta);
                 da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    // Verificar si Proceso es "No Asignado" y asignar un valor vacío a ProcesoSM
+                    if (dr["Proceso"].ToString() == "No Asignado")
+                    {
+                        dr["ProcesoSM"] = "";
+                    }
+                    // Verificar si ProcesoSM es null y cambiarlo por "Carga Directa SF"
+                    else if (dr["ProcesoSM"] == DBNull.Value)
+                    {
+                        dr["ProcesoSM"] = "Carga Directa SF";
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -279,6 +292,7 @@ namespace ProyectoOFI.Datos
                     {
                         LblG2.Text = resultado;
                     }
+                    LblG1.Text = resultado;
                     // Si solo hay un resultado, el otro Label quedará sin cambio
                 }
             }

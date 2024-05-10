@@ -523,6 +523,26 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap POA_Btn {
+            get {
+                object obj = ResourceManager.GetObject("POA Btn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap POASF {
+            get {
+                object obj = ResourceManager.GetObject("POASF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap send_30px {
             get {
                 object obj = ResourceManager.GetObject("send_30px", resourceCulture);
@@ -546,6 +566,16 @@ namespace ProyectoOFI.Properties {
         internal static System.Drawing.Bitmap task_alt_FILL1_wght400_GRAD0_opsz24 {
             get {
                 object obj = ResourceManager.GetObject("task_alt_FILL1_wght400_GRAD0_opsz24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TolvaV {
+            get {
+                object obj = ResourceManager.GetObject("TolvaV", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

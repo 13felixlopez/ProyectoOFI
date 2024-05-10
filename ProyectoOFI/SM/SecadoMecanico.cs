@@ -49,7 +49,7 @@ namespace ProyectoOFI.SM
             DataTable dt = new DataTable();
             SM.MostrarSM(ref dt, desde, hasta);
             dtInventarioSM.DataSource = dt;
-            dtInventarioSM.Columns["Proceso"].Visible = false;
+            // dtInventarioSM.Columns["ProcesoSM"].Visible = false;
         }
         private void ObtenerTK()
         {
@@ -94,32 +94,48 @@ namespace ProyectoOFI.SM
 
         private void TipoProceso()
         {
-            if (Proceso == "No Asignado" || Proceso == "")
+            try
             {
-                gbPOAV.Visible = false;
-                gbVertical.Visible = false;
+
+                if (Proceso == "No Asignado" || Proceso == "")
+                {
+                    gbPOAV.Visible = false;
+                    gbVertical.Visible = false;
+                }
+                if (Proceso == "POAV")
+                {
+                    gbPOAV.Visible = true;
+                    gbVertical.Visible = false;
+                    VerPOAV();
+                }
+                if (Proceso == "Vertical")
+                {
+                    gbPOAV.Visible = true;
+                    gbVertical.Visible = true;
+                    VerPOAV();
+                    VerVertical();
+                }
+                if (Proceso == "POA")
+                {
+                    GbPreSecado.Visible = true;
+                    gbPOAV.Visible = true;
+                    gbVertical.Visible = true;
+                    VerPOAV();
+                    VerVertical();
+                    VerPreSecado();
+                }
+                if (Proceso == "Carga Directa SF")
+                {
+                    gbPOAV.Visible = false;
+                    GbPreSecado.Visible = true;
+                    VerPreSecado();
+                }
             }
-            if (Proceso == "POAV")
+            catch (Exception)
             {
-                gbPOAV.Visible = true;
-                gbVertical.Visible = false;
-                VerPOAV();
-            }
-            if (Proceso == "Vertical")
-            {
-                gbPOAV.Visible = true;
-                gbVertical.Visible = true;
-                VerPOAV();
-                VerVertical();
-            }
-            if (Proceso == "POA")
-            {
-                GbPreSecado.Visible = true;
-                gbPOAV.Visible = true;
-                gbVertical.Visible = true;
-                VerPOAV();
-                VerVertical();
-                VerPreSecado();
+                GbPreSecado.Visible = false;
+                //PLDatos.Visible = false;
+                //MessageBox.Show("No hay datos para mostrar", "Datos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 
@@ -294,6 +310,7 @@ namespace ProyectoOFI.SM
             PLDatos.Visible = false;
             plOpciones.Enabled = true;
             GbPreSecado.Visible = false;
+            gbPOAV.Visible = true;
             labelPreSeco.Text = "";
             labelPreSeco.BackColor = Color.Transparent;
         }
@@ -327,13 +344,13 @@ namespace ProyectoOFI.SM
                     kilos = double.Parse(LblKilos.Text);
                     kilos = kilos / 46;
                     LblQQsV.Text = Math.Round(kilos, 2).ToString();
-                    Proceso = row["ProcesoSM"].ToString();
+                    //Proceso = row["ProcesoSM"].ToString();
                     origen = row["ProcesoCP"].ToString();
                     if (origen == "Envio SM")
                     {
                         labelPreSeco.Text = "Pre-Seco";
                         gbDatos.Controls.Add(labelPreSeco);
-                        labelPreSeco.Location = new System.Drawing.Point(1132, 81);
+                        labelPreSeco.Location = new System.Drawing.Point(1081, 62);
                         labelPreSeco.BackColor = Color.OrangeRed;
                     }
                     else

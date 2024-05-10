@@ -31,21 +31,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SMecánico));
             this.plTitulo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pbIcono = new System.Windows.Forms.PictureBox();
             this.plfooter = new System.Windows.Forms.Panel();
-            this.BtnVerticales = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnTverticales = new System.Windows.Forms.Button();
-            this.btnSalir = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
-            this.btnTransferencia = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.PlSM = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnPOA = new System.Windows.Forms.Button();
+            this.BtnVerticales = new System.Windows.Forms.Button();
+            this.BtnTverticales = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnTransferencia = new System.Windows.Forms.Button();
+            this.pbIcono = new System.Windows.Forms.PictureBox();
             this.plTitulo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbIcono)).BeginInit();
             this.plfooter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIcono)).BeginInit();
             this.SuspendLayout();
             // 
             // plTitulo
@@ -71,20 +73,11 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.UseCompatibleTextRendering = true;
             // 
-            // pbIcono
-            // 
-            this.pbIcono.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbIcono.Image = global::ProyectoOFI.Properties.Resources.Logo;
-            this.pbIcono.Location = new System.Drawing.Point(0, 0);
-            this.pbIcono.Name = "pbIcono";
-            this.pbIcono.Size = new System.Drawing.Size(101, 74);
-            this.pbIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbIcono.TabIndex = 1;
-            this.pbIcono.TabStop = false;
-            // 
             // plfooter
             // 
             this.plfooter.BackColor = System.Drawing.Color.DarkOrange;
+            this.plfooter.Controls.Add(this.BtnPOA);
+            this.plfooter.Controls.Add(this.panel2);
             this.plfooter.Controls.Add(this.BtnVerticales);
             this.plfooter.Controls.Add(this.panel1);
             this.plfooter.Controls.Add(this.BtnTverticales);
@@ -100,26 +93,6 @@
             this.plfooter.Size = new System.Drawing.Size(1742, 77);
             this.plfooter.TabIndex = 4;
             // 
-            // BtnVerticales
-            // 
-            this.BtnVerticales.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.BtnVerticales.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnVerticales.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BtnVerticales.FlatAppearance.BorderSize = 0;
-            this.BtnVerticales.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnVerticales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVerticales.Image = global::ProyectoOFI.Properties.Resources.Vertical_Btn;
-            this.BtnVerticales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnVerticales.Location = new System.Drawing.Point(337, 5);
-            this.BtnVerticales.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnVerticales.Name = "BtnVerticales";
-            this.BtnVerticales.Size = new System.Drawing.Size(170, 62);
-            this.BtnVerticales.TabIndex = 18;
-            this.BtnVerticales.Text = "Verticales";
-            this.BtnVerticales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnVerticales.UseVisualStyleBackColor = false;
-            this.BtnVerticales.Click += new System.EventHandler(this.BtnVerticales_Click);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkOrange;
@@ -130,37 +103,6 @@
             this.panel1.Size = new System.Drawing.Size(8, 62);
             this.panel1.TabIndex = 16;
             // 
-            // BtnTverticales
-            // 
-            this.BtnTverticales.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.BtnTverticales.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnTverticales.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BtnTverticales.FlatAppearance.BorderSize = 0;
-            this.BtnTverticales.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnTverticales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnTverticales.Image = global::ProyectoOFI.Properties.Resources.TolvaV_Btn;
-            this.BtnTverticales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnTverticales.Location = new System.Drawing.Point(159, 5);
-            this.BtnTverticales.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnTverticales.Name = "BtnTverticales";
-            this.BtnTverticales.Size = new System.Drawing.Size(170, 62);
-            this.BtnTverticales.TabIndex = 15;
-            this.BtnTverticales.Text = "Tolvas Verticales";
-            this.BtnTverticales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnTverticales.UseVisualStyleBackColor = false;
-            this.BtnTverticales.Click += new System.EventHandler(this.BtnTverticales_Click);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnSalir.Image = global::ProyectoOFI.Properties.Resources.Atras;
-            this.btnSalir.Location = new System.Drawing.Point(1667, 5);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 62);
-            this.btnSalir.TabIndex = 1;
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.DarkOrange;
@@ -170,26 +112,6 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(8, 62);
             this.panel9.TabIndex = 11;
-            // 
-            // btnTransferencia
-            // 
-            this.btnTransferencia.BackColor = System.Drawing.Color.DarkTurquoise;
-            this.btnTransferencia.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnTransferencia.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnTransferencia.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnTransferencia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTransferencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTransferencia.Image = global::ProyectoOFI.Properties.Resources.Plan;
-            this.btnTransferencia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTransferencia.Location = new System.Drawing.Point(11, 5);
-            this.btnTransferencia.Margin = new System.Windows.Forms.Padding(2);
-            this.btnTransferencia.Name = "btnTransferencia";
-            this.btnTransferencia.Size = new System.Drawing.Size(140, 62);
-            this.btnTransferencia.TabIndex = 10;
-            this.btnTransferencia.Text = "Inventario";
-            this.btnTransferencia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnTransferencia.UseVisualStyleBackColor = false;
-            this.btnTransferencia.Click += new System.EventHandler(this.btnTransferencia_Click);
             // 
             // panel8
             // 
@@ -230,6 +152,118 @@
             this.PlSM.Size = new System.Drawing.Size(1742, 678);
             this.PlSM.TabIndex = 5;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.DarkOrange;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(507, 5);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(8, 62);
+            this.panel2.TabIndex = 19;
+            // 
+            // BtnPOA
+            // 
+            this.BtnPOA.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.BtnPOA.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnPOA.Dock = System.Windows.Forms.DockStyle.Left;
+            this.BtnPOA.FlatAppearance.BorderSize = 0;
+            this.BtnPOA.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnPOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPOA.Image = global::ProyectoOFI.Properties.Resources.POA_Btn;
+            this.BtnPOA.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPOA.Location = new System.Drawing.Point(515, 5);
+            this.BtnPOA.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnPOA.Name = "BtnPOA";
+            this.BtnPOA.Size = new System.Drawing.Size(170, 62);
+            this.BtnPOA.TabIndex = 20;
+            this.BtnPOA.Text = "POA";
+            this.BtnPOA.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnPOA.UseVisualStyleBackColor = false;
+            this.BtnPOA.Click += new System.EventHandler(this.BtnPOA_Click);
+            // 
+            // BtnVerticales
+            // 
+            this.BtnVerticales.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.BtnVerticales.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnVerticales.Dock = System.Windows.Forms.DockStyle.Left;
+            this.BtnVerticales.FlatAppearance.BorderSize = 0;
+            this.BtnVerticales.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnVerticales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnVerticales.Image = global::ProyectoOFI.Properties.Resources.Vertical_Btn;
+            this.BtnVerticales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnVerticales.Location = new System.Drawing.Point(337, 5);
+            this.BtnVerticales.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnVerticales.Name = "BtnVerticales";
+            this.BtnVerticales.Size = new System.Drawing.Size(170, 62);
+            this.BtnVerticales.TabIndex = 18;
+            this.BtnVerticales.Text = "Verticales";
+            this.BtnVerticales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnVerticales.UseVisualStyleBackColor = false;
+            this.BtnVerticales.Click += new System.EventHandler(this.BtnVerticales_Click);
+            // 
+            // BtnTverticales
+            // 
+            this.BtnTverticales.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.BtnTverticales.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTverticales.Dock = System.Windows.Forms.DockStyle.Left;
+            this.BtnTverticales.FlatAppearance.BorderSize = 0;
+            this.BtnTverticales.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnTverticales.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTverticales.Image = global::ProyectoOFI.Properties.Resources.TolvaV_Btn;
+            this.BtnTverticales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTverticales.Location = new System.Drawing.Point(159, 5);
+            this.BtnTverticales.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnTverticales.Name = "BtnTverticales";
+            this.BtnTverticales.Size = new System.Drawing.Size(170, 62);
+            this.BtnTverticales.TabIndex = 15;
+            this.BtnTverticales.Text = "Tolvas Verticales";
+            this.BtnTverticales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnTverticales.UseVisualStyleBackColor = false;
+            this.BtnTverticales.Click += new System.EventHandler(this.BtnTverticales_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSalir.Image = global::ProyectoOFI.Properties.Resources.Atras;
+            this.btnSalir.Location = new System.Drawing.Point(1667, 5);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 62);
+            this.btnSalir.TabIndex = 1;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnTransferencia
+            // 
+            this.btnTransferencia.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.btnTransferencia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTransferencia.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnTransferencia.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnTransferencia.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTransferencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTransferencia.Image = global::ProyectoOFI.Properties.Resources.Plan;
+            this.btnTransferencia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTransferencia.Location = new System.Drawing.Point(11, 5);
+            this.btnTransferencia.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTransferencia.Name = "btnTransferencia";
+            this.btnTransferencia.Size = new System.Drawing.Size(140, 62);
+            this.btnTransferencia.TabIndex = 10;
+            this.btnTransferencia.Text = "Inventario";
+            this.btnTransferencia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTransferencia.UseVisualStyleBackColor = false;
+            this.btnTransferencia.Click += new System.EventHandler(this.btnTransferencia_Click);
+            // 
+            // pbIcono
+            // 
+            this.pbIcono.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pbIcono.Image = global::ProyectoOFI.Properties.Resources.Logo;
+            this.pbIcono.Location = new System.Drawing.Point(0, 0);
+            this.pbIcono.Name = "pbIcono";
+            this.pbIcono.Size = new System.Drawing.Size(101, 74);
+            this.pbIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbIcono.TabIndex = 1;
+            this.pbIcono.TabStop = false;
+            // 
             // SMecánico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,8 +282,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.SMecánico_Load);
             this.plTitulo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbIcono)).EndInit();
             this.plfooter.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbIcono)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -270,5 +304,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel11;
         public System.Windows.Forms.Panel PlSM;
+        private System.Windows.Forms.Button BtnPOA;
+        private System.Windows.Forms.Panel panel2;
     }
 }

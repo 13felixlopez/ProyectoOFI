@@ -1,12 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.SM
@@ -57,6 +49,15 @@ namespace ProyectoOFI.SM
             ver.Dock = DockStyle.Fill;
             ver.BringToFront();
             PlSM.Controls.Add(ver);
+        }
+
+        private void BtnPOA_Click(object sender, EventArgs e)
+        {
+            POASF p=new POASF();
+            PlSM.Controls.Clear();
+            p.Dock = DockStyle.Fill;
+            p.BringToFront();
+            PlSM.Controls.Add(p);
         }
     }
 }

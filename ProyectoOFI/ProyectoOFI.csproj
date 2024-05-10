@@ -60,6 +60,7 @@
     <Compile Include="Datos\DHistorial.cs" />
     <Compile Include="Datos\DModulos.cs" />
     <Compile Include="Datos\DPermisos.cs" />
+    <Compile Include="Datos\DPOA.cs" />
     <Compile Include="Datos\DPOAV.cs" />
     <Compile Include="Datos\DRecepcion.cs" />
     <Compile Include="Datos\DReporteTK.cs" />
@@ -239,6 +240,12 @@
     <Compile Include="Reportes\FrmHistorial.Designer.cs">
       <DependentUpon>FrmHistorial.cs</DependentUpon>
     </Compile>
+    <Compile Include="SM\POASF.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SM\POASF.Designer.cs">
+      <DependentUpon>POASF.cs</DependentUpon>
+    </Compile>
     <Compile Include="SM\SecadoMecanico.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -360,6 +367,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmHistorial.resx">
       <DependentUpon>FrmHistorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\POASF.resx">
+      <DependentUpon>POASF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SM\SecadoMecanico.resx">
       <DependentUpon>SecadoMecanico.cs</DependentUpon>
@@ -542,6 +552,9 @@
   <ItemGroup>
     <Content Include="ofi20.sql" />
     <Content Include="ofi2024.sql" />
+    <None Include="Resources\POASF.png" />
+    <None Include="Resources\TolvaV.png" />
+    <None Include="Resources\POA Btn.png" />
     <None Include="Resources\icons8-tiempo-de-propiedades.gif" />
     <None Include="Resources\TolvaV Btn.png" />
     <None Include="Resources\Vertical Btn.png" />

@@ -7,6 +7,7 @@ namespace ProyectoOFI.Datos
 {
     public class DSM
     {
+        public int contador;
         //Variables
         public string TV1, TV2, TV3, TV4, TV5, TV6, TV7, TV8;
         public void MostrarSM(ref DataTable dt, int Desde, int Hasta)
@@ -254,7 +255,6 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-
         internal void VerPreSecado(ref DataTable dt, string ticket,Label LblG1,Label LblG2)
         {
             try
@@ -300,6 +300,39 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en VerPreSecado ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void BuscarTKSM(string Buscar, ref DataTable dt, int desde, int hasta, int Contar)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("BuscarTKSM", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Desde", desde);
+                cmd.Parameters.AddWithValue("@Hasta", hasta);
+                cmd.Parameters.AddWithValue("@Buscador", Buscar);
+
+                // Parámetro de salida para el contador
+                SqlParameter contarParam = new SqlParameter("@Contar", SqlDbType.Int);
+                contarParam.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(contarParam);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                // Obtener el valor del contador
+                Contar = Convert.ToInt32(contarParam.Value);
+                contador = Contar;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarTKSM ✖️✖️" + ex.Message);
             }
             finally
             {

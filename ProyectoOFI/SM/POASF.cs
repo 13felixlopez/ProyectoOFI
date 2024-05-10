@@ -295,6 +295,12 @@ namespace ProyectoOFI.SM
             txtHumedadPOA.Text = dt.Rows[0]["Humedad"].ToString();
             btnGuardarPOA.Visible = false;
             btnDescargarPOA.Visible = true;
+            DtHoraInPOA.Enabled = false;
+            DtHoraFinPOA.Enabled = false;
+            txtHumedadPOA.Enabled = false;
+            cbOperadorPOA.Enabled = false;
+            cbTurnoPOA.Enabled = false;
+            dtFechaPOA.Enabled = false;
             Capacidad();
             AbrirFormulario();
         }
@@ -347,13 +353,72 @@ namespace ProyectoOFI.SM
             {
                 MostrarDatos(lblP1);
             }
-            //else
-            //{
-            //    Limpiar();
-            //    DSM DV = new DSM();
-            //    DV.CargarTk(cbTicketV);
-            //    CargarDatos();
-            //}
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketP);
+                CargarDatos();
+            }
+        }
+        private void CargarDatos()
+        {
+            if (cbTicketP.SelectedValue != null)
+            {
+                AbrirFormulario();
+                DSM sm = new DSM();
+                sm.MostrarDatosTKSM(LblSacos, LblKilos, LblQQsV, LblCalidadV, LblDanioV, LblEFisicoV, LblFRecibido, cbTicketP.Text);
+                cbTicketP.Enabled = true;
+                btnGuardarPOA.Visible = true;
+                btnDescargarPOA.Visible = false;
+                cbOperadorPOA.Enabled = true;
+                cbTurnoPOA.Enabled = true;
+                dtFechaPOA.Enabled = true;
+                txtHumedadPOA.Enabled = true;
+                DtHoraInPOA.Enabled = true;
+                DtHoraFinPOA.Enabled = true;
+                CargarCombos();
+                Capacidad();
+                double QQs = double.Parse(LblQQsV.Text);
+                if (QQs > 331)
+                {
+                    DialogResult result = MessageBox.Show("El peso de este lote supera la capacidad de la maquina, ¿Quieres seguir con el proceso?", "Capacidad POA", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        gbPOA.Enabled = true;
+                    }
+                    else
+                    {
+                        gbPOA.Enabled = false;
+                    }
+                }
+                else
+                {
+                    gbPOA.Enabled = true;
+                }
+            }
+            else
+            {
+                Limpiar();
+            }
+
+        }
+        private void CargarCombos()
+        {
+            DSM sm = new DSM();
+            sm.MostrarOperador(cbOperadorPOA);
+            sm.MostrarOperador(CbOperadores);
+        }
+        private void Limpiar()
+        {
+            LblSacos.Text = "--";
+            LblKilos.Text = "--";
+            LblQQsV.Text = "--";
+            LblCalidadV.Text = "--";
+            LblDanioV.Text = "--";
+            LblEFisicoV.Text = "--";
+            cbOperadorPOA.Text = "";
+            txtHumedadPOA.Clear();
         }
 
         private void btnP2_Click(object sender, EventArgs e)
@@ -398,6 +463,13 @@ namespace ProyectoOFI.SM
             if (lblP6.Text != "--")
             {
                 MostrarDatos(lblP6);
+            }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketP);
+                CargarDatos();
             }
         }
 
@@ -507,6 +579,11 @@ namespace ProyectoOFI.SM
             {
                 MostrarDatos(lblP18);
             }
+        }
+
+        private void cbTicketP_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarDatos();
         }
     }
 }

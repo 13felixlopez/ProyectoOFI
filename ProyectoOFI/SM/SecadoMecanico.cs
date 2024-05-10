@@ -3,9 +3,7 @@ using ProyectoOFI.Otros;
 using System;
 using System.Data;
 using System.Drawing;
-using System.Security.Cryptography;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.SM
@@ -442,6 +440,15 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("Error al cargar datos en controles" + ex.Message, "ERROR en Secado Mecanico", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void BuscarTk()
+        {
+            DataTable dt = new DataTable();
+            DSM funcion = new DSM();
+            funcion.BuscarTKSM(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            dtInventarioSM.DataSource = dt;
+            ContarBusqueda = int.Parse(funcion.contador.ToString());
+            Base.DiseñoDtvEliminar(ref dtInventarioSM);
+        }
         #region Paginado
         private void ReiniciarPaginado()
         {
@@ -502,7 +509,7 @@ namespace ProyectoOFI.SM
             hasta -= 100;
             if (txtBuscador.Text != "")
             {
-                //Buscar();
+                Buscar();
             }
             //else if (CbBuscador.Visible == true)
             //{
@@ -530,13 +537,76 @@ namespace ProyectoOFI.SM
             Paginar();
         }
 
+        private void txtBuscador_TextChanged(object sender, EventArgs e)
+        {
+            if (txtBuscador.Text == "")
+            {
+                ReiniciarPaginado();
+                MostrarSM();
+            }
+            //else if (CbBuscador.Text == "MTNT")
+            //{
+            //    Buscar();
+            //    ReiniciarPaginado();
+            //}
+            //else if (CbBuscador.Text == "Peso")
+            //{
+            //    Buscar();
+            //    ReiniciarPaginado();
+            //}
+            else
+            {
+                BuscarTk();
+                ReiniciarPaginado();
+            }
+        }
+        private void Buscar()
+        {
+            DataTable dt = new DataTable();
+            DSM funcion = new DSM();
+            if (CbBuscar.Text == "Ticket")
+            {
+                funcion.BuscarTKSM(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            }
+            //if (CbBuscar.Text == "Calidad")
+            //{
+            //    funcion.BuscarCalidad(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Certificación")
+            //{
+            //    funcion.BuscarCert(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Daño")
+            //{
+            //    funcion.BuscarDanio(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Tipo Compra")
+            //{
+            //    funcion.BuscarTipoCompra(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "MTNT")
+            //{
+            //    funcion.BuscarMTNT(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Peso")
+            //{
+            //    funcion.BuscarPeso(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Área Secado")
+            //{
+            //    funcion.BuscarAreaSecado(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            dtInventarioSM.DataSource = dt;
+            ContarBusqueda = int.Parse(funcion.contador.ToString());
+            Base.DiseñoDtvEliminar(ref dtInventarioSM);
+        }
         private void btn_Sig_Click(object sender, EventArgs e)
         {
             desde += 100;
             hasta += 100;
             if (txtBuscador.Text != "")
             {
-                //Buscar();
+                Buscar();
             }
             //else if (CbBuscador.Visible == true)
             //{
@@ -565,7 +635,7 @@ namespace ProyectoOFI.SM
             desde = hasta - 99;
             if (txtBuscador.Text != "")
             {
-                //Buscar();
+                Buscar();
             }
             //else if (CbBuscador.Visible == true)
             //{
@@ -593,7 +663,7 @@ namespace ProyectoOFI.SM
             ReiniciarPaginado();
             if (txtBuscador.Text != "")
             {
-                //Buscar();
+                Buscar();
             }
             //else if (CbBuscador.Visible == true)
             //{

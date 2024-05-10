@@ -233,12 +233,13 @@ namespace ProyectoOFI.ControlPatio
                     VerTendidio();
                     VerEnfarde();
                 }
-                else if (Proceso == "Envio")
+                else if (Proceso == "Envio" || Proceso == "Envio SM")
                 {
                     VerTendidio();
                     VerEnfarde();
                     VerEnvioCp();
                 }
+
             }
             else
             {
@@ -278,7 +279,7 @@ namespace ProyectoOFI.ControlPatio
                 PlTendido.Enabled = false;
                 //Enfarde
                 PlEnfarde.Visible = true;
-                PlEnfarde.Enabled= false;
+                PlEnfarde.Enabled = false;
                 TSLEnfarde.Enabled = true;
                 TSLEnfarde.Visible = true;
                 //Envio
@@ -287,7 +288,7 @@ namespace ProyectoOFI.ControlPatio
                 VerTendidio();
                 VerEnfarde();
             }
-            else if (Proceso == "Envio")
+            else if (Proceso == "Envio" || Proceso == "Envio SM")
             {
                 PlTendido.Enabled = false;
                 PlEnvio.Visible = true;
@@ -455,7 +456,7 @@ namespace ProyectoOFI.ControlPatio
             int indice = dtInventariocp.Columns[nombrecolumna].Index;
             Ticket = dtInventariocp.SelectedCells[indice].Value.ToString();
 
-            string nombrecolum = "Proceso";
+            string nombrecolum = "Proceso SN";
             int num = dtInventariocp.Columns[nombrecolum].Index;
             Estado = dtInventariocp.SelectedCells[num].Value.ToString();
         }
@@ -838,7 +839,7 @@ namespace ProyectoOFI.ControlPatio
             {
                 CbEstFis.Text = "Pre-Seco";
             }
-            else if(CbDestino.Text == "Almacén")
+            else if (CbDestino.Text == "Almacén")
             {
                 CbEstFis.Text = "Seco";
             }

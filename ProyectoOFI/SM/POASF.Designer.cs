@@ -65,7 +65,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.gbPOAV = new System.Windows.Forms.GroupBox();
+            this.gbPOA = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.btnDescargarPOA = new System.Windows.Forms.Button();
             this.btnGuardarPOA = new System.Windows.Forms.Button();
@@ -126,7 +126,7 @@
             this.TLPPOA.SuspendLayout();
             this.PlDatos.SuspendLayout();
             this.GbDescarga.SuspendLayout();
-            this.gbPOAV.SuspendLayout();
+            this.gbPOA.SuspendLayout();
             this.gbDatos.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -394,13 +394,13 @@
             // 
             this.PlDatos.BackColor = System.Drawing.Color.White;
             this.PlDatos.Controls.Add(this.GbDescarga);
-            this.PlDatos.Controls.Add(this.gbPOAV);
+            this.PlDatos.Controls.Add(this.gbPOA);
             this.PlDatos.Controls.Add(this.gbDatos);
             this.PlDatos.Controls.Add(this.panel2);
-            this.PlDatos.Location = new System.Drawing.Point(157, 41);
+            this.PlDatos.Location = new System.Drawing.Point(157, 100);
             this.PlDatos.MaximumSize = new System.Drawing.Size(1354, 517);
             this.PlDatos.Name = "PlDatos";
-            this.PlDatos.Size = new System.Drawing.Size(193, 116);
+            this.PlDatos.Size = new System.Drawing.Size(1354, 517);
             this.PlDatos.TabIndex = 64;
             this.PlDatos.Visible = false;
             // 
@@ -425,7 +425,7 @@
             this.GbDescarga.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.GbDescarga.Location = new System.Drawing.Point(0, 292);
             this.GbDescarga.Name = "GbDescarga";
-            this.GbDescarga.Size = new System.Drawing.Size(193, 198);
+            this.GbDescarga.Size = new System.Drawing.Size(1354, 198);
             this.GbDescarga.TabIndex = 17;
             this.GbDescarga.TabStop = false;
             this.GbDescarga.Text = "Datos Descarga";
@@ -573,32 +573,32 @@
             this.label11.TabIndex = 24;
             this.label11.Text = "Hora Fin:";
             // 
-            // gbPOAV
+            // gbPOA
             // 
-            this.gbPOAV.Controls.Add(this.label14);
-            this.gbPOAV.Controls.Add(this.btnDescargarPOA);
-            this.gbPOAV.Controls.Add(this.btnGuardarPOA);
-            this.gbPOAV.Controls.Add(this.dtFechaPOA);
-            this.gbPOAV.Controls.Add(this.cbOperadorPOA);
-            this.gbPOAV.Controls.Add(this.DtHoraFinPOA);
-            this.gbPOAV.Controls.Add(this.txtHumedadPOA);
-            this.gbPOAV.Controls.Add(this.label15);
-            this.gbPOAV.Controls.Add(this.DtHoraInPOA);
-            this.gbPOAV.Controls.Add(this.label18);
-            this.gbPOAV.Controls.Add(this.label19);
-            this.gbPOAV.Controls.Add(this.txtTolvaPOA);
-            this.gbPOAV.Controls.Add(this.label20);
-            this.gbPOAV.Controls.Add(this.label13);
-            this.gbPOAV.Controls.Add(this.cbTurnoPOA);
-            this.gbPOAV.Controls.Add(this.label12);
-            this.gbPOAV.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbPOAV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbPOAV.Location = new System.Drawing.Point(0, 168);
-            this.gbPOAV.Name = "gbPOAV";
-            this.gbPOAV.Size = new System.Drawing.Size(193, 124);
-            this.gbPOAV.TabIndex = 16;
-            this.gbPOAV.TabStop = false;
-            this.gbPOAV.Text = "Datos POA";
+            this.gbPOA.Controls.Add(this.label14);
+            this.gbPOA.Controls.Add(this.btnDescargarPOA);
+            this.gbPOA.Controls.Add(this.btnGuardarPOA);
+            this.gbPOA.Controls.Add(this.dtFechaPOA);
+            this.gbPOA.Controls.Add(this.cbOperadorPOA);
+            this.gbPOA.Controls.Add(this.DtHoraFinPOA);
+            this.gbPOA.Controls.Add(this.txtHumedadPOA);
+            this.gbPOA.Controls.Add(this.label15);
+            this.gbPOA.Controls.Add(this.DtHoraInPOA);
+            this.gbPOA.Controls.Add(this.label18);
+            this.gbPOA.Controls.Add(this.label19);
+            this.gbPOA.Controls.Add(this.txtTolvaPOA);
+            this.gbPOA.Controls.Add(this.label20);
+            this.gbPOA.Controls.Add(this.label13);
+            this.gbPOA.Controls.Add(this.cbTurnoPOA);
+            this.gbPOA.Controls.Add(this.label12);
+            this.gbPOA.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbPOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbPOA.Location = new System.Drawing.Point(0, 168);
+            this.gbPOA.Name = "gbPOA";
+            this.gbPOA.Size = new System.Drawing.Size(1354, 124);
+            this.gbPOA.TabIndex = 16;
+            this.gbPOA.TabStop = false;
+            this.gbPOA.Text = "Datos POA";
             // 
             // label14
             // 
@@ -771,7 +771,7 @@
             this.gbDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDatos.Location = new System.Drawing.Point(0, 43);
             this.gbDatos.Name = "gbDatos";
-            this.gbDatos.Size = new System.Drawing.Size(193, 125);
+            this.gbDatos.Size = new System.Drawing.Size(1354, 125);
             this.gbDatos.TabIndex = 18;
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Datos Ticket";
@@ -806,6 +806,7 @@
             this.cbTicketP.Name = "cbTicketP";
             this.cbTicketP.Size = new System.Drawing.Size(166, 26);
             this.cbTicketP.TabIndex = 19;
+            this.cbTicketP.SelectedIndexChanged += new System.EventHandler(this.cbTicketP_SelectedIndexChanged);
             // 
             // LblFRecibido
             // 
@@ -966,7 +967,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(193, 43);
+            this.panel2.Size = new System.Drawing.Size(1354, 43);
             this.panel2.TabIndex = 15;
             // 
             // label16
@@ -975,7 +976,7 @@
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(0, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(146, 43);
+            this.label16.Size = new System.Drawing.Size(1307, 43);
             this.label16.TabIndex = 13;
             this.label16.Text = "Detalles de lote POA Secaco Final";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -985,7 +986,7 @@
             this.BtnCerrarVerCons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnCerrarVerCons.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnCerrarVerCons.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrarVerCons.Location = new System.Drawing.Point(146, 0);
+            this.BtnCerrarVerCons.Location = new System.Drawing.Point(1307, 0);
             this.BtnCerrarVerCons.Name = "BtnCerrarVerCons";
             this.BtnCerrarVerCons.Size = new System.Drawing.Size(47, 43);
             this.BtnCerrarVerCons.TabIndex = 11;
@@ -1284,8 +1285,8 @@
             this.PlDatos.ResumeLayout(false);
             this.GbDescarga.ResumeLayout(false);
             this.GbDescarga.PerformLayout();
-            this.gbPOAV.ResumeLayout(false);
-            this.gbPOAV.PerformLayout();
+            this.gbPOA.ResumeLayout(false);
+            this.gbPOA.PerformLayout();
             this.gbDatos.ResumeLayout(false);
             this.gbDatos.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1336,7 +1337,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button BtnCerrarVerCons;
-        public System.Windows.Forms.GroupBox gbPOAV;
+        public System.Windows.Forms.GroupBox gbPOA;
         public System.Windows.Forms.Label label14;
         public System.Windows.Forms.Button btnDescargarPOA;
         public System.Windows.Forms.Button btnGuardarPOA;

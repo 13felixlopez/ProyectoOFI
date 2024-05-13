@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoOFI.Logica;
 
 namespace ProyectoOFI.Datos
 {
@@ -47,6 +48,38 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron cargar los datos" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool CargaDirectaSF(LVertical parametros)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("CargaDirectaSF", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                cmd.Parameters.AddWithValue("@FechaDes", parametros.FechaDes);
+                cmd.Parameters.AddWithValue("@HoradesIn", parametros.HoradesIn);
+                cmd.Parameters.AddWithValue("@HoraFin", parametros.HoraFin);
+                cmd.Parameters.AddWithValue("@Humedad", parametros.Humedad);
+                cmd.Parameters.AddWithValue("@ProcesoSF", parametros.ProcesoSF);
+                cmd.Parameters.AddWithValue("@IdOperador", parametros.OperadorV);
+                cmd.Parameters.AddWithValue("@IdTurno", parametros.TurnoV);
+                cmd.Parameters.AddWithValue("@POA1", parametros.POA1);
+                cmd.Parameters.AddWithValue("@DigitadorSF", parametros.DigitadorV);
+                cmd.ExecuteNonQuery();
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Insertar los datos " + ex.Message, "ERROR CargaDirectaSF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al Insertar los datos en InsertarPreSecado ✖️✖️" + ex.Message);
+                return false;
             }
             finally
             {

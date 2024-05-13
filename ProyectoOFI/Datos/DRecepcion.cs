@@ -135,7 +135,9 @@ namespace ProyectoOFI.Datos
             try
             {
                 Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("select Count(Ticket) from Recepcion Where Estado='ACTIVO'", Conexion.conectar);
+                SqlCommand cmd = new SqlCommand("select COUNT (Rec.Ticket) from Recepcion as Rec " +
+                    "LEFT JOIN AreaSecado AS ASe ON Rec.IdAreaSecado = ASe.IdAreaSecado LEFT JOIN Tendido AS T ON Rec.Ticket = T.Ticket " +
+                    "where Estado='ACTIVO' AND AreaSecado='Control Patio' or T.ProcesoCP!=''", Conexion.conectar);
                 Contador = Convert.ToInt32(cmd.ExecuteScalar());
             }
             catch (Exception)

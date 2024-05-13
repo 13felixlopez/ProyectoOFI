@@ -379,6 +379,8 @@ namespace ProyectoOFI.SM
                     PlDatos.Visible = false;
                     TLPPlTolvas.Enabled = true;
                     Limpiar();
+                    MostrarVerticalLabels();
+                    Estilo();
                 }
             }
             catch (Exception ex)

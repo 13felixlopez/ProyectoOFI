@@ -515,7 +515,6 @@ namespace ProyectoOFI.ControlPatio
             if (BtnTendido.Text == "Tendido")
             {
                 InsertarTendido();
-                plOpciones.Enabled = true;
             }
             else
             {
@@ -523,6 +522,7 @@ namespace ProyectoOFI.ControlPatio
                 PlTendido.Enabled = false;
                 BtnTendido.Text = "Tendido";
             }
+            plOpciones.Enabled = true;
             Limpiar();
         }
         private void CbPatio_SelectedIndexChanged(object sender, EventArgs e)
@@ -557,7 +557,6 @@ namespace ProyectoOFI.ControlPatio
             if (BtnEnfarde.Text == "Enfarde")
             {
                 InsertarEnfarde();
-                plOpciones.Enabled = true;
             }
             else
             {
@@ -566,6 +565,7 @@ namespace ProyectoOFI.ControlPatio
                 PlEnfarde.Enabled = false;
                 BtnEnfarde.Text = "Enfarde";
             }
+            plOpciones.Enabled = true;
             Limpiar();
         }
         private void TSLEnfarde_Click(object sender, EventArgs e)
@@ -641,7 +641,6 @@ namespace ProyectoOFI.ControlPatio
             if (BtnEnviar.Text == "Enviar")
             {
                 InsertarEnvio();
-                plOpciones.Enabled = true;
             }
             else
             {
@@ -651,6 +650,7 @@ namespace ProyectoOFI.ControlPatio
                 PlEnvio.Enabled = false;
                 BtnEnviar.Text = "Enviar";
             }
+            plOpciones.Enabled = true;
             Limpiar();
         }
         private void VerEnfarde()

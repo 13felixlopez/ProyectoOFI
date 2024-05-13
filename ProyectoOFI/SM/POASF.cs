@@ -1,4 +1,5 @@
 ﻿using ProyectoOFI.Datos;
+using ProyectoOFI.Logica;
 using System;
 using System.Data;
 using System.Drawing;
@@ -14,10 +15,10 @@ namespace ProyectoOFI.SM
         }
         private void POASF_Load(object sender, EventArgs e)
         {
-            MostrarVerticalLabels();
+            MostrarPOALabels();
             Estilo();
         }
-        private void MostrarVerticalLabels()
+        private void MostrarPOALabels()
         {
             DPOA datos = new DPOA();
             DataTable tablaTickets = datos.MostrarPOA();
@@ -428,6 +429,13 @@ namespace ProyectoOFI.SM
             {
                 MostrarDatos(lblP2);
             }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketP);
+                CargarDatos();
+            }
         }
 
         private void btnP3_Click(object sender, EventArgs e)
@@ -436,6 +444,13 @@ namespace ProyectoOFI.SM
             if (lblP3.Text != "--")
             {
                 MostrarDatos(lblP3);
+            }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketP);
+                CargarDatos();
             }
         }
 
@@ -454,6 +469,13 @@ namespace ProyectoOFI.SM
             if (lblP5.Text != "--")
             {
                 MostrarDatos(lblP5);
+            }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketP);
+                CargarDatos();
             }
         }
 
@@ -480,6 +502,13 @@ namespace ProyectoOFI.SM
             {
                 MostrarDatos(lblP7);
             }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketP);
+                CargarDatos();
+            }
         }
 
         private void btnP8_Click(object sender, EventArgs e)
@@ -488,6 +517,13 @@ namespace ProyectoOFI.SM
             if (lblP8.Text != "--")
             {
                 MostrarDatos(lblP8);
+            }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketP);
+                CargarDatos();
             }
         }
 
@@ -498,6 +534,13 @@ namespace ProyectoOFI.SM
             {
                 MostrarDatos(lblP9);
             }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketP);
+                CargarDatos();
+            }
         }
 
         private void btnP10_Click(object sender, EventArgs e)
@@ -506,6 +549,13 @@ namespace ProyectoOFI.SM
             if (lblP10.Text != "--")
             {
                 MostrarDatos(lblP10);
+            }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketP);
+                CargarDatos();
             }
         }
 
@@ -516,6 +566,13 @@ namespace ProyectoOFI.SM
             {
                 MostrarDatos(lblP11);
             }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketP);
+                CargarDatos();
+            }
         }
 
         private void btnP12_Click(object sender, EventArgs e)
@@ -524,6 +581,13 @@ namespace ProyectoOFI.SM
             if (lblP12.Text != "--")
             {
                 MostrarDatos(lblP12);
+            }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketP);
+                CargarDatos();
             }
         }
 
@@ -534,6 +598,13 @@ namespace ProyectoOFI.SM
             {
                 MostrarDatos(lblP13);
             }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketP);
+                CargarDatos();
+            }
         }
 
         private void btnP14_Click(object sender, EventArgs e)
@@ -542,6 +613,13 @@ namespace ProyectoOFI.SM
             if (lblP14.Text != "--")
             {
                 MostrarDatos(lblP14);
+            }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketP);
+                CargarDatos();
             }
         }
 
@@ -552,6 +630,13 @@ namespace ProyectoOFI.SM
             {
                 MostrarDatos(lblP15);
             }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketP);
+                CargarDatos();
+            }
         }
 
         private void btnP16_Click(object sender, EventArgs e)
@@ -560,6 +645,13 @@ namespace ProyectoOFI.SM
             if (lblP16.Text != "--")
             {
                 MostrarDatos(lblP16);
+            }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketP);
+                CargarDatos();
             }
         }
 
@@ -570,6 +662,13 @@ namespace ProyectoOFI.SM
             {
                 MostrarDatos(lblP17);
             }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketP);
+                CargarDatos();
+            }
         }
 
         private void btnP18_Click(object sender, EventArgs e)
@@ -579,11 +678,76 @@ namespace ProyectoOFI.SM
             {
                 MostrarDatos(lblP18);
             }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketP);
+                CargarDatos();
+            }
         }
 
         private void cbTicketP_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarDatos();
+        }
+
+        private void btnGuardarPOA_Click(object sender, EventArgs e)
+        {
+            if (Validar())
+            {
+                CargaDirectaSF();
+            }
+            else
+            {
+                MessageBox.Show("Existen campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private bool Validar()
+        {
+            double entero;
+            if (!double.TryParse(txtHumedadPOA.Text, out entero))
+            {
+                return false;
+            }
+            return !(txtTolvaPOA.Text == "" || txtHumedadPOA.Text == "" || cbOperadorPOA.Text == ""
+                || cbTurnoPOA.Text == "");
+        }
+
+        private void CargaDirectaSF()
+        {
+            try
+            {
+                LVertical parametros = new LVertical();
+                DPOA funcion = new DPOA();
+                parametros.Ticket = cbTicketP.Text;
+                parametros.FechaDes = dtFechaPOA.Value;
+                parametros.HoradesIn = DtHoraInPOA.Value;
+                parametros.HoraFin = DtHoraFinPOA.Value;
+                parametros.Humedad = double.Parse(txtHumedadPOA.Text);
+                //Paros();
+                parametros.ProcesoSF = "POA";
+                parametros.OperadorV = int.Parse(cbOperadorPOA.SelectedValue.ToString());
+                parametros.TurnoV = int.Parse(cbTurnoPOA.SelectedValue.ToString());
+                parametros.POA1 = int.Parse(txtTolvaPOA.Text.Trim());
+                //parametros.POA2 = int.Parse(CbPOA2.Text.Trim());
+                parametros.DigitadorV = Login.NombreA;
+                //parametros.IDV = "";
+                if (funcion.CargaDirectaSF(parametros) == true)
+                {
+                    MessageBox.Show("Operación realizada con éxito", "Secado final", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    PlDatos.Visible = false;
+                    TLPPOA.Enabled = true;
+                    Limpiar();
+                    MostrarPOALabels();
+                    Estilo();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar datos CargaDirectaSF " + ex.Message, "ERROR Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

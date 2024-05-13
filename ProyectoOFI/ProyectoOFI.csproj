@@ -55,6 +55,12 @@
     <Compile Include="ControlPatio\CUControlPatio.Designer.cs">
       <DependentUpon>CUControlPatio.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlPatio\FrmExcelCP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlPatio\FrmExcelCP.Designer.cs">
+      <DependentUpon>FrmExcelCP.cs</DependentUpon>
+    </Compile>
     <Compile Include="Datos\Conexion.cs" />
     <Compile Include="Datos\DCatalogo.cs" />
     <Compile Include="Datos\DHistorial.cs" />
@@ -287,6 +293,9 @@
     <Compile Include="Usuario\Validaciones.cs" />
     <EmbeddedResource Include="ControlPatio\CUControlPatio.resx">
       <DependentUpon>CUControlPatio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlPatio\FrmExcelCP.resx">
+      <DependentUpon>FrmExcelCP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmConexionIP.resx">
       <DependentUpon>FrmConexionIP.cs</DependentUpon>

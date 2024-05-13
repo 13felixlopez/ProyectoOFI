@@ -1,6 +1,7 @@
 ﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
+using ProyectoOFI.Recepcion;
 using System;
 using System.Data;
 using System.Drawing;
@@ -843,6 +844,14 @@ namespace ProyectoOFI.ControlPatio
             {
                 CbEstFis.Text = "Seco";
             }
+        }
+
+        private void PbExcel_Click(object sender, EventArgs e)
+        {
+            FrmExcelCP excel = new FrmExcelCP();
+            excel.Dock = DockStyle.Fill;
+            excel.BringToFront();
+            excel.ShowDialog();
         }
 
         private void InsertarEnvio()

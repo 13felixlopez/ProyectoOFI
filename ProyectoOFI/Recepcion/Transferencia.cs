@@ -306,7 +306,7 @@ namespace ProyectoOFI.Recepcion
                 }
                 else
                 {
-                    Consolidado = null;
+                    Consolidado = "";
                 }
                 LRecepcion parametros = new LRecepcion();
                 DRecepcion funcion = new DRecepcion();

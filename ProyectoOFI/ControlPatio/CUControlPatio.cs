@@ -91,7 +91,7 @@ namespace ProyectoOFI.ControlPatio
             }
             else
             {
-                funcion.ContarTK(ref Contador);
+                funcion.ContarTKCP(ref Contador);
             }
         }
         private void Paginar()

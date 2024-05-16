@@ -19,11 +19,11 @@ namespace ProyectoOFI.Reportes
             InitializeComponent();
         }
 
-        private void CUReporteTK_Load(object sender, EventArgs e)
+        private async void CUReporteTK_Load(object sender, EventArgs e)
         {
-            ReporteTicket();
+            await CargarDatos();
             //Base.DiseñoDtv(ref DtDatos);
-            Base.DiseñoDtvEliminar(ref DtDatos);
+            //Base.DiseñoDtvEliminar(ref DtDatos);
         }
 
         private void ReporteTicket()
@@ -32,6 +32,22 @@ namespace ProyectoOFI.Reportes
             DataTable dt = new DataTable();
             funcion.ReporteTicket(ref dt);
             DtDatos.DataSource = dt;
+        }
+
+        private async void PBrefrescar_Click(object sender, EventArgs e)
+        {
+            await CargarDatos();
+            this.Refresh();
+        }
+        private async Task CargarDatos()
+        {
+            PlCarga.Visible = true;
+            PlCarga.Dock = DockStyle.Fill;
+            await Task.Delay(1500);
+            ReporteTicket();
+            //ReiniciarPaginado();
+            await Task.Delay(1000);
+            PlCarga.Visible = false;
         }
     }
 }

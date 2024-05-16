@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using ProyectoOFI.Logica;
+using System;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Windows.Forms;
-using ProyectoOFI.Logica;
 
 namespace ProyectoOFI.Datos
 {
@@ -79,6 +75,38 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show("Error al Insertar los datos " + ex.Message, "ERROR CargaDirectaSF", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error al Insertar los datos en InsertarPreSecado ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool CargaGuariola(LPOA parametros)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("CargaGuariola", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                cmd.Parameters.AddWithValue("@Guardiola", parametros.Guardiola);
+                cmd.Parameters.AddWithValue("@IdOperador", parametros.IdOperador);
+                cmd.Parameters.AddWithValue("@IdTurno", parametros.IdTurno);
+                cmd.Parameters.AddWithValue("@FechaG", parametros.FechaG);
+                cmd.Parameters.AddWithValue("@HoraIniG", parametros.HoraIniG);
+                cmd.Parameters.AddWithValue("@HoraFinG", parametros.HoraFinG);
+                cmd.Parameters.AddWithValue("@DuracionG", parametros.Duracion);
+                cmd.Parameters.AddWithValue("@IdPOA", parametros.IdPOA);
+                cmd.Parameters.AddWithValue("@DigitadorG", parametros.DigitadorG);
+                cmd.Parameters.AddWithValue("@HumedadG", parametros.Humedad);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Cargar Guardiola " + ex.Message, "Error Guardiola", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en CargaGuariola ✖️✖️ " + ex.Message);
                 return false;
             }
             finally

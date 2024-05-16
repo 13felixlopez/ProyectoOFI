@@ -10,7 +10,7 @@ namespace ProyectoOFI.SM
     public partial class Verticales : UserControl
     {
         string Observacion = "";
-        int IDV;
+        int IDV, IDTV;
         public Verticales()
         {
             InitializeComponent();
@@ -29,6 +29,7 @@ namespace ProyectoOFI.SM
             {
                 int Ver = Convert.ToInt32(fila["Ver"]);
                 string ticket = fila["Ticket"].ToString();
+                IDTV = Convert.ToInt32(fila["IDTV"]);
                 MostrarTicketEnLabel(Ver, ticket);
             }
         }
@@ -345,6 +346,8 @@ namespace ProyectoOFI.SM
             if (Validar())
             {
                 InsertarPreSecado();
+                MostrarVerticalLabels();
+                Estilo();
             }
             else
             {

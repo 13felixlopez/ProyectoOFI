@@ -9,6 +9,7 @@ namespace ProyectoOFI.SM
 {
     public partial class POASF : UserControl
     {
+        int IdPOA;
         public POASF()
         {
             InitializeComponent();
@@ -270,6 +271,7 @@ namespace ProyectoOFI.SM
         {
             PlDatos.Visible = false;
             TLPPOA.Enabled = true;
+            GbDescarga.Visible = false;
         }
         private void MostrarDatos(Label POA)
         {
@@ -294,6 +296,7 @@ namespace ProyectoOFI.SM
             DtHoraInPOA.Text = dt.Rows[0]["HoradesIn"].ToString();
             DtHoraFinPOA.Text = dt.Rows[0]["HoraFin"].ToString();
             txtHumedadPOA.Text = dt.Rows[0]["Humedad"].ToString();
+            IdPOA = int.Parse(dt.Rows[0]["IdPOA"].ToString());
             btnGuardarPOA.Visible = false;
             btnDescargarPOA.Visible = true;
             DtHoraInPOA.Enabled = false;
@@ -748,6 +751,70 @@ namespace ProyectoOFI.SM
             {
                 MessageBox.Show("Error al insertar datos CargaDirectaSF " + ex.Message, "ERROR Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void btnDescargarPOA_Click(object sender, EventArgs e)
+        {
+            GbDescarga.Visible = true;
+            TxtGuariola.Text = txtTolvaPOA.Text;
+            DPOAV funcion = new DPOAV();
+            DSM sm = new DSM();
+            funcion.MostrarTurno(CbTurno);
+            sm.MostrarOperador(CbOperadores);
+        }
+        private void BtnSF_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TxtHumedad.Text))
+            {
+                CargaGuariola();
+                MostrarPOALabels();
+                Estilo();
+            }
+            else
+            {
+                MessageBox.Show("Existen campos vacios", "Error al enviar datos", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+        }
+        private void CargaGuariola()
+        {
+            try
+            {
+                LPOA parametros = new LPOA();
+                DPOA funcion = new DPOA();
+                parametros.Ticket = cbTicketP.Text;
+                parametros.Guardiola = int.Parse(TxtGuariola.Text);
+                parametros.IdTurno = int.Parse(CbTurno.SelectedValue.ToString());
+                parametros.IdOperador = int.Parse(CbOperadores.SelectedValue.ToString());
+                parametros.FechaG = DateTime.Parse(DtPFDes1.Value.ToString());
+                parametros.HoraIniG = DateTime.Parse(DtHInicio1.Value.ToString());
+                parametros.HoraFinG = DateTime.Parse(DtHoraFin1.Value.ToString());
+                parametros.Duracion = DateTime.Parse(LblDuracionG.Text);
+                parametros.Humedad = double.Parse(TxtHumedad.Text);
+                parametros.DigitadorG = Login.NombreA;
+                parametros.IdPOA = IdPOA;
+                if (funcion.CargaGuariola(parametros) == true)
+                {
+                    MessageBox.Show("Carga Guardiola realiza con éxito", "Guardiola Cargada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    PlDatos.Visible = false;
+                    Limpiar();
+                    TLPPOA.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al ejecutar CargaGuariola", "Error Interfaz", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DtHoraFin1_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime inicio = DtHInicio1.Value;
+            DateTime fin = DtHoraFin1.Value;
+
+            // Calcular la duración restando los DateTime
+            TimeSpan duracion = fin - inicio;
+
+            // Mostrar la duración en el Label
+            LblDuracionG.Text = duracion.ToString();
         }
     }
 }

@@ -183,6 +183,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Guardiola {
+            get {
+                object obj = ResourceManager.GetObject("Guardiola", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_agregar_a_carrito_de_compras {
             get {
                 object obj = ResourceManager.GetObject("icons8-agregar-a-carrito-de-compras", resourceCulture);
@@ -366,6 +376,26 @@ namespace ProyectoOFI.Properties {
         internal static System.Drawing.Bitmap icons8_ok_64 {
             get {
                 object obj = ResourceManager.GetObject("icons8_ok_64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_refrescar {
+            get {
+                object obj = ResourceManager.GetObject("icons8-refrescar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_separar {
+            get {
+                object obj = ResourceManager.GetObject("icons8-separar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PlContenedor = new System.Windows.Forms.Panel();
             this.DtDatos = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
@@ -61,21 +61,28 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Consolidar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.PBrefrescar = new System.Windows.Forms.PictureBox();
             this.PbExcel = new System.Windows.Forms.PictureBox();
             this.PbFiltro = new System.Windows.Forms.PictureBox();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.PlCarga = new System.Windows.Forms.Panel();
+            this.PbCarga = new System.Windows.Forms.PictureBox();
             this.PlContenedor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtDatos)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.PlFiltroFecha.SuspendLayout();
             this.plAgregar.SuspendLayout();
             this.plfooter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBrefrescar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).BeginInit();
+            this.PlCarga.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.SuspendLayout();
             // 
             // PlContenedor
             // 
+            this.PlContenedor.Controls.Add(this.PlCarga);
             this.PlContenedor.Controls.Add(this.DtDatos);
             this.PlContenedor.Controls.Add(this.plOpciones);
             this.PlContenedor.Controls.Add(this.plfooter);
@@ -91,40 +98,40 @@
             this.DtDatos.AllowUserToDeleteRows = false;
             this.DtDatos.AllowUserToOrderColumns = true;
             this.DtDatos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.NullValue = "--";
-            this.DtDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.NullValue = "--";
+            this.DtDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DtDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtDatos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.DtDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar,
             this.Consolidar});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.NullValue = "--";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DtDatos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.NullValue = "--";
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DtDatos.DefaultCellStyle = dataGridViewCellStyle7;
             this.DtDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtDatos.EnableHeadersVisualStyles = false;
             this.DtDatos.Location = new System.Drawing.Point(0, 62);
             this.DtDatos.Name = "DtDatos";
             this.DtDatos.ReadOnly = true;
             this.DtDatos.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DtDatos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtDatos.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.DtDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DtDatos.ShowCellToolTips = false;
             this.DtDatos.ShowEditingIcon = false;
@@ -134,6 +141,7 @@
             // plOpciones
             // 
             this.plOpciones.BackColor = System.Drawing.Color.White;
+            this.plOpciones.Controls.Add(this.PBrefrescar);
             this.plOpciones.Controls.Add(this.PlFiltroFecha);
             this.plOpciones.Controls.Add(this.BtnRangoFecha);
             this.plOpciones.Controls.Add(this.PbExcel);
@@ -476,6 +484,20 @@
             this.Consolidar.ReadOnly = true;
             this.Consolidar.Visible = false;
             // 
+            // PBrefrescar
+            // 
+            this.PBrefrescar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PBrefrescar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PBrefrescar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PBrefrescar.Image = global::ProyectoOFI.Properties.Resources.icons8_refrescar;
+            this.PBrefrescar.Location = new System.Drawing.Point(1560, 3);
+            this.PBrefrescar.Name = "PBrefrescar";
+            this.PBrefrescar.Size = new System.Drawing.Size(64, 50);
+            this.PBrefrescar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PBrefrescar.TabIndex = 8;
+            this.PBrefrescar.TabStop = false;
+            this.PBrefrescar.Click += new System.EventHandler(this.PBrefrescar_Click);
+            // 
             // PbExcel
             // 
             this.PbExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -516,6 +538,26 @@
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Visible = false;
             // 
+            // PlCarga
+            // 
+            this.PlCarga.Controls.Add(this.PbCarga);
+            this.PlCarga.Location = new System.Drawing.Point(778, 333);
+            this.PlCarga.Name = "PlCarga";
+            this.PlCarga.Size = new System.Drawing.Size(250, 172);
+            this.PlCarga.TabIndex = 13;
+            // 
+            // PbCarga
+            // 
+            this.PbCarga.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.PbCarga.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PbCarga.Image = global::ProyectoOFI.Properties.Resources.loading_12;
+            this.PbCarga.Location = new System.Drawing.Point(0, 0);
+            this.PbCarga.Name = "PbCarga";
+            this.PbCarga.Size = new System.Drawing.Size(250, 172);
+            this.PbCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbCarga.TabIndex = 0;
+            this.PbCarga.TabStop = false;
+            // 
             // CUReporteTK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -532,8 +574,11 @@
             this.plAgregar.ResumeLayout(false);
             this.plfooter.ResumeLayout(false);
             this.plfooter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBrefrescar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).EndInit();
+            this.PlCarga.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -572,5 +617,8 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private System.Windows.Forms.DataGridView DtDatos;
+        private System.Windows.Forms.PictureBox PBrefrescar;
+        private System.Windows.Forms.Panel PlCarga;
+        private System.Windows.Forms.PictureBox PbCarga;
     }
 }

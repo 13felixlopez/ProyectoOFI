@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoOFI.Logica;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -177,6 +178,36 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public void MostrarTurno(ComboBox combo)
+        {
+            try
+            {
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("MostrarTurno", Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter cb = new SqlDataAdapter(da);
+                DataTable dt = new DataTable();
+                cb.Fill(dt);
+                combo.ValueMember = "IdTurnos";
+                combo.DisplayMember = "Turno";
+                combo.DataSource = dt;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    lista.Add(dt.Rows[i]["Turno"].ToString());
+                }
+                combo.AutoCompleteCustomSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarTurnos ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
         public void VerDetalleTkSM(ref DataTable dt, string Tk)
         {
             try
@@ -255,7 +286,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        internal void VerPreSecado(ref DataTable dt, string ticket,Label LblG1,Label LblG2)
+        internal void VerPreSecado(ref DataTable dt, string ticket, Label LblG1, Label LblG2)
         {
             try
             {
@@ -333,6 +364,39 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en BuscarTKSM ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool ParticionSM(LVertical parametros)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("ParticionSM", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                cmd.Parameters.AddWithValue("@FechaCar", parametros.FechaDes);
+                cmd.Parameters.AddWithValue("@HoradesIn", parametros.HoradesIn);
+                cmd.Parameters.AddWithValue("@HoraFin", parametros.HoraFin);
+                cmd.Parameters.AddWithValue("@Humedad", parametros.Humedad);
+                cmd.Parameters.AddWithValue("@ProcesoSF", parametros.ProcesoSF);
+                cmd.Parameters.AddWithValue("@IdOperador", parametros.OperadorV);
+                cmd.Parameters.AddWithValue("@IdTurno", parametros.TurnoV);
+                cmd.Parameters.AddWithValue("@POA1", parametros.POA1);
+                cmd.Parameters.AddWithValue("POA2", parametros.POA2);
+                cmd.Parameters.AddWithValue("@DigitadorSF", parametros.DigitadorV);
+                cmd.ExecuteNonQuery();
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Insertar los datos " + ex.Message, "ERROR ParticionSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al Insertar los datos en InsertarPreSecado ✖️✖️" + ex.Message);
+                return false;
             }
             finally
             {

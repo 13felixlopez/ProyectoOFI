@@ -1,4 +1,5 @@
 ﻿using ProyectoOFI.Datos;
+using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
 using System;
 using System.Data;
@@ -99,6 +100,15 @@ namespace ProyectoOFI.SM
                 {
                     gbPOAV.Visible = false;
                     gbVertical.Visible = false;
+                    double qqs=double.Parse(LblQQsV.Text);
+                    if (qqs >= 331)
+                    {
+                        BtnParticionar.Visible = true;
+                    }
+                    else
+                    {
+                        BtnParticionar.Visible = false;
+                    }
                 }
                 if (Proceso == "POAV")
                 {
@@ -560,46 +570,7 @@ namespace ProyectoOFI.SM
                 ReiniciarPaginado();
             }
         }
-        private void Buscar()
-        {
-            DataTable dt = new DataTable();
-            DSM funcion = new DSM();
-            if (CbBuscar.Text == "Ticket")
-            {
-                funcion.BuscarTKSM(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            }
-            //if (CbBuscar.Text == "Calidad")
-            //{
-            //    funcion.BuscarCalidad(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            //if (CbBuscar.Text == "Certificación")
-            //{
-            //    funcion.BuscarCert(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            //if (CbBuscar.Text == "Daño")
-            //{
-            //    funcion.BuscarDanio(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            //if (CbBuscar.Text == "Tipo Compra")
-            //{
-            //    funcion.BuscarTipoCompra(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            //if (CbBuscar.Text == "MTNT")
-            //{
-            //    funcion.BuscarMTNT(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            //if (CbBuscar.Text == "Peso")
-            //{
-            //    funcion.BuscarPeso(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            //if (CbBuscar.Text == "Área Secado")
-            //{
-            //    funcion.BuscarAreaSecado(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            dtInventarioSM.DataSource = dt;
-            ContarBusqueda = int.Parse(funcion.contador.ToString());
-            Base.DiseñoDtvEliminar(ref dtInventarioSM);
-        }
+
         private void btn_Sig_Click(object sender, EventArgs e)
         {
             desde += 100;
@@ -675,5 +646,129 @@ namespace ProyectoOFI.SM
             }
         }
         #endregion
+        private void Buscar()
+        {
+            DataTable dt = new DataTable();
+            DSM funcion = new DSM();
+            if (CbBuscar.Text == "Ticket")
+            {
+                funcion.BuscarTKSM(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            }
+            //if (CbBuscar.Text == "Calidad")
+            //{
+            //    funcion.BuscarCalidad(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Certificación")
+            //{
+            //    funcion.BuscarCert(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Daño")
+            //{
+            //    funcion.BuscarDanio(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Tipo Compra")
+            //{
+            //    funcion.BuscarTipoCompra(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "MTNT")
+            //{
+            //    funcion.BuscarMTNT(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Peso")
+            //{
+            //    funcion.BuscarPeso(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Área Secado")
+            //{
+            //    funcion.BuscarAreaSecado(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            dtInventarioSM.DataSource = dt;
+            ContarBusqueda = int.Parse(funcion.contador.ToString());
+            Base.DiseñoDtvEliminar(ref dtInventarioSM);
+        }
+
+        private void BtnParticionar_Click(object sender, EventArgs e)
+        {
+            PlParticion.Location = new System.Drawing.Point(dtInventarioSM.Width / 2
+                - PlParticion.Width / 2, dtInventarioSM.Height / 2 - PlParticion.Height / 2);
+            PlParticion.Visible = true;
+            PlParticion.BringToFront();
+            plOpciones.Enabled = false;
+            DSM funcion = new DSM();
+            funcion.MostrarOperador(CbOperadores);
+            funcion.MostrarTurno(CbTurno);
+            ObtenerDatos();
+        }
+        private void ObtenerDatos()
+        {
+            LblTkParticion.Text = LblTk.Text;
+            LblSacosPar.Text = LblSacos.Text;
+            LblKilosPar.Text = LblKilos.Text;
+            LblSacosPar.Text = LblSacos.Text;
+            LblQQsPar.Text = LblQQsV.Text;
+            LblCertPar.Text = LblCert.Text;
+            LblDaPar.Text = LblDanioV.Text;
+            LblCalPar.Text = LblCalidadV.Text;
+            LblEstPar.Text = LblEFisicoV.Text;
+        }
+        private void BtnCerrarParticion_Click(object sender, EventArgs e)
+        {
+            PlParticion.Visible = false;
+            plOpciones.Enabled = true;
+            LblTkParticion.Text = "--";
+            LblSacosPar.Text = "--";
+            LblKilosPar.Text = "--";
+            LblSacosPar.Text = "--";
+            LblQQsPar.Text = "--";
+            LblCertPar.Text = "--";
+            LblDaPar.Text = "--";
+            LblCalPar.Text = "--";
+            LblEstPar.Text = "--";
+        }
+
+        private void BtnSF_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TxtHumedad.Text))
+            {
+                ParticionSM();
+            }
+            else
+            {
+                MessageBox.Show("Existen datos vacios", "Error en validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void ParticionSM()
+        {
+            try
+            {
+                LVertical parametros = new LVertical();
+                DSM funcion = new DSM();
+                parametros.Ticket = LblTkParticion.Text;
+                parametros.FechaDes = DtPFDes1.Value;
+                parametros.HoradesIn = DtHInicio1.Value;
+                parametros.HoraFin = DtHInicio2.Value;
+                parametros.Humedad = double.Parse(TxtHumedad.Text);
+                parametros.ProcesoSF = "POA";
+                parametros.OperadorV = int.Parse(CbOperadores.SelectedValue.ToString());
+                parametros.TurnoV = int.Parse(CbTurno.SelectedValue.ToString());
+                parametros.POA1 = int.Parse(CbPOA1.Text.Trim());
+                parametros.POA2 = int.Parse(CbPOA2.Text.Trim());
+                parametros.DigitadorV = Login.NombreA;
+                if (funcion.ParticionSM(parametros) == true)
+                {
+                    MessageBox.Show("Operación realizada con éxito", "Secado final", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    PlParticion.Visible = false;
+                    plOpciones.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Error en los datos de la partición", "Error Partición", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al crear las particiones", "Error ParticionSM interfaz", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

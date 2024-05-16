@@ -94,6 +94,7 @@
     <Compile Include="Logica\LEnvio.cs" />
     <Compile Include="Logica\LModulos.cs" />
     <Compile Include="Logica\LPermisos.cs" />
+    <Compile Include="Logica\LPOA.cs" />
     <Compile Include="Logica\LPOAV.cs" />
     <Compile Include="Logica\LRecepcion.cs" />
     <Compile Include="Logica\LControlPatio.cs" />
@@ -246,6 +247,12 @@
     <Compile Include="Reportes\FrmHistorial.Designer.cs">
       <DependentUpon>FrmHistorial.cs</DependentUpon>
     </Compile>
+    <Compile Include="SM\Guardiolas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SM\Guardiolas.Designer.cs">
+      <DependentUpon>Guardiolas.cs</DependentUpon>
+    </Compile>
     <Compile Include="SM\POASF.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -376,6 +383,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmHistorial.resx">
       <DependentUpon>FrmHistorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\Guardiolas.resx">
+      <DependentUpon>Guardiolas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SM\POASF.resx">
       <DependentUpon>POASF.cs</DependentUpon>
@@ -561,6 +571,9 @@
   <ItemGroup>
     <Content Include="ofi20.sql" />
     <Content Include="ofi2024.sql" />
+    <None Include="Resources\Guardiola.png" />
+    <None Include="Resources\icons8-refrescar.gif" />
+    <None Include="Resources\icons8-separar.gif" />
     <None Include="Resources\POASF.png" />
     <None Include="Resources\TolvaV.png" />
     <None Include="Resources\POA Btn.png" />

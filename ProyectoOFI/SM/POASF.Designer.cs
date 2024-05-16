@@ -79,6 +79,7 @@
             this.DtHInicio1 = new System.Windows.Forms.DateTimePicker();
             this.label28 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.TxtGuariola = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -122,7 +123,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.BtnCerrarVerCons = new System.Windows.Forms.Button();
-            this.TxtGuariola = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.LblDuracionG = new System.Windows.Forms.Label();
             this.TLPPOA.SuspendLayout();
             this.PlDatos.SuspendLayout();
             this.GbDescarga.SuspendLayout();
@@ -689,7 +691,9 @@
             this.GbDescarga.Controls.Add(this.CbOperadores);
             this.GbDescarga.Controls.Add(this.BtnSF);
             this.GbDescarga.Controls.Add(this.TxtHumedad);
+            this.GbDescarga.Controls.Add(this.LblDuracionG);
             this.GbDescarga.Controls.Add(this.DtPFDes1);
+            this.GbDescarga.Controls.Add(this.label21);
             this.GbDescarga.Controls.Add(this.DtHoraFin1);
             this.GbDescarga.Controls.Add(this.label8);
             this.GbDescarga.Controls.Add(this.label29);
@@ -734,6 +738,7 @@
             this.BtnSF.TabIndex = 28;
             this.BtnSF.Text = "Descargar";
             this.BtnSF.UseVisualStyleBackColor = true;
+            this.BtnSF.Click += new System.EventHandler(this.BtnSF_Click);
             // 
             // TxtHumedad
             // 
@@ -757,6 +762,7 @@
             this.DtHoraFin1.Name = "DtHoraFin1";
             this.DtHoraFin1.Size = new System.Drawing.Size(132, 26);
             this.DtHoraFin1.TabIndex = 25;
+            this.DtHoraFin1.ValueChanged += new System.EventHandler(this.DtHoraFin1_ValueChanged);
             // 
             // label8
             // 
@@ -797,9 +803,17 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(6, 61);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(75, 20);
+            this.label9.Size = new System.Drawing.Size(92, 20);
             this.label9.TabIndex = 16;
-            this.label9.Text = "POA #1:";
+            this.label9.Text = "Guardiola:";
+            // 
+            // TxtGuariola
+            // 
+            this.TxtGuariola.Enabled = false;
+            this.TxtGuariola.Location = new System.Drawing.Point(96, 58);
+            this.TxtGuariola.Name = "TxtGuariola";
+            this.TxtGuariola.Size = new System.Drawing.Size(62, 26);
+            this.TxtGuariola.TabIndex = 3;
             // 
             // label10
             // 
@@ -869,6 +883,7 @@
             this.btnDescargarPOA.Text = "Descargar";
             this.btnDescargarPOA.UseVisualStyleBackColor = true;
             this.btnDescargarPOA.Visible = false;
+            this.btnDescargarPOA.Click += new System.EventHandler(this.btnDescargarPOA_Click);
             // 
             // btnGuardarPOA
             // 
@@ -1246,13 +1261,24 @@
             this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
             this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
             // 
-            // TxtGuariola
+            // label21
             // 
-            this.TxtGuariola.Enabled = false;
-            this.TxtGuariola.Location = new System.Drawing.Point(90, 58);
-            this.TxtGuariola.Name = "TxtGuariola";
-            this.TxtGuariola.Size = new System.Drawing.Size(62, 26);
-            this.TxtGuariola.TabIndex = 3;
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(1010, 63);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(86, 20);
+            this.label21.TabIndex = 6;
+            this.label21.Text = "Duración:";
+            // 
+            // LblDuracionG
+            // 
+            this.LblDuracionG.AutoSize = true;
+            this.LblDuracionG.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDuracionG.Location = new System.Drawing.Point(1146, 63);
+            this.LblDuracionG.Name = "LblDuracionG";
+            this.LblDuracionG.Size = new System.Drawing.Size(19, 20);
+            this.LblDuracionG.TabIndex = 6;
+            this.LblDuracionG.Text = "--";
             // 
             // POASF
             // 
@@ -1372,5 +1398,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         public System.Windows.Forms.TextBox TxtGuariola;
+        private System.Windows.Forms.Label LblDuracionG;
+        private System.Windows.Forms.Label label21;
     }
 }

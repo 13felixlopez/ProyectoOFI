@@ -32,13 +32,15 @@
             this.plTitulo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.plfooter = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.PlSM = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.BtnGuardiola = new System.Windows.Forms.Button();
             this.BtnPOA = new System.Windows.Forms.Button();
             this.BtnVerticales = new System.Windows.Forms.Button();
             this.BtnTverticales = new System.Windows.Forms.Button();
@@ -76,6 +78,8 @@
             // plfooter
             // 
             this.plfooter.BackColor = System.Drawing.Color.DarkOrange;
+            this.plfooter.Controls.Add(this.BtnGuardiola);
+            this.plfooter.Controls.Add(this.panel3);
             this.plfooter.Controls.Add(this.BtnPOA);
             this.plfooter.Controls.Add(this.panel2);
             this.plfooter.Controls.Add(this.BtnVerticales);
@@ -92,6 +96,16 @@
             this.plfooter.Name = "plfooter";
             this.plfooter.Size = new System.Drawing.Size(1742, 77);
             this.plfooter.TabIndex = 4;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.DarkOrange;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(507, 5);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(8, 62);
+            this.panel2.TabIndex = 19;
             // 
             // panel1
             // 
@@ -152,15 +166,35 @@
             this.PlSM.Size = new System.Drawing.Size(1742, 678);
             this.PlSM.TabIndex = 5;
             // 
-            // panel2
+            // panel3
             // 
-            this.panel2.BackColor = System.Drawing.Color.DarkOrange;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(507, 5);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(8, 62);
-            this.panel2.TabIndex = 19;
+            this.panel3.BackColor = System.Drawing.Color.DarkOrange;
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel3.Location = new System.Drawing.Point(685, 5);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(8, 62);
+            this.panel3.TabIndex = 21;
+            // 
+            // BtnGuardiola
+            // 
+            this.BtnGuardiola.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.BtnGuardiola.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGuardiola.Dock = System.Windows.Forms.DockStyle.Left;
+            this.BtnGuardiola.FlatAppearance.BorderSize = 0;
+            this.BtnGuardiola.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnGuardiola.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGuardiola.Image = global::ProyectoOFI.Properties.Resources.Guardiola_Btn;
+            this.BtnGuardiola.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnGuardiola.Location = new System.Drawing.Point(693, 5);
+            this.BtnGuardiola.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnGuardiola.Name = "BtnGuardiola";
+            this.BtnGuardiola.Size = new System.Drawing.Size(170, 62);
+            this.BtnGuardiola.TabIndex = 22;
+            this.BtnGuardiola.Text = "Guardiola";
+            this.BtnGuardiola.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnGuardiola.UseVisualStyleBackColor = false;
+            this.BtnGuardiola.Click += new System.EventHandler(this.BtnGuardiola_Click);
             // 
             // BtnPOA
             // 
@@ -306,5 +340,7 @@
         public System.Windows.Forms.Panel PlSM;
         private System.Windows.Forms.Button BtnPOA;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button BtnGuardiola;
+        private System.Windows.Forms.Panel panel3;
     }
 }

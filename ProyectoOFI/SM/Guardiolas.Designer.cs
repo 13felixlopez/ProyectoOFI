@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Guardiolas));
-            this.TLPPOA = new System.Windows.Forms.TableLayoutPanel();
+            this.TLPGuardiola = new System.Windows.Forms.TableLayoutPanel();
             this.BtnG18 = new System.Windows.Forms.Button();
             this.BtnG17 = new System.Windows.Forms.Button();
             this.BtnG16 = new System.Windows.Forms.Button();
@@ -57,83 +56,153 @@
             this.BtnG3 = new System.Windows.Forms.Button();
             this.BtnG2 = new System.Windows.Forms.Button();
             this.LblG9 = new System.Windows.Forms.Label();
-            this.lblG8 = new System.Windows.Forms.Label();
-            this.lblG7 = new System.Windows.Forms.Label();
-            this.lblG6 = new System.Windows.Forms.Label();
-            this.lblG5 = new System.Windows.Forms.Label();
-            this.lblG4 = new System.Windows.Forms.Label();
-            this.lblG3 = new System.Windows.Forms.Label();
-            this.lblG2 = new System.Windows.Forms.Label();
-            this.lblG1 = new System.Windows.Forms.Label();
+            this.LblG8 = new System.Windows.Forms.Label();
+            this.LblG7 = new System.Windows.Forms.Label();
+            this.LblG6 = new System.Windows.Forms.Label();
+            this.LblG5 = new System.Windows.Forms.Label();
+            this.LblG4 = new System.Windows.Forms.Label();
+            this.LblG3 = new System.Windows.Forms.Label();
+            this.LblG2 = new System.Windows.Forms.Label();
+            this.LblG1 = new System.Windows.Forms.Label();
             this.BtnG1 = new System.Windows.Forms.Button();
-            this.TLPPOA.SuspendLayout();
+            this.PlDatos = new System.Windows.Forms.Panel();
+            this.GbSF = new System.Windows.Forms.GroupBox();
+            this.CbTurno = new System.Windows.Forms.ComboBox();
+            this.CbOperadores = new System.Windows.Forms.ComboBox();
+            this.BtnSF = new System.Windows.Forms.Button();
+            this.label27 = new System.Windows.Forms.Label();
+            this.TxtHumedad = new System.Windows.Forms.TextBox();
+            this.TxtParos = new System.Windows.Forms.TextBox();
+            this.CHParos = new System.Windows.Forms.CheckedListBox();
+            this.DtPFDes1 = new System.Windows.Forms.DateTimePicker();
+            this.DtHoraFin1 = new System.Windows.Forms.DateTimePicker();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.DtHInicio1 = new System.Windows.Forms.DateTimePicker();
+            this.label28 = new System.Windows.Forms.Label();
+            this.CbPOA1 = new System.Windows.Forms.ComboBox();
+            this.LblTiempoSF = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.gbVertical = new System.Windows.Forms.GroupBox();
+            this.BtnEnviarSF = new System.Windows.Forms.Button();
+            this.dtHoraFinG = new System.Windows.Forms.DateTimePicker();
+            this.dtHoraIniG = new System.Windows.Forms.DateTimePicker();
+            this.dtFechaG = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.LblTurno = new System.Windows.Forms.Label();
+            this.LblDuracionG = new System.Windows.Forms.Label();
+            this.LblGuardiola = new System.Windows.Forms.Label();
+            this.LblOperador = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.gbDatos = new System.Windows.Forms.GroupBox();
+            this.LblTicket = new System.Windows.Forms.Label();
+            this.LblCert = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.LblFRecibido = new System.Windows.Forms.Label();
+            this.LblEFisicoV = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.LblDanioV = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.LblCalidadV = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.LblQQsV = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.LblKilos = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.LblSacos = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.BtnCerrarVerCons = new System.Windows.Forms.Button();
+            this.LblTotalTime = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.LblHumedadG = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.LblDigitadorG = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.TLPGuardiola.SuspendLayout();
+            this.PlDatos.SuspendLayout();
+            this.GbSF.SuspendLayout();
+            this.gbVertical.SuspendLayout();
+            this.gbDatos.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // TLPPOA
+            // TLPGuardiola
             // 
-            this.TLPPOA.ColumnCount = 9;
-            this.TLPPOA.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.TLPPOA.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.TLPPOA.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.TLPPOA.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.TLPPOA.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.TLPPOA.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.TLPPOA.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.TLPPOA.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.TLPPOA.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.TLPPOA.Controls.Add(this.BtnG18, 8, 3);
-            this.TLPPOA.Controls.Add(this.BtnG17, 7, 3);
-            this.TLPPOA.Controls.Add(this.BtnG16, 6, 3);
-            this.TLPPOA.Controls.Add(this.BtnG15, 5, 3);
-            this.TLPPOA.Controls.Add(this.BtnG14, 4, 3);
-            this.TLPPOA.Controls.Add(this.BtnG13, 3, 3);
-            this.TLPPOA.Controls.Add(this.BtnG12, 2, 3);
-            this.TLPPOA.Controls.Add(this.BtnG11, 1, 3);
-            this.TLPPOA.Controls.Add(this.BtnG10, 0, 3);
-            this.TLPPOA.Controls.Add(this.LblG18, 8, 2);
-            this.TLPPOA.Controls.Add(this.LblG17, 7, 2);
-            this.TLPPOA.Controls.Add(this.LblG16, 6, 2);
-            this.TLPPOA.Controls.Add(this.LblG15, 5, 2);
-            this.TLPPOA.Controls.Add(this.LblG14, 4, 2);
-            this.TLPPOA.Controls.Add(this.LblG13, 3, 2);
-            this.TLPPOA.Controls.Add(this.LblG12, 2, 2);
-            this.TLPPOA.Controls.Add(this.LblG11, 1, 2);
-            this.TLPPOA.Controls.Add(this.LblG10, 0, 2);
-            this.TLPPOA.Controls.Add(this.BtnG9, 8, 1);
-            this.TLPPOA.Controls.Add(this.BtnG8, 7, 1);
-            this.TLPPOA.Controls.Add(this.BtnG7, 6, 1);
-            this.TLPPOA.Controls.Add(this.BtnG6, 5, 1);
-            this.TLPPOA.Controls.Add(this.BtnG5, 4, 1);
-            this.TLPPOA.Controls.Add(this.BtnG4, 3, 1);
-            this.TLPPOA.Controls.Add(this.BtnG3, 2, 1);
-            this.TLPPOA.Controls.Add(this.BtnG2, 1, 1);
-            this.TLPPOA.Controls.Add(this.LblG9, 8, 0);
-            this.TLPPOA.Controls.Add(this.lblG8, 7, 0);
-            this.TLPPOA.Controls.Add(this.lblG7, 6, 0);
-            this.TLPPOA.Controls.Add(this.lblG6, 5, 0);
-            this.TLPPOA.Controls.Add(this.lblG5, 4, 0);
-            this.TLPPOA.Controls.Add(this.lblG4, 3, 0);
-            this.TLPPOA.Controls.Add(this.lblG3, 2, 0);
-            this.TLPPOA.Controls.Add(this.lblG2, 1, 0);
-            this.TLPPOA.Controls.Add(this.lblG1, 0, 0);
-            this.TLPPOA.Controls.Add(this.BtnG1, 0, 1);
-            this.TLPPOA.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TLPPOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.TLPPOA.Location = new System.Drawing.Point(0, 0);
-            this.TLPPOA.Name = "TLPPOA";
-            this.TLPPOA.RowCount = 4;
-            this.TLPPOA.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.370475F));
-            this.TLPPOA.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.62952F));
-            this.TLPPOA.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.370475F));
-            this.TLPPOA.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.62952F));
-            this.TLPPOA.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.TLPPOA.Size = new System.Drawing.Size(1750, 793);
-            this.TLPPOA.TabIndex = 1;
+            this.TLPGuardiola.ColumnCount = 9;
+            this.TLPGuardiola.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.TLPGuardiola.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.TLPGuardiola.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.TLPGuardiola.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.TLPGuardiola.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.TLPGuardiola.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.TLPGuardiola.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.TLPGuardiola.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.TLPGuardiola.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
+            this.TLPGuardiola.Controls.Add(this.BtnG18, 8, 3);
+            this.TLPGuardiola.Controls.Add(this.BtnG17, 7, 3);
+            this.TLPGuardiola.Controls.Add(this.BtnG16, 6, 3);
+            this.TLPGuardiola.Controls.Add(this.BtnG15, 5, 3);
+            this.TLPGuardiola.Controls.Add(this.BtnG14, 4, 3);
+            this.TLPGuardiola.Controls.Add(this.BtnG13, 3, 3);
+            this.TLPGuardiola.Controls.Add(this.BtnG12, 2, 3);
+            this.TLPGuardiola.Controls.Add(this.BtnG11, 1, 3);
+            this.TLPGuardiola.Controls.Add(this.BtnG10, 0, 3);
+            this.TLPGuardiola.Controls.Add(this.LblG18, 8, 2);
+            this.TLPGuardiola.Controls.Add(this.LblG17, 7, 2);
+            this.TLPGuardiola.Controls.Add(this.LblG16, 6, 2);
+            this.TLPGuardiola.Controls.Add(this.LblG15, 5, 2);
+            this.TLPGuardiola.Controls.Add(this.LblG14, 4, 2);
+            this.TLPGuardiola.Controls.Add(this.LblG13, 3, 2);
+            this.TLPGuardiola.Controls.Add(this.LblG12, 2, 2);
+            this.TLPGuardiola.Controls.Add(this.LblG11, 1, 2);
+            this.TLPGuardiola.Controls.Add(this.LblG10, 0, 2);
+            this.TLPGuardiola.Controls.Add(this.BtnG9, 8, 1);
+            this.TLPGuardiola.Controls.Add(this.BtnG8, 7, 1);
+            this.TLPGuardiola.Controls.Add(this.BtnG7, 6, 1);
+            this.TLPGuardiola.Controls.Add(this.BtnG6, 5, 1);
+            this.TLPGuardiola.Controls.Add(this.BtnG5, 4, 1);
+            this.TLPGuardiola.Controls.Add(this.BtnG4, 3, 1);
+            this.TLPGuardiola.Controls.Add(this.BtnG3, 2, 1);
+            this.TLPGuardiola.Controls.Add(this.BtnG2, 1, 1);
+            this.TLPGuardiola.Controls.Add(this.LblG9, 8, 0);
+            this.TLPGuardiola.Controls.Add(this.LblG8, 7, 0);
+            this.TLPGuardiola.Controls.Add(this.LblG7, 6, 0);
+            this.TLPGuardiola.Controls.Add(this.LblG6, 5, 0);
+            this.TLPGuardiola.Controls.Add(this.LblG5, 4, 0);
+            this.TLPGuardiola.Controls.Add(this.LblG4, 3, 0);
+            this.TLPGuardiola.Controls.Add(this.LblG3, 2, 0);
+            this.TLPGuardiola.Controls.Add(this.LblG2, 1, 0);
+            this.TLPGuardiola.Controls.Add(this.LblG1, 0, 0);
+            this.TLPGuardiola.Controls.Add(this.BtnG1, 0, 1);
+            this.TLPGuardiola.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TLPGuardiola.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.TLPGuardiola.Location = new System.Drawing.Point(0, 0);
+            this.TLPGuardiola.Name = "TLPGuardiola";
+            this.TLPGuardiola.RowCount = 4;
+            this.TLPGuardiola.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.370475F));
+            this.TLPGuardiola.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.62952F));
+            this.TLPGuardiola.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.370475F));
+            this.TLPGuardiola.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.62952F));
+            this.TLPGuardiola.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.TLPGuardiola.Size = new System.Drawing.Size(1750, 793);
+            this.TLPGuardiola.TabIndex = 1;
             // 
             // BtnG18
             // 
             this.BtnG18.BackColor = System.Drawing.Color.White;
-            this.BtnG18.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnG18.BackgroundImage")));
+            this.BtnG18.BackgroundImage = global::ProyectoOFI.Properties.Resources.Guardiola;
             this.BtnG18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnG18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnG18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -146,11 +215,12 @@
             this.BtnG18.Text = "Guardiola #18";
             this.BtnG18.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnG18.UseVisualStyleBackColor = false;
+            this.BtnG18.Click += new System.EventHandler(this.BtnG18_Click);
             // 
             // BtnG17
             // 
             this.BtnG17.BackColor = System.Drawing.Color.White;
-            this.BtnG17.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnG17.BackgroundImage")));
+            this.BtnG17.BackgroundImage = global::ProyectoOFI.Properties.Resources.Guardiola;
             this.BtnG17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnG17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnG17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -163,11 +233,12 @@
             this.BtnG17.Text = "Guardiola #17";
             this.BtnG17.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnG17.UseVisualStyleBackColor = false;
+            this.BtnG17.Click += new System.EventHandler(this.BtnG17_Click);
             // 
             // BtnG16
             // 
             this.BtnG16.BackColor = System.Drawing.Color.White;
-            this.BtnG16.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnG16.BackgroundImage")));
+            this.BtnG16.BackgroundImage = global::ProyectoOFI.Properties.Resources.Guardiola;
             this.BtnG16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnG16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnG16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -180,11 +251,12 @@
             this.BtnG16.Text = "Guardiola #16";
             this.BtnG16.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnG16.UseVisualStyleBackColor = false;
+            this.BtnG16.Click += new System.EventHandler(this.BtnG16_Click);
             // 
             // BtnG15
             // 
             this.BtnG15.BackColor = System.Drawing.Color.White;
-            this.BtnG15.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnG15.BackgroundImage")));
+            this.BtnG15.BackgroundImage = global::ProyectoOFI.Properties.Resources.Guardiola;
             this.BtnG15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnG15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnG15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -197,11 +269,12 @@
             this.BtnG15.Text = "Guardiola #15";
             this.BtnG15.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnG15.UseVisualStyleBackColor = false;
+            this.BtnG15.Click += new System.EventHandler(this.BtnG15_Click);
             // 
             // BtnG14
             // 
             this.BtnG14.BackColor = System.Drawing.Color.White;
-            this.BtnG14.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnG14.BackgroundImage")));
+            this.BtnG14.BackgroundImage = global::ProyectoOFI.Properties.Resources.Guardiola;
             this.BtnG14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnG14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnG14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -214,11 +287,12 @@
             this.BtnG14.Text = "Guardiola #14";
             this.BtnG14.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnG14.UseVisualStyleBackColor = false;
+            this.BtnG14.Click += new System.EventHandler(this.BtnG14_Click);
             // 
             // BtnG13
             // 
             this.BtnG13.BackColor = System.Drawing.Color.White;
-            this.BtnG13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnG13.BackgroundImage")));
+            this.BtnG13.BackgroundImage = global::ProyectoOFI.Properties.Resources.Guardiola;
             this.BtnG13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnG13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnG13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -231,11 +305,12 @@
             this.BtnG13.Text = "Guardiola #13";
             this.BtnG13.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnG13.UseVisualStyleBackColor = false;
+            this.BtnG13.Click += new System.EventHandler(this.BtnG13_Click);
             // 
             // BtnG12
             // 
             this.BtnG12.BackColor = System.Drawing.Color.White;
-            this.BtnG12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnG12.BackgroundImage")));
+            this.BtnG12.BackgroundImage = global::ProyectoOFI.Properties.Resources.Guardiola;
             this.BtnG12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnG12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnG12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -248,11 +323,12 @@
             this.BtnG12.Text = "Guardiola #12";
             this.BtnG12.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnG12.UseVisualStyleBackColor = false;
+            this.BtnG12.Click += new System.EventHandler(this.BtnG12_Click);
             // 
             // BtnG11
             // 
             this.BtnG11.BackColor = System.Drawing.Color.White;
-            this.BtnG11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnG11.BackgroundImage")));
+            this.BtnG11.BackgroundImage = global::ProyectoOFI.Properties.Resources.Guardiola;
             this.BtnG11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnG11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnG11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -265,11 +341,12 @@
             this.BtnG11.Text = "Guardiola #11";
             this.BtnG11.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnG11.UseVisualStyleBackColor = false;
+            this.BtnG11.Click += new System.EventHandler(this.BtnG11_Click);
             // 
             // BtnG10
             // 
             this.BtnG10.BackColor = System.Drawing.Color.White;
-            this.BtnG10.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnG10.BackgroundImage")));
+            this.BtnG10.BackgroundImage = global::ProyectoOFI.Properties.Resources.Guardiola;
             this.BtnG10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnG10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnG10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -282,6 +359,7 @@
             this.BtnG10.Text = "Guardiola #10";
             this.BtnG10.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnG10.UseVisualStyleBackColor = false;
+            this.BtnG10.Click += new System.EventHandler(this.BtnG10_Click);
             // 
             // LblG18
             // 
@@ -385,7 +463,7 @@
             // BtnG9
             // 
             this.BtnG9.BackColor = System.Drawing.Color.White;
-            this.BtnG9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnG9.BackgroundImage")));
+            this.BtnG9.BackgroundImage = global::ProyectoOFI.Properties.Resources.Guardiola;
             this.BtnG9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnG9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnG9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -398,11 +476,12 @@
             this.BtnG9.Text = " Guardiola #9";
             this.BtnG9.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnG9.UseVisualStyleBackColor = false;
+            this.BtnG9.Click += new System.EventHandler(this.BtnG9_Click);
             // 
             // BtnG8
             // 
             this.BtnG8.BackColor = System.Drawing.Color.White;
-            this.BtnG8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnG8.BackgroundImage")));
+            this.BtnG8.BackgroundImage = global::ProyectoOFI.Properties.Resources.Guardiola;
             this.BtnG8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnG8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnG8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -415,11 +494,12 @@
             this.BtnG8.Text = " Guardiola #8";
             this.BtnG8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnG8.UseVisualStyleBackColor = false;
+            this.BtnG8.Click += new System.EventHandler(this.BtnG8_Click);
             // 
             // BtnG7
             // 
             this.BtnG7.BackColor = System.Drawing.Color.White;
-            this.BtnG7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnG7.BackgroundImage")));
+            this.BtnG7.BackgroundImage = global::ProyectoOFI.Properties.Resources.Guardiola;
             this.BtnG7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnG7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnG7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -432,11 +512,12 @@
             this.BtnG7.Text = " Guardiola #7";
             this.BtnG7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnG7.UseVisualStyleBackColor = false;
+            this.BtnG7.Click += new System.EventHandler(this.BtnG7_Click);
             // 
             // BtnG6
             // 
             this.BtnG6.BackColor = System.Drawing.Color.White;
-            this.BtnG6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnG6.BackgroundImage")));
+            this.BtnG6.BackgroundImage = global::ProyectoOFI.Properties.Resources.Guardiola;
             this.BtnG6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnG6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnG6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -449,11 +530,12 @@
             this.BtnG6.Text = " Guardiola #6";
             this.BtnG6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnG6.UseVisualStyleBackColor = false;
+            this.BtnG6.Click += new System.EventHandler(this.BtnG6_Click);
             // 
             // BtnG5
             // 
             this.BtnG5.BackColor = System.Drawing.Color.White;
-            this.BtnG5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnG5.BackgroundImage")));
+            this.BtnG5.BackgroundImage = global::ProyectoOFI.Properties.Resources.Guardiola;
             this.BtnG5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnG5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnG5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -466,11 +548,12 @@
             this.BtnG5.Text = " Guardiola #5";
             this.BtnG5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnG5.UseVisualStyleBackColor = false;
+            this.BtnG5.Click += new System.EventHandler(this.BtnG5_Click);
             // 
             // BtnG4
             // 
             this.BtnG4.BackColor = System.Drawing.Color.White;
-            this.BtnG4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnG4.BackgroundImage")));
+            this.BtnG4.BackgroundImage = global::ProyectoOFI.Properties.Resources.Guardiola;
             this.BtnG4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnG4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnG4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -483,11 +566,12 @@
             this.BtnG4.Text = " Guardiola #4";
             this.BtnG4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnG4.UseVisualStyleBackColor = false;
+            this.BtnG4.Click += new System.EventHandler(this.BtnG4_Click);
             // 
             // BtnG3
             // 
             this.BtnG3.BackColor = System.Drawing.Color.White;
-            this.BtnG3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnG3.BackgroundImage")));
+            this.BtnG3.BackgroundImage = global::ProyectoOFI.Properties.Resources.Guardiola;
             this.BtnG3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnG3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnG3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -500,11 +584,12 @@
             this.BtnG3.Text = " Guardiola #3";
             this.BtnG3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnG3.UseVisualStyleBackColor = false;
+            this.BtnG3.Click += new System.EventHandler(this.BtnG3_Click);
             // 
             // BtnG2
             // 
             this.BtnG2.BackColor = System.Drawing.Color.White;
-            this.BtnG2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnG2.BackgroundImage")));
+            this.BtnG2.BackgroundImage = global::ProyectoOFI.Properties.Resources.Guardiola;
             this.BtnG2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnG2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnG2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -517,6 +602,7 @@
             this.BtnG2.Text = " Guardiola #2";
             this.BtnG2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnG2.UseVisualStyleBackColor = false;
+            this.BtnG2.Click += new System.EventHandler(this.BtnG2_Click);
             // 
             // LblG9
             // 
@@ -529,98 +615,98 @@
             this.LblG9.Text = "--";
             this.LblG9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblG8
+            // LblG8
             // 
-            this.lblG8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblG8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblG8.Location = new System.Drawing.Point(1361, 0);
-            this.lblG8.Name = "lblG8";
-            this.lblG8.Size = new System.Drawing.Size(188, 58);
-            this.lblG8.TabIndex = 7;
-            this.lblG8.Text = "--";
-            this.lblG8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblG8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblG8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.LblG8.Location = new System.Drawing.Point(1361, 0);
+            this.LblG8.Name = "LblG8";
+            this.LblG8.Size = new System.Drawing.Size(188, 58);
+            this.LblG8.TabIndex = 7;
+            this.LblG8.Text = "--";
+            this.LblG8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblG7
+            // LblG7
             // 
-            this.lblG7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblG7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblG7.Location = new System.Drawing.Point(1167, 0);
-            this.lblG7.Name = "lblG7";
-            this.lblG7.Size = new System.Drawing.Size(188, 58);
-            this.lblG7.TabIndex = 6;
-            this.lblG7.Text = "--";
-            this.lblG7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblG7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblG7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.LblG7.Location = new System.Drawing.Point(1167, 0);
+            this.LblG7.Name = "LblG7";
+            this.LblG7.Size = new System.Drawing.Size(188, 58);
+            this.LblG7.TabIndex = 6;
+            this.LblG7.Text = "--";
+            this.LblG7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblG6
+            // LblG6
             // 
-            this.lblG6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblG6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblG6.Location = new System.Drawing.Point(973, 0);
-            this.lblG6.Name = "lblG6";
-            this.lblG6.Size = new System.Drawing.Size(188, 58);
-            this.lblG6.TabIndex = 5;
-            this.lblG6.Text = "--";
-            this.lblG6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblG6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblG6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.LblG6.Location = new System.Drawing.Point(973, 0);
+            this.LblG6.Name = "LblG6";
+            this.LblG6.Size = new System.Drawing.Size(188, 58);
+            this.LblG6.TabIndex = 5;
+            this.LblG6.Text = "--";
+            this.LblG6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblG5
+            // LblG5
             // 
-            this.lblG5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblG5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblG5.Location = new System.Drawing.Point(779, 0);
-            this.lblG5.Name = "lblG5";
-            this.lblG5.Size = new System.Drawing.Size(188, 58);
-            this.lblG5.TabIndex = 4;
-            this.lblG5.Text = "--";
-            this.lblG5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblG5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblG5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.LblG5.Location = new System.Drawing.Point(779, 0);
+            this.LblG5.Name = "LblG5";
+            this.LblG5.Size = new System.Drawing.Size(188, 58);
+            this.LblG5.TabIndex = 4;
+            this.LblG5.Text = "--";
+            this.LblG5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblG4
+            // LblG4
             // 
-            this.lblG4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblG4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblG4.Location = new System.Drawing.Point(585, 0);
-            this.lblG4.Name = "lblG4";
-            this.lblG4.Size = new System.Drawing.Size(188, 58);
-            this.lblG4.TabIndex = 3;
-            this.lblG4.Text = "--";
-            this.lblG4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblG4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblG4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.LblG4.Location = new System.Drawing.Point(585, 0);
+            this.LblG4.Name = "LblG4";
+            this.LblG4.Size = new System.Drawing.Size(188, 58);
+            this.LblG4.TabIndex = 3;
+            this.LblG4.Text = "--";
+            this.LblG4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblG3
+            // LblG3
             // 
-            this.lblG3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblG3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblG3.Location = new System.Drawing.Point(391, 0);
-            this.lblG3.Name = "lblG3";
-            this.lblG3.Size = new System.Drawing.Size(188, 58);
-            this.lblG3.TabIndex = 2;
-            this.lblG3.Text = "--";
-            this.lblG3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblG3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblG3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.LblG3.Location = new System.Drawing.Point(391, 0);
+            this.LblG3.Name = "LblG3";
+            this.LblG3.Size = new System.Drawing.Size(188, 58);
+            this.LblG3.TabIndex = 2;
+            this.LblG3.Text = "--";
+            this.LblG3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblG2
+            // LblG2
             // 
-            this.lblG2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblG2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblG2.Location = new System.Drawing.Point(197, 0);
-            this.lblG2.Name = "lblG2";
-            this.lblG2.Size = new System.Drawing.Size(188, 58);
-            this.lblG2.TabIndex = 1;
-            this.lblG2.Text = "--";
-            this.lblG2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblG2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblG2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.LblG2.Location = new System.Drawing.Point(197, 0);
+            this.LblG2.Name = "LblG2";
+            this.LblG2.Size = new System.Drawing.Size(188, 58);
+            this.LblG2.TabIndex = 1;
+            this.LblG2.Text = "--";
+            this.LblG2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblG1
+            // LblG1
             // 
-            this.lblG1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblG1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.lblG1.Location = new System.Drawing.Point(3, 0);
-            this.lblG1.Name = "lblG1";
-            this.lblG1.Size = new System.Drawing.Size(188, 58);
-            this.lblG1.TabIndex = 0;
-            this.lblG1.Text = "--";
-            this.lblG1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblG1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblG1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.LblG1.Location = new System.Drawing.Point(3, 0);
+            this.LblG1.Name = "LblG1";
+            this.LblG1.Size = new System.Drawing.Size(188, 58);
+            this.LblG1.TabIndex = 0;
+            this.LblG1.Text = "--";
+            this.LblG1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BtnG1
             // 
             this.BtnG1.BackColor = System.Drawing.Color.White;
-            this.BtnG1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnG1.BackgroundImage")));
+            this.BtnG1.BackgroundImage = global::ProyectoOFI.Properties.Resources.Guardiola;
             this.BtnG1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnG1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnG1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -633,22 +719,696 @@
             this.BtnG1.Text = "Guardiola #1";
             this.BtnG1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.BtnG1.UseVisualStyleBackColor = false;
+            this.BtnG1.Click += new System.EventHandler(this.BtnG1_Click);
+            // 
+            // PlDatos
+            // 
+            this.PlDatos.Controls.Add(this.GbSF);
+            this.PlDatos.Controls.Add(this.gbVertical);
+            this.PlDatos.Controls.Add(this.gbDatos);
+            this.PlDatos.Controls.Add(this.panel2);
+            this.PlDatos.Location = new System.Drawing.Point(176, 87);
+            this.PlDatos.Name = "PlDatos";
+            this.PlDatos.Size = new System.Drawing.Size(1398, 619);
+            this.PlDatos.TabIndex = 4;
+            this.PlDatos.Visible = false;
+            // 
+            // GbSF
+            // 
+            this.GbSF.Controls.Add(this.label23);
+            this.GbSF.Controls.Add(this.CbTurno);
+            this.GbSF.Controls.Add(this.CbOperadores);
+            this.GbSF.Controls.Add(this.BtnSF);
+            this.GbSF.Controls.Add(this.label27);
+            this.GbSF.Controls.Add(this.TxtHumedad);
+            this.GbSF.Controls.Add(this.TxtParos);
+            this.GbSF.Controls.Add(this.CHParos);
+            this.GbSF.Controls.Add(this.DtPFDes1);
+            this.GbSF.Controls.Add(this.DtHoraFin1);
+            this.GbSF.Controls.Add(this.label15);
+            this.GbSF.Controls.Add(this.label29);
+            this.GbSF.Controls.Add(this.DtHInicio1);
+            this.GbSF.Controls.Add(this.label28);
+            this.GbSF.Controls.Add(this.CbPOA1);
+            this.GbSF.Controls.Add(this.LblTotalTime);
+            this.GbSF.Controls.Add(this.LblTiempoSF);
+            this.GbSF.Controls.Add(this.label14);
+            this.GbSF.Controls.Add(this.label18);
+            this.GbSF.Controls.Add(this.label26);
+            this.GbSF.Controls.Add(this.label20);
+            this.GbSF.Controls.Add(this.label19);
+            this.GbSF.Dock = System.Windows.Forms.DockStyle.Top;
+            this.GbSF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.GbSF.Location = new System.Drawing.Point(0, 354);
+            this.GbSF.Name = "GbSF";
+            this.GbSF.Size = new System.Drawing.Size(1398, 236);
+            this.GbSF.TabIndex = 15;
+            this.GbSF.TabStop = false;
+            this.GbSF.Text = "Envío para Secado Final";
+            this.GbSF.Visible = false;
+            // 
+            // CbTurno
+            // 
+            this.CbTurno.FormattingEnabled = true;
+            this.CbTurno.Location = new System.Drawing.Point(729, 67);
+            this.CbTurno.Name = "CbTurno";
+            this.CbTurno.Size = new System.Drawing.Size(182, 24);
+            this.CbTurno.TabIndex = 15;
+            // 
+            // CbOperadores
+            // 
+            this.CbOperadores.FormattingEnabled = true;
+            this.CbOperadores.Location = new System.Drawing.Point(172, 67);
+            this.CbOperadores.Name = "CbOperadores";
+            this.CbOperadores.Size = new System.Drawing.Size(456, 24);
+            this.CbOperadores.TabIndex = 15;
+            // 
+            // BtnSF
+            // 
+            this.BtnSF.Location = new System.Drawing.Point(945, 183);
+            this.BtnSF.Name = "BtnSF";
+            this.BtnSF.Size = new System.Drawing.Size(123, 47);
+            this.BtnSF.TabIndex = 14;
+            this.BtnSF.Text = "Descargar";
+            this.BtnSF.UseVisualStyleBackColor = true;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(86, 172);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(162, 17);
+            this.label27.TabIndex = 13;
+            this.label27.Text = "Tiempo total Secado:";
+            // 
+            // TxtHumedad
+            // 
+            this.TxtHumedad.Location = new System.Drawing.Point(218, 118);
+            this.TxtHumedad.Name = "TxtHumedad";
+            this.TxtHumedad.Size = new System.Drawing.Size(100, 23);
+            this.TxtHumedad.TabIndex = 12;
+            // 
+            // TxtParos
+            // 
+            this.TxtParos.Location = new System.Drawing.Point(459, 118);
+            this.TxtParos.Name = "TxtParos";
+            this.TxtParos.Size = new System.Drawing.Size(100, 23);
+            this.TxtParos.TabIndex = 12;
+            // 
+            // CHParos
+            // 
+            this.CHParos.CheckOnClick = true;
+            this.CHParos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.CHParos.FormattingEnabled = true;
+            this.CHParos.HorizontalScrollbar = true;
+            this.CHParos.Location = new System.Drawing.Point(1100, 16);
+            this.CHParos.Name = "CHParos";
+            this.CHParos.ScrollAlwaysVisible = true;
+            this.CHParos.Size = new System.Drawing.Size(251, 214);
+            this.CHParos.TabIndex = 11;
+            // 
+            // DtPFDes1
+            // 
+            this.DtPFDes1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtPFDes1.Location = new System.Drawing.Point(428, 26);
+            this.DtPFDes1.Name = "DtPFDes1";
+            this.DtPFDes1.Size = new System.Drawing.Size(129, 23);
+            this.DtPFDes1.TabIndex = 3;
+            // 
+            // DtHoraFin1
+            // 
+            this.DtHoraFin1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.DtHoraFin1.Location = new System.Drawing.Point(920, 22);
+            this.DtHoraFin1.Name = "DtHoraFin1";
+            this.DtHoraFin1.Size = new System.Drawing.Size(132, 23);
+            this.DtHoraFin1.TabIndex = 10;
+            // 
+            // label15
+            // 
+            this.label15.Location = new System.Drawing.Point(331, 20);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(102, 43);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "Fecha de Descarga:";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(667, 69);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(56, 17);
+            this.label29.TabIndex = 2;
+            this.label29.Text = "Turno:";
+            // 
+            // DtHInicio1
+            // 
+            this.DtHInicio1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.DtHInicio1.Location = new System.Drawing.Point(676, 22);
+            this.DtHInicio1.Name = "DtHInicio1";
+            this.DtHInicio1.Size = new System.Drawing.Size(146, 23);
+            this.DtHInicio1.TabIndex = 10;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(85, 67);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(82, 17);
+            this.label28.TabIndex = 2;
+            this.label28.Text = "Operador:";
+            // 
+            // CbPOA1
+            // 
+            this.CbPOA1.FormattingEnabled = true;
+            this.CbPOA1.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18"});
+            this.CbPOA1.Location = new System.Drawing.Point(173, 29);
+            this.CbPOA1.Name = "CbPOA1";
+            this.CbPOA1.Size = new System.Drawing.Size(121, 24);
+            this.CbPOA1.TabIndex = 1;
+            // 
+            // LblTiempoSF
+            // 
+            this.LblTiempoSF.AutoSize = true;
+            this.LblTiempoSF.Location = new System.Drawing.Point(877, 121);
+            this.LblTiempoSF.Name = "LblTiempoSF";
+            this.LblTiempoSF.Size = new System.Drawing.Size(20, 17);
+            this.LblTiempoSF.TabIndex = 4;
+            this.LblTiempoSF.Text = "--";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(86, 32);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(76, 17);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Tolva #1:";
+            // 
+            // label18
+            // 
+            this.label18.Location = new System.Drawing.Point(596, 15);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(57, 43);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Hora Inicio:";
+            // 
+            // label26
+            // 
+            this.label26.Location = new System.Drawing.Point(86, 115);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(102, 28);
+            this.label26.TabIndex = 4;
+            this.label26.Text = "Humedad:";
+            // 
+            // label20
+            // 
+            this.label20.Location = new System.Drawing.Point(348, 108);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(81, 43);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "Total de Paros:";
+            // 
+            // label19
+            // 
+            this.label19.Location = new System.Drawing.Point(853, 14);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(65, 43);
+            this.label19.TabIndex = 4;
+            this.label19.Text = "Hora Fin:";
+            // 
+            // gbVertical
+            // 
+            this.gbVertical.Controls.Add(this.BtnEnviarSF);
+            this.gbVertical.Controls.Add(this.dtHoraFinG);
+            this.gbVertical.Controls.Add(this.dtHoraIniG);
+            this.gbVertical.Controls.Add(this.dtFechaG);
+            this.gbVertical.Controls.Add(this.label24);
+            this.gbVertical.Controls.Add(this.label25);
+            this.gbVertical.Controls.Add(this.label8);
+            this.gbVertical.Controls.Add(this.LblHumedadG);
+            this.gbVertical.Controls.Add(this.LblDigitadorG);
+            this.gbVertical.Controls.Add(this.LblTurno);
+            this.gbVertical.Controls.Add(this.LblDuracionG);
+            this.gbVertical.Controls.Add(this.LblGuardiola);
+            this.gbVertical.Controls.Add(this.LblOperador);
+            this.gbVertical.Controls.Add(this.label9);
+            this.gbVertical.Controls.Add(this.label10);
+            this.gbVertical.Controls.Add(this.label11);
+            this.gbVertical.Controls.Add(this.label12);
+            this.gbVertical.Controls.Add(this.label13);
+            this.gbVertical.Controls.Add(this.label21);
+            this.gbVertical.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbVertical.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbVertical.Location = new System.Drawing.Point(0, 168);
+            this.gbVertical.Name = "gbVertical";
+            this.gbVertical.Size = new System.Drawing.Size(1398, 186);
+            this.gbVertical.TabIndex = 14;
+            this.gbVertical.TabStop = false;
+            this.gbVertical.Text = "Vertical";
+            // 
+            // BtnEnviarSF
+            // 
+            this.BtnEnviarSF.Location = new System.Drawing.Point(1061, 60);
+            this.BtnEnviarSF.Name = "BtnEnviarSF";
+            this.BtnEnviarSF.Size = new System.Drawing.Size(140, 80);
+            this.BtnEnviarSF.TabIndex = 11;
+            this.BtnEnviarSF.Text = "Descargar";
+            this.BtnEnviarSF.UseVisualStyleBackColor = true;
+            // 
+            // dtHoraFinG
+            // 
+            this.dtHoraFinG.Enabled = false;
+            this.dtHoraFinG.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtHoraFinG.Location = new System.Drawing.Point(860, 98);
+            this.dtHoraFinG.Name = "dtHoraFinG";
+            this.dtHoraFinG.Size = new System.Drawing.Size(132, 26);
+            this.dtHoraFinG.TabIndex = 10;
+            // 
+            // dtHoraIniG
+            // 
+            this.dtHoraIniG.Enabled = false;
+            this.dtHoraIniG.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dtHoraIniG.Location = new System.Drawing.Point(600, 100);
+            this.dtHoraIniG.Name = "dtHoraIniG";
+            this.dtHoraIniG.Size = new System.Drawing.Size(146, 26);
+            this.dtHoraIniG.TabIndex = 10;
+            // 
+            // dtFechaG
+            // 
+            this.dtFechaG.Enabled = false;
+            this.dtFechaG.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaG.Location = new System.Drawing.Point(384, 100);
+            this.dtFechaG.Name = "dtFechaG";
+            this.dtFechaG.Size = new System.Drawing.Size(135, 26);
+            this.dtFechaG.TabIndex = 9;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(383, 147);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 20);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Duracion:";
+            // 
+            // LblTurno
+            // 
+            this.LblTurno.AutoSize = true;
+            this.LblTurno.Location = new System.Drawing.Point(92, 103);
+            this.LblTurno.Name = "LblTurno";
+            this.LblTurno.Size = new System.Drawing.Size(21, 20);
+            this.LblTurno.TabIndex = 6;
+            this.LblTurno.Text = "--";
+            // 
+            // LblDuracionG
+            // 
+            this.LblDuracionG.AutoSize = true;
+            this.LblDuracionG.Location = new System.Drawing.Point(480, 147);
+            this.LblDuracionG.Name = "LblDuracionG";
+            this.LblDuracionG.Size = new System.Drawing.Size(21, 20);
+            this.LblDuracionG.TabIndex = 6;
+            this.LblDuracionG.Text = "--";
+            // 
+            // LblGuardiola
+            // 
+            this.LblGuardiola.AutoSize = true;
+            this.LblGuardiola.Location = new System.Drawing.Point(210, 39);
+            this.LblGuardiola.Name = "LblGuardiola";
+            this.LblGuardiola.Size = new System.Drawing.Size(21, 20);
+            this.LblGuardiola.TabIndex = 6;
+            this.LblGuardiola.Text = "--";
+            // 
+            // LblOperador
+            // 
+            this.LblOperador.AutoSize = true;
+            this.LblOperador.Location = new System.Drawing.Point(383, 44);
+            this.LblOperador.Name = "LblOperador";
+            this.LblOperador.Size = new System.Drawing.Size(21, 20);
+            this.LblOperador.TabIndex = 6;
+            this.LblOperador.Text = "--";
+            // 
+            // label9
+            // 
+            this.label9.Location = new System.Drawing.Point(798, 90);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(65, 43);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Hora Fin:";
+            // 
+            // label10
+            // 
+            this.label10.Location = new System.Drawing.Point(531, 92);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(57, 43);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Hora Inicio:";
+            // 
+            // label11
+            // 
+            this.label11.Location = new System.Drawing.Point(279, 92);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(93, 43);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Fecha de Recibido:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(26, 103);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(60, 20);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Turno:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(286, 41);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(89, 20);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Operador:";
+            // 
+            // label21
+            // 
+            this.label21.Location = new System.Drawing.Point(92, 39);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(110, 24);
+            this.label21.TabIndex = 0;
+            this.label21.Text = "Guardiola #:";
+            // 
+            // gbDatos
+            // 
+            this.gbDatos.Controls.Add(this.LblTicket);
+            this.gbDatos.Controls.Add(this.LblCert);
+            this.gbDatos.Controls.Add(this.label17);
+            this.gbDatos.Controls.Add(this.LblFRecibido);
+            this.gbDatos.Controls.Add(this.LblEFisicoV);
+            this.gbDatos.Controls.Add(this.label7);
+            this.gbDatos.Controls.Add(this.LblDanioV);
+            this.gbDatos.Controls.Add(this.label6);
+            this.gbDatos.Controls.Add(this.LblCalidadV);
+            this.gbDatos.Controls.Add(this.label5);
+            this.gbDatos.Controls.Add(this.LblQQsV);
+            this.gbDatos.Controls.Add(this.label4);
+            this.gbDatos.Controls.Add(this.LblKilos);
+            this.gbDatos.Controls.Add(this.label3);
+            this.gbDatos.Controls.Add(this.LblSacos);
+            this.gbDatos.Controls.Add(this.label2);
+            this.gbDatos.Controls.Add(this.label1);
+            this.gbDatos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbDatos.Location = new System.Drawing.Point(0, 43);
+            this.gbDatos.Name = "gbDatos";
+            this.gbDatos.Size = new System.Drawing.Size(1398, 125);
+            this.gbDatos.TabIndex = 12;
+            this.gbDatos.TabStop = false;
+            this.gbDatos.Text = "Datos Ticket";
+            // 
+            // LblTicket
+            // 
+            this.LblTicket.AutoSize = true;
+            this.LblTicket.Location = new System.Drawing.Point(272, 32);
+            this.LblTicket.Name = "LblTicket";
+            this.LblTicket.Size = new System.Drawing.Size(21, 20);
+            this.LblTicket.TabIndex = 20;
+            this.LblTicket.Text = "--";
+            // 
+            // LblCert
+            // 
+            this.LblCert.AutoSize = true;
+            this.LblCert.Location = new System.Drawing.Point(133, 74);
+            this.LblCert.Name = "LblCert";
+            this.LblCert.Size = new System.Drawing.Size(21, 20);
+            this.LblCert.TabIndex = 20;
+            this.LblCert.Text = "--";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 74);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(114, 20);
+            this.label17.TabIndex = 21;
+            this.label17.Text = "Certificación:";
+            // 
+            // LblFRecibido
+            // 
+            this.LblFRecibido.AutoSize = true;
+            this.LblFRecibido.Location = new System.Drawing.Point(1026, 74);
+            this.LblFRecibido.Name = "LblFRecibido";
+            this.LblFRecibido.Size = new System.Drawing.Size(21, 20);
+            this.LblFRecibido.TabIndex = 6;
+            this.LblFRecibido.Text = "--";
+            this.LblFRecibido.Visible = false;
+            // 
+            // LblEFisicoV
+            // 
+            this.LblEFisicoV.AutoSize = true;
+            this.LblEFisicoV.Location = new System.Drawing.Point(876, 74);
+            this.LblEFisicoV.Name = "LblEFisicoV";
+            this.LblEFisicoV.Size = new System.Drawing.Size(21, 20);
+            this.LblEFisicoV.TabIndex = 6;
+            this.LblEFisicoV.Text = "--";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(740, 74);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(123, 20);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Estado Fisico:";
+            // 
+            // LblDanioV
+            // 
+            this.LblDanioV.AutoSize = true;
+            this.LblDanioV.Location = new System.Drawing.Point(590, 74);
+            this.LblDanioV.Name = "LblDanioV";
+            this.LblDanioV.Size = new System.Drawing.Size(21, 20);
+            this.LblDanioV.TabIndex = 6;
+            this.LblDanioV.Text = "--";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(520, 74);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 20);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Daño:";
+            // 
+            // LblCalidadV
+            // 
+            this.LblCalidadV.AutoSize = true;
+            this.LblCalidadV.Location = new System.Drawing.Point(370, 74);
+            this.LblCalidadV.Name = "LblCalidadV";
+            this.LblCalidadV.Size = new System.Drawing.Size(21, 20);
+            this.LblCalidadV.TabIndex = 4;
+            this.LblCalidadV.Text = "--";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(283, 74);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 20);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Calidad:";
+            // 
+            // LblQQsV
+            // 
+            this.LblQQsV.AutoSize = true;
+            this.LblQQsV.Location = new System.Drawing.Point(1096, 32);
+            this.LblQQsV.Name = "LblQQsV";
+            this.LblQQsV.Size = new System.Drawing.Size(21, 20);
+            this.LblQQsV.TabIndex = 2;
+            this.LblQQsV.Text = "--";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(979, 32);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 20);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "QQs:";
+            // 
+            // LblKilos
+            // 
+            this.LblKilos.AutoSize = true;
+            this.LblKilos.Location = new System.Drawing.Point(890, 32);
+            this.LblKilos.Name = "LblKilos";
+            this.LblKilos.Size = new System.Drawing.Size(21, 20);
+            this.LblKilos.TabIndex = 2;
+            this.LblKilos.Text = "--";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(770, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 20);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Kilos:";
+            // 
+            // LblSacos
+            // 
+            this.LblSacos.AutoSize = true;
+            this.LblSacos.Location = new System.Drawing.Point(681, 32);
+            this.LblSacos.Name = "LblSacos";
+            this.LblSacos.Size = new System.Drawing.Size(21, 20);
+            this.LblSacos.TabIndex = 2;
+            this.LblSacos.Text = "--";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(549, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Sacos:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(190, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Ticket";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label16);
+            this.panel2.Controls.Add(this.BtnCerrarVerCons);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1398, 43);
+            this.panel2.TabIndex = 13;
+            // 
+            // label16
+            // 
+            this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(0, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(1351, 43);
+            this.label16.TabIndex = 13;
+            this.label16.Text = "Detalles de lote en Guardiola";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnCerrarVerCons
+            // 
+            this.BtnCerrarVerCons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrarVerCons.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrarVerCons.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrarVerCons.Location = new System.Drawing.Point(1351, 0);
+            this.BtnCerrarVerCons.Name = "BtnCerrarVerCons";
+            this.BtnCerrarVerCons.Size = new System.Drawing.Size(47, 43);
+            this.BtnCerrarVerCons.TabIndex = 11;
+            this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
+            this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
+            // 
+            // LblTotalTime
+            // 
+            this.LblTotalTime.AutoSize = true;
+            this.LblTotalTime.Location = new System.Drawing.Point(257, 172);
+            this.LblTotalTime.Name = "LblTotalTime";
+            this.LblTotalTime.Size = new System.Drawing.Size(20, 17);
+            this.LblTotalTime.TabIndex = 4;
+            this.LblTotalTime.Text = "--";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(634, 123);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(225, 17);
+            this.label23.TabIndex = 16;
+            this.label23.Text = "Tiempo total de Secado Final:";
+            // 
+            // LblHumedadG
+            // 
+            this.LblHumedadG.AutoSize = true;
+            this.LblHumedadG.Location = new System.Drawing.Point(287, 147);
+            this.LblHumedadG.Name = "LblHumedadG";
+            this.LblHumedadG.Size = new System.Drawing.Size(21, 20);
+            this.LblHumedadG.TabIndex = 6;
+            this.LblHumedadG.Text = "--";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(190, 147);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(91, 20);
+            this.label24.TabIndex = 6;
+            this.label24.Text = "Humedad:";
+            // 
+            // LblDigitadorG
+            // 
+            this.LblDigitadorG.AutoSize = true;
+            this.LblDigitadorG.Location = new System.Drawing.Point(778, 147);
+            this.LblDigitadorG.Name = "LblDigitadorG";
+            this.LblDigitadorG.Size = new System.Drawing.Size(21, 20);
+            this.LblDigitadorG.TabIndex = 6;
+            this.LblDigitadorG.Text = "--";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(681, 147);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(87, 20);
+            this.label25.TabIndex = 6;
+            this.label25.Text = "Digitador:";
             // 
             // Guardiolas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.TLPPOA);
+            this.Controls.Add(this.PlDatos);
+            this.Controls.Add(this.TLPGuardiola);
             this.Name = "Guardiolas";
             this.Size = new System.Drawing.Size(1750, 793);
-            this.TLPPOA.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.Guardiolas_Load);
+            this.TLPGuardiola.ResumeLayout(false);
+            this.PlDatos.ResumeLayout(false);
+            this.GbSF.ResumeLayout(false);
+            this.GbSF.PerformLayout();
+            this.gbVertical.ResumeLayout(false);
+            this.gbVertical.PerformLayout();
+            this.gbDatos.ResumeLayout(false);
+            this.gbDatos.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel TLPPOA;
+        private System.Windows.Forms.TableLayoutPanel TLPGuardiola;
         private System.Windows.Forms.Button BtnG18;
         private System.Windows.Forms.Button BtnG17;
         private System.Windows.Forms.Button BtnG16;
@@ -676,14 +1436,79 @@
         private System.Windows.Forms.Button BtnG3;
         private System.Windows.Forms.Button BtnG2;
         private System.Windows.Forms.Label LblG9;
-        private System.Windows.Forms.Label lblG8;
-        private System.Windows.Forms.Label lblG7;
-        private System.Windows.Forms.Label lblG6;
-        private System.Windows.Forms.Label lblG5;
-        private System.Windows.Forms.Label lblG4;
-        private System.Windows.Forms.Label lblG3;
-        private System.Windows.Forms.Label lblG2;
-        private System.Windows.Forms.Label lblG1;
+        private System.Windows.Forms.Label LblG8;
+        private System.Windows.Forms.Label LblG7;
+        private System.Windows.Forms.Label LblG6;
+        private System.Windows.Forms.Label LblG5;
+        private System.Windows.Forms.Label LblG4;
+        private System.Windows.Forms.Label LblG3;
+        private System.Windows.Forms.Label LblG2;
+        private System.Windows.Forms.Label LblG1;
         private System.Windows.Forms.Button BtnG1;
+        private System.Windows.Forms.Panel PlDatos;
+        private System.Windows.Forms.GroupBox GbSF;
+        private System.Windows.Forms.ComboBox CbTurno;
+        private System.Windows.Forms.ComboBox CbOperadores;
+        private System.Windows.Forms.Button BtnSF;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox TxtHumedad;
+        private System.Windows.Forms.TextBox TxtParos;
+        private System.Windows.Forms.CheckedListBox CHParos;
+        private System.Windows.Forms.DateTimePicker DtPFDes1;
+        public System.Windows.Forms.DateTimePicker DtHoraFin1;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label29;
+        public System.Windows.Forms.DateTimePicker DtHInicio1;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.ComboBox CbPOA1;
+        private System.Windows.Forms.Label LblTiempoSF;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        public System.Windows.Forms.GroupBox gbVertical;
+        public System.Windows.Forms.Button BtnEnviarSF;
+        public System.Windows.Forms.DateTimePicker dtHoraFinG;
+        public System.Windows.Forms.DateTimePicker dtHoraIniG;
+        public System.Windows.Forms.DateTimePicker dtFechaG;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label LblTurno;
+        private System.Windows.Forms.Label LblDuracionG;
+        private System.Windows.Forms.Label LblGuardiola;
+        private System.Windows.Forms.Label LblOperador;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        public System.Windows.Forms.Label label21;
+        public System.Windows.Forms.GroupBox gbDatos;
+        private System.Windows.Forms.Label LblTicket;
+        private System.Windows.Forms.Label LblCert;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label LblFRecibido;
+        private System.Windows.Forms.Label LblEFisicoV;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label LblDanioV;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label LblCalidadV;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LblQQsV;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label LblKilos;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LblSacos;
+        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button BtnCerrarVerCons;
+        private System.Windows.Forms.Label LblTotalTime;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label LblHumedadG;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label LblDigitadorG;
     }
 }

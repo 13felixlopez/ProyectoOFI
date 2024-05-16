@@ -32,6 +32,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>ofi.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -63,6 +69,7 @@
     </Compile>
     <Compile Include="Datos\Conexion.cs" />
     <Compile Include="Datos\DCatalogo.cs" />
+    <Compile Include="Datos\DGuardiola.cs" />
     <Compile Include="Datos\DHistorial.cs" />
     <Compile Include="Datos\DModulos.cs" />
     <Compile Include="Datos\DPermisos.cs" />
@@ -409,6 +416,7 @@
       <DependentUpon>UCUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Ofi %282%29.bak" />
+    <None Include="ofi.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -569,8 +577,11 @@
     <None Include="Resources\icons8-cerrar-sesión.gif" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Logo.ico" />
     <Content Include="ofi20.sql" />
     <Content Include="ofi2024.sql" />
+    <None Include="Resources\Guardiola1.png" />
+    <None Include="Resources\Guardiola Btn.png" />
     <None Include="Resources\Guardiola.png" />
     <None Include="Resources\icons8-refrescar.gif" />
     <None Include="Resources\icons8-separar.gif" />

@@ -59,5 +59,14 @@ namespace ProyectoOFI.SM
             p.BringToFront();
             PlSM.Controls.Add(p);
         }
+
+        private void BtnGuardiola_Click(object sender, EventArgs e)
+        {
+            Guardiolas g= new Guardiolas();
+            PlSM.Controls.Clear();
+            g.Dock = DockStyle.Fill;
+            g.BringToFront();
+            PlSM.Controls.Add(g);
+        }
     }
 }

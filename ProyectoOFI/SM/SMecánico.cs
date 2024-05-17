@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.SM
@@ -12,13 +13,16 @@ namespace ProyectoOFI.SM
 
         private void SMecánico_Load(object sender, EventArgs e)
         {
+            plfooterSm.Enabled = false;
             SecadoMecanico ir = new SecadoMecanico();
             PlSM.Controls.Clear();
             ir.Dock = DockStyle.Fill;
             ir.BringToFront();
             PlSM.Controls.Add(ir);
+            Task.Delay(3500);
+            plfooterSm.Enabled = true;
         }
-        
+
         private void btnTransferencia_Click(object sender, EventArgs e)
         {
             SecadoMecanico ir = new SecadoMecanico();
@@ -53,7 +57,7 @@ namespace ProyectoOFI.SM
 
         private void BtnPOA_Click(object sender, EventArgs e)
         {
-            POASF p=new POASF();
+            POASF p = new POASF();
             PlSM.Controls.Clear();
             p.Dock = DockStyle.Fill;
             p.BringToFront();
@@ -62,7 +66,7 @@ namespace ProyectoOFI.SM
 
         private void BtnGuardiola_Click(object sender, EventArgs e)
         {
-            Guardiolas g= new Guardiolas();
+            Guardiolas g = new Guardiolas();
             PlSM.Controls.Clear();
             g.Dock = DockStyle.Fill;
             g.BringToFront();

@@ -275,38 +275,46 @@ namespace ProyectoOFI.SM
         }
         private void MostrarDatos(Label POA)
         {
-            DPOA DPOA = new DPOA();
-            DataTable dt = new DataTable();
-            DPOA.CargarPOA(POA.Text, dt);
-            cbTicketP.Enabled = false;
-            cbTicketP.Text = POA.Text;
-            LblSacos.Text = dt.Rows[0]["Sacos"].ToString();
-            LblKilos.Text = dt.Rows[0]["Peso"].ToString();
-            double kilos = Convert.ToDouble(LblKilos.Text);
-            kilos = kilos / 46;
-            LblQQsV.Text = Math.Round(kilos, 2).ToString();
-            LblCalidadV.Text = dt.Rows[0]["Calidad"].ToString();
-            LblDanioV.Text = dt.Rows[0]["Danio"].ToString();
-            LblEFisicoV.Text = dt.Rows[0]["EstFisico"].ToString();
-            LblCert.Text = dt.Rows[0]["Certificacion"].ToString();
-            txtTolvaPOA.Text = dt.Rows[0]["POA"].ToString();
-            cbOperadorPOA.Text = dt.Rows[0]["Nombre"].ToString();
-            cbTurnoPOA.Text = dt.Rows[0]["TurnoPOA"].ToString();
-            dtFechaPOA.Text = dt.Rows[0]["FechaDes"].ToString();
-            DtHoraInPOA.Text = dt.Rows[0]["HoradesIn"].ToString();
-            DtHoraFinPOA.Text = dt.Rows[0]["HoraFin"].ToString();
-            txtHumedadPOA.Text = dt.Rows[0]["Humedad"].ToString();
-            IdPOA = int.Parse(dt.Rows[0]["IdPOA"].ToString());
-            btnGuardarPOA.Visible = false;
-            btnDescargarPOA.Visible = true;
-            DtHoraInPOA.Enabled = false;
-            DtHoraFinPOA.Enabled = false;
-            txtHumedadPOA.Enabled = false;
-            cbOperadorPOA.Enabled = false;
-            cbTurnoPOA.Enabled = false;
-            dtFechaPOA.Enabled = false;
-            Capacidad();
-            AbrirFormulario();
+            try
+            {
+                DPOA DPOA = new DPOA();
+                DataTable dt = new DataTable();
+                DPOA.CargarPOA(POA.Text, dt);
+                cbTicketP.Enabled = false;
+                cbTicketP.Text = POA.Text;
+                LblSacos.Text = dt.Rows[0]["Sacos"].ToString();
+                LblKilos.Text = dt.Rows[0]["Peso"].ToString();
+                double kilos = Convert.ToDouble(LblKilos.Text);
+                kilos = kilos / 46;
+                LblQQsV.Text = Math.Round(kilos, 2).ToString();
+                LblCalidadV.Text = dt.Rows[0]["Calidad"].ToString();
+                LblDanioV.Text = dt.Rows[0]["Danio"].ToString();
+                LblEFisicoV.Text = dt.Rows[0]["EstFisico"].ToString();
+                LblCert.Text = dt.Rows[0]["Certificacion"].ToString();
+                txtTolvaPOA.Text = dt.Rows[0]["POA"].ToString();
+                cbOperadorPOA.Text = dt.Rows[0]["Nombre"].ToString();
+                cbTurnoPOA.Text = dt.Rows[0]["TurnoPOA"].ToString();
+                dtFechaPOA.Text = dt.Rows[0]["FechaDes"].ToString();
+                DtHoraInPOA.Text = dt.Rows[0]["HoradesIn"].ToString();
+                DtHoraFinPOA.Text = dt.Rows[0]["HoraFin"].ToString();
+                txtHumedadPOA.Text = dt.Rows[0]["Humedad"].ToString();
+                IdPOA = int.Parse(dt.Rows[0]["IdPOA"].ToString());
+                btnGuardarPOA.Visible = false;
+                btnDescargarPOA.Visible = true;
+                DtHoraInPOA.Enabled = false;
+                DtHoraFinPOA.Enabled = false;
+                txtHumedadPOA.Enabled = false;
+                cbOperadorPOA.Enabled = false;
+                cbTurnoPOA.Enabled = false;
+                dtFechaPOA.Enabled = false;
+                Capacidad();
+                AbrirFormulario();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         private void Capacidad()
         {

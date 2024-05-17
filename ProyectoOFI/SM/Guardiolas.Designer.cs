@@ -67,6 +67,7 @@
             this.BtnG1 = new System.Windows.Forms.Button();
             this.PlDatos = new System.Windows.Forms.Panel();
             this.GbSF = new System.Windows.Forms.GroupBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.CbTurno = new System.Windows.Forms.ComboBox();
             this.CbOperadores = new System.Windows.Forms.ComboBox();
             this.BtnSF = new System.Windows.Forms.Button();
@@ -81,18 +82,23 @@
             this.DtHInicio1 = new System.Windows.Forms.DateTimePicker();
             this.label28 = new System.Windows.Forms.Label();
             this.CbPOA1 = new System.Windows.Forms.ComboBox();
+            this.LblTotalTime = new System.Windows.Forms.Label();
             this.LblTiempoSF = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.gbVertical = new System.Windows.Forms.GroupBox();
+            this.GbGuardiola = new System.Windows.Forms.GroupBox();
             this.BtnEnviarSF = new System.Windows.Forms.Button();
             this.dtHoraFinG = new System.Windows.Forms.DateTimePicker();
             this.dtHoraIniG = new System.Windows.Forms.DateTimePicker();
             this.dtFechaG = new System.Windows.Forms.DateTimePicker();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.LblHumedadG = new System.Windows.Forms.Label();
+            this.LblDigitadorG = new System.Windows.Forms.Label();
             this.LblTurno = new System.Windows.Forms.Label();
             this.LblDuracionG = new System.Windows.Forms.Label();
             this.LblGuardiola = new System.Windows.Forms.Label();
@@ -124,16 +130,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.BtnCerrarVerCons = new System.Windows.Forms.Button();
-            this.LblTotalTime = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.LblHumedadG = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.LblDigitadorG = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
             this.TLPGuardiola.SuspendLayout();
             this.PlDatos.SuspendLayout();
             this.GbSF.SuspendLayout();
-            this.gbVertical.SuspendLayout();
+            this.GbGuardiola.SuspendLayout();
             this.gbDatos.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -723,8 +723,9 @@
             // 
             // PlDatos
             // 
+            this.PlDatos.BackColor = System.Drawing.Color.White;
             this.PlDatos.Controls.Add(this.GbSF);
-            this.PlDatos.Controls.Add(this.gbVertical);
+            this.PlDatos.Controls.Add(this.GbGuardiola);
             this.PlDatos.Controls.Add(this.gbDatos);
             this.PlDatos.Controls.Add(this.panel2);
             this.PlDatos.Location = new System.Drawing.Point(176, 87);
@@ -766,6 +767,15 @@
             this.GbSF.TabStop = false;
             this.GbSF.Text = "Envío para Secado Final";
             this.GbSF.Visible = false;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(634, 123);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(225, 17);
+            this.label23.TabIndex = 16;
+            this.label23.Text = "Tiempo total de Secado Final:";
             // 
             // CbTurno
             // 
@@ -904,6 +914,15 @@
             this.CbPOA1.Size = new System.Drawing.Size(121, 24);
             this.CbPOA1.TabIndex = 1;
             // 
+            // LblTotalTime
+            // 
+            this.LblTotalTime.AutoSize = true;
+            this.LblTotalTime.Location = new System.Drawing.Point(257, 172);
+            this.LblTotalTime.Name = "LblTotalTime";
+            this.LblTotalTime.Size = new System.Drawing.Size(20, 17);
+            this.LblTotalTime.TabIndex = 4;
+            this.LblTotalTime.Text = "--";
+            // 
             // LblTiempoSF
             // 
             this.LblTiempoSF.AutoSize = true;
@@ -954,35 +973,35 @@
             this.label19.TabIndex = 4;
             this.label19.Text = "Hora Fin:";
             // 
-            // gbVertical
+            // GbGuardiola
             // 
-            this.gbVertical.Controls.Add(this.BtnEnviarSF);
-            this.gbVertical.Controls.Add(this.dtHoraFinG);
-            this.gbVertical.Controls.Add(this.dtHoraIniG);
-            this.gbVertical.Controls.Add(this.dtFechaG);
-            this.gbVertical.Controls.Add(this.label24);
-            this.gbVertical.Controls.Add(this.label25);
-            this.gbVertical.Controls.Add(this.label8);
-            this.gbVertical.Controls.Add(this.LblHumedadG);
-            this.gbVertical.Controls.Add(this.LblDigitadorG);
-            this.gbVertical.Controls.Add(this.LblTurno);
-            this.gbVertical.Controls.Add(this.LblDuracionG);
-            this.gbVertical.Controls.Add(this.LblGuardiola);
-            this.gbVertical.Controls.Add(this.LblOperador);
-            this.gbVertical.Controls.Add(this.label9);
-            this.gbVertical.Controls.Add(this.label10);
-            this.gbVertical.Controls.Add(this.label11);
-            this.gbVertical.Controls.Add(this.label12);
-            this.gbVertical.Controls.Add(this.label13);
-            this.gbVertical.Controls.Add(this.label21);
-            this.gbVertical.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbVertical.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbVertical.Location = new System.Drawing.Point(0, 168);
-            this.gbVertical.Name = "gbVertical";
-            this.gbVertical.Size = new System.Drawing.Size(1398, 186);
-            this.gbVertical.TabIndex = 14;
-            this.gbVertical.TabStop = false;
-            this.gbVertical.Text = "Vertical";
+            this.GbGuardiola.Controls.Add(this.BtnEnviarSF);
+            this.GbGuardiola.Controls.Add(this.dtHoraFinG);
+            this.GbGuardiola.Controls.Add(this.dtHoraIniG);
+            this.GbGuardiola.Controls.Add(this.dtFechaG);
+            this.GbGuardiola.Controls.Add(this.label24);
+            this.GbGuardiola.Controls.Add(this.label25);
+            this.GbGuardiola.Controls.Add(this.label8);
+            this.GbGuardiola.Controls.Add(this.LblHumedadG);
+            this.GbGuardiola.Controls.Add(this.LblDigitadorG);
+            this.GbGuardiola.Controls.Add(this.LblTurno);
+            this.GbGuardiola.Controls.Add(this.LblDuracionG);
+            this.GbGuardiola.Controls.Add(this.LblGuardiola);
+            this.GbGuardiola.Controls.Add(this.LblOperador);
+            this.GbGuardiola.Controls.Add(this.label9);
+            this.GbGuardiola.Controls.Add(this.label10);
+            this.GbGuardiola.Controls.Add(this.label11);
+            this.GbGuardiola.Controls.Add(this.label12);
+            this.GbGuardiola.Controls.Add(this.label13);
+            this.GbGuardiola.Controls.Add(this.label21);
+            this.GbGuardiola.Dock = System.Windows.Forms.DockStyle.Top;
+            this.GbGuardiola.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GbGuardiola.Location = new System.Drawing.Point(0, 168);
+            this.GbGuardiola.Name = "GbGuardiola";
+            this.GbGuardiola.Size = new System.Drawing.Size(1398, 186);
+            this.GbGuardiola.TabIndex = 14;
+            this.GbGuardiola.TabStop = false;
+            this.GbGuardiola.Text = "Guardiola";
             // 
             // BtnEnviarSF
             // 
@@ -1020,6 +1039,24 @@
             this.dtFechaG.Size = new System.Drawing.Size(135, 26);
             this.dtFechaG.TabIndex = 9;
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(190, 147);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(91, 20);
+            this.label24.TabIndex = 6;
+            this.label24.Text = "Humedad:";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(681, 147);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(87, 20);
+            this.label25.TabIndex = 6;
+            this.label25.Text = "Digitador:";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -1028,6 +1065,24 @@
             this.label8.Size = new System.Drawing.Size(86, 20);
             this.label8.TabIndex = 6;
             this.label8.Text = "Duracion:";
+            // 
+            // LblHumedadG
+            // 
+            this.LblHumedadG.AutoSize = true;
+            this.LblHumedadG.Location = new System.Drawing.Point(287, 147);
+            this.LblHumedadG.Name = "LblHumedadG";
+            this.LblHumedadG.Size = new System.Drawing.Size(21, 20);
+            this.LblHumedadG.TabIndex = 6;
+            this.LblHumedadG.Text = "--";
+            // 
+            // LblDigitadorG
+            // 
+            this.LblDigitadorG.AutoSize = true;
+            this.LblDigitadorG.Location = new System.Drawing.Point(778, 147);
+            this.LblDigitadorG.Name = "LblDigitadorG";
+            this.LblDigitadorG.Size = new System.Drawing.Size(21, 20);
+            this.LblDigitadorG.TabIndex = 6;
+            this.LblDigitadorG.Text = "--";
             // 
             // LblTurno
             // 
@@ -1117,6 +1172,7 @@
             // 
             // gbDatos
             // 
+            this.gbDatos.BackColor = System.Drawing.Color.White;
             this.gbDatos.Controls.Add(this.LblTicket);
             this.gbDatos.Controls.Add(this.LblCert);
             this.gbDatos.Controls.Add(this.label17);
@@ -1299,6 +1355,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.BtnCerrarVerCons);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1330,60 +1387,6 @@
             this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
             this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
             // 
-            // LblTotalTime
-            // 
-            this.LblTotalTime.AutoSize = true;
-            this.LblTotalTime.Location = new System.Drawing.Point(257, 172);
-            this.LblTotalTime.Name = "LblTotalTime";
-            this.LblTotalTime.Size = new System.Drawing.Size(20, 17);
-            this.LblTotalTime.TabIndex = 4;
-            this.LblTotalTime.Text = "--";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(634, 123);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(225, 17);
-            this.label23.TabIndex = 16;
-            this.label23.Text = "Tiempo total de Secado Final:";
-            // 
-            // LblHumedadG
-            // 
-            this.LblHumedadG.AutoSize = true;
-            this.LblHumedadG.Location = new System.Drawing.Point(287, 147);
-            this.LblHumedadG.Name = "LblHumedadG";
-            this.LblHumedadG.Size = new System.Drawing.Size(21, 20);
-            this.LblHumedadG.TabIndex = 6;
-            this.LblHumedadG.Text = "--";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(190, 147);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(91, 20);
-            this.label24.TabIndex = 6;
-            this.label24.Text = "Humedad:";
-            // 
-            // LblDigitadorG
-            // 
-            this.LblDigitadorG.AutoSize = true;
-            this.LblDigitadorG.Location = new System.Drawing.Point(778, 147);
-            this.LblDigitadorG.Name = "LblDigitadorG";
-            this.LblDigitadorG.Size = new System.Drawing.Size(21, 20);
-            this.LblDigitadorG.TabIndex = 6;
-            this.LblDigitadorG.Text = "--";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(681, 147);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(87, 20);
-            this.label25.TabIndex = 6;
-            this.label25.Text = "Digitador:";
-            // 
             // Guardiolas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1397,8 +1400,8 @@
             this.PlDatos.ResumeLayout(false);
             this.GbSF.ResumeLayout(false);
             this.GbSF.PerformLayout();
-            this.gbVertical.ResumeLayout(false);
-            this.gbVertical.PerformLayout();
+            this.GbGuardiola.ResumeLayout(false);
+            this.GbGuardiola.PerformLayout();
             this.gbDatos.ResumeLayout(false);
             this.gbDatos.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1467,7 +1470,7 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
-        public System.Windows.Forms.GroupBox gbVertical;
+        public System.Windows.Forms.GroupBox GbGuardiola;
         public System.Windows.Forms.Button BtnEnviarSF;
         public System.Windows.Forms.DateTimePicker dtHoraFinG;
         public System.Windows.Forms.DateTimePicker dtHoraIniG;

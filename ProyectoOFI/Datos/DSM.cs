@@ -248,6 +248,23 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public void VerGuardiola(ref DataTable dt, string TK)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("VerGuardiola", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Ticket", TK);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar los datos de POA " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al cargar los datos en VerPOA ✖️✖️ " + ex.Message);
+            }
+            finally { Conexion.cerrar(); }
+        }
         public void ContarTK(ref int Contador)
         {
             try

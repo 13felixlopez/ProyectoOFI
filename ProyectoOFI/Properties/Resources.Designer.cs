@@ -213,6 +213,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Guardiola2 {
+            get {
+                object obj = ResourceManager.GetObject("Guardiola2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_agregar_a_carrito_de_compras {
             get {
                 object obj = ResourceManager.GetObject("icons8-agregar-a-carrito-de-compras", resourceCulture);
@@ -586,6 +596,16 @@ namespace ProyectoOFI.Properties {
         internal static System.Drawing.Bitmap POASF {
             get {
                 object obj = ResourceManager.GetObject("POASF", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PS {
+            get {
+                object obj = ResourceManager.GetObject("PS", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

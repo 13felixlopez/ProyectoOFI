@@ -1,13 +1,7 @@
 ﻿using ProyectoOFI.Datos;
-using ProyectoOFI.Logica;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.SM
@@ -275,33 +269,42 @@ namespace ProyectoOFI.SM
         }
         private void CargaGuardiola(Label lblG)
         {
-            DGuardiola funcion = new DGuardiola();
-            DataTable dt = new DataTable();
-            funcion.CargarGuardiola(lblG.Text, dt);
-            LblTicket.Text = lblG.Text;
-            LblSacos.Text = dt.Rows[0]["Sacos"].ToString();
-            LblKilos.Text = dt.Rows[0]["Peso"].ToString();
-            double kilos = Convert.ToDouble(LblKilos.Text);
-            kilos = kilos / 46;
-            LblQQsV.Text = Math.Round(kilos, 2).ToString();
-            LblCalidadV.Text = dt.Rows[0]["Calidad"].ToString();
-            LblDanioV.Text = dt.Rows[0]["Danio"].ToString();
-            LblEFisicoV.Text = dt.Rows[0]["EstFisico"].ToString();
-            LblCert.Text = dt.Rows[0]["Certificacion"].ToString();
-            LblGuardiola.Text = dt.Rows[0]["Guardiola"].ToString();
-            LblOperador.Text = dt.Rows[0]["Nombre"].ToString();
-            LblTurno.Text = dt.Rows[0]["TurnoG"].ToString();
-            dtFechaG.Text = dt.Rows[0]["FechaG"].ToString();
-            dtHoraIniG.Text = dt.Rows[0]["HoraIniG"].ToString();
-            dtHoraFinG.Text = dt.Rows[0]["HoraFinG"].ToString();
-            LblHumedadG.Text = dt.Rows[0]["Humedad"].ToString();
-            IdPOA = int.Parse(dt.Rows[0]["IdPOA"].ToString());
-            IdGuardiola = int.Parse(dt.Rows[0]["IdGuardiola"].ToString());
-            LblDigitadorG.Text = dt.Rows[0]["DigitadorG"].ToString();
-            TimeSpan tiempo = (TimeSpan)dt.Rows[0]["DuracionG"];
-            string duracionFormateada = $"{tiempo.Hours:D2}:{tiempo.Minutes:D2}";
-            LblDuracionG.Text = duracionFormateada;
-            AbrirFormulario();
+            try
+            {
+
+                DGuardiola funcion = new DGuardiola();
+                DataTable dt = new DataTable();
+                funcion.CargarGuardiola(lblG.Text, dt);
+                LblTicket.Text = lblG.Text;
+                LblSacos.Text = dt.Rows[0]["Sacos"].ToString();
+                LblKilos.Text = dt.Rows[0]["Peso"].ToString();
+                double kilos = Convert.ToDouble(LblKilos.Text);
+                kilos = kilos / 46;
+                LblQQsV.Text = Math.Round(kilos, 2).ToString();
+                LblCalidadV.Text = dt.Rows[0]["Calidad"].ToString();
+                LblDanioV.Text = dt.Rows[0]["Danio"].ToString();
+                LblEFisicoV.Text = dt.Rows[0]["EstFisico"].ToString();
+                LblCert.Text = dt.Rows[0]["Certificacion"].ToString();
+                LblGuardiola.Text = dt.Rows[0]["Guardiola"].ToString();
+                LblOperador.Text = dt.Rows[0]["Nombre"].ToString();
+                LblTurno.Text = dt.Rows[0]["TurnoG"].ToString();
+                dtFechaG.Text = dt.Rows[0]["FechaG"].ToString();
+                dtHoraIniG.Text = dt.Rows[0]["HoraIniG"].ToString();
+                dtHoraFinG.Text = dt.Rows[0]["HoraFinG"].ToString();
+                LblHumedadG.Text = dt.Rows[0]["Humedad"].ToString();
+                IdPOA = int.Parse(dt.Rows[0]["IdPOA"].ToString());
+                IdGuardiola = int.Parse(dt.Rows[0]["IdGuardiola"].ToString());
+                LblDigitadorG.Text = dt.Rows[0]["DigitadorG"].ToString();
+                TimeSpan tiempo = (TimeSpan)dt.Rows[0]["DuracionG"];
+                string duracionFormateada = $"{tiempo.Hours:D2}:{tiempo.Minutes:D2}";
+                LblDuracionG.Text = duracionFormateada;
+                AbrirFormulario();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
         private void AbrirFormulario()
         {
@@ -316,14 +319,22 @@ namespace ProyectoOFI.SM
         }
         private void BtnG1_Click(object sender, EventArgs e)
         {
-            if (LblG1.Text != "--")
+            try
             {
-                CargaGuardiola(LblG1);
+                if (LblG1.Text != "--")
+                {
+                    CargaGuardiola(LblG1);
+                }
+                else
+                {
+                    MessageBox.Show("Guardiola Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //PlDatos.Visible = false;
+                }
             }
-            else
+            catch (Exception)
             {
-                MessageBox.Show("Guardiola Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //PlDatos.Visible = false;
+
+                throw;
             }
         }
         private void BtnG2_Click(object sender, EventArgs e)

@@ -415,7 +415,6 @@
     <EmbeddedResource Include="Usuario\UCUsuario.resx">
       <DependentUpon>UCUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Ofi %282%29.bak" />
     <None Include="ofi.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -578,8 +577,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
-    <Content Include="ofi20.sql" />
-    <Content Include="ofi2024.sql" />
+    <Content Include="ofi1705.sql" />
+    <None Include="Resources\PS.png" />
+    <None Include="Resources\Guardiola2.png" />
     <None Include="Resources\Guardiola1.png" />
     <None Include="Resources\Guardiola Btn.png" />
     <None Include="Resources\Guardiola.png" />

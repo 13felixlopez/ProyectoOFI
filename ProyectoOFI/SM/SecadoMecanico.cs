@@ -59,6 +59,10 @@ namespace ProyectoOFI.SM
             string nombrecolum = "ProcesoSM";
             int num = dtInventarioSM.Columns[nombrecolum].Index;
             Proceso = dtInventarioSM.SelectedCells[num].Value.ToString();
+
+            string Status = "Proceso";
+            int num1 = dtInventarioSM.Columns[Status].Index;
+            Estado = dtInventarioSM.SelectedCells[num1].Value.ToString();
         }
         private void dtInventarioSM_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -100,7 +104,7 @@ namespace ProyectoOFI.SM
                 {
                     gbPOAV.Visible = false;
                     gbVertical.Visible = false;
-                    double qqs=double.Parse(LblQQsV.Text);
+                    double qqs = double.Parse(LblQQsV.Text);
                     if (qqs >= 331)
                     {
                         BtnParticionar.Visible = true;
@@ -138,6 +142,26 @@ namespace ProyectoOFI.SM
                     GbPreSecado.Visible = true;
                     VerPreSecado();
                 }
+                if (Proceso == "Guardiola" && Estado == "Guardiola")
+                {
+                    GbPreSecado.Visible = true;
+                    gbPOAV.Visible = true;
+                    gbVertical.Visible = true;
+                    GbGuardiola.Visible = true;
+                    VerPOAV();
+                    VerVertical();
+                    VerPreSecado();
+                    VerGuardiola();
+                }
+                if (Proceso == "Guardiola" || Estado == "Guardiola")
+                {
+                    GbPreSecado.Visible = true;
+                    gbPOAV.Visible = true;
+                    gbVertical.Visible = true;
+                    GbGuardiola.Visible = true;
+                    VerPreSecado();
+                    VerGuardiola();
+                }
             }
             catch (Exception)
             {
@@ -145,6 +169,17 @@ namespace ProyectoOFI.SM
                 //PLDatos.Visible = false;
                 //MessageBox.Show("No hay datos para mostrar", "Datos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
+        }
+        private void VerGuardiola()
+        {
+            try
+            {
+                DSM funcion = new DSM();
+                DataTable dt = new DataTable();
+                funcion.VerGuardiola(ref dt, Ticket);
+                DtGuardiola.DataSource = dt;
+            }
+            catch { }
         }
 
         private void VerPreSecado()
@@ -309,9 +344,11 @@ namespace ProyectoOFI.SM
         {
             PLDatos.Location = new System.Drawing.Point(dtInventarioSM.Width / 2
                 - PLDatos.Width / 2, dtInventarioSM.Height / 2 - PLDatos.Height / 2);
+            PLDatos.Size = new Size(1254, 352);
             PLDatos.Visible = true;
             PLDatos.BringToFront();
             plOpciones.Enabled = false;
+            dtInventarioSM.Enabled = false;
         }
         private void BtnCerrarVerCons_Click(object sender, EventArgs e)
         {
@@ -319,8 +356,11 @@ namespace ProyectoOFI.SM
             plOpciones.Enabled = true;
             GbPreSecado.Visible = false;
             gbPOAV.Visible = true;
+            GbGuardiola.Visible = false;
+            gbVertical.Visible = false;
             labelPreSeco.Text = "";
             labelPreSeco.BackColor = Color.Transparent;
+            dtInventarioSM.Enabled = true;
         }
         private void VerDetalleTK()
         {
@@ -694,6 +734,8 @@ namespace ProyectoOFI.SM
             PlParticion.Visible = true;
             PlParticion.BringToFront();
             plOpciones.Enabled = false;
+            dtInventarioSM.Enabled = false;
+            PLDatos.Enabled = false;
             DSM funcion = new DSM();
             funcion.MostrarOperador(CbOperadores);
             funcion.MostrarTurno(CbTurno);
@@ -724,6 +766,7 @@ namespace ProyectoOFI.SM
             LblDaPar.Text = "--";
             LblCalPar.Text = "--";
             LblEstPar.Text = "--";
+            PLDatos.Enabled = true;
         }
 
         private void BtnSF_Click(object sender, EventArgs e)
@@ -731,6 +774,7 @@ namespace ProyectoOFI.SM
             if (!string.IsNullOrEmpty(TxtHumedad.Text))
             {
                 ParticionSM();
+                PLDatos.Enabled = true;
             }
             else
             {

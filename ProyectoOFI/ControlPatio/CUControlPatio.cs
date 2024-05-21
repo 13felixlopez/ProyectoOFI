@@ -854,6 +854,11 @@ namespace ProyectoOFI.ControlPatio
             excel.ShowDialog();
         }
 
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            PlFiltros.Visible = false;
+        }
+
         private void InsertarEnvio()
         {
             if (validarEnvio())

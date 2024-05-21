@@ -773,7 +773,7 @@ namespace ProyectoOFI.SM
         {
             if (!string.IsNullOrEmpty(TxtHumedad.Text))
             {
-                CargaGuariola();
+                InsertarGuardiola();
                 MostrarPOALabels();
                 Estilo();
             }
@@ -782,7 +782,7 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("Existen campos vacios", "Error al enviar datos", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
-        private void CargaGuariola()
+        private void InsertarGuardiola()
         {
             try
             {
@@ -799,15 +799,17 @@ namespace ProyectoOFI.SM
                 parametros.Humedad = double.Parse(TxtHumedad.Text);
                 parametros.DigitadorG = Login.NombreA;
                 parametros.IdPOA = IdPOA;
-                if (funcion.CargaGuariola(parametros) == true)
+                if (funcion.InsertarGuardiola(parametros) == true)
                 {
                     MessageBox.Show("Carga Guardiola realiza con éxito", "Guardiola Cargada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MostrarPOALabels();
+                    Estilo();
                     PlDatos.Visible = false;
                     Limpiar();
                     TLPPOA.Enabled = true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Error al ejecutar CargaGuariola", "Error Interfaz", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -820,9 +822,9 @@ namespace ProyectoOFI.SM
 
             // Calcular la duración restando los DateTime
             TimeSpan duracion = fin - inicio;
-
+            string resultado = duracion.ToString(@"hh\:mm");
             // Mostrar la duración en el Label
-            LblDuracionG.Text = duracion.ToString();
+            LblDuracionG.Text = resultado.ToString();
         }
     }
 }

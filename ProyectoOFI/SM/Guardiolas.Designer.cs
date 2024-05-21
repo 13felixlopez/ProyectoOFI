@@ -66,7 +66,7 @@
             this.LblG1 = new System.Windows.Forms.Label();
             this.BtnG1 = new System.Windows.Forms.Button();
             this.PlDatos = new System.Windows.Forms.Panel();
-            this.GbSF = new System.Windows.Forms.GroupBox();
+            this.GbPS = new System.Windows.Forms.GroupBox();
             this.label23 = new System.Windows.Forms.Label();
             this.CbTurno = new System.Windows.Forms.ComboBox();
             this.CbOperadores = new System.Windows.Forms.ComboBox();
@@ -78,10 +78,10 @@
             this.DtPFDes1 = new System.Windows.Forms.DateTimePicker();
             this.DtHoraFin1 = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
+            this.LblPS = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.DtHInicio1 = new System.Windows.Forms.DateTimePicker();
             this.label28 = new System.Windows.Forms.Label();
-            this.CbPOA1 = new System.Windows.Forms.ComboBox();
             this.LblTotalTime = new System.Windows.Forms.Label();
             this.LblTiempoSF = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -90,7 +90,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.GbGuardiola = new System.Windows.Forms.GroupBox();
-            this.BtnEnviarSF = new System.Windows.Forms.Button();
+            this.BtnCargarPS = new System.Windows.Forms.Button();
             this.dtHoraFinG = new System.Windows.Forms.DateTimePicker();
             this.dtHoraIniG = new System.Windows.Forms.DateTimePicker();
             this.dtFechaG = new System.Windows.Forms.DateTimePicker();
@@ -132,7 +132,7 @@
             this.BtnCerrarVerCons = new System.Windows.Forms.Button();
             this.TLPGuardiola.SuspendLayout();
             this.PlDatos.SuspendLayout();
-            this.GbSF.SuspendLayout();
+            this.GbPS.SuspendLayout();
             this.GbGuardiola.SuspendLayout();
             this.gbDatos.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -724,7 +724,7 @@
             // PlDatos
             // 
             this.PlDatos.BackColor = System.Drawing.Color.White;
-            this.PlDatos.Controls.Add(this.GbSF);
+            this.PlDatos.Controls.Add(this.GbPS);
             this.PlDatos.Controls.Add(this.GbGuardiola);
             this.PlDatos.Controls.Add(this.gbDatos);
             this.PlDatos.Controls.Add(this.panel2);
@@ -734,39 +734,39 @@
             this.PlDatos.TabIndex = 4;
             this.PlDatos.Visible = false;
             // 
-            // GbSF
+            // GbPS
             // 
-            this.GbSF.Controls.Add(this.label23);
-            this.GbSF.Controls.Add(this.CbTurno);
-            this.GbSF.Controls.Add(this.CbOperadores);
-            this.GbSF.Controls.Add(this.BtnSF);
-            this.GbSF.Controls.Add(this.label27);
-            this.GbSF.Controls.Add(this.TxtHumedad);
-            this.GbSF.Controls.Add(this.TxtParos);
-            this.GbSF.Controls.Add(this.CHParos);
-            this.GbSF.Controls.Add(this.DtPFDes1);
-            this.GbSF.Controls.Add(this.DtHoraFin1);
-            this.GbSF.Controls.Add(this.label15);
-            this.GbSF.Controls.Add(this.label29);
-            this.GbSF.Controls.Add(this.DtHInicio1);
-            this.GbSF.Controls.Add(this.label28);
-            this.GbSF.Controls.Add(this.CbPOA1);
-            this.GbSF.Controls.Add(this.LblTotalTime);
-            this.GbSF.Controls.Add(this.LblTiempoSF);
-            this.GbSF.Controls.Add(this.label14);
-            this.GbSF.Controls.Add(this.label18);
-            this.GbSF.Controls.Add(this.label26);
-            this.GbSF.Controls.Add(this.label20);
-            this.GbSF.Controls.Add(this.label19);
-            this.GbSF.Dock = System.Windows.Forms.DockStyle.Top;
-            this.GbSF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.GbSF.Location = new System.Drawing.Point(0, 354);
-            this.GbSF.Name = "GbSF";
-            this.GbSF.Size = new System.Drawing.Size(1398, 236);
-            this.GbSF.TabIndex = 15;
-            this.GbSF.TabStop = false;
-            this.GbSF.Text = "Envío para Secado Final";
-            this.GbSF.Visible = false;
+            this.GbPS.Controls.Add(this.label23);
+            this.GbPS.Controls.Add(this.CbTurno);
+            this.GbPS.Controls.Add(this.CbOperadores);
+            this.GbPS.Controls.Add(this.BtnSF);
+            this.GbPS.Controls.Add(this.label27);
+            this.GbPS.Controls.Add(this.TxtHumedad);
+            this.GbPS.Controls.Add(this.TxtParos);
+            this.GbPS.Controls.Add(this.CHParos);
+            this.GbPS.Controls.Add(this.DtPFDes1);
+            this.GbPS.Controls.Add(this.DtHoraFin1);
+            this.GbPS.Controls.Add(this.label15);
+            this.GbPS.Controls.Add(this.LblPS);
+            this.GbPS.Controls.Add(this.label29);
+            this.GbPS.Controls.Add(this.DtHInicio1);
+            this.GbPS.Controls.Add(this.label28);
+            this.GbPS.Controls.Add(this.LblTotalTime);
+            this.GbPS.Controls.Add(this.LblTiempoSF);
+            this.GbPS.Controls.Add(this.label14);
+            this.GbPS.Controls.Add(this.label18);
+            this.GbPS.Controls.Add(this.label26);
+            this.GbPS.Controls.Add(this.label20);
+            this.GbPS.Controls.Add(this.label19);
+            this.GbPS.Dock = System.Windows.Forms.DockStyle.Top;
+            this.GbPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.GbPS.Location = new System.Drawing.Point(0, 354);
+            this.GbPS.Name = "GbPS";
+            this.GbPS.Size = new System.Drawing.Size(1398, 236);
+            this.GbPS.TabIndex = 15;
+            this.GbPS.TabStop = false;
+            this.GbPS.Text = "Envío para Secado Final";
+            this.GbPS.Visible = false;
             // 
             // label23
             // 
@@ -801,6 +801,7 @@
             this.BtnSF.TabIndex = 14;
             this.BtnSF.Text = "Descargar";
             this.BtnSF.UseVisualStyleBackColor = true;
+            this.BtnSF.Click += new System.EventHandler(this.BtnSF_Click);
             // 
             // label27
             // 
@@ -824,6 +825,8 @@
             this.TxtParos.Name = "TxtParos";
             this.TxtParos.Size = new System.Drawing.Size(100, 23);
             this.TxtParos.TabIndex = 12;
+            this.TxtParos.Text = "0";
+            this.TxtParos.TextChanged += new System.EventHandler(this.TxtParos_TextChanged);
             // 
             // CHParos
             // 
@@ -844,6 +847,7 @@
             this.DtPFDes1.Name = "DtPFDes1";
             this.DtPFDes1.Size = new System.Drawing.Size(129, 23);
             this.DtPFDes1.TabIndex = 3;
+            this.DtPFDes1.ValueChanged += new System.EventHandler(this.DtPFDes1_ValueChanged);
             // 
             // DtHoraFin1
             // 
@@ -852,6 +856,7 @@
             this.DtHoraFin1.Name = "DtHoraFin1";
             this.DtHoraFin1.Size = new System.Drawing.Size(132, 23);
             this.DtHoraFin1.TabIndex = 10;
+            this.DtHoraFin1.ValueChanged += new System.EventHandler(this.DtHoraFin1_ValueChanged);
             // 
             // label15
             // 
@@ -860,6 +865,15 @@
             this.label15.Size = new System.Drawing.Size(102, 43);
             this.label15.TabIndex = 2;
             this.label15.Text = "Fecha de Descarga:";
+            // 
+            // LblPS
+            // 
+            this.LblPS.AutoSize = true;
+            this.LblPS.Location = new System.Drawing.Point(181, 29);
+            this.LblPS.Name = "LblPS";
+            this.LblPS.Size = new System.Drawing.Size(20, 17);
+            this.LblPS.TabIndex = 6;
+            this.LblPS.Text = "--";
             // 
             // label29
             // 
@@ -877,6 +891,7 @@
             this.DtHInicio1.Name = "DtHInicio1";
             this.DtHInicio1.Size = new System.Drawing.Size(146, 23);
             this.DtHInicio1.TabIndex = 10;
+            this.DtHInicio1.ValueChanged += new System.EventHandler(this.DtHInicio1_ValueChanged);
             // 
             // label28
             // 
@@ -886,33 +901,6 @@
             this.label28.Size = new System.Drawing.Size(82, 17);
             this.label28.TabIndex = 2;
             this.label28.Text = "Operador:";
-            // 
-            // CbPOA1
-            // 
-            this.CbPOA1.FormattingEnabled = true;
-            this.CbPOA1.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18"});
-            this.CbPOA1.Location = new System.Drawing.Point(173, 29);
-            this.CbPOA1.Name = "CbPOA1";
-            this.CbPOA1.Size = new System.Drawing.Size(121, 24);
-            this.CbPOA1.TabIndex = 1;
             // 
             // LblTotalTime
             // 
@@ -975,7 +963,7 @@
             // 
             // GbGuardiola
             // 
-            this.GbGuardiola.Controls.Add(this.BtnEnviarSF);
+            this.GbGuardiola.Controls.Add(this.BtnCargarPS);
             this.GbGuardiola.Controls.Add(this.dtHoraFinG);
             this.GbGuardiola.Controls.Add(this.dtHoraIniG);
             this.GbGuardiola.Controls.Add(this.dtFechaG);
@@ -1003,14 +991,15 @@
             this.GbGuardiola.TabStop = false;
             this.GbGuardiola.Text = "Guardiola";
             // 
-            // BtnEnviarSF
+            // BtnCargarPS
             // 
-            this.BtnEnviarSF.Location = new System.Drawing.Point(1061, 60);
-            this.BtnEnviarSF.Name = "BtnEnviarSF";
-            this.BtnEnviarSF.Size = new System.Drawing.Size(140, 80);
-            this.BtnEnviarSF.TabIndex = 11;
-            this.BtnEnviarSF.Text = "Descargar";
-            this.BtnEnviarSF.UseVisualStyleBackColor = true;
+            this.BtnCargarPS.Location = new System.Drawing.Point(1061, 60);
+            this.BtnCargarPS.Name = "BtnCargarPS";
+            this.BtnCargarPS.Size = new System.Drawing.Size(140, 80);
+            this.BtnCargarPS.TabIndex = 11;
+            this.BtnCargarPS.Text = "Descargar";
+            this.BtnCargarPS.UseVisualStyleBackColor = true;
+            this.BtnCargarPS.Click += new System.EventHandler(this.BtnCargarPS_Click);
             // 
             // dtHoraFinG
             // 
@@ -1398,8 +1387,8 @@
             this.Load += new System.EventHandler(this.Guardiolas_Load);
             this.TLPGuardiola.ResumeLayout(false);
             this.PlDatos.ResumeLayout(false);
-            this.GbSF.ResumeLayout(false);
-            this.GbSF.PerformLayout();
+            this.GbPS.ResumeLayout(false);
+            this.GbPS.PerformLayout();
             this.GbGuardiola.ResumeLayout(false);
             this.GbGuardiola.PerformLayout();
             this.gbDatos.ResumeLayout(false);
@@ -1449,7 +1438,7 @@
         private System.Windows.Forms.Label LblG1;
         private System.Windows.Forms.Button BtnG1;
         private System.Windows.Forms.Panel PlDatos;
-        private System.Windows.Forms.GroupBox GbSF;
+        private System.Windows.Forms.GroupBox GbPS;
         private System.Windows.Forms.ComboBox CbTurno;
         private System.Windows.Forms.ComboBox CbOperadores;
         private System.Windows.Forms.Button BtnSF;
@@ -1463,7 +1452,6 @@
         private System.Windows.Forms.Label label29;
         public System.Windows.Forms.DateTimePicker DtHInicio1;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.ComboBox CbPOA1;
         private System.Windows.Forms.Label LblTiempoSF;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label18;
@@ -1471,7 +1459,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label19;
         public System.Windows.Forms.GroupBox GbGuardiola;
-        public System.Windows.Forms.Button BtnEnviarSF;
+        public System.Windows.Forms.Button BtnCargarPS;
         public System.Windows.Forms.DateTimePicker dtHoraFinG;
         public System.Windows.Forms.DateTimePicker dtHoraIniG;
         public System.Windows.Forms.DateTimePicker dtFechaG;
@@ -1513,5 +1501,6 @@
         private System.Windows.Forms.Label LblHumedadG;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label LblDigitadorG;
+        private System.Windows.Forms.Label LblPS;
     }
 }

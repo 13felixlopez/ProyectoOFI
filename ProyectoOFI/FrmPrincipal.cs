@@ -27,6 +27,7 @@ namespace ProyectoOFI
         {
             BtnUser.Enabled = true;
             BtnCPatio.Enabled = true;
+            BtnReTK.Enabled = true;
             PlPrincipal.Controls.Clear();
             Transferencia tr = new Transferencia
             {
@@ -54,6 +55,7 @@ namespace ProyectoOFI
             btnTransferencia.Enabled=true;
             BtnUser.Enabled=false;
             BtnCPatio.Enabled=true;
+            BtnReTK.Enabled = true;
             PlPrincipal.Controls.Clear();
             UCUsuario tr = new UCUsuario
             {
@@ -126,6 +128,7 @@ namespace ProyectoOFI
             btnTransferencia.Enabled = true;
             BtnUser.Enabled = true;
             BtnCPatio.Enabled = false;
+            BtnReTK.Enabled = true;
             PlPrincipal.Controls.Clear();
             CUControlPatio tr = new CUControlPatio
             {

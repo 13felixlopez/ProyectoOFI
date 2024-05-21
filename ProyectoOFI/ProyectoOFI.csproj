@@ -12,6 +12,23 @@
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\DELL\Desktop\EXE\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <UpdateUrl>http://localhost/ProyectoOFI/</UpdateUrl>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,12 +55,26 @@
   <PropertyGroup>
     <ApplicationIcon>Logo.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>C4E0308A376B80707D3F538CA2C124C230459CE3</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ProyectoOFI_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -75,6 +106,7 @@
     <Compile Include="Datos\DPermisos.cs" />
     <Compile Include="Datos\DPOA.cs" />
     <Compile Include="Datos\DPOAV.cs" />
+    <Compile Include="Datos\DPS.cs" />
     <Compile Include="Datos\DRecepcion.cs" />
     <Compile Include="Datos\DReporteTK.cs" />
     <Compile Include="Datos\DSM.cs" />
@@ -103,6 +135,7 @@
     <Compile Include="Logica\LPermisos.cs" />
     <Compile Include="Logica\LPOA.cs" />
     <Compile Include="Logica\LPOAV.cs" />
+    <Compile Include="Logica\LPS.cs" />
     <Compile Include="Logica\LRecepcion.cs" />
     <Compile Include="Logica\LControlPatio.cs" />
     <Compile Include="Logica\LSM.cs" />
@@ -266,6 +299,12 @@
     <Compile Include="SM\POASF.Designer.cs">
       <DependentUpon>POASF.cs</DependentUpon>
     </Compile>
+    <Compile Include="SM\PS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SM\PS.Designer.cs">
+      <DependentUpon>PS.cs</DependentUpon>
+    </Compile>
     <Compile Include="SM\SecadoMecanico.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -397,6 +436,9 @@
     <EmbeddedResource Include="SM\POASF.resx">
       <DependentUpon>POASF.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SM\PS.resx">
+      <DependentUpon>PS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SM\SecadoMecanico.resx">
       <DependentUpon>SecadoMecanico.cs</DependentUpon>
     </EmbeddedResource>
@@ -430,6 +472,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ProyectoOFI_TemporaryKey.pfx" />
     <None Include="Resources\add_64px.png" />
   </ItemGroup>
   <ItemGroup>
@@ -578,6 +621,10 @@
   <ItemGroup>
     <Content Include="Logo.ico" />
     <Content Include="ofi1705.sql" />
+    <None Include="Resources\PS Btn.png" />
+    <None Include="Resources\PS %282%29.png" />
+    <None Include="Resources\PS1.png" />
+    <None Include="Resources\POA.png" />
     <None Include="Resources\PS.png" />
     <None Include="Resources\Guardiola2.png" />
     <None Include="Resources\Guardiola1.png" />
@@ -598,6 +645,18 @@
     <None Include="Resources\icons8-avión-de-papel.gif" />
     <None Include="Resources\icons8-configuración-del-administrador.gif" />
     <None Include="Resources\icons8-historial-médico.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

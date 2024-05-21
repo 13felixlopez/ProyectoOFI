@@ -1,4 +1,5 @@
 ﻿using ProyectoOFI.Datos;
+using ProyectoOFI.Logica;
 using System;
 using System.Data;
 using System.Drawing;
@@ -9,6 +10,8 @@ namespace ProyectoOFI.SM
     public partial class Guardiolas : UserControl
     {
         int IdPOA, IdGuardiola;
+        string Observacion = "";
+        TimeSpan PreSecado;
         public Guardiolas()
         {
             InitializeComponent();
@@ -19,7 +22,15 @@ namespace ProyectoOFI.SM
             MostrarGuardiolaLabels();
             Estilo();
         }
-
+        private void CargarCombos()
+        {
+            DPOAV funcion = new DPOAV();
+            DSM sm = new DSM();
+            funcion.MostrarTurno(CbTurno);
+            sm.MostrarOperador(CbOperadores);
+            DVerticales V = new DVerticales();
+            V.MostrarParos(CHParos);
+        }
         private void MostrarGuardiolaLabels()
         {
             DGuardiola datos = new DGuardiola();
@@ -298,6 +309,8 @@ namespace ProyectoOFI.SM
                 TimeSpan tiempo = (TimeSpan)dt.Rows[0]["DuracionG"];
                 string duracionFormateada = $"{tiempo.Hours:D2}:{tiempo.Minutes:D2}";
                 LblDuracionG.Text = duracionFormateada;
+                string Total = dt.Rows[0]["Total"].ToString();
+                PreSecado = TimeSpan.Parse(Total);
                 AbrirFormulario();
             }
             catch (Exception)
@@ -308,7 +321,7 @@ namespace ProyectoOFI.SM
         }
         private void AbrirFormulario()
         {
-            PlDatos.Size = new Size(1354, 517);
+            PlDatos.Size = new Size(1398, 619);
             PlDatos.Visible = true;
             PlDatos.Location = new Point(TLPGuardiola.Width / 2
                 - PlDatos.Width / 2, TLPGuardiola.Height / 2 - PlDatos.Height / 2);
@@ -544,13 +557,6 @@ namespace ProyectoOFI.SM
                 //PlDatos.Visible = false;
             }
         }
-
-        private void BtnCerrarVerCons_Click(object sender, EventArgs e)
-        {
-            PlDatos.Visible = false;
-            TLPGuardiola.Enabled = true;
-        }
-
         private void BtnG18_Click(object sender, EventArgs e)
         {
             if (LblG18.Text != "--")
@@ -563,5 +569,156 @@ namespace ProyectoOFI.SM
                 //PlDatos.Visible = false;
             }
         }
+
+        private void BtnCerrarVerCons_Click(object sender, EventArgs e)
+        {
+            PlDatos.Visible = false;
+            TLPGuardiola.Enabled = true;
+            GbPS.Visible = false;
+            Limpiar();
+        }
+
+        private void BtnCargarPS_Click(object sender, EventArgs e)
+        {
+            GbPS.Visible = true;
+            LblPS.Text = LblGuardiola.Text;
+            CargarCombos();
+        }
+
+        private void BtnSF_Click(object sender, EventArgs e)
+        {
+            InsertarPS();
+        }
+
+        private void InsertarPS()
+        {
+            try
+            {
+                LPS parametros = new LPS();
+                DPS funcion = new DPS();
+                parametros.IdGuardiola = IdGuardiola;
+                parametros.PS = int.Parse(LblPS.Text);
+                parametros.FechaPS = DtPFDes1.Value;
+                parametros.HoraIniPS = DtHInicio1.Value;
+                parametros.HoraFinPS = DtHoraFin1.Value;
+                parametros.HumedadPS = double.Parse(TxtHumedad.Text);
+                parametros.ParosPS = double.Parse(TxtParos.Text);
+                Paros();
+                parametros.Observacion = Observacion;
+                parametros.TiempoSF = LblTiempoSF.Text;
+                parametros.TiempoTotal = LblTotalTime.Text;
+                parametros.IdOperador = int.Parse(CbOperadores.SelectedValue.ToString());
+                parametros.IdTurno = int.Parse(CbTurno.SelectedValue.ToString());
+                parametros.DigitadorPS = Login.NombreA;
+                if (funcion.InsertarPS(parametros) == true)
+                {
+                    MessageBox.Show("Operación realizada con éxito", "Secado final", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    Limpiar();
+                    MostrarGuardiolaLabels();
+                    Estilo();
+                    GbPS.Visible = false;
+                    PlDatos.Visible = false;
+                    TLPGuardiola.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar datos Pre-Secado " + ex.Message, "ERROR Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Limpiar()
+        {
+            LblPS.Text = "--";
+            DtPFDes1.Value = DateTime.Now;
+            DtHInicio1.Value = DateTime.Now;
+            DtHoraFin1.Value = DateTime.Now;
+            TxtHumedad.Clear();
+            TxtParos.Text = "0";
+            LblTiempoSF.Text = "--";
+            LblTotalTime.Text = "--";
+            for (int i = 0; i < CHParos.Items.Count; i++)
+            {
+                CHParos.SetItemChecked(i, false);
+            }
+        }
+
+        private void DtHoraFin1_ValueChanged(object sender, EventArgs e)
+        {
+            CalculateTimeDifference();
+        }
+        private void CalculateTimeDifference()
+        {
+            // Obtener los valores de los DateTimePickers
+            DateTime DtFechaG = dtFechaG.Value.Date;
+            DateTime HoraIniG = dtHoraIniG.Value;
+            DateTime dtPFDes1 = DtPFDes1.Value.Date;
+            DateTime HoraFin1 = DtHoraFin1.Value;
+
+            // Combinar fecha y hora
+            DateTime inicioProceso = DtFechaG.Add(HoraIniG.TimeOfDay);
+            DateTime finProceso = dtPFDes1.Add(HoraFin1.TimeOfDay);
+
+            // Calcular la diferencia total
+            TimeSpan diferenciaTotal = finProceso - inicioProceso;
+
+            // Obtener y convertir el valor de TxtParos a TimeSpan
+            double parosHoras;
+            if (double.TryParse(TxtParos.Text, out parosHoras))
+            {
+                TimeSpan paros = TimeSpan.FromHours(parosHoras);
+
+                // Restar los paros a la diferencia total
+                diferenciaTotal = diferenciaTotal - paros;
+            }
+            else
+            {
+                //MessageBox.Show("El valor de paros no es válido. Por favor, ingrese un número válido.");
+                return;
+            }
+
+            // Formatear el resultado como días, horas y minutos
+            int days = Math.Abs(diferenciaTotal.Days);
+            int hours = Math.Abs(diferenciaTotal.Hours);
+            int minutes = Math.Abs(diferenciaTotal.Minutes);
+
+            // Mostrar el resultado en el Label
+            LblTiempoSF.Text = $"{days} días, {hours} horas, {minutes} minutos";
+
+            // Guardar el resultado en la variable TiempoSF
+            TimeSpan TiempoSF = diferenciaTotal;
+
+            // Sumar TiempoSF y PreSecado
+            TimeSpan TiempoTotal = TiempoSF + PreSecado;
+
+            // Guardar el resultado en una variable en el formato deseado (por ejemplo, en una cadena)
+            string tiempoTotalStr = $"{TiempoTotal.Days} días, {TiempoTotal.Hours} horas, {TiempoTotal.Minutes} minutos";
+
+            LblTotalTime.Text= tiempoTotalStr;
+        }
+
+        private void DtHInicio1_ValueChanged(object sender, EventArgs e)
+        {
+            CalculateTimeDifference();
+        }
+
+        private void DtPFDes1_ValueChanged(object sender, EventArgs e)
+        {
+            CalculateTimeDifference();
+        }
+
+        private void TxtParos_TextChanged(object sender, EventArgs e)
+        {
+            CalculateTimeDifference();
+        }
+
+        private void Paros()
+        {
+            foreach (var item in CHParos.CheckedItems)
+            {
+                Observacion += item.ToString() + ", ";
+            }
+        }
+
     }
 }

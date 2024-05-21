@@ -379,11 +379,11 @@ namespace ProyectoOFI.SM
                 if (funcion.InsertarPreSecado(parametros) == true)
                 {
                     MessageBox.Show("Operación realizada con éxito", "Secado final", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    PlDatos.Visible = false;
-                    TLPPlTolvas.Enabled = true;
                     Limpiar();
                     MostrarVerticalLabels();
                     Estilo();
+                    PlDatos.Visible = false;
+                    TLPPlTolvas.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -397,12 +397,6 @@ namespace ProyectoOFI.SM
             {
                 Observacion += item.ToString() + ", ";
             }
-
-            //// Quitar la coma adicional al final si hay elementos seleccionados
-            //if (!string.IsNullOrEmpty(Observacion))
-            //{
-            //    Observacion = Observacion.TrimEnd(',', ' ');
-            //}
         }
         private bool Validar()
         {

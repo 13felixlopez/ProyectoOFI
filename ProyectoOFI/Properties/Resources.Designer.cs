@@ -583,6 +583,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap POA {
+            get {
+                object obj = ResourceManager.GetObject("POA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap POA_Btn {
             get {
                 object obj = ResourceManager.GetObject("POA Btn", resourceCulture);
@@ -606,6 +616,36 @@ namespace ProyectoOFI.Properties {
         internal static System.Drawing.Bitmap PS {
             get {
                 object obj = ResourceManager.GetObject("PS", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PS__2_ {
+            get {
+                object obj = ResourceManager.GetObject("PS (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PS_Btn {
+            get {
+                object obj = ResourceManager.GetObject("PS Btn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PS1 {
+            get {
+                object obj = ResourceManager.GetObject("PS1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

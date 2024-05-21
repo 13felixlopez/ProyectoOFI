@@ -82,12 +82,12 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public bool CargaGuariola(LPOA parametros)
+        public bool InsertarGuardiola(LPOA parametros)
         {
             try
             {
                 Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("CargaGuariola", Conexion.conectar);
+                SqlCommand cmd = new SqlCommand("InsertarGuardiola", Conexion.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
                 cmd.Parameters.AddWithValue("@Guardiola", parametros.Guardiola);

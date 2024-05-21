@@ -72,5 +72,14 @@ namespace ProyectoOFI.SM
             g.BringToFront();
             PlSM.Controls.Add(g);
         }
+
+        private void BtnPS_Click(object sender, EventArgs e)
+        {
+            PS pS = new PS();
+            PlSM.Controls.Clear();
+            pS.Dock = DockStyle.Fill;
+            pS.BringToFront();
+            PlSM.Controls.Add(pS);
+        }
     }
 }

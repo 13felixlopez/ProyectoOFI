@@ -392,7 +392,9 @@ namespace ProyectoOFI.SM
                 if (dtFProcV.Value >= dtFechaPV.Value)
                 {
                     DescargarTV();
-                    
+                    MostrarTicketsEnLabels();
+                    Estilo();
+                    //Refresh();
                 }
                 else
                 {
@@ -427,9 +429,9 @@ namespace ProyectoOFI.SM
                 //parametro.Ticket = TK;
                 MessageBox.Show("Se ha Guardado el registro", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 PLDatos.Visible = false;
-                Limpiar();
-                MostrarTicketsEnLabels();
-                Estilo();
+                //Limpiar();
+                //MostrarTicketsEnLabels();
+                //Estilo();
                 gbVertical.Visible = false;
                 TLPPlTolvas.Enabled = true;
             }

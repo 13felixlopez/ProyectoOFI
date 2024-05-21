@@ -162,6 +162,26 @@ namespace ProyectoOFI.SM
                     VerPreSecado();
                     VerGuardiola();
                 }
+                if (Proceso == "PS" && Estado == "PS")
+                {
+                    GbPreSecado.Visible = true;
+                    gbPOAV.Visible = true;
+                    gbVertical.Visible = true;
+                    GbGuardiola.Visible = true;
+                    VerPOAV();
+                    VerVertical();
+                    VerPreSecado();
+                    VerGuardiola();
+                }
+                if(Proceso=="PS" || Estado == "PS")
+                {
+                    GbPreSecado.Visible = true;
+                    gbPOAV.Visible = true;
+                    gbVertical.Visible = true;
+                    GbGuardiola.Visible = true;
+                    VerPreSecado();
+                    VerGuardiola();
+                }
             }
             catch (Exception)
             {
@@ -226,26 +246,26 @@ namespace ProyectoOFI.SM
                     {
                         LblParos.Text = "--";
                     }
-                    if (dr["Total"].ToString() != null)
+                    if (dr["Total"] != DBNull.Value)
                     {
-                        LblTotalPre.Text = dr["Total"].ToString();
+                        string totalString = dr["Total"].ToString();
+                        TimeSpan totalTime;
+                        if (TimeSpan.TryParse(totalString, out totalTime))
+                        {
+                            LblTotalPre.Text = totalTime.ToString(@"hh\:mm");
+                        }
+                        else
+                        {
+                            // Manejo del caso en que la conversión falla
+                            LblTotalPre.Text = "--";
+                        }
                     }
                     else
                     {
                         LblTotalPre.Text = "--";
                     }
-                    //if (dr["POA"].ToString()!=null)
-                    //{
-                    //    string resultado = dr["POA"].ToString();
-                    //    if (resultado.EndsWith("-Parte1"))
-                    //    {
-                    //        LblG1.Text = resultado;
-                    //    }
-                    //    else if (resultado.EndsWith("-Parte2"))
-                    //    {
-                    //        LblG2.Text = resultado;
-                    //    }
-                    //}
+
+
                     if (dr["Humedad"].ToString() != null)
                     {
                         LblHumedadSF.Text = dr["Humedad"].ToString();
@@ -361,6 +381,26 @@ namespace ProyectoOFI.SM
             labelPreSeco.Text = "";
             labelPreSeco.BackColor = Color.Transparent;
             dtInventarioSM.Enabled = true;
+            Limpiar();
+        }
+        private void Limpiar()
+        {
+            LblPOAV.Text = "--";
+            LblOperadorPV.Text = "--";
+            LblTurnoPV.Text = "--";
+            LblHumedadPV.Text = "--";
+            LblVer.Text = "--";
+            LblOperadorV.Text = "--";
+            LblTurnoV.Text = "--";
+            LblDuracion.Text = "--";
+            LblFDescargue.Text = "--";
+            LblHrDescIn.Text = "--";
+            LblHrDesfin.Text = "--";
+            LblParos.Text = "--";
+            LblHumedadSF.Text = "--";
+            LblTotalPre.Text = "--";
+            LblG1.Text = "--";
+            LblG2.Text = "--";
         }
         private void VerDetalleTK()
         {

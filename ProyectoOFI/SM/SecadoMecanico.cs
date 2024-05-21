@@ -168,19 +168,23 @@ namespace ProyectoOFI.SM
                     gbPOAV.Visible = true;
                     gbVertical.Visible = true;
                     GbGuardiola.Visible = true;
+                    GbPS.Visible = true;
                     VerPOAV();
                     VerVertical();
                     VerPreSecado();
                     VerGuardiola();
+                    VerPS();
                 }
-                if(Proceso=="PS" || Estado == "PS")
+                if (Proceso == "PS" || Estado == "PS")
                 {
                     GbPreSecado.Visible = true;
                     gbPOAV.Visible = true;
                     gbVertical.Visible = true;
                     GbGuardiola.Visible = true;
+                    GbPS.Visible = true;
                     VerPreSecado();
                     VerGuardiola();
+                    VerPS();
                 }
             }
             catch (Exception)
@@ -198,6 +202,17 @@ namespace ProyectoOFI.SM
                 DataTable dt = new DataTable();
                 funcion.VerGuardiola(ref dt, Ticket);
                 DtGuardiola.DataSource = dt;
+            }
+            catch { }
+        }
+        private void VerPS()
+        {
+            try
+            {
+                DSM funcion = new DSM();
+                DataTable dt = new DataTable();
+                funcion.VerPS(ref dt, Ticket);
+                dtPS.DataSource = dt;
             }
             catch { }
         }
@@ -248,17 +263,7 @@ namespace ProyectoOFI.SM
                     }
                     if (dr["Total"] != DBNull.Value)
                     {
-                        string totalString = dr["Total"].ToString();
-                        TimeSpan totalTime;
-                        if (TimeSpan.TryParse(totalString, out totalTime))
-                        {
-                            LblTotalPre.Text = totalTime.ToString(@"hh\:mm");
-                        }
-                        else
-                        {
-                            // Manejo del caso en que la conversión falla
-                            LblTotalPre.Text = "--";
-                        }
+                        LblTotalPre.Text = dr["Total"].ToString();
                     }
                     else
                     {
@@ -378,6 +383,7 @@ namespace ProyectoOFI.SM
             gbPOAV.Visible = true;
             GbGuardiola.Visible = false;
             gbVertical.Visible = false;
+            GbPS.Visible = false;
             labelPreSeco.Text = "";
             labelPreSeco.BackColor = Color.Transparent;
             dtInventarioSM.Enabled = true;

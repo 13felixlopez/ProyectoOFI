@@ -70,7 +70,7 @@
             this.BtnCerrar.Location = new System.Drawing.Point(411, 0);
             this.BtnCerrar.Name = "BtnCerrar";
             this.BtnCerrar.Size = new System.Drawing.Size(49, 52);
-            this.BtnCerrar.TabIndex = 3;
+            this.BtnCerrar.TabIndex = 1;
             this.BtnCerrar.UseVisualStyleBackColor = true;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
@@ -102,7 +102,7 @@
             this.TxtUser.Location = new System.Drawing.Point(120, 52);
             this.TxtUser.Name = "TxtUser";
             this.TxtUser.Size = new System.Drawing.Size(301, 26);
-            this.TxtUser.TabIndex = 1;
+            this.TxtUser.TabIndex = 0;
             // 
             // PlUser
             // 

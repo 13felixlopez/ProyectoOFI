@@ -368,7 +368,7 @@ namespace ProyectoOFI.SM
                 parametros.Paros = double.Parse(TxtParos.Text);
                 Paros();
                 parametros.Observacion = Observacion;
-                parametros.Total = DateTime.Parse(LblTiempoPre.Text);
+                parametros.Total = LblTiempoPre.Text;
                 parametros.ProcesoSF = "POA";
                 parametros.OperadorV = int.Parse(CbOperadores.SelectedValue.ToString());
                 parametros.TurnoV = int.Parse(CbTurno.SelectedValue.ToString());
@@ -401,7 +401,7 @@ namespace ProyectoOFI.SM
         private bool Validar()
         {
             double entero;
-            if (!double.TryParse(TxtParos.Text, out entero) || !double.TryParse(TxtHumedad.Text, out entero))
+            if (!double.TryParse(TxtParos.Text, out entero)||!double.TryParse(TxtHumedad.Text, out entero))
             {
                 return false;
             }
@@ -411,29 +411,51 @@ namespace ProyectoOFI.SM
 
         private void TxtParos_TextChanged(object sender, EventArgs e)
         {
-            // Obtener el valor de Txtparos y convertirlo a un TimeSpan
-            TimeSpan paros;
-            if (!TimeSpan.TryParse(TxtParos.Text, out paros))
+            // Obtener el valor de TxtParos y convertirlo a un TimeSpan
+            // Obtener el valor para Paros como decimal
+            double horasParos;
+            if (!double.TryParse(TxtParos.Text, out horasParos))
             {
-                // Manejar el caso en que el valor ingresado en Txtparos no sea válido
-                MessageBox.Show("El valor ingresado en Txtparos no es válido.");
+                // Manejar el caso en que el valor ingresado en TxtParos no sea válido
+                MessageBox.Show("El valor ingresado en TxtParos no es válido.");
                 return;
             }
 
-            // Calcular el tiempo total y restarle el tiempo de paros
-            DateTime FInicio, FechaFin, HoraInicio, HoraFin;
-            FInicio = dtFProcV.Value;
-            FechaFin = DtPFDes1.Value;
-            HoraInicio = dtHorainicioV.Value;
-            HoraFin = DtHoraFin2.Value;
+            // Convertir el valor de horas a TimeSpan
+            int horas1 = (int)horasParos;  // Parte entera representa las horas
+            double minutosDecimal = (horasParos - horas1) * 60;  // Parte decimal representa los minutos
+            int minutos1 = (int)minutosDecimal;  // Convertir parte decimal a minutos
 
-            TimeSpan tiempoTotal = (FechaFin.Date + HoraFin.TimeOfDay) - (FInicio.Date + HoraInicio.TimeOfDay);
-            tiempoTotal -= paros;
+            // Construir el TimeSpan con horas y minutos
+            TimeSpan paros = new TimeSpan(horas1, minutos1, 0);
 
-            // Convertir el resultado a formato HH:MM y mostrarlo
-            string resultado = tiempoTotal.ToString(@"hh\:mm");
-            LblTiempoPre.Text = resultado;
 
+            // Obtener las fechas y horas de los DateTimePickers
+            DateTime fechaInicio = DtPFDes1.Value.Date + DtHoraFin2.Value.TimeOfDay;
+            DateTime fechaFin = dtFProcV.Value.Date + dtHorainicioV.Value.TimeOfDay;
+
+            // Calcular la diferencia de tiempo total en horas
+            TimeSpan tiempoTotal = fechaInicio - fechaFin;
+            double totalHoras = tiempoTotal.TotalHours;
+
+            // Convertir el tiempo total a horas y minutos
+            int horas = (int)totalHoras;
+            int minutos = (int)((totalHoras - horas) * 60);
+
+            // Restar el tiempo de paros al tiempo total
+            totalHoras -= paros.TotalHours;
+
+            // Verificar si el tiempo total es negativo
+            if (totalHoras < 0)
+            {
+                totalHoras = 0;
+            }
+
+            // Convertir el tiempo total nuevamente a días, horas y minutos si es necesario
+            int diasFinal = (int)(totalHoras / 24);
+            horas = (int)(totalHoras % 24);
+            string resultadoFinal = $"{diasFinal} días {horas} horas {minutos} minutos";
+            LblTiempoPre.Text = resultadoFinal;
         }
     }
 }

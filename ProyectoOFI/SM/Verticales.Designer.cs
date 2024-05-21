@@ -39,11 +39,13 @@
             this.lblV7 = new System.Windows.Forms.Label();
             this.btnV6 = new System.Windows.Forms.Button();
             this.btnV1 = new System.Windows.Forms.Button();
+            this.btnV8 = new System.Windows.Forms.Button();
             this.btnV7 = new System.Windows.Forms.Button();
             this.btnV5 = new System.Windows.Forms.Button();
             this.btnV4 = new System.Windows.Forms.Button();
             this.btnV3 = new System.Windows.Forms.Button();
             this.btnV2 = new System.Windows.Forms.Button();
+            this.lblV8 = new System.Windows.Forms.Label();
             this.PlDatos = new System.Windows.Forms.Panel();
             this.GbSF = new System.Windows.Forms.GroupBox();
             this.CbTurno = new System.Windows.Forms.ComboBox();
@@ -51,7 +53,6 @@
             this.BtnSF = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.TxtHumedad = new System.Windows.Forms.TextBox();
-            this.TxtParos = new System.Windows.Forms.TextBox();
             this.CHParos = new System.Windows.Forms.CheckedListBox();
             this.DtPFDes2 = new System.Windows.Forms.DateTimePicker();
             this.DtPFDes1 = new System.Windows.Forms.DateTimePicker();
@@ -111,8 +112,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.BtnCerrarVerCons = new System.Windows.Forms.Button();
-            this.lblV8 = new System.Windows.Forms.Label();
-            this.btnV8 = new System.Windows.Forms.Button();
+            this.TxtParos = new System.Windows.Forms.TextBox();
             this.TLPPlTolvas.SuspendLayout();
             this.PlDatos.SuspendLayout();
             this.GbSF.SuspendLayout();
@@ -276,6 +276,23 @@
             this.btnV1.UseVisualStyleBackColor = false;
             this.btnV1.Click += new System.EventHandler(this.btnV1_Click);
             // 
+            // btnV8
+            // 
+            this.btnV8.BackColor = System.Drawing.SystemColors.Control;
+            this.btnV8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnV8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
+            this.btnV8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnV8.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnV8.Image = ((System.Drawing.Image)(resources.GetObject("btnV8.Image")));
+            this.btnV8.Location = new System.Drawing.Point(1529, 58);
+            this.btnV8.Name = "btnV8";
+            this.btnV8.Size = new System.Drawing.Size(218, 732);
+            this.btnV8.TabIndex = 52;
+            this.btnV8.Text = "Vertical #8";
+            this.btnV8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnV8.UseVisualStyleBackColor = false;
+            this.btnV8.Click += new System.EventHandler(this.btnV8_Click);
+            // 
             // btnV7
             // 
             this.btnV7.BackColor = System.Drawing.SystemColors.Control;
@@ -360,6 +377,18 @@
             this.btnV2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnV2.UseVisualStyleBackColor = false;
             this.btnV2.Click += new System.EventHandler(this.btnV2_Click);
+            // 
+            // lblV8
+            // 
+            this.lblV8.BackColor = System.Drawing.Color.White;
+            this.lblV8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblV8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblV8.Location = new System.Drawing.Point(1529, 0);
+            this.lblV8.Name = "lblV8";
+            this.lblV8.Size = new System.Drawing.Size(218, 55);
+            this.lblV8.TabIndex = 53;
+            this.lblV8.Text = "--";
+            this.lblV8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PlDatos
             // 
@@ -454,14 +483,6 @@
             this.TxtHumedad.Name = "TxtHumedad";
             this.TxtHumedad.Size = new System.Drawing.Size(100, 23);
             this.TxtHumedad.TabIndex = 12;
-            // 
-            // TxtParos
-            // 
-            this.TxtParos.Location = new System.Drawing.Point(459, 141);
-            this.TxtParos.Name = "TxtParos";
-            this.TxtParos.Size = new System.Drawing.Size(100, 23);
-            this.TxtParos.TabIndex = 12;
-            this.TxtParos.TextChanged += new System.EventHandler(this.TxtParos_TextChanged);
             // 
             // CHParos
             // 
@@ -1059,34 +1080,13 @@
             this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
             this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
             // 
-            // lblV8
+            // TxtParos
             // 
-            this.lblV8.BackColor = System.Drawing.Color.White;
-            this.lblV8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblV8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblV8.Location = new System.Drawing.Point(1529, 0);
-            this.lblV8.Name = "lblV8";
-            this.lblV8.Size = new System.Drawing.Size(218, 55);
-            this.lblV8.TabIndex = 53;
-            this.lblV8.Text = "--";
-            this.lblV8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnV8
-            // 
-            this.btnV8.BackColor = System.Drawing.SystemColors.Control;
-            this.btnV8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnV8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(129)))), ((int)(((byte)(0)))), ((int)(((byte)(97)))));
-            this.btnV8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnV8.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnV8.Image = ((System.Drawing.Image)(resources.GetObject("btnV8.Image")));
-            this.btnV8.Location = new System.Drawing.Point(1529, 58);
-            this.btnV8.Name = "btnV8";
-            this.btnV8.Size = new System.Drawing.Size(218, 732);
-            this.btnV8.TabIndex = 52;
-            this.btnV8.Text = "Vertical #8";
-            this.btnV8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnV8.UseVisualStyleBackColor = false;
-            this.btnV8.Click += new System.EventHandler(this.btnV8_Click);
+            this.TxtParos.Location = new System.Drawing.Point(459, 141);
+            this.TxtParos.Name = "TxtParos";
+            this.TxtParos.Size = new System.Drawing.Size(100, 23);
+            this.TxtParos.TabIndex = 12;
+            this.TxtParos.TextChanged += new System.EventHandler(this.TxtParos_TextChanged);
             // 
             // Verticales
             // 
@@ -1177,7 +1177,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox TxtHumedad;
-        private System.Windows.Forms.TextBox TxtParos;
         private System.Windows.Forms.DateTimePicker DtPFDes2;
         public System.Windows.Forms.DateTimePicker DtHoraFin2;
         private System.Windows.Forms.Label label25;
@@ -1196,5 +1195,6 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Button btnV8;
         private System.Windows.Forms.Label lblV8;
+        private System.Windows.Forms.TextBox TxtParos;
     }
 }

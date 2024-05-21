@@ -103,6 +103,7 @@ namespace ProyectoOFI
         private void Login_Load(object sender, EventArgs e)
         {
             Validar_Conexion();
+            TxtUser.Focus();
         }
         private void CrearArchivo()
         {

@@ -260,8 +260,25 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al mostrar los datos de POA " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error al cargar los datos en VerPOA ✖️✖️ " + ex.Message);
+                MessageBox.Show("Error al mostrar los datos de Guardiola " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al cargar los datos en VerGuardiola ✖️✖️ " + ex.Message);
+            }
+            finally { Conexion.cerrar(); }
+        }
+        public void VerPS(ref DataTable dt, string TK)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("VerPS", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Ticket", TK);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar los datos de PS " + ex.Message, "Error PS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al cargar los datos en VerPS ✖️✖️ " + ex.Message);
             }
             finally { Conexion.cerrar(); }
         }

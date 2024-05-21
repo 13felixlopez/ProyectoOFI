@@ -621,6 +621,7 @@
   <ItemGroup>
     <Content Include="Logo.ico" />
     <Content Include="ofi1705.sql" />
+    <None Include="Resources\PS2.png" />
     <None Include="Resources\PS Btn.png" />
     <None Include="Resources\PS %282%29.png" />
     <None Include="Resources\PS1.png" />

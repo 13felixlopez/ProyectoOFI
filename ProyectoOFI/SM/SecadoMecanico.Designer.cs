@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SecadoMecanico));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioSM = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.CbBuscar = new System.Windows.Forms.ComboBox();
@@ -54,6 +56,24 @@
             this.PlCarga = new System.Windows.Forms.Panel();
             this.PLDatos = new System.Windows.Forms.Panel();
             this.TLPDatos = new System.Windows.Forms.TableLayoutPanel();
+            this.GbPS = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.label73 = new System.Windows.Forms.Label();
+            this.label74 = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
+            this.label78 = new System.Windows.Forms.Label();
+            this.label79 = new System.Windows.Forms.Label();
+            this.label80 = new System.Windows.Forms.Label();
+            this.GbGuardiola = new System.Windows.Forms.GroupBox();
+            this.DtGuardiola = new System.Windows.Forms.DataGridView();
             this.gbPOAV = new System.Windows.Forms.GroupBox();
             this.LblPOAV = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -160,40 +180,9 @@
             this.label61 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label28 = new System.Windows.Forms.Label();
-            this.GbGuardiola = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label67 = new System.Windows.Forms.Label();
-            this.label68 = new System.Windows.Forms.Label();
-            this.label69 = new System.Windows.Forms.Label();
-            this.label70 = new System.Windows.Forms.Label();
-            this.label71 = new System.Windows.Forms.Label();
-            this.label72 = new System.Windows.Forms.Label();
-            this.label73 = new System.Windows.Forms.Label();
-            this.label74 = new System.Windows.Forms.Label();
-            this.label75 = new System.Windows.Forms.Label();
-            this.label76 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
-            this.label78 = new System.Windows.Forms.Label();
-            this.label79 = new System.Windows.Forms.Label();
-            this.label80 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label81 = new System.Windows.Forms.Label();
-            this.label82 = new System.Windows.Forms.Label();
-            this.label83 = new System.Windows.Forms.Label();
-            this.label84 = new System.Windows.Forms.Label();
-            this.label85 = new System.Windows.Forms.Label();
-            this.label86 = new System.Windows.Forms.Label();
-            this.label87 = new System.Windows.Forms.Label();
-            this.label88 = new System.Windows.Forms.Label();
-            this.label89 = new System.Windows.Forms.Label();
-            this.label90 = new System.Windows.Forms.Label();
-            this.label91 = new System.Windows.Forms.Label();
-            this.label92 = new System.Windows.Forms.Label();
-            this.label93 = new System.Windows.Forms.Label();
-            this.label94 = new System.Windows.Forms.Label();
+            this.dtPS = new System.Windows.Forms.DataGridView();
             this.BtnCerrarParticion = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -201,13 +190,16 @@
             this.BtnParticionar = new System.Windows.Forms.Button();
             this.BtnCerrarVerCons = new System.Windows.Forms.Button();
             this.PbCarga = new System.Windows.Forms.PictureBox();
-            this.DtGuardiola = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioSM)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.plfooter.SuspendLayout();
             this.PlCarga.SuspendLayout();
             this.PLDatos.SuspendLayout();
             this.TLPDatos.SuspendLayout();
+            this.GbPS.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.GbGuardiola.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtGuardiola)).BeginInit();
             this.gbPOAV.SuspendLayout();
             this.gbVertical.SuspendLayout();
             this.GbPreSecado.SuspendLayout();
@@ -217,17 +209,13 @@
             this.GbSF.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.GbGuardiola.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtPS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DtGuardiola)).BeginInit();
             this.SuspendLayout();
             // 
             // dtInventarioSM
@@ -239,23 +227,23 @@
             this.dtInventarioSM.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioSM.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioSM.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioSM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioSM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dtInventarioSM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioSM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioSM.Location = new System.Drawing.Point(0, 62);
             this.dtInventarioSM.Name = "dtInventarioSM";
             this.dtInventarioSM.ReadOnly = true;
             this.dtInventarioSM.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioSM.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioSM.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dtInventarioSM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioSM.ShowCellToolTips = false;
             this.dtInventarioSM.ShowEditingIcon = false;
@@ -517,7 +505,7 @@
             this.TLPDatos.ColumnCount = 2;
             this.TLPDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.99999F));
             this.TLPDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TLPDatos.Controls.Add(this.groupBox4, 0, 2);
+            this.TLPDatos.Controls.Add(this.GbPS, 0, 2);
             this.TLPDatos.Controls.Add(this.groupBox3, 0, 2);
             this.TLPDatos.Controls.Add(this.GbGuardiola, 0, 1);
             this.TLPDatos.Controls.Add(this.gbPOAV, 0, 0);
@@ -532,6 +520,227 @@
             this.TLPDatos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.TLPDatos.Size = new System.Drawing.Size(1511, 491);
             this.TLPDatos.TabIndex = 13;
+            // 
+            // GbPS
+            // 
+            this.GbPS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.GbPS.Controls.Add(this.dtPS);
+            this.GbPS.Controls.Add(this.pictureBox6);
+            this.GbPS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GbPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.GbPS.Location = new System.Drawing.Point(3, 329);
+            this.GbPS.Name = "GbPS";
+            this.GbPS.Size = new System.Drawing.Size(749, 159);
+            this.GbPS.TabIndex = 15;
+            this.GbPS.TabStop = false;
+            this.GbPS.Text = "Datos de PS";
+            this.GbPS.Visible = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.groupBox3.Controls.Add(this.label67);
+            this.groupBox3.Controls.Add(this.label68);
+            this.groupBox3.Controls.Add(this.label69);
+            this.groupBox3.Controls.Add(this.label70);
+            this.groupBox3.Controls.Add(this.label71);
+            this.groupBox3.Controls.Add(this.label72);
+            this.groupBox3.Controls.Add(this.label73);
+            this.groupBox3.Controls.Add(this.label74);
+            this.groupBox3.Controls.Add(this.label75);
+            this.groupBox3.Controls.Add(this.label76);
+            this.groupBox3.Controls.Add(this.label77);
+            this.groupBox3.Controls.Add(this.label78);
+            this.groupBox3.Controls.Add(this.label79);
+            this.groupBox3.Controls.Add(this.label80);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.groupBox3.Location = new System.Drawing.Point(758, 329);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(750, 159);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Datos de Secado Final";
+            this.groupBox3.Visible = false;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label67.Location = new System.Drawing.Point(260, 134);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(15, 16);
+            this.label67.TabIndex = 12;
+            this.label67.Text = "--";
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label68.Location = new System.Drawing.Point(6, 134);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(15, 16);
+            this.label68.TabIndex = 12;
+            this.label68.Text = "--";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label69.Location = new System.Drawing.Point(162, 93);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(78, 16);
+            this.label69.TabIndex = 6;
+            this.label69.Text = "Humedad:";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label70.Location = new System.Drawing.Point(254, 93);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(15, 16);
+            this.label70.TabIndex = 2;
+            this.label70.Text = "--";
+            // 
+            // label71
+            // 
+            this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label71.Location = new System.Drawing.Point(458, 91);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(91, 24);
+            this.label71.TabIndex = 12;
+            this.label71.Text = "--";
+            // 
+            // label72
+            // 
+            this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label72.Location = new System.Drawing.Point(335, 77);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(107, 39);
+            this.label72.TabIndex = 0;
+            this.label72.Text = "Total de Pre-Secado:";
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label73.Location = new System.Drawing.Point(69, 91);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(15, 16);
+            this.label73.TabIndex = 12;
+            this.label73.Text = "--";
+            // 
+            // label74
+            // 
+            this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label74.Location = new System.Drawing.Point(6, 92);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(85, 24);
+            this.label74.TabIndex = 0;
+            this.label74.Text = "Paros:";
+            // 
+            // label75
+            // 
+            this.label75.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label75.Location = new System.Drawing.Point(554, 43);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(101, 24);
+            this.label75.TabIndex = 12;
+            this.label75.Text = "--";
+            // 
+            // label76
+            // 
+            this.label76.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label76.Location = new System.Drawing.Point(462, 35);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(85, 40);
+            this.label76.TabIndex = 0;
+            this.label76.Text = "Hora de Fin:";
+            this.label76.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label77
+            // 
+            this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label77.Location = new System.Drawing.Point(344, 43);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(111, 24);
+            this.label77.TabIndex = 12;
+            this.label77.Text = "--";
+            // 
+            // label78
+            // 
+            this.label78.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label78.Location = new System.Drawing.Point(265, 36);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(72, 38);
+            this.label78.TabIndex = 0;
+            this.label78.Text = "Hora de Inicio:";
+            // 
+            // label79
+            // 
+            this.label79.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.label79.Location = new System.Drawing.Point(101, 43);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(157, 24);
+            this.label79.TabIndex = 12;
+            this.label79.Text = "--";
+            // 
+            // label80
+            // 
+            this.label80.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label80.Location = new System.Drawing.Point(6, 36);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(88, 38);
+            this.label80.TabIndex = 0;
+            this.label80.Text = "Fecha de Descargue:";
+            // 
+            // GbGuardiola
+            // 
+            this.GbGuardiola.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
+            this.GbGuardiola.Controls.Add(this.DtGuardiola);
+            this.GbGuardiola.Controls.Add(this.pictureBox4);
+            this.GbGuardiola.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GbGuardiola.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.GbGuardiola.Location = new System.Drawing.Point(758, 166);
+            this.GbGuardiola.Name = "GbGuardiola";
+            this.GbGuardiola.Size = new System.Drawing.Size(750, 157);
+            this.GbGuardiola.TabIndex = 13;
+            this.GbGuardiola.TabStop = false;
+            this.GbGuardiola.Text = "Datos de Guardiolas";
+            this.GbGuardiola.Visible = false;
+            // 
+            // DtGuardiola
+            // 
+            this.DtGuardiola.AllowUserToAddRows = false;
+            this.DtGuardiola.AllowUserToDeleteRows = false;
+            this.DtGuardiola.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DtGuardiola.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtGuardiola.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.DtGuardiola.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DtGuardiola.DefaultCellStyle = dataGridViewCellStyle10;
+            this.DtGuardiola.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DtGuardiola.Location = new System.Drawing.Point(3, 22);
+            this.DtGuardiola.Name = "DtGuardiola";
+            this.DtGuardiola.ReadOnly = true;
+            this.DtGuardiola.RowHeadersVisible = false;
+            this.DtGuardiola.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtGuardiola.Size = new System.Drawing.Size(744, 65);
+            this.DtGuardiola.TabIndex = 14;
             // 
             // gbPOAV
             // 
@@ -871,7 +1080,7 @@
             // 
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label41.Location = new System.Drawing.Point(162, 93);
+            this.label41.Location = new System.Drawing.Point(126, 93);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(78, 16);
             this.label41.TabIndex = 6;
@@ -881,7 +1090,7 @@
             // 
             this.LblHumedadSF.AutoSize = true;
             this.LblHumedadSF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.LblHumedadSF.Location = new System.Drawing.Point(254, 93);
+            this.LblHumedadSF.Location = new System.Drawing.Point(218, 93);
             this.LblHumedadSF.Name = "LblHumedadSF";
             this.LblHumedadSF.Size = new System.Drawing.Size(15, 16);
             this.LblHumedadSF.TabIndex = 2;
@@ -889,17 +1098,18 @@
             // 
             // LblTotalPre
             // 
+            this.LblTotalPre.AutoSize = true;
             this.LblTotalPre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.LblTotalPre.Location = new System.Drawing.Point(458, 91);
+            this.LblTotalPre.Location = new System.Drawing.Point(407, 91);
             this.LblTotalPre.Name = "LblTotalPre";
-            this.LblTotalPre.Size = new System.Drawing.Size(91, 24);
+            this.LblTotalPre.Size = new System.Drawing.Size(15, 16);
             this.LblTotalPre.TabIndex = 12;
             this.LblTotalPre.Text = "--";
             // 
             // label33
             // 
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label33.Location = new System.Drawing.Point(335, 77);
+            this.label33.Location = new System.Drawing.Point(284, 77);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(107, 39);
             this.label33.TabIndex = 0;
@@ -1686,340 +1896,37 @@
             this.label28.Text = "Crear Carga para Secado Final";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // GbGuardiola
+            // dtPS
             // 
-            this.GbGuardiola.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.GbGuardiola.Controls.Add(this.DtGuardiola);
-            this.GbGuardiola.Controls.Add(this.pictureBox4);
-            this.GbGuardiola.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GbGuardiola.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.GbGuardiola.Location = new System.Drawing.Point(758, 166);
-            this.GbGuardiola.Name = "GbGuardiola";
-            this.GbGuardiola.Size = new System.Drawing.Size(750, 157);
-            this.GbGuardiola.TabIndex = 13;
-            this.GbGuardiola.TabStop = false;
-            this.GbGuardiola.Text = "Datos de Guardiolas";
-            this.GbGuardiola.Visible = false;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.groupBox3.Controls.Add(this.pictureBox5);
-            this.groupBox3.Controls.Add(this.label67);
-            this.groupBox3.Controls.Add(this.label68);
-            this.groupBox3.Controls.Add(this.label69);
-            this.groupBox3.Controls.Add(this.label70);
-            this.groupBox3.Controls.Add(this.label71);
-            this.groupBox3.Controls.Add(this.label72);
-            this.groupBox3.Controls.Add(this.label73);
-            this.groupBox3.Controls.Add(this.label74);
-            this.groupBox3.Controls.Add(this.label75);
-            this.groupBox3.Controls.Add(this.label76);
-            this.groupBox3.Controls.Add(this.label77);
-            this.groupBox3.Controls.Add(this.label78);
-            this.groupBox3.Controls.Add(this.label79);
-            this.groupBox3.Controls.Add(this.label80);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.groupBox3.Location = new System.Drawing.Point(758, 329);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(750, 159);
-            this.groupBox3.TabIndex = 14;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Datos de Secado Final";
-            this.groupBox3.Visible = false;
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label67.Location = new System.Drawing.Point(260, 134);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(15, 16);
-            this.label67.TabIndex = 12;
-            this.label67.Text = "--";
-            // 
-            // label68
-            // 
-            this.label68.AutoSize = true;
-            this.label68.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label68.Location = new System.Drawing.Point(6, 134);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(15, 16);
-            this.label68.TabIndex = 12;
-            this.label68.Text = "--";
-            // 
-            // label69
-            // 
-            this.label69.AutoSize = true;
-            this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label69.Location = new System.Drawing.Point(162, 93);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(78, 16);
-            this.label69.TabIndex = 6;
-            this.label69.Text = "Humedad:";
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label70.Location = new System.Drawing.Point(254, 93);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(15, 16);
-            this.label70.TabIndex = 2;
-            this.label70.Text = "--";
-            // 
-            // label71
-            // 
-            this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label71.Location = new System.Drawing.Point(458, 91);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(91, 24);
-            this.label71.TabIndex = 12;
-            this.label71.Text = "--";
-            // 
-            // label72
-            // 
-            this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label72.Location = new System.Drawing.Point(335, 77);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(107, 39);
-            this.label72.TabIndex = 0;
-            this.label72.Text = "Total de Pre-Secado:";
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label73.Location = new System.Drawing.Point(69, 91);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(15, 16);
-            this.label73.TabIndex = 12;
-            this.label73.Text = "--";
-            // 
-            // label74
-            // 
-            this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label74.Location = new System.Drawing.Point(6, 92);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(85, 24);
-            this.label74.TabIndex = 0;
-            this.label74.Text = "Paros:";
-            // 
-            // label75
-            // 
-            this.label75.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label75.Location = new System.Drawing.Point(554, 43);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(101, 24);
-            this.label75.TabIndex = 12;
-            this.label75.Text = "--";
-            // 
-            // label76
-            // 
-            this.label76.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label76.Location = new System.Drawing.Point(462, 35);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(85, 40);
-            this.label76.TabIndex = 0;
-            this.label76.Text = "Hora de Fin:";
-            this.label76.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label77
-            // 
-            this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label77.Location = new System.Drawing.Point(344, 43);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(111, 24);
-            this.label77.TabIndex = 12;
-            this.label77.Text = "--";
-            // 
-            // label78
-            // 
-            this.label78.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label78.Location = new System.Drawing.Point(265, 36);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(72, 38);
-            this.label78.TabIndex = 0;
-            this.label78.Text = "Hora de Inicio:";
-            // 
-            // label79
-            // 
-            this.label79.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label79.Location = new System.Drawing.Point(101, 43);
-            this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(157, 24);
-            this.label79.TabIndex = 12;
-            this.label79.Text = "--";
-            // 
-            // label80
-            // 
-            this.label80.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label80.Location = new System.Drawing.Point(6, 36);
-            this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(88, 38);
-            this.label80.TabIndex = 0;
-            this.label80.Text = "Fecha de Descargue:";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
-            this.groupBox4.Controls.Add(this.pictureBox6);
-            this.groupBox4.Controls.Add(this.label81);
-            this.groupBox4.Controls.Add(this.label82);
-            this.groupBox4.Controls.Add(this.label83);
-            this.groupBox4.Controls.Add(this.label84);
-            this.groupBox4.Controls.Add(this.label85);
-            this.groupBox4.Controls.Add(this.label86);
-            this.groupBox4.Controls.Add(this.label87);
-            this.groupBox4.Controls.Add(this.label88);
-            this.groupBox4.Controls.Add(this.label89);
-            this.groupBox4.Controls.Add(this.label90);
-            this.groupBox4.Controls.Add(this.label91);
-            this.groupBox4.Controls.Add(this.label92);
-            this.groupBox4.Controls.Add(this.label93);
-            this.groupBox4.Controls.Add(this.label94);
-            this.groupBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.groupBox4.Location = new System.Drawing.Point(3, 329);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(749, 159);
-            this.groupBox4.TabIndex = 15;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Datos de PS";
-            this.groupBox4.Visible = false;
-            // 
-            // label81
-            // 
-            this.label81.AutoSize = true;
-            this.label81.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label81.Location = new System.Drawing.Point(260, 134);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(15, 16);
-            this.label81.TabIndex = 12;
-            this.label81.Text = "--";
-            // 
-            // label82
-            // 
-            this.label82.AutoSize = true;
-            this.label82.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label82.Location = new System.Drawing.Point(6, 134);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(15, 16);
-            this.label82.TabIndex = 12;
-            this.label82.Text = "--";
-            // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label83.Location = new System.Drawing.Point(162, 93);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(78, 16);
-            this.label83.TabIndex = 6;
-            this.label83.Text = "Humedad:";
-            // 
-            // label84
-            // 
-            this.label84.AutoSize = true;
-            this.label84.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label84.Location = new System.Drawing.Point(254, 93);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(15, 16);
-            this.label84.TabIndex = 2;
-            this.label84.Text = "--";
-            // 
-            // label85
-            // 
-            this.label85.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label85.Location = new System.Drawing.Point(458, 91);
-            this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(91, 24);
-            this.label85.TabIndex = 12;
-            this.label85.Text = "--";
-            // 
-            // label86
-            // 
-            this.label86.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label86.Location = new System.Drawing.Point(335, 77);
-            this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(107, 39);
-            this.label86.TabIndex = 0;
-            this.label86.Text = "Total de Pre-Secado:";
-            // 
-            // label87
-            // 
-            this.label87.AutoSize = true;
-            this.label87.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label87.Location = new System.Drawing.Point(69, 91);
-            this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(15, 16);
-            this.label87.TabIndex = 12;
-            this.label87.Text = "--";
-            // 
-            // label88
-            // 
-            this.label88.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label88.Location = new System.Drawing.Point(6, 92);
-            this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(85, 24);
-            this.label88.TabIndex = 0;
-            this.label88.Text = "Paros:";
-            // 
-            // label89
-            // 
-            this.label89.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label89.Location = new System.Drawing.Point(554, 43);
-            this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(101, 24);
-            this.label89.TabIndex = 12;
-            this.label89.Text = "--";
-            // 
-            // label90
-            // 
-            this.label90.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label90.Location = new System.Drawing.Point(462, 35);
-            this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(85, 40);
-            this.label90.TabIndex = 0;
-            this.label90.Text = "Hora de Fin:";
-            this.label90.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label91
-            // 
-            this.label91.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label91.Location = new System.Drawing.Point(344, 43);
-            this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(111, 24);
-            this.label91.TabIndex = 12;
-            this.label91.Text = "--";
-            // 
-            // label92
-            // 
-            this.label92.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label92.Location = new System.Drawing.Point(265, 36);
-            this.label92.Name = "label92";
-            this.label92.Size = new System.Drawing.Size(72, 38);
-            this.label92.TabIndex = 0;
-            this.label92.Text = "Hora de Inicio:";
-            // 
-            // label93
-            // 
-            this.label93.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label93.Location = new System.Drawing.Point(101, 43);
-            this.label93.Name = "label93";
-            this.label93.Size = new System.Drawing.Size(157, 24);
-            this.label93.TabIndex = 12;
-            this.label93.Text = "--";
-            // 
-            // label94
-            // 
-            this.label94.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label94.Location = new System.Drawing.Point(6, 36);
-            this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(88, 38);
-            this.label94.TabIndex = 0;
-            this.label94.Text = "Fecha de Descargue:";
+            this.dtPS.AllowUserToAddRows = false;
+            this.dtPS.AllowUserToDeleteRows = false;
+            this.dtPS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtPS.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtPS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.dtPS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtPS.DefaultCellStyle = dataGridViewCellStyle12;
+            this.dtPS.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dtPS.Location = new System.Drawing.Point(3, 22);
+            this.dtPS.Name = "dtPS";
+            this.dtPS.ReadOnly = true;
+            this.dtPS.RowHeadersVisible = false;
+            this.dtPS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtPS.Size = new System.Drawing.Size(743, 65);
+            this.dtPS.TabIndex = 15;
             // 
             // BtnCerrarParticion
             // 
@@ -2035,27 +1942,14 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = global::ProyectoOFI.Properties.Resources.PS;
-            this.pictureBox6.Location = new System.Drawing.Point(604, 70);
+            this.pictureBox6.Image = global::ProyectoOFI.Properties.Resources.PS2;
+            this.pictureBox6.Location = new System.Drawing.Point(322, 93);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(135, 70);
+            this.pictureBox6.Size = new System.Drawing.Size(151, 66);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 13;
             this.pictureBox6.TabStop = false;
             this.toolTip1.SetToolTip(this.pictureBox6, "Tolva POA: Esta tolva tiene la capacidad de 300 QQs, su función es de almacenar e" +
-        "l café,\r\neste es el inicio de lo que llamamos Secado Final y en ocasiones es el " +
-        "fin de lo que\r\nllamamos Pre-Secado.");
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::ProyectoOFI.Properties.Resources.POASF;
-            this.pictureBox5.Location = new System.Drawing.Point(604, 70);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(135, 70);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 13;
-            this.pictureBox5.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox5, "Tolva POA: Esta tolva tiene la capacidad de 300 QQs, su función es de almacenar e" +
         "l café,\r\neste es el inicio de lo que llamamos Secado Final y en ocasiones es el " +
         "fin de lo que\r\nllamamos Pre-Secado.");
             // 
@@ -2148,38 +2042,6 @@
             this.PbCarga.TabIndex = 0;
             this.PbCarga.TabStop = false;
             // 
-            // DtGuardiola
-            // 
-            this.DtGuardiola.AllowUserToAddRows = false;
-            this.DtGuardiola.AllowUserToDeleteRows = false;
-            this.DtGuardiola.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DtGuardiola.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtGuardiola.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.DtGuardiola.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DtGuardiola.DefaultCellStyle = dataGridViewCellStyle4;
-            this.DtGuardiola.Dock = System.Windows.Forms.DockStyle.Top;
-            this.DtGuardiola.Location = new System.Drawing.Point(3, 22);
-            this.DtGuardiola.Name = "DtGuardiola";
-            this.DtGuardiola.ReadOnly = true;
-            this.DtGuardiola.RowHeadersVisible = false;
-            this.DtGuardiola.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtGuardiola.Size = new System.Drawing.Size(744, 65);
-            this.DtGuardiola.TabIndex = 14;
-            // 
             // SecadoMecanico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2201,6 +2063,11 @@
             this.PlCarga.ResumeLayout(false);
             this.PLDatos.ResumeLayout(false);
             this.TLPDatos.ResumeLayout(false);
+            this.GbPS.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.GbGuardiola.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtGuardiola)).EndInit();
             this.gbPOAV.ResumeLayout(false);
             this.gbPOAV.PerformLayout();
             this.gbVertical.ResumeLayout(false);
@@ -2216,19 +2083,13 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.GbGuardiola.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtPS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DtGuardiola)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2368,24 +2229,9 @@
         private System.Windows.Forms.Label LblSacosPar;
         private System.Windows.Forms.Label label60;
         public System.Windows.Forms.Label label61;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox GbPS;
         private System.Windows.Forms.PictureBox pictureBox6;
-        public System.Windows.Forms.Label label81;
-        public System.Windows.Forms.Label label82;
-        private System.Windows.Forms.Label label83;
-        private System.Windows.Forms.Label label84;
-        public System.Windows.Forms.Label label85;
-        public System.Windows.Forms.Label label86;
-        public System.Windows.Forms.Label label87;
-        public System.Windows.Forms.Label label88;
-        public System.Windows.Forms.Label label89;
-        public System.Windows.Forms.Label label90;
-        public System.Windows.Forms.Label label91;
-        public System.Windows.Forms.Label label92;
-        public System.Windows.Forms.Label label93;
-        public System.Windows.Forms.Label label94;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.PictureBox pictureBox5;
         public System.Windows.Forms.Label label67;
         public System.Windows.Forms.Label label68;
         private System.Windows.Forms.Label label69;
@@ -2403,5 +2249,6 @@
         private System.Windows.Forms.GroupBox GbGuardiola;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.DataGridView DtGuardiola;
+        private System.Windows.Forms.DataGridView dtPS;
     }
 }

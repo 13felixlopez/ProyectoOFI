@@ -24,7 +24,7 @@ namespace ProyectoOFI.Logica
         public double Humedad { get; set; }
         public double Paros { get; set; }
         public string Observacion { get; set; }
-        public DateTime Total { get; set; }
+        public string Total { get; set; }
         public string ProcesoSF { get; set; }
         public int POA1 { get; set; }
         public int POA2 { get; set; }

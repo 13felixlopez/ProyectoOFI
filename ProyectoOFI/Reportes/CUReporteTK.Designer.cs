@@ -28,11 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PlContenedor = new System.Windows.Forms.Panel();
+            this.PlFiltros = new System.Windows.Forms.Panel();
+            this.BtnFiltrar = new System.Windows.Forms.Button();
+            this.CLBFiltros = new System.Windows.Forms.CheckedListBox();
+            this.PlCerrar = new System.Windows.Forms.Panel();
+            this.LblFiltros = new System.Windows.Forms.Label();
+            this.BtnCerrar = new System.Windows.Forms.Button();
             this.PlCarga = new System.Windows.Forms.Panel();
             this.PbCarga = new System.Windows.Forms.PictureBox();
             this.DtDatos = new System.Windows.Forms.DataGridView();
@@ -63,13 +69,9 @@
             this.Label25 = new System.Windows.Forms.Label();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.PlFiltros = new System.Windows.Forms.Panel();
-            this.BtnFiltrar = new System.Windows.Forms.Button();
-            this.CLBFiltros = new System.Windows.Forms.CheckedListBox();
-            this.PlCerrar = new System.Windows.Forms.Panel();
-            this.LblFiltros = new System.Windows.Forms.Label();
-            this.BtnCerrar = new System.Windows.Forms.Button();
             this.PlContenedor.SuspendLayout();
+            this.PlFiltros.SuspendLayout();
+            this.PlCerrar.SuspendLayout();
             this.PlCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtDatos)).BeginInit();
@@ -80,8 +82,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).BeginInit();
             this.plAgregar.SuspendLayout();
             this.plfooter.SuspendLayout();
-            this.PlFiltros.SuspendLayout();
-            this.PlCerrar.SuspendLayout();
             this.SuspendLayout();
             // 
             // PlContenedor
@@ -96,6 +96,106 @@
             this.PlContenedor.Name = "PlContenedor";
             this.PlContenedor.Size = new System.Drawing.Size(1806, 839);
             this.PlContenedor.TabIndex = 0;
+            // 
+            // PlFiltros
+            // 
+            this.PlFiltros.Controls.Add(this.BtnFiltrar);
+            this.PlFiltros.Controls.Add(this.CLBFiltros);
+            this.PlFiltros.Controls.Add(this.PlCerrar);
+            this.PlFiltros.Location = new System.Drawing.Point(1279, 223);
+            this.PlFiltros.MaximumSize = new System.Drawing.Size(233, 395);
+            this.PlFiltros.MinimumSize = new System.Drawing.Size(233, 395);
+            this.PlFiltros.Name = "PlFiltros";
+            this.PlFiltros.Size = new System.Drawing.Size(233, 395);
+            this.PlFiltros.TabIndex = 14;
+            this.PlFiltros.Visible = false;
+            // 
+            // BtnFiltrar
+            // 
+            this.BtnFiltrar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BtnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnFiltrar.Image = global::ProyectoOFI.Properties.Resources.task_alt_FILL1_wght400_GRAD0_opsz24;
+            this.BtnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnFiltrar.Location = new System.Drawing.Point(0, 336);
+            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(10);
+            this.BtnFiltrar.Name = "BtnFiltrar";
+            this.BtnFiltrar.Size = new System.Drawing.Size(233, 59);
+            this.BtnFiltrar.TabIndex = 2;
+            this.BtnFiltrar.Text = "Aplicar Filtro";
+            this.BtnFiltrar.UseVisualStyleBackColor = true;
+            this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
+            // 
+            // CLBFiltros
+            // 
+            this.CLBFiltros.CheckOnClick = true;
+            this.CLBFiltros.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CLBFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CLBFiltros.FormattingEnabled = true;
+            this.CLBFiltros.Items.AddRange(new object[] {
+            "Ticket",
+            "TicketHijo",
+            "Folio",
+            "FEnvio",
+            "Cliente",
+            "Agencia",
+            "Acopio",
+            "Tipo de Compra",
+            "Calidad Envio",
+            "Certificacion",
+            "Estado Fisico Enviado",
+            "Daño Envio",
+            "FechaRecibido",
+            "MTNR",
+            "Sacos",
+            "Peso",
+            "Merma",
+            "Calidad Recibido",
+            "Estado Fisico Recibido",
+            "Daño Recepción",
+            "Área de Secado",
+            "Recibidor",
+            "Proceso",
+            "Consolidado",
+            "Estado"});
+            this.CLBFiltros.Location = new System.Drawing.Point(0, 42);
+            this.CLBFiltros.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.CLBFiltros.Name = "CLBFiltros";
+            this.CLBFiltros.Size = new System.Drawing.Size(233, 353);
+            this.CLBFiltros.TabIndex = 1;
+            this.CLBFiltros.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBFiltros_ItemCheck);
+            // 
+            // PlCerrar
+            // 
+            this.PlCerrar.Controls.Add(this.LblFiltros);
+            this.PlCerrar.Controls.Add(this.BtnCerrar);
+            this.PlCerrar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PlCerrar.Location = new System.Drawing.Point(0, 0);
+            this.PlCerrar.Name = "PlCerrar";
+            this.PlCerrar.Size = new System.Drawing.Size(233, 42);
+            this.PlCerrar.TabIndex = 0;
+            // 
+            // LblFiltros
+            // 
+            this.LblFiltros.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFiltros.Location = new System.Drawing.Point(0, 0);
+            this.LblFiltros.Name = "LblFiltros";
+            this.LblFiltros.Size = new System.Drawing.Size(184, 42);
+            this.LblFiltros.TabIndex = 3;
+            this.LblFiltros.Text = "Filtros";
+            this.LblFiltros.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrar.Location = new System.Drawing.Point(184, 0);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(49, 42);
+            this.BtnCerrar.TabIndex = 2;
+            this.BtnCerrar.UseVisualStyleBackColor = true;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // PlCarga
             // 
@@ -123,37 +223,37 @@
             this.DtDatos.AllowUserToDeleteRows = false;
             this.DtDatos.AllowUserToOrderColumns = true;
             this.DtDatos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle17.NullValue = "--";
-            this.DtDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.NullValue = "--";
+            this.DtDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtDatos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(29)))), ((int)(((byte)(29)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DtDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle19.NullValue = "--";
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DtDatos.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.NullValue = "--";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtDatos.DefaultCellStyle = dataGridViewCellStyle3;
             this.DtDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtDatos.EnableHeadersVisualStyles = false;
             this.DtDatos.Location = new System.Drawing.Point(0, 62);
             this.DtDatos.Name = "DtDatos";
             this.DtDatos.ReadOnly = true;
             this.DtDatos.RowHeadersVisible = false;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DtDatos.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtDatos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DtDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DtDatos.ShowCellToolTips = false;
             this.DtDatos.ShowEditingIcon = false;
@@ -508,106 +608,6 @@
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Visible = false;
             // 
-            // PlFiltros
-            // 
-            this.PlFiltros.Controls.Add(this.BtnFiltrar);
-            this.PlFiltros.Controls.Add(this.CLBFiltros);
-            this.PlFiltros.Controls.Add(this.PlCerrar);
-            this.PlFiltros.Location = new System.Drawing.Point(1279, 223);
-            this.PlFiltros.MaximumSize = new System.Drawing.Size(233, 395);
-            this.PlFiltros.MinimumSize = new System.Drawing.Size(233, 395);
-            this.PlFiltros.Name = "PlFiltros";
-            this.PlFiltros.Size = new System.Drawing.Size(233, 395);
-            this.PlFiltros.TabIndex = 14;
-            this.PlFiltros.Visible = false;
-            // 
-            // BtnFiltrar
-            // 
-            this.BtnFiltrar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BtnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnFiltrar.Image = global::ProyectoOFI.Properties.Resources.task_alt_FILL1_wght400_GRAD0_opsz24;
-            this.BtnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnFiltrar.Location = new System.Drawing.Point(0, 336);
-            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(10);
-            this.BtnFiltrar.Name = "BtnFiltrar";
-            this.BtnFiltrar.Size = new System.Drawing.Size(233, 59);
-            this.BtnFiltrar.TabIndex = 2;
-            this.BtnFiltrar.Text = "Aplicar Filtro";
-            this.BtnFiltrar.UseVisualStyleBackColor = true;
-            this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
-            // 
-            // CLBFiltros
-            // 
-            this.CLBFiltros.CheckOnClick = true;
-            this.CLBFiltros.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CLBFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CLBFiltros.FormattingEnabled = true;
-            this.CLBFiltros.Items.AddRange(new object[] {
-            "Ticket",
-            "TicketHijo",
-            "Folio",
-            "FEnvio",
-            "Cliente",
-            "Agencia",
-            "Acopio",
-            "Tipo de Compra",
-            "Calidad Envio",
-            "Certificacion",
-            "Estado Fisico Enviado",
-            "Daño Envio",
-            "FechaRecibido",
-            "MTNR",
-            "Sacos",
-            "Peso",
-            "Merma",
-            "Calidad Recibido",
-            "Estado Fisico Recibido",
-            "Daño Recepción",
-            "Área de Secado",
-            "Recibidor",
-            "Proceso",
-            "Consolidado",
-            "Estado"});
-            this.CLBFiltros.Location = new System.Drawing.Point(0, 42);
-            this.CLBFiltros.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.CLBFiltros.Name = "CLBFiltros";
-            this.CLBFiltros.Size = new System.Drawing.Size(233, 353);
-            this.CLBFiltros.TabIndex = 1;
-            this.CLBFiltros.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBFiltros_ItemCheck);
-            // 
-            // PlCerrar
-            // 
-            this.PlCerrar.Controls.Add(this.LblFiltros);
-            this.PlCerrar.Controls.Add(this.BtnCerrar);
-            this.PlCerrar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PlCerrar.Location = new System.Drawing.Point(0, 0);
-            this.PlCerrar.Name = "PlCerrar";
-            this.PlCerrar.Size = new System.Drawing.Size(233, 42);
-            this.PlCerrar.TabIndex = 0;
-            // 
-            // LblFiltros
-            // 
-            this.LblFiltros.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LblFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFiltros.Location = new System.Drawing.Point(0, 0);
-            this.LblFiltros.Name = "LblFiltros";
-            this.LblFiltros.Size = new System.Drawing.Size(184, 42);
-            this.LblFiltros.TabIndex = 3;
-            this.LblFiltros.Text = "Filtros";
-            this.LblFiltros.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BtnCerrar
-            // 
-            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrar.Location = new System.Drawing.Point(184, 0);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(49, 42);
-            this.BtnCerrar.TabIndex = 2;
-            this.BtnCerrar.UseVisualStyleBackColor = true;
-            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
-            // 
             // CUReporteTK
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -617,6 +617,8 @@
             this.Size = new System.Drawing.Size(1806, 839);
             this.Load += new System.EventHandler(this.CUReporteTK_Load);
             this.PlContenedor.ResumeLayout(false);
+            this.PlFiltros.ResumeLayout(false);
+            this.PlCerrar.ResumeLayout(false);
             this.PlCarga.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtDatos)).EndInit();
@@ -629,8 +631,6 @@
             this.plAgregar.ResumeLayout(false);
             this.plfooter.ResumeLayout(false);
             this.plfooter.PerformLayout();
-            this.PlFiltros.ResumeLayout(false);
-            this.PlCerrar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

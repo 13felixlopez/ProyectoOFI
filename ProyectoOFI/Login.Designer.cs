@@ -82,7 +82,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(460, 163);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Bienvenidos \r\nSistema para seguimiento\r\nde Lotes ofi";
+            this.label1.Text = "Bienvenidos a\r\nCoffeeTec \r\nofi";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2

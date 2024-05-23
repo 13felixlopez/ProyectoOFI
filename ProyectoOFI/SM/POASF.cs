@@ -379,7 +379,7 @@ namespace ProyectoOFI.SM
             {
                 AbrirFormulario();
                 DSM sm = new DSM();
-                sm.MostrarDatosTKSM(LblSacos, LblKilos, LblQQsV, LblCalidadV, LblDanioV, LblEFisicoV, LblFRecibido, cbTicketP.Text);
+                sm.MostrarDatosTKSM(LblSacos, LblKilos, LblQQsV, LblCalidadV, LblDanioV, LblEFisicoV, LblFRecibido, LblCert, cbTicketP.Text);
                 cbTicketP.Enabled = true;
                 btnGuardarPOA.Visible = true;
                 btnDescargarPOA.Visible = false;
@@ -776,6 +776,7 @@ namespace ProyectoOFI.SM
                 InsertarGuardiola();
                 MostrarPOALabels();
                 Estilo();
+                Refresh();
             }
             else
             {
@@ -802,11 +803,11 @@ namespace ProyectoOFI.SM
                 if (funcion.InsertarGuardiola(parametros) == true)
                 {
                     MessageBox.Show("Carga Guardiola realiza con éxito", "Guardiola Cargada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    PlDatos.Visible = false;
+                    TLPPOA.Enabled = true;
+                    Limpiar();
                     MostrarPOALabels();
                     Estilo();
-                    PlDatos.Visible = false;
-                    Limpiar();
-                    TLPPOA.Enabled = true;
                 }
             }
             catch (Exception)

@@ -67,7 +67,7 @@ namespace ProyectoOFI
         private void frmInicio_Load(object sender, EventArgs e)
         {
             LblUser.Text = Login.NombreA;
-            LblPrincipal.Text = Login.NombreA + "\r\nBienvenido al \r\nSistema 👋";
+            LblPrincipal.Text = Login.NombreA + "\r\nBienvenido a \r\nCoffeeTec ofi 👋";
             ValidarPermisos();
         }
         private void ValidarPermisos()

@@ -33,37 +33,37 @@ namespace ProyectoOFI
             this.plTitulo = new System.Windows.Forms.Panel();
             this.LblUser = new System.Windows.Forms.Label();
             this.PlPerfil = new System.Windows.Forms.Panel();
+            this.PbPerfil = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.plfooter = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.PlPrincipal = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.LblPrincipal = new System.Windows.Forms.Label();
             this.BtnReTK = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
             this.BtnHistorial = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.BtnCerrarSesion = new System.Windows.Forms.Button();
             this.BtnUser = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.BtnCatalogo = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.BtnSM = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCPatio = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.btnTransferencia = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.pbIcono = new System.Windows.Forms.PictureBox();
-            this.PbPerfil = new System.Windows.Forms.PictureBox();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.PlPrincipal = new System.Windows.Forms.Panel();
+            this.LblPrincipal = new System.Windows.Forms.Label();
             this.plTitulo.SuspendLayout();
             this.PlPerfil.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbPerfil)).BeginInit();
             this.plfooter.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.PlPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIcono)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbPerfil)).BeginInit();
+            this.PlPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // plTitulo
@@ -98,6 +98,19 @@ namespace ProyectoOFI
             this.PlPerfil.Size = new System.Drawing.Size(99, 74);
             this.PlPerfil.TabIndex = 5;
             // 
+            // PbPerfil
+            // 
+            this.PbPerfil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PbPerfil.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PbPerfil.Image = global::ProyectoOFI.Properties.Resources.icons8_configuración_del_administrador;
+            this.PbPerfil.Location = new System.Drawing.Point(0, 0);
+            this.PbPerfil.Name = "PbPerfil";
+            this.PbPerfil.Size = new System.Drawing.Size(99, 74);
+            this.PbPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbPerfil.TabIndex = 0;
+            this.PbPerfil.TabStop = false;
+            this.PbPerfil.Click += new System.EventHandler(this.PbPerfil_Click);
+            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(140)))), ((int)(((byte)(42)))));
@@ -107,7 +120,7 @@ namespace ProyectoOFI
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1796, 74);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Control de Cafe Recepción ofi";
+            this.label1.Text = "CoffeeTec ofi";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.UseCompatibleTextRendering = true;
             // 
@@ -138,120 +151,6 @@ namespace ProyectoOFI
             this.plfooter.Size = new System.Drawing.Size(191, 884);
             this.plfooter.TabIndex = 3;
             // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(11, 467);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(180, 10);
-            this.panel5.TabIndex = 24;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(11, 391);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(180, 10);
-            this.panel3.TabIndex = 21;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(11, 315);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(180, 10);
-            this.panel2.TabIndex = 19;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(11, 238);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(180, 11);
-            this.panel1.TabIndex = 16;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(11, 162);
-            this.panel9.Margin = new System.Windows.Forms.Padding(2);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(180, 10);
-            this.panel9.TabIndex = 11;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(11, 91);
-            this.panel8.Margin = new System.Windows.Forms.Padding(2);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(180, 5);
-            this.panel8.TabIndex = 13;
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.Fuchsia;
-            this.panel4.Controls.Add(this.pbIcono);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(11, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(180, 91);
-            this.panel4.TabIndex = 12;
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel11.Location = new System.Drawing.Point(0, 0);
-            this.panel11.Margin = new System.Windows.Forms.Padding(2);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(11, 884);
-            this.panel11.TabIndex = 14;
-            // 
-            // PlPrincipal
-            // 
-            this.PlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
-            this.PlPrincipal.Controls.Add(this.LblPrincipal);
-            this.PlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PlPrincipal.Location = new System.Drawing.Point(191, 74);
-            this.PlPrincipal.Name = "PlPrincipal";
-            this.PlPrincipal.Size = new System.Drawing.Size(1605, 884);
-            this.PlPrincipal.TabIndex = 4;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel6.Location = new System.Drawing.Point(11, 543);
-            this.panel6.Margin = new System.Windows.Forms.Padding(2);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(180, 10);
-            this.panel6.TabIndex = 26;
-            // 
-            // LblPrincipal
-            // 
-            this.LblPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(181)))));
-            this.LblPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LblPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPrincipal.ForeColor = System.Drawing.Color.White;
-            this.LblPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.LblPrincipal.Name = "LblPrincipal";
-            this.LblPrincipal.Size = new System.Drawing.Size(1605, 884);
-            this.LblPrincipal.TabIndex = 0;
-            this.LblPrincipal.Text = "Bienvenido al \r\nSistema 👋";
-            this.LblPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // BtnReTK
             // 
             this.BtnReTK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
@@ -271,6 +170,16 @@ namespace ProyectoOFI
             this.BtnReTK.UseVisualStyleBackColor = false;
             this.BtnReTK.Click += new System.EventHandler(this.BtnReTK_Click);
             // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel6.Location = new System.Drawing.Point(11, 543);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(180, 10);
+            this.panel6.TabIndex = 26;
+            // 
             // BtnHistorial
             // 
             this.BtnHistorial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
@@ -289,6 +198,16 @@ namespace ProyectoOFI
             this.BtnHistorial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnHistorial.UseVisualStyleBackColor = false;
             this.BtnHistorial.Click += new System.EventHandler(this.BtnHistorial_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(11, 467);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(180, 10);
+            this.panel5.TabIndex = 24;
             // 
             // BtnCerrarSesion
             // 
@@ -321,6 +240,16 @@ namespace ProyectoOFI
             this.BtnUser.Visible = false;
             this.BtnUser.Click += new System.EventHandler(this.BtnUser_Click);
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(11, 391);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(180, 10);
+            this.panel3.TabIndex = 21;
+            // 
             // BtnCatalogo
             // 
             this.BtnCatalogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
@@ -341,6 +270,16 @@ namespace ProyectoOFI
             this.BtnCatalogo.Visible = false;
             this.BtnCatalogo.Click += new System.EventHandler(this.BtnCatalogo_Click);
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(11, 315);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(180, 10);
+            this.panel2.TabIndex = 19;
+            // 
             // BtnSM
             // 
             this.BtnSM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
@@ -360,6 +299,16 @@ namespace ProyectoOFI
             this.BtnSM.UseVisualStyleBackColor = false;
             this.BtnSM.Visible = false;
             this.BtnSM.Click += new System.EventHandler(this.BtnSM_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(11, 238);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(180, 11);
+            this.panel1.TabIndex = 16;
             // 
             // BtnCPatio
             // 
@@ -392,6 +341,16 @@ namespace ProyectoOFI
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(11, 162);
+            this.panel9.Margin = new System.Windows.Forms.Padding(2);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(180, 10);
+            this.panel9.TabIndex = 11;
+            // 
             // btnTransferencia
             // 
             this.btnTransferencia.BackColor = System.Drawing.Color.Transparent;
@@ -412,6 +371,27 @@ namespace ProyectoOFI
             this.btnTransferencia.Visible = false;
             this.btnTransferencia.Click += new System.EventHandler(this.BtnTransferencia_Click);
             // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(11, 91);
+            this.panel8.Margin = new System.Windows.Forms.Padding(2);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(180, 5);
+            this.panel8.TabIndex = 13;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.Fuchsia;
+            this.panel4.Controls.Add(this.pbIcono);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(11, 0);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(180, 91);
+            this.panel4.TabIndex = 12;
+            // 
             // pbIcono
             // 
             this.pbIcono.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
@@ -424,18 +404,38 @@ namespace ProyectoOFI
             this.pbIcono.TabIndex = 2;
             this.pbIcono.TabStop = false;
             // 
-            // PbPerfil
+            // panel11
             // 
-            this.PbPerfil.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PbPerfil.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PbPerfil.Image = global::ProyectoOFI.Properties.Resources.icons8_configuración_del_administrador;
-            this.PbPerfil.Location = new System.Drawing.Point(0, 0);
-            this.PbPerfil.Name = "PbPerfil";
-            this.PbPerfil.Size = new System.Drawing.Size(99, 74);
-            this.PbPerfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbPerfil.TabIndex = 0;
-            this.PbPerfil.TabStop = false;
-            this.PbPerfil.Click += new System.EventHandler(this.PbPerfil_Click);
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Margin = new System.Windows.Forms.Padding(2);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(11, 884);
+            this.panel11.TabIndex = 14;
+            // 
+            // PlPrincipal
+            // 
+            this.PlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
+            this.PlPrincipal.Controls.Add(this.LblPrincipal);
+            this.PlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PlPrincipal.Location = new System.Drawing.Point(191, 74);
+            this.PlPrincipal.Name = "PlPrincipal";
+            this.PlPrincipal.Size = new System.Drawing.Size(1605, 884);
+            this.PlPrincipal.TabIndex = 4;
+            // 
+            // LblPrincipal
+            // 
+            this.LblPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(181)))));
+            this.LblPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 80F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPrincipal.ForeColor = System.Drawing.Color.White;
+            this.LblPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.LblPrincipal.Name = "LblPrincipal";
+            this.LblPrincipal.Size = new System.Drawing.Size(1605, 884);
+            this.LblPrincipal.TabIndex = 0;
+            this.LblPrincipal.Text = "Bienvenido a \r\nCoffeeTec 👋";
+            this.LblPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmInicio
             // 
@@ -455,11 +455,11 @@ namespace ProyectoOFI
             this.Load += new System.EventHandler(this.frmInicio_Load);
             this.plTitulo.ResumeLayout(false);
             this.PlPerfil.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PbPerfil)).EndInit();
             this.plfooter.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.PlPrincipal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbIcono)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbPerfil)).EndInit();
+            this.PlPrincipal.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

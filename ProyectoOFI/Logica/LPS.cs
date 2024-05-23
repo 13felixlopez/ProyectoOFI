@@ -1,9 +1,4 @@
-﻿using ProyectoOFI.SM;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace ProyectoOFI.Logica
 {
@@ -22,5 +17,9 @@ namespace ProyectoOFI.Logica
         public string TiempoSF { get; set; }
         public string TiempoTotal { get; set; }
         public int IdGuardiola { get; set; }
+        public int IdPS{ get; set;}
+        public string DNIN { get; set; }
+        public int IdArea { get; set; }
+        public int IdEstFis { get; set; }
     }
 }

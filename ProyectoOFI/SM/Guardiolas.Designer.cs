@@ -780,7 +780,7 @@
             // CbTurno
             // 
             this.CbTurno.FormattingEnabled = true;
-            this.CbTurno.Location = new System.Drawing.Point(729, 67);
+            this.CbTurno.Location = new System.Drawing.Point(729, 69);
             this.CbTurno.Name = "CbTurno";
             this.CbTurno.Size = new System.Drawing.Size(182, 24);
             this.CbTurno.TabIndex = 15;
@@ -788,7 +788,7 @@
             // CbOperadores
             // 
             this.CbOperadores.FormattingEnabled = true;
-            this.CbOperadores.Location = new System.Drawing.Point(172, 67);
+            this.CbOperadores.Location = new System.Drawing.Point(172, 69);
             this.CbOperadores.Name = "CbOperadores";
             this.CbOperadores.Size = new System.Drawing.Size(456, 24);
             this.CbOperadores.TabIndex = 15;
@@ -878,7 +878,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(667, 69);
+            this.label29.Location = new System.Drawing.Point(667, 73);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(56, 17);
             this.label29.TabIndex = 2;
@@ -896,7 +896,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(85, 67);
+            this.label28.Location = new System.Drawing.Point(85, 73);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(82, 17);
             this.label28.TabIndex = 2;

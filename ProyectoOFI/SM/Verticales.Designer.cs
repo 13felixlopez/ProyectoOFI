@@ -53,6 +53,7 @@
             this.BtnSF = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.TxtHumedad = new System.Windows.Forms.TextBox();
+            this.TxtParos = new System.Windows.Forms.TextBox();
             this.CHParos = new System.Windows.Forms.CheckedListBox();
             this.DtPFDes2 = new System.Windows.Forms.DateTimePicker();
             this.DtPFDes1 = new System.Windows.Forms.DateTimePicker();
@@ -112,7 +113,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.BtnCerrarVerCons = new System.Windows.Forms.Button();
-            this.TxtParos = new System.Windows.Forms.TextBox();
             this.TLPPlTolvas.SuspendLayout();
             this.PlDatos.SuspendLayout();
             this.GbSF.SuspendLayout();
@@ -484,6 +484,14 @@
             this.TxtHumedad.Size = new System.Drawing.Size(100, 23);
             this.TxtHumedad.TabIndex = 12;
             // 
+            // TxtParos
+            // 
+            this.TxtParos.Location = new System.Drawing.Point(459, 141);
+            this.TxtParos.Name = "TxtParos";
+            this.TxtParos.Size = new System.Drawing.Size(100, 23);
+            this.TxtParos.TabIndex = 12;
+            this.TxtParos.TextChanged += new System.EventHandler(this.TxtParos_TextChanged);
+            // 
             // CHParos
             // 
             this.CHParos.CheckOnClick = true;
@@ -511,6 +519,7 @@
             this.DtPFDes1.Name = "DtPFDes1";
             this.DtPFDes1.Size = new System.Drawing.Size(129, 23);
             this.DtPFDes1.TabIndex = 3;
+            this.DtPFDes1.ValueChanged += new System.EventHandler(this.DtPFDes1_ValueChanged);
             // 
             // DtHoraFin2
             // 
@@ -519,6 +528,7 @@
             this.DtHoraFin2.Name = "DtHoraFin2";
             this.DtHoraFin2.Size = new System.Drawing.Size(132, 23);
             this.DtHoraFin2.TabIndex = 10;
+            this.DtHoraFin2.ValueChanged += new System.EventHandler(this.DtHoraFin2_ValueChanged);
             // 
             // label25
             // 
@@ -1079,14 +1089,6 @@
             this.BtnCerrarVerCons.TabIndex = 11;
             this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
             this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
-            // 
-            // TxtParos
-            // 
-            this.TxtParos.Location = new System.Drawing.Point(459, 141);
-            this.TxtParos.Name = "TxtParos";
-            this.TxtParos.Size = new System.Drawing.Size(100, 23);
-            this.TxtParos.TabIndex = 12;
-            this.TxtParos.TextChanged += new System.EventHandler(this.TxtParos_TextChanged);
             // 
             // Verticales
             // 

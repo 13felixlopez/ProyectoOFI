@@ -532,7 +532,7 @@ namespace ProyectoOFI.SM
             {
                 AbrirFormulario();
                 DSM sm = new DSM();
-                sm.MostrarDatosTKSM(LblSacos, LblKilos, LblQQsV, LblCalidadV, LblDanioV, LblEFisicoV, LblFRecibido, cbTicketV.Text);
+                sm.MostrarDatosTKSM(LblSacos, LblKilos, LblQQsV, LblCalidadV, LblDanioV, LblEFisicoV, LblFRecibido, LblCert, cbTicketV.Text);
                 cbTicketV.Enabled = true;
                 btnGuardarPV.Visible = true;
                 btnDescargarPV.Visible = false;

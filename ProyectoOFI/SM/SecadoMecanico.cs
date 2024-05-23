@@ -4,6 +4,7 @@ using ProyectoOFI.Otros;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -105,7 +106,7 @@ namespace ProyectoOFI.SM
                     gbPOAV.Visible = false;
                     gbVertical.Visible = false;
                     double qqs = double.Parse(LblQQsV.Text);
-                    if (qqs >= 331)
+                    if (qqs >= 331 && Estado == "No Asignado" || Proceso == "")
                     {
                         BtnParticionar.Visible = true;
                     }
@@ -176,6 +177,30 @@ namespace ProyectoOFI.SM
                     VerPS();
                 }
                 if (Proceso == "PS" || Estado == "PS")
+                {
+                    GbPreSecado.Visible = true;
+                    gbPOAV.Visible = true;
+                    gbVertical.Visible = true;
+                    GbGuardiola.Visible = true;
+                    GbPS.Visible = true;
+                    VerPreSecado();
+                    VerGuardiola();
+                    VerPS();
+                }
+                if (Proceso == "Envio" && Estado == "Envio")
+                {
+                    GbPreSecado.Visible = true;
+                    gbPOAV.Visible = true;
+                    gbVertical.Visible = true;
+                    GbGuardiola.Visible = true;
+                    GbPS.Visible = true;
+                    VerPOAV();
+                    VerVertical();
+                    VerPreSecado();
+                    VerGuardiola();
+                    VerPS();
+                }
+                if (Proceso == "Envio" || Estado == "Envio")
                 {
                     GbPreSecado.Visible = true;
                     gbPOAV.Visible = true;
@@ -263,7 +288,31 @@ namespace ProyectoOFI.SM
                     }
                     if (dr["Total"] != DBNull.Value)
                     {
-                        LblTotalPre.Text = dr["Total"].ToString();
+                        string totalTiempo = dr["Total"].ToString();
+
+                        // Regex para extraer días, horas y minutos
+                        Regex regex = new Regex(@"(?:(\d+) días?)?\s*(?:(\d+) horas?)?\s*(?:(\d+) minutos?)?");
+                        Match match = regex.Match(totalTiempo);
+
+                        if (match.Success)
+                        {
+                            int dias = match.Groups[1].Value != "" ? int.Parse(match.Groups[1].Value) : 0;
+                            int horas = match.Groups[2].Value != "" ? int.Parse(match.Groups[2].Value) : 0;
+                            int minutos = match.Groups[3].Value != "" ? int.Parse(match.Groups[3].Value) : 0;
+
+                            // Calcular el total de horas
+                            int totalHoras = (dias * 24) + horas;
+
+                            // Formatear el resultado en "HH:mm"
+                            string resultado = $"{totalHoras:D2}:{minutos:D2}";
+
+                            // Mostrar el resultado en una etiqueta
+                            LblTotalPre.Text = resultado;
+                        }
+                        else
+                        {
+                            LblTotalPre.Text = "--";
+                        }
                     }
                     else
                     {
@@ -387,6 +436,7 @@ namespace ProyectoOFI.SM
             labelPreSeco.Text = "";
             labelPreSeco.BackColor = Color.Transparent;
             dtInventarioSM.Enabled = true;
+            BtnParticionar.Visible = false;
             Limpiar();
         }
         private void Limpiar()
@@ -775,6 +825,7 @@ namespace ProyectoOFI.SM
 
         private void BtnParticionar_Click(object sender, EventArgs e)
         {
+            PlParticion.Size = new System.Drawing.Size(1254, 352);
             PlParticion.Location = new System.Drawing.Point(dtInventarioSM.Width / 2
                 - PlParticion.Width / 2, dtInventarioSM.Height / 2 - PlParticion.Height / 2);
             PlParticion.Visible = true;

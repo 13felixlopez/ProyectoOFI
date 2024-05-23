@@ -3,6 +3,7 @@ using ProyectoOFI.Logica;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.SM
@@ -282,7 +283,6 @@ namespace ProyectoOFI.SM
         {
             try
             {
-
                 DGuardiola funcion = new DGuardiola();
                 DataTable dt = new DataTable();
                 funcion.CargarGuardiola(lblG.Text, dt);
@@ -309,8 +309,43 @@ namespace ProyectoOFI.SM
                 TimeSpan tiempo = (TimeSpan)dt.Rows[0]["DuracionG"];
                 string duracionFormateada = $"{tiempo.Hours:D2}:{tiempo.Minutes:D2}";
                 LblDuracionG.Text = duracionFormateada;
-                string Total = dt.Rows[0]["Total"].ToString();
-                PreSecado = TimeSpan.Parse(Total);
+                string Total;
+                string resultado;
+                TimeSpan final;
+                if (dt.Rows[0]["Total"] != DBNull.Value)
+                {
+                    Total = dt.Rows[0]["Total"].ToString();
+
+                    // Regex para extraer días, horas y minutos
+                    Regex regex = new Regex(@"(?:(\d+)\s*días?)?\s*(?:(\d+)\s*horas?)?\s*(?:(\d+)\s*minutos?)?");
+                    Match match = regex.Match(Total);
+
+                    if (match.Success)
+                    {
+                        int dias = match.Groups[1].Value != "" ? int.Parse(match.Groups[1].Value) : 0;
+                        int horas = match.Groups[2].Value != "" ? int.Parse(match.Groups[2].Value) : 0;
+                        int minutos = match.Groups[3].Value != "" ? int.Parse(match.Groups[3].Value) : 0;
+
+                        // Calcular el total de horas
+                        int totalHoras = (dias * 24) + horas;
+
+                        // Formatear el resultado en "HH:mm"
+                        resultado = $"{totalHoras:D2}:{minutos:D2}";
+                        final = TimeSpan.Parse(resultado);
+                        // Mostrar el resultado en una etiqueta
+                        LblTotalTime.Text = resultado;
+                        PreSecado = final;
+                    }
+                    else
+                    {
+                        LblTotalTime.Text = "--";
+                    }
+                }
+                else
+                {
+                    LblTotalTime.Text = "--";
+                }
+
                 AbrirFormulario();
             }
             catch (Exception)
@@ -330,6 +365,7 @@ namespace ProyectoOFI.SM
             funcion.MostrarTurno(CbTurno);
             TLPGuardiola.Enabled = false;
         }
+        #region Botones
         private void BtnG1_Click(object sender, EventArgs e)
         {
             try
@@ -569,7 +605,7 @@ namespace ProyectoOFI.SM
                 //PlDatos.Visible = false;
             }
         }
-
+        #endregion
         private void BtnCerrarVerCons_Click(object sender, EventArgs e)
         {
             PlDatos.Visible = false;
@@ -584,7 +620,12 @@ namespace ProyectoOFI.SM
             LblPS.Text = LblGuardiola.Text;
             CargarCombos();
         }
-
+        private void mostrarEstilo()
+        {
+            Limpiar();
+            MostrarGuardiolaLabels();
+            Estilo();
+        }
         private void BtnSF_Click(object sender, EventArgs e)
         {
             InsertarPS();
@@ -613,12 +654,10 @@ namespace ProyectoOFI.SM
                 if (funcion.InsertarPS(parametros) == true)
                 {
                     MessageBox.Show("Operación realizada con éxito", "Secado final", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    Limpiar();
-                    MostrarGuardiolaLabels();
-                    Estilo();
                     GbPS.Visible = false;
                     PlDatos.Visible = false;
                     TLPGuardiola.Enabled = true;
+                    mostrarEstilo();
                 }
             }
             catch (Exception ex)
@@ -683,7 +722,7 @@ namespace ProyectoOFI.SM
             int minutes = Math.Abs(diferenciaTotal.Minutes);
 
             // Mostrar el resultado en el Label
-            LblTiempoSF.Text = $"{days} días, {hours} horas, {minutes} minutos";
+            LblTiempoSF.Text = $"{days} días {hours} horas {minutes} minutos";
 
             // Guardar el resultado en la variable TiempoSF
             TimeSpan TiempoSF = diferenciaTotal;
@@ -694,7 +733,7 @@ namespace ProyectoOFI.SM
             // Guardar el resultado en una variable en el formato deseado (por ejemplo, en una cadena)
             string tiempoTotalStr = $"{TiempoTotal.Days} días, {TiempoTotal.Hours} horas, {TiempoTotal.Minutes} minutos";
 
-            LblTotalTime.Text= tiempoTotalStr;
+            LblTotalTime.Text = tiempoTotalStr;
         }
 
         private void DtHInicio1_ValueChanged(object sender, EventArgs e)

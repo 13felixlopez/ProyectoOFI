@@ -65,7 +65,71 @@
             this.LblPS2 = new System.Windows.Forms.Label();
             this.LblPS1 = new System.Windows.Forms.Label();
             this.BtnPS1 = new System.Windows.Forms.Button();
+            this.PlDatos = new System.Windows.Forms.Panel();
+            this.GbPS = new System.Windows.Forms.GroupBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.BtnPS = new System.Windows.Forms.Button();
+            this.label27 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.LblPS = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.LblTotalTime = new System.Windows.Forms.Label();
+            this.LblTiempoSF = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.GbEnvio = new System.Windows.Forms.GroupBox();
+            this.gbDatos = new System.Windows.Forms.GroupBox();
+            this.LblTicket = new System.Windows.Forms.Label();
+            this.LblCert = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.LblFRecibido = new System.Windows.Forms.Label();
+            this.LblEFisicoV = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.LblDanioV = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.LblCalidadV = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.LblQQsV = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.LblKilos = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.LblSacos = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.BtnCerrarPlDatos = new System.Windows.Forms.Button();
+            this.LblFDesPS = new System.Windows.Forms.Label();
+            this.LblHrInPS = new System.Windows.Forms.Label();
+            this.LblHrFinPS = new System.Windows.Forms.Label();
+            this.LblOperador = new System.Windows.Forms.Label();
+            this.LblTurno = new System.Windows.Forms.Label();
+            this.LblHumedad = new System.Windows.Forms.Label();
+            this.LblParos = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.DtPFEnvio = new System.Windows.Forms.DateTimePicker();
+            this.label9 = new System.Windows.Forms.Label();
+            this.TxtDNIN = new System.Windows.Forms.TextBox();
+            this.BtnEnviar = new System.Windows.Forms.Button();
+            this.txtObservacion = new System.Windows.Forms.TextBox();
+            this.CbTurnoEn = new System.Windows.Forms.ComboBox();
+            this.CbOperadoresEn = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.CbDestino = new System.Windows.Forms.ComboBox();
+            this.CbEstFis = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.TLPPS.SuspendLayout();
+            this.PlDatos.SuspendLayout();
+            this.GbPS.SuspendLayout();
+            this.GbEnvio.SuspendLayout();
+            this.gbDatos.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // TLPPS
@@ -142,6 +206,7 @@
             this.BtnPS18.Text = "PS #18";
             this.BtnPS18.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPS18.UseVisualStyleBackColor = true;
+            this.BtnPS18.Click += new System.EventHandler(this.BtnPS18_Click);
             // 
             // BtnPS17
             // 
@@ -156,6 +221,7 @@
             this.BtnPS17.Text = "PS #17";
             this.BtnPS17.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPS17.UseVisualStyleBackColor = true;
+            this.BtnPS17.Click += new System.EventHandler(this.BtnPS17_Click);
             // 
             // BtnPS16
             // 
@@ -170,6 +236,7 @@
             this.BtnPS16.Text = "PS #16";
             this.BtnPS16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPS16.UseVisualStyleBackColor = true;
+            this.BtnPS16.Click += new System.EventHandler(this.BtnPS16_Click);
             // 
             // BtnPS15
             // 
@@ -184,6 +251,7 @@
             this.BtnPS15.Text = "PS #15";
             this.BtnPS15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPS15.UseVisualStyleBackColor = true;
+            this.BtnPS15.Click += new System.EventHandler(this.BtnPS15_Click);
             // 
             // BtnPS14
             // 
@@ -198,6 +266,7 @@
             this.BtnPS14.Text = "PS #14";
             this.BtnPS14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPS14.UseVisualStyleBackColor = true;
+            this.BtnPS14.Click += new System.EventHandler(this.BtnPS14_Click);
             // 
             // BtnPS13
             // 
@@ -212,6 +281,7 @@
             this.BtnPS13.Text = "PS #13";
             this.BtnPS13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPS13.UseVisualStyleBackColor = true;
+            this.BtnPS13.Click += new System.EventHandler(this.BtnPS13_Click);
             // 
             // BtnPS12
             // 
@@ -226,6 +296,7 @@
             this.BtnPS12.Text = "PS #12";
             this.BtnPS12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPS12.UseVisualStyleBackColor = true;
+            this.BtnPS12.Click += new System.EventHandler(this.BtnPS12_Click);
             // 
             // BtnPS11
             // 
@@ -240,6 +311,7 @@
             this.BtnPS11.Text = "PS #11";
             this.BtnPS11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPS11.UseVisualStyleBackColor = true;
+            this.BtnPS11.Click += new System.EventHandler(this.BtnPS11_Click);
             // 
             // BtnPS10
             // 
@@ -254,6 +326,7 @@
             this.BtnPS10.Text = "PS #10";
             this.BtnPS10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPS10.UseVisualStyleBackColor = true;
+            this.BtnPS10.Click += new System.EventHandler(this.BtnPS10_Click);
             // 
             // LblPS18
             // 
@@ -368,6 +441,7 @@
             this.BtnPS9.Text = " PS #9";
             this.BtnPS9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPS9.UseVisualStyleBackColor = true;
+            this.BtnPS9.Click += new System.EventHandler(this.BtnPS9_Click);
             // 
             // BtnPS8
             // 
@@ -383,6 +457,7 @@
             this.BtnPS8.Text = " PS #8";
             this.BtnPS8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPS8.UseVisualStyleBackColor = true;
+            this.BtnPS8.Click += new System.EventHandler(this.BtnPS8_Click);
             // 
             // BtnPS7
             // 
@@ -398,6 +473,7 @@
             this.BtnPS7.Text = " PS #7";
             this.BtnPS7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPS7.UseVisualStyleBackColor = true;
+            this.BtnPS7.Click += new System.EventHandler(this.BtnPS7_Click);
             // 
             // BtnPS6
             // 
@@ -413,6 +489,7 @@
             this.BtnPS6.Text = " PS #6";
             this.BtnPS6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPS6.UseVisualStyleBackColor = true;
+            this.BtnPS6.Click += new System.EventHandler(this.BtnPS6_Click);
             // 
             // BtnPS5
             // 
@@ -428,6 +505,7 @@
             this.BtnPS5.Text = " PS #5";
             this.BtnPS5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPS5.UseVisualStyleBackColor = true;
+            this.BtnPS5.Click += new System.EventHandler(this.BtnPS5_Click);
             // 
             // BtnPS4
             // 
@@ -443,6 +521,7 @@
             this.BtnPS4.Text = " PS #4";
             this.BtnPS4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPS4.UseVisualStyleBackColor = true;
+            this.BtnPS4.Click += new System.EventHandler(this.BtnPS4_Click);
             // 
             // BtnPS3
             // 
@@ -458,6 +537,7 @@
             this.BtnPS3.Text = " PS #3";
             this.BtnPS3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPS3.UseVisualStyleBackColor = true;
+            this.BtnPS3.Click += new System.EventHandler(this.BtnPS3_Click);
             // 
             // BtnPS2
             // 
@@ -473,6 +553,7 @@
             this.BtnPS2.Text = " PS #2";
             this.BtnPS2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPS2.UseVisualStyleBackColor = true;
+            this.BtnPS2.Click += new System.EventHandler(this.BtnPS2_Click);
             // 
             // LblPS9
             // 
@@ -587,16 +668,623 @@
             this.BtnPS1.Text = "PS #1";
             this.BtnPS1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnPS1.UseVisualStyleBackColor = true;
+            this.BtnPS1.Click += new System.EventHandler(this.BtnPS1_Click);
+            // 
+            // PlDatos
+            // 
+            this.PlDatos.BackColor = System.Drawing.Color.White;
+            this.PlDatos.Controls.Add(this.GbEnvio);
+            this.PlDatos.Controls.Add(this.GbPS);
+            this.PlDatos.Controls.Add(this.gbDatos);
+            this.PlDatos.Controls.Add(this.panel2);
+            this.PlDatos.Location = new System.Drawing.Point(92, 34);
+            this.PlDatos.MaximumSize = new System.Drawing.Size(1398, 619);
+            this.PlDatos.Name = "PlDatos";
+            this.PlDatos.Size = new System.Drawing.Size(1398, 619);
+            this.PlDatos.TabIndex = 5;
+            this.PlDatos.Visible = false;
+            // 
+            // GbPS
+            // 
+            this.GbPS.Controls.Add(this.txtObservacion);
+            this.GbPS.Controls.Add(this.label23);
+            this.GbPS.Controls.Add(this.BtnPS);
+            this.GbPS.Controls.Add(this.label27);
+            this.GbPS.Controls.Add(this.label15);
+            this.GbPS.Controls.Add(this.LblHrFinPS);
+            this.GbPS.Controls.Add(this.LblParos);
+            this.GbPS.Controls.Add(this.LblTurno);
+            this.GbPS.Controls.Add(this.LblHrInPS);
+            this.GbPS.Controls.Add(this.LblHumedad);
+            this.GbPS.Controls.Add(this.LblOperador);
+            this.GbPS.Controls.Add(this.LblFDesPS);
+            this.GbPS.Controls.Add(this.LblPS);
+            this.GbPS.Controls.Add(this.label29);
+            this.GbPS.Controls.Add(this.label28);
+            this.GbPS.Controls.Add(this.LblTotalTime);
+            this.GbPS.Controls.Add(this.LblTiempoSF);
+            this.GbPS.Controls.Add(this.label14);
+            this.GbPS.Controls.Add(this.label18);
+            this.GbPS.Controls.Add(this.label26);
+            this.GbPS.Controls.Add(this.label20);
+            this.GbPS.Controls.Add(this.label19);
+            this.GbPS.Dock = System.Windows.Forms.DockStyle.Top;
+            this.GbPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.GbPS.Location = new System.Drawing.Point(0, 168);
+            this.GbPS.Name = "GbPS";
+            this.GbPS.Size = new System.Drawing.Size(1398, 236);
+            this.GbPS.TabIndex = 15;
+            this.GbPS.TabStop = false;
+            this.GbPS.Text = "Tolva Pergamino Seco";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(634, 115);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(225, 17);
+            this.label23.TabIndex = 16;
+            this.label23.Text = "Tiempo total de Secado Final:";
+            // 
+            // BtnPS
+            // 
+            this.BtnPS.Location = new System.Drawing.Point(938, 157);
+            this.BtnPS.Name = "BtnPS";
+            this.BtnPS.Size = new System.Drawing.Size(123, 47);
+            this.BtnPS.TabIndex = 14;
+            this.BtnPS.Text = "Realizar Envio";
+            this.BtnPS.UseVisualStyleBackColor = true;
+            this.BtnPS.Click += new System.EventHandler(this.BtnPS_Click);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(86, 172);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(162, 17);
+            this.label27.TabIndex = 13;
+            this.label27.Text = "Tiempo total Secado:";
+            // 
+            // label15
+            // 
+            this.label15.Location = new System.Drawing.Point(307, 19);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(102, 43);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "Fecha de Descarga:";
+            // 
+            // LblPS
+            // 
+            this.LblPS.AutoSize = true;
+            this.LblPS.Location = new System.Drawing.Point(165, 32);
+            this.LblPS.Name = "LblPS";
+            this.LblPS.Size = new System.Drawing.Size(20, 17);
+            this.LblPS.TabIndex = 6;
+            this.LblPS.Text = "--";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(667, 67);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(56, 17);
+            this.label29.TabIndex = 2;
+            this.label29.Text = "Turno:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(86, 67);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(82, 17);
+            this.label28.TabIndex = 2;
+            this.label28.Text = "Operador:";
+            // 
+            // LblTotalTime
+            // 
+            this.LblTotalTime.AutoSize = true;
+            this.LblTotalTime.Location = new System.Drawing.Point(257, 172);
+            this.LblTotalTime.Name = "LblTotalTime";
+            this.LblTotalTime.Size = new System.Drawing.Size(20, 17);
+            this.LblTotalTime.TabIndex = 4;
+            this.LblTotalTime.Text = "--";
+            // 
+            // LblTiempoSF
+            // 
+            this.LblTiempoSF.AutoSize = true;
+            this.LblTiempoSF.Location = new System.Drawing.Point(877, 115);
+            this.LblTiempoSF.Name = "LblTiempoSF";
+            this.LblTiempoSF.Size = new System.Drawing.Size(20, 17);
+            this.LblTiempoSF.TabIndex = 4;
+            this.LblTiempoSF.Text = "--";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(86, 32);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(67, 17);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Tolva #:";
+            // 
+            // label18
+            // 
+            this.label18.Location = new System.Drawing.Point(563, 19);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(57, 43);
+            this.label18.TabIndex = 4;
+            this.label18.Text = "Hora Inicio:";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(86, 115);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(81, 17);
+            this.label26.TabIndex = 4;
+            this.label26.Text = "Humedad:";
+            // 
+            // label20
+            // 
+            this.label20.Location = new System.Drawing.Point(348, 102);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(81, 43);
+            this.label20.TabIndex = 4;
+            this.label20.Text = "Total de Paros:";
+            // 
+            // label19
+            // 
+            this.label19.Location = new System.Drawing.Point(774, 19);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(65, 43);
+            this.label19.TabIndex = 4;
+            this.label19.Text = "Hora Fin:";
+            // 
+            // GbEnvio
+            // 
+            this.GbEnvio.Controls.Add(this.CbDestino);
+            this.GbEnvio.Controls.Add(this.CbEstFis);
+            this.GbEnvio.Controls.Add(this.label12);
+            this.GbEnvio.Controls.Add(this.label13);
+            this.GbEnvio.Controls.Add(this.CbTurnoEn);
+            this.GbEnvio.Controls.Add(this.CbOperadoresEn);
+            this.GbEnvio.Controls.Add(this.label10);
+            this.GbEnvio.Controls.Add(this.label11);
+            this.GbEnvio.Controls.Add(this.TxtDNIN);
+            this.GbEnvio.Controls.Add(this.BtnEnviar);
+            this.GbEnvio.Controls.Add(this.label9);
+            this.GbEnvio.Controls.Add(this.DtPFEnvio);
+            this.GbEnvio.Controls.Add(this.label8);
+            this.GbEnvio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.GbEnvio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GbEnvio.Location = new System.Drawing.Point(0, 404);
+            this.GbEnvio.Name = "GbEnvio";
+            this.GbEnvio.Size = new System.Drawing.Size(1398, 186);
+            this.GbEnvio.TabIndex = 14;
+            this.GbEnvio.TabStop = false;
+            this.GbEnvio.Text = "Envio Almacén";
+            this.GbEnvio.Visible = false;
+            // 
+            // gbDatos
+            // 
+            this.gbDatos.BackColor = System.Drawing.Color.White;
+            this.gbDatos.Controls.Add(this.LblTicket);
+            this.gbDatos.Controls.Add(this.LblCert);
+            this.gbDatos.Controls.Add(this.label17);
+            this.gbDatos.Controls.Add(this.LblFRecibido);
+            this.gbDatos.Controls.Add(this.LblEFisicoV);
+            this.gbDatos.Controls.Add(this.label7);
+            this.gbDatos.Controls.Add(this.LblDanioV);
+            this.gbDatos.Controls.Add(this.label6);
+            this.gbDatos.Controls.Add(this.LblCalidadV);
+            this.gbDatos.Controls.Add(this.label5);
+            this.gbDatos.Controls.Add(this.LblQQsV);
+            this.gbDatos.Controls.Add(this.label4);
+            this.gbDatos.Controls.Add(this.LblKilos);
+            this.gbDatos.Controls.Add(this.label3);
+            this.gbDatos.Controls.Add(this.LblSacos);
+            this.gbDatos.Controls.Add(this.label2);
+            this.gbDatos.Controls.Add(this.label1);
+            this.gbDatos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gbDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbDatos.Location = new System.Drawing.Point(0, 43);
+            this.gbDatos.Name = "gbDatos";
+            this.gbDatos.Size = new System.Drawing.Size(1398, 125);
+            this.gbDatos.TabIndex = 12;
+            this.gbDatos.TabStop = false;
+            this.gbDatos.Text = "Datos Ticket";
+            // 
+            // LblTicket
+            // 
+            this.LblTicket.AutoSize = true;
+            this.LblTicket.Location = new System.Drawing.Point(272, 32);
+            this.LblTicket.Name = "LblTicket";
+            this.LblTicket.Size = new System.Drawing.Size(21, 20);
+            this.LblTicket.TabIndex = 20;
+            this.LblTicket.Text = "--";
+            // 
+            // LblCert
+            // 
+            this.LblCert.AutoSize = true;
+            this.LblCert.Location = new System.Drawing.Point(133, 74);
+            this.LblCert.Name = "LblCert";
+            this.LblCert.Size = new System.Drawing.Size(21, 20);
+            this.LblCert.TabIndex = 20;
+            this.LblCert.Text = "--";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(6, 74);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(114, 20);
+            this.label17.TabIndex = 21;
+            this.label17.Text = "Certificación:";
+            // 
+            // LblFRecibido
+            // 
+            this.LblFRecibido.AutoSize = true;
+            this.LblFRecibido.Location = new System.Drawing.Point(1026, 74);
+            this.LblFRecibido.Name = "LblFRecibido";
+            this.LblFRecibido.Size = new System.Drawing.Size(21, 20);
+            this.LblFRecibido.TabIndex = 6;
+            this.LblFRecibido.Text = "--";
+            this.LblFRecibido.Visible = false;
+            // 
+            // LblEFisicoV
+            // 
+            this.LblEFisicoV.AutoSize = true;
+            this.LblEFisicoV.Location = new System.Drawing.Point(876, 74);
+            this.LblEFisicoV.Name = "LblEFisicoV";
+            this.LblEFisicoV.Size = new System.Drawing.Size(21, 20);
+            this.LblEFisicoV.TabIndex = 6;
+            this.LblEFisicoV.Text = "--";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(740, 74);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(123, 20);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Estado Fisico:";
+            // 
+            // LblDanioV
+            // 
+            this.LblDanioV.AutoSize = true;
+            this.LblDanioV.Location = new System.Drawing.Point(590, 74);
+            this.LblDanioV.Name = "LblDanioV";
+            this.LblDanioV.Size = new System.Drawing.Size(21, 20);
+            this.LblDanioV.TabIndex = 6;
+            this.LblDanioV.Text = "--";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(520, 74);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(57, 20);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Daño:";
+            // 
+            // LblCalidadV
+            // 
+            this.LblCalidadV.AutoSize = true;
+            this.LblCalidadV.Location = new System.Drawing.Point(370, 74);
+            this.LblCalidadV.Name = "LblCalidadV";
+            this.LblCalidadV.Size = new System.Drawing.Size(21, 20);
+            this.LblCalidadV.TabIndex = 4;
+            this.LblCalidadV.Text = "--";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(283, 74);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 20);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Calidad:";
+            // 
+            // LblQQsV
+            // 
+            this.LblQQsV.AutoSize = true;
+            this.LblQQsV.Location = new System.Drawing.Point(1096, 32);
+            this.LblQQsV.Name = "LblQQsV";
+            this.LblQQsV.Size = new System.Drawing.Size(21, 20);
+            this.LblQQsV.TabIndex = 2;
+            this.LblQQsV.Text = "--";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(979, 32);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 20);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "QQs:";
+            // 
+            // LblKilos
+            // 
+            this.LblKilos.AutoSize = true;
+            this.LblKilos.Location = new System.Drawing.Point(890, 32);
+            this.LblKilos.Name = "LblKilos";
+            this.LblKilos.Size = new System.Drawing.Size(21, 20);
+            this.LblKilos.TabIndex = 2;
+            this.LblKilos.Text = "--";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(770, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(52, 20);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Kilos:";
+            // 
+            // LblSacos
+            // 
+            this.LblSacos.AutoSize = true;
+            this.LblSacos.Location = new System.Drawing.Point(681, 32);
+            this.LblSacos.Name = "LblSacos";
+            this.LblSacos.Size = new System.Drawing.Size(21, 20);
+            this.LblSacos.TabIndex = 2;
+            this.LblSacos.Text = "--";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(549, 32);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 20);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Sacos:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(190, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Ticket";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.label16);
+            this.panel2.Controls.Add(this.BtnCerrarPlDatos);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1398, 43);
+            this.panel2.TabIndex = 13;
+            // 
+            // label16
+            // 
+            this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(0, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(1351, 43);
+            this.label16.TabIndex = 13;
+            this.label16.Text = "Detalles de lote en PS";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnCerrarPlDatos
+            // 
+            this.BtnCerrarPlDatos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrarPlDatos.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrarPlDatos.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrarPlDatos.Location = new System.Drawing.Point(1351, 0);
+            this.BtnCerrarPlDatos.Name = "BtnCerrarPlDatos";
+            this.BtnCerrarPlDatos.Size = new System.Drawing.Size(47, 43);
+            this.BtnCerrarPlDatos.TabIndex = 11;
+            this.BtnCerrarPlDatos.UseVisualStyleBackColor = true;
+            this.BtnCerrarPlDatos.Click += new System.EventHandler(this.BtnCerrarPlDatos_Click);
+            // 
+            // LblFDesPS
+            // 
+            this.LblFDesPS.AutoSize = true;
+            this.LblFDesPS.Location = new System.Drawing.Point(421, 32);
+            this.LblFDesPS.Name = "LblFDesPS";
+            this.LblFDesPS.Size = new System.Drawing.Size(20, 17);
+            this.LblFDesPS.TabIndex = 6;
+            this.LblFDesPS.Text = "--";
+            // 
+            // LblHrInPS
+            // 
+            this.LblHrInPS.AutoSize = true;
+            this.LblHrInPS.Location = new System.Drawing.Point(632, 32);
+            this.LblHrInPS.Name = "LblHrInPS";
+            this.LblHrInPS.Size = new System.Drawing.Size(20, 17);
+            this.LblHrInPS.TabIndex = 6;
+            this.LblHrInPS.Text = "--";
+            // 
+            // LblHrFinPS
+            // 
+            this.LblHrFinPS.AutoSize = true;
+            this.LblHrFinPS.Location = new System.Drawing.Point(851, 32);
+            this.LblHrFinPS.Name = "LblHrFinPS";
+            this.LblHrFinPS.Size = new System.Drawing.Size(20, 17);
+            this.LblHrFinPS.TabIndex = 6;
+            this.LblHrFinPS.Text = "--";
+            // 
+            // LblOperador
+            // 
+            this.LblOperador.AutoSize = true;
+            this.LblOperador.Location = new System.Drawing.Point(173, 67);
+            this.LblOperador.Name = "LblOperador";
+            this.LblOperador.Size = new System.Drawing.Size(20, 17);
+            this.LblOperador.TabIndex = 6;
+            this.LblOperador.Text = "--";
+            // 
+            // LblTurno
+            // 
+            this.LblTurno.AutoSize = true;
+            this.LblTurno.Location = new System.Drawing.Point(741, 67);
+            this.LblTurno.Name = "LblTurno";
+            this.LblTurno.Size = new System.Drawing.Size(20, 17);
+            this.LblTurno.TabIndex = 6;
+            this.LblTurno.Text = "--";
+            // 
+            // LblHumedad
+            // 
+            this.LblHumedad.AutoSize = true;
+            this.LblHumedad.Location = new System.Drawing.Point(192, 115);
+            this.LblHumedad.Name = "LblHumedad";
+            this.LblHumedad.Size = new System.Drawing.Size(20, 17);
+            this.LblHumedad.TabIndex = 6;
+            this.LblHumedad.Text = "--";
+            // 
+            // LblParos
+            // 
+            this.LblParos.AutoSize = true;
+            this.LblParos.Location = new System.Drawing.Point(430, 115);
+            this.LblParos.Name = "LblParos";
+            this.LblParos.Size = new System.Drawing.Size(20, 17);
+            this.LblParos.TabIndex = 6;
+            this.LblParos.Text = "--";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(29, 60);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(138, 20);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Fecha de Envío:";
+            // 
+            // DtPFEnvio
+            // 
+            this.DtPFEnvio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtPFEnvio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtPFEnvio.Location = new System.Drawing.Point(168, 57);
+            this.DtPFEnvio.Name = "DtPFEnvio";
+            this.DtPFEnvio.Size = new System.Drawing.Size(145, 26);
+            this.DtPFEnvio.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(326, 60);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(123, 20);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "DNIN/DNOUT:";
+            // 
+            // TxtDNIN
+            // 
+            this.TxtDNIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtDNIN.Location = new System.Drawing.Point(457, 57);
+            this.TxtDNIN.Name = "TxtDNIN";
+            this.TxtDNIN.Size = new System.Drawing.Size(315, 26);
+            this.TxtDNIN.TabIndex = 3;
+            // 
+            // BtnEnviar
+            // 
+            this.BtnEnviar.Location = new System.Drawing.Point(1222, 46);
+            this.BtnEnviar.Name = "BtnEnviar";
+            this.BtnEnviar.Size = new System.Drawing.Size(123, 47);
+            this.BtnEnviar.TabIndex = 14;
+            this.BtnEnviar.Text = "Enviar";
+            this.BtnEnviar.UseVisualStyleBackColor = true;
+            this.BtnEnviar.Click += new System.EventHandler(this.BtnEnviar_Click);
+            // 
+            // txtObservacion
+            // 
+            this.txtObservacion.Enabled = false;
+            this.txtObservacion.Location = new System.Drawing.Point(1114, 41);
+            this.txtObservacion.Multiline = true;
+            this.txtObservacion.Name = "txtObservacion";
+            this.txtObservacion.Size = new System.Drawing.Size(237, 148);
+            this.txtObservacion.TabIndex = 17;
+            // 
+            // CbTurnoEn
+            // 
+            this.CbTurnoEn.FormattingEnabled = true;
+            this.CbTurnoEn.Location = new System.Drawing.Point(673, 119);
+            this.CbTurnoEn.Name = "CbTurnoEn";
+            this.CbTurnoEn.Size = new System.Drawing.Size(182, 28);
+            this.CbTurnoEn.TabIndex = 18;
+            // 
+            // CbOperadoresEn
+            // 
+            this.CbOperadoresEn.FormattingEnabled = true;
+            this.CbOperadoresEn.Location = new System.Drawing.Point(116, 119);
+            this.CbOperadoresEn.Name = "CbOperadoresEn";
+            this.CbOperadoresEn.Size = new System.Drawing.Size(456, 28);
+            this.CbOperadoresEn.TabIndex = 19;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(611, 123);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(60, 20);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Turno:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(29, 123);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(89, 20);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "Operador:";
+            // 
+            // CbDestino
+            // 
+            this.CbDestino.FormattingEnabled = true;
+            this.CbDestino.Location = new System.Drawing.Point(913, 56);
+            this.CbDestino.Name = "CbDestino";
+            this.CbDestino.Size = new System.Drawing.Size(221, 28);
+            this.CbDestino.TabIndex = 22;
+            // 
+            // CbEstFis
+            // 
+            this.CbEstFis.FormattingEnabled = true;
+            this.CbEstFis.Location = new System.Drawing.Point(1029, 119);
+            this.CbEstFis.Name = "CbEstFis";
+            this.CbEstFis.Size = new System.Drawing.Size(221, 28);
+            this.CbEstFis.TabIndex = 23;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(800, 60);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(76, 20);
+            this.label12.TabIndex = 20;
+            this.label12.Text = "Destino:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(898, 123);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(123, 20);
+            this.label13.TabIndex = 21;
+            this.label13.Text = "Estado Fisico:";
             // 
             // PS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.PlDatos);
             this.Controls.Add(this.TLPPS);
             this.Name = "PS";
             this.Size = new System.Drawing.Size(1626, 737);
             this.Load += new System.EventHandler(this.PS_Load);
             this.TLPPS.ResumeLayout(false);
+            this.PlDatos.ResumeLayout(false);
+            this.GbPS.ResumeLayout(false);
+            this.GbPS.PerformLayout();
+            this.GbEnvio.ResumeLayout(false);
+            this.GbEnvio.PerformLayout();
+            this.gbDatos.ResumeLayout(false);
+            this.gbDatos.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -640,5 +1328,64 @@
         private System.Windows.Forms.Label LblPS2;
         private System.Windows.Forms.Label LblPS1;
         private System.Windows.Forms.Button BtnPS1;
+        private System.Windows.Forms.Panel PlDatos;
+        private System.Windows.Forms.GroupBox GbPS;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Button BtnPS;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label LblPS;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label LblTotalTime;
+        private System.Windows.Forms.Label LblTiempoSF;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        public System.Windows.Forms.GroupBox GbEnvio;
+        public System.Windows.Forms.GroupBox gbDatos;
+        private System.Windows.Forms.Label LblTicket;
+        private System.Windows.Forms.Label LblCert;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label LblFRecibido;
+        private System.Windows.Forms.Label LblEFisicoV;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label LblDanioV;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label LblCalidadV;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LblQQsV;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label LblKilos;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LblSacos;
+        private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button BtnCerrarPlDatos;
+        private System.Windows.Forms.Label LblHrFinPS;
+        private System.Windows.Forms.Label LblParos;
+        private System.Windows.Forms.Label LblTurno;
+        private System.Windows.Forms.Label LblHrInPS;
+        private System.Windows.Forms.Label LblHumedad;
+        private System.Windows.Forms.Label LblOperador;
+        private System.Windows.Forms.Label LblFDesPS;
+        private System.Windows.Forms.TextBox TxtDNIN;
+        private System.Windows.Forms.Button BtnEnviar;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DateTimePicker DtPFEnvio;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtObservacion;
+        private System.Windows.Forms.ComboBox CbTurnoEn;
+        private System.Windows.Forms.ComboBox CbOperadoresEn;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox CbDestino;
+        private System.Windows.Forms.ComboBox CbEstFis;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }

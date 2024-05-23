@@ -351,7 +351,7 @@ namespace ProyectoOFI.SM
             }
             else
             {
-                MessageBox.Show("Existen campos vacios","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Existen campos vacios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void InsertarPreSecado()
@@ -401,7 +401,7 @@ namespace ProyectoOFI.SM
         private bool Validar()
         {
             double entero;
-            if (!double.TryParse(TxtParos.Text, out entero)||!double.TryParse(TxtHumedad.Text, out entero))
+            if (!double.TryParse(TxtParos.Text, out entero) || !double.TryParse(TxtHumedad.Text, out entero))
             {
                 return false;
             }
@@ -411,13 +411,32 @@ namespace ProyectoOFI.SM
 
         private void TxtParos_TextChanged(object sender, EventArgs e)
         {
+            if (TxtParos.Text == "")
+            {
+                TxtParos.Text = "0";
+            }
+            calcularPreSecado();
+        }
+
+        private void DtHoraFin2_ValueChanged(object sender, EventArgs e)
+        {
+            calcularPreSecado();
+        }
+
+        private void DtPFDes1_ValueChanged(object sender, EventArgs e)
+        {
+            calcularPreSecado();
+        }
+
+        private void calcularPreSecado()
+        {
             // Obtener el valor de TxtParos y convertirlo a un TimeSpan
             // Obtener el valor para Paros como decimal
             double horasParos;
             if (!double.TryParse(TxtParos.Text, out horasParos))
             {
                 // Manejar el caso en que el valor ingresado en TxtParos no sea válido
-                MessageBox.Show("El valor ingresado en TxtParos no es válido.");
+                //MessageBox.Show("El valor ingresado en TxtParos no es válido.");
                 return;
             }
 

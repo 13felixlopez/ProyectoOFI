@@ -116,7 +116,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void MostrarDatosTKSM(Label sacos, Label kilos, Label QQS, Label calidad, Label daño, Label esfisico, Label FRecibido, string TK)
+        public void MostrarDatosTKSM(Label sacos, Label kilos, Label QQS, Label calidad, Label daño, Label esfisico, Label FRecibido,Label Cert, string TK)
         {
             try
             {
@@ -137,6 +137,7 @@ namespace ProyectoOFI.Datos
                 daño.Text = dt.Rows[0]["Danio"].ToString();
                 esfisico.Text = dt.Rows[0]["Estado Fisico"].ToString();
                 FRecibido.Text = dt.Rows[0]["FRecibido"].ToString();
+                Cert.Text = dt.Rows[0]["Certificacion"].ToString();
             }
             catch (Exception ex)
             {

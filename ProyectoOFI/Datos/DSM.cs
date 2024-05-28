@@ -249,6 +249,26 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public void VerEnvioSM(ref DataTable dt,string TK)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("VerEnvioSM", Conexion.conectar);
+                da.SelectCommand.CommandType=CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Ticket", TK);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos de VerEnvioSM " + ex.Message, "Error VerEnvioSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en VerEnvioSM ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
         public void VerGuardiola(ref DataTable dt, string TK)
         {
             try

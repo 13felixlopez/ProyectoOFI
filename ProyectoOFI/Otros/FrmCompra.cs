@@ -70,7 +70,7 @@ namespace ProyectoOFI.Otros
             idcompra = int.Parse(DtCompra.SelectedCells[1].Value.ToString());
             if (e.ColumnIndex == DtCompra.Columns["Eliminar"].Index)
             {
-                DialogResult result = MessageBox.Show("¿Esta seguro de eliminar la Agencia, Desea Continuar?", "Eliminando registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("¿Esta seguro de eliminar la Compra, Desea Continuar?", "Eliminando registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
                 {
                     EliminarCompra();

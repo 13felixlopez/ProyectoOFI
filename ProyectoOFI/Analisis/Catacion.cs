@@ -1,0 +1,741 @@
+﻿using ProyectoOFI.Datos;
+using ProyectoOFI.Logica;
+using ProyectoOFI.Otros;
+using System;
+using System.Data;
+using System.Drawing;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace ProyectoOFI.Analisis
+{
+    public partial class Catacion : UserControl
+    {
+        int desde = 1;
+        int hasta = 100;
+        private int items_por_pagina = 100;
+        int totalPaginas;
+        int Contador;
+        string Ticket, TkSM;
+        DateTime FRecibido, FMuestra;
+        double Exp, DesmA, DesmC, DesmD;
+        double Bto = 0;
+        double Casc;
+        private bool isPlaceholder = true;
+        double Humedad;
+        public Catacion()
+        {
+            InitializeComponent();
+            SetPlaceholder(TxtAnalisis, "# Analisis");
+            SetPlaceholder(TxtBto, "0");
+            SetPlaceholder(TxtHumedad, "0");
+            SetPlaceholder(TxtExp, "0");
+            SetPlaceholder(TxtDesmA, "0");
+            SetPlaceholder(TxtDesmC, "0");
+            TxtBto.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
+            TxtHumedad.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
+            TxtExp.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
+            TxtDesmA.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
+            TxtDesmC.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
+            TxtScore.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
+        }
+
+        private async void Catacion_Load(object sender, EventArgs e)
+        {
+            PlCarga.Dock = DockStyle.Fill;
+            await CargarDatos();
+            Base.DiseñoDtvEliminar(ref dtInventarioCat);
+            PlCarga.Visible = false;
+            CalcularDesmD();
+        }
+        private async Task CargarDatos()
+        {
+            await Task.Delay(1500);
+            dtInventarioCat.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            MostrarLotes();
+            ReiniciarPaginado();
+            await Task.Delay(1000);
+        }
+        #region Paginado
+        private void ReiniciarPaginado()
+        {
+            desde = 1;
+            hasta = 100;
+            Contar();
+
+            if (Contador > hasta)
+            {
+
+                btn_Sig.Visible = true;
+                btn_atras.Visible = false;
+                btn_Ultima.Visible = true;
+                btn_Primera.Visible = true;
+            }
+            else
+            {
+
+                btn_Sig.Visible = false;
+                btn_atras.Visible = false;
+                btn_Ultima.Visible = false;
+                btn_Primera.Visible = false;
+            }
+            Paginar();
+        }
+        private void Contar()
+        {
+            Dcatacion funcion = new Dcatacion();
+            if (txtBuscador.Text != "")
+            {
+                // Contador = ContarBusqueda;
+            }
+            //else if (CbBuscador.Visible == true)
+            //{
+            //    Contador = ContarBusqueda;
+            //}
+            else
+            {
+                funcion.ContarTK(ref Contador);
+            }
+        }
+        private void Paginar()
+        {
+            try
+            {
+                lbl_Pagina.Text = (hasta / items_por_pagina).ToString();
+                lbl_totalPaginas.Text = Math.Ceiling(Convert.ToSingle(Contador) / items_por_pagina).ToString();
+                totalPaginas = Convert.ToInt32(lbl_totalPaginas.Text);
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+        private void btn_atras_Click(object sender, EventArgs e)
+        {
+            desde -= 100;
+            hasta -= 100;
+            if (txtBuscador.Text != "")
+            {
+                //BuscarTK();
+            }
+            //else if (CbBuscador.Visible == true)
+            //{
+            //    BuscarDatos();
+            //}
+            else
+            {
+                MostrarLotes();
+            }
+            Contar();
+            if (Contador > hasta)
+            {
+                btn_Sig.Visible = true;
+                btn_atras.Visible = true;
+            }
+            else
+            {
+                btn_Sig.Visible = false;
+                btn_atras.Visible = true;
+            }
+            if (desde == 1)
+            {
+                ReiniciarPaginado();
+            }
+            Paginar();
+        }
+        private void btn_Sig_Click(object sender, EventArgs e)
+        {
+            desde += 100;
+            hasta += 100;
+            if (txtBuscador.Text != "")
+            {
+                // BuscarTK();
+            }
+            //else if (CbBuscador.Visible == true)
+            //{
+            //    BuscarDatos();
+            //}
+            else
+            {
+                MostrarLotes();
+            }
+            Contar();
+            if (Contador > hasta)
+            {
+                btn_Sig.Visible = true;
+                btn_atras.Visible = true;
+            }
+            else
+            {
+                btn_Sig.Visible = false;
+                btn_atras.Visible = true;
+            }
+            Paginar();
+        }
+        private void btn_Ultima_Click(object sender, EventArgs e)
+        {
+            hasta = totalPaginas * items_por_pagina;
+            desde = hasta - 99;
+            if (txtBuscador.Text != "")
+            {
+                //BuscarTK();
+            }
+            //else if (CbBuscador.Visible == true)
+            //{
+            //    BuscarDatos();
+            //}
+            else
+            {
+                MostrarLotes();
+            }
+            Contar();
+            if (Contador > hasta)
+            {
+                btn_Sig.Visible = true;
+                btn_atras.Visible = true;
+            }
+            else
+            {
+                btn_Sig.Visible = false;
+                btn_atras.Visible = true;
+            }
+            Paginar();
+        }
+
+        private void btn_Primera_Click(object sender, EventArgs e)
+        {
+            ReiniciarPaginado();
+            if (txtBuscador.Text != "")
+            {
+                // BuscarTK();
+            }
+            //else if (CbBuscador.Visible == true)
+            //{
+            //    BuscarDatos();
+            //}
+            else
+            {
+                MostrarLotes();
+            }
+        }
+        #endregion
+        public void MostrarLotes()
+        {
+            Dcatacion funcion = new Dcatacion();
+            DataTable dt = new DataTable();
+            funcion.MostrarCata(ref dt, desde, hasta);
+            dtInventarioCat.DataSource = dt;
+            Base.DiseñoDtvEliminar(ref dtInventarioCat);
+        }
+        private void VerDetalleCatacion()
+        {
+            try
+            {
+                Dcatacion funcion = new Dcatacion();
+                DataTable dt = new DataTable();
+                funcion.VerDetalleCatacion(ref dt, Ticket, TkSM);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow dr = dt.Rows[0];
+                    if (dr["Ticket"].ToString() != null)
+                    {
+                        LblTicket.Text = dr["Ticket"].ToString();
+                    }
+                    else
+                    {
+                        LblTicket.Text = "--";
+                    }
+                    if (dr["Sacos"].ToString() != null)
+                    {
+                        LblSacos.Text = dr["Sacos"].ToString();
+                    }
+                    else
+                    {
+                        LblSacos.Text = "--";
+                    }
+                    if (dr["Peso"].ToString() != null)
+                    {
+                        LblPeso.Text = dr["Peso"].ToString();
+                    }
+                    else
+                    {
+                        LblPeso.Text = "--";
+                    }
+                    if (dr["QQs"].ToString() != null)
+                    {
+                        LblQQs.Text = dr["QQs"].ToString();
+                    }
+                    else
+                    {
+                        LblQQs.Text = "--";
+                    }
+                    if (dr["Calidad"].ToString() != null)
+                    {
+                        LblCalidad.Text = dr["Calidad"].ToString();
+                    }
+                    else
+                    {
+                        LblCalidad.Text = "--";
+                    }
+                    if (dr["Certificación"].ToString() != null)
+                    {
+                        LblCert.Text = dr["Certificación"].ToString();
+                    }
+                    else
+                    {
+                        LblCert.Text = "--";
+                    }
+                    if (dr["Estado Fisico"].ToString() != null)
+                    {
+                        LblEstFis.Text = dr["Estado Fisico"].ToString();
+                    }
+                    else
+                    {
+                        LblEstFis.Text = "--";
+                    }
+                    if (dr["Daño"].ToString() != null)
+                    {
+                        LblDanio.Text = dr["Daño"].ToString();
+                    }
+                    else
+                    {
+                        LblDanio.Text = "--";
+                    }
+                    if (dr["Cliente"].ToString() != null)
+                    {
+                        LblCliente.Text = dr["Cliente"].ToString();
+                    }
+                    else
+                    {
+                        LblCliente.Text = "--";
+                    }
+                    if (dr["AreaSecado"].ToString() != null)
+                    {
+                        LblProcedencia.Text = dr["AreaSecado"].ToString();
+                    }
+                    else
+                    {
+                        LblProcedencia.Text = "--";
+                    }
+                    FRecibido = DateTime.Parse(dr["FechaRecibido"].ToString());
+                    if (dr["Fecha Muestra"].ToString() != null)
+                    {
+                        FMuestra = DateTime.Parse(dr["Fecha Muestra"].ToString());
+                        DTPFechaMuestra.Value = DateTime.Parse(dr["Fecha Muestra"].ToString());
+                    }
+                    else
+                    {
+                        FMuestra = DateTime.Today;
+                        DTPFechaMuestra.Value = DateTime.Today;
+                    }
+                    DateTime fechaActual = DateTime.Now;
+                    TimeSpan diferencia = fechaActual.Subtract(FMuestra);
+                    int diasDiferencia = (int)diferencia.TotalDays;
+                    LblDias.Text = diasDiferencia.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos en controles" + ex.Message, "ERROR en Catación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dtInventarioCat_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ObtenerTK();
+            VerDetalleCatacion();
+            AbrirFormulario();
+        }
+        private void ObtenerTK()
+        {
+            string nombrecolumna = "Ticket";
+            int indice = dtInventarioCat.Columns[nombrecolumna].Index;
+            Ticket = dtInventarioCat.SelectedCells[indice].Value.ToString();
+
+            string nombrecolum = "Ticket SM";
+            int num = dtInventarioCat.Columns[nombrecolum].Index;
+            TkSM = dtInventarioCat.SelectedCells[num].Value.ToString();
+        }
+
+        private void TxtBto_TextChanged(object sender, EventArgs e)
+        {
+            //if (TxtBto.Text == "")
+            //{
+            //    SetPlaceholder(TxtBto, "0");
+            //    Bto = 0;
+            //}
+            //Bto = double.Parse(TxtBto.Text);
+            //Casc = 100 - Bto;
+            //LblCascarilla.Text = Casc.ToString();
+            //LblTotal.Text = (Casc + Bto).ToString();
+
+            if (isPlaceholder)
+            {
+                return; // Salir si es el marcador de posición
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtBto.Text))
+            {
+                SetPlaceholder(TxtBto, "0");
+                Bto = 0;
+            }
+            else
+            {
+                if (double.TryParse(TxtBto.Text, out double result))
+                {
+                    Bto = result;
+                }
+                else
+                {
+                    // Manejar el caso donde el texto no se puede convertir a número
+                    MessageBox.Show("Por favor, ingrese un número válido.");
+                    return;
+                }
+            }
+
+            Casc = 100 - Bto;
+            LblCascarilla.Text = Casc.ToString();
+            LblTotal.Text = (Casc + Bto).ToString();
+        }
+
+        private void TxtDesmA_TextChanged(object sender, EventArgs e)
+        {
+            if (isPlaceholder)
+            {
+                return; // Salir si es el marcador de posición
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtDesmA.Text))
+            {
+                SetPlaceholder(TxtDesmA, "0");
+                DesmA = 0;
+            }
+            else
+            {
+                if (double.TryParse(TxtDesmA.Text, out double result))
+                {
+                    DesmA = result;
+                }
+                else
+                {
+                    // Manejar el caso donde el texto no se puede convertir a número
+                    MessageBox.Show("Por favor, ingrese un número válido.");
+                    return;
+                }
+            }
+            CalcularDesmD();
+            LblDesmAP.Text = Math.Round((Bto * DesmA) / 100, 2).ToString() + "%";
+        }
+
+        private void TxtScore_TextChanged(object sender, EventArgs e)
+        {
+            if (TxtScore.Text == "")
+            {
+                LblTasa.Text = "";
+                LblGCalidad.Text = "";
+            }
+            else
+            {
+                SeleccionarScore();
+            }
+        }
+        private void SeleccionarScore()
+        {
+            Dcatacion funcion = new Dcatacion();
+            int score = int.Parse(TxtScore.Text);
+            funcion.SeleccionarScore(score, LblTasa, LblGCalidad);
+        }
+
+        private void TxtHumedad_TextChanged(object sender, EventArgs e)
+        {
+            //if (TxtHumedad.Text == "")
+            //{
+            //    TxtHumedad.Text = "0";
+            //}
+            //double Humedad = double.Parse(TxtHumedad.Text);
+            if (isPlaceholder)
+            {
+                return; // Salir si es el marcador de posición
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtHumedad.Text))
+            {
+                SetPlaceholder(TxtHumedad, "0");
+                Humedad = 0;
+            }
+            else
+            {
+                if (double.TryParse(TxtHumedad.Text, out double result))
+                {
+                    Humedad = result;
+                }
+                else
+                {
+                    // Manejar el caso donde el texto no se puede convertir a número
+                    MessageBox.Show("Por favor, ingrese un número válido.");
+                    return;
+                }
+            }
+            if (Humedad >= 12.8)
+            {
+                ChbRechazado.Checked = true;
+                ChbAnalizado.Enabled = false;
+            }
+            else
+            {
+                ChbRechazado.Checked = false;
+                ChbAnalizado.Enabled = true;
+            }
+        }
+
+        private void TxtDesmC_TextChanged(object sender, EventArgs e)
+        {
+            if (isPlaceholder)
+            {
+                return; // Salir si es el marcador de posición
+            }
+
+            if (string.IsNullOrWhiteSpace(TxtDesmC.Text))
+            {
+                SetPlaceholder(TxtDesmC, "0");
+                DesmC = 0;
+            }
+            else
+            {
+                if (double.TryParse(TxtDesmC.Text, out double result))
+                {
+                    DesmC = result;
+                }
+                else
+                {
+                    // Manejar el caso donde el texto no se puede convertir a número
+                    MessageBox.Show("Por favor, ingrese un número válido.");
+                    return;
+                }
+            }
+            CalcularDesmD();
+            LblDesmCP.Text = Math.Round((Bto * DesmC) / 100, 2).ToString() + "%";
+        }
+
+        private void TxtExp_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (isPlaceholder)
+                {
+                    return; // Salir si es el marcador de posición
+                }
+
+                if (string.IsNullOrWhiteSpace(TxtExp.Text))
+                {
+                    SetPlaceholder(TxtExp, "0");
+                    Exp = 0;
+                }
+                else
+                {
+                    if (double.TryParse(TxtExp.Text, out double result))
+                    {
+                        Exp = result;
+                    }
+                    else
+                    {
+                        // Manejar el caso donde el texto no se puede convertir a número
+                        MessageBox.Show("Por favor, ingrese un número válido.");
+                        return;
+                    }
+                }
+                CalcularDesmD();
+                LblExpP.Text = Math.Round((Bto * Exp) / 100, 2).ToString() + "%";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Falló el calculo " + ex.Message, "Error en Exp");
+            }
+        }
+        private void CalcularDesmD()
+        {
+            Exp = double.Parse(TxtExp.Text);
+            DesmA = double.Parse(TxtDesmA.Text);
+            DesmC = double.Parse(TxtDesmC.Text);
+            DesmD = Math.Round(100 - Exp - DesmA - DesmC, 2);
+            LblDesmD.Text = DesmD.ToString();
+            LblDesmDP.Text = Math.Round((Bto * DesmD) / 100, 2).ToString() + "%";
+        }
+        private void BtnCerrarPldatos_Click(object sender, EventArgs e)
+        {
+            PLDatos.Visible = false;
+            dtInventarioCat.Enabled = true;
+            plOpciones.Enabled = true;
+            Limpiar();
+        }
+
+        private void AbrirFormulario()
+        {
+            PLDatos.Size = new Size(1207, 622);
+            PLDatos.Location = new System.Drawing.Point(dtInventarioCat.Width / 2
+                - PLDatos.Width / 2, dtInventarioCat.Height / 2 - PLDatos.Height / 2);
+            PLDatos.Visible = true;
+            PLDatos.BringToFront();
+            plOpciones.Enabled = false;
+            dtInventarioCat.Enabled = false;
+            Dcatacion funcion = new Dcatacion();
+            funcion.MostrarVariedad(CbVariedad);
+        }
+
+        private void ChbRechazado_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChbRechazado.Checked == true)
+            {
+                ChbAnalizado.Enabled = false;
+                BtnAnalisis.Enabled = true;
+            }
+            else
+            {
+                ChbAnalizado.Enabled = true;
+                BtnAnalisis.Enabled = false;
+            }
+        }
+
+        private void ChbAnalizado_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChbAnalizado.Checked == true)
+            {
+                ChbRechazado.Enabled = false;
+                BtnAnalisis.Enabled= true;
+            }
+            else
+            {
+                ChbRechazado.Enabled = true;
+                BtnAnalisis.Enabled = false;
+            }
+        }
+
+        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Obtener el TextBox que disparó el evento
+            TextBox textBox = sender as TextBox;
+
+            // Comprobar si la tecla presionada es un número, un punto o un carácter de control
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true; // Si no es ninguno de los permitidos, cancela el evento
+            }
+
+            // Permitir solo un punto decimal
+            if ((e.KeyChar == '.') && (textBox.Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+        private void Limpiar()
+        {
+            TxtAnalisis.Clear();
+            LblDias.Text = "--";
+            TxtBto.Text = "";
+            TxtHumedad.Text = "";
+            TxtExp.Text = "0";
+            TxtDesmA.Text = "0";
+            TxtDesmC.Text = "0";
+            TxtScore.Clear();
+            ChbAnalizado.Checked = false;
+            ChbRechazado.Checked = false;
+        }
+        //Prueba Placeholders
+        private void SetPlaceholder(TextBox textBox, string placeholderText)
+        {
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                isPlaceholder = true;
+                textBox.Text = placeholderText;
+                textBox.ForeColor = Color.Gray;
+            }
+            else
+            {
+                isPlaceholder = false;
+                textBox.ForeColor = Color.Black;
+            }
+
+            textBox.GotFocus += (sender, e) => RemovePlaceholder(sender, e, placeholderText);
+            textBox.LostFocus += (sender, e) => ShowPlaceholder(sender, e, placeholderText);
+        }
+
+        private void RemovePlaceholder(object sender, EventArgs e, string placeholderText)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox.Text == placeholderText)
+            {
+                textBox.Text = "";
+                textBox.ForeColor = Color.Black;
+                isPlaceholder = false;
+            }
+        }
+        private void ShowPlaceholder(object sender, EventArgs e, string placeholderText)
+        {
+            TextBox textBox = sender as TextBox;
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                textBox.Text = placeholderText;
+                textBox.ForeColor = Color.Gray;
+                isPlaceholder = true;
+            }
+        }
+        private void InsertarCatacion()
+        {
+            if (Validar())
+            {
+                LCatacion parametros = new LCatacion();
+                Dcatacion funcion = new Dcatacion();
+                parametros.Ticket = LblTicket.Text;
+                parametros.Analisis=TxtAnalisis.Text;
+                parametros.FechaMuestra=DTPFechaMuestra.Value;
+                parametros.FechaCatacion=DtFechaCatacion.Value;
+                parametros.Dias=int.Parse(LblDias.Text);
+                parametros.RmtoObto=TxtBto.Text;
+                parametros.Cascarilla=LblCascarilla.Text;
+                parametros.TotalPS=LblTotal.Text;
+                parametros.IdVariedad=(int)CbVariedad.SelectedValue;
+                parametros.Humedad=TxtHumedad.Text;
+                parametros.Exp=double.Parse(TxtExp.Text);
+                parametros.DesmA=double.Parse(TxtDesmA.Text);
+                parametros.DesmC=double.Parse(TxtDesmC.Text);
+                parametros.DesmD=double.Parse(LblDesmD.Text);
+                parametros.Score=int.Parse(TxtScore.Text);
+                parametros.Tasa=LblTasa.Text;
+                parametros.GradoCalidad=LblGCalidad.Text;
+                parametros.ExpP=LblExpP.Text;
+                parametros.DesmAP=LblDesmAP.Text;
+                parametros.DesmCP=LblDesmCP.Text;
+                parametros.DesmDP=LblDesmDP.Text;
+                if (ChbRechazado.Checked == true)
+                {
+                    parametros.Estado = "0";
+                }
+                else if(ChbAnalizado.Checked == true)
+                {
+                    parametros.Estado = "1";
+                }
+                else
+                {
+                    parametros.Estado = "1";
+                }
+                if (funcion.InsertarCatacion(parametros)==true)
+                {
+                    PLDatos.Visible = false;
+                    Limpiar();
+                }
+            }
+        }
+        private bool Validar()
+        {
+            double entero;
+            if (!double.TryParse(TxtBto.Text, out entero)||(!double.TryParse(TxtHumedad.Text,out entero)))
+            {
+                return false;
+            }
+            return !(TxtAnalisis.Text == "" ||
+                TxtBto.Text == "" || TxtDesmA.Text == ""
+            || TxtDesmC.Text == "" || TxtScore.Text == "" || TxtExp.Text == ""||TxtHumedad.Text=="");
+        }
+    }
+}

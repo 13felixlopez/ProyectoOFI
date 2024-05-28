@@ -34,9 +34,11 @@
             this.GbTransfer = new System.Windows.Forms.GroupBox();
             this.GbControlPatio = new System.Windows.Forms.GroupBox();
             this.GbSM = new System.Windows.Forms.GroupBox();
+            this.Gbcatacion = new System.Windows.Forms.GroupBox();
             this.BtnOperadores = new System.Windows.Forms.Button();
             this.BtnTurnos = new System.Windows.Forms.Button();
             this.BtnParos = new System.Windows.Forms.Button();
+            this.BtnVariedad = new System.Windows.Forms.Button();
             this.BtnPatio = new System.Windows.Forms.Button();
             this.BtnUbicacionesPatio = new System.Windows.Forms.Button();
             this.BtnAgencia = new System.Windows.Forms.Button();
@@ -55,6 +57,7 @@
             this.GbTransfer.SuspendLayout();
             this.GbControlPatio.SuspendLayout();
             this.GbSM.SuspendLayout();
+            this.Gbcatacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,6 +129,17 @@
             this.GbSM.TabStop = false;
             this.GbSM.Text = "Secado Mecánico";
             // 
+            // Gbcatacion
+            // 
+            this.Gbcatacion.Controls.Add(this.BtnVariedad);
+            this.Gbcatacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Gbcatacion.Location = new System.Drawing.Point(710, 71);
+            this.Gbcatacion.Name = "Gbcatacion";
+            this.Gbcatacion.Size = new System.Drawing.Size(251, 159);
+            this.Gbcatacion.TabIndex = 24;
+            this.Gbcatacion.TabStop = false;
+            this.Gbcatacion.Text = "Catación";
+            // 
             // BtnOperadores
             // 
             this.BtnOperadores.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -167,6 +181,21 @@
             this.BtnParos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnParos.UseVisualStyleBackColor = true;
             this.BtnParos.Click += new System.EventHandler(this.BtnParos_Click);
+            // 
+            // BtnVariedad
+            // 
+            this.BtnVariedad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnVariedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnVariedad.Image = global::ProyectoOFI.Properties.Resources.Catacion;
+            this.BtnVariedad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnVariedad.Location = new System.Drawing.Point(71, 30);
+            this.BtnVariedad.Name = "BtnVariedad";
+            this.BtnVariedad.Size = new System.Drawing.Size(158, 55);
+            this.BtnVariedad.TabIndex = 13;
+            this.BtnVariedad.Text = "Variedades";
+            this.BtnVariedad.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnVariedad.UseVisualStyleBackColor = true;
+            this.BtnVariedad.Click += new System.EventHandler(this.BtnVariedad_Click);
             // 
             // BtnPatio
             // 
@@ -361,6 +390,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 692);
             this.Controls.Add(this.GbSM);
+            this.Controls.Add(this.Gbcatacion);
             this.Controls.Add(this.GbControlPatio);
             this.Controls.Add(this.GbTransfer);
             this.Controls.Add(this.PlTitulo);
@@ -373,6 +403,7 @@
             this.GbTransfer.ResumeLayout(false);
             this.GbControlPatio.ResumeLayout(false);
             this.GbSM.ResumeLayout(false);
+            this.Gbcatacion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -402,5 +433,7 @@
         private System.Windows.Forms.Button BtnTurnos;
         private System.Windows.Forms.Button BtnParos;
         private System.Windows.Forms.Button BtnPatio;
+        private System.Windows.Forms.GroupBox Gbcatacion;
+        private System.Windows.Forms.Button BtnVariedad;
     }
 }

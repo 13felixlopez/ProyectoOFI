@@ -6,6 +6,7 @@ using ProyectoOFI.Recepcion;
 using ProyectoOFI.Reportes;
 using ProyectoOFI.SM;
 using ProyectoOFI.Usuario;
+using ProyectoOFI.Analisis;
 using System;
 using System.Data;
 using System.Windows.Forms;
@@ -28,6 +29,7 @@ namespace ProyectoOFI
             BtnUser.Enabled = true;
             BtnCPatio.Enabled = true;
             BtnReTK.Enabled = true;
+            BtnAnalisis.Enabled = true;
             PlPrincipal.Controls.Clear();
             Transferencia tr = new Transferencia
             {
@@ -56,6 +58,7 @@ namespace ProyectoOFI
             BtnUser.Enabled=false;
             BtnCPatio.Enabled=true;
             BtnReTK.Enabled = true;
+            BtnAnalisis.Enabled = true;
             PlPrincipal.Controls.Clear();
             UCUsuario tr = new UCUsuario
             {
@@ -129,6 +132,7 @@ namespace ProyectoOFI
             BtnUser.Enabled = true;
             BtnCPatio.Enabled = false;
             BtnReTK.Enabled = true;
+            BtnAnalisis.Enabled = true;
             PlPrincipal.Controls.Clear();
             CUControlPatio tr = new CUControlPatio
             {
@@ -143,12 +147,28 @@ namespace ProyectoOFI
             BtnUser.Enabled = true;
             BtnCPatio.Enabled = true;
             BtnReTK.Enabled = false;
+            BtnAnalisis.Enabled = true;
             PlPrincipal.Controls.Clear();
             CUReporteTK tK = new CUReporteTK
             {
                 Dock = DockStyle.Fill
             };
             PlPrincipal.Controls.Add(tK);
+        }
+
+        private void BtnAnalisis_Click(object sender, EventArgs e)
+        {
+            btnTransferencia.Enabled = true;
+            BtnUser.Enabled = true;
+            BtnCPatio.Enabled = true;
+            BtnReTK.Enabled = true;
+            BtnAnalisis.Enabled = false;
+            PlPrincipal.Controls.Clear();
+            Catacion al = new Catacion
+            {
+                Dock = DockStyle.Fill
+            };
+            PlPrincipal.Controls.Add(al);
         }
     }
 }

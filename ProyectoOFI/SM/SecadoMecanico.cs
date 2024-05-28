@@ -22,7 +22,7 @@ namespace ProyectoOFI.SM
         int IdVer;
         string origen;
         Label labelPreSeco = new Label();
-
+        DataTable SM=new DataTable();
         public SecadoMecanico()
         {
             InitializeComponent();
@@ -136,6 +136,7 @@ namespace ProyectoOFI.SM
                     VerPOAV();
                     VerVertical();
                     VerPreSecado();
+                    EnvioSM();
                 }
                 if (Proceso == "Carga Directa SF")
                 {
@@ -143,25 +144,27 @@ namespace ProyectoOFI.SM
                     GbPreSecado.Visible = true;
                     VerPreSecado();
                 }
-                if (Proceso == "Guardiola" && Estado == "Guardiola")
-                {
-                    GbPreSecado.Visible = true;
-                    gbPOAV.Visible = true;
-                    gbVertical.Visible = true;
-                    GbGuardiola.Visible = true;
-                    VerPOAV();
-                    VerVertical();
-                    VerPreSecado();
-                    VerGuardiola();
-                }
                 if (Proceso == "Guardiola" || Estado == "Guardiola")
                 {
                     GbPreSecado.Visible = true;
                     gbPOAV.Visible = true;
                     gbVertical.Visible = true;
                     GbGuardiola.Visible = true;
+                    VerPOAV();
+                    //VerVertical();
                     VerPreSecado();
                     VerGuardiola();
+                    EnvioSM();
+                }
+                if (Proceso == "Guardiola" && Estado == "Guardiola")
+                {
+                    GbPreSecado.Visible = true;
+                    gbPOAV.Visible = true;
+                    gbVertical.Visible = true;
+                    GbGuardiola.Visible = true;
+                    VerPreSecado();
+                    VerGuardiola();
+                    EnvioSM();
                 }
                 if (Proceso == "PS" && Estado == "PS")
                 {
@@ -175,6 +178,7 @@ namespace ProyectoOFI.SM
                     VerPreSecado();
                     VerGuardiola();
                     VerPS();
+                    EnvioSM();
                 }
                 if (Proceso == "PS" || Estado == "PS")
                 {
@@ -186,6 +190,7 @@ namespace ProyectoOFI.SM
                     VerPreSecado();
                     VerGuardiola();
                     VerPS();
+                    EnvioSM();
                 }
                 if (Proceso == "Envio" && Estado == "Envio")
                 {
@@ -199,6 +204,7 @@ namespace ProyectoOFI.SM
                     VerPreSecado();
                     VerGuardiola();
                     VerPS();
+                    EnvioSM();
                 }
                 if (Proceso == "Envio" || Estado == "Envio")
                 {
@@ -207,6 +213,8 @@ namespace ProyectoOFI.SM
                     gbVertical.Visible = true;
                     GbGuardiola.Visible = true;
                     GbPS.Visible = true;
+                    GbDatosSm.Visible = true;
+                    EnvioSM();
                     VerPreSecado();
                     VerGuardiola();
                     VerPS();
@@ -416,9 +424,9 @@ namespace ProyectoOFI.SM
 
         private void AbrirFormulario()
         {
+            PLDatos.Size = new Size(1905, 743);
             PLDatos.Location = new System.Drawing.Point(dtInventarioSM.Width / 2
                 - PLDatos.Width / 2, dtInventarioSM.Height / 2 - PLDatos.Height / 2);
-            PLDatos.Size = new Size(1254, 352);
             PLDatos.Visible = true;
             PLDatos.BringToFront();
             plOpciones.Enabled = false;
@@ -433,6 +441,8 @@ namespace ProyectoOFI.SM
             GbGuardiola.Visible = false;
             gbVertical.Visible = false;
             GbPS.Visible = false;
+            GbDatosSm.Visible = false;
+            SM.Clear();
             labelPreSeco.Text = "";
             labelPreSeco.BackColor = Color.Transparent;
             dtInventarioSM.Enabled = true;
@@ -909,6 +919,46 @@ namespace ProyectoOFI.SM
             catch (Exception)
             {
                 MessageBox.Show("Error al crear las particiones", "Error ParticionSM interfaz", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void EnvioSM()
+        {
+            SM.Clear();
+            DSM sM = new DSM();
+            sM.VerEnvioSM(ref SM, Ticket);
+            VerEnvioSM(SM, GbDatosSm);
+            GbDatosSm.Visible = true;
+        }
+        private void VerEnvioSM(DataTable dt, GroupBox groupBox)
+        {
+            // Limpiar cualquier control existente en el GroupBox
+            groupBox.Controls.Clear();
+            
+            // Variables para posicionamiento
+            int posY = 55;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                int posX = 10; // Reiniciar la posición X para cada nueva fila
+
+                foreach (DataColumn column in dt.Columns)
+                {
+                    if (row[column] != DBNull.Value) // Solo crear Labels para valores no nulos
+                    {
+                        Label label = new Label();
+                        label.Text = $"{column.ColumnName}: {row[column].ToString()}";
+                        label.AutoSize = true;
+                        label.Location = new Point(posX, posY);
+
+                        groupBox.Controls.Add(label);
+
+                        // Ajustar posX para la próxima etiqueta en la misma fila
+                        posX += label.Width + 10;
+                    }
+                }
+
+                // Ajustar posY para la próxima fila de etiquetas
+                posY += 50;
             }
         }
     }

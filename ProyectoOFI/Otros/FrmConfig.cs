@@ -107,5 +107,11 @@ namespace ProyectoOFI.Otros
             FrmParos AA = new FrmParos();
             AA.ShowDialog();
         }
+
+        private void BtnVariedad_Click(object sender, EventArgs e)
+        {
+            FrmVariedad AA = new FrmVariedad();
+            AA.ShowDialog();
+        }
     }
 }

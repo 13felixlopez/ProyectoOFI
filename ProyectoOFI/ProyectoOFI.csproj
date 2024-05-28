@@ -86,6 +86,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analisis\Catacion.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Analisis\Catacion.Designer.cs">
+      <DependentUpon>Catacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlPatio\CUControlPatio.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -99,6 +105,7 @@
       <DependentUpon>FrmExcelCP.cs</DependentUpon>
     </Compile>
     <Compile Include="Datos\Conexion.cs" />
+    <Compile Include="Datos\Dcatacion.cs" />
     <Compile Include="Datos\DCatalogo.cs" />
     <Compile Include="Datos\DGuardiola.cs" />
     <Compile Include="Datos\DHistorial.cs" />
@@ -130,6 +137,7 @@
     <Compile Include="Logica\AES.cs" />
     <Compile Include="Logica\Desencryptacion.cs" />
     <Compile Include="Logica\Encrip.cs" />
+    <Compile Include="Logica\LCatacion.cs" />
     <Compile Include="Logica\LEnvio.cs" />
     <Compile Include="Logica\LModulos.cs" />
     <Compile Include="Logica\LPermisos.cs" />
@@ -231,6 +239,12 @@
     </Compile>
     <Compile Include="Otros\FrmUbicacionP.Designer.cs">
       <DependentUpon>FrmUbicacionP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\FrmVariedad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Otros\FrmVariedad.Designer.cs">
+      <DependentUpon>FrmVariedad.cs</DependentUpon>
     </Compile>
     <Compile Include="Otros\Recibidor.cs">
       <SubType>Form</SubType>
@@ -344,6 +358,9 @@
       <DependentUpon>UCUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuario\Validaciones.cs" />
+    <EmbeddedResource Include="Analisis\Catacion.resx">
+      <DependentUpon>Catacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ControlPatio\CUControlPatio.resx">
       <DependentUpon>CUControlPatio.cs</DependentUpon>
     </EmbeddedResource>
@@ -400,6 +417,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Otros\FrmUbicacionP.resx">
       <DependentUpon>FrmUbicacionP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Otros\FrmVariedad.resx">
+      <DependentUpon>FrmVariedad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Otros\Recibidor.resx">
       <DependentUpon>Recibidor.cs</DependentUpon>
@@ -622,6 +642,8 @@
     <Content Include="Logo.ico" />
     <Content Include="ofi1705.sql" />
     <Content Include="ofi2424.sql" />
+    <None Include="Resources\Catacion.jpeg" />
+    <None Include="Resources\three-11928.gif" />
     <None Include="Resources\PS2.png" />
     <None Include="Resources\PS Btn.png" />
     <None Include="Resources\PS %282%29.png" />

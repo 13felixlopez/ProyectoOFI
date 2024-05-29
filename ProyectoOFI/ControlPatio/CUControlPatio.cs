@@ -229,7 +229,7 @@ namespace ProyectoOFI.ControlPatio
                 {
                     VerTendidio();
                 }
-                else if (Proceso == "Enfarde")
+                else if (Proceso == "Enfarde" || Proceso == "Analizado")
                 {
                     VerTendidio();
                     VerEnfarde();
@@ -259,11 +259,13 @@ namespace ProyectoOFI.ControlPatio
                 PlEnvio.Visible = false;
                 //Tendido
                 PlTendido.Enabled = true;
+                PlTendido.Visible = true;
             }
             if (Proceso == "Tendido")
             {
                 //Tendido
                 PlTendido.Enabled = false;
+                PlTendido.Visible = true;
                 //Envio
                 PlEnvio.Visible = false;
                 TSLEnvio.Visible = false;
@@ -274,30 +276,38 @@ namespace ProyectoOFI.ControlPatio
                 PlEnfarde.Enabled = true;
                 VerTendidio();
             }
-            else if (Proceso == "Enfarde")
+            else if (Proceso == "Enfarde" || Proceso == "Analizado")
             {
                 //Tendido
                 PlTendido.Enabled = false;
+                PlTendido.Visible = true;
                 //Enfarde
                 PlEnfarde.Visible = true;
                 PlEnfarde.Enabled = false;
                 TSLEnfarde.Enabled = true;
                 TSLEnfarde.Visible = true;
-                //Envio
-                PlEnvio.Visible = true;
-                PlEnvio.Enabled = true;
+                LblMsj.Visible = true;
+                if (Proceso == "Analizado")
+                {
+                    //Envio
+                    PlEnvio.Enabled = true;
+                    PlEnvio.Visible = true;
+                    LblMsj.Visible = false;
+                }
                 VerTendidio();
                 VerEnfarde();
             }
             else if (Proceso == "Envio" || Proceso == "Envio SM")
             {
                 PlTendido.Enabled = false;
+                PlTendido.Visible = true;
                 PlEnvio.Visible = true;
                 PlEnvio.Enabled = false;
                 PlEnfarde.Enabled = false;
                 PlEnfarde.Visible = true;
                 TSLEnvio.Visible = true;
                 TSLEnvio.Enabled = true;
+                LblMsj.Visible = false;
                 VerTendidio();
                 VerEnfarde();
                 VerEnvioCp();
@@ -449,6 +459,9 @@ namespace ProyectoOFI.ControlPatio
         {
             PlControl.Visible = false;
             plOpciones.Enabled = true;
+            PlTendido.Visible = false;
+            PlEnfarde.Visible = false;
+            PlEnvio.Visible = false;
             Limpiar();
         }
         private void ObtenerTK()

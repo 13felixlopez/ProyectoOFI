@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SecadoMecanico));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SecadoMecanico));
             this.dtInventarioSM = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.CbBuscar = new System.Windows.Forms.ComboBox();
@@ -56,14 +56,18 @@
             this.lbl_Pagina = new System.Windows.Forms.Label();
             this.Label25 = new System.Windows.Forms.Label();
             this.PlCarga = new System.Windows.Forms.Panel();
+            this.PbCarga = new System.Windows.Forms.PictureBox();
             this.PLDatos = new System.Windows.Forms.Panel();
             this.TLPDatos = new System.Windows.Forms.TableLayoutPanel();
             this.GbPS = new System.Windows.Forms.GroupBox();
             this.dtPS = new System.Windows.Forms.DataGridView();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.GbDatosSm = new System.Windows.Forms.GroupBox();
             this.GbGuardiola = new System.Windows.Forms.GroupBox();
             this.DtGuardiola = new System.Windows.Forms.DataGridView();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.gbPOAV = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.LblPOAV = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.dtFechaPV = new System.Windows.Forms.DateTimePicker();
@@ -75,6 +79,7 @@
             this.LblOperadorPV = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.gbVertical = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.LblVer = new System.Windows.Forms.Label();
             this.dtHoraFinV = new System.Windows.Forms.DateTimePicker();
             this.dtHorainicioV = new System.Windows.Forms.DateTimePicker();
@@ -90,6 +95,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.GbPreSecado = new System.Windows.Forms.GroupBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.LblG2 = new System.Windows.Forms.Label();
             this.LblG1 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
@@ -123,7 +129,9 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnParticionar = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
+            this.BtnCerrarVerCons = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.PlParticion = new System.Windows.Forms.Panel();
             this.GbSF = new System.Windows.Forms.GroupBox();
@@ -170,39 +178,31 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label28 = new System.Windows.Forms.Label();
             this.BtnCerrarParticion = new System.Windows.Forms.Button();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.BtnParticionar = new System.Windows.Forms.Button();
-            this.BtnCerrarVerCons = new System.Windows.Forms.Button();
-            this.PbCarga = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioSM)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.plfooter.SuspendLayout();
             this.PlCarga.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.PLDatos.SuspendLayout();
             this.TLPDatos.SuspendLayout();
             this.GbPS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtPS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.GbGuardiola.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtGuardiola)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.gbPOAV.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbVertical.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.GbPreSecado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.gbDatos.SuspendLayout();
             this.panel2.SuspendLayout();
             this.PlParticion.SuspendLayout();
             this.GbSF.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.SuspendLayout();
             // 
             // dtInventarioSM
@@ -472,6 +472,18 @@
             this.PlCarga.Size = new System.Drawing.Size(250, 172);
             this.PlCarga.TabIndex = 12;
             // 
+            // PbCarga
+            // 
+            this.PbCarga.BackColor = System.Drawing.Color.White;
+            this.PbCarga.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PbCarga.Image = ((System.Drawing.Image)(resources.GetObject("PbCarga.Image")));
+            this.PbCarga.Location = new System.Drawing.Point(0, 0);
+            this.PbCarga.Name = "PbCarga";
+            this.PbCarga.Size = new System.Drawing.Size(250, 172);
+            this.PbCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbCarga.TabIndex = 0;
+            this.PbCarga.TabStop = false;
+            // 
             // PLDatos
             // 
             this.PLDatos.AutoScroll = true;
@@ -479,10 +491,10 @@
             this.PLDatos.Controls.Add(this.TLPDatos);
             this.PLDatos.Controls.Add(this.gbDatos);
             this.PLDatos.Controls.Add(this.panel2);
-            this.PLDatos.Location = new System.Drawing.Point(1513, 619);
+            this.PLDatos.Location = new System.Drawing.Point(1560, 618);
             this.PLDatos.MaximumSize = new System.Drawing.Size(1905, 743);
             this.PLDatos.Name = "PLDatos";
-            this.PLDatos.Size = new System.Drawing.Size(315, 110);
+            this.PLDatos.Size = new System.Drawing.Size(268, 111);
             this.PLDatos.TabIndex = 54;
             this.PLDatos.Visible = false;
             // 
@@ -505,7 +517,7 @@
             this.TLPDatos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.95175F));
             this.TLPDatos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.10982F));
             this.TLPDatos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.10482F));
-            this.TLPDatos.Size = new System.Drawing.Size(298, 0);
+            this.TLPDatos.Size = new System.Drawing.Size(251, 0);
             this.TLPDatos.TabIndex = 13;
             // 
             // GbPS
@@ -514,10 +526,10 @@
             this.GbPS.Controls.Add(this.dtPS);
             this.GbPS.Controls.Add(this.pictureBox6);
             this.GbPS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GbPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.GbPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GbPS.Location = new System.Drawing.Point(3, 3);
             this.GbPS.Name = "GbPS";
-            this.GbPS.Size = new System.Drawing.Size(143, 1);
+            this.GbPS.Size = new System.Drawing.Size(119, 1);
             this.GbPS.TabIndex = 15;
             this.GbPS.TabStop = false;
             this.GbPS.Text = "Datos de PS";
@@ -531,7 +543,7 @@
             this.dtPS.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -540,14 +552,14 @@
             this.dtPS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dtPS.DefaultCellStyle = dataGridViewCellStyle4;
             this.dtPS.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dtPS.Location = new System.Drawing.Point(3, 22);
+            this.dtPS.Location = new System.Drawing.Point(3, 18);
             this.dtPS.Name = "dtPS";
             this.dtPS.ReadOnly = true;
             this.dtPS.RowHeadersVisible = false;
@@ -555,17 +567,30 @@
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtPS.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dtPS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtPS.Size = new System.Drawing.Size(137, 100);
+            this.dtPS.Size = new System.Drawing.Size(113, 100);
             this.dtPS.TabIndex = 15;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::ProyectoOFI.Properties.Resources.PS2;
+            this.pictureBox6.Location = new System.Drawing.Point(322, 128);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(154, 79);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 13;
+            this.pictureBox6.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox6, "Tolva POA: Esta tolva tiene la capacidad de 300 QQs, su función es de almacenar e" +
+        "l café,\r\neste es el inicio de lo que llamamos Secado Final y en ocasiones es el " +
+        "fin de lo que\r\nllamamos Pre-Secado.");
             // 
             // GbDatosSm
             // 
             this.GbDatosSm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(254)))), ((int)(((byte)(254)))));
             this.GbDatosSm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GbDatosSm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbDatosSm.Location = new System.Drawing.Point(152, 3);
+            this.GbDatosSm.Location = new System.Drawing.Point(128, 3);
             this.GbDatosSm.Name = "GbDatosSm";
-            this.GbDatosSm.Size = new System.Drawing.Size(143, 1);
+            this.GbDatosSm.Size = new System.Drawing.Size(120, 1);
             this.GbDatosSm.TabIndex = 14;
             this.GbDatosSm.TabStop = false;
             this.GbDatosSm.Text = "Datos de Secado Final";
@@ -577,10 +602,10 @@
             this.GbGuardiola.Controls.Add(this.DtGuardiola);
             this.GbGuardiola.Controls.Add(this.pictureBox4);
             this.GbGuardiola.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GbGuardiola.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.GbGuardiola.Location = new System.Drawing.Point(152, 3);
+            this.GbGuardiola.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GbGuardiola.Location = new System.Drawing.Point(128, 3);
             this.GbGuardiola.Name = "GbGuardiola";
-            this.GbGuardiola.Size = new System.Drawing.Size(143, 1);
+            this.GbGuardiola.Size = new System.Drawing.Size(120, 1);
             this.GbGuardiola.TabIndex = 13;
             this.GbGuardiola.TabStop = false;
             this.GbGuardiola.Text = "Datos de Guardiolas";
@@ -594,7 +619,7 @@
             this.DtGuardiola.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -603,14 +628,14 @@
             this.DtGuardiola.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DtGuardiola.DefaultCellStyle = dataGridViewCellStyle7;
             this.DtGuardiola.Dock = System.Windows.Forms.DockStyle.Top;
-            this.DtGuardiola.Location = new System.Drawing.Point(3, 22);
+            this.DtGuardiola.Location = new System.Drawing.Point(3, 18);
             this.DtGuardiola.Name = "DtGuardiola";
             this.DtGuardiola.ReadOnly = true;
             this.DtGuardiola.RowHeadersVisible = false;
@@ -618,8 +643,21 @@
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DtGuardiola.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.DtGuardiola.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtGuardiola.Size = new System.Drawing.Size(137, 85);
+            this.DtGuardiola.Size = new System.Drawing.Size(114, 85);
             this.DtGuardiola.TabIndex = 14;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::ProyectoOFI.Properties.Resources.Guardiola2;
+            this.pictureBox4.Location = new System.Drawing.Point(351, 112);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(163, 80);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 13;
+            this.pictureBox4.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox4, "Tolva POA: Esta tolva tiene la capacidad de 300 QQs, su función es de almacenar e" +
+        "l café,\r\neste es el inicio de lo que llamamos Secado Final y en ocasiones es el " +
+        "fin de lo que\r\nllamamos Pre-Secado.");
             // 
             // gbPOAV
             // 
@@ -639,10 +677,24 @@
             this.gbPOAV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbPOAV.Location = new System.Drawing.Point(3, 3);
             this.gbPOAV.Name = "gbPOAV";
-            this.gbPOAV.Size = new System.Drawing.Size(143, 1);
+            this.gbPOAV.Size = new System.Drawing.Size(119, 1);
             this.gbPOAV.TabIndex = 8;
             this.gbPOAV.TabStop = false;
             this.gbPOAV.Text = "Tolvas POA Vertical";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.AccessibleDescription = "Tolva: Esta tolva tiene la capacidad de almacenar 600 QQs, su función es almacena" +
+    "r el café";
+            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.TolvaV;
+            this.pictureBox1.Location = new System.Drawing.Point(825, 25);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(84, 120);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox1, "Tolva: Esta tolva tiene la capacidad de almacenar 600 QQs, su función es almacena" +
+        "r el café\r\nque posteriormente será pre secado por la Vertical.");
             // 
             // LblPOAV
             // 
@@ -763,13 +815,25 @@
             this.gbVertical.Controls.Add(this.label21);
             this.gbVertical.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gbVertical.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbVertical.Location = new System.Drawing.Point(152, 3);
+            this.gbVertical.Location = new System.Drawing.Point(128, 3);
             this.gbVertical.Name = "gbVertical";
-            this.gbVertical.Size = new System.Drawing.Size(143, 1);
+            this.gbVertical.Size = new System.Drawing.Size(120, 1);
             this.gbVertical.TabIndex = 9;
             this.gbVertical.TabStop = false;
             this.gbVertical.Text = "Vertical";
             this.gbVertical.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::ProyectoOFI.Properties.Resources.Vertical;
+            this.pictureBox2.Location = new System.Drawing.Point(760, 29);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(96, 118);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox2, "Secadora Vertical: Tiene la capacidad de 600 QQs, su función es de Pre-Secar el c" +
+        "afé \r\nbaja la humedad del café de 50% a 25% aproximadamente en 12 horas.");
             // 
             // LblVer
             // 
@@ -934,11 +998,24 @@
             this.GbPreSecado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.GbPreSecado.Location = new System.Drawing.Point(3, 3);
             this.GbPreSecado.Name = "GbPreSecado";
-            this.GbPreSecado.Size = new System.Drawing.Size(143, 1);
+            this.GbPreSecado.Size = new System.Drawing.Size(119, 1);
             this.GbPreSecado.TabIndex = 12;
             this.GbPreSecado.TabStop = false;
             this.GbPreSecado.Text = "Datos de Pre-Secado";
             this.GbPreSecado.Visible = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::ProyectoOFI.Properties.Resources.POASF;
+            this.pictureBox3.Location = new System.Drawing.Point(711, 26);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(190, 90);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 13;
+            this.pictureBox3.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox3, "Tolva POA: Esta tolva tiene la capacidad de 300 QQs, su función es de almacenar e" +
+        "l café,\r\neste es el inicio de lo que llamamos Secado Final y en ocasiones es el " +
+        "fin de lo que\r\nllamamos Pre-Secado.");
             // 
             // LblG2
             // 
@@ -1098,7 +1175,7 @@
             this.gbDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDatos.Location = new System.Drawing.Point(0, 43);
             this.gbDatos.Name = "gbDatos";
-            this.gbDatos.Size = new System.Drawing.Size(298, 99);
+            this.gbDatos.Size = new System.Drawing.Size(251, 99);
             this.gbDatos.TabIndex = 7;
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Datos Ticket";
@@ -1318,8 +1395,21 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(298, 43);
+            this.panel2.Size = new System.Drawing.Size(251, 43);
             this.panel2.TabIndex = 11;
+            // 
+            // BtnParticionar
+            // 
+            this.BtnParticionar.BackgroundImage = global::ProyectoOFI.Properties.Resources.icons8_separar;
+            this.BtnParticionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnParticionar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnParticionar.Location = new System.Drawing.Point(146, 0);
+            this.BtnParticionar.Name = "BtnParticionar";
+            this.BtnParticionar.Size = new System.Drawing.Size(56, 41);
+            this.BtnParticionar.TabIndex = 13;
+            this.BtnParticionar.UseVisualStyleBackColor = true;
+            this.BtnParticionar.Visible = false;
+            this.BtnParticionar.Click += new System.EventHandler(this.BtnParticionar_Click);
             // 
             // label23
             // 
@@ -1327,10 +1417,22 @@
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.Location = new System.Drawing.Point(0, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(249, 41);
+            this.label23.Size = new System.Drawing.Size(202, 41);
             this.label23.TabIndex = 12;
             this.label23.Text = "Detalle de Pre-Secado";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnCerrarVerCons
+            // 
+            this.BtnCerrarVerCons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrarVerCons.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrarVerCons.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrarVerCons.Location = new System.Drawing.Point(202, 0);
+            this.BtnCerrarVerCons.Name = "BtnCerrarVerCons";
+            this.BtnCerrarVerCons.Size = new System.Drawing.Size(47, 41);
+            this.BtnCerrarVerCons.TabIndex = 11;
+            this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
+            this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
             // 
             // PlParticion
             // 
@@ -1828,108 +1930,6 @@
             this.BtnCerrarParticion.UseVisualStyleBackColor = true;
             this.BtnCerrarParticion.Click += new System.EventHandler(this.BtnCerrarParticion_Click);
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = global::ProyectoOFI.Properties.Resources.PS2;
-            this.pictureBox6.Location = new System.Drawing.Point(322, 128);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(154, 79);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox6.TabIndex = 13;
-            this.pictureBox6.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox6, "Tolva POA: Esta tolva tiene la capacidad de 300 QQs, su función es de almacenar e" +
-        "l café,\r\neste es el inicio de lo que llamamos Secado Final y en ocasiones es el " +
-        "fin de lo que\r\nllamamos Pre-Secado.");
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::ProyectoOFI.Properties.Resources.Guardiola2;
-            this.pictureBox4.Location = new System.Drawing.Point(351, 112);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(163, 80);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 13;
-            this.pictureBox4.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox4, "Tolva POA: Esta tolva tiene la capacidad de 300 QQs, su función es de almacenar e" +
-        "l café,\r\neste es el inicio de lo que llamamos Secado Final y en ocasiones es el " +
-        "fin de lo que\r\nllamamos Pre-Secado.");
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.AccessibleDescription = "Tolva: Esta tolva tiene la capacidad de almacenar 600 QQs, su función es almacena" +
-    "r el café";
-            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.TolvaV;
-            this.pictureBox1.Location = new System.Drawing.Point(825, 25);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(84, 120);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox1, "Tolva: Esta tolva tiene la capacidad de almacenar 600 QQs, su función es almacena" +
-        "r el café\r\nque posteriormente será pre secado por la Vertical.");
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::ProyectoOFI.Properties.Resources.Vertical;
-            this.pictureBox2.Location = new System.Drawing.Point(760, 29);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(96, 118);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 13;
-            this.pictureBox2.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox2, "Secadora Vertical: Tiene la capacidad de 600 QQs, su función es de Pre-Secar el c" +
-        "afé \r\nbaja la humedad del café de 50% a 25% aproximadamente en 12 horas.");
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::ProyectoOFI.Properties.Resources.POASF;
-            this.pictureBox3.Location = new System.Drawing.Point(711, 26);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(190, 90);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 13;
-            this.pictureBox3.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox3, "Tolva POA: Esta tolva tiene la capacidad de 300 QQs, su función es de almacenar e" +
-        "l café,\r\neste es el inicio de lo que llamamos Secado Final y en ocasiones es el " +
-        "fin de lo que\r\nllamamos Pre-Secado.");
-            // 
-            // BtnParticionar
-            // 
-            this.BtnParticionar.BackgroundImage = global::ProyectoOFI.Properties.Resources.icons8_separar;
-            this.BtnParticionar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnParticionar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnParticionar.Location = new System.Drawing.Point(193, 0);
-            this.BtnParticionar.Name = "BtnParticionar";
-            this.BtnParticionar.Size = new System.Drawing.Size(56, 41);
-            this.BtnParticionar.TabIndex = 13;
-            this.BtnParticionar.UseVisualStyleBackColor = true;
-            this.BtnParticionar.Visible = false;
-            this.BtnParticionar.Click += new System.EventHandler(this.BtnParticionar_Click);
-            // 
-            // BtnCerrarVerCons
-            // 
-            this.BtnCerrarVerCons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCerrarVerCons.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCerrarVerCons.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrarVerCons.Location = new System.Drawing.Point(249, 0);
-            this.BtnCerrarVerCons.Name = "BtnCerrarVerCons";
-            this.BtnCerrarVerCons.Size = new System.Drawing.Size(47, 41);
-            this.BtnCerrarVerCons.TabIndex = 11;
-            this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
-            this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
-            // 
-            // PbCarga
-            // 
-            this.PbCarga.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.PbCarga.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PbCarga.Image = ((System.Drawing.Image)(resources.GetObject("PbCarga.Image")));
-            this.PbCarga.Location = new System.Drawing.Point(0, 0);
-            this.PbCarga.Name = "PbCarga";
-            this.PbCarga.Size = new System.Drawing.Size(250, 172);
-            this.PbCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbCarga.TabIndex = 0;
-            this.PbCarga.TabStop = false;
-            // 
             // SecadoMecanico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1949,18 +1949,24 @@
             this.plfooter.ResumeLayout(false);
             this.plfooter.PerformLayout();
             this.PlCarga.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
             this.PLDatos.ResumeLayout(false);
             this.TLPDatos.ResumeLayout(false);
             this.GbPS.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtPS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.GbGuardiola.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtGuardiola)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.gbPOAV.ResumeLayout(false);
             this.gbPOAV.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbVertical.ResumeLayout(false);
             this.gbVertical.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.GbPreSecado.ResumeLayout(false);
             this.GbPreSecado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.gbDatos.ResumeLayout(false);
             this.gbDatos.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1970,12 +1976,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
             this.ResumeLayout(false);
 
         }

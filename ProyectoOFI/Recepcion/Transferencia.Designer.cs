@@ -1586,9 +1586,9 @@
             // 
             // PbCarga
             // 
-            this.PbCarga.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.PbCarga.BackColor = System.Drawing.Color.White;
             this.PbCarga.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PbCarga.Image = global::ProyectoOFI.Properties.Resources.loading_12;
+            this.PbCarga.Image = global::ProyectoOFI.Properties.Resources.grey_9026_512;
             this.PbCarga.Location = new System.Drawing.Point(0, 0);
             this.PbCarga.Name = "PbCarga";
             this.PbCarga.Size = new System.Drawing.Size(250, 172);

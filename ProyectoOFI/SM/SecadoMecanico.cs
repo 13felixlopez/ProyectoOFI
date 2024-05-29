@@ -144,13 +144,13 @@ namespace ProyectoOFI.SM
                     GbPreSecado.Visible = true;
                     VerPreSecado();
                 }
-                if (Proceso == "Guardiola" || Estado == "Guardiola")
+                if (Proceso == "Carga Directa SF" && Estado == "Guardiola")
                 {
                     GbPreSecado.Visible = true;
                     gbPOAV.Visible = true;
                     gbVertical.Visible = true;
                     GbGuardiola.Visible = true;
-                    VerPOAV();
+                    //VerPOAV();
                     //VerVertical();
                     VerPreSecado();
                     VerGuardiola();
@@ -218,6 +218,34 @@ namespace ProyectoOFI.SM
                     VerPreSecado();
                     VerGuardiola();
                     VerPS();
+                }
+                if (Proceso == "Analizado" && Estado == "Analizado")
+                {
+                    GbPreSecado.Visible = true;
+                    gbPOAV.Visible = true;
+                    gbVertical.Visible = true;
+                    GbGuardiola.Visible = true;
+                    GbPS.Visible = true;
+                    VerPOAV();
+                    VerVertical();
+                    VerPreSecado();
+                    VerGuardiola();
+                    VerPS();
+                    EnvioSM();
+                }
+                if (Proceso == "Carga Directa SF" && Estado == "Analizado")
+                {
+                    GbPreSecado.Visible = true;
+                    gbPOAV.Visible = true;
+                    gbVertical.Visible = true;
+                    GbGuardiola.Visible = true;
+                    GbPS.Visible = true;
+                    //VerPOAV();
+                    //VerVertical();
+                    VerPreSecado();
+                    VerGuardiola();
+                    VerPS();
+                    EnvioSM();
                 }
             }
             catch (Exception)

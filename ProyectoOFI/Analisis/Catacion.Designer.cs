@@ -505,6 +505,7 @@
             this.BtnAnalisis.TabIndex = 4;
             this.BtnAnalisis.Text = "Analizado";
             this.BtnAnalisis.UseVisualStyleBackColor = true;
+            this.BtnAnalisis.Click += new System.EventHandler(this.BtnAnalisis_Click);
             // 
             // DTPFechaMuestra
             // 

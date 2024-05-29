@@ -101,14 +101,14 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void SeleccionarScore(int score,Label Tasa,Label Calidad)
+        public void SeleccionarScore(int score, Label Tasa, Label Calidad)
         {
             try
             {
                 Conexion.abrir();
                 SqlCommand da = new SqlCommand("SeleccionarScore", Conexion.conectar);
-                da.CommandType= CommandType.StoredProcedure;
-                da.Parameters.AddWithValue("@score",score);
+                da.CommandType = CommandType.StoredProcedure;
+                da.Parameters.AddWithValue("@score", score);
                 SqlDataReader dr = da.ExecuteReader();
                 if (dr.Read())
                 {
@@ -123,7 +123,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Score fuera del rango " + ex.Message, "Error SeleccionarScore", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en cargar datos SeleccionarScore✖️✖️ "+ex.Message);
+                Log.Writeerror("Error en cargar datos SeleccionarScore✖️✖️ " + ex.Message);
             }
             finally
             {
@@ -135,7 +135,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 Conexion.abrir();
-                SqlCommand da = new SqlCommand("InsertarCatacion",Conexion.conectar);
+                SqlCommand da = new SqlCommand("InsertarCatacion", Conexion.conectar);
                 da.CommandType = CommandType.StoredProcedure;
                 da.Parameters.AddWithValue("@Ticket", parametros.Ticket);
                 da.Parameters.AddWithValue("@Origen", parametros.Origen);
@@ -151,6 +151,7 @@ namespace ProyectoOFI.Datos
                 da.Parameters.AddWithValue("@DesmA", parametros.DesmA);
                 da.Parameters.AddWithValue("@DesmC", parametros.DesmC);
                 da.Parameters.AddWithValue("@DesmD", parametros.DesmD);
+                da.Parameters.AddWithValue("@ExpP", parametros.ExpP);
                 da.Parameters.AddWithValue("@DesmAP", parametros.DesmAP);
                 da.Parameters.AddWithValue("@DesmCP", parametros.DesmCP);
                 da.Parameters.AddWithValue("@DesmDP", parametros.DesmDP);
@@ -169,6 +170,26 @@ namespace ProyectoOFI.Datos
                 MessageBox.Show("Error al Insertar los datos " + ex.Message, "Error al Insertar Análisis", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en InsertarCatacion ✖️✖️ " + ex.Message);
                 return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void VerDetalleCata(ref DataTable dt,string Ticket)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("VerDetalleCata", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Ticket",Ticket);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar el detalle de la Ticket " + ex.Message, "Error en Ver Detalle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en VerDetalleCata ✖️✖️ " + ex.Message);
             }
             finally
             {

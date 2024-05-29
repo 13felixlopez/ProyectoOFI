@@ -642,6 +642,8 @@
     <Content Include="Logo.ico" />
     <Content Include="ofi1705.sql" />
     <Content Include="ofi2424.sql" />
+    <None Include="Resources\grey-9026_512.gif" />
+    <None Include="Resources\icons8-cargando.gif" />
     <None Include="Resources\Catacion.jpeg" />
     <None Include="Resources\three-11928.gif" />
     <None Include="Resources\PS2.png" />

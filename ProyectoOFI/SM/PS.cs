@@ -11,6 +11,7 @@ namespace ProyectoOFI.SM
     public partial class PS : UserControl
     {
         int IdPS;
+        string Proceso;
         public PS()
         {
             InitializeComponent();
@@ -389,6 +390,7 @@ namespace ProyectoOFI.SM
 
                 //LblTotalTime.Text = dt.Rows[0]["TiempoTotal"].ToString();
                 txtObservacion.Text = dt.Rows[0]["Observacion"].ToString();
+                Proceso = dt.Rows[0]["ProcesoSF"].ToString();
                 AbrirFormulario();
             }
             catch (Exception)
@@ -405,6 +407,16 @@ namespace ProyectoOFI.SM
                 - PlDatos.Width / 2, TLPPS.Height / 2 - PlDatos.Height / 2);
             PlDatos.BringToFront();
             TLPPS.Enabled = false;
+            if (Proceso == "Analizado")
+            {
+                BtnPS.Enabled = true;
+                LblMsj.Visible = false;
+            }
+            else 
+            {
+                BtnPS.Enabled = false; 
+                LblMsj.Visible = true;
+            }
         }
         #region Botones
         private void BtnPS1_Click(object sender, EventArgs e)

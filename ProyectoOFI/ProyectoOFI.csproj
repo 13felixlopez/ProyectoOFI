@@ -640,8 +640,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Logo.ico" />
-    <Content Include="ofi1705.sql" />
-    <Content Include="ofi2424.sql" />
+    <Content Include="ofi0531.sql" />
     <None Include="Resources\grey-9026_512.gif" />
     <None Include="Resources\icons8-cargando.gif" />
     <None Include="Resources\Catacion.jpeg" />

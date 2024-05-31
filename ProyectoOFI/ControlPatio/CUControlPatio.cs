@@ -276,8 +276,9 @@ namespace ProyectoOFI.ControlPatio
                 PlEnfarde.Enabled = true;
                 VerTendidio();
             }
-            else if (Proceso == "Enfarde" || Proceso == "Analizado")
+            else if (Proceso == "Enfarde" || Proceso == "Analizado" || Estado == "Tendido/Rechazado")
             {
+                LblMsj.Visible = true;
                 //Tendido
                 PlTendido.Enabled = false;
                 PlTendido.Visible = true;
@@ -286,13 +287,19 @@ namespace ProyectoOFI.ControlPatio
                 PlEnfarde.Enabled = false;
                 TSLEnfarde.Enabled = true;
                 TSLEnfarde.Visible = true;
-                LblMsj.Visible = true;
                 if (Proceso == "Analizado")
                 {
                     //Envio
                     PlEnvio.Enabled = true;
                     PlEnvio.Visible = true;
                     LblMsj.Visible = false;
+                }
+                else if(Estado == "Tendido/Rechazado")
+                {
+                    LblMsj.Text = "Rechazado por humedad";
+                    LblMsj.Visible = true;
+                    BtnEnfarde.Text = "Re-Enfarde";
+                    PlEnfarde.Enabled = true;
                 }
                 VerTendidio();
                 VerEnfarde();
@@ -462,6 +469,9 @@ namespace ProyectoOFI.ControlPatio
             PlTendido.Visible = false;
             PlEnfarde.Visible = false;
             PlEnvio.Visible = false;
+            LblMsj.Text = "Falta Análisis de Catación";
+            BtnEnfarde.Text = "Enfarde";
+            LblMsj.Visible = false;
             Limpiar();
         }
         private void ObtenerTK()

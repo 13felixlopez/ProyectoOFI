@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Sig = new System.Windows.Forms.Button();
             this.btn_Primera = new System.Windows.Forms.Button();
             this.btn_Ultima = new System.Windows.Forms.Button();
@@ -69,17 +69,7 @@
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.PlContenedor = new System.Windows.Forms.Panel();
             this.PlControl = new System.Windows.Forms.Panel();
-            this.PlEnvio = new System.Windows.Forms.Panel();
-            this.BtnEnviar = new System.Windows.Forms.Button();
-            this.CbDestino = new System.Windows.Forms.ComboBox();
-            this.CbEstFis = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.LblDigiEnvio = new System.Windows.Forms.Label();
-            this.DTEnvio = new System.Windows.Forms.DateTimePicker();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.TxtDNIN = new System.Windows.Forms.TextBox();
+            this.LblMsj = new System.Windows.Forms.Label();
             this.PlEnfarde = new System.Windows.Forms.Panel();
             this.BtnEnfarde = new System.Windows.Forms.Button();
             this.DTPEnfarde = new System.Windows.Forms.DateTimePicker();
@@ -126,12 +116,22 @@
             this.PlCerrarDetalle = new System.Windows.Forms.Panel();
             this.LblTituloCP = new System.Windows.Forms.Label();
             this.BtnCerrarDetalleCp = new System.Windows.Forms.Button();
+            this.PlEnvio = new System.Windows.Forms.Panel();
+            this.BtnEnviar = new System.Windows.Forms.Button();
+            this.CbDestino = new System.Windows.Forms.ComboBox();
+            this.CbEstFis = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.LblDigiEnvio = new System.Windows.Forms.Label();
+            this.DTEnvio = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.TxtDNIN = new System.Windows.Forms.TextBox();
             this.dtInventariocp = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Consolidar = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.LblMsj = new System.Windows.Forms.Label();
             this.PlCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.plOpciones.SuspendLayout();
@@ -143,12 +143,12 @@
             this.PlCerrar.SuspendLayout();
             this.PlContenedor.SuspendLayout();
             this.PlControl.SuspendLayout();
-            this.PlEnvio.SuspendLayout();
             this.PlEnfarde.SuspendLayout();
             this.PlTendido.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.PlDatos.SuspendLayout();
             this.PlCerrarDetalle.SuspendLayout();
+            this.PlEnvio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).BeginInit();
             this.SuspendLayout();
             // 
@@ -626,113 +626,19 @@
             this.PlControl.TabIndex = 14;
             this.PlControl.Visible = false;
             // 
-            // PlEnvio
+            // LblMsj
             // 
-            this.PlEnvio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.PlEnvio.Controls.Add(this.BtnEnviar);
-            this.PlEnvio.Controls.Add(this.CbDestino);
-            this.PlEnvio.Controls.Add(this.CbEstFis);
-            this.PlEnvio.Controls.Add(this.label15);
-            this.PlEnvio.Controls.Add(this.LblDigiEnvio);
-            this.PlEnvio.Controls.Add(this.DTEnvio);
-            this.PlEnvio.Controls.Add(this.label12);
-            this.PlEnvio.Controls.Add(this.label13);
-            this.PlEnvio.Controls.Add(this.label14);
-            this.PlEnvio.Controls.Add(this.TxtDNIN);
-            this.PlEnvio.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PlEnvio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlEnvio.Location = new System.Drawing.Point(0, 487);
-            this.PlEnvio.Name = "PlEnvio";
-            this.PlEnvio.Size = new System.Drawing.Size(974, 135);
-            this.PlEnvio.TabIndex = 20;
-            this.PlEnvio.Visible = false;
-            // 
-            // BtnEnviar
-            // 
-            this.BtnEnviar.Location = new System.Drawing.Point(814, 15);
-            this.BtnEnviar.Name = "BtnEnviar";
-            this.BtnEnviar.Size = new System.Drawing.Size(142, 40);
-            this.BtnEnviar.TabIndex = 4;
-            this.BtnEnviar.Text = "Enviar";
-            this.BtnEnviar.UseVisualStyleBackColor = true;
-            this.BtnEnviar.Click += new System.EventHandler(this.BtnEnviar_Click);
-            // 
-            // CbDestino
-            // 
-            this.CbDestino.FormattingEnabled = true;
-            this.CbDestino.Location = new System.Drawing.Point(473, 15);
-            this.CbDestino.Name = "CbDestino";
-            this.CbDestino.Size = new System.Drawing.Size(221, 28);
-            this.CbDestino.TabIndex = 3;
-            this.CbDestino.SelectedIndexChanged += new System.EventHandler(this.CbDestino_SelectedIndexChanged);
-            // 
-            // CbEstFis
-            // 
-            this.CbEstFis.FormattingEnabled = true;
-            this.CbEstFis.Location = new System.Drawing.Point(472, 76);
-            this.CbEstFis.Name = "CbEstFis";
-            this.CbEstFis.Size = new System.Drawing.Size(221, 28);
-            this.CbEstFis.TabIndex = 3;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(360, 19);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(76, 20);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Destino:";
-            // 
-            // LblDigiEnvio
-            // 
-            this.LblDigiEnvio.Location = new System.Drawing.Point(734, 59);
-            this.LblDigiEnvio.Name = "LblDigiEnvio";
-            this.LblDigiEnvio.Size = new System.Drawing.Size(228, 62);
-            this.LblDigiEnvio.TabIndex = 0;
-            this.LblDigiEnvio.Text = "--";
-            this.LblDigiEnvio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // DTEnvio
-            // 
-            this.DTEnvio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTEnvio.Location = new System.Drawing.Point(191, 16);
-            this.DTEnvio.Name = "DTEnvio";
-            this.DTEnvio.Size = new System.Drawing.Size(132, 26);
-            this.DTEnvio.TabIndex = 2;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(341, 80);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(123, 20);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Estado Fisico:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(15, 80);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(124, 20);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "DNIN-DNOUT:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(16, 19);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(138, 20);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Fecha de Envio:";
-            // 
-            // TxtDNIN
-            // 
-            this.TxtDNIN.Location = new System.Drawing.Point(147, 77);
-            this.TxtDNIN.Name = "TxtDNIN";
-            this.TxtDNIN.Size = new System.Drawing.Size(186, 26);
-            this.TxtDNIN.TabIndex = 1;
+            this.LblMsj.BackColor = System.Drawing.Color.White;
+            this.LblMsj.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LblMsj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.LblMsj.ForeColor = System.Drawing.Color.Red;
+            this.LblMsj.Location = new System.Drawing.Point(0, 487);
+            this.LblMsj.Name = "LblMsj";
+            this.LblMsj.Size = new System.Drawing.Size(974, 34);
+            this.LblMsj.TabIndex = 5;
+            this.LblMsj.Text = "Falta Análisis de Catación";
+            this.LblMsj.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblMsj.Visible = false;
             // 
             // PlEnfarde
             // 
@@ -1206,46 +1112,154 @@
             this.BtnCerrarDetalleCp.UseVisualStyleBackColor = true;
             this.BtnCerrarDetalleCp.Click += new System.EventHandler(this.BtnCerrarDetalleCp_Click);
             // 
+            // PlEnvio
+            // 
+            this.PlEnvio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.PlEnvio.Controls.Add(this.BtnEnviar);
+            this.PlEnvio.Controls.Add(this.CbDestino);
+            this.PlEnvio.Controls.Add(this.CbEstFis);
+            this.PlEnvio.Controls.Add(this.label15);
+            this.PlEnvio.Controls.Add(this.LblDigiEnvio);
+            this.PlEnvio.Controls.Add(this.DTEnvio);
+            this.PlEnvio.Controls.Add(this.label12);
+            this.PlEnvio.Controls.Add(this.label13);
+            this.PlEnvio.Controls.Add(this.label14);
+            this.PlEnvio.Controls.Add(this.TxtDNIN);
+            this.PlEnvio.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PlEnvio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlEnvio.Location = new System.Drawing.Point(0, 487);
+            this.PlEnvio.Name = "PlEnvio";
+            this.PlEnvio.Size = new System.Drawing.Size(974, 135);
+            this.PlEnvio.TabIndex = 20;
+            this.PlEnvio.Visible = false;
+            // 
+            // BtnEnviar
+            // 
+            this.BtnEnviar.Location = new System.Drawing.Point(814, 15);
+            this.BtnEnviar.Name = "BtnEnviar";
+            this.BtnEnviar.Size = new System.Drawing.Size(142, 40);
+            this.BtnEnviar.TabIndex = 4;
+            this.BtnEnviar.Text = "Enviar";
+            this.BtnEnviar.UseVisualStyleBackColor = true;
+            this.BtnEnviar.Click += new System.EventHandler(this.BtnEnviar_Click);
+            // 
+            // CbDestino
+            // 
+            this.CbDestino.FormattingEnabled = true;
+            this.CbDestino.Location = new System.Drawing.Point(473, 15);
+            this.CbDestino.Name = "CbDestino";
+            this.CbDestino.Size = new System.Drawing.Size(221, 28);
+            this.CbDestino.TabIndex = 3;
+            this.CbDestino.SelectedIndexChanged += new System.EventHandler(this.CbDestino_SelectedIndexChanged);
+            // 
+            // CbEstFis
+            // 
+            this.CbEstFis.FormattingEnabled = true;
+            this.CbEstFis.Location = new System.Drawing.Point(472, 76);
+            this.CbEstFis.Name = "CbEstFis";
+            this.CbEstFis.Size = new System.Drawing.Size(221, 28);
+            this.CbEstFis.TabIndex = 3;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(360, 19);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(76, 20);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Destino:";
+            // 
+            // LblDigiEnvio
+            // 
+            this.LblDigiEnvio.Location = new System.Drawing.Point(734, 59);
+            this.LblDigiEnvio.Name = "LblDigiEnvio";
+            this.LblDigiEnvio.Size = new System.Drawing.Size(228, 62);
+            this.LblDigiEnvio.TabIndex = 0;
+            this.LblDigiEnvio.Text = "--";
+            this.LblDigiEnvio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // DTEnvio
+            // 
+            this.DTEnvio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DTEnvio.Location = new System.Drawing.Point(191, 16);
+            this.DTEnvio.Name = "DTEnvio";
+            this.DTEnvio.Size = new System.Drawing.Size(132, 26);
+            this.DTEnvio.TabIndex = 2;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(341, 80);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(123, 20);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Estado Fisico:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(15, 80);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(124, 20);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "DNIN-DNOUT:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(16, 19);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(138, 20);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Fecha de Envio:";
+            // 
+            // TxtDNIN
+            // 
+            this.TxtDNIN.Location = new System.Drawing.Point(147, 77);
+            this.TxtDNIN.Name = "TxtDNIN";
+            this.TxtDNIN.Size = new System.Drawing.Size(186, 26);
+            this.TxtDNIN.TabIndex = 1;
+            // 
             // dtInventariocp
             // 
             this.dtInventariocp.AllowUserToAddRows = false;
             this.dtInventariocp.AllowUserToDeleteRows = false;
             this.dtInventariocp.AllowUserToOrderColumns = true;
             this.dtInventariocp.AllowUserToResizeRows = false;
-            dataGridViewCellStyle41.NullValue = "--";
-            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle1.NullValue = "--";
+            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtInventariocp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventariocp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventariocp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtInventariocp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventariocp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar,
             this.Consolidar});
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle43.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle43.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle43.NullValue = "--";
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.NullValue = "--";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtInventariocp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventariocp.Location = new System.Drawing.Point(0, 62);
             this.dtInventariocp.Name = "dtInventariocp";
             this.dtInventariocp.ReadOnly = true;
             this.dtInventariocp.RowHeadersVisible = false;
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtInventariocp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventariocp.ShowCellToolTips = false;
             this.dtInventariocp.ShowEditingIcon = false;
@@ -1295,19 +1309,6 @@
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
             // 
-            // LblMsj
-            // 
-            this.LblMsj.BackColor = System.Drawing.Color.White;
-            this.LblMsj.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LblMsj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.LblMsj.ForeColor = System.Drawing.Color.Red;
-            this.LblMsj.Location = new System.Drawing.Point(0, 487);
-            this.LblMsj.Name = "LblMsj";
-            this.LblMsj.Size = new System.Drawing.Size(974, 34);
-            this.LblMsj.TabIndex = 5;
-            this.LblMsj.Text = "Falta Análisis de Catación";
-            this.LblMsj.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // CUControlPatio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1330,8 +1331,6 @@
             this.PlContenedor.ResumeLayout(false);
             this.PlControl.ResumeLayout(false);
             this.PlControl.PerformLayout();
-            this.PlEnvio.ResumeLayout(false);
-            this.PlEnvio.PerformLayout();
             this.PlEnfarde.ResumeLayout(false);
             this.PlEnfarde.PerformLayout();
             this.PlTendido.ResumeLayout(false);
@@ -1341,6 +1340,8 @@
             this.PlDatos.ResumeLayout(false);
             this.PlDatos.PerformLayout();
             this.PlCerrarDetalle.ResumeLayout(false);
+            this.PlEnvio.ResumeLayout(false);
+            this.PlEnvio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).EndInit();
             this.ResumeLayout(false);
 

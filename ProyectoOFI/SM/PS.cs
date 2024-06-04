@@ -274,16 +274,41 @@ namespace ProyectoOFI.SM
             PlDatos.Visible = false;
             GbEnvio.Visible = false;
             TLPPS.Enabled = true;
+            BtnPS.Text = "Realizar Envio";
         }
         private void BtnPS_Click(object sender, EventArgs e)
         {
-            GbEnvio.Visible = true;
-            DSM funcion = new DSM();
-            funcion.MostrarOperador(CbOperadoresEn);
-            funcion.MostrarTurno(CbTurnoEn);
-            DPS dPS = new DPS();
-            dPS.MostrarAreaSecado(CbDestino);
-            dPS.MostrarEstFis(CbEstFis);
+            if (BtnPS.Text == "Enviar a Tolvas Finales")
+            {
+                InsertarTF();
+            }
+            else
+            {
+                GbEnvio.Visible = true;
+                DSM funcion = new DSM();
+                funcion.MostrarOperador(CbOperadoresEn);
+                funcion.MostrarTurno(CbTurnoEn);
+                DPS dPS = new DPS();
+                dPS.MostrarAreaSecado(CbDestino);
+                dPS.MostrarEstFis(CbEstFis);
+            }
+        }
+
+        private void InsertarTF()
+        {
+            DPS funcion = new DPS();
+            if (funcion.InsertarTF(LblTicket.Text) == true)
+            {
+                MessageBox.Show("Envio realizado con éxito", "Envio a Tolvas Finales", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                PlDatos.Visible = false;
+                MostrarTicketsEnLabels();
+                Estilo();
+                TLPPS.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un error","Error en Interfaz TF",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         private void CargarPS(Label lblG)
         {
@@ -411,11 +436,20 @@ namespace ProyectoOFI.SM
             {
                 BtnPS.Enabled = true;
                 LblMsj.Visible = false;
+                BtnPS.Text = "Realizar Envio";
             }
-            else 
+            else if (Proceso == "TF/Rechazado")
             {
-                BtnPS.Enabled = false; 
+                BtnPS.Text = "Enviar a Tolvas Finales";
+                BtnPS.Enabled = true;
+                LblMsj.Text = "Rechazado por humedad";
                 LblMsj.Visible = true;
+            }
+            else
+            {
+                BtnPS.Enabled = false;
+                LblMsj.Visible = true;
+                BtnPS.Text = "Realizar Envio";
             }
         }
         #region Botones
@@ -657,6 +691,7 @@ namespace ProyectoOFI.SM
                     MessageBox.Show("Envio realizado con éxito", "Envio a almacén", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     MostrarTicketsEnLabels();
                     Estilo();
+                    TLPPS.Enabled = true;
                 }
             }
             catch (Exception ex)

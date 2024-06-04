@@ -81,5 +81,14 @@ namespace ProyectoOFI.SM
             pS.BringToFront();
             PlSM.Controls.Add(pS);
         }
+
+        private void BtnTF_Click(object sender, EventArgs e)
+        {
+            TolvasFinales TF = new TolvasFinales();
+            PlSM.Controls.Clear();
+            TF.Dock = DockStyle.Fill;
+            TF.BringToFront();
+            PlSM.Controls.Add(TF);
+        }
     }
 }

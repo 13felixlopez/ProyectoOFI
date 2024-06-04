@@ -331,6 +331,12 @@
     <Compile Include="SM\SMecánico.Designer.cs">
       <DependentUpon>SMecánico.cs</DependentUpon>
     </Compile>
+    <Compile Include="SM\TolvasFinales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SM\TolvasFinales.Designer.cs">
+      <DependentUpon>TolvasFinales.cs</DependentUpon>
+    </Compile>
     <Compile Include="SM\TolvasVerticales.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -464,6 +470,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SM\SMecánico.resx">
       <DependentUpon>SMecánico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\TolvasFinales.resx">
+      <DependentUpon>TolvasFinales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SM\TolvasVerticales.resx">
       <DependentUpon>TolvasVerticales.cs</DependentUpon>
@@ -641,6 +650,7 @@
   <ItemGroup>
     <Content Include="Logo.ico" />
     <Content Include="ofi0531.sql" />
+    <None Include="Resources\TF.png" />
     <None Include="Resources\grey-9026_512.gif" />
     <None Include="Resources\icons8-cargando.gif" />
     <None Include="Resources\Catacion.jpeg" />

@@ -1,11 +1,9 @@
 ﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
-using ProyectoOFI.Recepcion;
 using System;
 using System.Data;
 using System.Drawing;
-using System.Security.Cryptography.Pkcs;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,7 +22,8 @@ namespace ProyectoOFI.ControlPatio
         DateTime Frecibido;
         string Proceso;
         int IdTendido, IdEnfarde, IdEnvio;
-        int dias;
+        int dias, Rechazos;
+        int diasEdit;
         public CUControlPatio()
         {
             InitializeComponent();
@@ -294,7 +293,7 @@ namespace ProyectoOFI.ControlPatio
                     PlEnvio.Visible = true;
                     LblMsj.Visible = false;
                 }
-                else if(Estado == "Tendido/Rechazado")
+                else if (Estado == "Tendido/Rechazado")
                 {
                     LblMsj.Text = "Rechazado por humedad";
                     LblMsj.Visible = true;
@@ -496,6 +495,7 @@ namespace ProyectoOFI.ControlPatio
                 parametros.IdPatio = int.Parse(CbPatio.SelectedValue.ToString());
                 parametros.IdUbicacionP = int.Parse(CbUbicacionP.SelectedValue.ToString());
                 parametros.Digitador = Login.NombreA;
+                parametros.Rechazos = 0;
                 if (funcion.InsertarTendido(parametros) == true)
                 {
                     MessageBox.Show("Tendido realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -690,6 +690,7 @@ namespace ProyectoOFI.ControlPatio
                     if (row["Días Secado"].ToString() != null)
                     {
                         LblDiasSecado.Text = row["Días Secado"].ToString();
+                        diasEdit = int.Parse(LblDiasSecado.Text);
                     }
                     else
                     {
@@ -737,6 +738,7 @@ namespace ProyectoOFI.ControlPatio
                     }
                     IdEnfarde = int.Parse(row["IdEnfarde"].ToString());
                     TSLEnfarde.Visible = true;
+                    Rechazos = int.Parse(row["Rechazos"].ToString());
                 }
                 else
                 {
@@ -781,18 +783,41 @@ namespace ProyectoOFI.ControlPatio
                     DControlPatio funcion = new DControlPatio();
                     parametros.IdEnfarde = IdEnfarde;
                     parametros.IdTendido = IdTendido;
-                    parametros.DiasSecado = int.Parse(LblDiasSecado.Text);
                     parametros.FEnfarde = DateTime.Parse(DTPEnfarde.Value.ToString());
                     parametros.HumedadL = double.Parse(TxtHumedadLevante.Text.ToString());
                     parametros.Sacos = int.Parse(TxtSacosEnfardados.Text.ToString());
                     parametros.Digitador = Login.NombreA;
-                    editenf = editenf + 1;
-                    if (funcion.EditarEnfarde(parametros, editenf) == true)
+                    if (BtnEnfarde.Text == "Actualizar")
                     {
-                        MessageBox.Show("Edición de Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        MostrarLotes();
-                        Limpiar();
-                        PlControl.Visible = false;
+                        parametros.Rechazos = Rechazos;
+                        parametros.DiasSecado = int.Parse(LblDiasSecado.Text);
+                        editenf = editenf + 1;
+                        if (funcion.EditarEnfarde(parametros, editenf) == true)
+                        {
+                            MessageBox.Show("Edición de Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MostrarLotes();
+                            Limpiar();
+                            PlControl.Visible = false;
+                        }
+                    }
+                    else if (BtnEnfarde.Text == "Re-Enfarde")
+                    {
+                        parametros.Rechazos = Rechazos + 1;
+                        if (diasEdit >= dias)
+                        {
+                            MessageBox.Show("El Re-Enfarde es erroneo por la cantidad de dias", "Error en dias Re-Enfarde", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            parametros.DiasSecado = int.Parse(LblDiasSecado.Text);
+                            if (funcion.EditarEnfarde(parametros, editenf) == true)
+                            {
+                                MessageBox.Show("Edición de Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                MostrarLotes();
+                                Limpiar();
+                                PlControl.Visible = false;
+                            }
+                        }
                     }
                 }
                 else
@@ -801,6 +826,8 @@ namespace ProyectoOFI.ControlPatio
                 }
             }
         }
+
+
         private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
         {
             //if (CbBuscar.Text == "Ticket")

@@ -22,5 +22,6 @@ namespace ProyectoOFI.Logica
         public int IdEstFis { get; set; }
         public int IdAreaSecado { get; set; }
         public string ProcesoCP { get; set; }
+        public int Rechazos { get; set; }
     }
 }

@@ -62,6 +62,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@IdPatio", parametros.IdPatio);
                 cmd.Parameters.AddWithValue("@IdUbicacionP", parametros.IdUbicacionP);
                 cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+                cmd.Parameters.AddWithValue("@Rechazo", parametros.Rechazos);
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -311,6 +312,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@SacosEnf", parametros.Sacos);
                 cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
                 cmd.Parameters.AddWithValue("@Edit", edit);
+                cmd.Parameters.AddWithValue("@Rechazos", parametros.Rechazos);
                 cmd.ExecuteNonQuery();
                 return true;
             }

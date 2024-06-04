@@ -59,6 +59,7 @@ namespace ProyectoOFI.Analisis
             MostrarLotes();
             ReiniciarPaginado();
             await Task.Delay(1000);
+            dtInventarioCat.Columns["Proceso"].Visible = false;
         }
         #region Paginado
         private void ReiniciarPaginado()
@@ -684,6 +685,7 @@ namespace ProyectoOFI.Analisis
             }
             MostrarLotes();
             dtInventarioCat.Enabled = true;
+            plOpciones.Enabled = true;
         }
         //Prueba Placeholders
         private void SetPlaceholder(TextBox textBox, string placeholderText)

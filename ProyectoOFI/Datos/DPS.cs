@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoOFI.Logica;
+using DocumentFormat.OpenXml.Spreadsheet;
 
 namespace ProyectoOFI.Datos
 {
@@ -173,6 +174,68 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en MostrarEstFis ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool InsertarTF(string TK)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("InsertarTF", Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+                da.Parameters.AddWithValue("Ticket", TK);
+                da.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo Enviar a Tolvas Finales" + ex.Message, "ERROR TF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en InsertarTF ✖️✖️ " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarTF(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("MostrarTF", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos en MostrarTF " + ex.Message, "Error MostrarTF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en cargar datos en MostrarTF ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void DetalleTF(string TK, ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("DetalleTF", Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+                da.Parameters.AddWithValue("@Ticket", TK);
+                SqlDataAdapter cb = new SqlDataAdapter(da);
+                cb.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en cargar los datos de Ticket " + ex.Message, "Error Detalle TF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en mostrar los datos en DetalleTF ✖️✖️ " + ex.Message);
             }
             finally
             {

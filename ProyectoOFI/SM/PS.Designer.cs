@@ -66,6 +66,7 @@
             this.LblPS1 = new System.Windows.Forms.Label();
             this.BtnPS1 = new System.Windows.Forms.Button();
             this.PlDatos = new System.Windows.Forms.Panel();
+            this.LblMsj = new System.Windows.Forms.Label();
             this.GbEnvio = new System.Windows.Forms.GroupBox();
             this.CbDestino = new System.Windows.Forms.ComboBox();
             this.CbEstFis = new System.Windows.Forms.ComboBox();
@@ -124,7 +125,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.BtnCerrarPlDatos = new System.Windows.Forms.Button();
-            this.LblMsj = new System.Windows.Forms.Label();
             this.TLPPS.SuspendLayout();
             this.PlDatos.SuspendLayout();
             this.GbEnvio.SuspendLayout();
@@ -679,12 +679,25 @@
             this.PlDatos.Controls.Add(this.GbPS);
             this.PlDatos.Controls.Add(this.gbDatos);
             this.PlDatos.Controls.Add(this.panel2);
-            this.PlDatos.Location = new System.Drawing.Point(92, 34);
+            this.PlDatos.Location = new System.Drawing.Point(7, 0);
             this.PlDatos.MaximumSize = new System.Drawing.Size(1398, 619);
             this.PlDatos.Name = "PlDatos";
             this.PlDatos.Size = new System.Drawing.Size(1398, 619);
             this.PlDatos.TabIndex = 5;
             this.PlDatos.Visible = false;
+            // 
+            // LblMsj
+            // 
+            this.LblMsj.BackColor = System.Drawing.Color.White;
+            this.LblMsj.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LblMsj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.LblMsj.ForeColor = System.Drawing.Color.Red;
+            this.LblMsj.Location = new System.Drawing.Point(0, 590);
+            this.LblMsj.Name = "LblMsj";
+            this.LblMsj.Size = new System.Drawing.Size(1398, 34);
+            this.LblMsj.TabIndex = 16;
+            this.LblMsj.Text = "Falta Análisis de Catación";
+            this.LblMsj.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // GbEnvio
             // 
@@ -1269,19 +1282,6 @@
             this.BtnCerrarPlDatos.TabIndex = 11;
             this.BtnCerrarPlDatos.UseVisualStyleBackColor = true;
             this.BtnCerrarPlDatos.Click += new System.EventHandler(this.BtnCerrarPlDatos_Click);
-            // 
-            // LblMsj
-            // 
-            this.LblMsj.BackColor = System.Drawing.Color.White;
-            this.LblMsj.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LblMsj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.LblMsj.ForeColor = System.Drawing.Color.Red;
-            this.LblMsj.Location = new System.Drawing.Point(0, 590);
-            this.LblMsj.Name = "LblMsj";
-            this.LblMsj.Size = new System.Drawing.Size(1398, 34);
-            this.LblMsj.TabIndex = 16;
-            this.LblMsj.Text = "Falta Análisis de Catación";
-            this.LblMsj.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // PS
             // 

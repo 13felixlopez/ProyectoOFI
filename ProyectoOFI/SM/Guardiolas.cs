@@ -326,28 +326,27 @@ namespace ProyectoOFI.SM
                         int horas = match.Groups[2].Value != "" ? int.Parse(match.Groups[2].Value) : 0;
                         int minutos = match.Groups[3].Value != "" ? int.Parse(match.Groups[3].Value) : 0;
 
-                        // Calcular el total de horas
-                        int totalHoras = (dias * 24) + horas;
+                        // Calcular el total de minutos
+                        int totalMinutos = (dias * 24 * 60) + (horas * 60) + minutos;
+
+                        // Crear un TimeSpan a partir del total de minutos
+                        final = TimeSpan.FromMinutes(totalMinutos);
 
                         // Formatear el resultado en "HH:mm"
-                        resultado = $"{totalHoras:D2}:{minutos:D2}";
-                        final = TimeSpan.Parse(resultado);
+                        resultado = $"{final.Days * 24 + final.Hours:D2}:{final.Minutes:D2}";
+
                         // Mostrar el resultado en una etiqueta
                         LblTotalTime.Text = resultado;
                         PreSecado = final;
+                        AbrirFormulario();
                     }
                     else
                     {
                         LblTotalTime.Text = "--";
                     }
                 }
-                else
-                {
-                    LblTotalTime.Text = "--";
-                }
-
-                AbrirFormulario();
             }
+
             catch (Exception)
             {
 

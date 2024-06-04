@@ -431,6 +431,12 @@ namespace ProyectoOFI.SM
             LblEFisicoV.Text = "--";
             cbOperadorPOA.Text = "";
             txtHumedadPOA.Clear();
+            TxtGuariola.Clear();
+            DtPFDes1.Value = DateTime.Today;
+            DtHInicio1.Value = DateTime.Today;
+            DtHoraFin1.Value = DateTime.Today;
+            LblDuracionG.Text = "--";
+            TxtHumedad.Clear();
         }
 
         private void btnP2_Click(object sender, EventArgs e)
@@ -777,6 +783,9 @@ namespace ProyectoOFI.SM
                 MostrarPOALabels();
                 Estilo();
                 Refresh();
+                PlDatos.Visible = false;
+                TLPPOA.Enabled = true;
+                GbDescarga.Visible = false;
             }
             else
             {

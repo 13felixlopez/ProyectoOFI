@@ -32,6 +32,7 @@
             this.plTitulo = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.plfooterSm = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -40,7 +41,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.PlSM = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.BtnTF = new System.Windows.Forms.Button();
             this.BtnPS = new System.Windows.Forms.Button();
             this.BtnGuardiola = new System.Windows.Forms.Button();
             this.BtnPOA = new System.Windows.Forms.Button();
@@ -80,6 +82,8 @@
             // plfooterSm
             // 
             this.plfooterSm.BackColor = System.Drawing.Color.DarkOrange;
+            this.plfooterSm.Controls.Add(this.BtnTF);
+            this.plfooterSm.Controls.Add(this.panel6);
             this.plfooterSm.Controls.Add(this.BtnPS);
             this.plfooterSm.Controls.Add(this.panel5);
             this.plfooterSm.Controls.Add(this.BtnGuardiola);
@@ -100,6 +104,16 @@
             this.plfooterSm.Name = "plfooterSm";
             this.plfooterSm.Size = new System.Drawing.Size(1742, 77);
             this.plfooterSm.TabIndex = 4;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.DarkOrange;
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel5.Location = new System.Drawing.Point(863, 5);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(8, 62);
+            this.panel5.TabIndex = 23;
             // 
             // panel3
             // 
@@ -180,15 +194,35 @@
             this.PlSM.Size = new System.Drawing.Size(1742, 678);
             this.PlSM.TabIndex = 5;
             // 
-            // panel5
+            // panel6
             // 
-            this.panel5.BackColor = System.Drawing.Color.DarkOrange;
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel5.Location = new System.Drawing.Point(863, 5);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(8, 62);
-            this.panel5.TabIndex = 23;
+            this.panel6.BackColor = System.Drawing.Color.DarkOrange;
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel6.Location = new System.Drawing.Point(1041, 5);
+            this.panel6.Margin = new System.Windows.Forms.Padding(2);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(8, 62);
+            this.panel6.TabIndex = 25;
+            // 
+            // BtnTF
+            // 
+            this.BtnTF.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.BtnTF.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTF.Dock = System.Windows.Forms.DockStyle.Left;
+            this.BtnTF.FlatAppearance.BorderSize = 0;
+            this.BtnTF.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnTF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTF.Image = global::ProyectoOFI.Properties.Resources.PS_Btn;
+            this.BtnTF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTF.Location = new System.Drawing.Point(1049, 5);
+            this.BtnTF.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnTF.Name = "BtnTF";
+            this.BtnTF.Size = new System.Drawing.Size(170, 62);
+            this.BtnTF.TabIndex = 26;
+            this.BtnTF.Text = "Tolvas Finales";
+            this.BtnTF.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnTF.UseVisualStyleBackColor = false;
+            this.BtnTF.Click += new System.EventHandler(this.BtnTF_Click);
             // 
             // BtnPS
             // 
@@ -378,5 +412,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button BtnPS;
         private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Button BtnTF;
+        private System.Windows.Forms.Panel panel6;
     }
 }

@@ -180,7 +180,7 @@ namespace ProyectoOFI.SM
                     VerPS();
                     EnvioSM();
                 }
-                if (Proceso == "PS" || Estado == "PS")
+                if (Proceso == "PS" || Estado == "PS" || Estado== "TF/Rechazado")
                 {
                     GbPreSecado.Visible = true;
                     gbPOAV.Visible = true;

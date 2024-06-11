@@ -984,33 +984,34 @@ namespace ProyectoOFI.Recepcion
         {
             DataTable dt = new DataTable();
             DRecepcion funcion = new DRecepcion();
-            funcion.BuscarTK(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //funcion.BuscarTK(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            funcion.BuscarTK2(txtBuscador.Text, CbBuscar.Text,ref dt,desde,hasta,ContarBusqueda);
             dtInventario.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventario);
         }
         private void txtBuscador_TextChanged(object sender, EventArgs e)
         {
-            if (txtBuscador.Text == "")
-            {
-                ReiniciarPaginado();
-                MostrarLotes();
-            }
-            else if (CbBuscar.Text == "MTNT")
-            {
-                BuscarDatos();
-                ReiniciarPaginado();
-            }
-            else if (CbBuscar.Text == "Peso")
-            {
-                BuscarDatos();
-                ReiniciarPaginado();
-            }
-            else
-            {
-                BuscarTK();
-                ReiniciarPaginado();
-            }
+            //if (txtBuscador.Text == "")
+            //{
+            //    ReiniciarPaginado();
+            //    MostrarLotes();
+            //}
+            //else if (CbBuscar.Text == "MTNT")
+            //{
+            //    BuscarDatos();
+            //    ReiniciarPaginado();
+            //}
+            //else if (CbBuscar.Text == "Peso")
+            //{
+            //    BuscarDatos();
+            //    ReiniciarPaginado();
+            //}
+            //else
+            //{
+            BuscarTK();
+            ReiniciarPaginado();
+            //}
         }
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
@@ -1421,41 +1422,48 @@ namespace ProyectoOFI.Recepcion
         {
             DataTable dt = new DataTable();
             DRecepcion funcion = new DRecepcion();
-            if (CbBuscar.Text == "Ticket")
-            {
-                funcion.BuscarTK(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            }
-            if (CbBuscar.Text == "Calidad")
-            {
-                funcion.BuscarCalidad(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            }
-            if (CbBuscar.Text == "Certificación")
-            {
-                funcion.BuscarCert(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            }
-            if (CbBuscar.Text == "Daño")
-            {
-                funcion.BuscarDanio(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            }
-            if (CbBuscar.Text == "Tipo Compra")
-            {
-                funcion.BuscarTipoCompra(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            }
-            if (CbBuscar.Text == "MTNT")
-            {
-                funcion.BuscarMTNT(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            }
-            if (CbBuscar.Text == "Peso")
-            {
-                funcion.BuscarPeso(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            }
-            if (CbBuscar.Text == "Área Secado")
-            {
-                funcion.BuscarAreaSecado(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            }
+            //funcion.BuscarTK(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            funcion.BuscarTK2(CbBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
             dtInventario.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventario);
+            //DataTable dt = new DataTable();
+            //DRecepcion funcion = new DRecepcion();
+            //if (CbBuscar.Text == "Ticket")
+            //{
+            //    funcion.BuscarTK(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Calidad")
+            //{
+            //    funcion.BuscarCalidad(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Certificación")
+            //{
+            //    funcion.BuscarCert(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Daño")
+            //{
+            //    funcion.BuscarDanio(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Tipo Compra")
+            //{
+            //    funcion.BuscarTipoCompra(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "MTNT")
+            //{
+            //    funcion.BuscarMTNT(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Peso")
+            //{
+            //    funcion.BuscarPeso(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Área Secado")
+            //{
+            //    funcion.BuscarAreaSecado(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //dtInventario.DataSource = dt;
+            //ContarBusqueda = int.Parse(funcion.contador.ToString());
+            //Base.DiseñoDtvEliminar(ref dtInventario);
         }
         private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
         {

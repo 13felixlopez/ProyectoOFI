@@ -36,17 +36,19 @@ namespace ProyectoOFI
             this.PbPerfil = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.plfooter = new System.Windows.Forms.Panel();
-            this.BtnAnalisis = new System.Windows.Forms.Button();
+            this.BtnCatalogo = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.BtnHistorial = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.BtnReTK = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.BtnHistorial = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.BtnCerrarSesion = new System.Windows.Forms.Button();
             this.BtnUser = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.BtnAlmacen = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.BtnAnalisis = new System.Windows.Forms.Button();
+            this.BtnCerrarSesion = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.BtnCatalogo = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.BtnSM = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCPatio = new System.Windows.Forms.Button();
@@ -129,17 +131,19 @@ namespace ProyectoOFI
             // plfooter
             // 
             this.plfooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
+            this.plfooter.Controls.Add(this.BtnCatalogo);
+            this.plfooter.Controls.Add(this.panel2);
             this.plfooter.Controls.Add(this.BtnHistorial);
             this.plfooter.Controls.Add(this.panel7);
             this.plfooter.Controls.Add(this.BtnReTK);
             this.plfooter.Controls.Add(this.panel6);
             this.plfooter.Controls.Add(this.BtnUser);
             this.plfooter.Controls.Add(this.panel5);
+            this.plfooter.Controls.Add(this.BtnAlmacen);
+            this.plfooter.Controls.Add(this.panel10);
             this.plfooter.Controls.Add(this.BtnAnalisis);
             this.plfooter.Controls.Add(this.BtnCerrarSesion);
             this.plfooter.Controls.Add(this.panel3);
-            this.plfooter.Controls.Add(this.BtnCatalogo);
-            this.plfooter.Controls.Add(this.panel2);
             this.plfooter.Controls.Add(this.BtnSM);
             this.plfooter.Controls.Add(this.panel1);
             this.plfooter.Controls.Add(this.BtnCPatio);
@@ -152,28 +156,57 @@ namespace ProyectoOFI
             this.plfooter.Dock = System.Windows.Forms.DockStyle.Left;
             this.plfooter.Location = new System.Drawing.Point(0, 74);
             this.plfooter.Name = "plfooter";
-            this.plfooter.Size = new System.Drawing.Size(191, 884);
+            this.plfooter.Size = new System.Drawing.Size(191, 919);
             this.plfooter.TabIndex = 3;
             // 
-            // BtnAnalisis
+            // BtnCatalogo
             // 
-            this.BtnAnalisis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
-            this.BtnAnalisis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnAnalisis.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnAnalisis.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnAnalisis.FlatAppearance.BorderSize = 0;
-            this.BtnAnalisis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnAnalisis.Image = ((System.Drawing.Image)(resources.GetObject("BtnAnalisis.Image")));
-            this.BtnAnalisis.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnAnalisis.Location = new System.Drawing.Point(11, 401);
-            this.BtnAnalisis.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnAnalisis.Name = "BtnAnalisis";
-            this.BtnAnalisis.Size = new System.Drawing.Size(180, 66);
-            this.BtnAnalisis.TabIndex = 29;
-            this.BtnAnalisis.Text = "Análisis";
-            this.BtnAnalisis.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnAnalisis.UseVisualStyleBackColor = false;
-            this.BtnAnalisis.Click += new System.EventHandler(this.BtnAnalisis_Click);
+            this.BtnCatalogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.BtnCatalogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCatalogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnCatalogo.FlatAppearance.BorderSize = 0;
+            this.BtnCatalogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCatalogo.Image = global::ProyectoOFI.Properties.Resources.icons8_magazine_50;
+            this.BtnCatalogo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCatalogo.Location = new System.Drawing.Point(11, 705);
+            this.BtnCatalogo.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnCatalogo.Name = "BtnCatalogo";
+            this.BtnCatalogo.Size = new System.Drawing.Size(180, 66);
+            this.BtnCatalogo.TabIndex = 20;
+            this.BtnCatalogo.Text = "Catálogo";
+            this.BtnCatalogo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCatalogo.UseVisualStyleBackColor = false;
+            this.BtnCatalogo.Visible = false;
+            this.BtnCatalogo.Click += new System.EventHandler(this.BtnCatalogo_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(11, 695);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(180, 10);
+            this.panel2.TabIndex = 19;
+            // 
+            // BtnHistorial
+            // 
+            this.BtnHistorial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.BtnHistorial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnHistorial.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnHistorial.FlatAppearance.BorderSize = 0;
+            this.BtnHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnHistorial.Image = global::ProyectoOFI.Properties.Resources.icons8_historial_médico;
+            this.BtnHistorial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnHistorial.Location = new System.Drawing.Point(11, 629);
+            this.BtnHistorial.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnHistorial.Name = "BtnHistorial";
+            this.BtnHistorial.Size = new System.Drawing.Size(180, 66);
+            this.BtnHistorial.TabIndex = 25;
+            this.BtnHistorial.Text = "Historial";
+            this.BtnHistorial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnHistorial.UseVisualStyleBackColor = false;
+            this.BtnHistorial.Click += new System.EventHandler(this.BtnHistorial_Click);
             // 
             // panel7
             // 
@@ -214,46 +247,6 @@ namespace ProyectoOFI
             this.panel6.Size = new System.Drawing.Size(180, 10);
             this.panel6.TabIndex = 26;
             // 
-            // BtnHistorial
-            // 
-            this.BtnHistorial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
-            this.BtnHistorial.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnHistorial.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnHistorial.FlatAppearance.BorderSize = 0;
-            this.BtnHistorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnHistorial.Image = global::ProyectoOFI.Properties.Resources.icons8_historial_médico;
-            this.BtnHistorial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnHistorial.Location = new System.Drawing.Point(11, 629);
-            this.BtnHistorial.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnHistorial.Name = "BtnHistorial";
-            this.BtnHistorial.Size = new System.Drawing.Size(180, 66);
-            this.BtnHistorial.TabIndex = 25;
-            this.BtnHistorial.Text = "Historial";
-            this.BtnHistorial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnHistorial.UseVisualStyleBackColor = false;
-            this.BtnHistorial.Click += new System.EventHandler(this.BtnHistorial_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(11, 467);
-            this.panel5.Margin = new System.Windows.Forms.Padding(2);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(180, 10);
-            this.panel5.TabIndex = 24;
-            // 
-            // BtnCerrarSesion
-            // 
-            this.BtnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BtnCerrarSesion.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_sesión;
-            this.BtnCerrarSesion.Location = new System.Drawing.Point(11, 752);
-            this.BtnCerrarSesion.Name = "BtnCerrarSesion";
-            this.BtnCerrarSesion.Size = new System.Drawing.Size(180, 66);
-            this.BtnCerrarSesion.TabIndex = 23;
-            this.BtnCerrarSesion.UseVisualStyleBackColor = true;
-            this.BtnCerrarSesion.Click += new System.EventHandler(this.BtnCerrarSesion_Click);
-            // 
             // BtnUser
             // 
             this.BtnUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
@@ -274,45 +267,86 @@ namespace ProyectoOFI
             this.BtnUser.Visible = false;
             this.BtnUser.Click += new System.EventHandler(this.BtnUser_Click);
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(11, 467);
+            this.panel5.Margin = new System.Windows.Forms.Padding(2);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(180, 10);
+            this.panel5.TabIndex = 24;
+            // 
+            // BtnAlmacen
+            // 
+            this.BtnAlmacen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.BtnAlmacen.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAlmacen.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnAlmacen.FlatAppearance.BorderSize = 0;
+            this.BtnAlmacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAlmacen.Image = global::ProyectoOFI.Properties.Resources.icons8_almacén;
+            this.BtnAlmacen.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnAlmacen.Location = new System.Drawing.Point(11, 401);
+            this.BtnAlmacen.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnAlmacen.Name = "BtnAlmacen";
+            this.BtnAlmacen.Size = new System.Drawing.Size(180, 66);
+            this.BtnAlmacen.TabIndex = 31;
+            this.BtnAlmacen.Text = "Almacén";
+            this.BtnAlmacen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnAlmacen.UseVisualStyleBackColor = false;
+            this.BtnAlmacen.Click += new System.EventHandler(this.BtnAlmacen_Click);
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(11, 391);
+            this.panel10.Margin = new System.Windows.Forms.Padding(2);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(180, 10);
+            this.panel10.TabIndex = 30;
+            // 
+            // BtnAnalisis
+            // 
+            this.BtnAnalisis.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.BtnAnalisis.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnAnalisis.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAnalisis.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnAnalisis.FlatAppearance.BorderSize = 0;
+            this.BtnAnalisis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAnalisis.Image = ((System.Drawing.Image)(resources.GetObject("BtnAnalisis.Image")));
+            this.BtnAnalisis.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnAnalisis.Location = new System.Drawing.Point(11, 325);
+            this.BtnAnalisis.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnAnalisis.Name = "BtnAnalisis";
+            this.BtnAnalisis.Size = new System.Drawing.Size(180, 66);
+            this.BtnAnalisis.TabIndex = 29;
+            this.BtnAnalisis.Text = "Análisis";
+            this.BtnAnalisis.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnAnalisis.UseVisualStyleBackColor = false;
+            this.BtnAnalisis.Click += new System.EventHandler(this.BtnAnalisis_Click);
+            // 
+            // BtnCerrarSesion
+            // 
+            this.BtnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
+            this.BtnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BtnCerrarSesion.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_sesión;
+            this.BtnCerrarSesion.Location = new System.Drawing.Point(11, 787);
+            this.BtnCerrarSesion.Name = "BtnCerrarSesion";
+            this.BtnCerrarSesion.Size = new System.Drawing.Size(180, 66);
+            this.BtnCerrarSesion.TabIndex = 23;
+            this.BtnCerrarSesion.UseVisualStyleBackColor = false;
+            this.BtnCerrarSesion.Click += new System.EventHandler(this.BtnCerrarSesion_Click);
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(11, 391);
+            this.panel3.Location = new System.Drawing.Point(11, 315);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(180, 10);
             this.panel3.TabIndex = 21;
-            // 
-            // BtnCatalogo
-            // 
-            this.BtnCatalogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
-            this.BtnCatalogo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCatalogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnCatalogo.FlatAppearance.BorderSize = 0;
-            this.BtnCatalogo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCatalogo.Image = global::ProyectoOFI.Properties.Resources.icons8_magazine_50;
-            this.BtnCatalogo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCatalogo.Location = new System.Drawing.Point(11, 325);
-            this.BtnCatalogo.Margin = new System.Windows.Forms.Padding(2);
-            this.BtnCatalogo.Name = "BtnCatalogo";
-            this.BtnCatalogo.Size = new System.Drawing.Size(180, 66);
-            this.BtnCatalogo.TabIndex = 20;
-            this.BtnCatalogo.Text = "Catálogo";
-            this.BtnCatalogo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnCatalogo.UseVisualStyleBackColor = false;
-            this.BtnCatalogo.Visible = false;
-            this.BtnCatalogo.Click += new System.EventHandler(this.BtnCatalogo_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(11, 315);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(180, 10);
-            this.panel2.TabIndex = 19;
             // 
             // BtnSM
             // 
@@ -366,13 +400,14 @@ namespace ProyectoOFI
             // 
             // btnSalir
             // 
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.btnSalir.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnSalir.Image = global::ProyectoOFI.Properties.Resources.Atras;
-            this.btnSalir.Location = new System.Drawing.Point(11, 818);
+            this.btnSalir.Location = new System.Drawing.Point(11, 853);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(180, 66);
             this.btnSalir.TabIndex = 1;
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // panel9
@@ -445,7 +480,7 @@ namespace ProyectoOFI
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(2);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(11, 884);
+            this.panel11.Size = new System.Drawing.Size(11, 919);
             this.panel11.TabIndex = 14;
             // 
             // PlPrincipal
@@ -455,7 +490,7 @@ namespace ProyectoOFI
             this.PlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlPrincipal.Location = new System.Drawing.Point(191, 74);
             this.PlPrincipal.Name = "PlPrincipal";
-            this.PlPrincipal.Size = new System.Drawing.Size(1605, 884);
+            this.PlPrincipal.Size = new System.Drawing.Size(1605, 919);
             this.PlPrincipal.TabIndex = 4;
             // 
             // LblPrincipal
@@ -466,7 +501,7 @@ namespace ProyectoOFI
             this.LblPrincipal.ForeColor = System.Drawing.Color.White;
             this.LblPrincipal.Location = new System.Drawing.Point(0, 0);
             this.LblPrincipal.Name = "LblPrincipal";
-            this.LblPrincipal.Size = new System.Drawing.Size(1605, 884);
+            this.LblPrincipal.Size = new System.Drawing.Size(1605, 919);
             this.LblPrincipal.TabIndex = 0;
             this.LblPrincipal.Text = "Bienvenido a \r\nCoffeeTec 👋";
             this.LblPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -476,7 +511,7 @@ namespace ProyectoOFI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1796, 958);
+            this.ClientSize = new System.Drawing.Size(1796, 993);
             this.Controls.Add(this.PlPrincipal);
             this.Controls.Add(this.plfooter);
             this.Controls.Add(this.plTitulo);
@@ -529,6 +564,8 @@ namespace ProyectoOFI
         private System.Windows.Forms.Label LblPrincipal;
         private System.Windows.Forms.Button BtnAnalisis;
         private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button BtnAlmacen;
+        private System.Windows.Forms.Panel panel10;
     }
 }
 

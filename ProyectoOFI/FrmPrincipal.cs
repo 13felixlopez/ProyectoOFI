@@ -10,6 +10,8 @@ using ProyectoOFI.Analisis;
 using System;
 using System.Data;
 using System.Windows.Forms;
+using ProyectoOFI.Almacen;
+using System.Drawing;
 
 namespace ProyectoOFI
 {
@@ -30,6 +32,7 @@ namespace ProyectoOFI
             BtnCPatio.Enabled = true;
             BtnReTK.Enabled = true;
             BtnAnalisis.Enabled = true;
+            BtnAlmacen.Enabled = true;
             PlPrincipal.Controls.Clear();
             Transferencia tr = new Transferencia
             {
@@ -59,6 +62,7 @@ namespace ProyectoOFI
             BtnCPatio.Enabled=true;
             BtnReTK.Enabled = true;
             BtnAnalisis.Enabled = true;
+            BtnAlmacen.Enabled = true;
             PlPrincipal.Controls.Clear();
             UCUsuario tr = new UCUsuario
             {
@@ -72,6 +76,17 @@ namespace ProyectoOFI
             LblUser.Text = Login.NombreA;
             LblPrincipal.Text = Login.NombreA + "\r\nBienvenido a \r\nCoffeeTec ofi 👋";
             ValidarPermisos();
+            CambiarColor(BtnAlmacen);
+            CambiarColor(btnTransferencia);
+            CambiarColor(BtnCPatio);
+            CambiarColor(BtnSM);
+            CambiarColor(BtnAlmacen);
+            CambiarColor(BtnReTK);
+            CambiarColor(BtnCatalogo);
+            CambiarColor(BtnHistorial);
+            CambiarColor(BtnCerrarSesion);
+            CambiarColor(BtnAnalisis);
+            CambiarColor(btnSalir);
         }
         private void ValidarPermisos()
         {
@@ -133,6 +148,7 @@ namespace ProyectoOFI
             BtnCPatio.Enabled = false;
             BtnReTK.Enabled = true;
             BtnAnalisis.Enabled = true;
+            BtnAlmacen.Enabled = true;
             PlPrincipal.Controls.Clear();
             CUControlPatio tr = new CUControlPatio
             {
@@ -148,6 +164,7 @@ namespace ProyectoOFI
             BtnCPatio.Enabled = true;
             BtnReTK.Enabled = false;
             BtnAnalisis.Enabled = true;
+            BtnAlmacen.Enabled = true;
             PlPrincipal.Controls.Clear();
             CUReporteTK tK = new CUReporteTK
             {
@@ -163,12 +180,48 @@ namespace ProyectoOFI
             BtnCPatio.Enabled = true;
             BtnReTK.Enabled = true;
             BtnAnalisis.Enabled = false;
+            BtnAlmacen.Enabled = true;
             PlPrincipal.Controls.Clear();
             Catacion al = new Catacion
             {
                 Dock = DockStyle.Fill
             };
             PlPrincipal.Controls.Add(al);
+        }
+
+        private void BtnAlmacen_Click(object sender, EventArgs e)
+        {
+            btnTransferencia.Enabled = true;
+            BtnUser.Enabled = true;
+            BtnCPatio.Enabled = true;
+            BtnReTK.Enabled = true;
+            BtnAnalisis.Enabled = true;
+            BtnAlmacen.Enabled = false;
+            PlPrincipal.Controls.Clear();
+            Almacen.Almacen al =new Almacen.Almacen
+            {
+                Dock = DockStyle.Fill
+            };
+            PlPrincipal.Controls.Add(al);
+        }
+        public void CambiarColor(Button Btn)
+        {
+            // Guardar el color original del botón
+            Color colorOriginal = Btn.BackColor;
+
+            // Evento cuando el puntero entra en el botón
+            Btn.MouseEnter += (sender, e) =>
+            {
+                // Cambiar el color al pasar el puntero por encima
+                Btn.BackColor = Color.Orange;
+            };
+
+            // Evento cuando el puntero sale del botón
+            Btn.MouseLeave += (sender, e) =>
+            {
+                // Restaurar el color original al quitar el puntero
+                Btn.BackColor = colorOriginal;
+            };
         }
     }
 }

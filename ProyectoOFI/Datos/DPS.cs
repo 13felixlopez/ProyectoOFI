@@ -242,5 +242,29 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public bool ReProceso(string TK, double Humedad,int POA)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("ReProceso",Conexion.conectar);
+                da.CommandType= CommandType.StoredProcedure;
+                da.Parameters.AddWithValue("@Ticket", TK);
+                da.Parameters.AddWithValue("@POA1",POA);
+                da.Parameters.AddWithValue("@HumedadG",Humedad);
+                da.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se han pudo insertar los datos ReProceso " + ex.Message, "Error ReProceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("No se insertaron los datos de ReProceso ✖️✖️ " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
     }
 }

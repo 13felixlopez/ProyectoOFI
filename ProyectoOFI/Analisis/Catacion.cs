@@ -735,7 +735,7 @@ namespace ProyectoOFI.Analisis
                 parametros.Origen = LblProcedencia.Text;
                 parametros.Analisis = TxtAnalisis.Text;
                 parametros.FechaMuestra = DTPFechaMuestra.Value;
-                parametros.FechaCatacion = DtFechaCatacion.Value;
+                parametros.FechaCatacion = DateTime.Today;
                 parametros.Dias = int.Parse(LblDias.Text);
                 parametros.RmtoObto = TxtBto.Text;
                 parametros.Cascarilla = LblCascarilla.Text;
@@ -787,7 +787,7 @@ namespace ProyectoOFI.Analisis
                 parametros.Origen = LblProcedencia.Text;
                 parametros.Analisis = TxtAnalisis.Text;
                 parametros.FechaMuestra = DTPFechaMuestra.Value;
-                parametros.FechaCatacion = DtFechaCatacion.Value;
+                parametros.FechaCatacion = DateTime.Today;
                 parametros.Dias = int.Parse(LblDias.Text);
                 parametros.RmtoObto = TxtBto.Text;
                 parametros.Cascarilla = LblCascarilla.Text;
@@ -820,7 +820,7 @@ namespace ProyectoOFI.Analisis
                     parametros.Estado = "1";
                 }
 
-                if (funcion.EditarCatacion(parametros,Idcatacion) == true)
+                if (funcion.EditarCatacion(parametros, Idcatacion) == true)
                 {
                     PLDatos.Visible = false;
                     Limpiar();

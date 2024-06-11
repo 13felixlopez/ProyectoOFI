@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PlOpciones = new System.Windows.Forms.Panel();
             this.DtTolvasFinales = new System.Windows.Forms.DataGridView();
             this.PlTolvasFin = new System.Windows.Forms.Panel();
+            this.BtnCargar = new System.Windows.Forms.Button();
+            this.CbPOA = new System.Windows.Forms.ComboBox();
+            this.LblHumedad = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.LblTicket = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.BtnCerrarPlDatos = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.LblTicket = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.LblHumedad = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.CbPOA = new System.Windows.Forms.ComboBox();
-            this.BtnCargar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DtTolvasFinales)).BeginInit();
             this.PlTolvasFin.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -65,36 +65,36 @@
             this.DtTolvasFinales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtTolvasFinales.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DtTolvasFinales.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtTolvasFinales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtTolvasFinales.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DtTolvasFinales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DtTolvasFinales.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DtTolvasFinales.DefaultCellStyle = dataGridViewCellStyle2;
             this.DtTolvasFinales.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtTolvasFinales.Location = new System.Drawing.Point(0, 71);
             this.DtTolvasFinales.Name = "DtTolvasFinales";
             this.DtTolvasFinales.ReadOnly = true;
             this.DtTolvasFinales.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtTolvasFinales.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtTolvasFinales.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DtTolvasFinales.RowHeadersVisible = false;
             this.DtTolvasFinales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DtTolvasFinales.Size = new System.Drawing.Size(1372, 482);
@@ -117,6 +117,95 @@
             this.PlTolvasFin.Size = new System.Drawing.Size(1001, 149);
             this.PlTolvasFin.TabIndex = 2;
             this.PlTolvasFin.Visible = false;
+            // 
+            // BtnCargar
+            // 
+            this.BtnCargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCargar.Location = new System.Drawing.Point(740, 52);
+            this.BtnCargar.Name = "BtnCargar";
+            this.BtnCargar.Size = new System.Drawing.Size(126, 55);
+            this.BtnCargar.TabIndex = 17;
+            this.BtnCargar.Text = "Cargar";
+            this.BtnCargar.UseVisualStyleBackColor = true;
+            this.BtnCargar.Click += new System.EventHandler(this.BtnCargar_Click);
+            // 
+            // CbPOA
+            // 
+            this.CbPOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbPOA.FormattingEnabled = true;
+            this.CbPOA.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18"});
+            this.CbPOA.Location = new System.Drawing.Point(581, 65);
+            this.CbPOA.Name = "CbPOA";
+            this.CbPOA.Size = new System.Drawing.Size(121, 28);
+            this.CbPOA.TabIndex = 16;
+            // 
+            // LblHumedad
+            // 
+            this.LblHumedad.AutoSize = true;
+            this.LblHumedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblHumedad.Location = new System.Drawing.Point(401, 69);
+            this.LblHumedad.Name = "LblHumedad";
+            this.LblHumedad.Size = new System.Drawing.Size(21, 20);
+            this.LblHumedad.TabIndex = 15;
+            this.LblHumedad.Text = "--";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(493, 69);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 20);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "POA:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(305, 69);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 20);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Humedad:";
+            // 
+            // LblTicket
+            // 
+            this.LblTicket.AutoSize = true;
+            this.LblTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTicket.Location = new System.Drawing.Point(92, 69);
+            this.LblTicket.Name = "LblTicket";
+            this.LblTicket.Size = new System.Drawing.Size(21, 20);
+            this.LblTicket.TabIndex = 15;
+            this.LblTicket.Text = "--";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(23, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 20);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Ticket:";
             // 
             // panel2
             // 
@@ -151,94 +240,6 @@
             this.BtnCerrarPlDatos.TabIndex = 11;
             this.BtnCerrarPlDatos.UseVisualStyleBackColor = true;
             this.BtnCerrarPlDatos.Click += new System.EventHandler(this.BtnCerrarPlDatos_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 69);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 20);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Ticket:";
-            // 
-            // LblTicket
-            // 
-            this.LblTicket.AutoSize = true;
-            this.LblTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTicket.Location = new System.Drawing.Point(92, 69);
-            this.LblTicket.Name = "LblTicket";
-            this.LblTicket.Size = new System.Drawing.Size(21, 20);
-            this.LblTicket.TabIndex = 15;
-            this.LblTicket.Text = "--";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(305, 69);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 20);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "Humedad:";
-            // 
-            // LblHumedad
-            // 
-            this.LblHumedad.AutoSize = true;
-            this.LblHumedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblHumedad.Location = new System.Drawing.Point(401, 69);
-            this.LblHumedad.Name = "LblHumedad";
-            this.LblHumedad.Size = new System.Drawing.Size(21, 20);
-            this.LblHumedad.TabIndex = 15;
-            this.LblHumedad.Text = "--";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(493, 69);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(50, 20);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "POA:";
-            // 
-            // CbPOA
-            // 
-            this.CbPOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CbPOA.FormattingEnabled = true;
-            this.CbPOA.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18"});
-            this.CbPOA.Location = new System.Drawing.Point(581, 65);
-            this.CbPOA.Name = "CbPOA";
-            this.CbPOA.Size = new System.Drawing.Size(121, 28);
-            this.CbPOA.TabIndex = 16;
-            // 
-            // BtnCargar
-            // 
-            this.BtnCargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCargar.Location = new System.Drawing.Point(740, 52);
-            this.BtnCargar.Name = "BtnCargar";
-            this.BtnCargar.Size = new System.Drawing.Size(126, 55);
-            this.BtnCargar.TabIndex = 17;
-            this.BtnCargar.Text = "Cargar";
-            this.BtnCargar.UseVisualStyleBackColor = true;
             // 
             // TolvasFinales
             // 

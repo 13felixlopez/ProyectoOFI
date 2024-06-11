@@ -410,6 +410,19 @@ namespace ProyectoOFI.Datos
 
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    // Verificar si Proceso es "No Asignado" y asignar un valor vacío a ProcesoSM
+                    if (dr["Proceso"].ToString() == "No Asignado")
+                    {
+                        dr["ProcesoSM"] = "";
+                    }
+                    // Verificar si ProcesoSM es null y cambiarlo por "Carga Directa SF"
+                    else if (dr["ProcesoSM"] == DBNull.Value)
+                    {
+                        dr["ProcesoSM"] = "Carga Directa SF";
+                    }
+                }
 
                 // Obtener el valor del contador
                 Contar = Convert.ToInt32(contarParam.Value);

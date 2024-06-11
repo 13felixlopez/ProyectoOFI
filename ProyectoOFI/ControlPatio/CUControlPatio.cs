@@ -302,6 +302,16 @@ namespace ProyectoOFI.ControlPatio
                 }
                 VerTendidio();
                 VerEnfarde();
+                double Humedad = double.Parse(TxtHumedadLevante.Text);
+                if (Humedad >= 13)
+                {
+                    BtnEnvSM.Visible = true;
+                    PlEnfarde.Enabled= true;
+                    BtnEnfarde.Enabled = false;
+                    DTPEnfarde.Enabled = false;
+                    TxtSacosEnfardados.Enabled = false;
+                    TxtHumedadLevante.Enabled = false;
+                }
             }
             else if (Proceso == "Envio" || Proceso == "Envio SM")
             {
@@ -826,8 +836,6 @@ namespace ProyectoOFI.ControlPatio
                 }
             }
         }
-
-
         private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
         {
             //if (CbBuscar.Text == "Ticket")
@@ -883,7 +891,6 @@ namespace ProyectoOFI.ControlPatio
             CbBuscador.DataSource = null;
             CbBuscador.SelectedIndex = -1;
         }
-
         private void CbDestino_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CbDestino.Text == "Secado Mecánico")
@@ -895,7 +902,6 @@ namespace ProyectoOFI.ControlPatio
                 CbEstFis.Text = "Seco";
             }
         }
-
         private void PbExcel_Click(object sender, EventArgs e)
         {
             FrmExcelCP excel = new FrmExcelCP();
@@ -903,12 +909,18 @@ namespace ProyectoOFI.ControlPatio
             excel.BringToFront();
             excel.ShowDialog();
         }
-
+        private void BtnEnvSM_Click(object sender, EventArgs e)
+        {
+            LblMsj.Visible=false;
+            PlEnvio.Enabled = true;
+            PlEnvio.Visible = true;
+            CbDestino.Text = "Secado Mecánico";
+            CbDestino.Enabled = false;
+        }
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             PlFiltros.Visible = false;
         }
-
         private void InsertarEnvio()
         {
             if (validarEnvio())
@@ -1076,7 +1088,6 @@ namespace ProyectoOFI.ControlPatio
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventariocp);
         }
-
         private void BuscarTk()
         {
             DataTable dt = new DataTable();

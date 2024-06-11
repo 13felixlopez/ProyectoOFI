@@ -1,4 +1,5 @@
 ﻿using ProyectoOFI.Datos;
+using System;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
@@ -84,10 +85,29 @@ namespace ProyectoOFI.SM
                     }
                 }
             }
-            catch (System.Exception)
+            catch (Exception)
             {
+                MessageBox.Show("Error en cargar datos en interfaz Tolvas Finales","Error TF",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
-                throw;
+        private void BtnCargar_Click(object sender, System.EventArgs e)
+        {
+            ReProceso();
+        }
+
+        private void ReProceso()
+        {
+            DPS funcion = new DPS();
+            double Humedad=double.Parse(LblHumedad.Text);
+            int POA=int.Parse(CbPOA.Text);
+            if(funcion.ReProceso(LblTicket.Text,Humedad,POA)==true)
+            {
+                PlTolvasFin.Visible = false;
+                LblHumedad.Text = "--";
+                LblTicket.Text= "--";
+                DtTolvasFinales.Enabled = true;
+                MostrarTF();
             }
         }
     }

@@ -782,7 +782,6 @@ namespace ProyectoOFI.SM
                 InsertarGuardiola();
                 MostrarPOALabels();
                 Estilo();
-                Refresh();
                 PlDatos.Visible = false;
                 TLPPOA.Enabled = true;
                 GbDescarga.Visible = false;
@@ -812,11 +811,11 @@ namespace ProyectoOFI.SM
                 if (funcion.InsertarGuardiola(parametros) == true)
                 {
                     MessageBox.Show("Carga Guardiola realiza con éxito", "Guardiola Cargada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    int Poa=int.Parse(txtTolvaPOA.Text);
+                    CambiarLblTK(Poa);
                     PlDatos.Visible = false;
                     TLPPOA.Enabled = true;
                     Limpiar();
-                    MostrarPOALabels();
-                    Estilo();
                 }
             }
             catch (Exception)
@@ -824,7 +823,17 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("Error al ejecutar CargaGuariola", "Error Interfaz", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        private void CambiarLblTK(int poa)
+        {
+            string lblName = "lblP" + poa;
+            System.Windows.Forms.Control[] controls = Controls.Find(lblName, true);
+            if (controls.Length > 0 && controls[0] is Label)
+            {
+                // Muestra el ticket en el Label
+                Label lblTicket = (Label)controls[0];
+                lblTicket.Text = "--";
+            }
+        }
         private void DtHoraFin1_ValueChanged(object sender, EventArgs e)
         {
             DateTime inicio = DtHInicio1.Value;

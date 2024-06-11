@@ -479,7 +479,6 @@
             // 
             // DtFechaCatacion
             // 
-            this.DtFechaCatacion.Enabled = false;
             this.DtFechaCatacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DtFechaCatacion.Location = new System.Drawing.Point(772, 19);
             this.DtFechaCatacion.Name = "DtFechaCatacion";

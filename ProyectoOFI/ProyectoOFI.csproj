@@ -86,6 +86,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Almacen\Almacen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Almacen\Almacen.Designer.cs">
+      <DependentUpon>Almacen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Analisis\Catacion.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -105,6 +111,7 @@
       <DependentUpon>FrmExcelCP.cs</DependentUpon>
     </Compile>
     <Compile Include="Datos\Conexion.cs" />
+    <Compile Include="Datos\DAlmacen.cs" />
     <Compile Include="Datos\Dcatacion.cs" />
     <Compile Include="Datos\DCatalogo.cs" />
     <Compile Include="Datos\DGuardiola.cs" />
@@ -137,6 +144,7 @@
     <Compile Include="Logica\AES.cs" />
     <Compile Include="Logica\Desencryptacion.cs" />
     <Compile Include="Logica\Encrip.cs" />
+    <Compile Include="Logica\LAlmacen.cs" />
     <Compile Include="Logica\LCatacion.cs" />
     <Compile Include="Logica\LEnvio.cs" />
     <Compile Include="Logica\LModulos.cs" />
@@ -364,6 +372,9 @@
       <DependentUpon>UCUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuario\Validaciones.cs" />
+    <EmbeddedResource Include="Almacen\Almacen.resx">
+      <DependentUpon>Almacen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Analisis\Catacion.resx">
       <DependentUpon>Catacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -650,6 +661,7 @@
   <ItemGroup>
     <Content Include="Logo.ico" />
     <Content Include="ofi0531.sql" />
+    <None Include="Resources\icons8-almacén.gif" />
     <None Include="Resources\TF.png" />
     <None Include="Resources\grey-9026_512.gif" />
     <None Include="Resources\icons8-cargando.gif" />

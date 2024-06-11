@@ -653,6 +653,8 @@ namespace ProyectoOFI.SM
                 if (funcion.InsertarPS(parametros) == true)
                 {
                     MessageBox.Show("Operación realizada con éxito", "Secado final", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    int G=int.Parse(LblGuardiola.Text);
+                    CambiarLblTK(G);
                     GbPS.Visible = false;
                     PlDatos.Visible = false;
                     TLPGuardiola.Enabled = true;
@@ -664,7 +666,17 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("Error al insertar datos Pre-Secado " + ex.Message, "ERROR Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
+        private void CambiarLblTK(int G)
+        {
+            string lblName = "LblG" + G;
+            System.Windows.Forms.Control[] controls = Controls.Find(lblName, true);
+            if (controls.Length > 0 && controls[0] is Label)
+            {
+                // Muestra el ticket en el Label
+                Label lblTicket = (Label)controls[0];
+                lblTicket.Text = "--";
+            }
+        }
         private void Limpiar()
         {
             LblPS.Text = "--";

@@ -307,7 +307,7 @@ namespace ProyectoOFI.SM
             }
             else
             {
-                MessageBox.Show("Ha ocurrido un error","Error en Interfaz TF",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ha ocurrido un error", "Error en Interfaz TF", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private void CargarPS(Label lblG)
@@ -689,6 +689,8 @@ namespace ProyectoOFI.SM
                     PlDatos.Visible = false;
                     TxtDNIN.Clear();
                     MessageBox.Show("Envio realizado con éxito", "Envio a almacén", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    int PS = int.Parse(LblPS.Text);
+                    CambiarLblTK(PS);
                     MostrarTicketsEnLabels();
                     Estilo();
                     TLPPS.Enabled = true;
@@ -709,6 +711,17 @@ namespace ProyectoOFI.SM
             else
             {
                 MessageBox.Show("Existen campos vacios", "Error en datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void CambiarLblTK(int ps)
+        {
+            string lblName = "LblPS" + ps;
+            System.Windows.Forms.Control[] controls = Controls.Find(lblName, true);
+            if (controls.Length > 0 && controls[0] is Label)
+            {
+                // Muestra el ticket en el Label
+                Label lblTicket = (Label)controls[0];
+                lblTicket.Text = "--";
             }
         }
     }

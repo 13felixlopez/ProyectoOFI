@@ -22,7 +22,7 @@ namespace ProyectoOFI.SM
         int IdVer;
         string origen;
         Label labelPreSeco = new Label();
-        DataTable SM=new DataTable();
+        DataTable SM = new DataTable();
         public SecadoMecanico()
         {
             InitializeComponent();
@@ -180,13 +180,15 @@ namespace ProyectoOFI.SM
                     VerPS();
                     EnvioSM();
                 }
-                if (Proceso == "PS" || Estado == "PS" || Estado== "TF/Rechazado")
+                if (Proceso == "PS" || Estado == "PS" || Estado == "TF/Rechazado")
                 {
                     GbPreSecado.Visible = true;
                     gbPOAV.Visible = true;
                     gbVertical.Visible = true;
                     GbGuardiola.Visible = true;
                     GbPS.Visible = true;
+                    VerPOAV();
+                    VerVertical();
                     VerPreSecado();
                     VerGuardiola();
                     VerPS();
@@ -214,6 +216,8 @@ namespace ProyectoOFI.SM
                     GbGuardiola.Visible = true;
                     GbPS.Visible = true;
                     GbDatosSm.Visible = true;
+                    VerPOAV();
+                    VerVertical();
                     EnvioSM();
                     VerPreSecado();
                     VerGuardiola();
@@ -380,10 +384,13 @@ namespace ProyectoOFI.SM
                 DataTable dt = new DataTable();
                 DSM SM = new DSM();
                 SM.VerVertical(ref dt, Ticket);
-                if (dt.Rows.Count > 0)
+                if (dt.Rows.Count > 0 && !string.IsNullOrEmpty(dt.Rows[0]["Ticket"].ToString()))
                 {
                     DataRow dr = dt.Rows[0];
-                    IdVer = int.Parse(dr["IDV"].ToString());
+                    if (dr["IDV"].ToString() != null)
+                    {
+                        IdVer = int.Parse(dr["IDV"].ToString());
+                    }
                     if (dr["Ver"].ToString() != null)
                     {
                         LblVer.Text = dr["Ver"].ToString();
@@ -961,7 +968,7 @@ namespace ProyectoOFI.SM
         {
             // Limpiar cualquier control existente en el GroupBox
             groupBox.Controls.Clear();
-            
+
             // Variables para posicionamiento
             int posY = 55;
 

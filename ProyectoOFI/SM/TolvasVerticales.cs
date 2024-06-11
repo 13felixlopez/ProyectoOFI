@@ -394,7 +394,6 @@ namespace ProyectoOFI.SM
                     DescargarTV();
                     MostrarTicketsEnLabels();
                     Estilo();
-                    //Refresh();
                 }
                 else
                 {
@@ -428,6 +427,7 @@ namespace ProyectoOFI.SM
                 //DPOAV fun = new DPOAV();
                 //parametro.Ticket = TK;
                 MessageBox.Show("Se ha Guardado el registro", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                CambiarLblTK(parametros.Ver);
                 PLDatos.Visible = false;
                 //Limpiar();
                 //MostrarTicketsEnLabels();
@@ -441,6 +441,17 @@ namespace ProyectoOFI.SM
             }
         }
 
+        private void CambiarLblTK(int poav)
+        {
+            string lblName = "lblTV" + poav;
+            System.Windows.Forms.Control[] controls = Controls.Find(lblName, true);
+            if (controls.Length > 0 && controls[0] is Label)
+            {
+                // Muestra el ticket en el Label
+                Label lblTicket = (Label)controls[0];
+                lblTicket.Text = "--";
+            }
+        }
         private bool ValidarDes() => !(cbOperadorV.Text == "" || cbTurnoV.Text == "");
 
         private void dtHoraFinV_ValueChanged(object sender, EventArgs e)

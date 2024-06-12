@@ -13,8 +13,7 @@ namespace ProyectoOFI.Otros
         {
             InitializeComponent();
             MostrarUbicacionP();
-            DtUbicacion.Columns["IdUbicacionP"].Visible = false;
-            DtUbicacion.Columns["IdPatio"].Visible = false;
+            
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)
@@ -42,6 +41,8 @@ namespace ProyectoOFI.Otros
             DataTable dt = new DataTable();
             funcion.MostrarUbicacionP(ref dt);
             DtUbicacion.DataSource = dt;
+            DtUbicacion.Columns["IdUbicacionP"].Visible = false;
+            DtUbicacion.Columns["IdPatio"].Visible = false;
         }
         private void EliminarUbicacionP()
         {

@@ -176,6 +176,12 @@
     <Compile Include="Otros\FrmAreaSecado.Designer.cs">
       <DependentUpon>FrmAreaSecado.cs</DependentUpon>
     </Compile>
+    <Compile Include="Otros\FrmBodega.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Otros\FrmBodega.Designer.cs">
+      <DependentUpon>FrmBodega.cs</DependentUpon>
+    </Compile>
     <Compile Include="Otros\FrmCalidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,18 @@
     <Compile Include="Otros\FrmDanio.Designer.cs">
       <DependentUpon>FrmDanio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Otros\FrmDescargador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Otros\FrmDescargador.Designer.cs">
+      <DependentUpon>FrmDescargador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\FrmEmpaque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Otros\FrmEmpaque.Designer.cs">
+      <DependentUpon>FrmEmpaque.cs</DependentUpon>
+    </Compile>
     <Compile Include="Otros\FrmEstFis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,11 +254,23 @@
     <Compile Include="Otros\FrmPatio.Designer.cs">
       <DependentUpon>FrmPatio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Otros\FrmTurnoAl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Otros\FrmTurnoAl.Designer.cs">
+      <DependentUpon>FrmTurnoAl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Otros\FrmTurnos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Otros\FrmTurnos.Designer.cs">
       <DependentUpon>FrmTurnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Otros\FrmUbicacionB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Otros\FrmUbicacionB.Designer.cs">
+      <DependentUpon>FrmUbicacionB.cs</DependentUpon>
     </Compile>
     <Compile Include="Otros\FrmUbicacionP.cs">
       <SubType>Form</SubType>
@@ -399,6 +429,9 @@
     <EmbeddedResource Include="Otros\FrmAreaSecado.resx">
       <DependentUpon>FrmAreaSecado.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Otros\FrmBodega.resx">
+      <DependentUpon>FrmBodega.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Otros\FrmCalidad.resx">
       <DependentUpon>FrmCalidad.cs</DependentUpon>
     </EmbeddedResource>
@@ -417,6 +450,12 @@
     <EmbeddedResource Include="Otros\FrmDanio.resx">
       <DependentUpon>FrmDanio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Otros\FrmDescargador.resx">
+      <DependentUpon>FrmDescargador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Otros\FrmEmpaque.resx">
+      <DependentUpon>FrmEmpaque.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Otros\FrmEstFis.resx">
       <DependentUpon>FrmEstFis.cs</DependentUpon>
     </EmbeddedResource>
@@ -429,8 +468,14 @@
     <EmbeddedResource Include="Otros\FrmPatio.resx">
       <DependentUpon>FrmPatio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Otros\FrmTurnoAl.resx">
+      <DependentUpon>FrmTurnoAl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Otros\FrmTurnos.resx">
       <DependentUpon>FrmTurnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Otros\FrmUbicacionB.resx">
+      <DependentUpon>FrmUbicacionB.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Otros\FrmUbicacionP.resx">
       <DependentUpon>FrmUbicacionP.cs</DependentUpon>

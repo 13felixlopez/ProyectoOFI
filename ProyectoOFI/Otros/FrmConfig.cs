@@ -113,5 +113,35 @@ namespace ProyectoOFI.Otros
             FrmVariedad AA = new FrmVariedad();
             AA.ShowDialog();
         }
+
+        private void BtnDescargador_Click(object sender, EventArgs e)
+        {
+            FrmDescargador AA = new FrmDescargador();
+            AA.ShowDialog();
+        }
+
+        private void BtnBodegas_Click(object sender, EventArgs e)
+        {
+            FrmBodega AA = new FrmBodega();
+            AA.ShowDialog();
+        }
+
+        private void BtnUbicacion_Click(object sender, EventArgs e)
+        {
+            FrmUbicacionB AA = new FrmUbicacionB();
+            AA.ShowDialog();
+        }
+
+        private void BtnEmpaques_Click(object sender, EventArgs e)
+        {
+            FrmEmpaque AA= new FrmEmpaque();
+            AA.ShowDialog();
+        }
+
+        private void BtnTurnosAl_Click(object sender, EventArgs e)
+        {
+            FrmTurnoAl AA= new FrmTurnoAl();
+            AA.ShowDialog();
+        }
     }
 }

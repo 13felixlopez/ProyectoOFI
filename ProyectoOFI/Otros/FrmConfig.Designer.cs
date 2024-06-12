@@ -35,6 +35,12 @@
             this.GbControlPatio = new System.Windows.Forms.GroupBox();
             this.GbSM = new System.Windows.Forms.GroupBox();
             this.Gbcatacion = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnUbicacion = new System.Windows.Forms.Button();
+            this.BtnDescargador = new System.Windows.Forms.Button();
+            this.BtnEmpaques = new System.Windows.Forms.Button();
+            this.BtnTurnosAl = new System.Windows.Forms.Button();
+            this.BtnBodegas = new System.Windows.Forms.Button();
             this.BtnOperadores = new System.Windows.Forms.Button();
             this.BtnTurnos = new System.Windows.Forms.Button();
             this.BtnParos = new System.Windows.Forms.Button();
@@ -58,6 +64,7 @@
             this.GbControlPatio.SuspendLayout();
             this.GbSM.SuspendLayout();
             this.Gbcatacion.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,6 +146,93 @@
             this.Gbcatacion.TabIndex = 24;
             this.Gbcatacion.TabStop = false;
             this.Gbcatacion.Text = "Catación";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.BtnUbicacion);
+            this.groupBox1.Controls.Add(this.BtnDescargador);
+            this.groupBox1.Controls.Add(this.BtnEmpaques);
+            this.groupBox1.Controls.Add(this.BtnTurnosAl);
+            this.groupBox1.Controls.Add(this.BtnBodegas);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(710, 232);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(348, 267);
+            this.groupBox1.TabIndex = 25;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Almacén";
+            // 
+            // BtnUbicacion
+            // 
+            this.BtnUbicacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnUbicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnUbicacion.Image = global::ProyectoOFI.Properties.Resources.Operador;
+            this.BtnUbicacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnUbicacion.Location = new System.Drawing.Point(183, 44);
+            this.BtnUbicacion.Name = "BtnUbicacion";
+            this.BtnUbicacion.Size = new System.Drawing.Size(162, 55);
+            this.BtnUbicacion.TabIndex = 13;
+            this.BtnUbicacion.Text = "Ubicación";
+            this.BtnUbicacion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnUbicacion.UseVisualStyleBackColor = true;
+            this.BtnUbicacion.Click += new System.EventHandler(this.BtnUbicacion_Click);
+            // 
+            // BtnDescargador
+            // 
+            this.BtnDescargador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnDescargador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDescargador.Image = global::ProyectoOFI.Properties.Resources.Operador;
+            this.BtnDescargador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnDescargador.Location = new System.Drawing.Point(15, 44);
+            this.BtnDescargador.Name = "BtnDescargador";
+            this.BtnDescargador.Size = new System.Drawing.Size(162, 55);
+            this.BtnDescargador.TabIndex = 13;
+            this.BtnDescargador.Text = "Descargador";
+            this.BtnDescargador.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnDescargador.UseVisualStyleBackColor = true;
+            this.BtnDescargador.Click += new System.EventHandler(this.BtnDescargador_Click);
+            // 
+            // BtnEmpaques
+            // 
+            this.BtnEmpaques.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEmpaques.Image = global::ProyectoOFI.Properties.Resources.icons8_grupos_de_usuarios;
+            this.BtnEmpaques.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEmpaques.Location = new System.Drawing.Point(180, 121);
+            this.BtnEmpaques.Name = "BtnEmpaques";
+            this.BtnEmpaques.Size = new System.Drawing.Size(162, 55);
+            this.BtnEmpaques.TabIndex = 19;
+            this.BtnEmpaques.Text = "Empaques";
+            this.BtnEmpaques.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnEmpaques.UseVisualStyleBackColor = true;
+            this.BtnEmpaques.Click += new System.EventHandler(this.BtnEmpaques_Click);
+            // 
+            // BtnTurnosAl
+            // 
+            this.BtnTurnosAl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTurnosAl.Image = global::ProyectoOFI.Properties.Resources.icons8_grupos_de_usuarios;
+            this.BtnTurnosAl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTurnosAl.Location = new System.Drawing.Point(84, 190);
+            this.BtnTurnosAl.Name = "BtnTurnosAl";
+            this.BtnTurnosAl.Size = new System.Drawing.Size(176, 55);
+            this.BtnTurnosAl.TabIndex = 19;
+            this.BtnTurnosAl.Text = "Turnos Almacén";
+            this.BtnTurnosAl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnTurnosAl.UseVisualStyleBackColor = true;
+            this.BtnTurnosAl.Click += new System.EventHandler(this.BtnTurnosAl_Click);
+            // 
+            // BtnBodegas
+            // 
+            this.BtnBodegas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBodegas.Image = global::ProyectoOFI.Properties.Resources.icons8_tiempo_de_propiedades;
+            this.BtnBodegas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnBodegas.Location = new System.Drawing.Point(15, 121);
+            this.BtnBodegas.Name = "BtnBodegas";
+            this.BtnBodegas.Size = new System.Drawing.Size(162, 55);
+            this.BtnBodegas.TabIndex = 21;
+            this.BtnBodegas.Text = "Bodegas";
+            this.BtnBodegas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnBodegas.UseVisualStyleBackColor = true;
+            this.BtnBodegas.Click += new System.EventHandler(this.BtnBodegas_Click);
             // 
             // BtnOperadores
             // 
@@ -389,6 +483,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 692);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.GbSM);
             this.Controls.Add(this.Gbcatacion);
             this.Controls.Add(this.GbControlPatio);
@@ -404,6 +499,7 @@
             this.GbControlPatio.ResumeLayout(false);
             this.GbSM.ResumeLayout(false);
             this.Gbcatacion.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -435,5 +531,11 @@
         private System.Windows.Forms.Button BtnPatio;
         private System.Windows.Forms.GroupBox Gbcatacion;
         private System.Windows.Forms.Button BtnVariedad;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button BtnUbicacion;
+        private System.Windows.Forms.Button BtnDescargador;
+        private System.Windows.Forms.Button BtnEmpaques;
+        private System.Windows.Forms.Button BtnTurnosAl;
+        private System.Windows.Forms.Button BtnBodegas;
     }
 }

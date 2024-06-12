@@ -985,7 +985,7 @@ namespace ProyectoOFI.Recepcion
             DataTable dt = new DataTable();
             DRecepcion funcion = new DRecepcion();
             //funcion.BuscarTK(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            funcion.BuscarTK2(txtBuscador.Text, CbBuscar.Text,ref dt,desde,hasta,ContarBusqueda);
+            funcion.BuscarTK2(txtBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
             dtInventario.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventario);
@@ -1737,7 +1737,18 @@ namespace ProyectoOFI.Recepcion
         }
         private void CHBConsSM_CheckedChanged(object sender, EventArgs e)
         {
-            cbArea.Text = "Secado Mecánico";
+            if (CHBConsSM.Checked == true)
+            {
+                DialogResult result = MessageBox.Show("¿Está seguro que este lote es consolidado de secado mecánico?", "Consolidar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    cbArea.Text = "Secado Mecánico";
+                }
+                else
+                {
+                    CHBConsSM.Checked = false;
+                }
+            }
         }
         private void BtnAddTK_Click(object sender, EventArgs e)
         {

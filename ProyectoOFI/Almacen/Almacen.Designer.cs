@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioAlm = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.CbBuscar = new System.Windows.Forms.ComboBox();
@@ -49,6 +49,29 @@
             this.PbCarga = new System.Windows.Forms.PictureBox();
             this.PLDatos = new System.Windows.Forms.Panel();
             this.PlAlmacen = new System.Windows.Forms.Panel();
+            this.BtnGuardar = new System.Windows.Forms.Button();
+            this.TxtPesoNeto = new System.Windows.Forms.TextBox();
+            this.LblRedimiento = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.TxtTara = new System.Windows.Forms.TextBox();
+            this.TxtPeso = new System.Windows.Forms.TextBox();
+            this.NudSacos = new System.Windows.Forms.NumericUpDown();
+            this.CbTipoEmpaque = new System.Windows.Forms.ComboBox();
+            this.CbUbicacion = new System.Windows.Forms.ComboBox();
+            this.CbBodega = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.DtpFAlmacen = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CbDescargador = new System.Windows.Forms.ComboBox();
+            this.CbTurno = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.PlDatosTk = new System.Windows.Forms.Panel();
             this.LblProcedencia = new System.Windows.Forms.Label();
             this.LblCert = new System.Windows.Forms.Label();
@@ -73,29 +96,6 @@
             this.PlCerrarDetalle = new System.Windows.Forms.Panel();
             this.LblTitulo = new System.Windows.Forms.Label();
             this.BtnCerrarPldatos = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.DtpFAlmacen = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.CbBodega = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.CbUbicacion = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.CbTipoEmpaque = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.NudSacos = new System.Windows.Forms.NumericUpDown();
-            this.label7 = new System.Windows.Forms.Label();
-            this.TxtPeso = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.TxtTara = new System.Windows.Forms.TextBox();
-            this.TxtPesoNeto = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.LblRedimiento = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.CbTurno = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.BtnGuardar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioAlm)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.plfooter.SuspendLayout();
@@ -103,9 +103,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.PLDatos.SuspendLayout();
             this.PlAlmacen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NudSacos)).BeginInit();
             this.PlDatosTk.SuspendLayout();
             this.PlCerrarDetalle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NudSacos)).BeginInit();
             this.SuspendLayout();
             // 
             // dtInventarioAlm
@@ -117,23 +117,23 @@
             this.dtInventarioAlm.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioAlm.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioAlm.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioAlm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioAlm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dtInventarioAlm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioAlm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioAlm.Location = new System.Drawing.Point(0, 62);
             this.dtInventarioAlm.Name = "dtInventarioAlm";
             this.dtInventarioAlm.ReadOnly = true;
             this.dtInventarioAlm.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioAlm.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioAlm.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dtInventarioAlm.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioAlm.ShowCellToolTips = false;
             this.dtInventarioAlm.ShowEditingIcon = false;
@@ -387,7 +387,7 @@
             this.PlAlmacen.Controls.Add(this.label6);
             this.PlAlmacen.Controls.Add(this.label2);
             this.PlAlmacen.Controls.Add(this.label1);
-            this.PlAlmacen.Controls.Add(this.comboBox1);
+            this.PlAlmacen.Controls.Add(this.CbDescargador);
             this.PlAlmacen.Controls.Add(this.CbTurno);
             this.PlAlmacen.Controls.Add(this.label13);
             this.PlAlmacen.Controls.Add(this.label11);
@@ -397,6 +397,224 @@
             this.PlAlmacen.Name = "PlAlmacen";
             this.PlAlmacen.Size = new System.Drawing.Size(1205, 398);
             this.PlAlmacen.TabIndex = 17;
+            // 
+            // BtnGuardar
+            // 
+            this.BtnGuardar.Location = new System.Drawing.Point(489, 332);
+            this.BtnGuardar.Name = "BtnGuardar";
+            this.BtnGuardar.Size = new System.Drawing.Size(184, 52);
+            this.BtnGuardar.TabIndex = 10;
+            this.BtnGuardar.Text = "Guardar";
+            this.BtnGuardar.UseVisualStyleBackColor = true;
+            // 
+            // TxtPesoNeto
+            // 
+            this.TxtPesoNeto.Enabled = false;
+            this.TxtPesoNeto.Location = new System.Drawing.Point(406, 194);
+            this.TxtPesoNeto.Name = "TxtPesoNeto";
+            this.TxtPesoNeto.Size = new System.Drawing.Size(125, 22);
+            this.TxtPesoNeto.TabIndex = 7;
+            // 
+            // LblRedimiento
+            // 
+            this.LblRedimiento.AutoSize = true;
+            this.LblRedimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblRedimiento.Location = new System.Drawing.Point(716, 195);
+            this.LblRedimiento.Name = "LblRedimiento";
+            this.LblRedimiento.Size = new System.Drawing.Size(21, 20);
+            this.LblRedimiento.TabIndex = 5;
+            this.LblRedimiento.Text = "--";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(591, 195);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(105, 20);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Redimiento:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(248, 195);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(138, 20);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Peso neto seco:";
+            // 
+            // TxtTara
+            // 
+            this.TxtTara.Enabled = false;
+            this.TxtTara.Location = new System.Drawing.Point(78, 194);
+            this.TxtTara.Name = "TxtTara";
+            this.TxtTara.Size = new System.Drawing.Size(125, 22);
+            this.TxtTara.TabIndex = 6;
+            // 
+            // TxtPeso
+            // 
+            this.TxtPeso.Location = new System.Drawing.Point(821, 109);
+            this.TxtPeso.Name = "TxtPeso";
+            this.TxtPeso.Size = new System.Drawing.Size(125, 22);
+            this.TxtPeso.TabIndex = 5;
+            this.TxtPeso.TextChanged += new System.EventHandler(this.TxtPeso_TextChanged);
+            // 
+            // NudSacos
+            // 
+            this.NudSacos.Location = new System.Drawing.Point(623, 109);
+            this.NudSacos.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.NudSacos.Name = "NudSacos";
+            this.NudSacos.Size = new System.Drawing.Size(73, 22);
+            this.NudSacos.TabIndex = 4;
+            this.NudSacos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.NudSacos.ValueChanged += new System.EventHandler(this.NudSacos_ValueChanged);
+            // 
+            // CbTipoEmpaque
+            // 
+            this.CbTipoEmpaque.FormattingEnabled = true;
+            this.CbTipoEmpaque.Location = new System.Drawing.Point(182, 108);
+            this.CbTipoEmpaque.Name = "CbTipoEmpaque";
+            this.CbTipoEmpaque.Size = new System.Drawing.Size(253, 24);
+            this.CbTipoEmpaque.TabIndex = 3;
+            this.CbTipoEmpaque.SelectedIndexChanged += new System.EventHandler(this.CbTipoEmpaque_SelectedIndexChanged);
+            // 
+            // CbUbicacion
+            // 
+            this.CbUbicacion.FormattingEnabled = true;
+            this.CbUbicacion.Location = new System.Drawing.Point(856, 24);
+            this.CbUbicacion.Name = "CbUbicacion";
+            this.CbUbicacion.Size = new System.Drawing.Size(79, 24);
+            this.CbUbicacion.TabIndex = 2;
+            // 
+            // CbBodega
+            // 
+            this.CbBodega.FormattingEnabled = true;
+            this.CbBodega.Location = new System.Drawing.Point(505, 24);
+            this.CbBodega.Name = "CbBodega";
+            this.CbBodega.Size = new System.Drawing.Size(143, 24);
+            this.CbBodega.TabIndex = 1;
+            this.CbBodega.SelectedIndexChanged += new System.EventHandler(this.CbBodega_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(17, 110);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(154, 20);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Tipo de Empaque:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(659, 26);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(186, 20);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Seleccione Ubicación:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(17, 195);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 20);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Tara:";
+            // 
+            // DtpFAlmacen
+            // 
+            this.DtpFAlmacen.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpFAlmacen.Location = new System.Drawing.Point(211, 25);
+            this.DtpFAlmacen.Name = "DtpFAlmacen";
+            this.DtpFAlmacen.Size = new System.Drawing.Size(114, 22);
+            this.DtpFAlmacen.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(707, 110);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(103, 20);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Peso Bruto:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(446, 110);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(166, 20);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Cantidad de Sacos:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(336, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(158, 20);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Seleccione Planta:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(17, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(183, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Recibido en Almacén:";
+            // 
+            // CbDescargador
+            // 
+            this.CbDescargador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.CbDescargador.FormattingEnabled = true;
+            this.CbDescargador.Location = new System.Drawing.Point(475, 276);
+            this.CbDescargador.Name = "CbDescargador";
+            this.CbDescargador.Size = new System.Drawing.Size(535, 24);
+            this.CbDescargador.TabIndex = 9;
+            // 
+            // CbTurno
+            // 
+            this.CbTurno.FormattingEnabled = true;
+            this.CbTurno.Location = new System.Drawing.Point(97, 276);
+            this.CbTurno.Name = "CbTurno";
+            this.CbTurno.Size = new System.Drawing.Size(196, 24);
+            this.CbTurno.TabIndex = 8;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(313, 278);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(142, 20);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Descargado por:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(17, 278);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(60, 20);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Turno:";
             // 
             // PlDatosTk
             // 
@@ -660,228 +878,6 @@
             this.BtnCerrarPldatos.UseVisualStyleBackColor = true;
             this.BtnCerrarPldatos.Click += new System.EventHandler(this.BtnCerrarPldatos_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(17, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(183, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Recibido en Almacén:";
-            // 
-            // DtpFAlmacen
-            // 
-            this.DtpFAlmacen.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpFAlmacen.Location = new System.Drawing.Point(211, 25);
-            this.DtpFAlmacen.Name = "DtpFAlmacen";
-            this.DtpFAlmacen.Size = new System.Drawing.Size(114, 22);
-            this.DtpFAlmacen.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(336, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(158, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Seleccione Planta:";
-            // 
-            // CbBodega
-            // 
-            this.CbBodega.FormattingEnabled = true;
-            this.CbBodega.Location = new System.Drawing.Point(505, 24);
-            this.CbBodega.Name = "CbBodega";
-            this.CbBodega.Size = new System.Drawing.Size(143, 24);
-            this.CbBodega.TabIndex = 1;
-            this.CbBodega.Text = "Bodega ofi 1";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(659, 26);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(186, 20);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Seleccione Ubicación:";
-            // 
-            // CbUbicacion
-            // 
-            this.CbUbicacion.FormattingEnabled = true;
-            this.CbUbicacion.Location = new System.Drawing.Point(856, 24);
-            this.CbUbicacion.Name = "CbUbicacion";
-            this.CbUbicacion.Size = new System.Drawing.Size(79, 24);
-            this.CbUbicacion.TabIndex = 2;
-            this.CbUbicacion.Text = "D002";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(17, 110);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(154, 20);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Tipo de Empaque:";
-            // 
-            // CbTipoEmpaque
-            // 
-            this.CbTipoEmpaque.FormattingEnabled = true;
-            this.CbTipoEmpaque.Location = new System.Drawing.Point(182, 108);
-            this.CbTipoEmpaque.Name = "CbTipoEmpaque";
-            this.CbTipoEmpaque.Size = new System.Drawing.Size(253, 24);
-            this.CbTipoEmpaque.TabIndex = 3;
-            this.CbTipoEmpaque.Text = "Saco de Polipropileno PS 48 ksg";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(446, 110);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(166, 20);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Cantidad de Sacos:";
-            // 
-            // NudSacos
-            // 
-            this.NudSacos.Location = new System.Drawing.Point(623, 109);
-            this.NudSacos.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.NudSacos.Name = "NudSacos";
-            this.NudSacos.Size = new System.Drawing.Size(73, 22);
-            this.NudSacos.TabIndex = 4;
-            this.NudSacos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.NudSacos.Value = new decimal(new int[] {
-            999,
-            0,
-            0,
-            0});
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(707, 110);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(103, 20);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Peso Bruto:";
-            // 
-            // TxtPeso
-            // 
-            this.TxtPeso.Location = new System.Drawing.Point(821, 109);
-            this.TxtPeso.Name = "TxtPeso";
-            this.TxtPeso.Size = new System.Drawing.Size(125, 22);
-            this.TxtPeso.TabIndex = 5;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(17, 195);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(50, 20);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Tara:";
-            // 
-            // TxtTara
-            // 
-            this.TxtTara.Location = new System.Drawing.Point(78, 194);
-            this.TxtTara.Name = "TxtTara";
-            this.TxtTara.Size = new System.Drawing.Size(125, 22);
-            this.TxtTara.TabIndex = 6;
-            // 
-            // TxtPesoNeto
-            // 
-            this.TxtPesoNeto.Location = new System.Drawing.Point(406, 194);
-            this.TxtPesoNeto.Name = "TxtPesoNeto";
-            this.TxtPesoNeto.Size = new System.Drawing.Size(125, 22);
-            this.TxtPesoNeto.TabIndex = 7;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(248, 195);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(138, 20);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "Peso neto seco:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(591, 195);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(105, 20);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "Redimiento:";
-            // 
-            // LblRedimiento
-            // 
-            this.LblRedimiento.AutoSize = true;
-            this.LblRedimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblRedimiento.Location = new System.Drawing.Point(716, 195);
-            this.LblRedimiento.Name = "LblRedimiento";
-            this.LblRedimiento.Size = new System.Drawing.Size(21, 20);
-            this.LblRedimiento.TabIndex = 5;
-            this.LblRedimiento.Text = "--";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(17, 278);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 20);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Turno:";
-            // 
-            // CbTurno
-            // 
-            this.CbTurno.FormattingEnabled = true;
-            this.CbTurno.Location = new System.Drawing.Point(97, 276);
-            this.CbTurno.Name = "CbTurno";
-            this.CbTurno.Size = new System.Drawing.Size(196, 24);
-            this.CbTurno.TabIndex = 8;
-            this.CbTurno.Text = "Turno 1 (6 AM - 6 PM)";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(313, 278);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(142, 20);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Descargado por:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(475, 276);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(535, 24);
-            this.comboBox1.TabIndex = 9;
-            this.comboBox1.Text = "Turno 1 (6 AM - 6 PM)";
-            // 
-            // BtnGuardar
-            // 
-            this.BtnGuardar.Location = new System.Drawing.Point(489, 332);
-            this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(184, 52);
-            this.BtnGuardar.TabIndex = 10;
-            this.BtnGuardar.Text = "Guardar";
-            this.BtnGuardar.UseVisualStyleBackColor = true;
-            // 
             // Almacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -904,10 +900,10 @@
             this.PLDatos.ResumeLayout(false);
             this.PlAlmacen.ResumeLayout(false);
             this.PlAlmacen.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NudSacos)).EndInit();
             this.PlDatosTk.ResumeLayout(false);
             this.PlDatosTk.PerformLayout();
             this.PlCerrarDetalle.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.NudSacos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -977,7 +973,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox CbTurno;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox CbDescargador;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button BtnGuardar;
     }

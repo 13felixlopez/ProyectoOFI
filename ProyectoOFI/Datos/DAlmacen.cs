@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoOFI.Logica;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -8,6 +9,7 @@ namespace ProyectoOFI.Datos
     public class DAlmacen
     {
         public int Contador;
+        public double taraSaco;
         public void MostrarAlmacen(ref DataTable dt, int desde, int hasta)
         {
             try
@@ -46,12 +48,12 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void VerdetalleTkAlmacen(ref DataTable dt,string Tk)
+        public void VerdetalleTkAlmacen(ref DataTable dt, string Tk)
         {
             try
             {
                 Conexion.abrir();
-                SqlDataAdapter da=new SqlDataAdapter("VerdetalleTkAlmacen",Conexion.conectar);
+                SqlDataAdapter da = new SqlDataAdapter("VerdetalleTkAlmacen", Conexion.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@Dato", Tk);
                 da.Fill(dt);
@@ -96,5 +98,191 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public void MostrarUbicacionPxBodega(ComboBox combo, int IdBodega)
+        {
+            try
+            {
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("MostrarUbicacionPxBodega", Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+                da.Parameters.AddWithValue("@IdBodega", IdBodega);
+                SqlDataAdapter cb = new SqlDataAdapter(da);
+                DataTable dt = new DataTable();
+                cb.Fill(dt);
+                combo.ValueMember = "IdUbicacion";
+                combo.DisplayMember = "Ubicacion";
+                combo.DataSource = dt;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    lista.Add(dt.Rows[i]["Ubicacion"].ToString());
+                }
+                combo.AutoCompleteCustomSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarBodega ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool InsertarAlmacen(LAlmacen parametros)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("InsertarAlmacen", Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+                da.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                da.Parameters.AddWithValue("@Origen", parametros.Origen);
+                da.Parameters.AddWithValue("@FechaAlmacen", parametros.FechaAlmacen);
+                da.Parameters.AddWithValue("@IdBodega", parametros.IdBodega);
+                da.Parameters.AddWithValue("@IdUbicacion", parametros.IdUbicacion);
+                da.Parameters.AddWithValue("@IdEmpaque", parametros.IdEmpaque);
+                da.Parameters.AddWithValue("@Sacos", parametros.Sacos);
+                da.Parameters.AddWithValue("@Peso", parametros.Peso);
+                da.Parameters.AddWithValue("@Tara", parametros.Tara);
+                da.Parameters.AddWithValue("@PesoNeto", parametros.PesoNeto);
+                da.Parameters.AddWithValue("@Rendimiento", parametros.Rendimiento);
+                da.Parameters.AddWithValue("@IdTurno", parametros.IdTurno);
+                da.Parameters.AddWithValue("@IdDescargador", parametros.IdDescargador);
+                da.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Insertar los datos en Almacén " + ex.Message, "Error en Almacén", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en InsertarAlmacen ✖️✖️ " + ex.Message);
+                return false;
+            }
+            finally { Conexion.cerrar(); }
+        }
+        public void MostrarEmpaque(ComboBox Empaque)
+        {
+            try
+            {
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("MostrarEmpaque", Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter cb = new SqlDataAdapter(da);
+                DataTable dt = new DataTable();
+                cb.Fill(dt);
+                Empaque.ValueMember = "IdEmpaque";
+                Empaque.DisplayMember = "Empaque";
+                Empaque.DataSource = dt;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    lista.Add(dt.Rows[i]["Empaque"].ToString());
+                }
+                Empaque.AutoCompleteCustomSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar Empaques " + ex.Message, "Error en Empaques", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                Log.Writeerror("Error en MostrarEmpaques ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarTurnoAl(ComboBox combo)
+        {
+            try
+            {
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("MostrarTurnoAl", Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter cb = new SqlDataAdapter(da);
+                DataTable dt = new DataTable();
+                cb.Fill(dt);
+                combo.ValueMember = "IdTurno";
+                combo.DisplayMember = "Turno";
+                combo.DataSource = dt;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    lista.Add(dt.Rows[i]["Turno"].ToString());
+                }
+                combo.AutoCompleteCustomSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar Turnos " + ex.Message, "Error en Empaques", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                Log.Writeerror("Error en MostrarTurnoAl ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarDescargador(ComboBox Descargador)
+        {
+            try
+            {
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("MostrarDescargador", Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter cb = new SqlDataAdapter(da);
+                DataTable dt = new DataTable();
+                cb.Fill(dt);
+                Descargador.ValueMember = "IdDescargador";
+                Descargador.DisplayMember = "Descargador";
+                Descargador.DataSource = dt;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    lista.Add(dt.Rows[i]["Descargador"].ToString());
+                }
+                Descargador.AutoCompleteCustomSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar Descargador " + ex.Message, "Error en Descargadors", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                Log.Writeerror("Error en MostrarDescargador ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarTaraSaco( int IdEmpaque)
+        {
+            try
+            {
+                // Abrir la conexión
+                Conexion.abrir();
+
+                using (SqlCommand cmd = new SqlCommand("MostrarTaraSaco", Conexion.conectar))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdEmpaque", IdEmpaque);
+
+                    // Ejecutar el comando y obtener el resultado
+                    object result = cmd.ExecuteScalar();
+
+                    // Verificar que el resultado no sea null y asignarlo a la variable
+                    if (result != null && result != DBNull.Value)
+                    {
+                        taraSaco = Convert.ToDouble(result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en cargar TaraSacos " + ex.Message, "Error en TaraSacos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en cargar datos de TaraSacos ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                // Cerrar la conexión
+                Conexion.cerrar();
+            }
+        }
+
     }
 }

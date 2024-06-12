@@ -1,4 +1,5 @@
 ﻿using ProyectoOFI.Datos;
+using ProyectoOFI.Logica;
 using System;
 using System.Data;
 using System.Drawing;
@@ -15,6 +16,8 @@ namespace ProyectoOFI.Almacen
         int totalPaginas;
         int Contador;
         string Ticket;
+        int IdBodega, IdEmpaque;
+        double PesoNeto, Tara;
         public Almacen()
         {
             InitializeComponent();
@@ -25,6 +28,14 @@ namespace ProyectoOFI.Almacen
             PlCarga.Dock = DockStyle.Fill;
             await CargarDatos();
             PlCarga.Visible = false;
+            DAlmacen funcion = new DAlmacen();
+            funcion.MostrarBodega(CbBodega);
+            funcion.MostrarUbicacionPxBodega(CbUbicacion, IdBodega);
+            funcion.MostrarEmpaque(CbTipoEmpaque);
+            funcion.MostrarTaraSaco(IdEmpaque);
+            funcion.MostrarTurnoAl(CbTurno);
+            funcion.MostrarDescargador(CbDescargador);
+            Tara = funcion.taraSaco;
         }
         private async Task CargarDatos()
         {
@@ -319,12 +330,68 @@ namespace ProyectoOFI.Almacen
             plOpciones.Enabled = false;
             dtInventarioAlm.Enabled = false;
         }
-
         private void BtnCerrarPldatos_Click(object sender, EventArgs e)
         {
             PLDatos.Visible = false;
             dtInventarioAlm.Enabled = true;
             plOpciones.Enabled = true;
+        }
+        private void InsertarAlmacen()
+        {
+            if (validar())
+            {
+                DAlmacen funcion = new DAlmacen();
+                LAlmacen parametros = new LAlmacen();
+            }
+        }
+        private bool validar()
+        {
+            double entero;
+            if (!double.TryParse(TxtPeso.Text, out entero) || !double.TryParse(TxtPesoNeto.Text, out entero) || !double.TryParse(TxtTara.Text, out entero))
+            {
+                return false;
+            }
+            return !(TxtPeso.Text == "" || TxtPesoNeto.Text == "" || TxtTara.Text == "");
+        }
+
+        private void CbBodega_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            IdBodega = (int)CbBodega.SelectedValue;
+            DAlmacen funcion = new DAlmacen();
+            funcion.MostrarUbicacionPxBodega(CbUbicacion, IdBodega);
+        }
+
+        private void NudSacos_ValueChanged(object sender, EventArgs e)
+        {
+            int Sacos = (int)NudSacos.Value;
+            if (Sacos > 0)
+            {
+                TxtTara.Text = (Sacos * Tara).ToString();
+            }
+            else
+            {
+                TxtTara.Text = Tara.ToString();
+            }
+        }
+
+        private void TxtPeso_TextChanged(object sender, EventArgs e)
+        {
+            double Peso;
+            Double PesoNeto, PesoRec;
+            Peso = double.Parse(TxtPeso.Text);
+            Tara = double.Parse(TxtTara.Text);
+            PesoNeto = Peso - Tara;
+            TxtPesoNeto.Text = PesoNeto.ToString();
+            PesoNeto = double.Parse(TxtPesoNeto.Text);
+            PesoRec = double.Parse(LblPeso.Text);
+            LblRedimiento.Text = (PesoNeto / PesoRec).ToString();
+        }
+
+        private void CbTipoEmpaque_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DAlmacen funcion = new DAlmacen();
+            IdEmpaque = (int)CbTipoEmpaque.SelectedValue;
+            funcion.MostrarTaraSaco(IdEmpaque);
         }
     }
 }

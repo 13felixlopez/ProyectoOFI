@@ -283,6 +283,25 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-
+        public void DetalleAlmacen(ref DataTable dt,string TK)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("DetalleAlmacen", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Ticket", TK);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo cargar los datos de Ticket " + ex.Message, "Error en detalle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("No se pudo cargar los datos en DetalleAlmacen ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace ProyectoOFI.Logica
         public decimal Peso { get; set; }
         public decimal Tara { get; set; }
         public decimal PesoNeto { get; set; }
-        public decimal Rendimiento { get; set; }
+        public double Rendimiento { get; set; }
         public int IdTurno { get; set; }
         public int IdDescargador { get; set; }
     }

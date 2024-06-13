@@ -1,4 +1,5 @@
-﻿using ProyectoOFI.ControlPatio;
+﻿using ProyectoOFI.Analisis;
+using ProyectoOFI.ControlPatio;
 using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
@@ -6,12 +7,10 @@ using ProyectoOFI.Recepcion;
 using ProyectoOFI.Reportes;
 using ProyectoOFI.SM;
 using ProyectoOFI.Usuario;
-using ProyectoOFI.Analisis;
 using System;
 using System.Data;
-using System.Windows.Forms;
-using ProyectoOFI.Almacen;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace ProyectoOFI
 {

@@ -542,6 +542,7 @@
     <EmbeddedResource Include="Usuario\UCUsuario.resx">
       <DependentUpon>UCUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CoffeeTec.bak" />
     <None Include="ofi.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -704,8 +705,8 @@
     <None Include="Resources\icons8-cerrar-sesión.gif" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CoffeeTec.sql" />
     <Content Include="Logo.ico" />
-    <Content Include="ofi0531.sql" />
     <None Include="Resources\icons8-almacén.gif" />
     <None Include="Resources\TF.png" />
     <None Include="Resources\grey-9026_512.gif" />

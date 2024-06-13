@@ -18,6 +18,7 @@ namespace ProyectoOFI.Almacen
         string Ticket;
         int IdBodega, IdEmpaque;
         double PesoNeto, Tara;
+        double rendimiento;
         public Almacen()
         {
             InitializeComponent();
@@ -216,14 +217,13 @@ namespace ProyectoOFI.Almacen
             }
         }
         #endregion
-
         private void dtInventarioAlm_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             ObtenerTK();
             VerdetalleTkAlmacen();
+            DetalleAlmacen();
             AbrirFormulario();
         }
-
         private void ObtenerTK()
         {
             string nombrecolumna = "Ticket";
@@ -240,7 +240,7 @@ namespace ProyectoOFI.Almacen
                 DataRow dr = dt.Rows[0];
                 if (dr["Ticket"].ToString() != null)
                 {
-                    LblTicket.Text = dr["Ticket"].ToString();
+                    LblTicket.Text = Ticket;
                 }
                 else
                 {
@@ -332,9 +332,8 @@ namespace ProyectoOFI.Almacen
         }
         private void BtnCerrarPldatos_Click(object sender, EventArgs e)
         {
-            PLDatos.Visible = false;
-            dtInventarioAlm.Enabled = true;
-            plOpciones.Enabled = true;
+            Limpiar();
+            Activar();
         }
         private void InsertarAlmacen()
         {
@@ -342,6 +341,29 @@ namespace ProyectoOFI.Almacen
             {
                 DAlmacen funcion = new DAlmacen();
                 LAlmacen parametros = new LAlmacen();
+                parametros.Ticket = LblTicket.Text;
+                parametros.Origen = LblProcedencia.Text;
+                parametros.FechaAlmacen = DateTime.Parse(DtpFAlmacen.Text);
+                parametros.IdBodega = (int)CbBodega.SelectedValue;
+                parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
+                parametros.IdEmpaque = (int)CbTipoEmpaque.SelectedValue;
+                parametros.Sacos = int.Parse(NudSacos.Text);
+                parametros.Peso = decimal.Parse(TxtPeso.Text);
+                parametros.Tara = decimal.Parse(TxtTara.Text);
+                parametros.PesoNeto = decimal.Parse(TxtPesoNeto.Text);
+                parametros.Rendimiento = rendimiento;
+                parametros.IdTurno = (int)CbTurno.SelectedValue;
+                parametros.IdDescargador = (int)CbDescargador.SelectedValue;
+                if (funcion.InsertarAlmacen(parametros) == true)
+                {
+                    MessageBox.Show("Se ha guardado con éxito", "Almacén", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MostrarAlmacen();
+                    Limpiar();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Existen campos vacios", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private bool validar()
@@ -353,45 +375,217 @@ namespace ProyectoOFI.Almacen
             }
             return !(TxtPeso.Text == "" || TxtPesoNeto.Text == "" || TxtTara.Text == "");
         }
-
         private void CbBodega_SelectedIndexChanged(object sender, EventArgs e)
         {
             IdBodega = (int)CbBodega.SelectedValue;
             DAlmacen funcion = new DAlmacen();
             funcion.MostrarUbicacionPxBodega(CbUbicacion, IdBodega);
         }
-
-        private void NudSacos_ValueChanged(object sender, EventArgs e)
+        private void Calculate()
         {
             int Sacos = (int)NudSacos.Value;
+            double Peso = 0;
+            double PesoNeto = 0;
+            double PesoRec = 0;
+            rendimiento = 0;
+
+            // Validar Sacos
             if (Sacos > 0)
             {
                 TxtTara.Text = (Sacos * Tara).ToString();
+                TxtPeso.Enabled = true;
             }
             else
             {
                 TxtTara.Text = Tara.ToString();
+                TxtPeso.Enabled = false;
+                TxtPeso.Text = "0";
+            }
+
+            // Validar Peso
+            if (double.TryParse(TxtPeso.Text, out Peso) && double.TryParse(TxtTara.Text, out double tara))
+            {
+                PesoNeto = Peso - tara;
+                TxtPesoNeto.Text = PesoNeto.ToString();
+
+                // Validar PesoRec
+                if (double.TryParse(LblPeso.Text, out PesoRec) && PesoRec > 0)
+                {
+                    rendimiento = (PesoNeto / PesoRec) * 100;
+                    LblRedimiento.Text = Math.Round(rendimiento, 2).ToString() + "%";
+                }
+                else
+                {
+                    LblRedimiento.Text = "0%";
+                }
+            }
+            else
+            {
+                TxtPesoNeto.Text = "0";
+                LblRedimiento.Text = "0%";
             }
         }
-
+        private void NudSacos_ValueChanged(object sender, EventArgs e)
+        {
+            Calculate();
+        }
         private void TxtPeso_TextChanged(object sender, EventArgs e)
         {
-            double Peso;
-            Double PesoNeto, PesoRec;
-            Peso = double.Parse(TxtPeso.Text);
-            Tara = double.Parse(TxtTara.Text);
-            PesoNeto = Peso - Tara;
-            TxtPesoNeto.Text = PesoNeto.ToString();
-            PesoNeto = double.Parse(TxtPesoNeto.Text);
-            PesoRec = double.Parse(LblPeso.Text);
-            LblRedimiento.Text = (PesoNeto / PesoRec).ToString();
+            Calculate();
         }
-
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            InsertarAlmacen();
+        }
         private void CbTipoEmpaque_SelectedIndexChanged(object sender, EventArgs e)
         {
             DAlmacen funcion = new DAlmacen();
             IdEmpaque = (int)CbTipoEmpaque.SelectedValue;
             funcion.MostrarTaraSaco(IdEmpaque);
+            Tara = funcion.taraSaco;
+
+            Calculate();
+        }
+        private void Limpiar()
+        {
+            NudSacos.Value = 0;
+            TxtPeso.Clear();
+            TxtPesoNeto.Clear();
+            LblRedimiento.Text = "--";
+            PLDatos.Visible = false;
+            dtInventarioAlm.Enabled = true;
+            plOpciones.Enabled = true;
+        }
+        private void DetalleAlmacen()
+        {
+            DAlmacen funcion = new DAlmacen();
+            DataTable dt = new DataTable();
+            try
+            {
+                funcion.DetalleAlmacen(ref dt, Ticket);
+                if (dt.Rows.Count > 0 && !string.IsNullOrEmpty(dt.Rows[0]["Ticket"].ToString()))
+                {
+                    DataRow row = dt.Rows[0];
+                    if (DateTime.Parse(row["FechaAlmacen"].ToString()) != null)
+                    {
+                        DtpFAlmacen.Value = DateTime.Parse(row["FechaAlmacen"].ToString());
+                    }
+                    else
+                    {
+                        DtpFAlmacen.Value = DateTime.Today.Date;
+                    }
+                    if (row["Bodega"].ToString() != null)
+                    {
+                        CbBodega.Text = row["Bodega"].ToString();
+                    }
+                    else
+                    {
+                        CbBodega.ForeColor = Color.Red;
+                    }
+                    if (row["Ubicacion"].ToString() != null)
+                    {
+                        CbUbicacion.Text = row["Ubicacion"].ToString();
+                    }
+                    else
+                    {
+                        CbUbicacion.ForeColor = Color.Red;
+                    }
+                    if (row["Empaque"].ToString() != null)
+                    {
+                        CbTipoEmpaque.Text = row["Empaque"].ToString();
+                    }
+                    else
+                    {
+                        CbTipoEmpaque.ForeColor = Color.Red;
+                    }
+                    if (row["Sacos"].ToString() != null)
+                    {
+                        NudSacos.Text = row["Sacos"].ToString();
+                    }
+                    else
+                    {
+                        NudSacos.Value = 0;
+                        NudSacos.ForeColor = Color.Red;
+                    }
+                    if (row["Peso"].ToString() != null)
+                    {
+                        TxtPeso.Text = row["Peso"].ToString();
+                    }
+                    else
+                    {
+                        TxtPeso.Text = "";
+                    }
+                    if (row["Tara"].ToString() != null)
+                    {
+                        TxtTara.Text = row["Tara"].ToString();
+                    }
+                    else
+                    {
+                        TxtTara.Text = "";
+                    }
+                    if (row["PesoNeto"].ToString() != null)
+                    {
+                        TxtPesoNeto.Text = row["PesoNeto"].ToString();
+                    }
+                    else
+                    {
+                        TxtPesoNeto.Text = "";
+                    }
+                    if (row["Rendimiento"].ToString() != null)
+                    {
+                        LblRedimiento.Text = row["Rendimiento"].ToString();
+                    }
+                    else
+                    {
+                        LblRedimiento.Text = "";
+                    }
+                    if (row["Turno"].ToString() != null)
+                    {
+                        CbTurno.Text = row["Turno"].ToString();
+                    }
+                    else
+                    {
+                        CbTurno.ForeColor = Color.Red;
+                    }
+                    if (row["Descargador"].ToString() != null)
+                    {
+                        CbDescargador.Text = row["Descargador"].ToString();
+                    }
+                    else
+                    {
+                        CbDescargador.ForeColor = Color.Red;
+                    }
+                    Desactivar();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        private void Desactivar()
+        {
+            DtpFAlmacen.Enabled = false;
+            CbBodega.Enabled = false;
+            CbUbicacion.Enabled = false;
+            CbTipoEmpaque.Enabled = false;
+            NudSacos.Enabled = false;
+            TxtPeso.Enabled = false;
+            CbTurno.Enabled = false;
+            CbDescargador.Enabled = false;
+            BtnGuardar.Enabled = false;
+        }
+        private void Activar()
+        {
+            DtpFAlmacen.Enabled = true;
+            CbBodega.Enabled = true;
+            CbUbicacion.Enabled = true;
+            CbTipoEmpaque.Enabled = true;
+            NudSacos.Enabled = true;
+            CbTurno.Enabled = true;
+            CbDescargador.Enabled = true;
+            BtnGuardar.Enabled = true;
         }
     }
 }

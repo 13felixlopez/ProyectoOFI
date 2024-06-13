@@ -420,8 +420,15 @@ namespace ProyectoOFI.Recepcion
             {
                 BtnVerCons.Visible = false;
             }
-            BtnEditar.Visible = true;
-            PnGuardar.Visible = false;
+            if (Proceso != "No Asignado")
+            {
+                BtnEditar.Visible = false;
+            }
+            else
+            {
+                BtnEditar.Visible = true;
+                PnGuardar.Visible = false;
+            }
         }
         private void ObtenerTK()
         {

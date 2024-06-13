@@ -208,7 +208,7 @@ namespace ProyectoOFI.SM
                     VerPS();
                     EnvioSM();
                 }
-                if (Proceso == "Envio" || Estado == "Envio")
+                if (Proceso == "Envio" || Estado == "Envio" || Proceso == "Almacén" || Estado == "Almacén")
                 {
                     GbPreSecado.Visible = true;
                     gbPOAV.Visible = true;

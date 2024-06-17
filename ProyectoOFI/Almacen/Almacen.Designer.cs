@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioAlm = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.CbBuscar = new System.Windows.Forms.ComboBox();
@@ -96,6 +96,7 @@
             this.PlCerrarDetalle = new System.Windows.Forms.Panel();
             this.LblTitulo = new System.Windows.Forms.Label();
             this.BtnCerrarPldatos = new System.Windows.Forms.Button();
+            this.BtnActivar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioAlm)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.plfooter.SuspendLayout();
@@ -117,29 +118,30 @@
             this.dtInventarioAlm.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioAlm.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioAlm.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioAlm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioAlm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtInventarioAlm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioAlm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioAlm.Location = new System.Drawing.Point(0, 62);
             this.dtInventarioAlm.Name = "dtInventarioAlm";
             this.dtInventarioAlm.ReadOnly = true;
             this.dtInventarioAlm.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioAlm.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioAlm.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtInventarioAlm.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioAlm.ShowCellToolTips = false;
             this.dtInventarioAlm.ShowEditingIcon = false;
             this.dtInventarioAlm.Size = new System.Drawing.Size(1613, 683);
             this.dtInventarioAlm.TabIndex = 15;
             this.dtInventarioAlm.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtInventarioAlm_CellDoubleClick);
+            this.dtInventarioAlm.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtInventarioAlm_CellFormatting);
             // 
             // plOpciones
             // 
@@ -368,6 +370,7 @@
             // PlAlmacen
             // 
             this.PlAlmacen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.PlAlmacen.Controls.Add(this.BtnActivar);
             this.PlAlmacen.Controls.Add(this.BtnGuardar);
             this.PlAlmacen.Controls.Add(this.TxtPesoNeto);
             this.PlAlmacen.Controls.Add(this.LblRedimiento);
@@ -880,6 +883,17 @@
             this.BtnCerrarPldatos.UseVisualStyleBackColor = true;
             this.BtnCerrarPldatos.Click += new System.EventHandler(this.BtnCerrarPldatos_Click);
             // 
+            // BtnActivar
+            // 
+            this.BtnActivar.Location = new System.Drawing.Point(802, 332);
+            this.BtnActivar.Name = "BtnActivar";
+            this.BtnActivar.Size = new System.Drawing.Size(93, 52);
+            this.BtnActivar.TabIndex = 10;
+            this.BtnActivar.Text = "Activar";
+            this.BtnActivar.UseVisualStyleBackColor = true;
+            this.BtnActivar.Visible = false;
+            this.BtnActivar.Click += new System.EventHandler(this.BtnActivar_Click);
+            // 
             // Almacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -978,5 +992,6 @@
         private System.Windows.Forms.ComboBox CbDescargador;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button BtnGuardar;
+        private System.Windows.Forms.Button BtnActivar;
     }
 }

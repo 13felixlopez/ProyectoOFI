@@ -199,7 +199,7 @@
             // 
             // btnGuardarV
             // 
-            this.btnGuardarV.Location = new System.Drawing.Point(991, 25);
+            this.btnGuardarV.Location = new System.Drawing.Point(1109, 25);
             this.btnGuardarV.Name = "btnGuardarV";
             this.btnGuardarV.Size = new System.Drawing.Size(93, 71);
             this.btnGuardarV.TabIndex = 11;
@@ -210,9 +210,9 @@
             // dtHoraFinV
             // 
             this.dtHoraFinV.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtHoraFinV.Location = new System.Drawing.Point(842, 100);
+            this.dtHoraFinV.Location = new System.Drawing.Point(923, 100);
             this.dtHoraFinV.Name = "dtHoraFinV";
-            this.dtHoraFinV.Size = new System.Drawing.Size(92, 26);
+            this.dtHoraFinV.Size = new System.Drawing.Size(134, 26);
             this.dtHoraFinV.TabIndex = 10;
             this.dtHoraFinV.ValueChanged += new System.EventHandler(this.dtHoraFinV_ValueChanged);
             // 
@@ -221,7 +221,7 @@
             this.dtHorainicioV.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dtHorainicioV.Location = new System.Drawing.Point(676, 100);
             this.dtHorainicioV.Name = "dtHorainicioV";
-            this.dtHorainicioV.Size = new System.Drawing.Size(92, 26);
+            this.dtHorainicioV.Size = new System.Drawing.Size(134, 26);
             this.dtHorainicioV.TabIndex = 10;
             // 
             // dtFProcV
@@ -245,7 +245,7 @@
             // 
             this.txtDuracionV.Location = new System.Drawing.Point(553, 154);
             this.txtDuracionV.Name = "txtDuracionV";
-            this.txtDuracionV.Size = new System.Drawing.Size(75, 26);
+            this.txtDuracionV.Size = new System.Drawing.Size(111, 26);
             this.txtDuracionV.TabIndex = 7;
             // 
             // label8
@@ -259,7 +259,7 @@
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(780, 92);
+            this.label9.Location = new System.Drawing.Point(861, 92);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 43);
             this.label9.TabIndex = 4;
@@ -284,7 +284,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(102, 103);
+            this.label12.Location = new System.Drawing.Point(77, 103);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(60, 20);
             this.label12.TabIndex = 2;
@@ -315,9 +315,9 @@
             "1",
             "2",
             "3"});
-            this.cbTurnoV.Location = new System.Drawing.Point(175, 99);
+            this.cbTurnoV.Location = new System.Drawing.Point(150, 101);
             this.cbTurnoV.Name = "cbTurnoV";
-            this.cbTurnoV.Size = new System.Drawing.Size(168, 24);
+            this.cbTurnoV.Size = new System.Drawing.Size(199, 24);
             this.cbTurnoV.TabIndex = 1;
             // 
             // label21
@@ -425,7 +425,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(121, 74);
+            this.label19.Location = new System.Drawing.Point(79, 74);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(60, 20);
             this.label19.TabIndex = 2;
@@ -456,9 +456,9 @@
             "1",
             "2",
             "3"});
-            this.cbTurnoPV.Location = new System.Drawing.Point(194, 70);
+            this.cbTurnoPV.Location = new System.Drawing.Point(152, 72);
             this.cbTurnoPV.Name = "cbTurnoPV";
-            this.cbTurnoPV.Size = new System.Drawing.Size(169, 24);
+            this.cbTurnoPV.Size = new System.Drawing.Size(200, 24);
             this.cbTurnoPV.TabIndex = 1;
             // 
             // gbDatos
@@ -516,9 +516,9 @@
             this.cbTicketV.BackColor = System.Drawing.Color.White;
             this.cbTicketV.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTicketV.FormattingEnabled = true;
-            this.cbTicketV.Location = new System.Drawing.Point(315, 29);
+            this.cbTicketV.Location = new System.Drawing.Point(253, 29);
             this.cbTicketV.Name = "cbTicketV";
-            this.cbTicketV.Size = new System.Drawing.Size(166, 26);
+            this.cbTicketV.Size = new System.Drawing.Size(218, 26);
             this.cbTicketV.TabIndex = 19;
             this.cbTicketV.SelectedIndexChanged += new System.EventHandler(this.cbTicketV_SelectedIndexChanged);
             // 
@@ -607,7 +607,7 @@
             // LblQQsV
             // 
             this.LblQQsV.AutoSize = true;
-            this.LblQQsV.Location = new System.Drawing.Point(1096, 32);
+            this.LblQQsV.Location = new System.Drawing.Point(1043, 32);
             this.LblQQsV.Name = "LblQQsV";
             this.LblQQsV.Size = new System.Drawing.Size(21, 20);
             this.LblQQsV.TabIndex = 2;
@@ -625,7 +625,7 @@
             // LblKilos
             // 
             this.LblKilos.AutoSize = true;
-            this.LblKilos.Location = new System.Drawing.Point(890, 32);
+            this.LblKilos.Location = new System.Drawing.Point(837, 32);
             this.LblKilos.Name = "LblKilos";
             this.LblKilos.Size = new System.Drawing.Size(21, 20);
             this.LblKilos.TabIndex = 2;
@@ -643,7 +643,7 @@
             // LblSacos
             // 
             this.LblSacos.AutoSize = true;
-            this.LblSacos.Location = new System.Drawing.Point(681, 32);
+            this.LblSacos.Location = new System.Drawing.Point(623, 32);
             this.LblSacos.Name = "LblSacos";
             this.LblSacos.Size = new System.Drawing.Size(21, 20);
             this.LblSacos.TabIndex = 2;

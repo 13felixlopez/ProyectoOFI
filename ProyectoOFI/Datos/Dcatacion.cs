@@ -242,6 +242,28 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-
+        public bool EditarTKAnalisis(string Ticket,string TicketNueva)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EditarTKAnalisis", Conexion.conectar);
+                cmd.CommandType=CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Ticket", Ticket);
+                cmd.Parameters.AddWithValue("@TicketNueva",TicketNueva);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al editar la Ticket" + ex.Message, "Error en editar ticket", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en EditarTKAnalisis ✖️✖️ "+ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
     }
 }

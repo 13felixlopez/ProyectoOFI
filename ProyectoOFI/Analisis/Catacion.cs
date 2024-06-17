@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Color = System.Drawing.Color;
 
 namespace ProyectoOFI.Analisis
 {
@@ -361,7 +362,7 @@ namespace ProyectoOFI.Analisis
             int num = dtInventarioCat.Columns[nombrecolum].Index;
             TkSM = dtInventarioCat.SelectedCells[num].Value.ToString();
 
-            string nombreEstado = "Proceso";
+            string nombreEstado = "Proce";
             int numEstado = dtInventarioCat.Columns[nombreEstado].Index;
             Proceso = dtInventarioCat.SelectedCells[numEstado].Value.ToString();
         }
@@ -592,7 +593,7 @@ namespace ProyectoOFI.Analisis
             {
                 BtnAnalisis.Text = "Re-Análisis";
             }
-            if (Proceso == "Analizado")
+            if (Proceso != "S/A")
             {
                 BtnAnalisis.Enabled = false;
                 ChbAnalizado.Enabled = false;
@@ -603,6 +604,7 @@ namespace ProyectoOFI.Analisis
                 ChbAnalizado.Enabled = true;
                 ChbRechazado.Enabled = true;
             }
+            MostrarCambiarTK();
         }
         private void ChbRechazado_CheckedChanged(object sender, EventArgs e)
         {
@@ -715,6 +717,25 @@ namespace ProyectoOFI.Analisis
                 isPlaceholder = false;
             }
         }
+
+        private void BtnCambiarTK_Click(object sender, EventArgs e)
+        {
+            PlCambioTK.Size = new Size(457, 229);
+            PlCambioTK.Location = new System.Drawing.Point(dtInventarioCat.Width / 2
+                - PlCambioTK.Width / 2, dtInventarioCat.Height / 2 - PlCambioTK.Height / 2);
+            PlCambioTK.Visible = true;
+            PlCambioTK.BringToFront();
+            PLDatos.Enabled = false;
+            LblTK.Text = LblTicket.Text;
+        }
+
+        private void BtnCerrarCambioTK_Click(object sender, EventArgs e)
+        {
+            PlCambioTK.Visible = false;
+            PLDatos.Enabled = true;
+            TxtTkNueva.Clear();
+        }
+
         private void ShowPlaceholder(object sender, EventArgs e, string placeholderText)
         {
             TextBox textBox = sender as TextBox;
@@ -725,6 +746,13 @@ namespace ProyectoOFI.Analisis
                 isPlaceholder = true;
             }
         }
+
+        private void BtnCambioTK_Click(object sender, EventArgs e)
+        {
+            EditarTKAnalisis();
+            MostrarLotes();
+        }
+
         private void InsertarCatacion()
         {
             if (Validar())
@@ -831,7 +859,6 @@ namespace ProyectoOFI.Analisis
                 }
             }
         }
-
         private bool Validar()
         {
             double entero;
@@ -1085,6 +1112,38 @@ namespace ProyectoOFI.Analisis
             catch (Exception)
             {
                 MessageBox.Show("Error en cargar datos interfaz", "Error en datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void MostrarCambiarTK()
+        {
+            // Obtener el texto del Label
+            string labelText = LblTicket.Text;
+
+            // Verificar si el texto finaliza con "-Parte" seguido de un número
+            if (System.Text.RegularExpressions.Regex.IsMatch(labelText, @"-Parte\d+$"))
+            {
+                // Mostrar el botón BtnCambiarTK
+                BtnCambiarTK.Visible = true;
+            }
+            else
+            {
+                // Ocultar el botón BtnCambiarTK
+                BtnCambiarTK.Visible = false;
+            }
+        }
+        private void EditarTKAnalisis()
+        {
+            if (!string.IsNullOrEmpty(TxtTkNueva.Text))
+            {
+                Dcatacion funcion = new Dcatacion();
+                if (funcion.EditarTKAnalisis(LblTK.Text, TxtTkNueva.Text) == true)
+                {
+                    MessageBox.Show("Se editó con éxito", "Editar Ticket", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    PlCambioTK.Visible = false;
+                    PLDatos.Enabled = true;
+                    LblTicket.Text = TxtTkNueva.Text;
+                    TxtTkNueva.Clear();
+                }
             }
         }
     }

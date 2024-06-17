@@ -363,7 +363,7 @@ namespace ProyectoOFI.SM
                 parametros.Ticket = LblTicket.Text;
                 parametros.FechaDes = DtPFDes1.Value;
                 parametros.HoradesIn = DtHInicio1.Value;
-                parametros.HoraFin = DtHInicio2.Value;
+                parametros.HoraFin = DtHoraFin2.Value;
                 parametros.Humedad = double.Parse(TxtHumedad.Text);
                 parametros.Paros = double.Parse(TxtParos.Text);
                 Paros();
@@ -379,9 +379,6 @@ namespace ProyectoOFI.SM
                 if (funcion.InsertarPreSecado(parametros) == true)
                 {
                     MessageBox.Show("Operación realizada con éxito", "Secado final", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    //Limpiar();
-                    //MostrarVerticalLabels();
-                    //Estilo();
                     int ver = int.Parse(Lblver.Text);
                     CambiarLblTK(ver);
                     PlDatos.Visible = false;

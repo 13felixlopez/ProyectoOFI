@@ -329,6 +329,16 @@ namespace ProyectoOFI.Almacen
             PLDatos.BringToFront();
             plOpciones.Enabled = false;
             dtInventarioAlm.Enabled = false;
+            if (LblRedimiento.Text == "--" || LblRedimiento.Text == "0%")
+            {
+                BtnGuardar.Text = "Guardar";
+                BtnActivar.Visible = false;
+            }
+            else
+            {
+                BtnGuardar.Text = "Editar";
+                BtnActivar.Visible = true;
+            }
         }
         private void BtnCerrarPldatos_Click(object sender, EventArgs e)
         {
@@ -564,6 +574,35 @@ namespace ProyectoOFI.Almacen
                 throw;
             }
         }
+        private void BtnActivar_Click(object sender, EventArgs e)
+        {
+            Activar();
+        }
+
+        private void dtInventarioAlm_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Verificar si la columna actual es la columna "Proceso"
+            if (dtInventarioAlm.Columns[e.ColumnIndex].Name == "Proceso")
+            {
+                // Obtener el valor de la celda actual
+                string cellValue = e.Value as string;
+
+                // Verificar si el valor de la celda es "Almacén"
+                if (!string.IsNullOrEmpty(cellValue) && cellValue == "Almacén")
+                {
+                    // Cambiar el color de fondo y el color de fuente de la fila
+                    dtInventarioAlm.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow; // Color de fondo
+                    dtInventarioAlm.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;    // Color de fuente
+                }
+                else
+                {
+                    // Restablecer los estilos de las filas que no cumplen la condición
+                    dtInventarioAlm.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                    dtInventarioAlm.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+                }
+            }
+        }
+
         private void Desactivar()
         {
             DtpFAlmacen.Enabled = false;

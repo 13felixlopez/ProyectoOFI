@@ -1439,10 +1439,10 @@
             this.PlParticion.Controls.Add(this.GbSF);
             this.PlParticion.Controls.Add(this.groupBox1);
             this.PlParticion.Controls.Add(this.panel1);
-            this.PlParticion.Location = new System.Drawing.Point(1798, 522);
+            this.PlParticion.Location = new System.Drawing.Point(339, 192);
             this.PlParticion.MaximumSize = new System.Drawing.Size(1254, 352);
             this.PlParticion.Name = "PlParticion";
-            this.PlParticion.Size = new System.Drawing.Size(84, 58);
+            this.PlParticion.Size = new System.Drawing.Size(1254, 352);
             this.PlParticion.TabIndex = 55;
             this.PlParticion.Visible = false;
             // 
@@ -1475,7 +1475,7 @@
             this.GbSF.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.GbSF.Location = new System.Drawing.Point(0, 142);
             this.GbSF.Name = "GbSF";
-            this.GbSF.Size = new System.Drawing.Size(84, 183);
+            this.GbSF.Size = new System.Drawing.Size(1254, 183);
             this.GbSF.TabIndex = 16;
             this.GbSF.TabStop = false;
             this.GbSF.Text = "Cargar POA";
@@ -1730,7 +1730,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(0, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(84, 99);
+            this.groupBox1.Size = new System.Drawing.Size(1254, 99);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Ticket";
@@ -1904,7 +1904,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(84, 43);
+            this.panel1.Size = new System.Drawing.Size(1254, 43);
             this.panel1.TabIndex = 17;
             // 
             // label28
@@ -1913,7 +1913,7 @@
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.Location = new System.Drawing.Point(0, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(35, 41);
+            this.label28.Size = new System.Drawing.Size(1205, 41);
             this.label28.TabIndex = 12;
             this.label28.Text = "Crear Carga para Secado Final";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1923,7 +1923,7 @@
             this.BtnCerrarParticion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnCerrarParticion.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnCerrarParticion.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrarParticion.Location = new System.Drawing.Point(35, 0);
+            this.BtnCerrarParticion.Location = new System.Drawing.Point(1205, 0);
             this.BtnCerrarParticion.Name = "BtnCerrarParticion";
             this.BtnCerrarParticion.Size = new System.Drawing.Size(47, 41);
             this.BtnCerrarParticion.TabIndex = 11;

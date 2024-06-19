@@ -7,6 +7,7 @@ using ProyectoOFI.Recepcion;
 using ProyectoOFI.Reportes;
 using ProyectoOFI.SM;
 using ProyectoOFI.Usuario;
+using ProyectoOFI.Compras;
 using System;
 using System.Data;
 using System.Drawing;
@@ -32,6 +33,7 @@ namespace ProyectoOFI
             BtnReTK.Enabled = true;
             BtnAnalisis.Enabled = true;
             BtnAlmacen.Enabled = true;
+            BtnComprasD.Enabled = true;
             PlPrincipal.Controls.Clear();
             Transferencia tr = new Transferencia
             {
@@ -56,12 +58,13 @@ namespace ProyectoOFI
 
         private void BtnUser_Click(object sender, EventArgs e)
         {
-            btnTransferencia.Enabled=true;
-            BtnUser.Enabled=false;
-            BtnCPatio.Enabled=true;
+            btnTransferencia.Enabled = true;
+            BtnUser.Enabled = false;
+            BtnCPatio.Enabled = true;
             BtnReTK.Enabled = true;
             BtnAnalisis.Enabled = true;
             BtnAlmacen.Enabled = true;
+            BtnComprasD.Enabled = true;
             PlPrincipal.Controls.Clear();
             UCUsuario tr = new UCUsuario
             {
@@ -86,6 +89,8 @@ namespace ProyectoOFI
             CambiarColor(BtnCerrarSesion);
             CambiarColor(BtnAnalisis);
             CambiarColor(btnSalir);
+            CambiarColor(BtnComprasD);
+            CambiarColor(BtnUser);
         }
         private void ValidarPermisos()
         {
@@ -105,7 +110,7 @@ namespace ProyectoOFI
                 {
                     BtnCPatio.Visible = true;
                 }
-                if(Modulo == "SM")
+                if (Modulo == "SM")
                 {
                     BtnSM.Visible = true;
                 }
@@ -129,7 +134,7 @@ namespace ProyectoOFI
 
         private void BtnHistorial_Click(object sender, EventArgs e)
         {
-            FrmHistorial HI=new FrmHistorial();
+            FrmHistorial HI = new FrmHistorial();
             HI.ShowDialog();
         }
 
@@ -148,6 +153,7 @@ namespace ProyectoOFI
             BtnReTK.Enabled = true;
             BtnAnalisis.Enabled = true;
             BtnAlmacen.Enabled = true;
+            BtnComprasD.Enabled = true;
             PlPrincipal.Controls.Clear();
             CUControlPatio tr = new CUControlPatio
             {
@@ -164,6 +170,7 @@ namespace ProyectoOFI
             BtnReTK.Enabled = false;
             BtnAnalisis.Enabled = true;
             BtnAlmacen.Enabled = true;
+            BtnComprasD.Enabled = true;
             PlPrincipal.Controls.Clear();
             CUReporteTK tK = new CUReporteTK
             {
@@ -180,6 +187,7 @@ namespace ProyectoOFI
             BtnReTK.Enabled = true;
             BtnAnalisis.Enabled = false;
             BtnAlmacen.Enabled = true;
+            BtnComprasD.Enabled = true;
             PlPrincipal.Controls.Clear();
             Catacion al = new Catacion
             {
@@ -196,8 +204,9 @@ namespace ProyectoOFI
             BtnReTK.Enabled = true;
             BtnAnalisis.Enabled = true;
             BtnAlmacen.Enabled = false;
+            BtnComprasD.Enabled = true;
             PlPrincipal.Controls.Clear();
-            Almacen.Almacen al =new Almacen.Almacen
+            Almacen.Almacen al = new Almacen.Almacen
             {
                 Dock = DockStyle.Fill
             };
@@ -221,6 +230,23 @@ namespace ProyectoOFI
                 // Restaurar el color original al quitar el puntero
                 Btn.BackColor = colorOriginal;
             };
+        }
+
+        private void BtnComprasD_Click(object sender, EventArgs e)
+        {
+            btnTransferencia.Enabled = true;
+            BtnUser.Enabled = true;
+            BtnCPatio.Enabled = true;
+            BtnReTK.Enabled = true;
+            BtnAnalisis.Enabled = true;
+            BtnAlmacen.Enabled = true;
+            BtnComprasD.Enabled = false;
+            PlPrincipal.Controls.Clear();
+            ComprasDirectas CD = new ComprasDirectas
+            {
+                Dock = DockStyle.Fill
+            };
+            PlPrincipal.Controls.Add(CD);
         }
     }
 }

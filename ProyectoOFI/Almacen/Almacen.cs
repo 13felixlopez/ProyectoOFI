@@ -16,7 +16,7 @@ namespace ProyectoOFI.Almacen
         int totalPaginas;
         int Contador;
         string Ticket;
-        int IdBodega, IdEmpaque;
+        int IdBodega, IdEmpaque, Edit;
         double PesoNeto, Tara;
         double rendimiento;
         public Almacen()
@@ -445,7 +445,52 @@ namespace ProyectoOFI.Almacen
         }
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            InsertarAlmacen();
+            if (BtnGuardar.Text == "Guardar")
+            {
+                InsertarAlmacen();
+            }
+            else
+            {
+                if (Edit > 3)
+                {
+                    MessageBox.Show("No puede editar esta Ticket porque ya superó la cantidad de ediciones permitida", "Error al editar", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+                else
+                {
+                    EditarAlmacen();
+                }
+            }
+        }
+        private void EditarAlmacen()
+        {
+            if (validar())
+            {
+                DAlmacen funcion = new DAlmacen();
+                LAlmacen parametros = new LAlmacen();
+                parametros.Ticket = LblTicket.Text;
+                parametros.Origen = LblProcedencia.Text;
+                parametros.FechaAlmacen = DateTime.Parse(DtpFAlmacen.Text);
+                parametros.IdBodega = (int)CbBodega.SelectedValue;
+                parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
+                parametros.IdEmpaque = (int)CbTipoEmpaque.SelectedValue;
+                parametros.Sacos = int.Parse(NudSacos.Text);
+                parametros.Peso = decimal.Parse(TxtPeso.Text);
+                parametros.Tara = decimal.Parse(TxtTara.Text);
+                parametros.PesoNeto = decimal.Parse(TxtPesoNeto.Text);
+                parametros.Rendimiento = rendimiento;
+                parametros.IdTurno = (int)CbTurno.SelectedValue;
+                parametros.IdDescargador = (int)CbDescargador.SelectedValue;
+                if (funcion.EditarAlmacen(parametros) == true)
+                {
+                    MessageBox.Show("Se ha guardado con éxito", "Almacén", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MostrarAlmacen();
+                    Limpiar();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Existen campos vacios", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void CbTipoEmpaque_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -565,6 +610,7 @@ namespace ProyectoOFI.Almacen
                     {
                         CbDescargador.ForeColor = Color.Red;
                     }
+                    Edit = int.Parse(row["Edit"].ToString());
                     Desactivar();
                 }
             }
@@ -578,7 +624,6 @@ namespace ProyectoOFI.Almacen
         {
             Activar();
         }
-
         private void dtInventarioAlm_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             // Verificar si la columna actual es la columna "Proceso"
@@ -602,7 +647,6 @@ namespace ProyectoOFI.Almacen
                 }
             }
         }
-
         private void Desactivar()
         {
             DtpFAlmacen.Enabled = false;

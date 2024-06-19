@@ -121,8 +121,8 @@
   <data name="icons8-guardar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-guardar.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-garantía" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-garantía.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,9 +187,6 @@
   <data name="send_30px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\send_30px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Next_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Next_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -214,8 +211,14 @@
   <data name="TF" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-actualizar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-actualizar.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="join" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\join.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-magazine-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-magazine-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Guardiola1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Guardiola1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -241,6 +244,9 @@
   <data name="icons8-configuración-del-administrador" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-configuración-del-administrador.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icons8-almacén" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-almacén.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="transfer_within_a_station_FILL0_wght400_GRAD0_opsz24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\transfer_within_a_station_FILL0_wght400_GRAD0_opsz24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -256,8 +262,8 @@
   <data name="icons8-refrescar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-refrescar.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="filter_list_FILL0_wght400_GRAD0_opsz24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\filter_list_FILL0_wght400_GRAD0_opsz24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TolvaV Btn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TolvaV Btn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -316,8 +322,8 @@
   <data name="loading-12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loading-12.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-magazine-50" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-magazine-50.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="filter_list_FILL0_wght400_GRAD0_opsz24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\filter_list_FILL0_wght400_GRAD0_opsz24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PS1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PS1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -340,7 +346,7 @@
   <data name="task_alt_FILL1_wght400_GRAD0_opsz24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\task_alt_FILL1_wght400_GRAD0_opsz24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-almacén" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-almacén.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-en-tránsito" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-en-tránsito.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

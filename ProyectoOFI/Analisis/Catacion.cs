@@ -572,6 +572,7 @@ namespace ProyectoOFI.Analisis
             dtInventarioCat.Enabled = true;
             plOpciones.Enabled = true;
             BtnAnalisis.Text = "Analizado";
+            Desactivar();
             Limpiar();
         }
         private void AbrirFormulario()
@@ -585,25 +586,25 @@ namespace ProyectoOFI.Analisis
             dtInventarioCat.Enabled = false;
             Dcatacion funcion = new Dcatacion();
             funcion.MostrarVariedad(CbVariedad);
-            if (Proceso != "Analizado")
-            {
-                BtnAnalisis.Text = "Analizado";
-            }
-            else
-            {
-                BtnAnalisis.Text = "Re-Análisis";
-            }
-            if (Proceso != "Analizado")
-            {
-                //BtnAnalisis.Enabled = false;
-                ChbAnalizado.Enabled = false;
-                ChbRechazado.Enabled = false;
-            }
-            else
-            {
-                ChbAnalizado.Enabled = true;
-                ChbRechazado.Enabled = true;
-            }
+            //if (Proceso != "Analizado")
+            //{
+            //    BtnAnalisis.Text = "Analizado";
+            //}
+            //else
+            //{
+            //    BtnAnalisis.Text = "Re-Análisis";
+            //}
+            //if (Proceso != "Analizado")
+            //{
+            //    //BtnAnalisis.Enabled = false;
+            //    ChbAnalizado.Enabled = false;
+            //    ChbRechazado.Enabled = false;
+            //}
+            //else
+            //{
+            //    ChbAnalizado.Enabled = true;
+            //    ChbRechazado.Enabled = true;
+            //}
             MostrarCambiarTK();
         }
         private void ChbRechazado_CheckedChanged(object sender, EventArgs e)
@@ -753,6 +754,44 @@ namespace ProyectoOFI.Analisis
             MostrarLotes();
         }
 
+        private void BtnActivar_Click(object sender, EventArgs e)
+        {
+            Activar();
+        }
+        private void Activar()
+        {
+            TxtAnalisis.Enabled=true;
+            DtFechaCatacion.Enabled=true;
+            DTPFechaMuestra.Enabled=true;
+            TxtBto.Enabled=true;
+            CbVariedad.Enabled=true;
+            TxtHumedad.Enabled=true;
+            TxtExp.Enabled=true;
+            TxtDesmA.Enabled=true;
+            TxtDesmC.Enabled=true;
+            TxtScore.Enabled=true;
+            BtnAnalisis.Text = "Re-Analizar";
+            BtnAnalisis.Enabled=true;
+            ChbAnalizado.Enabled = true;
+            ChbRechazado.Enabled = true;
+        }
+        private void Desactivar()
+        {
+            TxtAnalisis.Enabled = false;
+            DtFechaCatacion.Enabled = false;
+            DTPFechaMuestra.Enabled = false;
+            TxtBto.Enabled = false;
+            CbVariedad.Enabled = false;
+            TxtHumedad.Enabled = false;
+            TxtExp.Enabled = false;
+            TxtDesmA.Enabled = false;
+            TxtDesmC.Enabled = false;
+            TxtScore.Enabled = false;
+            BtnAnalisis.Text = "Analizado";
+            BtnAnalisis.Enabled = false;
+            ChbAnalizado.Enabled = false;
+            ChbRechazado.Enabled = false;
+        }
         private void InsertarCatacion()
         {
             if (Validar())
@@ -1090,6 +1129,8 @@ namespace ProyectoOFI.Analisis
                     }
 
                     Idcatacion = int.Parse(row["IdCatacion"].ToString());
+                    BtnActivar.Visible = true;
+                    Desactivar();
                     //else
                     //{
                     //    Estado = false;

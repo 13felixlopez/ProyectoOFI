@@ -149,6 +149,7 @@ namespace ProyectoOFI.Datos
                 da.Parameters.AddWithValue("@Rendimiento", parametros.Rendimiento);
                 da.Parameters.AddWithValue("@IdTurno", parametros.IdTurno);
                 da.Parameters.AddWithValue("@IdDescargador", parametros.IdDescargador);
+                da.Parameters.AddWithValue("@Usuario", Login.NombreA);
                 da.ExecuteNonQuery();
                 return true;
             }
@@ -159,6 +160,41 @@ namespace ProyectoOFI.Datos
                 return false;
             }
             finally { Conexion.cerrar(); }
+        }
+        public bool EditarAlmacen(LAlmacen parametros)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("EditarAlmacen", Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+                da.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                da.Parameters.AddWithValue("@Origen", parametros.Origen);
+                da.Parameters.AddWithValue("@FechaAlmacen", parametros.FechaAlmacen);
+                da.Parameters.AddWithValue("@IdBodega", parametros.IdBodega);
+                da.Parameters.AddWithValue("@IdUbicacion", parametros.IdUbicacion);
+                da.Parameters.AddWithValue("@IdEmpaque", parametros.IdEmpaque);
+                da.Parameters.AddWithValue("@Sacos", parametros.Sacos);
+                da.Parameters.AddWithValue("@Peso", parametros.Peso);
+                da.Parameters.AddWithValue("@Tara", parametros.Tara);
+                da.Parameters.AddWithValue("@PesoNeto", parametros.PesoNeto);
+                da.Parameters.AddWithValue("@Rendimiento", parametros.Rendimiento);
+                da.Parameters.AddWithValue("@IdTurno", parametros.IdTurno);
+                da.Parameters.AddWithValue("@IdDescargador", parametros.IdDescargador);
+                da.Parameters.AddWithValue("@Usuario", Login.NombreA);
+                da.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Editar los datos en Almacén " + ex.Message, "Error en Almacén", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en EditarAlmacen ✖️✖️ " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
         }
         public void MostrarEmpaque(ComboBox Empaque)
         {

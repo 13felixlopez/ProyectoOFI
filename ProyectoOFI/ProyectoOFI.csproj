@@ -98,6 +98,12 @@
     <Compile Include="Analisis\Catacion.Designer.cs">
       <DependentUpon>Catacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Compras\ComprasDirectas.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Compras\ComprasDirectas.Designer.cs">
+      <DependentUpon>ComprasDirectas.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlPatio\CUControlPatio.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -114,6 +120,7 @@
     <Compile Include="Datos\DAlmacen.cs" />
     <Compile Include="Datos\Dcatacion.cs" />
     <Compile Include="Datos\DCatalogo.cs" />
+    <Compile Include="Datos\DCompraD.cs" />
     <Compile Include="Datos\DGuardiola.cs" />
     <Compile Include="Datos\DHistorial.cs" />
     <Compile Include="Datos\DModulos.cs" />
@@ -146,6 +153,7 @@
     <Compile Include="Logica\Encrip.cs" />
     <Compile Include="Logica\LAlmacen.cs" />
     <Compile Include="Logica\LCatacion.cs" />
+    <Compile Include="Logica\LComprasD.cs" />
     <Compile Include="Logica\LEnvio.cs" />
     <Compile Include="Logica\LModulos.cs" />
     <Compile Include="Logica\LPermisos.cs" />
@@ -413,6 +421,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Analisis\Catacion.resx">
       <DependentUpon>Catacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Compras\ComprasDirectas.resx">
+      <DependentUpon>ComprasDirectas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlPatio\CUControlPatio.resx">
       <DependentUpon>CUControlPatio.cs</DependentUpon>
@@ -716,6 +727,8 @@
   <ItemGroup>
     <Content Include="CoffeeTec.sql" />
     <Content Include="Logo.ico" />
+    <None Include="Resources\icons8-en-tránsito.gif" />
+    <None Include="Resources\icons8-actualizar.gif" />
     <None Include="Resources\icons8-almacén.gif" />
     <None Include="Resources\TF.png" />
     <None Include="Resources\grey-9026_512.gif" />
@@ -760,5 +773,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

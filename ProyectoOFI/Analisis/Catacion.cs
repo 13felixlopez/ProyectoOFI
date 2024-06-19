@@ -585,7 +585,7 @@ namespace ProyectoOFI.Analisis
             dtInventarioCat.Enabled = false;
             Dcatacion funcion = new Dcatacion();
             funcion.MostrarVariedad(CbVariedad);
-            if (Proceso == "S/A" || Proceso == "Analizado")
+            if (Proceso != "Analizado")
             {
                 BtnAnalisis.Text = "Analizado";
             }
@@ -593,9 +593,9 @@ namespace ProyectoOFI.Analisis
             {
                 BtnAnalisis.Text = "Re-Análisis";
             }
-            if (Proceso != "S/A")
+            if (Proceso != "Analizado")
             {
-                BtnAnalisis.Enabled = false;
+                //BtnAnalisis.Enabled = false;
                 ChbAnalizado.Enabled = false;
                 ChbRechazado.Enabled = false;
             }
@@ -1071,18 +1071,6 @@ namespace ProyectoOFI.Analisis
                     {
                         LblGCalidad.Text = "--";
                     }
-
-                    // Asignar el valor de Cat.Digitador
-                    //if (row["Digitador"] != DBNull.Value && row["Digitador"].ToString() != null)
-                    //{
-                    //    TxtDigitador.Text = row["Digitador"].ToString();
-                    //}
-                    //else
-                    //{
-                    //    TxtDigitador.Clear();
-                    //}
-
-                    // Asignar el valor de Cat.Estado
                     if (row["Estado"] != DBNull.Value && row["Estado"].ToString() != null)
                     {
                         Estado = Boolean.Parse(row["Estado"].ToString());
@@ -1106,7 +1094,10 @@ namespace ProyectoOFI.Analisis
                     //{
                     //    Estado = false;
                     //}
-
+                }
+                else
+                {
+                    BtnAnalisis.Enabled = true;
                 }
             }
             catch (Exception)

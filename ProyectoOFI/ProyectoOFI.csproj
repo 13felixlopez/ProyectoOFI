@@ -339,6 +339,12 @@
     <Compile Include="Reportes\FrmHistorial.Designer.cs">
       <DependentUpon>FrmHistorial.cs</DependentUpon>
     </Compile>
+    <Compile Include="SM\FrmExcelSM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\FrmExcelSM.Designer.cs">
+      <DependentUpon>FrmExcelSM.cs</DependentUpon>
+    </Compile>
     <Compile Include="SM\Guardiolas.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -511,6 +517,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmHistorial.resx">
       <DependentUpon>FrmHistorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\FrmExcelSM.resx">
+      <DependentUpon>FrmExcelSM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SM\Guardiolas.resx">
       <DependentUpon>Guardiolas.cs</DependentUpon>

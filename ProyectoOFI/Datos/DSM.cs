@@ -471,5 +471,24 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public void ExcelSM(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da=new SqlDataAdapter("ExcelSM",Conexion.conectar);
+                da.SelectCommand.CommandType=CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron cargar los datos de ExcelSM " + ex.Message, "Error en ExcelSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en cargar datos ExcelSM ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
     }
 }

@@ -338,13 +338,13 @@ namespace ProyectoOFI.SM
                         // Mostrar el resultado en una etiqueta
                         LblTotalTime.Text = resultado;
                         PreSecado = final;
-                        AbrirFormulario();
                     }
                     else
                     {
                         LblTotalTime.Text = "--";
                     }
                 }
+                        AbrirFormulario();
             }
 
             catch (Exception)

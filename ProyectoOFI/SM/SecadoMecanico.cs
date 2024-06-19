@@ -1,4 +1,5 @@
-﻿using ProyectoOFI.Datos;
+﻿using ProyectoOFI.ControlPatio;
+using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
 using System;
@@ -923,6 +924,15 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("Existen datos vacios", "Error en validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void PbExcel_Click(object sender, EventArgs e)
+        {
+            FrmExcelSM excel = new FrmExcelSM();
+            excel.Dock = DockStyle.Fill;
+            excel.BringToFront();
+            excel.ShowDialog();
+        }
+
         private void ParticionSM()
         {
             try

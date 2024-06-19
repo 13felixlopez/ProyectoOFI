@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioCat = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.CbBuscar = new System.Windows.Forms.ComboBox();
@@ -114,18 +114,18 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.PlCerrarDetalle = new System.Windows.Forms.Panel();
+            this.BtnCambiarTK = new System.Windows.Forms.Button();
             this.LblTituloCP = new System.Windows.Forms.Label();
             this.BtnCerrarPldatos = new System.Windows.Forms.Button();
-            this.BtnCambiarTK = new System.Windows.Forms.Button();
             this.PlCambioTK = new System.Windows.Forms.Panel();
+            this.BtnCambioTK = new System.Windows.Forms.Button();
+            this.TxtTkNueva = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.LblTK = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label34 = new System.Windows.Forms.Label();
             this.BtnCerrarCambioTK = new System.Windows.Forms.Button();
-            this.LblTK = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.TxtTkNueva = new System.Windows.Forms.TextBox();
-            this.BtnCambioTK = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioCat)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.plfooter.SuspendLayout();
@@ -148,23 +148,23 @@
             this.dtInventarioCat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioCat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioCat.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtInventarioCat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioCat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioCat.Location = new System.Drawing.Point(0, 62);
             this.dtInventarioCat.Name = "dtInventarioCat";
             this.dtInventarioCat.ReadOnly = true;
             this.dtInventarioCat.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtInventarioCat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioCat.ShowCellToolTips = false;
             this.dtInventarioCat.ShowEditingIcon = false;
@@ -396,7 +396,7 @@
             this.PLDatos.Location = new System.Drawing.Point(204, 91);
             this.PLDatos.MaximumSize = new System.Drawing.Size(1207, 622);
             this.PLDatos.Name = "PLDatos";
-            this.PLDatos.Size = new System.Drawing.Size(182, 137);
+            this.PLDatos.Size = new System.Drawing.Size(1207, 622);
             this.PLDatos.TabIndex = 16;
             this.PLDatos.Visible = false;
             // 
@@ -450,7 +450,7 @@
             this.PlCatacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlCatacion.Location = new System.Drawing.Point(0, 186);
             this.PlCatacion.Name = "PlCatacion";
-            this.PlCatacion.Size = new System.Drawing.Size(180, 398);
+            this.PlCatacion.Size = new System.Drawing.Size(1205, 398);
             this.PlCatacion.TabIndex = 17;
             // 
             // ChbAnalizado
@@ -897,7 +897,7 @@
             this.PlDatosTk.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlDatosTk.Location = new System.Drawing.Point(0, 48);
             this.PlDatosTk.Name = "PlDatosTk";
-            this.PlDatosTk.Size = new System.Drawing.Size(180, 138);
+            this.PlDatosTk.Size = new System.Drawing.Size(1205, 138);
             this.PlDatosTk.TabIndex = 0;
             // 
             // LblProcedencia
@@ -1109,8 +1109,20 @@
             this.PlCerrarDetalle.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlCerrarDetalle.Location = new System.Drawing.Point(0, 0);
             this.PlCerrarDetalle.Name = "PlCerrarDetalle";
-            this.PlCerrarDetalle.Size = new System.Drawing.Size(180, 48);
+            this.PlCerrarDetalle.Size = new System.Drawing.Size(1205, 48);
             this.PlCerrarDetalle.TabIndex = 3;
+            // 
+            // BtnCambiarTK
+            // 
+            this.BtnCambiarTK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCambiarTK.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCambiarTK.Location = new System.Drawing.Point(1051, 0);
+            this.BtnCambiarTK.Name = "BtnCambiarTK";
+            this.BtnCambiarTK.Size = new System.Drawing.Size(75, 44);
+            this.BtnCambiarTK.TabIndex = 5;
+            this.BtnCambiarTK.UseVisualStyleBackColor = true;
+            this.BtnCambiarTK.Visible = false;
+            this.BtnCambiarTK.Click += new System.EventHandler(this.BtnCambiarTK_Click);
             // 
             // LblTituloCP
             // 
@@ -1118,7 +1130,7 @@
             this.LblTituloCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTituloCP.Location = new System.Drawing.Point(0, 0);
             this.LblTituloCP.Name = "LblTituloCP";
-            this.LblTituloCP.Size = new System.Drawing.Size(101, 44);
+            this.LblTituloCP.Size = new System.Drawing.Size(1126, 44);
             this.LblTituloCP.TabIndex = 4;
             this.LblTituloCP.Text = "Editar Análisis";
             this.LblTituloCP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1128,24 +1140,12 @@
             this.BtnCerrarPldatos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnCerrarPldatos.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnCerrarPldatos.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrarPldatos.Location = new System.Drawing.Point(101, 0);
+            this.BtnCerrarPldatos.Location = new System.Drawing.Point(1126, 0);
             this.BtnCerrarPldatos.Name = "BtnCerrarPldatos";
             this.BtnCerrarPldatos.Size = new System.Drawing.Size(75, 44);
             this.BtnCerrarPldatos.TabIndex = 3;
             this.BtnCerrarPldatos.UseVisualStyleBackColor = true;
             this.BtnCerrarPldatos.Click += new System.EventHandler(this.BtnCerrarPldatos_Click);
-            // 
-            // BtnCambiarTK
-            // 
-            this.BtnCambiarTK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCambiarTK.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCambiarTK.Location = new System.Drawing.Point(26, 0);
-            this.BtnCambiarTK.Name = "BtnCambiarTK";
-            this.BtnCambiarTK.Size = new System.Drawing.Size(75, 44);
-            this.BtnCambiarTK.TabIndex = 5;
-            this.BtnCambiarTK.UseVisualStyleBackColor = true;
-            this.BtnCambiarTK.Visible = false;
-            this.BtnCambiarTK.Click += new System.EventHandler(this.BtnCambiarTK_Click);
             // 
             // PlCambioTK
             // 
@@ -1161,6 +1161,55 @@
             this.PlCambioTK.Size = new System.Drawing.Size(457, 229);
             this.PlCambioTK.TabIndex = 17;
             this.PlCambioTK.Visible = false;
+            // 
+            // BtnCambioTK
+            // 
+            this.BtnCambioTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCambioTK.Location = new System.Drawing.Point(157, 169);
+            this.BtnCambioTK.Name = "BtnCambioTK";
+            this.BtnCambioTK.Size = new System.Drawing.Size(134, 44);
+            this.BtnCambioTK.TabIndex = 9;
+            this.BtnCambioTK.Text = "Guardar";
+            this.BtnCambioTK.UseVisualStyleBackColor = true;
+            this.BtnCambioTK.Click += new System.EventHandler(this.BtnCambioTK_Click);
+            // 
+            // TxtTkNueva
+            // 
+            this.TxtTkNueva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.TxtTkNueva.Location = new System.Drawing.Point(143, 120);
+            this.TxtTkNueva.Name = "TxtTkNueva";
+            this.TxtTkNueva.Size = new System.Drawing.Size(197, 26);
+            this.TxtTkNueva.TabIndex = 8;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.Location = new System.Drawing.Point(16, 121);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(117, 20);
+            this.label38.TabIndex = 7;
+            this.label38.Text = "Ticket Nueva:";
+            // 
+            // LblTK
+            // 
+            this.LblTK.AutoSize = true;
+            this.LblTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTK.Location = new System.Drawing.Point(153, 66);
+            this.LblTK.Name = "LblTK";
+            this.LblTK.Size = new System.Drawing.Size(19, 20);
+            this.LblTK.TabIndex = 5;
+            this.LblTK.Text = "--";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(14, 66);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(118, 20);
+            this.label37.TabIndex = 6;
+            this.label37.Text = "Ticket Actual:";
             // 
             // panel2
             // 
@@ -1195,55 +1244,6 @@
             this.BtnCerrarCambioTK.TabIndex = 3;
             this.BtnCerrarCambioTK.UseVisualStyleBackColor = true;
             this.BtnCerrarCambioTK.Click += new System.EventHandler(this.BtnCerrarCambioTK_Click);
-            // 
-            // LblTK
-            // 
-            this.LblTK.AutoSize = true;
-            this.LblTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTK.Location = new System.Drawing.Point(153, 66);
-            this.LblTK.Name = "LblTK";
-            this.LblTK.Size = new System.Drawing.Size(19, 20);
-            this.LblTK.TabIndex = 5;
-            this.LblTK.Text = "--";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(14, 66);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(118, 20);
-            this.label37.TabIndex = 6;
-            this.label37.Text = "Ticket Actual:";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(16, 121);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(117, 20);
-            this.label38.TabIndex = 7;
-            this.label38.Text = "Ticket Nueva:";
-            // 
-            // TxtTkNueva
-            // 
-            this.TxtTkNueva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.TxtTkNueva.Location = new System.Drawing.Point(143, 120);
-            this.TxtTkNueva.Name = "TxtTkNueva";
-            this.TxtTkNueva.Size = new System.Drawing.Size(197, 26);
-            this.TxtTkNueva.TabIndex = 8;
-            // 
-            // BtnCambioTK
-            // 
-            this.BtnCambioTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCambioTK.Location = new System.Drawing.Point(157, 169);
-            this.BtnCambioTK.Name = "BtnCambioTK";
-            this.BtnCambioTK.Size = new System.Drawing.Size(134, 44);
-            this.BtnCambioTK.TabIndex = 9;
-            this.BtnCambioTK.Text = "Guardar";
-            this.BtnCambioTK.UseVisualStyleBackColor = true;
-            this.BtnCambioTK.Click += new System.EventHandler(this.BtnCambioTK_Click);
             // 
             // Catacion
             // 

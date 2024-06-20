@@ -231,6 +231,7 @@ namespace ProyectoOFI.Analisis
             funcion.MostrarCata(ref dt, desde, hasta);
             dtInventarioCat.DataSource = dt;
             Base.DiseñoDtvEliminar(ref dtInventarioCat);
+            BtnMostrarCompras.Text = "Compras Directas";
         }
         private void VerDetalleCatacion()
         {
@@ -718,7 +719,6 @@ namespace ProyectoOFI.Analisis
                 isPlaceholder = false;
             }
         }
-
         private void BtnCambiarTK_Click(object sender, EventArgs e)
         {
             PlCambioTK.Size = new Size(457, 229);
@@ -729,14 +729,12 @@ namespace ProyectoOFI.Analisis
             PLDatos.Enabled = false;
             LblTK.Text = LblTicket.Text;
         }
-
         private void BtnCerrarCambioTK_Click(object sender, EventArgs e)
         {
             PlCambioTK.Visible = false;
             PLDatos.Enabled = true;
             TxtTkNueva.Clear();
         }
-
         private void ShowPlaceholder(object sender, EventArgs e, string placeholderText)
         {
             TextBox textBox = sender as TextBox;
@@ -747,31 +745,29 @@ namespace ProyectoOFI.Analisis
                 isPlaceholder = true;
             }
         }
-
         private void BtnCambioTK_Click(object sender, EventArgs e)
         {
             EditarTKAnalisis();
             MostrarLotes();
         }
-
         private void BtnActivar_Click(object sender, EventArgs e)
         {
             Activar();
         }
         private void Activar()
         {
-            TxtAnalisis.Enabled=true;
-            DtFechaCatacion.Enabled=true;
-            DTPFechaMuestra.Enabled=true;
-            TxtBto.Enabled=true;
-            CbVariedad.Enabled=true;
-            TxtHumedad.Enabled=true;
-            TxtExp.Enabled=true;
-            TxtDesmA.Enabled=true;
-            TxtDesmC.Enabled=true;
-            TxtScore.Enabled=true;
+            TxtAnalisis.Enabled = true;
+            DtFechaCatacion.Enabled = true;
+            DTPFechaMuestra.Enabled = true;
+            TxtBto.Enabled = true;
+            CbVariedad.Enabled = true;
+            TxtHumedad.Enabled = true;
+            TxtExp.Enabled = true;
+            TxtDesmA.Enabled = true;
+            TxtDesmC.Enabled = true;
+            TxtScore.Enabled = true;
             BtnAnalisis.Text = "Re-Analizar";
-            BtnAnalisis.Enabled=true;
+            BtnAnalisis.Enabled = true;
             ChbAnalizado.Enabled = true;
             ChbRechazado.Enabled = true;
         }
@@ -844,6 +840,24 @@ namespace ProyectoOFI.Analisis
                 }
             }
         }
+
+        private async void BtnMostrarCompras_Click(object sender, EventArgs e)
+        {
+            PlCarga.Dock = DockStyle.Fill;
+            PlCarga.Visible = true;
+            await Task.Delay(1500);
+            if (BtnMostrarCompras.Text == "Compras Directas")
+            {
+                MostrarComprasD();
+            }
+            else
+            {
+                MostrarLotes();
+            }
+            PlCarga.Visible = false;
+            await Task.Delay(1000);
+        }
+
         private void EditarCatacion()
         {
             if (Validar())
@@ -1177,6 +1191,14 @@ namespace ProyectoOFI.Analisis
                     TxtTkNueva.Clear();
                 }
             }
+        }
+        private void MostrarComprasD()
+        {
+            DCompraD funcion = new DCompraD();
+            DataTable dt = new DataTable();
+            funcion.MostrarComprasD(ref dt, desde, hasta);
+            dtInventarioCat.DataSource = dt;
+            BtnMostrarCompras.Text = "Análisis";
         }
     }
 }

@@ -578,7 +578,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ProyectoOFI_TemporaryKey.pfx" />
     <None Include="Resources\add_64px.png" />
   </ItemGroup>
   <ItemGroup>

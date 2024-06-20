@@ -2,12 +2,14 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.Datos
 {
     public class DCompraD
     {
+        public int Contador;
         public bool InsertarCompraDirecta(LComprasD parametros)
         {
             try
@@ -15,12 +17,13 @@ namespace ProyectoOFI.Datos
                 Conexion.abrir();
                 SqlCommand cmd = new SqlCommand("InsertarCompraDirecta", Conexion.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Ticket",parametros.Ticket);
                 cmd.Parameters.AddWithValue("@Cosecha", parametros.Cosecha);
+                cmd.Parameters.AddWithValue("@Fecha",parametros.Fecha);
                 cmd.Parameters.AddWithValue("@Remision", parametros.Remision);
                 cmd.Parameters.AddWithValue("@Proveedor", parametros.Proveedor);
                 cmd.Parameters.AddWithValue("@KgsRem", parametros.KgsRem);
                 cmd.Parameters.AddWithValue("@Tally", parametros.Tally);
-                cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
                 cmd.Parameters.AddWithValue("@IdEmpaque", parametros.IdEmpaque);
                 cmd.Parameters.AddWithValue("@Sacos", parametros.Sacos);
                 cmd.Parameters.AddWithValue("@Kilos", parametros.Kilos);
@@ -45,19 +48,81 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void MostrarComprasD(ref DataTable dt)
+        public void MostrarComprasD(ref DataTable dt,int Desde,int Hasta)
         {
             try
             {
                 Conexion.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("MostrarComprasD", Conexion.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Desde", Desde);
+                da.SelectCommand.Parameters.AddWithValue("@Hasta", Hasta);
                 da.Fill(dt);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar los datos de compras directas " + ex.Message, "Error Compras Directas", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error al cargar datos en MostrarComprasD ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void Contar(ref int contador)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("select count (Ticket) from CompraDirecta",Conexion.conectar);
+                contador=Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (Exception)
+            {
+                contador = 0;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EliminarCompraD(string TK,string Usuario)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EliminarCompraD", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Ticket", TK);
+                cmd.Parameters.AddWithValue("@Usuario",Usuario);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo eliminar el registro " + ex.Message, "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en EliminarCompraD ✖️✖️ "+ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void VerdetalleCompraD(ref DataTable dt,string TK)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da= new SqlDataAdapter("VerdetalleCompraD",Conexion.conectar);
+                da.SelectCommand.CommandType= CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Ticket",TK);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error en Detalle Compra", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al cargar datos de VerdetalleCompraD ✖️✖️ " + ex.Message);
             }
             finally
             {

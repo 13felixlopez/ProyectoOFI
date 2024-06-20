@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioCat = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.CbBuscar = new System.Windows.Forms.ComboBox();
@@ -46,8 +46,10 @@
             this.lbl_Pagina = new System.Windows.Forms.Label();
             this.Label25 = new System.Windows.Forms.Label();
             this.PlCarga = new System.Windows.Forms.Panel();
+            this.PbCarga = new System.Windows.Forms.PictureBox();
             this.PLDatos = new System.Windows.Forms.Panel();
             this.PlCatacion = new System.Windows.Forms.Panel();
+            this.BtnActivar = new System.Windows.Forms.Button();
             this.ChbAnalizado = new System.Windows.Forms.CheckBox();
             this.ChbRechazado = new System.Windows.Forms.CheckBox();
             this.CbVariedad = new System.Windows.Forms.ComboBox();
@@ -113,7 +115,9 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.PlCerrarDetalle = new System.Windows.Forms.Panel();
+            this.BtnCambiarTK = new System.Windows.Forms.Button();
             this.LblTituloCP = new System.Windows.Forms.Label();
+            this.BtnCerrarPldatos = new System.Windows.Forms.Button();
             this.PlCambioTK = new System.Windows.Forms.Panel();
             this.BtnCambioTK = new System.Windows.Forms.Button();
             this.TxtTkNueva = new System.Windows.Forms.TextBox();
@@ -123,21 +127,18 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label34 = new System.Windows.Forms.Label();
             this.BtnCerrarCambioTK = new System.Windows.Forms.Button();
-            this.BtnCambiarTK = new System.Windows.Forms.Button();
-            this.BtnCerrarPldatos = new System.Windows.Forms.Button();
-            this.PbCarga = new System.Windows.Forms.PictureBox();
-            this.BtnActivar = new System.Windows.Forms.Button();
+            this.BtnMostrarCompras = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioCat)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.plfooter.SuspendLayout();
             this.PlCarga.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.PLDatos.SuspendLayout();
             this.PlCatacion.SuspendLayout();
             this.PlDatosTk.SuspendLayout();
             this.PlCerrarDetalle.SuspendLayout();
             this.PlCambioTK.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.SuspendLayout();
             // 
             // dtInventarioCat
@@ -149,23 +150,23 @@
             this.dtInventarioCat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioCat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioCat.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtInventarioCat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioCat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioCat.Location = new System.Drawing.Point(0, 62);
             this.dtInventarioCat.Name = "dtInventarioCat";
             this.dtInventarioCat.ReadOnly = true;
             this.dtInventarioCat.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtInventarioCat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioCat.ShowCellToolTips = false;
             this.dtInventarioCat.ShowEditingIcon = false;
@@ -176,6 +177,7 @@
             // plOpciones
             // 
             this.plOpciones.BackColor = System.Drawing.Color.White;
+            this.plOpciones.Controls.Add(this.BtnMostrarCompras);
             this.plOpciones.Controls.Add(this.CbBuscar);
             this.plOpciones.Controls.Add(this.label26);
             this.plOpciones.Controls.Add(this.txtBuscador);
@@ -375,6 +377,18 @@
             this.PlCarga.Size = new System.Drawing.Size(250, 172);
             this.PlCarga.TabIndex = 15;
             // 
+            // PbCarga
+            // 
+            this.PbCarga.BackColor = System.Drawing.Color.White;
+            this.PbCarga.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PbCarga.Image = global::ProyectoOFI.Properties.Resources.three_11928;
+            this.PbCarga.Location = new System.Drawing.Point(0, 0);
+            this.PbCarga.Name = "PbCarga";
+            this.PbCarga.Size = new System.Drawing.Size(250, 172);
+            this.PbCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbCarga.TabIndex = 0;
+            this.PbCarga.TabStop = false;
+            // 
             // PLDatos
             // 
             this.PLDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
@@ -442,6 +456,17 @@
             this.PlCatacion.Name = "PlCatacion";
             this.PlCatacion.Size = new System.Drawing.Size(1205, 398);
             this.PlCatacion.TabIndex = 17;
+            // 
+            // BtnActivar
+            // 
+            this.BtnActivar.Location = new System.Drawing.Point(748, 332);
+            this.BtnActivar.Name = "BtnActivar";
+            this.BtnActivar.Size = new System.Drawing.Size(93, 52);
+            this.BtnActivar.TabIndex = 11;
+            this.BtnActivar.Text = "Activar";
+            this.BtnActivar.UseVisualStyleBackColor = true;
+            this.BtnActivar.Visible = false;
+            this.BtnActivar.Click += new System.EventHandler(this.BtnActivar_Click);
             // 
             // ChbAnalizado
             // 
@@ -1102,6 +1127,19 @@
             this.PlCerrarDetalle.Size = new System.Drawing.Size(1205, 48);
             this.PlCerrarDetalle.TabIndex = 3;
             // 
+            // BtnCambiarTK
+            // 
+            this.BtnCambiarTK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCambiarTK.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCambiarTK.Image = global::ProyectoOFI.Properties.Resources.icons8_actualizar;
+            this.BtnCambiarTK.Location = new System.Drawing.Point(1051, 0);
+            this.BtnCambiarTK.Name = "BtnCambiarTK";
+            this.BtnCambiarTK.Size = new System.Drawing.Size(75, 44);
+            this.BtnCambiarTK.TabIndex = 5;
+            this.BtnCambiarTK.UseVisualStyleBackColor = true;
+            this.BtnCambiarTK.Visible = false;
+            this.BtnCambiarTK.Click += new System.EventHandler(this.BtnCambiarTK_Click);
+            // 
             // LblTituloCP
             // 
             this.LblTituloCP.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1112,6 +1150,18 @@
             this.LblTituloCP.TabIndex = 4;
             this.LblTituloCP.Text = "Editar Análisis";
             this.LblTituloCP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnCerrarPldatos
+            // 
+            this.BtnCerrarPldatos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrarPldatos.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrarPldatos.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrarPldatos.Location = new System.Drawing.Point(1126, 0);
+            this.BtnCerrarPldatos.Name = "BtnCerrarPldatos";
+            this.BtnCerrarPldatos.Size = new System.Drawing.Size(75, 44);
+            this.BtnCerrarPldatos.TabIndex = 3;
+            this.BtnCerrarPldatos.UseVisualStyleBackColor = true;
+            this.BtnCerrarPldatos.Click += new System.EventHandler(this.BtnCerrarPldatos_Click);
             // 
             // PlCambioTK
             // 
@@ -1211,53 +1261,16 @@
             this.BtnCerrarCambioTK.UseVisualStyleBackColor = true;
             this.BtnCerrarCambioTK.Click += new System.EventHandler(this.BtnCerrarCambioTK_Click);
             // 
-            // BtnCambiarTK
+            // BtnMostrarCompras
             // 
-            this.BtnCambiarTK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCambiarTK.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCambiarTK.Image = global::ProyectoOFI.Properties.Resources.icons8_actualizar;
-            this.BtnCambiarTK.Location = new System.Drawing.Point(1051, 0);
-            this.BtnCambiarTK.Name = "BtnCambiarTK";
-            this.BtnCambiarTK.Size = new System.Drawing.Size(75, 44);
-            this.BtnCambiarTK.TabIndex = 5;
-            this.BtnCambiarTK.UseVisualStyleBackColor = true;
-            this.BtnCambiarTK.Visible = false;
-            this.BtnCambiarTK.Click += new System.EventHandler(this.BtnCambiarTK_Click);
-            // 
-            // BtnCerrarPldatos
-            // 
-            this.BtnCerrarPldatos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCerrarPldatos.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCerrarPldatos.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrarPldatos.Location = new System.Drawing.Point(1126, 0);
-            this.BtnCerrarPldatos.Name = "BtnCerrarPldatos";
-            this.BtnCerrarPldatos.Size = new System.Drawing.Size(75, 44);
-            this.BtnCerrarPldatos.TabIndex = 3;
-            this.BtnCerrarPldatos.UseVisualStyleBackColor = true;
-            this.BtnCerrarPldatos.Click += new System.EventHandler(this.BtnCerrarPldatos_Click);
-            // 
-            // PbCarga
-            // 
-            this.PbCarga.BackColor = System.Drawing.Color.White;
-            this.PbCarga.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PbCarga.Image = global::ProyectoOFI.Properties.Resources.three_11928;
-            this.PbCarga.Location = new System.Drawing.Point(0, 0);
-            this.PbCarga.Name = "PbCarga";
-            this.PbCarga.Size = new System.Drawing.Size(250, 172);
-            this.PbCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbCarga.TabIndex = 0;
-            this.PbCarga.TabStop = false;
-            // 
-            // BtnActivar
-            // 
-            this.BtnActivar.Location = new System.Drawing.Point(748, 332);
-            this.BtnActivar.Name = "BtnActivar";
-            this.BtnActivar.Size = new System.Drawing.Size(93, 52);
-            this.BtnActivar.TabIndex = 11;
-            this.BtnActivar.Text = "Activar";
-            this.BtnActivar.UseVisualStyleBackColor = true;
-            this.BtnActivar.Visible = false;
-            this.BtnActivar.Click += new System.EventHandler(this.BtnActivar_Click);
+            this.BtnMostrarCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMostrarCompras.Location = new System.Drawing.Point(1388, 3);
+            this.BtnMostrarCompras.Name = "BtnMostrarCompras";
+            this.BtnMostrarCompras.Size = new System.Drawing.Size(133, 53);
+            this.BtnMostrarCompras.TabIndex = 5;
+            this.BtnMostrarCompras.Text = "Compras Directas";
+            this.BtnMostrarCompras.UseVisualStyleBackColor = true;
+            this.BtnMostrarCompras.Click += new System.EventHandler(this.BtnMostrarCompras_Click);
             // 
             // Catacion
             // 
@@ -1278,6 +1291,7 @@
             this.plfooter.ResumeLayout(false);
             this.plfooter.PerformLayout();
             this.PlCarga.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
             this.PLDatos.ResumeLayout(false);
             this.PlCatacion.ResumeLayout(false);
             this.PlCatacion.PerformLayout();
@@ -1287,7 +1301,6 @@
             this.PlCambioTK.ResumeLayout(false);
             this.PlCambioTK.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1391,5 +1404,6 @@
         private System.Windows.Forms.Button BtnCerrarCambioTK;
         private System.Windows.Forms.Button BtnCambioTK;
         private System.Windows.Forms.Button BtnActivar;
+        private System.Windows.Forms.Button BtnMostrarCompras;
     }
 }

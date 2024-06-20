@@ -63,6 +63,7 @@ namespace ProyectoOFI
             this.btnTransferencia = new System.Windows.Forms.Button();
             this.pbIcono = new System.Windows.Forms.PictureBox();
             this.PbPerfil = new System.Windows.Forms.PictureBox();
+            this.panel13 = new System.Windows.Forms.Panel();
             this.plTitulo.SuspendLayout();
             this.PlPerfil.SuspendLayout();
             this.plfooter.SuspendLayout();
@@ -120,6 +121,9 @@ namespace ProyectoOFI
             // plfooter
             // 
             this.plfooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
+            this.plfooter.Controls.Add(this.BtnCerrarSesion);
+            this.plfooter.Controls.Add(this.btnSalir);
+            this.plfooter.Controls.Add(this.panel13);
             this.plfooter.Controls.Add(this.BtnCatalogo);
             this.plfooter.Controls.Add(this.panel2);
             this.plfooter.Controls.Add(this.BtnHistorial);
@@ -133,12 +137,10 @@ namespace ProyectoOFI
             this.plfooter.Controls.Add(this.BtnAlmacen);
             this.plfooter.Controls.Add(this.panel10);
             this.plfooter.Controls.Add(this.BtnAnalisis);
-            this.plfooter.Controls.Add(this.BtnCerrarSesion);
             this.plfooter.Controls.Add(this.panel3);
             this.plfooter.Controls.Add(this.BtnSM);
             this.plfooter.Controls.Add(this.panel1);
             this.plfooter.Controls.Add(this.BtnCPatio);
-            this.plfooter.Controls.Add(this.btnSalir);
             this.plfooter.Controls.Add(this.panel9);
             this.plfooter.Controls.Add(this.btnTransferencia);
             this.plfooter.Controls.Add(this.panel8);
@@ -433,9 +435,9 @@ namespace ProyectoOFI
             // BtnCerrarSesion
             // 
             this.BtnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
-            this.BtnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BtnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnCerrarSesion.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_sesión;
-            this.BtnCerrarSesion.Location = new System.Drawing.Point(11, 880);
+            this.BtnCerrarSesion.Location = new System.Drawing.Point(11, 923);
             this.BtnCerrarSesion.Name = "BtnCerrarSesion";
             this.BtnCerrarSesion.Size = new System.Drawing.Size(180, 66);
             this.BtnCerrarSesion.TabIndex = 23;
@@ -485,9 +487,9 @@ namespace ProyectoOFI
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
-            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSalir.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnSalir.Image = global::ProyectoOFI.Properties.Resources.Atras;
-            this.btnSalir.Location = new System.Drawing.Point(11, 946);
+            this.btnSalir.Location = new System.Drawing.Point(11, 857);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(180, 66);
             this.btnSalir.TabIndex = 1;
@@ -538,6 +540,16 @@ namespace ProyectoOFI
             this.PbPerfil.TabIndex = 0;
             this.PbPerfil.TabStop = false;
             this.PbPerfil.Click += new System.EventHandler(this.PbPerfil_Click);
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Location = new System.Drawing.Point(11, 847);
+            this.panel13.Margin = new System.Windows.Forms.Padding(2);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(180, 10);
+            this.panel13.TabIndex = 34;
             // 
             // frmInicio
             // 
@@ -601,6 +613,7 @@ namespace ProyectoOFI
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Button BtnComprasD;
         private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Panel panel13;
     }
 }
 

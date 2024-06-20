@@ -1782,6 +1782,7 @@ namespace ProyectoOFI.Recepcion
                 CbCertCons.Enabled = true;
             }
         }
+
         private void LimpiarCons()
         {
             LblTotalPeso.Text = "00";

@@ -726,6 +726,7 @@
   <ItemGroup>
     <Content Include="CoffeeTec.sql" />
     <Content Include="Logo.ico" />
+    <None Include="Resources\icons8-gráfico-combinado.gif" />
     <None Include="Resources\icons8-en-tránsito.gif" />
     <None Include="Resources\icons8-actualizar.gif" />
     <None Include="Resources\icons8-almacén.gif" />

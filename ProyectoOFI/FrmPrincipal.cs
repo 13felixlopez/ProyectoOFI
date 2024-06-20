@@ -248,5 +248,27 @@ namespace ProyectoOFI
             };
             PlPrincipal.Controls.Add(CD);
         }
+
+        private void BtnReportes_Click(object sender, EventArgs e)
+        {
+            btnTransferencia.Enabled = true;
+            BtnUser.Enabled = true;
+            BtnCPatio.Enabled = true;
+            BtnReTK.Enabled = true;
+            BtnAnalisis.Enabled = true;
+            BtnAlmacen.Enabled = true;
+            BtnComprasD.Enabled = true;
+            PlPrincipal.Controls.Clear();
+            PlPrincipal.Controls.Add(LblPrincipal);
+            PlPrincipal.Controls.Add(PlOpciones);
+            if (PlOpciones.Visible == true)
+            {
+                PlOpciones.Visible = false;
+            }
+            else
+            {
+                PlOpciones.Visible = true;
+            }
+        }
     }
 }

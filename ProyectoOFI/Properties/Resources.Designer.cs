@@ -393,6 +393,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_gráfico_combinado {
+            get {
+                object obj = ResourceManager.GetObject("icons8-gráfico-combinado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_grupos_de_usuarios {
             get {
                 object obj = ResourceManager.GetObject("icons8-grupos-de-usuarios", resourceCulture);

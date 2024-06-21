@@ -129,5 +129,44 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public bool EditarCompraDirecta(LComprasD parametros,string TK)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EditarCompraDirecta", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TK", TK);
+                cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                cmd.Parameters.AddWithValue("@Cosecha", parametros.Cosecha);
+                cmd.Parameters.AddWithValue("@Fecha", parametros.Fecha);
+                cmd.Parameters.AddWithValue("@Remision", parametros.Remision);
+                cmd.Parameters.AddWithValue("@Proveedor", parametros.Proveedor);
+                cmd.Parameters.AddWithValue("@KgsRem", parametros.KgsRem);
+                cmd.Parameters.AddWithValue("@Tally", parametros.Tally);
+                cmd.Parameters.AddWithValue("@IdEmpaque", parametros.IdEmpaque);
+                cmd.Parameters.AddWithValue("@Sacos", parametros.Sacos);
+                cmd.Parameters.AddWithValue("@Kilos", parametros.Kilos);
+                cmd.Parameters.AddWithValue("@Diferencia", parametros.Diferencia);
+                cmd.Parameters.AddWithValue("@IdBodega", parametros.IdBodega);
+                cmd.Parameters.AddWithValue("@IdUbicacion", parametros.IdUbicacion);
+                cmd.Parameters.AddWithValue("@IdCompra", parametros.IdCompra);
+                cmd.Parameters.AddWithValue("@IdCertificacion", parametros.IdCertificacion);
+                cmd.Parameters.AddWithValue("@Estado", parametros.Estado);
+                cmd.Parameters.AddWithValue("@Usuario", Login.NombreA);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al editar los datos en CompraDirecta: " + ex.Message, "Error en CompraDirecta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en EditarCompraDirecta ✖️✖️ " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
     }
 }

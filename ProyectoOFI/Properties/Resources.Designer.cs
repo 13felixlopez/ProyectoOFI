@@ -503,6 +503,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_tareas_paralelas {
+            get {
+                object obj = ResourceManager.GetObject("icons8-tareas-paralelas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_tiempo_de_propiedades {
             get {
                 object obj = ResourceManager.GetObject("icons8-tiempo-de-propiedades", resourceCulture);

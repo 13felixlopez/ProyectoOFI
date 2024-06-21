@@ -334,10 +334,7 @@ namespace ProyectoOFI.Analisis
                         FMuestra = DateTime.Today;
                         DTPFechaMuestra.Value = DateTime.Today;
                     }
-                    DateTime fechaActual = DateTime.Now;
-                    TimeSpan diferencia = fechaActual.Subtract(FMuestra);
-                    int diasDiferencia = (int)diferencia.TotalDays;
-                    LblDias.Text = diasDiferencia.ToString();
+                    CalculoDias();
                 }
             }
             catch (Exception ex)
@@ -345,27 +342,59 @@ namespace ProyectoOFI.Analisis
                 MessageBox.Show("Error al cargar datos en controles" + ex.Message, "ERROR en Catación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void CalculoDias()
+        {
+            DateTime fechaActual = DateTime.Now;
+            TimeSpan diferencia = fechaActual.Subtract(FMuestra);
+            int diasDiferencia = (int)diferencia.TotalDays;
+            LblDias.Text = diasDiferencia.ToString();
+        }
         private void dtInventarioCat_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             ObtenerTK();
-            VerDetalleCatacion();
-            TkDetalle = LblTicket.Text;
+            if (BtnMostrarCompras.Text == "Compras Directas")
+            {
+                PlDetalleCompra.Visible = false;
+                PlDatosTk.Visible = true;
+                //PlDatosTk.BringToFront();
+                VerDetalleCatacion();
+                TkDetalle = LblTicket.Text;
+            }
+            else
+            {
+                PlDatosTk.Visible = false;
+                PlDetalleCompra.Visible = true;
+                //PlDetalleCompra.BringToFront();
+                VerDetalleCompra();
+                TkDetalle = LblTKCD.Text;
+                DTPFechaMuestra.Value = DateTime.Parse(LblFecha.Text);
+            }
             VerDetalleCata();
             AbrirFormulario();
         }
+
         private void ObtenerTK()
         {
             string nombrecolumna = "Ticket";
             int indice = dtInventarioCat.Columns[nombrecolumna].Index;
             Ticket = dtInventarioCat.SelectedCells[indice].Value.ToString();
 
-            string nombrecolum = "Ticket SM";
-            int num = dtInventarioCat.Columns[nombrecolum].Index;
-            TkSM = dtInventarioCat.SelectedCells[num].Value.ToString();
+            if (BtnMostrarCompras.Text == "Compras Directas")
+            {
+                string nombrecolum = "Ticket SM";
+                int num = dtInventarioCat.Columns[nombrecolum].Index;
+                TkSM = dtInventarioCat.SelectedCells[num].Value.ToString();
 
-            string nombreEstado = "Proce";
-            int numEstado = dtInventarioCat.Columns[nombreEstado].Index;
-            Proceso = dtInventarioCat.SelectedCells[numEstado].Value.ToString();
+                string nombreEstado = "Proce";
+                int numEstado = dtInventarioCat.Columns[nombreEstado].Index;
+                Proceso = dtInventarioCat.SelectedCells[numEstado].Value.ToString();
+            }
+            else
+            {
+                string nombreEstado = "Estado";
+                int numEstado = dtInventarioCat.Columns[nombreEstado].Index;
+                Proceso = dtInventarioCat.SelectedCells[numEstado].Value.ToString();
+            }
         }
         private void TxtBto_TextChanged(object sender, EventArgs e)
         {
@@ -587,6 +616,14 @@ namespace ProyectoOFI.Analisis
             dtInventarioCat.Enabled = false;
             Dcatacion funcion = new Dcatacion();
             funcion.MostrarVariedad(CbVariedad);
+            if (Proceso == "S/A")
+            {
+                Activar();
+            }
+            else
+            {
+                Desactivar();
+            }
             //if (Proceso != "Analizado")
             //{
             //    BtnAnalisis.Text = "Analizado";
@@ -673,7 +710,14 @@ namespace ProyectoOFI.Analisis
             {
                 if (Validar())
                 {
-                    InsertarCatacion();
+                    if (BtnMostrarCompras.Text == "Análisis")
+                    {
+                        InsertarCatacionCD();
+                    }
+                    else
+                    {
+                        InsertarCatacion();
+                    }
                 }
                 else
                 {
@@ -691,6 +735,60 @@ namespace ProyectoOFI.Analisis
             dtInventarioCat.Enabled = true;
             plOpciones.Enabled = true;
         }
+
+        private void InsertarCatacionCD()
+        {
+            if (Validar())
+            {
+                LCatacion parametros = new LCatacion();
+                Dcatacion funcion = new Dcatacion();
+                parametros.Ticket = LblTKCD.Text;
+                parametros.Origen = "Compra Directa";
+                parametros.Analisis = TxtAnalisis.Text;
+                parametros.FechaMuestra = DTPFechaMuestra.Value;
+                parametros.FechaCatacion = DateTime.Today;
+                parametros.Dias = int.Parse(LblDias.Text);
+                parametros.RmtoObto = TxtBto.Text;
+                parametros.Cascarilla = LblCascarilla.Text;
+                parametros.TotalPS = LblTotal.Text;
+                parametros.IdVariedad = (int)CbVariedad.SelectedValue;
+                parametros.Humedad = TxtHumedad.Text;
+                parametros.Exp = double.Parse(TxtExp.Text);
+                parametros.DesmA = double.Parse(TxtDesmA.Text);
+                parametros.DesmC = double.Parse(TxtDesmC.Text);
+                parametros.DesmD = double.Parse(LblDesmD.Text);
+                parametros.Score = int.Parse(TxtScore.Text);
+                parametros.Tasa = LblTasa.Text;
+                parametros.GradoCalidad = LblGCalidad.Text;
+                parametros.ExpP = LblExpP.Text;
+                parametros.DesmAP = LblDesmAP.Text;
+                parametros.DesmCP = LblDesmCP.Text;
+                parametros.DesmDP = LblDesmDP.Text;
+                parametros.Digitador = Login.NombreA;
+                if (ChbRechazado.Checked == true)
+                {
+                    parametros.Estado = "0";
+                }
+                else if (ChbAnalizado.Checked == true)
+                {
+                    parametros.Estado = "1";
+                }
+                else
+                {
+                    parametros.Estado = "1";
+                }
+                if (funcion.InsertarCatacionCD(parametros) == true)
+                {
+                    PLDatos.Visible = false;
+                    Limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("Error en los datos", "Error en interfaz", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         //Prueba Placeholders
         private void SetPlaceholder(TextBox textBox, string placeholderText)
         {
@@ -753,6 +851,7 @@ namespace ProyectoOFI.Analisis
         private void BtnActivar_Click(object sender, EventArgs e)
         {
             Activar();
+            BtnAnalisis.Text = "Re-Analizar";
         }
         private void Activar()
         {
@@ -766,7 +865,6 @@ namespace ProyectoOFI.Analisis
             TxtDesmA.Enabled = true;
             TxtDesmC.Enabled = true;
             TxtScore.Enabled = true;
-            BtnAnalisis.Text = "Re-Analizar";
             BtnAnalisis.Enabled = true;
             ChbAnalizado.Enabled = true;
             ChbRechazado.Enabled = true;
@@ -840,7 +938,6 @@ namespace ProyectoOFI.Analisis
                 }
             }
         }
-
         private async void BtnMostrarCompras_Click(object sender, EventArgs e)
         {
             PlCarga.Dock = DockStyle.Fill;
@@ -857,7 +954,6 @@ namespace ProyectoOFI.Analisis
             PlCarga.Visible = false;
             await Task.Delay(1000);
         }
-
         private void EditarCatacion()
         {
             if (Validar())
@@ -1199,6 +1295,150 @@ namespace ProyectoOFI.Analisis
             funcion.MostrarComprasD(ref dt, desde, hasta);
             dtInventarioCat.DataSource = dt;
             BtnMostrarCompras.Text = "Análisis";
+        }
+        private void VerDetalleCompra()
+        {
+            DCompraD funcion = new DCompraD();
+            DataTable dt = new DataTable();
+            try
+            {
+                funcion.VerdetalleCompraD(ref dt, Ticket);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow row = dt.Rows[0];
+                    if (row["Cosecha"].ToString() != null)
+                    {
+                        LblCosecha.Text = row["Cosecha"].ToString();
+                    }
+                    else
+                    {
+                        LblCosecha.Text = "--";
+                    }
+                    if (DateTime.TryParse(row["Fecha"].ToString(), out DateTime fecha))
+                    {
+                        LblFecha.Text = fecha.ToString("dd MMMM yyyy"); // Esto mostrará la fecha en formato "día mes año", por ejemplo, "28 mayo 2024"
+                        FMuestra = DateTime.Parse(fecha.ToString("dd MMMM yyyy"));
+                    }
+                    else
+                    {
+                        LblFecha.Text = DateTime.Today.ToString();
+                    }
+                    if (row["Ticket"].ToString() != null)
+                    {
+                        LblTKCD.Text = row["Ticket"].ToString();
+                    }
+                    else
+                    {
+                        LblTKCD.Text = "--";
+                    }
+                    if (row["Remision"].ToString() != null)
+                    {
+                        LblResmision.Text = row["Remision"].ToString();
+                    }
+                    else
+                    {
+                        LblResmision.Text = "--";
+                    }
+                    if (row["Tally"].ToString() != null)
+                    {
+                        LblTally.Text = row["Tally"].ToString();
+                    }
+                    else
+                    {
+                        LblTally.Text = "--";
+                    }
+                    if (row["kilos"].ToString() != null)
+                    {
+                        LblPesoCD.Text = row["kilos"].ToString();
+                    }
+                    else
+                    {
+                        LblPesoCD.Text = "--";
+                    }
+                    if (row["KgsRem"].ToString() != null)
+                    {
+                        LblKgsRem.Text = row["KgsRem"].ToString();
+                    }
+                    else
+                    {
+                        LblKgsRem.Text = "--";
+                    }
+                    if (row["Sacos"].ToString() != null)
+                    {
+                        LblSacosCD.Text = row["Sacos"].ToString();
+                    }
+                    else
+                    {
+                        LblSacosCD.Text = "--";
+                    }
+                    if (row["Diferencia"].ToString() != null)
+                    {
+                        LblDiferencia.Text = row["Diferencia"].ToString();
+                    }
+                    else
+                    {
+                        LblDiferencia.Text = "--";
+                    }
+                    if (row["Proveedor"].ToString() != null)
+                    {
+                        LblProveedor.Text = row["Proveedor"].ToString();
+                    }
+                    else
+                    {
+                        LblProveedor.Text = "--";
+                    }
+                    if (row["Empaque"].ToString() != null)
+                    {
+                        LblEmpaque.Text = row["Empaque"].ToString();
+                    }
+                    else
+                    {
+                        LblEmpaque.Text = "--";
+                    }
+                    if (row["Bodega"].ToString() != null)
+                    {
+                        LblBodega.Text = row["Bodega"].ToString();
+                    }
+                    else
+                    {
+                        LblBodega.Text = "--";
+                    }
+                    if (row["Ubicacion"].ToString() != null)
+                    {
+                        LblUbicacion.Text = row["Ubicacion"].ToString();
+                    }
+                    else
+                    {
+                        LblUbicacion.Text = "--";
+                    }
+                    if (row["Tipo de Compra"].ToString() != null)
+                    {
+                        LblTCompra.Text = row["Tipo de Compra"].ToString();
+                    }
+                    else
+                    {
+                        LblTCompra.Text = "--";
+                    }
+                    if (row["Certificacion"].ToString() != null)
+                    {
+                        LblCertificacion.Text = row["Certificacion"].ToString();
+                    }
+                    else
+                    {
+                        LblCertificacion.Text = "--";
+                    }
+                    CalculoDias();
+                }
+                else
+                {
+
+                    BtnActivar.Visible = false;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error en cargar datos interfaz", "Error en datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

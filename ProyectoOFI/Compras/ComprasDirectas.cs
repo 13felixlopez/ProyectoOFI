@@ -92,7 +92,7 @@ namespace ProyectoOFI.Compras
                     parametros.Tally = TxtTally.Text;
                     parametros.IdEmpaque = (int)CbTipoEmpaque.SelectedValue;
                     parametros.Sacos = int.Parse(NudSacos.Text);
-                    parametros.Kilos = int.Parse(TxtPeso.Text);
+                    parametros.Kilos = double.Parse(TxtPeso.Text);
                     parametros.Diferencia = double.Parse(LblDiferencia.Text);
                     parametros.IdBodega = (int)CbBodega.SelectedValue;
                     parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
@@ -105,6 +105,47 @@ namespace ProyectoOFI.Compras
                         Limpiar();
                         PLDatos.Visible = false;
                         dtInventarioCompras.Enabled = true;
+                        plOpciones.Enabled = true;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        private void EditarCompraDirecta()
+        {
+            try
+            {
+                if (Validar())
+                {
+                    DCompraD funcion = new DCompraD();
+                    LComprasD parametros = new LComprasD();
+                    parametros.Cosecha = TxtConsecha.Text;
+                    parametros.Fecha = DTPFecha.Value;
+                    parametros.Ticket = TxtTicket.Text;
+                    parametros.Remision = TxtRem.Text;
+                    parametros.Proveedor = CbProveedor.Text;
+                    parametros.KgsRem = double.Parse(TxtKgsRem.Text);
+                    parametros.Tally = TxtTally.Text;
+                    parametros.IdEmpaque = (int)CbTipoEmpaque.SelectedValue;
+                    parametros.Sacos = int.Parse(NudSacos.Text);
+                    parametros.Kilos = double.Parse(TxtPeso.Text);
+                    parametros.Diferencia = double.Parse(LblDiferencia.Text);
+                    parametros.IdBodega = (int)CbBodega.SelectedValue;
+                    parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
+                    parametros.IdCompra = (int)cbCompra.SelectedValue;
+                    parametros.IdCertificacion = (int)cbCertificacion.SelectedValue;
+                    parametros.Estado = Estado;
+                    if (funcion.EditarCompraDirecta(parametros, Ticket) == true)
+                    {
+                        MostrarComprasD();
+                        Limpiar();
+                        PLDatos.Visible = false;
+                        dtInventarioCompras.Enabled = true;
+                        plOpciones.Enabled = true;
                     }
                 }
             }
@@ -116,6 +157,7 @@ namespace ProyectoOFI.Compras
         }
         private void Limpiar()
         {
+            TxtTicket.Clear();
             TxtConsecha.Clear();
             TxtRem.Clear();
             TxtKgsRem.Clear();
@@ -250,6 +292,10 @@ namespace ProyectoOFI.Compras
             if (BtnGuardar.Text == "Guardar")
             {
                 InsertarCompraDirecta();
+            }
+            else
+            {
+                EditarCompraDirecta();
             }
         }
         private void ObtenerTK()
@@ -423,6 +469,10 @@ namespace ProyectoOFI.Compras
             }
             Paginar();
         }
+        private void BtnActivar_Click(object sender, EventArgs e)
+        {
+            Activar();
+        }
         private void btn_Primera_Click(object sender, EventArgs e)
         {
             ReiniciarPaginado();
@@ -572,7 +622,7 @@ namespace ProyectoOFI.Compras
                     }
                     Desactivar();
                     BtnGuardar.Enabled = false;
-                    BtnActivar.Visible= true;
+                    BtnActivar.Visible = true;
                     BtnGuardar.Text = "Editar";
                 }
                 else

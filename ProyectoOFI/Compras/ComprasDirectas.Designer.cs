@@ -49,6 +49,7 @@
             this.Label25 = new System.Windows.Forms.Label();
             this.PLDatos = new System.Windows.Forms.Panel();
             this.PlCompras = new System.Windows.Forms.Panel();
+            this.BtnActivar = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.cbCompra = new System.Windows.Forms.ComboBox();
             this.label48 = new System.Windows.Forms.Label();
@@ -74,18 +75,17 @@
             this.label4 = new System.Windows.Forms.Label();
             this.DTPFecha = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
+            this.TxtTicket = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.TxtRem = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtConsecha = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dtInventarioCompras = new System.Windows.Forms.DataGridView();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.plfooter = new System.Windows.Forms.Panel();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label12 = new System.Windows.Forms.Label();
-            this.TxtTicket = new System.Windows.Forms.TextBox();
-            this.BtnActivar = new System.Windows.Forms.Button();
             this.PlCerrarDetalle.SuspendLayout();
             this.PlCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
@@ -370,6 +370,18 @@
             this.PlCompras.Size = new System.Drawing.Size(1205, 532);
             this.PlCompras.TabIndex = 17;
             // 
+            // BtnActivar
+            // 
+            this.BtnActivar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnActivar.Location = new System.Drawing.Point(669, 459);
+            this.BtnActivar.Name = "BtnActivar";
+            this.BtnActivar.Size = new System.Drawing.Size(134, 44);
+            this.BtnActivar.TabIndex = 123;
+            this.BtnActivar.Text = "Activar";
+            this.BtnActivar.UseVisualStyleBackColor = true;
+            this.BtnActivar.Visible = false;
+            this.BtnActivar.Click += new System.EventHandler(this.BtnActivar_Click);
+            // 
             // BtnGuardar
             // 
             this.BtnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -622,6 +634,24 @@
             this.label5.TabIndex = 3;
             this.label5.Text = "Fecha:";
             // 
+            // TxtTicket
+            // 
+            this.TxtTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtTicket.Location = new System.Drawing.Point(490, 72);
+            this.TxtTicket.Name = "TxtTicket";
+            this.TxtTicket.Size = new System.Drawing.Size(159, 26);
+            this.TxtTicket.TabIndex = 1;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(426, 75);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(55, 20);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Ticket:";
+            // 
             // TxtRem
             // 
             this.TxtRem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -694,6 +724,13 @@
             this.dtInventarioCompras.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtInventarioCompras_CellClick);
             this.dtInventarioCompras.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtInventarioCompras_CellDoubleClick);
             // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Image = global::ProyectoOFI.Properties.Resources.Delete;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            // 
             // plOpciones
             // 
             this.plOpciones.BackColor = System.Drawing.Color.White;
@@ -740,42 +777,6 @@
             this.plfooter.Name = "plfooter";
             this.plfooter.Size = new System.Drawing.Size(1613, 60);
             this.plfooter.TabIndex = 20;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.Image = global::ProyectoOFI.Properties.Resources.Delete;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(426, 75);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(55, 20);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Ticket:";
-            // 
-            // TxtTicket
-            // 
-            this.TxtTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtTicket.Location = new System.Drawing.Point(490, 72);
-            this.TxtTicket.Name = "TxtTicket";
-            this.TxtTicket.Size = new System.Drawing.Size(159, 26);
-            this.TxtTicket.TabIndex = 1;
-            // 
-            // BtnActivar
-            // 
-            this.BtnActivar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnActivar.Location = new System.Drawing.Point(669, 459);
-            this.BtnActivar.Name = "BtnActivar";
-            this.BtnActivar.Size = new System.Drawing.Size(134, 44);
-            this.BtnActivar.TabIndex = 123;
-            this.BtnActivar.Text = "Activar";
-            this.BtnActivar.UseVisualStyleBackColor = true;
-            this.BtnActivar.Visible = false;
             // 
             // ComprasDirectas
             // 

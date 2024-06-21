@@ -724,8 +724,9 @@
     <None Include="Resources\icons8-cerrar-sesión.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CoffeeTec.sql" />
+    <Content Include="CoffeeTech.sql" />
     <Content Include="Logo.ico" />
+    <None Include="Resources\icons8-tareas-paralelas.gif" />
     <None Include="Resources\icons8-gráfico-combinado.gif" />
     <None Include="Resources\icons8-en-tránsito.gif" />
     <None Include="Resources\icons8-actualizar.gif" />

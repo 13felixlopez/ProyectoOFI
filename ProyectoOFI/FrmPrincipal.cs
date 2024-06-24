@@ -270,5 +270,22 @@ namespace ProyectoOFI
                 PlOpciones.Visible = true;
             }
         }
+
+        private void BtnGrafico_Click(object sender, EventArgs e)
+        {
+            btnTransferencia.Enabled = true;
+            BtnUser.Enabled = true;
+            BtnCPatio.Enabled = true;
+            BtnReTK.Enabled = true;
+            BtnAnalisis.Enabled = true;
+            BtnAlmacen.Enabled = true;
+            BtnComprasD.Enabled = true;
+            PlPrincipal.Controls.Clear();
+            Dashboard dashboard = new Dashboard
+            {
+                Dock = DockStyle.Fill
+            };
+            PlPrincipal.Controls.Add(dashboard);
+        }
     }
 }

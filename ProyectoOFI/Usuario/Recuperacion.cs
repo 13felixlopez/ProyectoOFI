@@ -10,6 +10,8 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MimeKit;
+using System.IO;
 
 namespace ProyectoOFI.Usuario
 {

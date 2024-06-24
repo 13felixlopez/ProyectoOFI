@@ -372,7 +372,6 @@ namespace ProyectoOFI.Analisis
             VerDetalleCata();
             AbrirFormulario();
         }
-
         private void ObtenerTK()
         {
             string nombrecolumna = "Ticket";
@@ -602,6 +601,7 @@ namespace ProyectoOFI.Analisis
             dtInventarioCat.Enabled = true;
             plOpciones.Enabled = true;
             BtnAnalisis.Text = "Analizado";
+            BtnActivar.Visible = false;
             Desactivar();
             Limpiar();
         }
@@ -735,7 +735,6 @@ namespace ProyectoOFI.Analisis
             dtInventarioCat.Enabled = true;
             plOpciones.Enabled = true;
         }
-
         private void InsertarCatacionCD()
         {
             if (Validar())
@@ -788,7 +787,6 @@ namespace ProyectoOFI.Analisis
                 }
             }
         }
-
         //Prueba Placeholders
         private void SetPlaceholder(TextBox textBox, string placeholderText)
         {

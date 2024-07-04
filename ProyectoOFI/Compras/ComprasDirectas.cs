@@ -13,7 +13,7 @@ namespace ProyectoOFI.Compras
     {
         double kgsRem = 0, peso = 0, diferencia = 0;
         int IdBodega;
-        string Ticket, Estado;
+        string Ticket, Estado, Modulo;
         int desde = 1;
         int hasta = 100;
         private int items_por_pagina = 100;
@@ -26,6 +26,7 @@ namespace ProyectoOFI.Compras
             TxtPeso.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
             TxtKgsRem.TextChanged += new EventHandler(TextBox_TextChanged);
             TxtPeso.TextChanged += new EventHandler(TextBox_TextChanged);
+            ValidarPermisos();
         }
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
@@ -66,7 +67,6 @@ namespace ProyectoOFI.Compras
             MostrarComprasD();
             ReiniciarPaginado();
             await Task.Delay(1000);
-            btnAgregar.Visible = true;
         }
         private void MostrarComprasD()
         {
@@ -219,6 +219,7 @@ namespace ProyectoOFI.Compras
             BtnGuardar.Text = "Guardar";
             Limpiar();
             Activar();
+            ValidarPermisos();
         }
         private void Calcular()
         {
@@ -645,6 +646,30 @@ namespace ProyectoOFI.Compras
             PLDatos.BringToFront();
             plOpciones.Enabled = false;
             dtInventarioCompras.Enabled = false;
+        }
+        private void ValidarPermisos()
+        {
+            DataTable dt = new DataTable();
+            DModulos funcion = new DModulos();
+            LPermisos parametros = new LPermisos();
+            parametros.IdUser = Login.Iduser;
+            funcion.PermisosUser(ref dt, Login.Iduser);
+            foreach (DataRow rowpermisos in dt.Rows)
+            {
+                Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                if (Modulo == "Agregar CompraDirecta")
+                {
+                    btnAgregar.Visible = true;
+                }
+                if (Modulo == "Editar CompraDirecta")
+                {
+                    BtnActivar.Enabled = true;
+                }
+                if (Modulo== "Elminar CompraDirecta")
+                {
+                    dtInventarioCompras.Columns["Eliminar"].Visible = true;
+                }
+            }
         }
     }
 }

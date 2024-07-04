@@ -10,10 +10,11 @@ namespace ProyectoOFI.SM
 {
     public partial class TolvasVerticales : UserControl
     {
-        string Sacos, Kilos, Calidad, Daño, EsFisico;
+        string Sacos, Kilos, Calidad, Daño, EsFisico, Modulo;
         public TolvasVerticales()
         {
             InitializeComponent();
+            ValidarPermisos();
         }
         private void TolvasVerticales_Load(object sender, EventArgs e)
         {
@@ -565,6 +566,22 @@ namespace ProyectoOFI.SM
             DSM sm = new DSM();
             sm.MostrarOperador(cbOperadorPV);
             sm.MostrarOperador(cbOperadorV);
+        }
+        private void ValidarPermisos()
+        {
+            DataTable dt = new DataTable();
+            DModulos funcion = new DModulos();
+            LPermisos parametros = new LPermisos();
+            parametros.IdUser = Login.Iduser;
+            funcion.PermisosUser(ref dt, Login.Iduser);
+            foreach (DataRow rowpermisos in dt.Rows)
+            {
+                Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                if (Modulo == "Agregar SM")
+                {
+                    TLPPlTolvas.Enabled = true;
+                }
+            }
         }
     }
 }

@@ -13,9 +13,11 @@ namespace ProyectoOFI.SM
         int IdPOA, IdGuardiola;
         string Observacion = "";
         TimeSpan PreSecado;
+        string Modulo;
         public Guardiolas()
         {
             InitializeComponent();
+            ValidarPermisos();
         }
 
         private void Guardiolas_Load(object sender, EventArgs e)
@@ -769,6 +771,21 @@ namespace ProyectoOFI.SM
                 Observacion += item.ToString() + ", ";
             }
         }
-
+        private void ValidarPermisos()
+        {
+            DataTable dt = new DataTable();
+            DModulos funcion = new DModulos();
+            LPermisos parametros = new LPermisos();
+            parametros.IdUser = Login.Iduser;
+            funcion.PermisosUser(ref dt, Login.Iduser);
+            foreach (DataRow rowpermisos in dt.Rows)
+            {
+                Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                if (Modulo == "Agregar SM")
+                {
+                    TLPGuardiola.Enabled = true;
+                }
+            }
+        }
     }
 }

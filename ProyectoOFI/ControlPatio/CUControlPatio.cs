@@ -27,6 +27,7 @@ namespace ProyectoOFI.ControlPatio
         public CUControlPatio()
         {
             InitializeComponent();
+            ValidarPermisos();
         }
         private async void CUControlPatio_Load(object sender, EventArgs e)
         {
@@ -306,7 +307,7 @@ namespace ProyectoOFI.ControlPatio
                 if (Humedad >= 13)
                 {
                     BtnEnvSM.Visible = true;
-                    PlEnfarde.Enabled= true;
+                    PlEnfarde.Enabled = true;
                     BtnEnfarde.Enabled = false;
                     DTPEnfarde.Enabled = false;
                     TxtSacosEnfardados.Enabled = false;
@@ -566,6 +567,7 @@ namespace ProyectoOFI.ControlPatio
         }
         private void TSLTendido_Click(object sender, EventArgs e)
         {
+            ValidarPermisos();
             if (PlTendido.Enabled == true)
             {
                 PlTendido.Enabled = false;
@@ -573,6 +575,7 @@ namespace ProyectoOFI.ControlPatio
             }
             else
             {
+                BtnTendido.Visible = true;
                 PlTendido.Enabled = true;
                 BtnTendido.Text = "Actualizar";
             }
@@ -604,6 +607,7 @@ namespace ProyectoOFI.ControlPatio
         }
         private void TSLEnfarde_Click(object sender, EventArgs e)
         {
+            ValidarPermisos();
             if (PlEnfarde.Enabled == true)
             {
                 PlEnfarde.Enabled = false;
@@ -611,6 +615,7 @@ namespace ProyectoOFI.ControlPatio
             }
             else
             {
+                BtnEnfarde.Visible = true;
                 PlEnfarde.Enabled = true;
                 BtnEnfarde.Text = "Actualizar";
             }
@@ -659,6 +664,7 @@ namespace ProyectoOFI.ControlPatio
         }
         private void TSLEnvio_Click(object sender, EventArgs e)
         {
+            ValidarPermisos();
             if (PlEnvio.Enabled == true)
             {
                 PlEnvio.Enabled = false;
@@ -666,6 +672,7 @@ namespace ProyectoOFI.ControlPatio
             }
             else
             {
+                BtnEnviar.Visible = true;
                 PlEnvio.Enabled = true;
                 BtnEnviar.Text = "Actualizar";
             }
@@ -911,7 +918,7 @@ namespace ProyectoOFI.ControlPatio
         }
         private void BtnEnvSM_Click(object sender, EventArgs e)
         {
-            LblMsj.Visible=false;
+            LblMsj.Visible = false;
             PlEnvio.Enabled = true;
             PlEnvio.Visible = true;
             CbDestino.Text = "Secado Mecánico";
@@ -1097,5 +1104,59 @@ namespace ProyectoOFI.ControlPatio
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventariocp);
         }
+        private void ValidarPermisos()
+        {
+            DataTable dt = new DataTable();
+            DModulos funcion = new DModulos();
+            LPermisos parametros = new LPermisos();
+            parametros.IdUser = Login.Iduser;
+            funcion.PermisosUser(ref dt, Login.Iduser);
+
+            bool tieneAgregarSN = false;
+            bool tieneEditarSN = false;
+
+            foreach (DataRow rowpermisos in dt.Rows)
+            {
+                Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                if (Modulo == "Agregar SN")
+                {
+                    tieneAgregarSN = true;
+                }
+                if (Modulo == "Editar SN")
+                {
+                    tieneEditarSN = true;
+                }
+            }
+
+            if (tieneAgregarSN && tieneEditarSN)
+            {
+                BtnTendido.Visible = true;
+                BtnEnfarde.Visible = true;
+                BtnEnviar.Visible = true;
+                toolStrip1.Visible = true;
+            }
+            else if (tieneAgregarSN)
+            {
+                BtnTendido.Visible = true;
+                BtnEnfarde.Visible = true;
+                BtnEnviar.Visible = true;
+                toolStrip1.Visible = false;
+            }
+            else if (tieneEditarSN)
+            {
+                BtnTendido.Visible = false;
+                BtnEnfarde.Visible = false;
+                BtnEnviar.Visible = false;
+                toolStrip1.Visible = true;
+            }
+            else
+            {
+                BtnTendido.Visible = false;
+                BtnEnfarde.Visible = false;
+                BtnEnviar.Visible = false;
+                toolStrip1.Visible = false;
+            }
+        }
+
     }
 }

@@ -15,13 +15,14 @@ namespace ProyectoOFI.Almacen
         private int items_por_pagina = 100;
         int totalPaginas;
         int Contador;
-        string Ticket;
+        string Ticket, Modulo;
         int IdBodega, IdEmpaque, Edit;
         double PesoNeto, Tara;
         double rendimiento;
         public Almacen()
         {
             InitializeComponent();
+            ValidarPermisos();
         }
 
         private async void Almacen_Load(object sender, EventArgs e)
@@ -344,6 +345,7 @@ namespace ProyectoOFI.Almacen
         {
             Limpiar();
             Activar();
+            ValidarPermisos();
         }
         private void InsertarAlmacen()
         {
@@ -623,6 +625,7 @@ namespace ProyectoOFI.Almacen
         private void BtnActivar_Click(object sender, EventArgs e)
         {
             Activar();
+            BtnGuardar.Visible = true;
         }
         private void dtInventarioAlm_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -670,5 +673,51 @@ namespace ProyectoOFI.Almacen
             CbDescargador.Enabled = true;
             BtnGuardar.Enabled = true;
         }
+        private void ValidarPermisos()
+        {
+            DataTable dt = new DataTable();
+            DModulos funcion = new DModulos();
+            LPermisos parametros = new LPermisos();
+            parametros.IdUser = Login.Iduser;
+            funcion.PermisosUser(ref dt, Login.Iduser);
+
+            bool tieneAgregarAlmacen = false;
+            bool tieneEditarAnalisis = false;
+
+            foreach (DataRow rowpermisos in dt.Rows)
+            {
+                Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                if (Modulo == "Agregar Almacén")
+                {
+                    tieneAgregarAlmacen = true;
+                }
+                if (Modulo == "Editar Almacén")
+                {
+                    tieneEditarAnalisis = true;
+                }
+            }
+
+            if (tieneAgregarAlmacen && tieneEditarAnalisis)
+            {
+                BtnGuardar.Visible = true;
+                BtnActivar.Enabled = true;
+            }
+            else if (tieneAgregarAlmacen)
+            {
+                BtnGuardar.Visible = true;
+                BtnActivar.Enabled = false;
+            }
+            else if (tieneEditarAnalisis)
+            {
+                BtnGuardar.Visible = false;
+                BtnActivar.Enabled = true;
+            }
+            else
+            {
+                BtnGuardar.Visible = false;
+                BtnActivar.Enabled = false;
+            }
+        }
+
     }
 }

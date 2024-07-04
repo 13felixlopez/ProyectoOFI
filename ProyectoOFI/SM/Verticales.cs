@@ -11,9 +11,11 @@ namespace ProyectoOFI.SM
     {
         string Observacion = "";
         int IDV, IDTV;
+        string Modulo;
         public Verticales()
         {
             InitializeComponent();
+            ValidarPermisos();
         }
 
         private void Verticales_Load(object sender, EventArgs e)
@@ -486,6 +488,22 @@ namespace ProyectoOFI.SM
             horas = (int)(totalHoras % 24);
             string resultadoFinal = $"{diasFinal} días {horas} horas {minutos} minutos";
             LblTiempoPre.Text = resultadoFinal;
+        }
+        private void ValidarPermisos()
+        {
+            DataTable dt = new DataTable();
+            DModulos funcion = new DModulos();
+            LPermisos parametros = new LPermisos();
+            parametros.IdUser = Login.Iduser;
+            funcion.PermisosUser(ref dt, Login.Iduser);
+            foreach (DataRow rowpermisos in dt.Rows)
+            {
+                Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                if (Modulo == "Agregar SM")
+                {
+                    TLPPlTolvas.Enabled = true;
+                }
+            }
         }
     }
 }

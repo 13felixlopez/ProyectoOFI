@@ -10,9 +10,11 @@ namespace ProyectoOFI.SM
     public partial class POASF : UserControl
     {
         int IdPOA;
+        string Modulo;
         public POASF()
         {
             InitializeComponent();
+            ValidarPermisos();
         }
         private void POASF_Load(object sender, EventArgs e)
         {
@@ -844,6 +846,22 @@ namespace ProyectoOFI.SM
             string resultado = duracion.ToString(@"hh\:mm");
             // Mostrar la duración en el Label
             LblDuracionG.Text = resultado.ToString();
+        }
+        private void ValidarPermisos()
+        {
+            DataTable dt = new DataTable();
+            DModulos funcion = new DModulos();
+            LPermisos parametros = new LPermisos();
+            parametros.IdUser = Login.Iduser;
+            funcion.PermisosUser(ref dt, Login.Iduser);
+            foreach (DataRow rowpermisos in dt.Rows)
+            {
+                Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                if (Modulo == "Agregar SM")
+                {
+                    TLPPOA.Enabled = true;
+                }
+            }
         }
     }
 }

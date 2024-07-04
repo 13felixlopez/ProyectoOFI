@@ -182,6 +182,7 @@
             this.TLPPS.Controls.Add(this.LblPS1, 0, 0);
             this.TLPPS.Controls.Add(this.BtnPS1, 0, 1);
             this.TLPPS.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TLPPS.Enabled = false;
             this.TLPPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.TLPPS.Location = new System.Drawing.Point(0, 0);
             this.TLPPS.Name = "TLPPS";

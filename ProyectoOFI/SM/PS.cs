@@ -11,10 +11,11 @@ namespace ProyectoOFI.SM
     public partial class PS : UserControl
     {
         int IdPS;
-        string Proceso;
+        string Proceso, Modulo;
         public PS()
         {
             InitializeComponent();
+            ValidarPermisos();
         }
 
         private void PS_Load(object sender, EventArgs e)
@@ -722,6 +723,22 @@ namespace ProyectoOFI.SM
                 // Muestra el ticket en el Label
                 Label lblTicket = (Label)controls[0];
                 lblTicket.Text = "--";
+            }
+        }
+        private void ValidarPermisos()
+        {
+            DataTable dt = new DataTable();
+            DModulos funcion = new DModulos();
+            LPermisos parametros = new LPermisos();
+            parametros.IdUser = Login.Iduser;
+            funcion.PermisosUser(ref dt, Login.Iduser);
+            foreach (DataRow rowpermisos in dt.Rows)
+            {
+                Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                if (Modulo == "Agregar SM")
+                {
+                    TLPPS.Enabled = true;
+                }
             }
         }
     }

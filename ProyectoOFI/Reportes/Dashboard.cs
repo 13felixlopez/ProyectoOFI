@@ -17,6 +17,8 @@ namespace ProyectoOFI.Reportes
             TotalSN();
             TotalSM();
             TotalAnalisis();
+            DatosSM();
+            DatosSN();
         }
         private void kilosArea()
         {
@@ -31,6 +33,20 @@ namespace ProyectoOFI.Reportes
                 Porcentaje.Add(Convert.ToDouble(row[1]));
             }
             chartKilos.Series[0].Points.DataBindXY(Concepto, Porcentaje);
+        }
+        private void DatosSN()
+        {
+            List<string> Concepto = new List<string>();
+            List<double> Porcentaje = new List<double>();
+            DataTable dt = new DataTable();
+            DReporte funcion=new DReporte();
+            funcion.DatosSN(dt);
+            foreach(DataRow row in dt.Rows)
+            {
+                Concepto.Add(Convert.ToString(row[0]));
+                Porcentaje.Add(Convert.ToDouble(row[1]));
+            }
+            chartSN.Series[0].Points.DataBindXY(Concepto, Porcentaje);
         }
         private void TotalQQs()
         {
@@ -55,6 +71,13 @@ namespace ProyectoOFI.Reportes
             DReporte funcion = new DReporte();
             funcion.TotalAnalisis(ref Cata);
             LblAnalisis.Text = Cata.ToString() + " QQs";
+        }
+        private void DatosSM()
+        {
+            DReporte funcion = new DReporte();
+            DataTable dt = new DataTable();
+            funcion.DatosSM(ref dt);
+            DtSM.DataSource= dt;
         }
     }
 }

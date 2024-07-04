@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioAlm = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.CbBuscar = new System.Windows.Forms.ComboBox();
@@ -49,6 +49,7 @@
             this.PbCarga = new System.Windows.Forms.PictureBox();
             this.PLDatos = new System.Windows.Forms.Panel();
             this.PlAlmacen = new System.Windows.Forms.Panel();
+            this.BtnActivar = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.TxtPesoNeto = new System.Windows.Forms.TextBox();
             this.LblRedimiento = new System.Windows.Forms.Label();
@@ -96,7 +97,6 @@
             this.PlCerrarDetalle = new System.Windows.Forms.Panel();
             this.LblTitulo = new System.Windows.Forms.Label();
             this.BtnCerrarPldatos = new System.Windows.Forms.Button();
-            this.BtnActivar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioAlm)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.plfooter.SuspendLayout();
@@ -118,23 +118,23 @@
             this.dtInventarioAlm.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioAlm.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioAlm.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioAlm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioAlm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtInventarioAlm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioAlm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioAlm.Location = new System.Drawing.Point(0, 62);
             this.dtInventarioAlm.Name = "dtInventarioAlm";
             this.dtInventarioAlm.ReadOnly = true;
             this.dtInventarioAlm.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioAlm.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioAlm.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtInventarioAlm.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioAlm.ShowCellToolTips = false;
             this.dtInventarioAlm.ShowEditingIcon = false;
@@ -401,6 +401,18 @@
             this.PlAlmacen.Size = new System.Drawing.Size(1205, 398);
             this.PlAlmacen.TabIndex = 17;
             // 
+            // BtnActivar
+            // 
+            this.BtnActivar.Enabled = false;
+            this.BtnActivar.Location = new System.Drawing.Point(802, 332);
+            this.BtnActivar.Name = "BtnActivar";
+            this.BtnActivar.Size = new System.Drawing.Size(93, 52);
+            this.BtnActivar.TabIndex = 10;
+            this.BtnActivar.Text = "Activar";
+            this.BtnActivar.UseVisualStyleBackColor = true;
+            this.BtnActivar.Visible = false;
+            this.BtnActivar.Click += new System.EventHandler(this.BtnActivar_Click);
+            // 
             // BtnGuardar
             // 
             this.BtnGuardar.Location = new System.Drawing.Point(489, 332);
@@ -409,6 +421,7 @@
             this.BtnGuardar.TabIndex = 10;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = true;
+            this.BtnGuardar.Visible = false;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // TxtPesoNeto
@@ -882,17 +895,6 @@
             this.BtnCerrarPldatos.TabIndex = 3;
             this.BtnCerrarPldatos.UseVisualStyleBackColor = true;
             this.BtnCerrarPldatos.Click += new System.EventHandler(this.BtnCerrarPldatos_Click);
-            // 
-            // BtnActivar
-            // 
-            this.BtnActivar.Location = new System.Drawing.Point(802, 332);
-            this.BtnActivar.Name = "BtnActivar";
-            this.BtnActivar.Size = new System.Drawing.Size(93, 52);
-            this.BtnActivar.TabIndex = 10;
-            this.BtnActivar.Text = "Activar";
-            this.BtnActivar.UseVisualStyleBackColor = true;
-            this.BtnActivar.Visible = false;
-            this.BtnActivar.Click += new System.EventHandler(this.BtnActivar_Click);
             // 
             // Almacen
             // 

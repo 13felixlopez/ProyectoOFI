@@ -26,23 +26,24 @@ namespace ProyectoOFI.Analisis
         private bool isPlaceholder = true;
         double Humedad;
         Boolean Estado;
-        string Proceso;
+        string Proceso, Modulo;
         int Idcatacion;
         public Catacion()
         {
             InitializeComponent();
-            SetPlaceholder(TxtAnalisis, "# Analisis");
-            SetPlaceholder(TxtBto, "0");
-            SetPlaceholder(TxtHumedad, "0");
-            SetPlaceholder(TxtExp, "0");
-            SetPlaceholder(TxtDesmA, "0");
-            SetPlaceholder(TxtDesmC, "0");
+            //SetPlaceholder(TxtAnalisis, "# Analisis");
+            //SetPlaceholder(TxtBto, "0");
+            //SetPlaceholder(TxtHumedad, "0");
+            //SetPlaceholder(TxtExp, "0");
+            //SetPlaceholder(TxtDesmA, "0");
+            //SetPlaceholder(TxtDesmC, "0");
             TxtBto.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
             TxtHumedad.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
             TxtExp.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
             TxtDesmA.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
             TxtDesmC.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
             TxtScore.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
+            ValidarPermisos();
         }
 
         private async void Catacion_Load(object sender, EventArgs e)
@@ -342,13 +343,6 @@ namespace ProyectoOFI.Analisis
                 MessageBox.Show("Error al cargar datos en controles" + ex.Message, "ERROR en Catación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void CalculoDias()
-        {
-            DateTime fechaActual = DateTime.Now;
-            TimeSpan diferencia = fechaActual.Subtract(FMuestra);
-            int diasDiferencia = (int)diferencia.TotalDays;
-            LblDias.Text = diasDiferencia.ToString();
-        }
         private void dtInventarioCat_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             ObtenerTK();
@@ -397,37 +391,21 @@ namespace ProyectoOFI.Analisis
         }
         private void TxtBto_TextChanged(object sender, EventArgs e)
         {
-            //if (TxtBto.Text == "")
-            //{
-            //    SetPlaceholder(TxtBto, "0");
-            //    Bto = 0;
-            //}
-            //Bto = double.Parse(TxtBto.Text);
-            //Casc = 100 - Bto;
-            //LblCascarilla.Text = Casc.ToString();
-            //LblTotal.Text = (Casc + Bto).ToString();
-
-            if (isPlaceholder)
+            if (string.IsNullOrEmpty(TxtBto.Text))
             {
-                return; // Salir si es el marcador de posición
-            }
-
-            if (string.IsNullOrWhiteSpace(TxtBto.Text))
-            {
-                SetPlaceholder(TxtBto, "0");
                 Bto = 0;
             }
             else
             {
-                if (double.TryParse(TxtBto.Text, out double result))
+                try
                 {
-                    Bto = result;
+                    Bto = double.Parse(TxtBto.Text);
                 }
-                else
+                catch (FormatException)
                 {
-                    // Manejar el caso donde el texto no se puede convertir a número
-                    MessageBox.Show("Por favor, ingrese un número válido.");
-                    return;
+                    MessageBox.Show("Por favor, introduce un número válido.");
+                    TxtBto.Text = "0";
+                    Bto = 0;
                 }
             }
 
@@ -435,16 +413,11 @@ namespace ProyectoOFI.Analisis
             LblCascarilla.Text = Casc.ToString();
             LblTotal.Text = (Casc + Bto).ToString();
         }
+
         private void TxtDesmA_TextChanged(object sender, EventArgs e)
         {
-            if (isPlaceholder)
-            {
-                return; // Salir si es el marcador de posición
-            }
-
             if (string.IsNullOrWhiteSpace(TxtDesmA.Text))
             {
-                SetPlaceholder(TxtDesmA, "0");
                 DesmA = 0;
             }
             else
@@ -457,12 +430,15 @@ namespace ProyectoOFI.Analisis
                 {
                     // Manejar el caso donde el texto no se puede convertir a número
                     MessageBox.Show("Por favor, ingrese un número válido.");
+                    TxtDesmA.Text = string.Empty; // Limpiar el TextBox en caso de error
                     return;
                 }
             }
+
             CalcularDesmD();
             LblDesmAP.Text = Math.Round((Bto * DesmA) / 100, 2).ToString() + "%";
         }
+
         private void TxtScore_TextChanged(object sender, EventArgs e)
         {
             if (TxtScore.Text == "")
@@ -483,19 +459,8 @@ namespace ProyectoOFI.Analisis
         }
         private void TxtHumedad_TextChanged(object sender, EventArgs e)
         {
-            //if (TxtHumedad.Text == "")
-            //{
-            //    TxtHumedad.Text = "0";
-            //}
-            //double Humedad = double.Parse(TxtHumedad.Text);
-            if (isPlaceholder)
-            {
-                return; // Salir si es el marcador de posición
-            }
-
             if (string.IsNullOrWhiteSpace(TxtHumedad.Text))
             {
-                SetPlaceholder(TxtHumedad, "0");
                 Humedad = 0;
             }
             else
@@ -508,9 +473,11 @@ namespace ProyectoOFI.Analisis
                 {
                     // Manejar el caso donde el texto no se puede convertir a número
                     MessageBox.Show("Por favor, ingrese un número válido.");
+                    TxtHumedad.Text = string.Empty;
                     return;
                 }
             }
+
             if (Humedad >= 12.8)
             {
                 ChbRechazado.Checked = true;
@@ -522,16 +489,11 @@ namespace ProyectoOFI.Analisis
                 ChbAnalizado.Enabled = true;
             }
         }
+
         private void TxtDesmC_TextChanged(object sender, EventArgs e)
         {
-            if (isPlaceholder)
-            {
-                return; // Salir si es el marcador de posición
-            }
-
             if (string.IsNullOrWhiteSpace(TxtDesmC.Text))
             {
-                SetPlaceholder(TxtDesmC, "0");
                 DesmC = 0;
             }
             else
@@ -544,24 +506,21 @@ namespace ProyectoOFI.Analisis
                 {
                     // Manejar el caso donde el texto no se puede convertir a número
                     MessageBox.Show("Por favor, ingrese un número válido.");
+                    TxtDesmC.Text = string.Empty; // Limpiar el TextBox en caso de error
                     return;
                 }
             }
+
             CalcularDesmD();
             LblDesmCP.Text = Math.Round((Bto * DesmC) / 100, 2).ToString() + "%";
         }
+
         private void TxtExp_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                if (isPlaceholder)
-                {
-                    return; // Salir si es el marcador de posición
-                }
-
                 if (string.IsNullOrWhiteSpace(TxtExp.Text))
                 {
-                    SetPlaceholder(TxtExp, "0");
                     Exp = 0;
                 }
                 else
@@ -572,29 +531,32 @@ namespace ProyectoOFI.Analisis
                     }
                     else
                     {
-                        // Manejar el caso donde el texto no se puede convertir a número
                         MessageBox.Show("Por favor, ingrese un número válido.");
+                        TxtExp.Text = string.Empty;
                         return;
                     }
                 }
+
                 CalcularDesmD();
                 LblExpP.Text = Math.Round((Bto * Exp) / 100, 2).ToString() + "%";
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Falló el calculo " + ex.Message, "Error en Exp");
+                MessageBox.Show("Falló el cálculo: " + ex.Message, "Error en Exp");
             }
         }
+
         private void CalcularDesmD()
         {
-            Exp = double.Parse(TxtExp.Text);
-            DesmA = double.Parse(TxtDesmA.Text);
-            DesmC = double.Parse(TxtDesmC.Text);
-            DesmD = Math.Round(100 - Exp - DesmA - DesmC, 2);
+            double Exp = string.IsNullOrEmpty(TxtExp.Text) ? 0 : double.Parse(TxtExp.Text);
+            double DesmA = string.IsNullOrEmpty(TxtDesmA.Text) ? 0 : double.Parse(TxtDesmA.Text);
+            double DesmC = string.IsNullOrEmpty(TxtDesmC.Text) ? 0 : double.Parse(TxtDesmC.Text);
+
+            double DesmD = Math.Round(100 - Exp - DesmA - DesmC, 2);
             LblDesmD.Text = DesmD.ToString();
             LblDesmDP.Text = Math.Round((Bto * DesmD) / 100, 2).ToString() + "%";
         }
+
         private void BtnCerrarPldatos_Click(object sender, EventArgs e)
         {
             PLDatos.Visible = false;
@@ -604,6 +566,7 @@ namespace ProyectoOFI.Analisis
             BtnActivar.Visible = false;
             Desactivar();
             Limpiar();
+            ValidarPermisos();
         }
         private void AbrirFormulario()
         {
@@ -616,7 +579,7 @@ namespace ProyectoOFI.Analisis
             dtInventarioCat.Enabled = false;
             Dcatacion funcion = new Dcatacion();
             funcion.MostrarVariedad(CbVariedad);
-            if (Proceso == "S/A")
+            if (Proceso != "Almacén" && Proceso != "Analizado")
             {
                 Activar();
             }
@@ -706,32 +669,40 @@ namespace ProyectoOFI.Analisis
         }
         private void BtnAnalisis_Click(object sender, EventArgs e)
         {
-            if (BtnAnalisis.Text == "Analizado")
+            if (Validar())
             {
-                if (Validar())
+                if (BtnAnalisis.Text != "Analizado")
                 {
                     if (BtnMostrarCompras.Text == "Análisis")
                     {
-                        InsertarCatacionCD();
+                        EditarCatacionCD();
+                        MostrarComprasD();
                     }
                     else
                     {
-                        InsertarCatacion();
+                        EditarCatacionCD();
+                        MostrarLotes();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Existen campos vacios", "ERROR campos vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (BtnMostrarCompras.Text == "Análisis")
+                    {
+                        InsertarCatacionCD();
+                        MostrarComprasD();
+                    }
+                    else
+                    {
+                        InsertarCatacion();
+                        MostrarLotes();
+                    }
                 }
             }
             else
             {
-                if (Validar())
-                {
-                    EditarCatacion();
-                }
+                MessageBox.Show("Existen campos vacíos", "ERROR campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            MostrarLotes();
+
             dtInventarioCat.Enabled = true;
             plOpciones.Enabled = true;
         }
@@ -788,33 +759,33 @@ namespace ProyectoOFI.Analisis
             }
         }
         //Prueba Placeholders
-        private void SetPlaceholder(TextBox textBox, string placeholderText)
-        {
-            if (string.IsNullOrWhiteSpace(textBox.Text))
-            {
-                isPlaceholder = true;
-                textBox.Text = placeholderText;
-                textBox.ForeColor = System.Drawing.Color.Gray;
-            }
-            else
-            {
-                isPlaceholder = false;
-                textBox.ForeColor = System.Drawing.Color.Black;
-            }
+        //private void SetPlaceholder(TextBox textBox, string placeholderText)
+        //{
+        //    if (string.IsNullOrWhiteSpace(textBox.Text))
+        //    {
+        //        isPlaceholder = true;
+        //        textBox.Text = placeholderText;
+        //        textBox.ForeColor = System.Drawing.Color.Gray;
+        //    }
+        //    else
+        //    {
+        //        isPlaceholder = false;
+        //        textBox.ForeColor = System.Drawing.Color.Black;
+        //    }
 
-            textBox.GotFocus += (sender, e) => RemovePlaceholder(sender, e, placeholderText);
-            textBox.LostFocus += (sender, e) => ShowPlaceholder(sender, e, placeholderText);
-        }
-        private void RemovePlaceholder(object sender, EventArgs e, string placeholderText)
-        {
-            TextBox textBox = sender as TextBox;
-            if (textBox.Text == placeholderText)
-            {
-                textBox.Text = "";
-                textBox.ForeColor = System.Drawing.Color.Black;
-                isPlaceholder = false;
-            }
-        }
+        //    textBox.GotFocus += (sender, e) => RemovePlaceholder(sender, e, placeholderText);
+        //    textBox.LostFocus += (sender, e) => ShowPlaceholder(sender, e, placeholderText);
+        //}
+        //private void RemovePlaceholder(object sender, EventArgs e, string placeholderText)
+        //{
+        //    TextBox textBox = sender as TextBox;
+        //    if (textBox.Text == placeholderText)
+        //    {
+        //        textBox.Text = "";
+        //        textBox.ForeColor = System.Drawing.Color.Black;
+        //        isPlaceholder = false;
+        //    }
+        //}
         private void BtnCambiarTK_Click(object sender, EventArgs e)
         {
             PlCambioTK.Size = new Size(457, 229);
@@ -825,21 +796,21 @@ namespace ProyectoOFI.Analisis
             PLDatos.Enabled = false;
             LblTK.Text = LblTicket.Text;
         }
+        //private void ShowPlaceholder(object sender, EventArgs e, string placeholderText)
+        //{
+        //    TextBox textBox = sender as TextBox;
+        //    if (string.IsNullOrWhiteSpace(textBox.Text))
+        //    {
+        //        textBox.Text = placeholderText;
+        //        textBox.ForeColor = System.Drawing.Color.Gray;
+        //        isPlaceholder = true;
+        //    }
+        //}
         private void BtnCerrarCambioTK_Click(object sender, EventArgs e)
         {
             PlCambioTK.Visible = false;
             PLDatos.Enabled = true;
             TxtTkNueva.Clear();
-        }
-        private void ShowPlaceholder(object sender, EventArgs e, string placeholderText)
-        {
-            TextBox textBox = sender as TextBox;
-            if (string.IsNullOrWhiteSpace(textBox.Text))
-            {
-                textBox.Text = placeholderText;
-                textBox.ForeColor = System.Drawing.Color.Gray;
-                isPlaceholder = true;
-            }
         }
         private void BtnCambioTK_Click(object sender, EventArgs e)
         {
@@ -849,6 +820,7 @@ namespace ProyectoOFI.Analisis
         private void BtnActivar_Click(object sender, EventArgs e)
         {
             Activar();
+            BtnAnalisis.Visible = true;
             BtnAnalisis.Text = "Re-Analizar";
         }
         private void Activar()
@@ -1006,6 +978,70 @@ namespace ProyectoOFI.Analisis
                 }
             }
         }
+        private void EditarCatacionCD()
+        {
+            if (Validar())
+            {
+                LCatacion parametros = new LCatacion();
+                Dcatacion funcion = new Dcatacion();
+                parametros.Origen = LblProcedencia.Text;
+                parametros.Analisis = TxtAnalisis.Text;
+                parametros.FechaMuestra = DTPFechaMuestra.Value;
+                parametros.FechaCatacion = DateTime.Today;
+                parametros.Dias = int.Parse(LblDias.Text);
+                parametros.RmtoObto = TxtBto.Text;
+                parametros.Cascarilla = LblCascarilla.Text;
+                parametros.TotalPS = LblTotal.Text;
+                parametros.IdVariedad = (int)CbVariedad.SelectedValue;
+                parametros.Humedad = TxtHumedad.Text;
+                parametros.Exp = double.Parse(TxtExp.Text);
+                parametros.DesmA = double.Parse(TxtDesmA.Text);
+                parametros.DesmC = double.Parse(TxtDesmC.Text);
+                parametros.DesmD = double.Parse(LblDesmD.Text);
+                parametros.Score = int.Parse(TxtScore.Text);
+                parametros.Tasa = LblTasa.Text;
+                parametros.GradoCalidad = LblGCalidad.Text;
+                parametros.ExpP = LblExpP.Text;
+                parametros.DesmAP = LblDesmAP.Text;
+                parametros.DesmCP = LblDesmCP.Text;
+                parametros.DesmDP = LblDesmDP.Text;
+                parametros.Digitador = Login.NombreA;
+
+                if (ChbRechazado.Checked == true)
+                {
+                    parametros.Estado = "0";
+                }
+                else if (ChbAnalizado.Checked == true)
+                {
+                    parametros.Estado = "1";
+                }
+                else
+                {
+                    parametros.Estado = "1";
+                }
+
+                if (funcion.EditarCatacionCD(parametros, Ticket) == true)
+                {
+                    PLDatos.Visible = false;
+                    Limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("Error en los datos", "Error en interfaz", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void DTPFechaMuestra_ValueChanged(object sender, EventArgs e)
+        {
+            CalculoDias();
+        }
+
+        private void DtFechaCatacion_ValueChanged(object sender, EventArgs e)
+        {
+            CalculoDias();
+        }
+
         private bool Validar()
         {
             double entero;
@@ -1235,7 +1271,7 @@ namespace ProyectoOFI.Analisis
                             ChbAnalizado.Checked = false;
                         }
                     }
-
+                    CalculoDias();
                     Idcatacion = int.Parse(row["IdCatacion"].ToString());
                     BtnActivar.Visible = true;
                     Desactivar();
@@ -1253,6 +1289,13 @@ namespace ProyectoOFI.Analisis
             {
                 MessageBox.Show("Error en cargar datos interfaz", "Error en datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void CalculoDias()
+        {
+            DateTime fechaActual = DtFechaCatacion.Value;
+            TimeSpan diferencia = fechaActual.Subtract(DTPFechaMuestra.Value);
+            int diasDiferencia = (int)diferencia.TotalDays;
+            LblDias.Text = diasDiferencia.ToString();
         }
         private void MostrarCambiarTK()
         {
@@ -1438,5 +1481,55 @@ namespace ProyectoOFI.Analisis
                 MessageBox.Show("Error en cargar datos interfaz", "Error en datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void ValidarPermisos()
+        {
+            DataTable dt = new DataTable();
+            DModulos funcion = new DModulos();
+            LPermisos parametros = new LPermisos();
+            parametros.IdUser = Login.Iduser;
+            funcion.PermisosUser(ref dt, Login.Iduser);
+
+            bool tieneAgregarAnalisis = false;
+            bool tieneEditarAnalisis = false;
+
+            foreach (DataRow rowpermisos in dt.Rows)
+            {
+                Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                if (Modulo == "Agregar Análisis")
+                {
+                    tieneAgregarAnalisis = true;
+                }
+                if (Modulo == "Editar Análisis")
+                {
+                    tieneEditarAnalisis = true;
+                }
+            }
+
+            if (tieneAgregarAnalisis && tieneEditarAnalisis)
+            {
+                BtnAnalisis.Visible = true;
+                BtnCambiarTK.Enabled = false;
+                BtnActivar.Enabled = true;
+            }
+            else if (tieneAgregarAnalisis)
+            {
+                BtnAnalisis.Visible = true;
+                BtnCambiarTK.Enabled = false;
+                BtnActivar.Enabled = false;
+            }
+            else if (tieneEditarAnalisis)
+            {
+                BtnAnalisis.Visible = false;
+                BtnCambiarTK.Enabled = false;
+                BtnActivar.Enabled = true;
+            }
+            else
+            {
+                BtnAnalisis.Visible = false;
+                BtnCambiarTK.Enabled = false;
+                BtnActivar.Enabled = false;
+            }
+        }
+
     }
 }

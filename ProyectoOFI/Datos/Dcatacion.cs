@@ -311,5 +311,50 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public bool EditarCatacionCD(LCatacion parametros, string TK)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("EditarCatacionCD", Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+                da.Parameters.AddWithValue("@Ticket", TK);
+                da.Parameters.AddWithValue("@Origen", parametros.Origen);
+                da.Parameters.AddWithValue("@FechaMuestra", parametros.FechaMuestra);
+                da.Parameters.AddWithValue("@FechaCatacion", parametros.FechaCatacion);
+                da.Parameters.AddWithValue("@Dias", parametros.Dias);
+                da.Parameters.AddWithValue("@RmtoObto", parametros.RmtoObto);
+                da.Parameters.AddWithValue("@Cascarilla", parametros.Cascarilla);
+                da.Parameters.AddWithValue("@TotalPS", parametros.TotalPS);
+                da.Parameters.AddWithValue("@IdVariedad", parametros.IdVariedad);
+                da.Parameters.AddWithValue("@Humedad", parametros.Humedad);
+                da.Parameters.AddWithValue("@Exp", parametros.Exp);
+                da.Parameters.AddWithValue("@DesmA", parametros.DesmA);
+                da.Parameters.AddWithValue("@DesmC", parametros.DesmC);
+                da.Parameters.AddWithValue("@DesmD", parametros.DesmD);
+                da.Parameters.AddWithValue("@DesmAP", parametros.DesmAP);
+                da.Parameters.AddWithValue("@DesmCP", parametros.DesmCP);
+                da.Parameters.AddWithValue("@DesmDP", parametros.DesmDP);
+                da.Parameters.AddWithValue("@Score", parametros.Score);
+                da.Parameters.AddWithValue("@Taza", parametros.Tasa);
+                da.Parameters.AddWithValue("@GradoCalidad", parametros.GradoCalidad);
+                da.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+                da.Parameters.AddWithValue("@Estado", parametros.Estado);
+                da.Parameters.AddWithValue("@Analisis", parametros.Analisis);
+                da.Parameters.AddWithValue("@ExpP", parametros.ExpP);
+                da.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al editar los datos " + ex.Message, "Error al editar Análisis", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en EditarCatacion ✖️✖️ " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
     }
 }

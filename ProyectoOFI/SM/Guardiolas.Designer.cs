@@ -187,6 +187,7 @@
             this.TLPGuardiola.Controls.Add(this.LblG1, 0, 0);
             this.TLPGuardiola.Controls.Add(this.BtnG1, 0, 1);
             this.TLPGuardiola.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TLPGuardiola.Enabled = false;
             this.TLPGuardiola.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             this.TLPGuardiola.Location = new System.Drawing.Point(0, 0);
             this.TLPGuardiola.Name = "TLPGuardiola";

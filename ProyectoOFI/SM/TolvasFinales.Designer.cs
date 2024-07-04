@@ -83,6 +83,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DtTolvasFinales.DefaultCellStyle = dataGridViewCellStyle2;
             this.DtTolvasFinales.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtTolvasFinales.Enabled = false;
             this.DtTolvasFinales.Location = new System.Drawing.Point(0, 71);
             this.DtTolvasFinales.Name = "DtTolvasFinales";
             this.DtTolvasFinales.ReadOnly = true;

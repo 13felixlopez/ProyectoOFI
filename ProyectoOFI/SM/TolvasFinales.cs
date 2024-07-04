@@ -1,4 +1,5 @@
 ﻿using ProyectoOFI.Datos;
+using ProyectoOFI.Logica;
 using System;
 using System.Data;
 using System.Drawing;
@@ -8,11 +9,12 @@ namespace ProyectoOFI.SM
 {
     public partial class TolvasFinales : UserControl
     {
-        string Ticket;
+        string Ticket, Modulo;
         public TolvasFinales()
         {
             InitializeComponent();
             MostrarTF();
+            ValidarPermisos();
         }
         private void MostrarTF()
         {
@@ -108,6 +110,22 @@ namespace ProyectoOFI.SM
                 LblTicket.Text= "--";
                 DtTolvasFinales.Enabled = true;
                 MostrarTF();
+            }
+        }
+        private void ValidarPermisos()
+        {
+            DataTable dt = new DataTable();
+            DModulos funcion = new DModulos();
+            LPermisos parametros = new LPermisos();
+            parametros.IdUser = Login.Iduser;
+            funcion.PermisosUser(ref dt, Login.Iduser);
+            foreach (DataRow rowpermisos in dt.Rows)
+            {
+                Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                if (Modulo == "Agregar SM")
+                {
+                    DtTolvasFinales.Enabled = true;
+                }
             }
         }
     }

@@ -149,6 +149,7 @@
             this.TLPPlTolvas.Controls.Add(this.btnV2, 1, 1);
             this.TLPPlTolvas.Controls.Add(this.lblV8, 7, 0);
             this.TLPPlTolvas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TLPPlTolvas.Enabled = false;
             this.TLPPlTolvas.Location = new System.Drawing.Point(0, 0);
             this.TLPPlTolvas.Name = "TLPPlTolvas";
             this.TLPPlTolvas.RowCount = 2;

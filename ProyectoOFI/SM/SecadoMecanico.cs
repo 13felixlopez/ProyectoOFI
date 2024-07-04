@@ -1,5 +1,4 @@
-﻿using ProyectoOFI.ControlPatio;
-using ProyectoOFI.Datos;
+﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
 using System;
@@ -22,11 +21,13 @@ namespace ProyectoOFI.SM
         private int items_por_pagina = 100;
         int IdVer;
         string origen;
+        string Modulo;
         Label labelPreSeco = new Label();
         DataTable SM = new DataTable();
         public SecadoMecanico()
         {
             InitializeComponent();
+            ValidarPermisos();
         }
 
         private async void SecadoMecanico_Load(object sender, EventArgs e)
@@ -1004,6 +1005,22 @@ namespace ProyectoOFI.SM
 
                 // Ajustar posY para la próxima fila de etiquetas
                 posY += 50;
+            }
+        }
+        private void ValidarPermisos()
+        {
+            DataTable dt = new DataTable();
+            DModulos funcion = new DModulos();
+            LPermisos parametros = new LPermisos();
+            parametros.IdUser = Login.Iduser;
+            funcion.PermisosUser(ref dt, Login.Iduser);
+            foreach (DataRow rowpermisos in dt.Rows)
+            {
+                Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                if (Modulo == "Particionar SM")
+                {
+                    BtnParticionar.Enabled = true;
+                }
             }
         }
     }

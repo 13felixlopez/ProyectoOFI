@@ -122,6 +122,18 @@ namespace ProyectoOFI
                 {
                     BtnUser.Visible = true;
                 }
+                if (Modulo == "Compra Directa")
+                {
+                    BtnComprasD.Visible = true;
+                }
+                if (Modulo == "Reportes")
+                {
+                    BtnReportes.Visible = true;
+                }
+                if (Modulo == "Almacen")
+                {
+                    BtnAlmacen.Visible = true;
+                }
             }
         }
 

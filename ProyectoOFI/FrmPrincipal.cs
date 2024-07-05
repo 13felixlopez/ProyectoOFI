@@ -1,4 +1,5 @@
 ﻿using ProyectoOFI.Analisis;
+using ProyectoOFI.Compras;
 using ProyectoOFI.ControlPatio;
 using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
@@ -7,7 +8,6 @@ using ProyectoOFI.Recepcion;
 using ProyectoOFI.Reportes;
 using ProyectoOFI.SM;
 using ProyectoOFI.Usuario;
-using ProyectoOFI.Compras;
 using System;
 using System.Data;
 using System.Drawing;

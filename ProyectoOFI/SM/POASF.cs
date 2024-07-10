@@ -358,6 +358,14 @@ namespace ProyectoOFI.SM
             DPOAV funcion = new DPOAV();
             funcion.MostrarTurno(cbTurnoPOA);
             TLPPOA.Enabled = false;
+            TiempoDp();
+        }
+
+        private void TiempoDp()
+        {
+            DtPFDes1.Value = dtFechaPOA.Value;
+            DtHInicio1.Value = DtHoraFinPOA.Value;
+            DtHoraFin1.Value = DtHInicio1.Value.AddMinutes(5);
         }
 
         private void btnP1_Click(object sender, EventArgs e)
@@ -779,7 +787,13 @@ namespace ProyectoOFI.SM
         }
         private void BtnSF_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(TxtHumedad.Text))
+            if (string.IsNullOrEmpty(TxtHumedad.Text))
+            {
+                MessageBox.Show("Existen campos vacíos", "Error al enviar datos", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+
+            if (ValidarTiempo())
             {
                 InsertarGuardiola();
                 MostrarPOALabels();
@@ -788,11 +802,42 @@ namespace ProyectoOFI.SM
                 TLPPOA.Enabled = true;
                 GbDescarga.Visible = false;
             }
-            else
-            {
-                MessageBox.Show("Existen campos vacios", "Error al enviar datos", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-            }
         }
+
+        private bool ValidarTiempo()
+        {
+            // Validar que LblDuracionG contenga un tiempo válido
+            if (!TimeSpan.TryParse(LblDuracionG.Text, out TimeSpan Duracion))
+            {
+                MessageBox.Show("La duración no es un tiempo válido.", "Error en duración", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Validar que la duración no sea negativa
+            if (Duracion < TimeSpan.Zero)
+            {
+                MessageBox.Show("La duración no puede ser negativa.", "Error en duración", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Validar que DtPFDes1 no sea menor que dtFechaPOA
+            if (DtPFDes1.Value < dtFechaPOA.Value)
+            {
+                MessageBox.Show("La fecha de inicio no puede ser menor que la fecha de carga.", "Error en fecha", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Validar que DtHInicio1 no sea menor que DtHoraFinPOA
+            if (DtHInicio1.Value < DtHoraFinPOA.Value)
+            {
+                MessageBox.Show("La hora de inicio no puede ser menor que la hora de fin de la carga.", "Error en hora", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Si todas las validaciones pasan, retornar true
+            return true;
+        }
+
         private void InsertarGuardiola()
         {
             try
@@ -813,7 +858,7 @@ namespace ProyectoOFI.SM
                 if (funcion.InsertarGuardiola(parametros) == true)
                 {
                     MessageBox.Show("Carga Guardiola realiza con éxito", "Guardiola Cargada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    int Poa=int.Parse(txtTolvaPOA.Text);
+                    int Poa = int.Parse(txtTolvaPOA.Text);
                     CambiarLblTK(Poa);
                     PlDatos.Visible = false;
                     TLPPOA.Enabled = true;

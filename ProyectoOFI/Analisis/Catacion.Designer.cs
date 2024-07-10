@@ -1560,7 +1560,7 @@
             this.PlCambioTK.Controls.Add(this.LblTK);
             this.PlCambioTK.Controls.Add(this.label37);
             this.PlCambioTK.Controls.Add(this.panel2);
-            this.PlCambioTK.Location = new System.Drawing.Point(946, 420);
+            this.PlCambioTK.Location = new System.Drawing.Point(946, 294);
             this.PlCambioTK.MaximumSize = new System.Drawing.Size(457, 229);
             this.PlCambioTK.Name = "PlCambioTK";
             this.PlCambioTK.Size = new System.Drawing.Size(457, 229);

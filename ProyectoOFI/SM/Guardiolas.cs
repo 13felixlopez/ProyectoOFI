@@ -346,7 +346,7 @@ namespace ProyectoOFI.SM
                         LblTotalTime.Text = "--";
                     }
                 }
-                        AbrirFormulario();
+                AbrirFormulario();
             }
 
             catch (Exception)
@@ -365,7 +365,16 @@ namespace ProyectoOFI.SM
             DPOAV funcion = new DPOAV();
             funcion.MostrarTurno(CbTurno);
             TLPGuardiola.Enabled = false;
+            TiempoDp();
         }
+
+        private void TiempoDp()
+        {
+            DtPFDes1.Value = dtFechaG.Value;
+            DtHInicio1.Value = dtHoraFinG.Value;
+            DtHoraFin1.Value = DtHInicio1.Value.AddMinutes(5);
+        }
+
         #region Botones
         private void BtnG1_Click(object sender, EventArgs e)
         {
@@ -629,7 +638,31 @@ namespace ProyectoOFI.SM
         }
         private void BtnSF_Click(object sender, EventArgs e)
         {
-            InsertarPS();
+            if (ValidarTiempo())
+            {
+                InsertarPS();
+            }
+        }
+
+        private bool ValidarTiempo()
+        {
+
+            // Validar que DtPFDes1 no sea menor que dtFechaPOA
+            if (DtPFDes1.Value < dtFechaG.Value)
+            {
+                MessageBox.Show("La fecha de inicio no puede ser menor que la fecha de carga.", "Error en fecha", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Validar que DtHInicio1 no sea menor que DtHoraFinPOA
+            if (DtHInicio1.Value < dtHoraIniG.Value)
+            {
+                MessageBox.Show("La hora de inicio no puede ser menor que la hora de fin de la carga.", "Error en hora", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            // Si todas las validaciones pasan, retornar true
+            return true;
         }
 
         private void InsertarPS()
@@ -655,7 +688,7 @@ namespace ProyectoOFI.SM
                 if (funcion.InsertarPS(parametros) == true)
                 {
                     MessageBox.Show("Operación realizada con éxito", "Secado final", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    int G=int.Parse(LblGuardiola.Text);
+                    int G = int.Parse(LblGuardiola.Text);
                     CambiarLblTK(G);
                     GbPS.Visible = false;
                     PlDatos.Visible = false;
@@ -744,7 +777,7 @@ namespace ProyectoOFI.SM
             TimeSpan TiempoTotal = TiempoSF + PreSecado;
 
             // Guardar el resultado en una variable en el formato deseado (por ejemplo, en una cadena)
-            string tiempoTotalStr = $"{TiempoTotal.Days} días, {TiempoTotal.Hours} horas, {TiempoTotal.Minutes} minutos";
+            string tiempoTotalStr = $"{TiempoTotal.Days} días {TiempoTotal.Hours} horas {TiempoTotal.Minutes} minutos";
 
             LblTotalTime.Text = tiempoTotalStr;
         }

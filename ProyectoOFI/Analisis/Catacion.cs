@@ -615,6 +615,12 @@ namespace ProyectoOFI.Analisis
                 ChbAnalizado.Enabled = false;
                 BtnAnalisis.Enabled = true;
                 ChbAnalizado.Checked = false;
+                TxtAnalisis.Text = "# Analisis";
+                TxtBto.Text = "0";
+                TxtExp.Text = "0";
+                TxtDesmA.Text = "0";
+                TxtDesmC.Text = "0";
+                TxtScore.Text= "0";
             }
             else
             {

@@ -20,7 +20,14 @@ namespace ProyectoOFI
         public frmInicio()
         {
             InitializeComponent();
+            MedirPantalla();
         }
+        private void MedirPantalla()
+        {
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
+        }
+
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();

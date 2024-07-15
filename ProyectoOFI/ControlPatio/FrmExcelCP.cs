@@ -108,7 +108,7 @@ namespace ProyectoOFI.ControlPatio
                 }
             }
         }
-
+        
         private void PbFiltro_Click(object sender, EventArgs e)
         {
             PlFiltros.Location = new Point(this.Width / 2

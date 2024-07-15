@@ -308,8 +308,10 @@ namespace ProyectoOFI.Datos
             try
             {
                 Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("select COUNT (Ticket) from Recepcion INNER JOIN AreaSecado AS ASe ON Recepcion.IdAreaSecado = ASe.IdAreaSecado where " +
-                    "Estado='ACTIVO' AND AreaSecado='Secado Mecánico'", Conexion.conectar);
+                SqlCommand cmd = new SqlCommand("select COUNT (Ticket) from Recepcion " +
+                    "INNER JOIN AreaSecado AS ASe ON Recepcion.IdAreaSecado = ASe.IdAreaSecado " +
+                    "where Estado='ACTIVO' AND AreaSecado='Secado Mecánico' " +
+                    "AND Cosecha=(select Cosecha from Cosecha where IdCosecha=(select max(IdCosecha) from Cosecha))", Conexion.conectar);
                 Contador = Convert.ToInt32(cmd.ExecuteScalar());
             }
             catch (Exception)

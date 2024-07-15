@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.Datos
@@ -32,6 +33,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@Recibidor", parametros.IdRecibidor);
                 cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
                 cmd.Parameters.AddWithValue("@Consolidado", parametros.Consolidado);
+                cmd.Parameters.AddWithValue("@Cosecha", parametros.Cosecha);
                 //Envio
                 cmd.Parameters.AddWithValue("@IDEnvio", parametro.IDEnvio);
                 cmd.Parameters.AddWithValue("@TicketE", parametros.Ticket);
@@ -136,7 +138,8 @@ namespace ProyectoOFI.Datos
             {
                 Conexion.abrir();
                 SqlCommand cmd = new SqlCommand("select COUNT (Rec.Ticket) from Recepcion as Rec " +
-                    "where Estado='ACTIVO'", Conexion.conectar);
+                    "where Estado='ACTIVO' " +
+                    "AND Cosecha=(select Cosecha from Cosecha where IdCosecha=(select max(IdCosecha) from Cosecha))", Conexion.conectar);
                 Contador = Convert.ToInt32(cmd.ExecuteScalar());
             }
             catch (Exception)
@@ -153,9 +156,12 @@ namespace ProyectoOFI.Datos
             try
             {
                 Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("select COUNT (Rec.Ticket) from Recepcion as Rec " +
-                    "LEFT JOIN AreaSecado AS ASe ON Rec.IdAreaSecado = ASe.IdAreaSecado LEFT JOIN Tendido AS T ON Rec.Ticket = T.Ticket " +
-                    "where Estado='ACTIVO' AND AreaSecado='Control Patio' or T.ProcesoCP!=''", Conexion.conectar);
+                SqlCommand cmd = new SqlCommand("SELECT COUNT(Rec.Ticket) FROM Recepcion AS Rec" +
+                    " LEFT JOIN AreaSecado AS ASe ON Rec.IdAreaSecado = ASe.IdAreaSecado " +
+                    "LEFT JOIN Tendido AS T ON Rec.Ticket = T.Ticket " +
+                    "WHERE Rec.Estado = 'ACTIVO' AND (ASe.AreaSecado = 'Control Patio' OR T.ProcesoCP != '')" +
+                    "AND Rec.Cosecha = (SELECT Cosecha FROM Cosecha " +
+                    "WHERE IdCosecha = (SELECT MAX(IdCosecha) FROM Cosecha))\r\n", Conexion.conectar);
                 Contador = Convert.ToInt32(cmd.ExecuteScalar());
             }
             catch (Exception)
@@ -1031,6 +1037,32 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en BuscarTK ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void Cosecha(System.Windows.Forms.Label Cosecha)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("select Cosecha from Cosecha where IdCosecha=(select max(IdCosecha) from Cosecha)", Conexion.conectar);
+                object Temporada =cmd.ExecuteScalar();
+                if (Temporada != null && Temporada != DBNull.Value)
+                {
+                    Cosecha.Text = Temporada.ToString();
+                }
+                else
+                {
+                    Cosecha.Text = "No se encontraron registros de cosecha.";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se puso cargar la cosecha" + ex.Message, "Error en Cosecha", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("No se pudo cargar la cosecha ✖️✖️" + ex.Message);
             }
             finally
             {

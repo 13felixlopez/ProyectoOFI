@@ -1,11 +1,15 @@
-﻿using ProyectoOFI.Recepcion;
+﻿using DocumentFormat.OpenXml.Vml.Spreadsheet;
+using ProyectoOFI.Datos;
+using ProyectoOFI.Recepcion;
 using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.Otros
 {
     public partial class FrmConfig : Form
     {
+        int IdCosecha;
         public FrmConfig()
         {
             InitializeComponent();
@@ -92,7 +96,7 @@ namespace ProyectoOFI.Otros
 
         private void BtnOperadores_Click(object sender, EventArgs e)
         {
-            FrmOperadorSM AA= new FrmOperadorSM();
+            FrmOperadorSM AA = new FrmOperadorSM();
             AA.ShowDialog();
         }
 
@@ -134,14 +138,105 @@ namespace ProyectoOFI.Otros
 
         private void BtnEmpaques_Click(object sender, EventArgs e)
         {
-            FrmEmpaque AA= new FrmEmpaque();
+            FrmEmpaque AA = new FrmEmpaque();
             AA.ShowDialog();
         }
 
         private void BtnTurnosAl_Click(object sender, EventArgs e)
         {
-            FrmTurnoAl AA= new FrmTurnoAl();
+            FrmTurnoAl AA = new FrmTurnoAl();
             AA.ShowDialog();
+        }
+
+        private void BtnCosechas_Click(object sender, EventArgs e)
+        {
+            Gbcatacion.Enabled = false;
+            GbControlPatio.Enabled = false;
+            GbTransfer.Enabled = false;
+            GbSM.Enabled = false;
+            GbAlmacen.Enabled = false;
+            BtnCerrar.Enabled = false;
+            PlCosecha.Visible = true;
+            PlCosecha.Location = new System.Drawing.Point(220, 161);
+            PlCosecha.Size = new System.Drawing.Size(493, 395);
+            MostrarCosecha();
+        }
+
+        private void BtnCerrarCosecha_Click(object sender, EventArgs e)
+        {
+            PlCosecha.Visible = false;
+            Gbcatacion.Enabled = true;
+            GbControlPatio.Enabled = true;
+            GbTransfer.Enabled = true;
+            GbSM.Enabled = true;
+            GbAlmacen.Enabled = true;
+            BtnCerrar.Enabled = true;
+        }
+        private void InsertarCosecha()
+        {
+            DCatalogo funcion = new DCatalogo();
+            if (TxtCosecha.Text == "")
+            {
+                MessageBox.Show("No se permiten campos vacios", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtCosecha.Focus();
+            }
+            else
+            {
+                if (funcion.InsertarCosecha(TxtCosecha.Text) == true)
+                {
+                    MostrarCosecha();
+                    TxtCosecha.Clear();
+                }
+            }
+        }
+        DCatalogo funcion = new DCatalogo();
+        private void MostrarCosecha()
+        {
+            DataTable dt = new DataTable();
+            funcion.MostrarCosechas(ref dt);
+            DtCosechas.DataSource = dt;
+        }
+
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            InsertarCosecha();
+        }
+        private void EditarCosecha()
+        {
+            if (TxtCosecha.Text != "")
+            {
+                if (funcion.EditarDanio(IdCosecha, TxtCosecha.Text) == true)
+                {
+                    MostrarCosecha();
+                    TxtCosecha.Clear();
+                    BtnEditar.Visible = false;
+                    BtnGuardar.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("No se permiten campos vacios", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TxtCosecha.Focus();
+                }
+            }
+        }
+
+        private void BtnEditar_Click(object sender, EventArgs e)
+        {
+            EditarCosecha();
+        }
+        private void ObtenerDatos()
+        {
+            string Nombre;
+            Nombre = DtCosechas.SelectedCells[2].Value.ToString();
+            TxtCosecha.Text = Nombre;
+            IdCosecha = Convert.ToInt32(DtCosechas.SelectedCells[1].Value.ToString());
+            BtnEditar.Visible = true;
+            BtnGuardar.Visible = false;
+        }
+
+        private void DtCosechas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ObtenerDatos();
         }
     }
 }

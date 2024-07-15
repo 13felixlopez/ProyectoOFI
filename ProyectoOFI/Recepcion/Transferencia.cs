@@ -73,6 +73,8 @@ namespace ProyectoOFI.Recepcion
             PlRecepcion.BringToFront();
             plOpciones.Enabled = false;
             PEnvio.Dock = DockStyle.Fill;
+            DRecepcion funcion=new DRecepcion();
+            funcion.Cosecha(LblCosecha);
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -323,6 +325,7 @@ namespace ProyectoOFI.Recepcion
                 parametros.IdRecibidor = int.Parse(cbRecibidor.SelectedValue.ToString());
                 parametros.Digitador = Login.NombreA;
                 parametros.Consolidado = Consolidado;
+                parametros.Cosecha=LblCosecha.Text;
 
 
                 LEnvio par = new LEnvio();

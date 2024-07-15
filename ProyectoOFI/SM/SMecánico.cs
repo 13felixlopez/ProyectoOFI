@@ -9,6 +9,8 @@ namespace ProyectoOFI.SM
         public SMecánico()
         {
             InitializeComponent();
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void SMecánico_Load(object sender, EventArgs e)

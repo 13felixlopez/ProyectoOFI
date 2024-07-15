@@ -2,16 +2,11 @@
 using ProyectoOFI.Logica;
 using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Net.Mail;
+using System.Data.SqlClient;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net.Mail;
 using System.Windows.Forms;
-using MimeKit;
-using System.IO;
 
 namespace ProyectoOFI.Usuario
 {

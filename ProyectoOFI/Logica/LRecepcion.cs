@@ -29,5 +29,6 @@ namespace ProyectoOFI.Logica
         public int ContadorEdit { get; set; }
         public string Proceso { get; set; }
         public string Consolidado { get; set; }
+        public string Cosecha { get; set; }
     }
 }

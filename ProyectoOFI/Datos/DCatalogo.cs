@@ -8,6 +8,70 @@ namespace ProyectoOFI.Datos
 {
     public class DCatalogo
     {
+        public void MostrarCosechas(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter cmd = new SqlDataAdapter("Select * from Cosecha", Conexion.conectar);
+                cmd.SelectCommand.CommandType = CommandType.Text;
+                cmd.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron cargar los datos" + ex.Message, "Error en MostrarCosechas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarCosechas ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool InsertarCosecha(string cosecha)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand sqlCommand = new SqlCommand("InsertarCosecha", Conexion.conectar);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@Cosecha", cosecha);
+                sqlCommand.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se logro insertar la cosecha " + ex.Message, "Error al insertar cosecha", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en InsertarCosecha ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EditarCosecha(int idCosecha, string Cosecha)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EditarCosecha", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdCosecha", idCosecha);
+                cmd.Parameters.AddWithValue("@Cosecha", Cosecha);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EditarCosecha ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
         public bool AgregarAgencia(string Agencia)
         {
             try
@@ -1680,7 +1744,7 @@ namespace ProyectoOFI.Datos
         }
         #endregion
         #region Empaque
-        public bool AgregarEmpaque(string Empaque,string Capacidad,double TaraSaco)
+        public bool AgregarEmpaque(string Empaque, string Capacidad, double TaraSaco)
         {
             try
             {
@@ -1745,7 +1809,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public bool EditarEmpaque(int IdEmpaque, string Empaque,string Capacidad,double TaraSaco)
+        public bool EditarEmpaque(int IdEmpaque, string Empaque, string Capacidad, double TaraSaco)
         {
             try
             {

@@ -194,6 +194,7 @@
             this.BtnCerrarVerCons = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.LblCosecha = new System.Windows.Forms.Label();
             this.PlEnvio.SuspendLayout();
             this.PlRecepcion.SuspendLayout();
             this.PlAlerta.SuspendLayout();
@@ -266,7 +267,7 @@
             "Fermento",
             "Tierra",
             "Banyer"});
-            this.cbDanioE.Location = new System.Drawing.Point(1029, 194);
+            this.cbDanioE.Location = new System.Drawing.Point(957, 194);
             this.cbDanioE.Name = "cbDanioE";
             this.cbDanioE.Size = new System.Drawing.Size(211, 28);
             this.cbDanioE.TabIndex = 10;
@@ -276,7 +277,7 @@
             // 
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.Location = new System.Drawing.Point(966, 196);
+            this.label43.Location = new System.Drawing.Point(894, 198);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(52, 20);
             this.label43.TabIndex = 149;
@@ -292,7 +293,7 @@
             "Humedo",
             "Pre-Seco",
             "Seco"});
-            this.cbEsFisico.Location = new System.Drawing.Point(339, 194);
+            this.cbEsFisico.Location = new System.Drawing.Point(267, 194);
             this.cbEsFisico.Name = "cbEsFisico";
             this.cbEsFisico.Size = new System.Drawing.Size(255, 28);
             this.cbEsFisico.TabIndex = 8;
@@ -302,7 +303,7 @@
             // 
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(210, 198);
+            this.label44.Location = new System.Drawing.Point(138, 198);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(118, 20);
             this.label44.TabIndex = 145;
@@ -563,6 +564,7 @@
             this.PRecepcion.Controls.Add(this.LblDigitador);
             this.PRecepcion.Controls.Add(this.PlRecibido);
             this.PRecepcion.Controls.Add(this.btnAnt);
+            this.PRecepcion.Controls.Add(this.LblCosecha);
             this.PRecepcion.Controls.Add(this.label17);
             this.PRecepcion.Controls.Add(this.cbCalidad);
             this.PRecepcion.Controls.Add(this.cbEstadoFisico);
@@ -871,7 +873,7 @@
             "Fruto",
             "Mara",
             "Uva"});
-            this.cbCalidadE.Location = new System.Drawing.Point(685, 194);
+            this.cbCalidadE.Location = new System.Drawing.Point(613, 194);
             this.cbCalidadE.Name = "cbCalidadE";
             this.cbCalidadE.Size = new System.Drawing.Size(270, 28);
             this.cbCalidadE.TabIndex = 9;
@@ -895,7 +897,7 @@
             // 
             this.label53.AutoSize = true;
             this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(605, 198);
+            this.label53.Location = new System.Drawing.Point(533, 198);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(69, 20);
             this.label53.TabIndex = 120;
@@ -2229,6 +2231,16 @@
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
             // 
+            // LblCosecha
+            // 
+            this.LblCosecha.AutoSize = true;
+            this.LblCosecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCosecha.Location = new System.Drawing.Point(54, 56);
+            this.LblCosecha.Name = "LblCosecha";
+            this.LblCosecha.Size = new System.Drawing.Size(21, 20);
+            this.LblCosecha.TabIndex = 77;
+            this.LblCosecha.Text = "--";
+            // 
             // Transferencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2439,5 +2451,6 @@
         private System.Windows.Forms.Button BtnAddTK;
         private System.Windows.Forms.Label LblTextsacos;
         private System.Windows.Forms.Label LblSacosSM;
+        private System.Windows.Forms.Label LblCosecha;
     }
 }

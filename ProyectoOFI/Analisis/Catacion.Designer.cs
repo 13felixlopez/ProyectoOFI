@@ -69,12 +69,12 @@
             this.label27 = new System.Windows.Forms.Label();
             this.LblTasa = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.TxtDesmC = new System.Windows.Forms.TextBox();
+            this.TxtDesmD = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.LblDesmDP = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.TxtDesmA = new System.Windows.Forms.TextBox();
-            this.LblDesmD = new System.Windows.Forms.Label();
+            this.LblDesmC = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.LblDesmCP = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -470,12 +470,12 @@
             this.PlCatacion.Controls.Add(this.label27);
             this.PlCatacion.Controls.Add(this.LblTasa);
             this.PlCatacion.Controls.Add(this.label24);
-            this.PlCatacion.Controls.Add(this.TxtDesmC);
+            this.PlCatacion.Controls.Add(this.TxtDesmD);
             this.PlCatacion.Controls.Add(this.label15);
             this.PlCatacion.Controls.Add(this.LblDesmDP);
             this.PlCatacion.Controls.Add(this.label30);
             this.PlCatacion.Controls.Add(this.TxtDesmA);
-            this.PlCatacion.Controls.Add(this.LblDesmD);
+            this.PlCatacion.Controls.Add(this.LblDesmC);
             this.PlCatacion.Controls.Add(this.label14);
             this.PlCatacion.Controls.Add(this.LblDesmCP);
             this.PlCatacion.Controls.Add(this.label29);
@@ -552,6 +552,7 @@
             // 
             // DtFechaCatacion
             // 
+            this.DtFechaCatacion.Enabled = false;
             this.DtFechaCatacion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DtFechaCatacion.Location = new System.Drawing.Point(772, 19);
             this.DtFechaCatacion.Name = "DtFechaCatacion";
@@ -699,13 +700,13 @@
             this.label24.TabIndex = 0;
             this.label24.Text = "Tasa:";
             // 
-            // TxtDesmC
+            // TxtDesmD
             // 
-            this.TxtDesmC.Location = new System.Drawing.Point(670, 143);
-            this.TxtDesmC.Name = "TxtDesmC";
-            this.TxtDesmC.Size = new System.Drawing.Size(66, 22);
-            this.TxtDesmC.TabIndex = 1;
-            this.TxtDesmC.TextChanged += new System.EventHandler(this.TxtDesmC_TextChanged);
+            this.TxtDesmD.Location = new System.Drawing.Point(670, 143);
+            this.TxtDesmD.Name = "TxtDesmD";
+            this.TxtDesmD.Size = new System.Drawing.Size(66, 22);
+            this.TxtDesmD.TabIndex = 1;
+            this.TxtDesmD.TextChanged += new System.EventHandler(this.TxtDesmC_TextChanged);
             // 
             // label15
             // 
@@ -745,21 +746,21 @@
             this.TxtDesmA.TabIndex = 1;
             this.TxtDesmA.TextChanged += new System.EventHandler(this.TxtDesmA_TextChanged);
             // 
-            // LblDesmD
+            // LblDesmC
             // 
-            this.LblDesmD.AutoSize = true;
-            this.LblDesmD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDesmD.Location = new System.Drawing.Point(856, 146);
-            this.LblDesmD.Name = "LblDesmD";
-            this.LblDesmD.Size = new System.Drawing.Size(17, 16);
-            this.LblDesmD.TabIndex = 0;
-            this.LblDesmD.Text = "--";
+            this.LblDesmC.AutoSize = true;
+            this.LblDesmC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDesmC.Location = new System.Drawing.Point(856, 146);
+            this.LblDesmC.Name = "LblDesmC";
+            this.LblDesmC.Size = new System.Drawing.Size(17, 16);
+            this.LblDesmC.TabIndex = 0;
+            this.LblDesmC.Text = "--";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(758, 146);
+            this.label14.Location = new System.Drawing.Point(555, 146);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(95, 16);
             this.label14.TabIndex = 0;
@@ -797,7 +798,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(554, 146);
+            this.label13.Location = new System.Drawing.Point(747, 146);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(94, 16);
             this.label13.TabIndex = 0;
@@ -1560,7 +1561,7 @@
             this.PlCambioTK.Controls.Add(this.LblTK);
             this.PlCambioTK.Controls.Add(this.label37);
             this.PlCambioTK.Controls.Add(this.panel2);
-            this.PlCambioTK.Location = new System.Drawing.Point(946, 294);
+            this.PlCambioTK.Location = new System.Drawing.Point(946, 168);
             this.PlCambioTK.MaximumSize = new System.Drawing.Size(457, 229);
             this.PlCambioTK.Name = "PlCambioTK";
             this.PlCambioTK.Size = new System.Drawing.Size(457, 229);
@@ -1748,7 +1749,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox TxtScore;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox TxtDesmC;
+        private System.Windows.Forms.TextBox TxtDesmD;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
@@ -1768,7 +1769,7 @@
         private System.Windows.Forms.Label LblGCalidad;
         private System.Windows.Forms.Label LblTasa;
         private System.Windows.Forms.Label LblDesmDP;
-        private System.Windows.Forms.Label LblDesmD;
+        private System.Windows.Forms.Label LblDesmC;
         private System.Windows.Forms.Label LblDesmCP;
         private System.Windows.Forms.Label LblDesmAP;
         private System.Windows.Forms.Label LblExpP;

@@ -194,17 +194,17 @@ namespace ProyectoOFI.Datos
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
                 Conexion.abrir();
-                SqlCommand da = new SqlCommand("MostrarAreaSecado", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
+                string consulta = "Select * from AreaSecado where AreaSecado in ('Almacén','Secado Mecánico')";
+                SqlCommand da = new SqlCommand(consulta, Conexion.conectar);
                 SqlDataAdapter cb = new SqlDataAdapter(da);
                 DataTable dt = new DataTable();
                 cb.Fill(dt);
                 combo.ValueMember = "IdAreaSecado";
-                combo.DisplayMember = "Area Secado";
+                combo.DisplayMember = "AreaSecado";
                 combo.DataSource = dt;
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
-                    lista.Add(dt.Rows[i]["Area Secado"].ToString());
+                    lista.Add(dt.Rows[i]["AreaSecado"].ToString());
                 }
                 combo.AutoCompleteCustomSource = lista;
             }
@@ -224,8 +224,8 @@ namespace ProyectoOFI.Datos
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
                 Conexion.abrir();
-                SqlCommand da = new SqlCommand("MostrarEstFis", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
+                string consulta = "select * from EstFisico where EstFisico in ('Pre-Seco','Seco')";
+                SqlCommand da = new SqlCommand(consulta, Conexion.conectar);
                 SqlDataAdapter cb = new SqlDataAdapter(da);
                 DataTable dt = new DataTable();
                 cb.Fill(dt);

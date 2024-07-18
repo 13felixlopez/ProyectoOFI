@@ -39,7 +39,7 @@ namespace ProyectoOFI.Analisis
             TxtHumedad.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
             TxtExp.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
             TxtDesmA.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
-            TxtDesmC.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
+            TxtDesmD.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
             TxtScore.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
             ValidarPermisos();
         }
@@ -490,13 +490,13 @@ namespace ProyectoOFI.Analisis
 
         private void TxtDesmC_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(TxtDesmC.Text))
+            if (string.IsNullOrWhiteSpace(TxtDesmD.Text))
             {
                 DesmC = 0;
             }
             else
             {
-                if (double.TryParse(TxtDesmC.Text, out double result))
+                if (double.TryParse(TxtDesmD.Text, out double result))
                 {
                     DesmC = result;
                 }
@@ -504,7 +504,7 @@ namespace ProyectoOFI.Analisis
                 {
                     // Manejar el caso donde el texto no se puede convertir a número
                     MessageBox.Show("Por favor, ingrese un número válido.");
-                    TxtDesmC.Text = string.Empty; // Limpiar el TextBox en caso de error
+                    TxtDesmD.Text = string.Empty; // Limpiar el TextBox en caso de error
                     return;
                 }
             }
@@ -548,10 +548,10 @@ namespace ProyectoOFI.Analisis
         {
             double Exp = string.IsNullOrEmpty(TxtExp.Text) ? 0 : double.Parse(TxtExp.Text);
             double DesmA = string.IsNullOrEmpty(TxtDesmA.Text) ? 0 : double.Parse(TxtDesmA.Text);
-            double DesmC = string.IsNullOrEmpty(TxtDesmC.Text) ? 0 : double.Parse(TxtDesmC.Text);
+            double DesmC = string.IsNullOrEmpty(TxtDesmD.Text) ? 0 : double.Parse(TxtDesmD.Text);
 
             double DesmD = Math.Round(100 - Exp - DesmA - DesmC, 2);
-            LblDesmD.Text = DesmD.ToString();
+            LblDesmC.Text = DesmD.ToString();
             LblDesmDP.Text = Math.Round((Bto * DesmD) / 100, 2).ToString() + "%";
         }
 
@@ -617,8 +617,8 @@ namespace ProyectoOFI.Analisis
                 TxtBto.Text = "0";
                 TxtExp.Text = "0";
                 TxtDesmA.Text = "0";
-                TxtDesmC.Text = "0";
-                TxtScore.Text= "0";
+                TxtDesmD.Text = "0";
+                TxtScore.Text = "0";
             }
             else
             {
@@ -665,7 +665,7 @@ namespace ProyectoOFI.Analisis
             TxtHumedad.Text = "";
             TxtExp.Text = "0";
             TxtDesmA.Text = "0";
-            TxtDesmC.Text = "0";
+            TxtDesmD.Text = "0";
             TxtScore.Clear();
             ChbAnalizado.Checked = false;
             ChbRechazado.Checked = false;
@@ -729,8 +729,8 @@ namespace ProyectoOFI.Analisis
                 parametros.Humedad = TxtHumedad.Text;
                 parametros.Exp = double.Parse(TxtExp.Text);
                 parametros.DesmA = double.Parse(TxtDesmA.Text);
-                parametros.DesmC = double.Parse(TxtDesmC.Text);
-                parametros.DesmD = double.Parse(LblDesmD.Text);
+                parametros.DesmD = double.Parse(TxtDesmD.Text);
+                parametros.DesmC = double.Parse(LblDesmC.Text);
                 parametros.Score = int.Parse(TxtScore.Text);
                 parametros.Tasa = LblTasa.Text;
                 parametros.GradoCalidad = LblGCalidad.Text;
@@ -837,7 +837,7 @@ namespace ProyectoOFI.Analisis
             TxtHumedad.Enabled = true;
             TxtExp.Enabled = true;
             TxtDesmA.Enabled = true;
-            TxtDesmC.Enabled = true;
+            TxtDesmD.Enabled = true;
             TxtScore.Enabled = true;
             BtnAnalisis.Enabled = true;
             ChbAnalizado.Enabled = true;
@@ -853,7 +853,7 @@ namespace ProyectoOFI.Analisis
             TxtHumedad.Enabled = false;
             TxtExp.Enabled = false;
             TxtDesmA.Enabled = false;
-            TxtDesmC.Enabled = false;
+            TxtDesmD.Enabled = false;
             TxtScore.Enabled = false;
             BtnAnalisis.Text = "Analizado";
             BtnAnalisis.Enabled = false;
@@ -864,51 +864,58 @@ namespace ProyectoOFI.Analisis
         {
             if (Validar())
             {
-                LCatacion parametros = new LCatacion();
-                Dcatacion funcion = new Dcatacion();
-                parametros.Ticket = LblTicket.Text;
-                parametros.Origen = LblProcedencia.Text;
-                parametros.Analisis = TxtAnalisis.Text;
-                parametros.FechaMuestra = DTPFechaMuestra.Value;
-                parametros.FechaCatacion = DateTime.Today;
-                parametros.Dias = int.Parse(LblDias.Text);
-                parametros.RmtoObto = TxtBto.Text;
-                parametros.Cascarilla = LblCascarilla.Text;
-                parametros.TotalPS = LblTotal.Text;
-                parametros.IdVariedad = (int)CbVariedad.SelectedValue;
-                parametros.Humedad = TxtHumedad.Text;
-                parametros.Exp = double.Parse(TxtExp.Text);
-                parametros.DesmA = double.Parse(TxtDesmA.Text);
-                parametros.DesmC = double.Parse(TxtDesmC.Text);
-                parametros.DesmD = double.Parse(LblDesmD.Text);
-                parametros.Score = int.Parse(TxtScore.Text);
-                parametros.Tasa = LblTasa.Text;
-                parametros.GradoCalidad = LblGCalidad.Text;
-                parametros.ExpP = LblExpP.Text;
-                parametros.DesmAP = LblDesmAP.Text;
-                parametros.DesmCP = LblDesmCP.Text;
-                parametros.DesmDP = LblDesmDP.Text;
-                parametros.Digitador = Login.NombreA;
-                if (ChbRechazado.Checked == true)
+                if (DtFechaCatacion.Value < DateTime.Today)
                 {
-                    parametros.Estado = "0";
-                }
-                else if (ChbAnalizado.Checked == true)
-                {
-                    parametros.Estado = "1";
+                    LCatacion parametros = new LCatacion();
+                    Dcatacion funcion = new Dcatacion();
+                    parametros.Ticket = LblTicket.Text;
+                    parametros.Origen = LblProcedencia.Text;
+                    parametros.Analisis = TxtAnalisis.Text;
+                    parametros.FechaMuestra = DTPFechaMuestra.Value;
+                    parametros.FechaCatacion = DateTime.Today;
+                    parametros.Dias = int.Parse(LblDias.Text);
+                    parametros.RmtoObto = TxtBto.Text;
+                    parametros.Cascarilla = LblCascarilla.Text;
+                    parametros.TotalPS = LblTotal.Text;
+                    parametros.IdVariedad = (int)CbVariedad.SelectedValue;
+                    parametros.Humedad = TxtHumedad.Text;
+                    parametros.Exp = double.Parse(TxtExp.Text);
+                    parametros.DesmA = double.Parse(TxtDesmA.Text);
+                    parametros.DesmC = double.Parse(TxtDesmD.Text);
+                    parametros.DesmD = double.Parse(LblDesmC.Text);
+                    parametros.Score = int.Parse(TxtScore.Text);
+                    parametros.Tasa = LblTasa.Text;
+                    parametros.GradoCalidad = LblGCalidad.Text;
+                    parametros.ExpP = LblExpP.Text;
+                    parametros.DesmAP = LblDesmAP.Text;
+                    parametros.DesmCP = LblDesmCP.Text;
+                    parametros.DesmDP = LblDesmDP.Text;
+                    parametros.Digitador = Login.NombreA;
+                    if (ChbRechazado.Checked == true)
+                    {
+                        parametros.Estado = "0";
+                    }
+                    else if (ChbAnalizado.Checked == true)
+                    {
+                        parametros.Estado = "1";
+                    }
+                    else
+                    {
+                        parametros.Estado = "1";
+                    }
+                    if (funcion.InsertarCatacion(parametros) == true)
+                    {
+                        PLDatos.Visible = false;
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error en los datos", "Error en interfaz", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    parametros.Estado = "1";
-                }
-                if (funcion.InsertarCatacion(parametros) == true)
-                {
-                    PLDatos.Visible = false;
-                    Limpiar();
-                }
-                else
-                {
-                    MessageBox.Show("Error en los datos", "Error en interfaz", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha de dia de hoy", "Error en la fecha", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
         }
@@ -947,8 +954,8 @@ namespace ProyectoOFI.Analisis
                 parametros.Humedad = TxtHumedad.Text;
                 parametros.Exp = double.Parse(TxtExp.Text);
                 parametros.DesmA = double.Parse(TxtDesmA.Text);
-                parametros.DesmC = double.Parse(TxtDesmC.Text);
-                parametros.DesmD = double.Parse(LblDesmD.Text);
+                parametros.DesmC = double.Parse(TxtDesmD.Text);
+                parametros.DesmD = double.Parse(LblDesmC.Text);
                 parametros.Score = int.Parse(TxtScore.Text);
                 parametros.Tasa = LblTasa.Text;
                 parametros.GradoCalidad = LblGCalidad.Text;
@@ -986,52 +993,59 @@ namespace ProyectoOFI.Analisis
         {
             if (Validar())
             {
-                LCatacion parametros = new LCatacion();
-                Dcatacion funcion = new Dcatacion();
-                parametros.Origen = LblProcedencia.Text;
-                parametros.Analisis = TxtAnalisis.Text;
-                parametros.FechaMuestra = DTPFechaMuestra.Value;
-                parametros.FechaCatacion = DateTime.Today;
-                parametros.Dias = int.Parse(LblDias.Text);
-                parametros.RmtoObto = TxtBto.Text;
-                parametros.Cascarilla = LblCascarilla.Text;
-                parametros.TotalPS = LblTotal.Text;
-                parametros.IdVariedad = (int)CbVariedad.SelectedValue;
-                parametros.Humedad = TxtHumedad.Text;
-                parametros.Exp = double.Parse(TxtExp.Text);
-                parametros.DesmA = double.Parse(TxtDesmA.Text);
-                parametros.DesmC = double.Parse(TxtDesmC.Text);
-                parametros.DesmD = double.Parse(LblDesmD.Text);
-                parametros.Score = int.Parse(TxtScore.Text);
-                parametros.Tasa = LblTasa.Text;
-                parametros.GradoCalidad = LblGCalidad.Text;
-                parametros.ExpP = LblExpP.Text;
-                parametros.DesmAP = LblDesmAP.Text;
-                parametros.DesmCP = LblDesmCP.Text;
-                parametros.DesmDP = LblDesmDP.Text;
-                parametros.Digitador = Login.NombreA;
+                if (DtFechaCatacion.Value < DateTime.Today)
+                {
+                    LCatacion parametros = new LCatacion();
+                    Dcatacion funcion = new Dcatacion();
+                    parametros.Origen = LblProcedencia.Text;
+                    parametros.Analisis = TxtAnalisis.Text;
+                    parametros.FechaMuestra = DTPFechaMuestra.Value;
+                    parametros.FechaCatacion = DateTime.Today;
+                    parametros.Dias = int.Parse(LblDias.Text);
+                    parametros.RmtoObto = TxtBto.Text;
+                    parametros.Cascarilla = LblCascarilla.Text;
+                    parametros.TotalPS = LblTotal.Text;
+                    parametros.IdVariedad = (int)CbVariedad.SelectedValue;
+                    parametros.Humedad = TxtHumedad.Text;
+                    parametros.Exp = double.Parse(TxtExp.Text);
+                    parametros.DesmA = double.Parse(TxtDesmA.Text);
+                    parametros.DesmC = double.Parse(TxtDesmD.Text);
+                    parametros.DesmD = double.Parse(LblDesmC.Text);
+                    parametros.Score = int.Parse(TxtScore.Text);
+                    parametros.Tasa = LblTasa.Text;
+                    parametros.GradoCalidad = LblGCalidad.Text;
+                    parametros.ExpP = LblExpP.Text;
+                    parametros.DesmAP = LblDesmAP.Text;
+                    parametros.DesmCP = LblDesmCP.Text;
+                    parametros.DesmDP = LblDesmDP.Text;
+                    parametros.Digitador = Login.NombreA;
 
-                if (ChbRechazado.Checked == true)
-                {
-                    parametros.Estado = "0";
-                }
-                else if (ChbAnalizado.Checked == true)
-                {
-                    parametros.Estado = "1";
+                    if (ChbRechazado.Checked == true)
+                    {
+                        parametros.Estado = "0";
+                    }
+                    else if (ChbAnalizado.Checked == true)
+                    {
+                        parametros.Estado = "1";
+                    }
+                    else
+                    {
+                        parametros.Estado = "1";
+                    }
+
+                    if (funcion.EditarCatacionCD(parametros, Ticket) == true)
+                    {
+                        PLDatos.Visible = false;
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error en los datos", "Error en interfaz", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    parametros.Estado = "1";
-                }
-
-                if (funcion.EditarCatacionCD(parametros, Ticket) == true)
-                {
-                    PLDatos.Visible = false;
-                    Limpiar();
-                }
-                else
-                {
-                    MessageBox.Show("Error en los datos", "Error en interfaz", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha de dia de hoy", "Error en la fecha", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
         }
@@ -1055,7 +1069,7 @@ namespace ProyectoOFI.Analisis
             }
             return !(TxtAnalisis.Text == "" ||
                 TxtBto.Text == "" || TxtDesmA.Text == ""
-            || TxtDesmC.Text == "" || TxtScore.Text == "" || TxtExp.Text == "" || TxtHumedad.Text == "");
+            || TxtDesmD.Text == "" || TxtScore.Text == "" || TxtExp.Text == "" || TxtHumedad.Text == "");
         }
         private void VerDetalleCata()
         {
@@ -1172,21 +1186,21 @@ namespace ProyectoOFI.Analisis
                     // Asignar el valor de Cat.DesmC
                     if (row["DesmC"] != DBNull.Value && row["DesmC"].ToString() != null)
                     {
-                        TxtDesmC.Text = row["DesmC"].ToString();
+                        TxtDesmD.Text = row["DesmC"].ToString();
                     }
                     else
                     {
-                        TxtDesmC.Clear();
+                        TxtDesmD.Clear();
                     }
 
                     // Asignar el valor de Cat.DesmD
                     if (row["DesmD"] != DBNull.Value && row["DesmD"].ToString() != null)
                     {
-                        LblDesmD.Text = row["DesmD"].ToString();
+                        LblDesmC.Text = row["DesmD"].ToString();
                     }
                     else
                     {
-                        LblDesmD.Text = "--";
+                        LblDesmC.Text = "--";
                     }
 
                     // Asignar el valor de Cat.DesmAP

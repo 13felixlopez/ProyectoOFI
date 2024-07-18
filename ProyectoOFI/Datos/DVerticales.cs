@@ -67,7 +67,6 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
                 return tablaTickets;
-                //MessageBox.Show("No se ha podido cargar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
             {
@@ -99,7 +98,7 @@ namespace ProyectoOFI.Datos
         {
             try
             {
-                Conexion.abrir(); // Suponiendo que esto abre la conexión a la base de datos
+                Conexion.abrir();
 
                 // Crear un DataTable para almacenar los datos
                 DataTable dt = new DataTable();
@@ -117,7 +116,7 @@ namespace ProyectoOFI.Datos
                 // Recorrer el DataTable y agregar los elementos al CheckListBox
                 foreach (DataRow row in dt.Rows)
                 {
-                    checkListBox.Items.Add(row["Paros"].ToString()); // Reemplaza "Nombre" por el nombre de la columna que deseas mostrar
+                    checkListBox.Items.Add(row["Paros"].ToString()); 
                 }
             }
             catch (Exception ex)
@@ -127,7 +126,7 @@ namespace ProyectoOFI.Datos
             }
             finally
             {
-                Conexion.cerrar(); // Suponiendo que esto cierra la conexión a la base de datos
+                Conexion.cerrar(); 
             }
 
         }

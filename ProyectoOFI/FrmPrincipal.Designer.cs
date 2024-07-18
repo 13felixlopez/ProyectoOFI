@@ -510,6 +510,7 @@ namespace ProyectoOFI
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.panel4);
             this.flowLayoutPanel1.Controls.Add(this.btnTransferencia);
             this.flowLayoutPanel1.Controls.Add(this.BtnCPatio);

@@ -351,26 +351,33 @@ namespace ProyectoOFI.Almacen
         {
             if (validar())
             {
-                DAlmacen funcion = new DAlmacen();
-                LAlmacen parametros = new LAlmacen();
-                parametros.Ticket = LblTicket.Text;
-                parametros.Origen = LblProcedencia.Text;
-                parametros.FechaAlmacen = DateTime.Parse(DtpFAlmacen.Text);
-                parametros.IdBodega = (int)CbBodega.SelectedValue;
-                parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
-                parametros.IdEmpaque = (int)CbTipoEmpaque.SelectedValue;
-                parametros.Sacos = int.Parse(NudSacos.Text);
-                parametros.Peso = decimal.Parse(TxtPeso.Text);
-                parametros.Tara = decimal.Parse(TxtTara.Text);
-                parametros.PesoNeto = decimal.Parse(TxtPesoNeto.Text);
-                parametros.Rendimiento = rendimiento;
-                parametros.IdTurno = (int)CbTurno.SelectedValue;
-                parametros.IdDescargador = (int)CbDescargador.SelectedValue;
-                if (funcion.InsertarAlmacen(parametros) == true)
+                if (DtpFAlmacen.Value < DateTime.Today)
                 {
-                    MessageBox.Show("Se ha guardado con éxito", "Almacén", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    MostrarAlmacen();
-                    Limpiar();
+                    DAlmacen funcion = new DAlmacen();
+                    LAlmacen parametros = new LAlmacen();
+                    parametros.Ticket = LblTicket.Text;
+                    parametros.Origen = LblProcedencia.Text;
+                    parametros.FechaAlmacen = DateTime.Parse(DtpFAlmacen.Text);
+                    parametros.IdBodega = (int)CbBodega.SelectedValue;
+                    parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
+                    parametros.IdEmpaque = (int)CbTipoEmpaque.SelectedValue;
+                    parametros.Sacos = int.Parse(NudSacos.Text);
+                    parametros.Peso = decimal.Parse(TxtPeso.Text);
+                    parametros.Tara = decimal.Parse(TxtTara.Text);
+                    parametros.PesoNeto = decimal.Parse(TxtPesoNeto.Text);
+                    parametros.Rendimiento = rendimiento;
+                    parametros.IdTurno = (int)CbTurno.SelectedValue;
+                    parametros.IdDescargador = (int)CbDescargador.SelectedValue;
+                    if (funcion.InsertarAlmacen(parametros) == true)
+                    {
+                        MessageBox.Show("Se ha guardado con éxito", "Almacén", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MostrarAlmacen();
+                        Limpiar();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha de dia de hoy", "Error en la fecha", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
             else
@@ -467,26 +474,33 @@ namespace ProyectoOFI.Almacen
         {
             if (validar())
             {
-                DAlmacen funcion = new DAlmacen();
-                LAlmacen parametros = new LAlmacen();
-                parametros.Ticket = LblTicket.Text;
-                parametros.Origen = LblProcedencia.Text;
-                parametros.FechaAlmacen = DateTime.Parse(DtpFAlmacen.Text);
-                parametros.IdBodega = (int)CbBodega.SelectedValue;
-                parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
-                parametros.IdEmpaque = (int)CbTipoEmpaque.SelectedValue;
-                parametros.Sacos = int.Parse(NudSacos.Text);
-                parametros.Peso = decimal.Parse(TxtPeso.Text);
-                parametros.Tara = decimal.Parse(TxtTara.Text);
-                parametros.PesoNeto = decimal.Parse(TxtPesoNeto.Text);
-                parametros.Rendimiento = rendimiento;
-                parametros.IdTurno = (int)CbTurno.SelectedValue;
-                parametros.IdDescargador = (int)CbDescargador.SelectedValue;
-                if (funcion.EditarAlmacen(parametros) == true)
+                if (DtpFAlmacen.Value < DateTime.Today)
                 {
-                    MessageBox.Show("Se ha guardado con éxito", "Almacén", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    MostrarAlmacen();
-                    Limpiar();
+                    DAlmacen funcion = new DAlmacen();
+                    LAlmacen parametros = new LAlmacen();
+                    parametros.Ticket = LblTicket.Text;
+                    parametros.Origen = LblProcedencia.Text;
+                    parametros.FechaAlmacen = DateTime.Parse(DtpFAlmacen.Text);
+                    parametros.IdBodega = (int)CbBodega.SelectedValue;
+                    parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
+                    parametros.IdEmpaque = (int)CbTipoEmpaque.SelectedValue;
+                    parametros.Sacos = int.Parse(NudSacos.Text);
+                    parametros.Peso = decimal.Parse(TxtPeso.Text);
+                    parametros.Tara = decimal.Parse(TxtTara.Text);
+                    parametros.PesoNeto = decimal.Parse(TxtPesoNeto.Text);
+                    parametros.Rendimiento = rendimiento;
+                    parametros.IdTurno = (int)CbTurno.SelectedValue;
+                    parametros.IdDescargador = (int)CbDescargador.SelectedValue;
+                    if (funcion.EditarAlmacen(parametros) == true)
+                    {
+                        MessageBox.Show("Se ha guardado con éxito", "Almacén", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MostrarAlmacen();
+                        Limpiar();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha de dia de hoy", "Error en la fecha", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
             else

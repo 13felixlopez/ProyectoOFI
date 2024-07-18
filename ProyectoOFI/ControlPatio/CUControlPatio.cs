@@ -498,29 +498,7 @@ namespace ProyectoOFI.ControlPatio
         {
             if (validar())
             {
-                LControlPatio parametros = new LControlPatio();
-                DControlPatio funcion = new DControlPatio();
-                parametros.Ticket = LblTicket.Text;
-                parametros.Folio = int.Parse(TxtFolio.Text);
-                parametros.FechaT = DateTime.Parse(DTPFechaTendido.Value.ToString());
-                parametros.IdPatio = int.Parse(CbPatio.SelectedValue.ToString());
-                parametros.IdUbicacionP = int.Parse(CbUbicacionP.SelectedValue.ToString());
-                parametros.Digitador = Login.NombreA;
-                parametros.Rechazos = 0;
-                if (funcion.InsertarTendido(parametros) == true)
-                {
-                    MessageBox.Show("Tendido realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    MostrarLotes();
-                    Limpiar();
-                    PlControl.Visible = false;
-                }
-            }
-        }
-        private void EditarTendido()
-        {
-            if (validar())
-            {
-                if (edit < 3 || Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
+                if (DTPFechaTendido.Value < DateTime.Today)
                 {
                     LControlPatio parametros = new LControlPatio();
                     DControlPatio funcion = new DControlPatio();
@@ -530,10 +508,10 @@ namespace ProyectoOFI.ControlPatio
                     parametros.IdPatio = int.Parse(CbPatio.SelectedValue.ToString());
                     parametros.IdUbicacionP = int.Parse(CbUbicacionP.SelectedValue.ToString());
                     parametros.Digitador = Login.NombreA;
-                    edit = edit + 1;
-                    if (funcion.EditarTendido(parametros, edit) == true)
+                    parametros.Rechazos = 0;
+                    if (funcion.InsertarTendido(parametros) == true)
                     {
-                        MessageBox.Show("Edición de Tendido realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MessageBox.Show("Tendido realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         MostrarLotes();
                         Limpiar();
                         PlControl.Visible = false;
@@ -541,7 +519,43 @@ namespace ProyectoOFI.ControlPatio
                 }
                 else
                 {
-                    MessageBox.Show("Ya supero los 3 intentos de edición, comuniquese con un administrador", "Superó los intentos de edición", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha de dia de hoy", "Error en la fecha", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
+        }
+        private void EditarTendido()
+        {
+            if (validar())
+            {
+                if (DTPFechaTendido.Value < DateTime.Today)
+                {
+                    if (edit < 3 || Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
+                    {
+                        LControlPatio parametros = new LControlPatio();
+                        DControlPatio funcion = new DControlPatio();
+                        parametros.Ticket = LblTicket.Text;
+                        parametros.Folio = int.Parse(TxtFolio.Text);
+                        parametros.FechaT = DateTime.Parse(DTPFechaTendido.Value.ToString());
+                        parametros.IdPatio = int.Parse(CbPatio.SelectedValue.ToString());
+                        parametros.IdUbicacionP = int.Parse(CbUbicacionP.SelectedValue.ToString());
+                        parametros.Digitador = Login.NombreA;
+                        edit = edit + 1;
+                        if (funcion.EditarTendido(parametros, edit) == true)
+                        {
+                            MessageBox.Show("Edición de Tendido realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MostrarLotes();
+                            Limpiar();
+                            PlControl.Visible = false;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ya supero los 3 intentos de edición, comuniquese con un administrador", "Superó los intentos de edición", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha de dia de hoy", "Error en la fecha", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
         }
@@ -632,20 +646,27 @@ namespace ProyectoOFI.ControlPatio
         {
             if (validarEnfarde())
             {
-                LControlPatio parametros = new LControlPatio();
-                DControlPatio funcion = new DControlPatio();
-                parametros.IdTendido = IdTendido;
-                parametros.FEnfarde = DateTime.Parse(DTPEnfarde.Value.ToString());
-                parametros.DiasSecado = int.Parse(LblDiasSecado.Text.ToString());
-                parametros.Sacos = int.Parse(TxtSacosEnfardados.Text.ToString());
-                parametros.HumedadL = double.Parse(TxtHumedadLevante.Text.ToString());
-                parametros.Digitador = Login.NombreA;
-                if (funcion.InsertarEnfarde(parametros) == true)
+                if (DTPEnfarde.Value < DateTime.Today)
                 {
-                    MessageBox.Show("Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    MostrarLotes();
-                    Limpiar();
-                    PlControl.Visible = false;
+                    LControlPatio parametros = new LControlPatio();
+                    DControlPatio funcion = new DControlPatio();
+                    parametros.IdTendido = IdTendido;
+                    parametros.FEnfarde = DateTime.Parse(DTPEnfarde.Value.ToString());
+                    parametros.DiasSecado = int.Parse(LblDiasSecado.Text.ToString());
+                    parametros.Sacos = int.Parse(TxtSacosEnfardados.Text.ToString());
+                    parametros.HumedadL = double.Parse(TxtHumedadLevante.Text.ToString());
+                    parametros.Digitador = Login.NombreA;
+                    if (funcion.InsertarEnfarde(parametros) == true)
+                    {
+                        MessageBox.Show("Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MostrarLotes();
+                        Limpiar();
+                        PlControl.Visible = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha de dia de hoy", "Error en la fecha", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
             else
@@ -796,37 +817,21 @@ namespace ProyectoOFI.ControlPatio
             {
                 if (editenf < 3 || Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
                 {
-                    LControlPatio parametros = new LControlPatio();
-                    DControlPatio funcion = new DControlPatio();
-                    parametros.IdEnfarde = IdEnfarde;
-                    parametros.IdTendido = IdTendido;
-                    parametros.FEnfarde = DateTime.Parse(DTPEnfarde.Value.ToString());
-                    parametros.HumedadL = double.Parse(TxtHumedadLevante.Text.ToString());
-                    parametros.Sacos = int.Parse(TxtSacosEnfardados.Text.ToString());
-                    parametros.Digitador = Login.NombreA;
-                    if (BtnEnfarde.Text == "Actualizar")
+                    if (DTPEnfarde.Value < DateTime.Today)
                     {
-                        parametros.Rechazos = Rechazos;
-                        parametros.DiasSecado = int.Parse(LblDiasSecado.Text);
-                        editenf = editenf + 1;
-                        if (funcion.EditarEnfarde(parametros, editenf) == true)
+                        LControlPatio parametros = new LControlPatio();
+                        DControlPatio funcion = new DControlPatio();
+                        parametros.IdEnfarde = IdEnfarde;
+                        parametros.IdTendido = IdTendido;
+                        parametros.FEnfarde = DateTime.Parse(DTPEnfarde.Value.ToString());
+                        parametros.HumedadL = double.Parse(TxtHumedadLevante.Text.ToString());
+                        parametros.Sacos = int.Parse(TxtSacosEnfardados.Text.ToString());
+                        parametros.Digitador = Login.NombreA;
+                        if (BtnEnfarde.Text == "Actualizar")
                         {
-                            MessageBox.Show("Edición de Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            MostrarLotes();
-                            Limpiar();
-                            PlControl.Visible = false;
-                        }
-                    }
-                    else if (BtnEnfarde.Text == "Re-Enfarde")
-                    {
-                        parametros.Rechazos = Rechazos + 1;
-                        if (diasEdit >= dias)
-                        {
-                            MessageBox.Show("El Re-Enfarde es erroneo por la cantidad de dias", "Error en dias Re-Enfarde", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        else
-                        {
+                            parametros.Rechazos = Rechazos;
                             parametros.DiasSecado = int.Parse(LblDiasSecado.Text);
+                            editenf = editenf + 1;
                             if (funcion.EditarEnfarde(parametros, editenf) == true)
                             {
                                 MessageBox.Show("Edición de Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -835,6 +840,29 @@ namespace ProyectoOFI.ControlPatio
                                 PlControl.Visible = false;
                             }
                         }
+                        else if (BtnEnfarde.Text == "Re-Enfarde")
+                        {
+                            parametros.Rechazos = Rechazos + 1;
+                            if (diasEdit >= dias)
+                            {
+                                MessageBox.Show("El Re-Enfarde es erroneo por la cantidad de dias", "Error en dias Re-Enfarde", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            else
+                            {
+                                parametros.DiasSecado = int.Parse(LblDiasSecado.Text);
+                                if (funcion.EditarEnfarde(parametros, editenf) == true)
+                                {
+                                    MessageBox.Show("Edición de Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                    MostrarLotes();
+                                    Limpiar();
+                                    PlControl.Visible = false;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha de dia de hoy", "Error en la fecha", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     }
                 }
                 else
@@ -932,24 +960,31 @@ namespace ProyectoOFI.ControlPatio
         {
             if (validarEnvio())
             {
-                LControlPatio parametros = new LControlPatio();
-                DControlPatio funcion = new DControlPatio();
-                parametros.IdEnfarde = IdEnfarde;
-                parametros.FEnvio = DateTime.Parse(DTEnvio.Value.ToString());
-                parametros.DNIN = int.Parse(TxtDNIN.Text.ToString());
-                parametros.IdEstFis = int.Parse(CbEstFis.SelectedValue.ToString());
-                parametros.IdAreaSecado = int.Parse(CbDestino.SelectedValue.ToString());
-                parametros.Digitador = Login.NombreA;
-                if (funcion.InsertarEnvio(parametros) == true)
+                if (DTEnvio.Value < DateTime.Today)
                 {
-                    MessageBox.Show("Envio realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    MostrarLotes();
-                    Limpiar();
-                    PlControl.Visible = false;
+                    LControlPatio parametros = new LControlPatio();
+                    DControlPatio funcion = new DControlPatio();
+                    parametros.IdEnfarde = IdEnfarde;
+                    parametros.FEnvio = DateTime.Parse(DTEnvio.Value.ToString());
+                    parametros.DNIN = int.Parse(TxtDNIN.Text.ToString());
+                    parametros.IdEstFis = int.Parse(CbEstFis.SelectedValue.ToString());
+                    parametros.IdAreaSecado = int.Parse(CbDestino.SelectedValue.ToString());
+                    parametros.Digitador = Login.NombreA;
+                    if (funcion.InsertarEnvio(parametros) == true)
+                    {
+                        MessageBox.Show("Envio realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MostrarLotes();
+                        Limpiar();
+                        PlControl.Visible = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Existen campos vacios", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Existen campos vacios", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha de dia de hoy", "Error en la fecha", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
         }
@@ -1032,26 +1067,33 @@ namespace ProyectoOFI.ControlPatio
         {
             if (validarEnvio())
             {
-                LControlPatio parametros = new LControlPatio();
-                DControlPatio funcion = new DControlPatio();
-                parametros.IdEnvio = IdEnvio;
-                parametros.IdEnfarde = IdEnfarde;
-                parametros.FEnvio = DateTime.Parse(DTEnvio.Value.ToString());
-                parametros.DNIN = int.Parse(TxtDNIN.Text.ToString());
-                parametros.IdEstFis = int.Parse(CbEstFis.SelectedValue.ToString());
-                parametros.IdAreaSecado = int.Parse(CbDestino.SelectedValue.ToString());
-                parametros.Digitador = Login.NombreA;
-                editEn = editEn + 1;
-                if (funcion.EditarEnvio(parametros, editEn) == true)
+                if (DTEnvio.Value < DateTime.Today)
                 {
-                    MessageBox.Show("Envio realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    MostrarLotes();
-                    Limpiar();
-                    PlControl.Visible = false;
+                    LControlPatio parametros = new LControlPatio();
+                    DControlPatio funcion = new DControlPatio();
+                    parametros.IdEnvio = IdEnvio;
+                    parametros.IdEnfarde = IdEnfarde;
+                    parametros.FEnvio = DateTime.Parse(DTEnvio.Value.ToString());
+                    parametros.DNIN = int.Parse(TxtDNIN.Text.ToString());
+                    parametros.IdEstFis = int.Parse(CbEstFis.SelectedValue.ToString());
+                    parametros.IdAreaSecado = int.Parse(CbDestino.SelectedValue.ToString());
+                    parametros.Digitador = Login.NombreA;
+                    editEn = editEn + 1;
+                    if (funcion.EditarEnvio(parametros, editEn) == true)
+                    {
+                        MessageBox.Show("Envio realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MostrarLotes();
+                        Limpiar();
+                        PlControl.Visible = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Existen campos vacios", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Existen campos vacios", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha de dia de hoy", "Error en la fecha", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
         }

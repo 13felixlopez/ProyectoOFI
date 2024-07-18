@@ -75,6 +75,7 @@ namespace ProyectoOFI.Recepcion
             PEnvio.Dock = DockStyle.Fill;
             DRecepcion funcion=new DRecepcion();
             funcion.Cosecha(LblCosecha);
+            AdjustPanelInfoSizeAndPosition();
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -1785,7 +1786,6 @@ namespace ProyectoOFI.Recepcion
                 CbCertCons.Enabled = true;
             }
         }
-
         private void LimpiarCons()
         {
             LblTotalPeso.Text = "00";
@@ -1843,6 +1843,16 @@ namespace ProyectoOFI.Recepcion
                     txtTK.Enabled = true;
                 }
             }
+        }
+        private void AdjustPanelInfoSizeAndPosition()
+        {
+            // Tamaño deseado del panel en una pantalla de referencia (por ejemplo, 1920x1080)
+            int desiredWidth = 600;
+            int desiredHeight = 300;
+
+            // Calcular el tamaño proporcional al tamaño actual del formulario
+            PlRecepcion.Width = (this.ClientSize.Width * desiredWidth) / 1920;
+            PlRecepcion.Height = (this.ClientSize.Height * desiredHeight) / 1080;
         }
     }
 }

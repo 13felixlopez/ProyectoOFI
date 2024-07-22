@@ -32,7 +32,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("Select FORMAT(SUM(Peso)/46, 'N2') from Recepcion where IdAreaSecado=1 OR IdAreaSecado=2", Conexion.conectar);
+                SqlCommand cmd = new SqlCommand("SELECT ROUND(SUM(Peso)/46, 2) AS Resultado FROM Recepcion WHERE Estado='ACTIVO'", Conexion.conectar);
                 Contador = Convert.ToDouble(cmd.ExecuteScalar());
             }
             catch (Exception)
@@ -49,7 +49,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("SELECT FORMAT(SUM(Peso)/46, 'N2') FROM Recepcion Rec WHERE IdAreaSecado = 1",Conexion.conectar);
+                SqlCommand cmd = new SqlCommand("SELECT ROUND(SUM(Peso)/46, 2) FROM Recepcion Rec WHERE IdAreaSecado = 1 AND Estado='ACTIVO'", Conexion.conectar);
                 SN=Convert.ToDouble(cmd.ExecuteScalar());
             }
             catch (Exception)
@@ -66,7 +66,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("SELECT FORMAT(SUM(Peso)/46, 'N2') FROM Recepcion Rec WHERE IdAreaSecado = 2", Conexion.conectar);
+                SqlCommand cmd = new SqlCommand("SELECT ROUND(SUM(Peso)/46, 2) FROM Recepcion Rec WHERE IdAreaSecado = 2 AND Estado='ACTIVO'", Conexion.conectar);
                 SM = Convert.ToDouble(cmd.ExecuteScalar());
             }
             catch (Exception)

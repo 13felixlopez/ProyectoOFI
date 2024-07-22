@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.Reportes
@@ -22,26 +24,33 @@ namespace ProyectoOFI.Reportes
         }
         private void kilosArea()
         {
-            List<string> Concepto = new List<string>();
-            List<double> Porcentaje = new List<double>();
-            DataTable dt = new DataTable();
-            DReporte funcion = new DReporte();
-            funcion.kilosArea(dt);
-            foreach (DataRow row in dt.Rows)
+            try
             {
-                Concepto.Add(Convert.ToString(row[0]));
-                Porcentaje.Add(Convert.ToDouble(row[1]));
+                List<string> Concepto = new List<string>();
+                List<double> Porcentaje = new List<double>();
+                DataTable dt = new DataTable();
+                DReporte funcion = new DReporte();
+                funcion.kilosArea(dt);
+                foreach (DataRow row in dt.Rows)
+                {
+                    Concepto.Add(Convert.ToString(row[0]));
+                    Porcentaje.Add(Convert.ToDouble(row[1]));
+                }
+                chartKilos.Series[0].Points.DataBindXY(Concepto, Porcentaje);
             }
-            chartKilos.Series[0].Points.DataBindXY(Concepto, Porcentaje);
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en Kilos Area" + ex.Message, "Error KiloArea", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void DatosSN()
         {
             List<string> Concepto = new List<string>();
             List<double> Porcentaje = new List<double>();
             DataTable dt = new DataTable();
-            DReporte funcion=new DReporte();
+            DReporte funcion = new DReporte();
             funcion.DatosSN(dt);
-            foreach(DataRow row in dt.Rows)
+            foreach (DataRow row in dt.Rows)
             {
                 Concepto.Add(Convert.ToString(row[0]));
                 Porcentaje.Add(Convert.ToDouble(row[1]));
@@ -77,7 +86,7 @@ namespace ProyectoOFI.Reportes
             DReporte funcion = new DReporte();
             DataTable dt = new DataTable();
             funcion.DatosSM(ref dt);
-            DtSM.DataSource= dt;
+            DtSM.DataSource = dt;
         }
     }
 }

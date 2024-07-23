@@ -412,6 +412,7 @@
             this.CbBuscador.Size = new System.Drawing.Size(168, 28);
             this.CbBuscador.TabIndex = 1;
             this.CbBuscador.Visible = false;
+            this.CbBuscador.SelectedIndexChanged += new System.EventHandler(this.CbBuscador_SelectedIndexChanged);
             // 
             // CbBuscar
             // 
@@ -633,7 +634,7 @@
             this.LblMsj.Dock = System.Windows.Forms.DockStyle.Top;
             this.LblMsj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.LblMsj.ForeColor = System.Drawing.Color.Red;
-            this.LblMsj.Location = new System.Drawing.Point(0, 487);
+            this.LblMsj.Location = new System.Drawing.Point(0, 456);
             this.LblMsj.Name = "LblMsj";
             this.LblMsj.Size = new System.Drawing.Size(974, 34);
             this.LblMsj.TabIndex = 5;
@@ -657,7 +658,7 @@
             this.PlEnfarde.Controls.Add(this.TxtSacosEnfardados);
             this.PlEnfarde.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlEnfarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlEnfarde.Location = new System.Drawing.Point(0, 352);
+            this.PlEnfarde.Location = new System.Drawing.Point(0, 321);
             this.PlEnfarde.Name = "PlEnfarde";
             this.PlEnfarde.Size = new System.Drawing.Size(974, 135);
             this.PlEnfarde.TabIndex = 18;
@@ -777,7 +778,7 @@
             this.PlTendido.Controls.Add(this.label1);
             this.PlTendido.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlTendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlTendido.Location = new System.Drawing.Point(0, 217);
+            this.PlTendido.Location = new System.Drawing.Point(0, 186);
             this.PlTendido.Name = "PlTendido";
             this.PlTendido.Size = new System.Drawing.Size(974, 135);
             this.PlTendido.TabIndex = 17;

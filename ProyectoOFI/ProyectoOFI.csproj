@@ -355,6 +355,12 @@
     <Compile Include="Reportes\FrmHistorial.Designer.cs">
       <DependentUpon>FrmHistorial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\FrmLotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FrmLotes.Designer.cs">
+      <DependentUpon>FrmLotes.cs</DependentUpon>
+    </Compile>
     <Compile Include="SM\FrmExcelSM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -539,6 +545,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmHistorial.resx">
       <DependentUpon>FrmHistorial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FrmLotes.resx">
+      <DependentUpon>FrmLotes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SM\FrmExcelSM.resx">
       <DependentUpon>FrmExcelSM.cs</DependentUpon>

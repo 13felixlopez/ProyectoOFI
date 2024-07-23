@@ -113,11 +113,11 @@ namespace ProyectoOFI.ControlPatio
             hasta -= 100;
             if (txtBuscador.Text != "")
             {
-                Buscar();
+                BuscarTk();
             }
             else if (CbBuscador.Visible == true)
             {
-                //BuscarDatos();
+                Buscar();
             }
             else
             {
@@ -146,11 +146,11 @@ namespace ProyectoOFI.ControlPatio
             hasta += 100;
             if (txtBuscador.Text != "")
             {
-                Buscar();
+                BuscarTk();
             }
             else if (CbBuscador.Visible == true)
             {
-                //BuscarDatos();
+                Buscar();
             }
             else
             {
@@ -175,11 +175,11 @@ namespace ProyectoOFI.ControlPatio
             desde = hasta - 99;
             if (txtBuscador.Text != "")
             {
-                Buscar();
+                BuscarTk();
             }
             else if (CbBuscador.Visible == true)
             {
-                //BuscarDatos();
+                Buscar();
             }
             else
             {
@@ -203,11 +203,11 @@ namespace ProyectoOFI.ControlPatio
             ReiniciarPaginado();
             if (txtBuscador.Text != "")
             {
-                Buscar();
+                BuscarTk();
             }
             else if (CbBuscador.Visible == true)
             {
-                //BuscarDatos();
+                Buscar();
             }
             else
             {
@@ -956,6 +956,21 @@ namespace ProyectoOFI.ControlPatio
         {
             PlFiltros.Visible = false;
         }
+
+        private void CbBuscador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CbBuscador.Text == "")
+            {
+                ReiniciarPaginado();
+                MostrarLotes();
+            }
+            else
+            {
+                Buscar();
+                ReiniciarPaginado();
+            }
+        }
+
         private void InsertarEnvio()
         {
             if (validarEnvio())
@@ -1101,47 +1116,53 @@ namespace ProyectoOFI.ControlPatio
         {
             DataTable dt = new DataTable();
             DControlPatio funcion = new DControlPatio();
-            if (CbBuscar.Text == "Ticket")
-            {
-                funcion.BuscarTKCP(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            }
-            if (CbBuscar.Text == "Calidad")
-            {
-                funcion.BuscarCalidad(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            }
-            if (CbBuscar.Text == "Certificación")
-            {
-                funcion.BuscarCert(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            }
-            if (CbBuscar.Text == "Daño")
-            {
-                funcion.BuscarDanio(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            }
-            if (CbBuscar.Text == "Tipo Compra")
-            {
-                funcion.BuscarTipoCompra(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            }
-            if (CbBuscar.Text == "MTNT")
-            {
-                funcion.BuscarMTNT(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            }
-            if (CbBuscar.Text == "Peso")
-            {
-                funcion.BuscarPeso(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            }
-            if (CbBuscar.Text == "Área Secado")
-            {
-                funcion.BuscarAreaSecado(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            }
+            funcion.BuscarTKCP(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda, CbBuscar.Text);
             dtInventariocp.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventariocp);
+            //DataTable dt = new DataTable();
+            //DControlPatio funcion = new DControlPatio();
+            //if (CbBuscar.Text == "Ticket")
+            //{
+            //    funcion.BuscarTKCP(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda, CbBuscar.Text);
+            //}
+            //if (CbBuscar.Text == "Calidad")
+            //{
+            //    funcion.BuscarCalidad(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Certificación")
+            //{
+            //    funcion.BuscarCert(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Daño")
+            //{
+            //    funcion.BuscarDanio(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Tipo Compra")
+            //{
+            //    funcion.BuscarTipoCompra(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "MTNT")
+            //{
+            //    funcion.BuscarMTNT(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Peso")
+            //{
+            //    funcion.BuscarPeso(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //if (CbBuscar.Text == "Área Secado")
+            //{
+            //    funcion.BuscarAreaSecado(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //}
+            //dtInventariocp.DataSource = dt;
+            //ContarBusqueda = int.Parse(funcion.contador.ToString());
+            //Base.DiseñoDtvEliminar(ref dtInventariocp);
         }
         private void BuscarTk()
         {
             DataTable dt = new DataTable();
             DControlPatio funcion = new DControlPatio();
-            funcion.BuscarTKCP(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            funcion.BuscarTKCP(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda, CbBuscar.Text);
             dtInventariocp.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventariocp);

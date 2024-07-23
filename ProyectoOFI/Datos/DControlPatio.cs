@@ -407,7 +407,7 @@ namespace ProyectoOFI.Datos
         }
         #endregion
         #region Buscar
-        public void BuscarTKCP(string Buscar, ref DataTable dt, int desde, int hasta, int Contar)
+        public void BuscarTKCP(string Buscar, ref DataTable dt, int desde, int hasta, int Contar, string Dato)
         {
             try
             {
@@ -417,6 +417,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@Desde", desde);
                 cmd.Parameters.AddWithValue("@Hasta", hasta);
                 cmd.Parameters.AddWithValue("@Buscador", Buscar);
+                cmd.Parameters.AddWithValue("@Dato", Dato);
 
                 // Parámetro de salida para el contador
                 SqlParameter contarParam = new SqlParameter("@Contar", SqlDbType.Int);

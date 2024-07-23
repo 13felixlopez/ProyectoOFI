@@ -50,7 +50,7 @@ namespace ProyectoOFI.Datos
             {
                 Conexion.abrir();
                 SqlCommand cmd = new SqlCommand("SELECT ROUND(SUM(Peso)/46, 2) FROM Recepcion Rec WHERE IdAreaSecado = 1 AND Estado='ACTIVO'", Conexion.conectar);
-                SN=Convert.ToDouble(cmd.ExecuteScalar());
+                SN = Convert.ToDouble(cmd.ExecuteScalar());
             }
             catch (Exception)
             {
@@ -84,7 +84,7 @@ namespace ProyectoOFI.Datos
             {
                 Conexion.abrir();
                 SqlCommand cmd = new SqlCommand("TotalAnalisis", Conexion.conectar);
-                Cata= Convert.ToDouble(cmd.ExecuteScalar());
+                Cata = Convert.ToDouble(cmd.ExecuteScalar());
             }
             catch (Exception)
             {
@@ -130,6 +130,44 @@ namespace ProyectoOFI.Datos
             }
             finally
             {
+                Conexion.cerrar();
+            }
+        }
+        public void No_Asignado(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("No_Asignado", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron cargar los datos de lotes No asignados " + ex.Message, "Error en No Asignado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("No se pudieron cargar datos en No_Asignado ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void CantNoAsignado(ref double NoAsignado)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("Select COUNT(Ticket) from Recepcion Rec where IdAreaSecado=1 AND Proceso='No asignado' and Estado='ACTIVO' And Rec.Cosecha=(select Cosecha from Cosecha where IdCosecha=(select max(IdCosecha) from Cosecha))", Conexion.conectar);
+                NoAsignado = Convert.ToDouble(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en mostrar cantidad de lotes No asignados " + ex.Message, "Error En Cantidad de No asignados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en mostrar CantNoAsignado ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+
                 Conexion.cerrar();
             }
         }

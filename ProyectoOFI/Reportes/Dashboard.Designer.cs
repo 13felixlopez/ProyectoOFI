@@ -32,12 +32,13 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.PlDatos = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.LblAnalisis = new System.Windows.Forms.Label();
@@ -55,10 +56,12 @@
             this.PlGrafico = new System.Windows.Forms.Panel();
             this.LblGrafico = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.DtSM = new System.Windows.Forms.DataGridView();
-            this.PlSM = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.chartSN = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.PlSM = new System.Windows.Forms.Panel();
+            this.DtSM = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.BtnNoAsignado = new System.Windows.Forms.Button();
             this.PlDatos.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -67,9 +70,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartKilos)).BeginInit();
             this.PlGrafico.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtSM)).BeginInit();
-            this.PlSM.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartSN)).BeginInit();
+            this.PlSM.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtSM)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // PlDatos
@@ -283,6 +287,7 @@
             this.tableLayoutPanel1.Controls.Add(this.chartSN, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.PlGrafico, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.PlSM, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 105);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -291,6 +296,45 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1777, 714);
             this.tableLayoutPanel1.TabIndex = 3;
+            // 
+            // chartSN
+            // 
+            chartArea2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+            chartArea2.Name = "ChartArea1";
+            this.chartSN.ChartAreas.Add(chartArea2);
+            this.chartSN.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "Legend1";
+            this.chartSN.Legends.Add(legend2);
+            this.chartSN.Location = new System.Drawing.Point(3, 360);
+            this.chartSN.Name = "chartSN";
+            series2.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            series2.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Unscaled;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartSN.Series.Add(series2);
+            this.chartSN.Size = new System.Drawing.Size(882, 351);
+            this.chartSN.TabIndex = 5;
+            this.chartSN.Text = "QQs por Área";
+            title2.DockedToChartArea = "ChartArea1";
+            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            title2.Name = "QQs por área";
+            this.chartSN.Titles.Add(title2);
+            // 
+            // PlSM
+            // 
+            this.PlSM.Controls.Add(this.DtSM);
+            this.PlSM.Controls.Add(this.label2);
+            this.PlSM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PlSM.Location = new System.Drawing.Point(891, 3);
+            this.PlSM.Name = "PlSM";
+            this.PlSM.Size = new System.Drawing.Size(883, 351);
+            this.PlSM.TabIndex = 4;
             // 
             // DtSM
             // 
@@ -329,16 +373,6 @@
             this.DtSM.Size = new System.Drawing.Size(883, 311);
             this.DtSM.TabIndex = 3;
             // 
-            // PlSM
-            // 
-            this.PlSM.Controls.Add(this.DtSM);
-            this.PlSM.Controls.Add(this.label2);
-            this.PlSM.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PlSM.Location = new System.Drawing.Point(891, 3);
-            this.PlSM.Name = "PlSM";
-            this.PlSM.Size = new System.Drawing.Size(883, 351);
-            this.PlSM.TabIndex = 4;
-            // 
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.White;
@@ -351,34 +385,28 @@
             this.label2.Text = "Estado Secado Mecánico";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // chartSN
+            // panel4
             // 
-            chartArea2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
-            chartArea2.Name = "ChartArea1";
-            this.chartSN.ChartAreas.Add(chartArea2);
-            this.chartSN.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            legend2.IsTextAutoFit = false;
-            legend2.Name = "Legend1";
-            this.chartSN.Legends.Add(legend2);
-            this.chartSN.Location = new System.Drawing.Point(3, 360);
-            this.chartSN.Name = "chartSN";
-            series2.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-            series2.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Unscaled;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartSN.Series.Add(series2);
-            this.chartSN.Size = new System.Drawing.Size(882, 351);
-            this.chartSN.TabIndex = 5;
-            this.chartSN.Text = "QQs por Área";
-            title2.DockedToChartArea = "ChartArea1";
-            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            title2.Name = "QQs por área";
-            this.chartSN.Titles.Add(title2);
+            this.panel4.Controls.Add(this.BtnNoAsignado);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(891, 360);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(883, 351);
+            this.panel4.TabIndex = 6;
+            // 
+            // BtnNoAsignado
+            // 
+            this.BtnNoAsignado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnNoAsignado.Image = ((System.Drawing.Image)(resources.GetObject("BtnNoAsignado.Image")));
+            this.BtnNoAsignado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnNoAsignado.Location = new System.Drawing.Point(13, 14);
+            this.BtnNoAsignado.Name = "BtnNoAsignado";
+            this.BtnNoAsignado.Size = new System.Drawing.Size(152, 89);
+            this.BtnNoAsignado.TabIndex = 0;
+            this.BtnNoAsignado.Text = "No Asignado";
+            this.BtnNoAsignado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnNoAsignado.UseVisualStyleBackColor = true;
+            this.BtnNoAsignado.Click += new System.EventHandler(this.BtnNoAsignado_Click);
             // 
             // Dashboard
             // 
@@ -396,9 +424,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.chartKilos)).EndInit();
             this.PlGrafico.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtSM)).EndInit();
-            this.PlSM.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartSN)).EndInit();
+            this.PlSM.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtSM)).EndInit();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -426,5 +455,7 @@
         private System.Windows.Forms.Panel PlSM;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartSN;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button BtnNoAsignado;
     }
 }

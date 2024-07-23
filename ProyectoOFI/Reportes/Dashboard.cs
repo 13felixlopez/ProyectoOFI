@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Globalization;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.Reportes
@@ -21,6 +19,7 @@ namespace ProyectoOFI.Reportes
             TotalAnalisis();
             DatosSM();
             DatosSN();
+            CantNoAsignado();
         }
         private void kilosArea()
         {
@@ -69,6 +68,11 @@ namespace ProyectoOFI.Reportes
             funcion.QQsSN(ref SN);
             LblSN.Text = SN.ToString() + " QQs";
         }
+        private void BtnNoAsignado_Click(object sender, EventArgs e)
+        {
+            FrmLotes lt = new FrmLotes();
+            lt.ShowDialog();
+        }
         private void TotalSM()
         {
             DReporte funcion = new DReporte();
@@ -87,6 +91,13 @@ namespace ProyectoOFI.Reportes
             DataTable dt = new DataTable();
             funcion.DatosSM(ref dt);
             DtSM.DataSource = dt;
+        }
+        private void CantNoAsignado()
+        {
+            DReporte funcion = new DReporte();
+            double CantNA = 0;
+            funcion.CantNoAsignado(ref CantNA);
+            BtnNoAsignado.Text = "No Asignados " + CantNA.ToString() + " Lotes";
         }
     }
 }

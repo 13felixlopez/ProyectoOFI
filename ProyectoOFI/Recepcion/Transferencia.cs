@@ -1794,6 +1794,7 @@ namespace ProyectoOFI.Recepcion
             TxtFolio.Clear();
             TxtBuscar.Clear();
         }
+
         private void AbrirFrm(Form hijo)
         {
             if (FrmActivo != null)

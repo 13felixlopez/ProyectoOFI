@@ -138,7 +138,7 @@ namespace ProyectoOFI
             this.PlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlPrincipal.Location = new System.Drawing.Point(160, 74);
             this.PlPrincipal.Name = "PlPrincipal";
-            this.PlPrincipal.Size = new System.Drawing.Size(1636, 903);
+            this.PlPrincipal.Size = new System.Drawing.Size(1636, 846);
             this.PlPrincipal.TabIndex = 4;
             // 
             // PlOpciones
@@ -252,7 +252,7 @@ namespace ProyectoOFI
             this.LblPrincipal.ForeColor = System.Drawing.Color.White;
             this.LblPrincipal.Location = new System.Drawing.Point(0, 0);
             this.LblPrincipal.Name = "LblPrincipal";
-            this.LblPrincipal.Size = new System.Drawing.Size(1636, 903);
+            this.LblPrincipal.Size = new System.Drawing.Size(1636, 846);
             this.LblPrincipal.TabIndex = 0;
             this.LblPrincipal.Text = "Bienvenido a \r\nCoffeeTec 👋";
             this.LblPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -264,7 +264,7 @@ namespace ProyectoOFI
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(2);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(11, 903);
+            this.panel11.Size = new System.Drawing.Size(11, 846);
             this.panel11.TabIndex = 14;
             // 
             // BtnUser
@@ -479,7 +479,7 @@ namespace ProyectoOFI
             this.BtnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.BtnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCerrarSesion.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_sesión;
-            this.BtnCerrarSesion.Location = new System.Drawing.Point(3, 800);
+            this.BtnCerrarSesion.Location = new System.Drawing.Point(151, 3);
             this.BtnCerrarSesion.Name = "BtnCerrarSesion";
             this.BtnCerrarSesion.Size = new System.Drawing.Size(142, 66);
             this.BtnCerrarSesion.TabIndex = 10;
@@ -505,7 +505,7 @@ namespace ProyectoOFI
             this.plfooter.Dock = System.Windows.Forms.DockStyle.Left;
             this.plfooter.Location = new System.Drawing.Point(0, 74);
             this.plfooter.Name = "plfooter";
-            this.plfooter.Size = new System.Drawing.Size(160, 903);
+            this.plfooter.Size = new System.Drawing.Size(160, 846);
             this.plfooter.TabIndex = 3;
             // 
             // flowLayoutPanel1
@@ -527,7 +527,7 @@ namespace ProyectoOFI
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(11, 5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(149, 898);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(149, 841);
             this.flowLayoutPanel1.TabIndex = 15;
             // 
             // frmInicio
@@ -535,7 +535,7 @@ namespace ProyectoOFI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1796, 977);
+            this.ClientSize = new System.Drawing.Size(1796, 920);
             this.Controls.Add(this.PlPrincipal);
             this.Controls.Add(this.plfooter);
             this.Controls.Add(this.plTitulo);

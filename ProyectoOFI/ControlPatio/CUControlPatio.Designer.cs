@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Sig = new System.Windows.Forms.Button();
             this.btn_Primera = new System.Windows.Forms.Button();
             this.btn_Ultima = new System.Windows.Forms.Button();
@@ -48,17 +48,15 @@
             this.PlFiltroFecha = new System.Windows.Forms.Panel();
             this.DtpFin = new System.Windows.Forms.DateTimePicker();
             this.BtnFiltroFecha = new System.Windows.Forms.Button();
-            this.DtpBuscar = new System.Windows.Forms.DateTimePicker();
+            this.DtpInicio = new System.Windows.Forms.DateTimePicker();
             this.BtnRangoFecha = new System.Windows.Forms.Button();
             this.PbExcel = new System.Windows.Forms.PictureBox();
             this.PbFiltro = new System.Windows.Forms.PictureBox();
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.CbBuscador = new System.Windows.Forms.ComboBox();
             this.CbBuscar = new System.Windows.Forms.ComboBox();
-            this.CbOrdenar = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.plfooter = new System.Windows.Forms.Panel();
             this.timerAct = new System.Windows.Forms.Timer(this.components);
             this.PlFiltros = new System.Windows.Forms.Panel();
@@ -302,10 +300,8 @@
             this.plOpciones.Controls.Add(this.txtBuscador);
             this.plOpciones.Controls.Add(this.CbBuscador);
             this.plOpciones.Controls.Add(this.CbBuscar);
-            this.plOpciones.Controls.Add(this.CbOrdenar);
             this.plOpciones.Controls.Add(this.label3);
             this.plOpciones.Controls.Add(this.label4);
-            this.plOpciones.Controls.Add(this.label2);
             this.plOpciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.plOpciones.Location = new System.Drawing.Point(0, 0);
             this.plOpciones.Name = "plOpciones";
@@ -316,8 +312,8 @@
             // 
             this.PlFiltroFecha.Controls.Add(this.DtpFin);
             this.PlFiltroFecha.Controls.Add(this.BtnFiltroFecha);
-            this.PlFiltroFecha.Controls.Add(this.DtpBuscar);
-            this.PlFiltroFecha.Location = new System.Drawing.Point(1213, 3);
+            this.PlFiltroFecha.Controls.Add(this.DtpInicio);
+            this.PlFiltroFecha.Location = new System.Drawing.Point(514, 3);
             this.PlFiltroFecha.Name = "PlFiltroFecha";
             this.PlFiltroFecha.Size = new System.Drawing.Size(341, 50);
             this.PlFiltroFecha.TabIndex = 7;
@@ -340,19 +336,20 @@
             this.BtnFiltroFecha.TabIndex = 6;
             this.BtnFiltroFecha.Text = "Filtrar";
             this.BtnFiltroFecha.UseVisualStyleBackColor = true;
+            this.BtnFiltroFecha.Click += new System.EventHandler(this.BtnFiltroFecha_Click);
             // 
-            // DtpBuscar
+            // DtpInicio
             // 
-            this.DtpBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.DtpBuscar.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpBuscar.Location = new System.Drawing.Point(16, 12);
-            this.DtpBuscar.Name = "DtpBuscar";
-            this.DtpBuscar.Size = new System.Drawing.Size(118, 26);
-            this.DtpBuscar.TabIndex = 5;
+            this.DtpInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.DtpInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpInicio.Location = new System.Drawing.Point(16, 12);
+            this.DtpInicio.Name = "DtpInicio";
+            this.DtpInicio.Size = new System.Drawing.Size(118, 26);
+            this.DtpInicio.TabIndex = 5;
             // 
             // BtnRangoFecha
             // 
-            this.BtnRangoFecha.Location = new System.Drawing.Point(1110, 3);
+            this.BtnRangoFecha.Location = new System.Drawing.Point(1110, 2);
             this.BtnRangoFecha.Name = "BtnRangoFecha";
             this.BtnRangoFecha.Size = new System.Drawing.Size(97, 53);
             this.BtnRangoFecha.TabIndex = 6;
@@ -366,7 +363,7 @@
             this.PbExcel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PbExcel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PbExcel.Image = global::ProyectoOFI.Properties.Resources.sobresalir;
-            this.PbExcel.Location = new System.Drawing.Point(1038, 6);
+            this.PbExcel.Location = new System.Drawing.Point(1038, 3);
             this.PbExcel.Name = "PbExcel";
             this.PbExcel.Size = new System.Drawing.Size(64, 50);
             this.PbExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -379,7 +376,7 @@
             this.PbFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.PbFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PbFiltro.Image = global::ProyectoOFI.Properties.Resources.filter_list_FILL0_wght400_GRAD0_opsz24;
-            this.PbFiltro.Location = new System.Drawing.Point(948, 6);
+            this.PbFiltro.Location = new System.Drawing.Point(948, 3);
             this.PbFiltro.Name = "PbFiltro";
             this.PbFiltro.Size = new System.Drawing.Size(64, 50);
             this.PbFiltro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -390,7 +387,7 @@
             // 
             this.txtBuscador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.txtBuscador.Location = new System.Drawing.Point(770, 18);
+            this.txtBuscador.Location = new System.Drawing.Point(520, 15);
             this.txtBuscador.Name = "txtBuscador";
             this.txtBuscador.Size = new System.Drawing.Size(161, 26);
             this.txtBuscador.TabIndex = 2;
@@ -407,7 +404,7 @@
             "SBX",
             "RFA",
             "ILLY"});
-            this.CbBuscador.Location = new System.Drawing.Point(770, 17);
+            this.CbBuscador.Location = new System.Drawing.Point(520, 14);
             this.CbBuscador.Name = "CbBuscador";
             this.CbBuscador.Size = new System.Drawing.Size(168, 28);
             this.CbBuscador.TabIndex = 1;
@@ -426,43 +423,22 @@
             "Calidad",
             "Certificación",
             "Daño",
-            "Tipo Compra",
-            "MTNT",
+            "Patio",
             "Peso",
-            "Área Secado"});
-            this.CbBuscar.Location = new System.Drawing.Point(510, 16);
+            "Fecha"});
+            this.CbBuscar.Location = new System.Drawing.Point(260, 14);
             this.CbBuscar.Name = "CbBuscar";
             this.CbBuscar.Size = new System.Drawing.Size(168, 28);
             this.CbBuscar.TabIndex = 1;
             this.CbBuscar.Text = "Ticket";
             this.CbBuscar.SelectedIndexChanged += new System.EventHandler(this.CbBuscar_SelectedIndexChanged);
             // 
-            // CbOrdenar
-            // 
-            this.CbOrdenar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CbOrdenar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.CbOrdenar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.CbOrdenar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.CbOrdenar.FormattingEnabled = true;
-            this.CbOrdenar.Items.AddRange(new object[] {
-            "Fecha Recibido",
-            "Ticket",
-            "MTNR",
-            "Calidad",
-            "Estado Fisico",
-            "Recibidor",
-            "Digitador"});
-            this.CbOrdenar.Location = new System.Drawing.Point(95, 16);
-            this.CbOrdenar.Name = "CbOrdenar";
-            this.CbOrdenar.Size = new System.Drawing.Size(168, 28);
-            this.CbOrdenar.TabIndex = 1;
-            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(694, 20);
+            this.label3.Location = new System.Drawing.Point(444, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 20);
             this.label3.TabIndex = 0;
@@ -473,22 +449,11 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(279, 20);
+            this.label4.Location = new System.Drawing.Point(29, 18);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(215, 20);
             this.label4.TabIndex = 0;
             this.label4.Text = "Elija lo que desee buscar:";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(5, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Ordenar";
             // 
             // plfooter
             // 
@@ -1244,40 +1209,40 @@
             this.dtInventariocp.AllowUserToDeleteRows = false;
             this.dtInventariocp.AllowUserToOrderColumns = true;
             this.dtInventariocp.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.NullValue = "--";
-            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.NullValue = "--";
+            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dtInventariocp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventariocp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventariocp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dtInventariocp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventariocp.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar,
             this.Consolidar});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.NullValue = "--";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.NullValue = "--";
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle15;
             this.dtInventariocp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventariocp.Location = new System.Drawing.Point(0, 62);
             this.dtInventariocp.Name = "dtInventariocp";
             this.dtInventariocp.ReadOnly = true;
             this.dtInventariocp.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dtInventariocp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventariocp.ShowCellToolTips = false;
             this.dtInventariocp.ShowEditingIcon = false;
@@ -1382,17 +1347,15 @@
         private System.Windows.Forms.Panel PlFiltroFecha;
         private System.Windows.Forms.DateTimePicker DtpFin;
         private System.Windows.Forms.Button BtnFiltroFecha;
-        private System.Windows.Forms.DateTimePicker DtpBuscar;
+        private System.Windows.Forms.DateTimePicker DtpInicio;
         private System.Windows.Forms.Button BtnRangoFecha;
         private System.Windows.Forms.PictureBox PbExcel;
         private System.Windows.Forms.PictureBox PbFiltro;
         private System.Windows.Forms.TextBox txtBuscador;
         private System.Windows.Forms.ComboBox CbBuscador;
         private System.Windows.Forms.ComboBox CbBuscar;
-        private System.Windows.Forms.ComboBox CbOrdenar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Panel plfooter;
         private System.Windows.Forms.DataGridViewImageColumn Consolidar;
         private System.Windows.Forms.Timer timerAct;

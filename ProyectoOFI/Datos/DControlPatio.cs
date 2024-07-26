@@ -441,40 +441,35 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-
-        internal void BuscarCalidad(string text, ref DataTable dt, int desde, int hasta, int contarBusqueda)
+        internal void BuscarFechaCP(ref DataTable dt, DateTime FInicio, DateTime FFin, int desde, int hasta, int Contar)
         {
-            throw new NotImplementedException();
-        }
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("BuscarFechaCP", Conexion.conectar);
+                cmd.CommandType=CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Desde", desde);
+                cmd.Parameters.AddWithValue("@Hasta", hasta);
+                cmd.Parameters.AddWithValue("@FInicio", FInicio);
+                cmd.Parameters.AddWithValue("@FFin", FFin);
+                SqlParameter contarparam = new SqlParameter("@Contar",SqlDbType.Int);
+                contarparam.Direction=ParameterDirection.Output;
+                cmd.Parameters.Add(contarparam);
 
-        internal void BuscarCert(string text, ref DataTable dt, int desde, int hasta, int contarBusqueda)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal void BuscarDanio(string text, ref DataTable dt, int desde, int hasta, int contarBusqueda)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal void BuscarTipoCompra(string text, ref DataTable dt, int desde, int hasta, int contarBusqueda)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal void BuscarMTNT(string text, ref DataTable dt, int desde, int hasta, int contarBusqueda)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal void BuscarPeso(string text, ref DataTable dt, int desde, int hasta, int contarBusqueda)
-        {
-            throw new NotImplementedException();
-        }
-
-        internal void BuscarAreaSecado(string text, ref DataTable dt, int desde, int hasta, int contarBusqueda)
-        {
-            throw new NotImplementedException();
+                SqlDataAdapter da=new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                Contar=Convert.ToInt32(contarparam.Value);
+                contador = Contar;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarFechaCP ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
         }
         #endregion
         public void LotesExcelCP(ref DataTable dt)

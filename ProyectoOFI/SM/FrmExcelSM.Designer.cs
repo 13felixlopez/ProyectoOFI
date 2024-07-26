@@ -148,10 +148,11 @@
             // txtBuscador
             // 
             this.txtBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.txtBuscador.Location = new System.Drawing.Point(673, 18);
+            this.txtBuscador.Location = new System.Drawing.Point(166, 18);
             this.txtBuscador.Name = "txtBuscador";
             this.txtBuscador.Size = new System.Drawing.Size(199, 26);
             this.txtBuscador.TabIndex = 2;
+            this.txtBuscador.Visible = false;
             this.txtBuscador.TextChanged += new System.EventHandler(this.txtBuscador_TextChanged);
             // 
             // label1
@@ -168,11 +169,12 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(569, 21);
+            this.label3.Location = new System.Drawing.Point(62, 21);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 20);
             this.label3.TabIndex = 0;
             this.label3.Text = "Buscar:";
+            this.label3.Visible = false;
             // 
             // PlFiltros
             // 

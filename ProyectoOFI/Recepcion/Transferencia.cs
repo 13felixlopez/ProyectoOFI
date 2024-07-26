@@ -720,7 +720,7 @@ namespace ProyectoOFI.Recepcion
             {
                 Contador = ContarBusqueda;
             }
-            else if (CbBuscador.Visible == true)
+            else if (CbBuscador.Visible == true || PlFiltroFecha.Visible == true)
             {
                 Contador = ContarBusqueda;
             }
@@ -753,6 +753,10 @@ namespace ProyectoOFI.Recepcion
             else if (CbBuscador.Visible == true)
             {
                 BuscarDatos();
+            }
+            else if (PlFiltroFecha.Visible == true)
+            {
+                BuscarRangoFecha();
             }
             else
             {
@@ -787,6 +791,10 @@ namespace ProyectoOFI.Recepcion
             {
                 BuscarDatos();
             }
+            else if (PlFiltroFecha.Visible == true)
+            {
+                BuscarRangoFecha();
+            }
             else
             {
                 MostrarLotes();
@@ -816,6 +824,10 @@ namespace ProyectoOFI.Recepcion
             {
                 BuscarDatos();
             }
+            else if (PlFiltroFecha.Visible == true)
+            {
+                BuscarRangoFecha();
+            }
             else
             {
                 MostrarLotes();
@@ -843,6 +855,10 @@ namespace ProyectoOFI.Recepcion
             else if (CbBuscador.Visible == true)
             {
                 BuscarDatos();
+            }
+            else if (PlFiltroFecha.Visible == true)
+            {
+                BuscarRangoFecha();
             }
             else
             {
@@ -1482,6 +1498,7 @@ namespace ProyectoOFI.Recepcion
             if (CbBuscar.Text == "Ticket" || CbBuscar.Text == "MTNT" || CbBuscar.Text == "Peso")
             {
                 CbBuscador.Text = "";
+                PlFiltroFecha.Visible = false;
                 txtBuscador.Visible = true;
                 CbBuscador.Visible = false;
                 ReiniciarPaginado();
@@ -1511,6 +1528,12 @@ namespace ProyectoOFI.Recepcion
                 TextBuscarVisible();
                 funcion.MostrarAreaSecado(CbBuscador);
             }
+            else if (CbBuscar.Text=="Fecha")
+            {
+                TextBuscarVisible();
+                CbBuscador.Visible = false;
+                PlFiltroFecha.Visible = true;
+            }
         }
         private void TextBuscarVisible()
         {
@@ -1519,16 +1542,13 @@ namespace ProyectoOFI.Recepcion
             CbBuscador.Visible = true;
             CbBuscador.DataSource = null;
             CbBuscador.SelectedIndex = -1;
+            PlFiltroFecha.Visible = false;
         }
         private void BuscarRangoFecha()
         {
             DataTable dt = new DataTable();
             DRecepcion funcion = new DRecepcion();
-            DateTime Inicio = DtpBuscar.Value;
-            Inicio = Convert.ToDateTime(Inicio.ToString("yyyy/MM/dd").ToString());
-            DateTime Fin = DtpFin.Value;
-            Fin = Convert.ToDateTime(Fin.ToString("yyyy/MM/dd").ToString());
-            funcion.BuscarFecha(Inicio, Fin, ref dt);
+            funcion.BuscarrangoFecha(ref dt, DtpInicio.Value, DtpFin.Value, desde, hasta, ContarBusqueda);
             dtInventario.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventario);
@@ -1536,6 +1556,7 @@ namespace ProyectoOFI.Recepcion
         private void BtnFiltroFecha_Click(object sender, EventArgs e)
         {
             BuscarRangoFecha();
+            ReiniciarPaginado();
         }
         private void BtnRangoFecha_Click(object sender, EventArgs e)
         {

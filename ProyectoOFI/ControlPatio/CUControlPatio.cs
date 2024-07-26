@@ -85,7 +85,7 @@ namespace ProyectoOFI.ControlPatio
             {
                 Contador = ContarBusqueda;
             }
-            else if (CbBuscador.Visible == true)
+            else if (CbBuscador.Visible == true || PlFiltroFecha.Visible == true)
             {
                 Contador = ContarBusqueda;
             }
@@ -118,6 +118,10 @@ namespace ProyectoOFI.ControlPatio
             else if (CbBuscador.Visible == true)
             {
                 Buscar();
+            }
+            else if (PlFiltroFecha.Visible == true)
+            {
+                BuscarFechaCP();
             }
             else
             {
@@ -152,6 +156,10 @@ namespace ProyectoOFI.ControlPatio
             {
                 Buscar();
             }
+            else if (PlFiltroFecha.Visible == true)
+            {
+                BuscarFechaCP();
+            }
             else
             {
                 MostrarLotes();
@@ -181,6 +189,10 @@ namespace ProyectoOFI.ControlPatio
             {
                 Buscar();
             }
+            else if (PlFiltroFecha.Visible == true)
+            {
+                BuscarFechaCP();
+            }
             else
             {
                 MostrarLotes();
@@ -208,6 +220,10 @@ namespace ProyectoOFI.ControlPatio
             else if (CbBuscador.Visible == true)
             {
                 Buscar();
+            }
+            else if (PlFiltroFecha.Visible == true)
+            {
+                BuscarFechaCP();
             }
             else
             {
@@ -795,11 +811,6 @@ namespace ProyectoOFI.ControlPatio
                 ReiniciarPaginado();
                 MostrarLotes();
             }
-            else if (CbBuscador.Text == "MTNT")
-            {
-                Buscar();
-                ReiniciarPaginado();
-            }
             else if (CbBuscador.Text == "Peso")
             {
                 Buscar();
@@ -873,20 +884,11 @@ namespace ProyectoOFI.ControlPatio
         }
         private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (CbBuscar.Text == "Ticket")
-            //{
-            //    CbBuscador.Visible = false;
-            //    txtBuscador.Visible = true;
-            //}
-            //if (CbBuscar.Text == "Certificación")
-            //{
-            //    CbBuscador.Visible = true;
-            //    txtBuscador.Visible = false;
-            //}
             DRecepcion funcion = new DRecepcion();
             if (CbBuscar.Text == "Ticket" || CbBuscar.Text == "MTNT" || CbBuscar.Text == "Peso")
             {
                 CbBuscador.Text = "";
+                PlFiltroFecha.Visible = false;
                 txtBuscador.Visible = true;
                 CbBuscador.Visible = false;
                 ReiniciarPaginado();
@@ -906,17 +908,18 @@ namespace ProyectoOFI.ControlPatio
                 TextBuscarVisible();
                 funcion.MostrarDaño(CbBuscador);
             }
-            else if (CbBuscar.Text == "Tipo Compra")
+            else if (CbBuscar.Text == "Patio")
             {
                 TextBuscarVisible();
-                funcion.MostrarCompra(CbBuscador);
+                DControlPatio T = new DControlPatio();
+                T.MostrarPatio(CbBuscador);
             }
-            else if (CbBuscar.Text == "Área Secado")
+            else if (CbBuscar.Text == "Fecha")
             {
                 TextBuscarVisible();
-                funcion.MostrarAreaSecado(CbBuscador);
+                CbBuscador.Visible = false;
+                PlFiltroFecha.Visible = true;
             }
-
         }
         private void TextBuscarVisible()
         {
@@ -925,6 +928,7 @@ namespace ProyectoOFI.ControlPatio
             CbBuscador.Visible = true;
             CbBuscador.DataSource = null;
             CbBuscador.SelectedIndex = -1;
+            PlFiltroFecha.Visible = false;
         }
         private void CbDestino_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1003,6 +1007,13 @@ namespace ProyectoOFI.ControlPatio
                 }
             }
         }
+
+        private void BtnFiltroFecha_Click(object sender, EventArgs e)
+        {
+            BuscarFechaCP();
+            ReiniciarPaginado();
+        }
+
         private bool validarEnvio()
         {
             return !(TxtDNIN.Text == "" || CbEstFis.Text == "" || CbDestino.Text == "");
@@ -1120,49 +1131,21 @@ namespace ProyectoOFI.ControlPatio
             dtInventariocp.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventariocp);
-            //DataTable dt = new DataTable();
-            //DControlPatio funcion = new DControlPatio();
-            //if (CbBuscar.Text == "Ticket")
-            //{
-            //    funcion.BuscarTKCP(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda, CbBuscar.Text);
-            //}
-            //if (CbBuscar.Text == "Calidad")
-            //{
-            //    funcion.BuscarCalidad(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            //if (CbBuscar.Text == "Certificación")
-            //{
-            //    funcion.BuscarCert(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            //if (CbBuscar.Text == "Daño")
-            //{
-            //    funcion.BuscarDanio(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            //if (CbBuscar.Text == "Tipo Compra")
-            //{
-            //    funcion.BuscarTipoCompra(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            //if (CbBuscar.Text == "MTNT")
-            //{
-            //    funcion.BuscarMTNT(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            //if (CbBuscar.Text == "Peso")
-            //{
-            //    funcion.BuscarPeso(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            //if (CbBuscar.Text == "Área Secado")
-            //{
-            //    funcion.BuscarAreaSecado(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            //dtInventariocp.DataSource = dt;
-            //ContarBusqueda = int.Parse(funcion.contador.ToString());
-            //Base.DiseñoDtvEliminar(ref dtInventariocp);
         }
         private void BuscarTk()
         {
             DataTable dt = new DataTable();
             DControlPatio funcion = new DControlPatio();
             funcion.BuscarTKCP(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda, CbBuscar.Text);
+            dtInventariocp.DataSource = dt;
+            ContarBusqueda = int.Parse(funcion.contador.ToString());
+            Base.DiseñoDtvEliminar(ref dtInventariocp);
+        }
+        private void BuscarFechaCP()
+        {
+            DataTable dt = new DataTable();
+            DControlPatio funcion = new DControlPatio();
+            funcion.BuscarFechaCP(ref dt, DtpInicio.Value, DtpFin.Value, desde, hasta, ContarBusqueda);
             dtInventariocp.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventariocp);

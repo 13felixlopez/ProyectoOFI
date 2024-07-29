@@ -394,7 +394,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void BuscarTKSM(string Buscar, ref DataTable dt, int desde, int hasta, int Contar)
+        public void BuscarTKSM(string Buscar, ref DataTable dt, int desde, int hasta, int Contar,string Dato)
         {
             try
             {
@@ -404,6 +404,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@Desde", desde);
                 cmd.Parameters.AddWithValue("@Hasta", hasta);
                 cmd.Parameters.AddWithValue("@Buscador", Buscar);
+                cmd.Parameters.AddWithValue("@Dato", Dato);
 
                 // Parámetro de salida para el contador
                 SqlParameter contarParam = new SqlParameter("@Contar", SqlDbType.Int);
@@ -486,6 +487,36 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show("No se pudieron cargar los datos de ExcelSM " + ex.Message, "Error en ExcelSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en cargar datos ExcelSM ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void ProcesoSM(ComboBox combo)
+        {
+            try
+            {
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                Conexion.abrir();
+                string consulta = "select DISTINCT(ProcesoSM) from POAV";
+                SqlCommand da = new SqlCommand(consulta, Conexion.conectar);
+                SqlDataAdapter cb = new SqlDataAdapter(da);
+                DataTable dt = new DataTable();
+                cb.Fill(dt);
+                combo.ValueMember = "ProcesoSM";
+                combo.DisplayMember = "ProcesoSM";
+                combo.DataSource = dt;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    lista.Add(dt.Rows[i]["ProcesoSM"].ToString());
+                }
+                combo.AutoCompleteCustomSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en ProcesoSM ✖️✖️" + ex.Message);
             }
             finally
             {

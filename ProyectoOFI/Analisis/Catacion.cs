@@ -575,6 +575,7 @@ namespace ProyectoOFI.Analisis
             PLDatos.BringToFront();
             plOpciones.Enabled = false;
             dtInventarioCat.Enabled = false;
+            TxtAnalisis.Text = LblTicket.Text;
             Dcatacion funcion = new Dcatacion();
             funcion.MostrarVariedad(CbVariedad);
             if (Proceso != "Almacén" && Proceso != "Analizado")
@@ -585,25 +586,7 @@ namespace ProyectoOFI.Analisis
             {
                 Desactivar();
             }
-            //if (Proceso != "Analizado")
-            //{
-            //    BtnAnalisis.Text = "Analizado";
-            //}
-            //else
-            //{
-            //    BtnAnalisis.Text = "Re-Análisis";
-            //}
-            //if (Proceso != "Analizado")
-            //{
-            //    //BtnAnalisis.Enabled = false;
-            //    ChbAnalizado.Enabled = false;
-            //    ChbRechazado.Enabled = false;
-            //}
-            //else
-            //{
-            //    ChbAnalizado.Enabled = true;
-            //    ChbRechazado.Enabled = true;
-            //}
+
             MostrarCambiarTK();
         }
         private void ChbRechazado_CheckedChanged(object sender, EventArgs e)
@@ -613,7 +596,7 @@ namespace ProyectoOFI.Analisis
                 ChbAnalizado.Enabled = false;
                 BtnAnalisis.Enabled = true;
                 ChbAnalizado.Checked = false;
-                TxtAnalisis.Text = "# Analisis";
+                //TxtAnalisis.Text = "# Analisis";
                 TxtBto.Text = "0";
                 TxtExp.Text = "0";
                 TxtDesmA.Text = "0";

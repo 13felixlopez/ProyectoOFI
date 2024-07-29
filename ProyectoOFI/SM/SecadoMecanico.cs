@@ -637,7 +637,7 @@ namespace ProyectoOFI.SM
         {
             DataTable dt = new DataTable();
             DSM funcion = new DSM();
-            funcion.BuscarTKSM(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            funcion.BuscarTKSM(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda, CbBuscar.Text);
             dtInventarioSM.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventarioSM);
@@ -674,10 +674,10 @@ namespace ProyectoOFI.SM
             {
                 Contador = ContarBusqueda;
             }
-            //else if (CbBuscador.Visible == true)
-            //{
-            //    Contador = ContarBusqueda;
-            //}
+            else if (CbBuscador.Visible == true || PlFiltroFecha.Visible==true)
+            {
+                Contador = ContarBusqueda;
+            }
             else
             {
                 funcion.ContarTK(ref Contador);
@@ -702,11 +702,15 @@ namespace ProyectoOFI.SM
             hasta -= 100;
             if (txtBuscador.Text != "")
             {
+                BuscarTk();
+            }
+            else if (CbBuscador.Visible == true)
+            {
                 Buscar();
             }
-            //else if (CbBuscador.Visible == true)
+            //else if (PlFiltroFecha.Visible == true)
             //{
-            //    //BuscarDatos();
+            //    BuscarFechaCP();
             //}
             else
             {
@@ -737,16 +741,11 @@ namespace ProyectoOFI.SM
                 ReiniciarPaginado();
                 MostrarSM();
             }
-            //else if (CbBuscador.Text == "MTNT")
-            //{
-            //    Buscar();
-            //    ReiniciarPaginado();
-            //}
-            //else if (CbBuscador.Text == "Peso")
-            //{
-            //    Buscar();
-            //    ReiniciarPaginado();
-            //}
+            else if (CbBuscador.Text == "Peso")
+            {
+                Buscar();
+                ReiniciarPaginado();
+            }
             else
             {
                 BuscarTk();
@@ -760,11 +759,15 @@ namespace ProyectoOFI.SM
             hasta += 100;
             if (txtBuscador.Text != "")
             {
+                BuscarTk();
+            }
+            else if (CbBuscador.Visible == true)
+            {
                 Buscar();
             }
-            //else if (CbBuscador.Visible == true)
+            //else if (PlFiltroFecha.Visible == true)
             //{
-            //    //BuscarDatos();
+            //    BuscarFechaCP();
             //}
             else
             {
@@ -789,11 +792,15 @@ namespace ProyectoOFI.SM
             desde = hasta - 99;
             if (txtBuscador.Text != "")
             {
+                BuscarTk();
+            }
+            else if (CbBuscador.Visible == true)
+            {
                 Buscar();
             }
-            //else if (CbBuscador.Visible == true)
+            //else if (PlFiltroFecha.Visible == true)
             //{
-            //    //BuscarDatos();
+            //    BuscarFechaCP();
             //}
             else
             {
@@ -810,18 +817,22 @@ namespace ProyectoOFI.SM
                 btn_Sig.Visible = false;
                 btn_atras.Visible = true;
             }
-            Paginar();
+            Paginar(); ;
         }
         private void btn_Primera_Click(object sender, EventArgs e)
         {
             ReiniciarPaginado();
             if (txtBuscador.Text != "")
             {
+                BuscarTk();
+            }
+            else if (CbBuscador.Visible == true)
+            {
                 Buscar();
             }
-            //else if (CbBuscador.Visible == true)
+            //else if (PlFiltroFecha.Visible == true)
             //{
-            //    //BuscarDatos();
+            //    BuscarFechaCP();
             //}
             else
             {
@@ -833,38 +844,7 @@ namespace ProyectoOFI.SM
         {
             DataTable dt = new DataTable();
             DSM funcion = new DSM();
-            if (CbBuscar.Text == "Ticket")
-            {
-                funcion.BuscarTKSM(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            }
-            //if (CbBuscar.Text == "Calidad")
-            //{
-            //    funcion.BuscarCalidad(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            //if (CbBuscar.Text == "Certificación")
-            //{
-            //    funcion.BuscarCert(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            //if (CbBuscar.Text == "Daño")
-            //{
-            //    funcion.BuscarDanio(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            //if (CbBuscar.Text == "Tipo Compra")
-            //{
-            //    funcion.BuscarTipoCompra(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            //if (CbBuscar.Text == "MTNT")
-            //{
-            //    funcion.BuscarMTNT(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            //if (CbBuscar.Text == "Peso")
-            //{
-            //    funcion.BuscarPeso(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
-            //if (CbBuscar.Text == "Área Secado")
-            //{
-            //    funcion.BuscarAreaSecado(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            //}
+            funcion.BuscarTKSM(CbBuscador.Text, ref dt, desde, hasta, ContarBusqueda, CbBuscar.Text);
             dtInventarioSM.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventarioSM);
@@ -967,6 +947,70 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("Error al crear las particiones", "Error ParticionSM interfaz", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DRecepcion funcion = new DRecepcion();
+            if (CbBuscar.Text == "Ticket" || CbBuscar.Text == "MTNT" || CbBuscar.Text == "Peso")
+            {
+                CbBuscador.Text = "";
+                PlFiltroFecha.Visible = false;
+                txtBuscador.Visible = true;
+                CbBuscador.Visible = false;
+                ReiniciarPaginado();
+            }
+            else if (CbBuscar.Text == "Calidad")
+            {
+                TextBuscarVisible();
+                funcion.MostrarCalidad(CbBuscador);
+            }
+            else if (CbBuscar.Text == "Certificación")
+            {
+                TextBuscarVisible();
+                funcion.MostrarCert(CbBuscador);
+            }
+            else if (CbBuscar.Text == "Daño")
+            {
+                TextBuscarVisible();
+                funcion.MostrarDaño(CbBuscador);
+            }
+            else if (CbBuscar.Text == "Proceso")
+            {
+                TextBuscarVisible();
+                DSM T = new DSM();
+                T.ProcesoSM(CbBuscador);
+            }
+            else if (CbBuscar.Text == "Fecha")
+            {
+                TextBuscarVisible();
+                CbBuscador.Visible = false;
+                PlFiltroFecha.Visible = true;
+            }
+        }
+        private void TextBuscarVisible()
+        {
+            txtBuscador.Clear();
+            txtBuscador.Visible = false;
+            CbBuscador.Visible = true;
+            CbBuscador.DataSource = null;
+            CbBuscador.SelectedIndex = -1;
+            PlFiltroFecha.Visible = false;
+        }
+
+        private void CbBuscador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CbBuscador.Text == "")
+            {
+                ReiniciarPaginado();
+                MostrarSM();
+            }
+            else
+            {
+                Buscar();
+                ReiniciarPaginado();
+            }
+        }
+
         private void EnvioSM()
         {
             SM.Clear();

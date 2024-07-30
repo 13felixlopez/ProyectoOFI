@@ -674,7 +674,7 @@ namespace ProyectoOFI.SM
             {
                 Contador = ContarBusqueda;
             }
-            else if (CbBuscador.Visible == true || PlFiltroFecha.Visible==true)
+            else if (CbBuscador.Visible == true || PlFiltroFecha.Visible == true)
             {
                 Contador = ContarBusqueda;
             }
@@ -708,10 +708,10 @@ namespace ProyectoOFI.SM
             {
                 Buscar();
             }
-            //else if (PlFiltroFecha.Visible == true)
-            //{
-            //    BuscarFechaCP();
-            //}
+            else if (PlFiltroFecha.Visible == true)
+            {
+                BuscarFechaSM();
+            }
             else
             {
                 MostrarSM();
@@ -765,10 +765,10 @@ namespace ProyectoOFI.SM
             {
                 Buscar();
             }
-            //else if (PlFiltroFecha.Visible == true)
-            //{
-            //    BuscarFechaCP();
-            //}
+            else if (PlFiltroFecha.Visible == true)
+            {
+                BuscarFechaSM();
+            }
             else
             {
                 MostrarSM();
@@ -798,10 +798,10 @@ namespace ProyectoOFI.SM
             {
                 Buscar();
             }
-            //else if (PlFiltroFecha.Visible == true)
-            //{
-            //    BuscarFechaCP();
-            //}
+            else if (PlFiltroFecha.Visible == true)
+            {
+                BuscarFechaSM();
+            }
             else
             {
                 MostrarSM();
@@ -830,10 +830,10 @@ namespace ProyectoOFI.SM
             {
                 Buscar();
             }
-            //else if (PlFiltroFecha.Visible == true)
-            //{
-            //    BuscarFechaCP();
-            //}
+            else if (PlFiltroFecha.Visible == true)
+            {
+                BuscarFechaSM();
+            }
             else
             {
                 MostrarSM();
@@ -1009,6 +1009,22 @@ namespace ProyectoOFI.SM
                 Buscar();
                 ReiniciarPaginado();
             }
+        }
+
+        private void BtnFiltroFecha_Click(object sender, EventArgs e)
+        {
+            BuscarFechaSM();
+            ReiniciarPaginado();
+        }
+
+        private void BuscarFechaSM()
+        {
+            DataTable dt = new DataTable();
+            DSM funcion = new DSM();
+            funcion.BuscarFechaSM(ref dt, DtpInicio.Value, DtpFin.Value, desde, hasta, ContarBusqueda);
+            dtInventarioSM.DataSource = dt;
+            ContarBusqueda = int.Parse(funcion.contador.ToString());
+            Base.DiseñoDtvEliminar(ref dtInventarioSM);
         }
 
         private void EnvioSM()

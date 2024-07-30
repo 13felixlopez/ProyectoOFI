@@ -95,7 +95,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void DatosSM(ref DataTable dt)
+        public void DatosSM(DataTable dt)
         {
             try
             {

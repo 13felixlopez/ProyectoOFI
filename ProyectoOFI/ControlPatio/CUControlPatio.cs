@@ -319,16 +319,16 @@ namespace ProyectoOFI.ControlPatio
                 }
                 VerTendidio();
                 VerEnfarde();
-                double Humedad = double.Parse(TxtHumedadLevante.Text);
-                if (Humedad >= 13)
-                {
                     BtnEnvSM.Visible = true;
                     PlEnfarde.Enabled = true;
                     BtnEnfarde.Enabled = false;
                     DTPEnfarde.Enabled = false;
                     TxtSacosEnfardados.Enabled = false;
                     TxtHumedadLevante.Enabled = false;
-                }
+                //double Humedad = double.Parse(TxtHumedadLevante.Text);
+                //if (Humedad >= 13)
+                //{
+                //}
             }
             else if (Proceso == "Envio" || Proceso == "Envio SM")
             {

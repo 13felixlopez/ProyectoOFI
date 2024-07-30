@@ -56,6 +56,20 @@ namespace ProyectoOFI.Reportes
             }
             chartSN.Series[0].Points.DataBindXY(Concepto, Porcentaje);
         }
+        private void DatosSM()
+        {
+            List<string> Concepto = new List<string>();
+            List<double> Porcentaje = new List<double>();
+            DataTable dt = new DataTable();
+            DReporte funcion = new DReporte();
+            funcion.DatosSM(dt);
+            foreach (DataRow row in dt.Rows)
+            {
+                Concepto.Add(Convert.ToString(row[0]));
+                Porcentaje.Add(Convert.ToDouble(row[1]));
+            }
+            chartSM.Series[0].Points.DataBindXY(Concepto, Porcentaje);
+        }
         private void TotalQQs()
         {
             DReporte funcion = new DReporte();
@@ -85,13 +99,13 @@ namespace ProyectoOFI.Reportes
             funcion.TotalAnalisis(ref Cata);
             LblAnalisis.Text = Cata.ToString() + " QQs";
         }
-        private void DatosSM()
-        {
-            DReporte funcion = new DReporte();
-            DataTable dt = new DataTable();
-            funcion.DatosSM(ref dt);
-            DtSM.DataSource = dt;
-        }
+        //private void DatosSM()
+        //{
+        //    DReporte funcion = new DReporte();
+        //    DataTable dt = new DataTable();
+        //    funcion.DatosSM(ref dt);
+        //    DtSM.DataSource = dt;
+        //}
         private void CantNoAsignado()
         {
             DReporte funcion = new DReporte();

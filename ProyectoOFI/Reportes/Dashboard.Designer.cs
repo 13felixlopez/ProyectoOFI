@@ -36,9 +36,11 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.PlDatos = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.LblAnalisis = new System.Windows.Forms.Label();
@@ -58,10 +60,10 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.chartSN = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.PlSM = new System.Windows.Forms.Panel();
-            this.DtSM = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.BtnNoAsignado = new System.Windows.Forms.Button();
+            this.chartSM = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.PlDatos.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -72,8 +74,8 @@
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartSN)).BeginInit();
             this.PlSM.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtSM)).BeginInit();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartSM)).BeginInit();
             this.SuspendLayout();
             // 
             // PlDatos
@@ -329,50 +331,13 @@
             // 
             // PlSM
             // 
-            this.PlSM.Controls.Add(this.DtSM);
+            this.PlSM.Controls.Add(this.chartSM);
             this.PlSM.Controls.Add(this.label2);
             this.PlSM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlSM.Location = new System.Drawing.Point(891, 3);
             this.PlSM.Name = "PlSM";
             this.PlSM.Size = new System.Drawing.Size(883, 351);
             this.PlSM.TabIndex = 4;
-            // 
-            // DtSM
-            // 
-            this.DtSM.AllowUserToAddRows = false;
-            this.DtSM.AllowUserToDeleteRows = false;
-            this.DtSM.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DtSM.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.DtSM.BackgroundColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtSM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.DtSM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.Format = "N2";
-            dataGridViewCellStyle2.NullValue = "0";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DtSM.DefaultCellStyle = dataGridViewCellStyle2;
-            this.DtSM.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtSM.Enabled = false;
-            this.DtSM.EnableHeadersVisualStyles = false;
-            this.DtSM.Location = new System.Drawing.Point(0, 40);
-            this.DtSM.MultiSelect = false;
-            this.DtSM.Name = "DtSM";
-            this.DtSM.RowHeadersVisible = false;
-            this.DtSM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.DtSM.Size = new System.Drawing.Size(883, 311);
-            this.DtSM.TabIndex = 3;
             // 
             // label2
             // 
@@ -409,6 +374,42 @@
             this.BtnNoAsignado.UseVisualStyleBackColor = true;
             this.BtnNoAsignado.Click += new System.EventHandler(this.BtnNoAsignado_Click);
             // 
+            // chartSM
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.chartSM.ChartAreas.Add(chartArea3);
+            this.chartSM.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend3.IsTextAutoFit = false;
+            legend3.Name = "Legend1";
+            this.chartSM.Legends.Add(legend3);
+            this.chartSM.Location = new System.Drawing.Point(0, 40);
+            this.chartSM.Name = "chartSM";
+            this.chartSM.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartSM.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255))))),
+        System.Drawing.Color.Orange,
+        System.Drawing.Color.DarkTurquoise,
+        System.Drawing.Color.DodgerBlue};
+            series3.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            series3.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Unscaled;
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series3.IsXValueIndexed = true;
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartSM.Series.Add(series3);
+            this.chartSM.Size = new System.Drawing.Size(883, 311);
+            this.chartSM.TabIndex = 5;
+            this.chartSM.Text = "chart1";
+            title3.DockedToChartArea = "ChartArea1";
+            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title3.Name = "SM";
+            this.chartSM.Titles.Add(title3);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -427,8 +428,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartSN)).EndInit();
             this.PlSM.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtSM)).EndInit();
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartSM)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -452,11 +453,11 @@
         private System.Windows.Forms.Panel PlGrafico;
         private System.Windows.Forms.Label LblGrafico;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView DtSM;
         private System.Windows.Forms.Panel PlSM;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartSN;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button BtnNoAsignado;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartSM;
     }
 }

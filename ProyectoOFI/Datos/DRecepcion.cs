@@ -398,27 +398,27 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void BuscarFecha(DateTime Inicio, DateTime Fin, ref DataTable dt)
-        {
-            try
-            {
-                Conexion.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("BuscarrangoFecha", Conexion.conectar);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Inicio", Inicio);
-                da.SelectCommand.Parameters.AddWithValue("@Fin", Fin);
-                da.Fill(dt);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en BuscarrangoFecha ✖️✖️" + ex.Message);
-            }
-            finally
-            {
-                Conexion.cerrar();
-            }
-        }
+        //public void BuscarFecha(DateTime Inicio, DateTime Fin, ref DataTable dt)
+        //{
+        //    try
+        //    {
+        //        Conexion.abrir();
+        //        SqlDataAdapter da = new SqlDataAdapter("BuscarrangoFecha", Conexion.conectar);
+        //        da.SelectCommand.CommandType = CommandType.StoredProcedure;
+        //        da.SelectCommand.Parameters.AddWithValue("@Inicio", Inicio);
+        //        da.SelectCommand.Parameters.AddWithValue("@Fin", Fin);
+        //        da.Fill(dt);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        Log.Writeerror("Error en BuscarrangoFecha ✖️✖️" + ex.Message);
+        //    }
+        //    finally
+        //    {
+        //        Conexion.cerrar();
+        //    }
+        //}
         #region Mostrar
         public void MostrarAcopioAgencia(ComboBox combo, int IdAgencia)
         {

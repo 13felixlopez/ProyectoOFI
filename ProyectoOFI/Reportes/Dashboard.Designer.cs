@@ -67,6 +67,8 @@
             this.BtnNoAsignado = new System.Windows.Forms.Button();
             this.BtnTendido = new System.Windows.Forms.Button();
             this.BtnEnfarde = new System.Windows.Forms.Button();
+            this.BtnAnalizados = new System.Windows.Forms.Button();
+            this.BtnEnvio = new System.Windows.Forms.Button();
             this.PlDatos.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -405,10 +407,12 @@
             this.FlpSN.Controls.Add(this.BtnNoAsignado);
             this.FlpSN.Controls.Add(this.BtnTendido);
             this.FlpSN.Controls.Add(this.BtnEnfarde);
+            this.FlpSN.Controls.Add(this.BtnAnalizados);
+            this.FlpSN.Controls.Add(this.BtnEnvio);
             this.FlpSN.Dock = System.Windows.Forms.DockStyle.Left;
             this.FlpSN.Location = new System.Drawing.Point(0, 0);
             this.FlpSN.Name = "FlpSN";
-            this.FlpSN.Size = new System.Drawing.Size(155, 351);
+            this.FlpSN.Size = new System.Drawing.Size(317, 351);
             this.FlpSN.TabIndex = 1;
             // 
             // BtnNoAsignado
@@ -419,7 +423,7 @@
             this.BtnNoAsignado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnNoAsignado.Location = new System.Drawing.Point(3, 3);
             this.BtnNoAsignado.Name = "BtnNoAsignado";
-            this.BtnNoAsignado.Size = new System.Drawing.Size(152, 89);
+            this.BtnNoAsignado.Size = new System.Drawing.Size(152, 81);
             this.BtnNoAsignado.TabIndex = 0;
             this.BtnNoAsignado.Text = "No Asignado";
             this.BtnNoAsignado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -434,9 +438,9 @@
             this.BtnTendido.ForeColor = System.Drawing.Color.Black;
             this.BtnTendido.Image = global::ProyectoOFI.Properties.Resources.Tendido__Custom_;
             this.BtnTendido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnTendido.Location = new System.Drawing.Point(3, 98);
+            this.BtnTendido.Location = new System.Drawing.Point(161, 3);
             this.BtnTendido.Name = "BtnTendido";
-            this.BtnTendido.Size = new System.Drawing.Size(152, 89);
+            this.BtnTendido.Size = new System.Drawing.Size(152, 81);
             this.BtnTendido.TabIndex = 1;
             this.BtnTendido.Text = "Tendido";
             this.BtnTendido.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -451,14 +455,48 @@
             this.BtnEnfarde.ForeColor = System.Drawing.Color.Black;
             this.BtnEnfarde.Image = global::ProyectoOFI.Properties.Resources.Enfarde;
             this.BtnEnfarde.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEnfarde.Location = new System.Drawing.Point(3, 193);
+            this.BtnEnfarde.Location = new System.Drawing.Point(3, 90);
             this.BtnEnfarde.Name = "BtnEnfarde";
-            this.BtnEnfarde.Size = new System.Drawing.Size(152, 89);
+            this.BtnEnfarde.Size = new System.Drawing.Size(152, 81);
             this.BtnEnfarde.TabIndex = 2;
             this.BtnEnfarde.Text = "Enfarde";
             this.BtnEnfarde.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnEnfarde.UseVisualStyleBackColor = true;
             this.BtnEnfarde.Click += new System.EventHandler(this.BtnEnfarde_Click);
+            // 
+            // BtnAnalizados
+            // 
+            this.BtnAnalizados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnAnalizados.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnAnalizados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAnalizados.ForeColor = System.Drawing.Color.Black;
+            this.BtnAnalizados.Image = global::ProyectoOFI.Properties.Resources.Analisis;
+            this.BtnAnalizados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnAnalizados.Location = new System.Drawing.Point(161, 90);
+            this.BtnAnalizados.Name = "BtnAnalizados";
+            this.BtnAnalizados.Size = new System.Drawing.Size(152, 81);
+            this.BtnAnalizados.TabIndex = 3;
+            this.BtnAnalizados.Text = "Analizados";
+            this.BtnAnalizados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnAnalizados.UseVisualStyleBackColor = true;
+            this.BtnAnalizados.Click += new System.EventHandler(this.BtnAnalizados_Click);
+            // 
+            // BtnEnvio
+            // 
+            this.BtnEnvio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnEnvio.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnEnvio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEnvio.ForeColor = System.Drawing.Color.Black;
+            this.BtnEnvio.Image = global::ProyectoOFI.Properties.Resources.EnvioCF;
+            this.BtnEnvio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEnvio.Location = new System.Drawing.Point(3, 177);
+            this.BtnEnvio.Name = "BtnEnvio";
+            this.BtnEnvio.Size = new System.Drawing.Size(152, 81);
+            this.BtnEnvio.TabIndex = 4;
+            this.BtnEnvio.Text = "Enviados";
+            this.BtnEnvio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnEnvio.UseVisualStyleBackColor = true;
+            this.BtnEnvio.Click += new System.EventHandler(this.BtnEnvio_Click);
             // 
             // Dashboard
             // 
@@ -513,5 +551,7 @@
         private System.Windows.Forms.FlowLayoutPanel FlpSN;
         private System.Windows.Forms.Button BtnTendido;
         private System.Windows.Forms.Button BtnEnfarde;
+        private System.Windows.Forms.Button BtnAnalizados;
+        private System.Windows.Forms.Button BtnEnvio;
     }
 }

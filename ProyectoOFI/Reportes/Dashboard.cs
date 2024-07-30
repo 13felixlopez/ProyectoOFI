@@ -22,6 +22,8 @@ namespace ProyectoOFI.Reportes
             CantNoAsignado();
             Lotes_Tendido();
             Lotes_Enfarde();
+            Lotes_Analizados();
+            Lotes_Enviados();
         }
         private void kilosArea()
         {
@@ -126,6 +128,27 @@ namespace ProyectoOFI.Reportes
             funcion.CantNoAsignado(ref CantNA);
             BtnNoAsignado.Text = "No Asignados " + CantNA.ToString() + " Lotes";
         }
+
+        private void BtnAnalizados_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            DReporte funcion = new DReporte();
+            funcion.Lotes_Analizados(ref dt);
+            string Nombre = "Lotes Analizados ";
+            FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
+            LT.ShowDialog();
+        }
+
+        private void BtnEnvio_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            DReporte funcion = new DReporte();
+            funcion.Lotes_Enviados(ref dt);
+            string Nombre = "Lotes Enviados ";
+            FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
+            LT.ShowDialog();
+        }
+
         private void Lotes_Tendido()
         {
             DReporte funcion = new DReporte();
@@ -136,9 +159,23 @@ namespace ProyectoOFI.Reportes
         private void Lotes_Enfarde()
         {
             DReporte funcion = new DReporte();
-            double Tendido = 0;
-            funcion.Lotes_Enfarde(ref Tendido);
-            BtnEnfarde.Text = "Enfardados " + Tendido.ToString() + " Lotes";
+            double Enfarde = 0;
+            funcion.Lotes_Enfarde(ref Enfarde);
+            BtnEnfarde.Text = "Enfardados " + Enfarde.ToString() + " Lotes";
+        }
+        private void Lotes_Analizados()
+        {
+            DReporte funcion = new DReporte();
+            double Analizados = 0;
+            funcion.Lotes_Analizados(ref Analizados);
+            BtnAnalizados.Text = "Analizados " + Analizados.ToString() + " Lotes";
+        }
+        private void Lotes_Enviados()
+        {
+            DReporte funcion = new DReporte();
+            double Analizados = 0;
+            funcion.Lotes_Enviados(ref Analizados);
+            BtnEnvio.Text = "Enviados " + Analizados.ToString() + " Lotes";
         }
     }
 }

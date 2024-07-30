@@ -83,6 +83,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Analisis {
+            get {
+                object obj = ResourceManager.GetObject("Analisis", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap analitica {
             get {
                 object obj = ResourceManager.GetObject("analitica", resourceCulture);
@@ -196,6 +206,16 @@ namespace ProyectoOFI.Properties {
         internal static System.Drawing.Bitmap Enfarde {
             get {
                 object obj = ResourceManager.GetObject("Enfarde", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap EnvioCF {
+            get {
+                object obj = ResourceManager.GetObject("EnvioCF", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

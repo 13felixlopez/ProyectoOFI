@@ -760,6 +760,8 @@
   <ItemGroup>
     <Content Include="CoffeeTech.sql" />
     <Content Include="Logo.ico" />
+    <None Include="Resources\EnvioCF.jpg" />
+    <None Include="Resources\Analisis.jpg" />
     <None Include="Resources\Enfarde.png" />
     <None Include="Resources\Tendido %28Custom%29.jpg" />
     <None Include="Resources\Captura de pantalla 2024-07-30 125746.png" />

@@ -278,7 +278,7 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar Descargador " + ex.Message, "Error en Descargadors", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Error al cargar Descargador " + ex.Message, "Error en Descargadores", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 Log.Writeerror("Error en MostrarDescargador ✖️✖️ " + ex.Message);
             }
             finally

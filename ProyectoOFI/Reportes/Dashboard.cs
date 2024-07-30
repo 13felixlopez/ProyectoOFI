@@ -128,7 +128,6 @@ namespace ProyectoOFI.Reportes
             funcion.CantNoAsignado(ref CantNA);
             BtnNoAsignado.Text = "No Asignados " + CantNA.ToString() + " Lotes";
         }
-
         private void BtnAnalizados_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
@@ -138,7 +137,6 @@ namespace ProyectoOFI.Reportes
             FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
             LT.ShowDialog();
         }
-
         private void BtnEnvio_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
@@ -148,7 +146,6 @@ namespace ProyectoOFI.Reportes
             FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
             LT.ShowDialog();
         }
-
         private void Lotes_Tendido()
         {
             DReporte funcion = new DReporte();

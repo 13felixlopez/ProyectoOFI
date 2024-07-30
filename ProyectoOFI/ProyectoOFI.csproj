@@ -320,12 +320,6 @@
     <Compile Include="Recepcion\Consolidar.Designer.cs">
       <DependentUpon>Consolidar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Recepcion\FrmDatos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Recepcion\FrmDatos.Designer.cs">
-      <DependentUpon>FrmDatos.cs</DependentUpon>
-    </Compile>
     <Compile Include="Recepcion\FrmExportExcel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -534,9 +528,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recepcion\Consolidar.resx">
       <DependentUpon>Consolidar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Recepcion\FrmDatos.resx">
-      <DependentUpon>FrmDatos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recepcion\FrmExportExcel.resx">
       <DependentUpon>FrmExportExcel.cs</DependentUpon>

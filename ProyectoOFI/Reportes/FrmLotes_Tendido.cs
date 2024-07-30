@@ -16,10 +16,24 @@ namespace ProyectoOFI.Reportes
     {
         DataTable dt2 = new DataTable();
         List<string> filtro = new List<string>();
-        public FrmLotes_Tendido(DataTable dt)
+        string Name;
+        public FrmLotes_Tendido(DataTable dt,string Nombre)
         {
             InitializeComponent();
             dt2 = dt;
+            Name = Nombre;
+        }
+
+        private void LlenarCheckBoxList()
+        {
+            // Limpiar el CheckListBox antes de llenarlo
+            CLBFiltros.Items.Clear();
+
+            // Llenar el CheckListBox con los encabezados del DataGridView
+            foreach (DataGridViewColumn column in DtLotes_Tendido.Columns)
+            {
+                CLBFiltros.Items.Add(column.HeaderText);
+            }
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)
@@ -37,6 +51,7 @@ namespace ProyectoOFI.Reportes
         {
             await Task.Delay(1500);
             MostrarLotes();
+            LlenarCheckBoxList();
             await Task.Delay(1000);
         }
 
@@ -47,13 +62,13 @@ namespace ProyectoOFI.Reportes
 
         private void PbExcel_Click(object sender, EventArgs e)
         {
-            string fe = "Lotes Tendidos " + DateTime.Now.Day + "_" + DateTime.Today.Month + "_" + DateTime.Today.Year + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + DateTime.Now.Second;
+            string fe = Name + DateTime.Now.Day + "_" + DateTime.Today.Month + "_" + DateTime.Today.Year + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + DateTime.Now.Second;
             SaveExcelFile(DtLotes_Tendido, fe);
         }
         private void ExportToExcel(DataGridView dataGridView, string fileName)
         {
             IWorkbook workbook = new XSSFWorkbook();
-            ISheet sheet = workbook.CreateSheet("Lotes_Tendidos");
+            ISheet sheet = workbook.CreateSheet("Lotes");
 
             // Crear la fila de encabezado con columnas visibles
             IRow headerRow = sheet.CreateRow(0);

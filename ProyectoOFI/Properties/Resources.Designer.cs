@@ -193,6 +193,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Enfarde {
+            get {
+                object obj = ResourceManager.GetObject("Enfarde", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap factory_50px {
             get {
                 object obj = ResourceManager.GetObject("factory_50px", resourceCulture);
@@ -786,6 +796,16 @@ namespace ProyectoOFI.Properties {
         internal static System.Drawing.Bitmap task_alt_FILL1_wght400_GRAD0_opsz24 {
             get {
                 object obj = ResourceManager.GetObject("task_alt_FILL1_wght400_GRAD0_opsz24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tendido__Custom_ {
+            get {
+                object obj = ResourceManager.GetObject("Tendido (Custom)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

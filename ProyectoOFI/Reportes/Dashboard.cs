@@ -21,6 +21,7 @@ namespace ProyectoOFI.Reportes
             DatosSN();
             CantNoAsignado();
             Lotes_Tendido();
+            Lotes_Enfarde();
         }
         private void kilosArea()
         {
@@ -93,7 +94,8 @@ namespace ProyectoOFI.Reportes
             DataTable dt = new DataTable();
             DReporte funcion = new DReporte();
             funcion.Lotes_Tendido(ref dt);
-            FrmLotes_Tendido LT = new FrmLotes_Tendido(dt);
+            string Nombre = "Lotes Tendidos ";
+            FrmLotes_Tendido LT = new FrmLotes_Tendido(dt,Nombre);
             LT.ShowDialog();
         }
         private void TotalSM()
@@ -101,6 +103,15 @@ namespace ProyectoOFI.Reportes
             DReporte funcion = new DReporte();
             funcion.QQsSM(ref SM);
             LblSM.Text = SM.ToString() + " QQs";
+        }
+        private void BtnEnfarde_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            DReporte funcion = new DReporte();
+            funcion.Lotes_Enfarde(ref dt);
+            string Nombre = "Lotes Enfarde ";
+            FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
+            LT.ShowDialog();
         }
         private void TotalAnalisis()
         {
@@ -120,7 +131,14 @@ namespace ProyectoOFI.Reportes
             DReporte funcion = new DReporte();
             double Tendido = 0;
             funcion.Lotes_Tendido(ref Tendido);
-            BtnTendido.Text = "Tendido " + Tendido.ToString() + " Lotes";
+            BtnTendido.Text = "Tendidos " + Tendido.ToString() + " Lotes";
+        }
+        private void Lotes_Enfarde()
+        {
+            DReporte funcion = new DReporte();
+            double Tendido = 0;
+            funcion.Lotes_Enfarde(ref Tendido);
+            BtnEnfarde.Text = "Enfardados " + Tendido.ToString() + " Lotes";
         }
     }
 }

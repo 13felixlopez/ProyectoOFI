@@ -101,7 +101,7 @@ namespace ProyectoOFI.Datos
                 da.Fill(dt);
                 return dt;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw new Exception("Datos incorrectos");
             }

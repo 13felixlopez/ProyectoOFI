@@ -171,6 +171,25 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public void Lotes_Enfarde(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("Lotes_Enfarde", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron cargar los datos de Lotes Enfarde " + ex.Message, "Error en Lotes Enfarde", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("No se pudieron cargar datos en Lotes_Enfarde ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
         public void CantNoAsignado(ref double NoAsignado)
         {
             try
@@ -200,8 +219,27 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error en mostrar cantidad de lotes No asignados " + ex.Message, "Error En Cantidad de No asignados", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en mostrar CantNoAsignado ✖️✖️" + ex.Message);
+                MessageBox.Show("Error en mostrar cantidad de lotes Tendidos " + ex.Message, "Error En Cantidad de Tendidos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en mostrar Lotes_Enfarde ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+
+                Conexion.cerrar();
+            }
+        }
+        public void Lotes_Enfarde(ref double Tendido)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("Select COUNT(Ticket) from Recepcion Rec where IdAreaSecado=1 AND Proceso='Enfarde' and Estado='ACTIVO' And Rec.Cosecha=(select Cosecha from Cosecha where IdCosecha=(select max(IdCosecha) from Cosecha))", Conexion.conectar);
+                Tendido = Convert.ToDouble(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en mostrar cantidad de lotes Enfardados " + ex.Message, "Error En Cantidad de Lotes Enfardados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en mostrar Lotes_Enfarde ✖️✖️" + ex.Message);
             }
             finally
             {

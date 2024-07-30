@@ -152,6 +152,25 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public void Lotes_Tendido(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("Lotes_Tendido", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron cargar los datos de Lotes Tendido " + ex.Message, "Error en Lotes Tendido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("No se pudieron cargar datos en Lotes_Tendido ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
         public void CantNoAsignado(ref double NoAsignado)
         {
             try
@@ -159,6 +178,25 @@ namespace ProyectoOFI.Datos
                 Conexion.abrir();
                 SqlCommand cmd = new SqlCommand("Select COUNT(Ticket) from Recepcion Rec where IdAreaSecado=1 AND Proceso='No asignado' and Estado='ACTIVO' And Rec.Cosecha=(select Cosecha from Cosecha where IdCosecha=(select max(IdCosecha) from Cosecha))", Conexion.conectar);
                 NoAsignado = Convert.ToDouble(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en mostrar cantidad de lotes No asignados " + ex.Message, "Error En Cantidad de No asignados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en mostrar CantNoAsignado ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+
+                Conexion.cerrar();
+            }
+        }
+        public void Lotes_Tendido(ref double Tendido)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("Select COUNT(Ticket) from Recepcion Rec where IdAreaSecado=1 AND Proceso='Tendido' and Estado='ACTIVO' And Rec.Cosecha=(select Cosecha from Cosecha where IdCosecha=(select max(IdCosecha) from Cosecha))", Conexion.conectar);
+                Tendido = Convert.ToDouble(cmd.ExecuteScalar());
             }
             catch (Exception ex)
             {

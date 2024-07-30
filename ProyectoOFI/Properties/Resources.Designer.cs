@@ -143,6 +143,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_pantalla_2024_07_30_125746 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de pantalla 2024-07-30 125746", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Catacion {
             get {
                 object obj = ResourceManager.GetObject("Catacion", resourceCulture);

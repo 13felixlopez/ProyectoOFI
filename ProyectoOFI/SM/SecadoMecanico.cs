@@ -29,7 +29,6 @@ namespace ProyectoOFI.SM
             InitializeComponent();
             ValidarPermisos();
         }
-
         private async void SecadoMecanico_Load(object sender, EventArgs e)
         {
             PlCarga.Dock = DockStyle.Fill;
@@ -97,7 +96,6 @@ namespace ProyectoOFI.SM
                 PLDatos.BackColor = Color.FromArgb(192, 255, 192);
             }
         }
-
         private void TipoProceso()
         {
             try
@@ -283,7 +281,6 @@ namespace ProyectoOFI.SM
             }
             catch { }
         }
-
         private void VerPreSecado()
         {
             try
@@ -378,7 +375,6 @@ namespace ProyectoOFI.SM
                 throw;
             }
         }
-
         private void VerVertical()
         {
             try
@@ -458,7 +454,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("Error al cargar datos en controles" + ex.Message, "ERROR en Secado Mecanico", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void AbrirFormulario()
         {
             PLDatos.Size = new Size(1905, 743);
@@ -733,7 +728,6 @@ namespace ProyectoOFI.SM
             }
             Paginar();
         }
-
         private void txtBuscador_TextChanged(object sender, EventArgs e)
         {
             if (txtBuscador.Text == "")
@@ -752,7 +746,6 @@ namespace ProyectoOFI.SM
                 ReiniciarPaginado();
             }
         }
-
         private void btn_Sig_Click(object sender, EventArgs e)
         {
             desde += 100;
@@ -849,7 +842,6 @@ namespace ProyectoOFI.SM
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventarioSM);
         }
-
         private void BtnParticionar_Click(object sender, EventArgs e)
         {
             PlParticion.Size = new System.Drawing.Size(1254, 352);
@@ -892,7 +884,6 @@ namespace ProyectoOFI.SM
             LblEstPar.Text = "--";
             PLDatos.Enabled = true;
         }
-
         private void BtnSF_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(TxtHumedad.Text))
@@ -905,7 +896,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("Existen datos vacios", "Error en validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void PbExcel_Click(object sender, EventArgs e)
         {
             FrmExcelSM excel = new FrmExcelSM();
@@ -913,7 +903,6 @@ namespace ProyectoOFI.SM
             excel.BringToFront();
             excel.ShowDialog();
         }
-
         private void ParticionSM()
         {
             try
@@ -947,7 +936,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("Error al crear las particiones", "Error ParticionSM interfaz", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
         {
             DRecepcion funcion = new DRecepcion();
@@ -996,7 +984,6 @@ namespace ProyectoOFI.SM
             CbBuscador.SelectedIndex = -1;
             PlFiltroFecha.Visible = false;
         }
-
         private void CbBuscador_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CbBuscador.Text == "")
@@ -1010,13 +997,11 @@ namespace ProyectoOFI.SM
                 ReiniciarPaginado();
             }
         }
-
         private void BtnFiltroFecha_Click(object sender, EventArgs e)
         {
             BuscarFechaSM();
             ReiniciarPaginado();
         }
-
         private void BuscarFechaSM()
         {
             DataTable dt = new DataTable();
@@ -1026,7 +1011,6 @@ namespace ProyectoOFI.SM
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventarioSM);
         }
-
         private void EnvioSM()
         {
             SM.Clear();

@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.PlDatos = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.LblAnalisis = new System.Windows.Forms.Label();
@@ -62,8 +62,10 @@
             this.PlSM = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.BtnNoAsignado = new System.Windows.Forms.Button();
             this.chartSM = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.FlpSN = new System.Windows.Forms.FlowLayoutPanel();
+            this.BtnNoAsignado = new System.Windows.Forms.Button();
+            this.BtnTendido = new System.Windows.Forms.Button();
             this.PlDatos.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -76,6 +78,7 @@
             this.PlSM.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartSM)).BeginInit();
+            this.FlpSN.SuspendLayout();
             this.SuspendLayout();
             // 
             // PlDatos
@@ -232,32 +235,32 @@
             // 
             // chartKilos
             // 
-            chartArea1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
-            chartArea1.Name = "ChartArea1";
-            this.chartKilos.ChartAreas.Add(chartArea1);
+            chartArea4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+            chartArea4.Name = "ChartArea1";
+            this.chartKilos.ChartAreas.Add(chartArea4);
             this.chartKilos.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            legend1.IsTextAutoFit = false;
-            legend1.Name = "Legend1";
-            this.chartKilos.Legends.Add(legend1);
+            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            legend4.IsTextAutoFit = false;
+            legend4.Name = "Legend1";
+            this.chartKilos.Legends.Add(legend4);
             this.chartKilos.Location = new System.Drawing.Point(0, 28);
             this.chartKilos.Name = "chartKilos";
-            series1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-            series1.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Unscaled;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartKilos.Series.Add(series1);
+            series4.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            series4.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Unscaled;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chartKilos.Series.Add(series4);
             this.chartKilos.Size = new System.Drawing.Size(882, 323);
             this.chartKilos.TabIndex = 1;
             this.chartKilos.Text = "QQs por Área";
-            title1.DockedToChartArea = "ChartArea1";
-            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            title1.Name = "QQs por área";
-            this.chartKilos.Titles.Add(title1);
+            title4.DockedToChartArea = "ChartArea1";
+            title4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            title4.Name = "QQs por área";
+            this.chartKilos.Titles.Add(title4);
             // 
             // PlGrafico
             // 
@@ -301,33 +304,33 @@
             // 
             // chartSN
             // 
-            chartArea2.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-            chartArea2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
-            chartArea2.Name = "ChartArea1";
-            this.chartSN.ChartAreas.Add(chartArea2);
+            chartArea5.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+            chartArea5.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+            chartArea5.Name = "ChartArea1";
+            this.chartSN.ChartAreas.Add(chartArea5);
             this.chartSN.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend2.IsTextAutoFit = false;
-            legend2.Name = "Legend1";
-            this.chartSN.Legends.Add(legend2);
+            legend5.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend5.IsTextAutoFit = false;
+            legend5.Name = "Legend1";
+            this.chartSN.Legends.Add(legend5);
             this.chartSN.Location = new System.Drawing.Point(3, 360);
             this.chartSN.Name = "chartSN";
-            series2.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-            series2.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Unscaled;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartSN.Series.Add(series2);
+            series5.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            series5.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Unscaled;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chartSN.Series.Add(series5);
             this.chartSN.Size = new System.Drawing.Size(882, 351);
             this.chartSN.TabIndex = 5;
             this.chartSN.Text = "QQs por Área";
-            title2.DockedToChartArea = "ChartArea1";
-            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            title2.Name = "QQs por área";
-            this.chartSN.Titles.Add(title2);
+            title5.DockedToChartArea = "ChartArea1";
+            title5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            title5.Name = "QQs por área";
+            this.chartSN.Titles.Add(title5);
             // 
             // PlSM
             // 
@@ -353,37 +356,23 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.BtnNoAsignado);
+            this.panel4.Controls.Add(this.FlpSN);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(891, 360);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(883, 351);
             this.panel4.TabIndex = 6;
             // 
-            // BtnNoAsignado
-            // 
-            this.BtnNoAsignado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnNoAsignado.Image = ((System.Drawing.Image)(resources.GetObject("BtnNoAsignado.Image")));
-            this.BtnNoAsignado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnNoAsignado.Location = new System.Drawing.Point(13, 14);
-            this.BtnNoAsignado.Name = "BtnNoAsignado";
-            this.BtnNoAsignado.Size = new System.Drawing.Size(152, 89);
-            this.BtnNoAsignado.TabIndex = 0;
-            this.BtnNoAsignado.Text = "No Asignado";
-            this.BtnNoAsignado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnNoAsignado.UseVisualStyleBackColor = true;
-            this.BtnNoAsignado.Click += new System.EventHandler(this.BtnNoAsignado_Click);
-            // 
             // chartSM
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chartSM.ChartAreas.Add(chartArea3);
+            chartArea6.Name = "ChartArea1";
+            this.chartSM.ChartAreas.Add(chartArea6);
             this.chartSM.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend3.IsTextAutoFit = false;
-            legend3.Name = "Legend1";
-            this.chartSM.Legends.Add(legend3);
+            legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend6.IsTextAutoFit = false;
+            legend6.Name = "Legend1";
+            this.chartSM.Legends.Add(legend6);
             this.chartSM.Location = new System.Drawing.Point(0, 40);
             this.chartSM.Name = "chartSM";
             this.chartSM.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
@@ -393,22 +382,64 @@
         System.Drawing.Color.Orange,
         System.Drawing.Color.DarkTurquoise,
         System.Drawing.Color.DodgerBlue};
-            series3.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-            series3.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Unscaled;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series3.IsXValueIndexed = true;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chartSM.Series.Add(series3);
+            series6.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            series6.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Unscaled;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series6.IsXValueIndexed = true;
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chartSM.Series.Add(series6);
             this.chartSM.Size = new System.Drawing.Size(883, 311);
             this.chartSM.TabIndex = 5;
             this.chartSM.Text = "chart1";
-            title3.DockedToChartArea = "ChartArea1";
-            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title3.Name = "SM";
-            this.chartSM.Titles.Add(title3);
+            title6.DockedToChartArea = "ChartArea1";
+            title6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title6.Name = "SM";
+            this.chartSM.Titles.Add(title6);
+            // 
+            // FlpSN
+            // 
+            this.FlpSN.Controls.Add(this.BtnNoAsignado);
+            this.FlpSN.Controls.Add(this.BtnTendido);
+            this.FlpSN.Dock = System.Windows.Forms.DockStyle.Left;
+            this.FlpSN.Location = new System.Drawing.Point(0, 0);
+            this.FlpSN.Name = "FlpSN";
+            this.FlpSN.Size = new System.Drawing.Size(155, 351);
+            this.FlpSN.TabIndex = 1;
+            // 
+            // BtnNoAsignado
+            // 
+            this.BtnNoAsignado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnNoAsignado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnNoAsignado.Image = ((System.Drawing.Image)(resources.GetObject("BtnNoAsignado.Image")));
+            this.BtnNoAsignado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnNoAsignado.Location = new System.Drawing.Point(3, 3);
+            this.BtnNoAsignado.Name = "BtnNoAsignado";
+            this.BtnNoAsignado.Size = new System.Drawing.Size(152, 89);
+            this.BtnNoAsignado.TabIndex = 0;
+            this.BtnNoAsignado.Text = "No Asignado";
+            this.BtnNoAsignado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnNoAsignado.UseVisualStyleBackColor = true;
+            this.BtnNoAsignado.Click += new System.EventHandler(this.BtnNoAsignado_Click);
+            // 
+            // BtnTendido
+            // 
+            this.BtnTendido.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnTendido.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnTendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTendido.ForeColor = System.Drawing.Color.Black;
+            this.BtnTendido.Image = ((System.Drawing.Image)(resources.GetObject("BtnTendido.Image")));
+            this.BtnTendido.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTendido.Location = new System.Drawing.Point(3, 98);
+            this.BtnTendido.Name = "BtnTendido";
+            this.BtnTendido.Size = new System.Drawing.Size(152, 89);
+            this.BtnTendido.TabIndex = 1;
+            this.BtnTendido.Text = "Tendido";
+            this.BtnTendido.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnTendido.UseVisualStyleBackColor = true;
+            this.BtnTendido.Click += new System.EventHandler(this.BtnTendido_Click);
             // 
             // Dashboard
             // 
@@ -430,6 +461,7 @@
             this.PlSM.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartSM)).EndInit();
+            this.FlpSN.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -459,5 +491,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button BtnNoAsignado;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartSM;
+        private System.Windows.Forms.FlowLayoutPanel FlpSN;
+        private System.Windows.Forms.Button BtnTendido;
     }
 }

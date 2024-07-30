@@ -568,7 +568,7 @@ namespace ProyectoOFI.Analisis
         }
         private void AbrirFormulario()
         {
-            PLDatos.Size = new Size(1207, 622);
+           // PLDatos.Size = new Size(1207, 622);
             PLDatos.Location = new System.Drawing.Point(dtInventarioCat.Width / 2
                 - PLDatos.Width / 2, dtInventarioCat.Height / 2 - PLDatos.Height / 2);
             PLDatos.Visible = true;

@@ -24,6 +24,7 @@ namespace ProyectoOFI.Reportes
             Lotes_Enfarde();
             Lotes_Analizados();
             Lotes_Enviados();
+            Lotes_Almacen();
         }
         private void kilosArea()
         {
@@ -160,6 +161,17 @@ namespace ProyectoOFI.Reportes
             funcion.Lotes_Enfarde(ref Enfarde);
             BtnEnfarde.Text = "Enfardados " + Enfarde.ToString() + " Lotes";
         }
+
+        private void BtnAlmacen_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            DReporte funcion = new DReporte();
+            funcion.Lotes_Almacen(ref dt);
+            string Nombre = "Lotes Almacén ";
+            FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
+            LT.ShowDialog();
+        }
+
         private void Lotes_Analizados()
         {
             DReporte funcion = new DReporte();
@@ -173,6 +185,13 @@ namespace ProyectoOFI.Reportes
             double Analizados = 0;
             funcion.Lotes_Enviados(ref Analizados);
             BtnEnvio.Text = "Enviados " + Analizados.ToString() + " Lotes";
+        }
+        private void Lotes_Almacen()
+        {
+            DReporte funcion = new DReporte();
+            double almacen = 0;
+            funcion.Lotes_Almacen(ref almacen);
+            BtnAlmacen.Text = "Almacén " + almacen.ToString() + " Lotes";
         }
     }
 }

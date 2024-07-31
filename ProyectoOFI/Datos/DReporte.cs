@@ -49,7 +49,10 @@ namespace ProyectoOFI.Datos
             try
             {
                 Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("SELECT ROUND(SUM(Peso)/46, 2) FROM Recepcion Rec WHERE IdAreaSecado = 1 AND Estado='ACTIVO'", Conexion.conectar);
+                SqlCommand cmd = new SqlCommand("  SELECT ROUND(SUM(peso) / 46, 2) AS Resultado FROM Recepcion Rec " +
+                    "LEFT JOIN Tendido T ON Rec.Ticket = T.Ticket WHERE ((Proceso = 'No Asignado' AND IdAreaSecado = 1) " +
+                    "OR ProcesoCP IN ('Tendido', 'Rechazado', 'Tendido/Rechazado', 'Enfarde', 'Analizado', 'Envio', 'Envio SM', 'Almacén', 'Almacen')) " +
+                    "AND Estado = 'ACTIVO' AND Rec.Cosecha = (SELECT Cosecha FROM Cosecha WHERE IdCosecha = (SELECT MAX(IdCosecha) FROM Cosecha));", Conexion.conectar);
                 SN = Convert.ToDouble(cmd.ExecuteScalar());
             }
             catch (Exception)
@@ -228,6 +231,25 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public void Lotes_Almacen(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("Lotes_Almacen", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron cargar los datos de Lotes Almacén " + ex.Message, "Error en Lotes Almacén", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("No se pudieron cargar datos en Lotes_Almacen ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
         public void CantNoAsignado(ref double NoAsignado)
         {
             try
@@ -316,6 +338,25 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show("Error en mostrar cantidad de lotes Enviados " + ex.Message, "Error En Cantidad de Lotes Enviados", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en mostrar Lotes_Enviados ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+
+                Conexion.cerrar();
+            }
+        }
+        public void Lotes_Almacen(ref double Almacen)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("Select COUNT(Ticket) from Recepcion Rec where IdAreaSecado=1 AND Proceso in ('Almacén','Almacen') and Estado='ACTIVO' And Rec.Cosecha=(select Cosecha from Cosecha where IdCosecha=(select max(IdCosecha) from Cosecha))", Conexion.conectar);
+                Almacen = Convert.ToDouble(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en mostrar cantidad de lotes Almacén " + ex.Message, "Error En Cantidad de Lotes Almacén", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en mostrar Lotes_Almacen ✖️✖️" + ex.Message);
             }
             finally
             {

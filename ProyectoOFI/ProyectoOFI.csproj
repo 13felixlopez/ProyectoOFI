@@ -751,6 +751,7 @@
   <ItemGroup>
     <Content Include="CoffeeTech.sql" />
     <Content Include="Logo.ico" />
+    <None Include="Resources\almacen.png" />
     <None Include="Resources\EnvioCF.jpg" />
     <None Include="Resources\Analisis.jpg" />
     <None Include="Resources\Enfarde.png" />

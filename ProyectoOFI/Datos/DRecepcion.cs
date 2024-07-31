@@ -630,8 +630,8 @@ namespace ProyectoOFI.Datos
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
                 Conexion.abrir();
-                SqlCommand da = new SqlCommand("MostrarEstFis", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
+                SqlCommand da = new SqlCommand("SELECT IdestFis, EstFisico FROM EstFisico WHERE IdestFis IN (3,4,5)", Conexion.conectar);
+                da.CommandType = CommandType.Text;
                 SqlDataAdapter cb = new SqlDataAdapter(da);
                 DataTable dt = new DataTable();
                 cb.Fill(dt);
@@ -731,6 +731,36 @@ namespace ProyectoOFI.Datos
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     lista.Add(dt.Rows[i]["Area Secado"].ToString());
+                }
+                combo.AutoCompleteCustomSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarAreaSecado ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarAreaSecado2(ComboBox combo)
+        {
+            try
+            {
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("select IdAreaSecado,AreaSecado from AreaSecado where IdAreaSecado IN (1,2)", Conexion.conectar);
+                da.CommandType = CommandType.Text;
+                SqlDataAdapter cb = new SqlDataAdapter(da);
+                DataTable dt = new DataTable();
+                cb.Fill(dt);
+                combo.ValueMember = "IdAreaSecado";
+                combo.DisplayMember = "AreaSecado";
+                combo.DataSource = dt;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    lista.Add(dt.Rows[i]["AreaSecado"].ToString());
                 }
                 combo.AutoCompleteCustomSource = lista;
             }

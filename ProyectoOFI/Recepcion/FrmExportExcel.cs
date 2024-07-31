@@ -20,6 +20,18 @@ namespace ProyectoOFI.Recepcion
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             MostrarLotes();
         }
+
+        private void LlenarCheckBoxList()
+        {
+            // Limpiar el CheckListBox antes de llenarlo
+            CLBFiltros.Items.Clear();
+
+            // Llenar el CheckListBox con los encabezados del DataGridView
+            foreach (DataGridViewColumn column in DtLotes.Columns)
+            {
+                CLBFiltros.Items.Add(column.HeaderText);
+            }
+        }
         private void MostrarLotes()
         {
             DRecepcion funcion = new DRecepcion();
@@ -27,6 +39,7 @@ namespace ProyectoOFI.Recepcion
             funcion.MostrarLotesExcel(ref dt);
             DtLotes.DataSource = dt;
             Base.DiseñoDtvEliminar(ref DtLotes);
+            LlenarCheckBoxList();
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)

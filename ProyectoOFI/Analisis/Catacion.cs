@@ -1509,13 +1509,13 @@ namespace ProyectoOFI.Analisis
             if (tieneAgregarAnalisis && tieneEditarAnalisis)
             {
                 BtnAnalisis.Visible = true;
-                BtnCambiarTK.Enabled = false;
+                BtnCambiarTK.Enabled = true;
                 BtnActivar.Enabled = true;
             }
             else if (tieneAgregarAnalisis)
             {
                 BtnAnalisis.Visible = true;
-                BtnCambiarTK.Enabled = false;
+                BtnCambiarTK.Enabled = true;
                 BtnActivar.Enabled = false;
             }
             else if (tieneEditarAnalisis)

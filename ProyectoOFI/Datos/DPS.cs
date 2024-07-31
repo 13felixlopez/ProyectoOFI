@@ -126,7 +126,7 @@ namespace ProyectoOFI.Datos
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
                 Conexion.abrir();
-                SqlCommand da = new SqlCommand("select IdAreaSecado,AreaSecado from AreaSecado where IdAreaSecado IN (1,5)", Conexion.conectar);
+                SqlCommand da = new SqlCommand("select IdAreaSecado,AreaSecado from AreaSecado where IdAreaSecado IN (5)", Conexion.conectar);
                 da.CommandType = CommandType.Text;
                 SqlDataAdapter cb = new SqlDataAdapter(da);
                 DataTable dt = new DataTable();
@@ -156,7 +156,7 @@ namespace ProyectoOFI.Datos
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
                 Conexion.abrir();
-                SqlCommand da = new SqlCommand("SELECT IdestFis, EstFisico FROM EstFisico WHERE IdestFis IN (4, 6)", Conexion.conectar);
+                SqlCommand da = new SqlCommand("SELECT IdestFis, EstFisico FROM EstFisico WHERE IdestFis IN (6)", Conexion.conectar);
                 da.CommandType = CommandType.Text;
                 SqlDataAdapter cb = new SqlDataAdapter(da);
                 DataTable dt = new DataTable();

@@ -98,6 +98,7 @@ namespace ProyectoOFI
             CambiarColor(btnSalir);
             CambiarColor(BtnComprasD);
             CambiarColor(BtnUser);
+            CambiarColor(BtnReportes);
         }
         private void ValidarPermisos()
         {

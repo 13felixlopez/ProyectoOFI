@@ -283,7 +283,6 @@ namespace ProyectoOFI
             this.BtnUser.Text = "Usuario";
             this.BtnUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnUser.UseVisualStyleBackColor = false;
-            this.BtnUser.Visible = false;
             this.BtnUser.Click += new System.EventHandler(this.BtnUser_Click);
             // 
             // BtnCatalogo
@@ -302,7 +301,6 @@ namespace ProyectoOFI
             this.BtnCatalogo.Text = "Catálogo";
             this.BtnCatalogo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnCatalogo.UseVisualStyleBackColor = false;
-            this.BtnCatalogo.Visible = false;
             this.BtnCatalogo.Click += new System.EventHandler(this.BtnCatalogo_Click);
             // 
             // BtnComprasD
@@ -321,7 +319,6 @@ namespace ProyectoOFI
             this.BtnComprasD.Text = "Compras Directas";
             this.BtnComprasD.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnComprasD.UseVisualStyleBackColor = false;
-            this.BtnComprasD.Visible = false;
             this.BtnComprasD.Click += new System.EventHandler(this.BtnComprasD_Click);
             // 
             // BtnAlmacen
@@ -340,7 +337,6 @@ namespace ProyectoOFI
             this.BtnAlmacen.Text = "Almacén";
             this.BtnAlmacen.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnAlmacen.UseVisualStyleBackColor = false;
-            this.BtnAlmacen.Visible = false;
             this.BtnAlmacen.Click += new System.EventHandler(this.BtnAlmacen_Click);
             // 
             // BtnReportes
@@ -351,15 +347,14 @@ namespace ProyectoOFI
             this.BtnReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnReportes.Image = global::ProyectoOFI.Properties.Resources.icons8_gráfico_combinado;
             this.BtnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnReportes.Location = new System.Drawing.Point(2, 657);
-            this.BtnReportes.Margin = new System.Windows.Forms.Padding(2);
+            this.BtnReportes.Location = new System.Drawing.Point(5, 660);
+            this.BtnReportes.Margin = new System.Windows.Forms.Padding(5);
             this.BtnReportes.Name = "BtnReportes";
             this.BtnReportes.Size = new System.Drawing.Size(142, 66);
             this.BtnReportes.TabIndex = 8;
             this.BtnReportes.Text = "Reportes";
             this.BtnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnReportes.UseVisualStyleBackColor = false;
-            this.BtnReportes.Visible = false;
             this.BtnReportes.Click += new System.EventHandler(this.BtnReportes_Click);
             // 
             // BtnAnalisis
@@ -385,7 +380,6 @@ namespace ProyectoOFI
             // 
             this.BtnCPatio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.BtnCPatio.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCPatio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnCPatio.FlatAppearance.BorderSize = 0;
             this.BtnCPatio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCPatio.Image = global::ProyectoOFI.Properties.Resources.business_report_48px;
@@ -398,7 +392,6 @@ namespace ProyectoOFI
             this.BtnCPatio.Text = "Control de Patio";
             this.BtnCPatio.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnCPatio.UseVisualStyleBackColor = false;
-            this.BtnCPatio.Visible = false;
             this.BtnCPatio.Click += new System.EventHandler(this.BtnCPatio_Click);
             // 
             // btnSalir
@@ -406,7 +399,7 @@ namespace ProyectoOFI
             this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.Image = global::ProyectoOFI.Properties.Resources.Atras;
-            this.btnSalir.Location = new System.Drawing.Point(3, 728);
+            this.btnSalir.Location = new System.Drawing.Point(3, 734);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(142, 66);
             this.btnSalir.TabIndex = 9;
@@ -429,7 +422,6 @@ namespace ProyectoOFI
             this.BtnSM.Text = "Secado Mecánico";
             this.BtnSM.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnSM.UseVisualStyleBackColor = false;
-            this.BtnSM.Visible = false;
             this.BtnSM.Click += new System.EventHandler(this.BtnSM_Click);
             // 
             // btnTransferencia
@@ -448,7 +440,6 @@ namespace ProyectoOFI
             this.btnTransferencia.Text = "Transferencias";
             this.btnTransferencia.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnTransferencia.UseVisualStyleBackColor = false;
-            this.btnTransferencia.Visible = false;
             this.btnTransferencia.Click += new System.EventHandler(this.BtnTransferencia_Click);
             // 
             // panel4
@@ -459,7 +450,7 @@ namespace ProyectoOFI
             this.panel4.Location = new System.Drawing.Point(2, 2);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(144, 91);
+            this.panel4.Size = new System.Drawing.Size(148, 91);
             this.panel4.TabIndex = 12;
             // 
             // pbIcono
@@ -469,7 +460,7 @@ namespace ProyectoOFI
             this.pbIcono.Image = global::ProyectoOFI.Properties.Resources.Logo;
             this.pbIcono.Location = new System.Drawing.Point(0, 0);
             this.pbIcono.Name = "pbIcono";
-            this.pbIcono.Size = new System.Drawing.Size(144, 91);
+            this.pbIcono.Size = new System.Drawing.Size(148, 91);
             this.pbIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbIcono.TabIndex = 2;
             this.pbIcono.TabStop = false;
@@ -479,7 +470,7 @@ namespace ProyectoOFI
             this.BtnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.BtnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCerrarSesion.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_sesión;
-            this.BtnCerrarSesion.Location = new System.Drawing.Point(151, 3);
+            this.BtnCerrarSesion.Location = new System.Drawing.Point(155, 3);
             this.BtnCerrarSesion.Name = "BtnCerrarSesion";
             this.BtnCerrarSesion.Size = new System.Drawing.Size(142, 66);
             this.BtnCerrarSesion.TabIndex = 10;

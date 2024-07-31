@@ -39,6 +39,21 @@ namespace ProyectoOFI.Recepcion
         {
             InitializeComponent();
         }
+        private void LlenarCheckBoxList()
+        {
+            // Limpiar el CheckListBox antes de llenarlo
+            CLBFiltros.Items.Clear();
+
+            // Índice inicial para comenzar en la tercera columna
+            int indiceInicial = 2;
+
+            // Llenar el CheckListBox con los encabezados a partir del índice indicado
+            for (int i = indiceInicial; i < dtInventario.Columns.Count; i++)
+            {
+                CLBFiltros.Items.Add(dtInventario.Columns[i].HeaderText);
+            }
+        }
+
         private async void Transferencia_Load(object sender, EventArgs e)
         {
             PlCarga.Dock = DockStyle.Fill;
@@ -54,6 +69,7 @@ namespace ProyectoOFI.Recepcion
             dtInventario.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             MostrarLotes();
             ReiniciarPaginado();
+            LlenarCheckBoxList();
             await Task.Delay(1000);
         }
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -1598,7 +1614,7 @@ namespace ProyectoOFI.Recepcion
             funcion.MostrarCalidad(cbCalidadE);
             funcion.MostrarDaño(cbDanioE);
             funcion.MostrarDaño(cbDaño);
-            funcion.MostrarAreaSecado(cbArea);
+            funcion.MostrarAreaSecado2(cbArea);
             funcion.MostrarAreaSecado(CbAreaCons);
         }
         private void BtnVerCons_Click(object sender, EventArgs e)

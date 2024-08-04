@@ -48,6 +48,7 @@ namespace ProyectoOFI
             };
             PlPrincipal.Controls.Add(tr);
             btnTransferencia.Enabled = false;
+            LblModulo.Text = "Transferencia";
         }
 
         private void BtnSM_Click(object sender, EventArgs e)
@@ -78,6 +79,7 @@ namespace ProyectoOFI
                 Dock = DockStyle.Fill
             };
             PlPrincipal.Controls.Add(tr);
+            LblModulo.Text = "Usuarios";
         }
 
         private void frmInicio_Load(object sender, EventArgs e)
@@ -180,6 +182,7 @@ namespace ProyectoOFI
                 Dock = DockStyle.Fill
             };
             PlPrincipal.Controls.Add(tr);
+            LblModulo.Text = "Control de Patio";
         }
 
         private void BtnReTK_Click(object sender, EventArgs e)
@@ -214,6 +217,7 @@ namespace ProyectoOFI
                 Dock = DockStyle.Fill
             };
             PlPrincipal.Controls.Add(al);
+            LblModulo.Text = "Análisis";
         }
 
         private void BtnAlmacen_Click(object sender, EventArgs e)
@@ -231,6 +235,7 @@ namespace ProyectoOFI
                 Dock = DockStyle.Fill
             };
             PlPrincipal.Controls.Add(al);
+            LblModulo.Text = "Almacén";
         }
         public void CambiarColor(Button Btn)
         {
@@ -267,6 +272,7 @@ namespace ProyectoOFI
                 Dock = DockStyle.Fill
             };
             PlPrincipal.Controls.Add(CD);
+            LblModulo.Text = "Compras Directas";
         }
 
         private void BtnReportes_Click(object sender, EventArgs e)
@@ -289,6 +295,7 @@ namespace ProyectoOFI
             {
                 PlOpciones.Visible = true;
             }
+            LblModulo.Text = "";
         }
 
         private void BtnGrafico_Click(object sender, EventArgs e)

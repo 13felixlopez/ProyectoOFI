@@ -16,9 +16,27 @@ namespace ProyectoOFI.SM
         public FrmExcelSM()
         {
             InitializeComponent();
+            AdjustFormSize();
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
         }
+        private void AdjustFormSize()
+        {
+            // Tamaño deseado del formulario
+            int desiredWidth = 1834;
+            int desiredHeight = 788;
 
+            // Obtener tamaño de la pantalla
+            Rectangle screenRectangle = Screen.PrimaryScreen.WorkingArea;
+
+            // Ajustar tamaño del formulario
+            int newWidth = Math.Min(desiredWidth, screenRectangle.Width);
+            int newHeight = Math.Min(desiredHeight, screenRectangle.Height);
+
+            this.Size = new Size(newWidth, newHeight);
+
+            // Centrar el formulario en la pantalla
+            this.StartPosition = FormStartPosition.CenterScreen;
+        }
         private void FrmExcelSM_Load(object sender, EventArgs e)
         {
             ExcelSM();

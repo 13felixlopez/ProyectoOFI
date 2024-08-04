@@ -275,7 +275,7 @@
             this.DtLotes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DtLotes.ShowCellToolTips = false;
             this.DtLotes.ShowEditingIcon = false;
-            this.DtLotes.Size = new System.Drawing.Size(1850, 715);
+            this.DtLotes.Size = new System.Drawing.Size(1850, 646);
             this.DtLotes.TabIndex = 25;
             this.DtLotes.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.DtLotes_CellPainting);
             // 
@@ -283,7 +283,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(192)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 842);
+            this.panel1.Location = new System.Drawing.Point(0, 773);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1850, 15);
             this.panel1.TabIndex = 27;
@@ -292,7 +292,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1850, 857);
+            this.ClientSize = new System.Drawing.Size(1850, 788);
             this.Controls.Add(this.PlFiltros);
             this.Controls.Add(this.DtLotes);
             this.Controls.Add(this.plOpciones);

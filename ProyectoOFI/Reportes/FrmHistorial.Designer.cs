@@ -128,7 +128,7 @@
             this.plfooter.Controls.Add(this.lbl_Pagina);
             this.plfooter.Controls.Add(this.Label25);
             this.plfooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plfooter.Location = new System.Drawing.Point(0, 766);
+            this.plfooter.Location = new System.Drawing.Point(0, 728);
             this.plfooter.Name = "plfooter";
             this.plfooter.Size = new System.Drawing.Size(1816, 60);
             this.plfooter.TabIndex = 9;
@@ -291,7 +291,7 @@
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DtHistorial.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DtHistorial.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtHistorial.Size = new System.Drawing.Size(1816, 634);
+            this.DtHistorial.Size = new System.Drawing.Size(1816, 596);
             this.DtHistorial.TabIndex = 10;
             // 
             // PlCarga
@@ -318,7 +318,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1816, 826);
+            this.ClientSize = new System.Drawing.Size(1816, 788);
             this.Controls.Add(this.PlCarga);
             this.Controls.Add(this.DtHistorial);
             this.Controls.Add(this.plfooter);

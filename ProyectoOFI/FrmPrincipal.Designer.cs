@@ -61,6 +61,7 @@ namespace ProyectoOFI
             this.panel8 = new System.Windows.Forms.Panel();
             this.plfooter = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.LblModulo = new System.Windows.Forms.Label();
             this.plTitulo.SuspendLayout();
             this.PlPerfil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbPerfil)).BeginInit();
@@ -75,6 +76,7 @@ namespace ProyectoOFI
             // plTitulo
             // 
             this.plTitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(141)))), ((int)(((byte)(42)))));
+            this.plTitulo.Controls.Add(this.LblModulo);
             this.plTitulo.Controls.Add(this.LblUser);
             this.plTitulo.Controls.Add(this.PlPerfil);
             this.plTitulo.Controls.Add(this.label1);
@@ -120,11 +122,11 @@ namespace ProyectoOFI
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(140)))), ((int)(((byte)(42)))));
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1796, 74);
+            this.label1.Size = new System.Drawing.Size(474, 74);
             this.label1.TabIndex = 4;
             this.label1.Text = "CoffeeTec ofi";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -138,7 +140,7 @@ namespace ProyectoOFI
             this.PlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlPrincipal.Location = new System.Drawing.Point(160, 74);
             this.PlPrincipal.Name = "PlPrincipal";
-            this.PlPrincipal.Size = new System.Drawing.Size(1636, 846);
+            this.PlPrincipal.Size = new System.Drawing.Size(1636, 714);
             this.PlPrincipal.TabIndex = 4;
             // 
             // PlOpciones
@@ -252,7 +254,7 @@ namespace ProyectoOFI
             this.LblPrincipal.ForeColor = System.Drawing.Color.White;
             this.LblPrincipal.Location = new System.Drawing.Point(0, 0);
             this.LblPrincipal.Name = "LblPrincipal";
-            this.LblPrincipal.Size = new System.Drawing.Size(1636, 846);
+            this.LblPrincipal.Size = new System.Drawing.Size(1636, 714);
             this.LblPrincipal.TabIndex = 0;
             this.LblPrincipal.Text = "Bienvenido a \r\nCoffeeTec 👋";
             this.LblPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -264,7 +266,7 @@ namespace ProyectoOFI
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Margin = new System.Windows.Forms.Padding(2);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(11, 846);
+            this.panel11.Size = new System.Drawing.Size(11, 714);
             this.panel11.TabIndex = 14;
             // 
             // BtnUser
@@ -347,7 +349,7 @@ namespace ProyectoOFI
             this.BtnReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnReportes.Image = global::ProyectoOFI.Properties.Resources.icons8_gráfico_combinado;
             this.BtnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnReportes.Location = new System.Drawing.Point(5, 660);
+            this.BtnReportes.Location = new System.Drawing.Point(153, 5);
             this.BtnReportes.Margin = new System.Windows.Forms.Padding(5);
             this.BtnReportes.Name = "BtnReportes";
             this.BtnReportes.Size = new System.Drawing.Size(142, 66);
@@ -399,7 +401,7 @@ namespace ProyectoOFI
             this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.Image = global::ProyectoOFI.Properties.Resources.Atras;
-            this.btnSalir.Location = new System.Drawing.Point(3, 734);
+            this.btnSalir.Location = new System.Drawing.Point(151, 79);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(142, 66);
             this.btnSalir.TabIndex = 9;
@@ -450,7 +452,7 @@ namespace ProyectoOFI
             this.panel4.Location = new System.Drawing.Point(2, 2);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(148, 91);
+            this.panel4.Size = new System.Drawing.Size(144, 91);
             this.panel4.TabIndex = 12;
             // 
             // pbIcono
@@ -460,7 +462,7 @@ namespace ProyectoOFI
             this.pbIcono.Image = global::ProyectoOFI.Properties.Resources.Logo;
             this.pbIcono.Location = new System.Drawing.Point(0, 0);
             this.pbIcono.Name = "pbIcono";
-            this.pbIcono.Size = new System.Drawing.Size(148, 91);
+            this.pbIcono.Size = new System.Drawing.Size(144, 91);
             this.pbIcono.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbIcono.TabIndex = 2;
             this.pbIcono.TabStop = false;
@@ -470,7 +472,7 @@ namespace ProyectoOFI
             this.BtnCerrarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(253)))), ((int)(((byte)(253)))));
             this.BtnCerrarSesion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCerrarSesion.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_sesión;
-            this.BtnCerrarSesion.Location = new System.Drawing.Point(155, 3);
+            this.BtnCerrarSesion.Location = new System.Drawing.Point(151, 151);
             this.BtnCerrarSesion.Name = "BtnCerrarSesion";
             this.BtnCerrarSesion.Size = new System.Drawing.Size(142, 66);
             this.BtnCerrarSesion.TabIndex = 10;
@@ -496,7 +498,7 @@ namespace ProyectoOFI
             this.plfooter.Dock = System.Windows.Forms.DockStyle.Left;
             this.plfooter.Location = new System.Drawing.Point(0, 74);
             this.plfooter.Name = "plfooter";
-            this.plfooter.Size = new System.Drawing.Size(160, 846);
+            this.plfooter.Size = new System.Drawing.Size(160, 714);
             this.plfooter.TabIndex = 3;
             // 
             // flowLayoutPanel1
@@ -518,15 +520,25 @@ namespace ProyectoOFI
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(11, 5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(149, 841);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(149, 709);
             this.flowLayoutPanel1.TabIndex = 15;
+            // 
+            // LblModulo
+            // 
+            this.LblModulo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblModulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
+            this.LblModulo.Location = new System.Drawing.Point(474, 0);
+            this.LblModulo.Name = "LblModulo";
+            this.LblModulo.Size = new System.Drawing.Size(979, 74);
+            this.LblModulo.TabIndex = 7;
+            this.LblModulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmInicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1796, 920);
+            this.ClientSize = new System.Drawing.Size(1796, 788);
             this.Controls.Add(this.PlPrincipal);
             this.Controls.Add(this.plfooter);
             this.Controls.Add(this.plTitulo);
@@ -582,6 +594,7 @@ namespace ProyectoOFI
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel plfooter;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label LblModulo;
     }
 }
 

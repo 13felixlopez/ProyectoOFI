@@ -37,9 +37,7 @@
             this.PbExcel = new System.Windows.Forms.PictureBox();
             this.PbFiltro = new System.Windows.Forms.PictureBox();
             this.plOpciones = new System.Windows.Forms.Panel();
-            this.txtBuscador = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.PlFiltros = new System.Windows.Forms.Panel();
             this.CLBFiltros = new System.Windows.Forms.CheckedListBox();
             this.BtnFiltrar = new System.Windows.Forms.Button();
@@ -78,7 +76,7 @@
             this.PlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlTitulo.Location = new System.Drawing.Point(0, 0);
             this.PlTitulo.Name = "PlTitulo";
-            this.PlTitulo.Size = new System.Drawing.Size(1834, 65);
+            this.PlTitulo.Size = new System.Drawing.Size(1364, 65);
             this.PlTitulo.TabIndex = 33;
             // 
             // LblTitulo
@@ -88,7 +86,7 @@
             this.LblTitulo.ForeColor = System.Drawing.Color.White;
             this.LblTitulo.Location = new System.Drawing.Point(100, 0);
             this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(1659, 65);
+            this.LblTitulo.Size = new System.Drawing.Size(1189, 65);
             this.LblTitulo.TabIndex = 2;
             this.LblTitulo.Text = "Exportar a Excel";
             this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -99,7 +97,7 @@
             this.BtnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrar.Location = new System.Drawing.Point(1759, 0);
+            this.BtnCerrar.Location = new System.Drawing.Point(1289, 0);
             this.BtnCerrar.Name = "BtnCerrar";
             this.BtnCerrar.Size = new System.Drawing.Size(75, 65);
             this.BtnCerrar.TabIndex = 1;
@@ -110,7 +108,7 @@
             // 
             this.PbExcel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PbExcel.Image = global::ProyectoOFI.Properties.Resources.icons8_nube_comprobado;
-            this.PbExcel.Location = new System.Drawing.Point(1183, 6);
+            this.PbExcel.Location = new System.Drawing.Point(1024, 6);
             this.PbExcel.Name = "PbExcel";
             this.PbExcel.Size = new System.Drawing.Size(64, 50);
             this.PbExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -123,7 +121,7 @@
             this.PbFiltro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PbFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PbFiltro.Image = global::ProyectoOFI.Properties.Resources.filter_list_FILL0_wght400_GRAD0_opsz24;
-            this.PbFiltro.Location = new System.Drawing.Point(906, 6);
+            this.PbFiltro.Location = new System.Drawing.Point(747, 6);
             this.PbFiltro.Name = "PbFiltro";
             this.PbFiltro.Size = new System.Drawing.Size(64, 50);
             this.PbFiltro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -136,45 +134,22 @@
             this.plOpciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.plOpciones.Controls.Add(this.PbExcel);
             this.plOpciones.Controls.Add(this.PbFiltro);
-            this.plOpciones.Controls.Add(this.txtBuscador);
             this.plOpciones.Controls.Add(this.label1);
-            this.plOpciones.Controls.Add(this.label3);
             this.plOpciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.plOpciones.Location = new System.Drawing.Point(0, 65);
             this.plOpciones.Name = "plOpciones";
-            this.plOpciones.Size = new System.Drawing.Size(1834, 62);
+            this.plOpciones.Size = new System.Drawing.Size(1364, 62);
             this.plOpciones.TabIndex = 34;
-            // 
-            // txtBuscador
-            // 
-            this.txtBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.txtBuscador.Location = new System.Drawing.Point(166, 18);
-            this.txtBuscador.Name = "txtBuscador";
-            this.txtBuscador.Size = new System.Drawing.Size(199, 26);
-            this.txtBuscador.TabIndex = 2;
-            this.txtBuscador.Visible = false;
-            this.txtBuscador.TextChanged += new System.EventHandler(this.txtBuscador_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(1004, 21);
+            this.label1.Location = new System.Drawing.Point(845, 21);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(145, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Descargar Excel:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(62, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 20);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Buscar:";
-            this.label3.Visible = false;
             // 
             // PlFiltros
             // 
@@ -288,9 +263,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(192)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 803);
+            this.panel1.Location = new System.Drawing.Point(0, 773);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1834, 15);
+            this.panel1.Size = new System.Drawing.Size(1364, 15);
             this.panel1.TabIndex = 37;
             // 
             // DtLotes
@@ -318,7 +293,7 @@
             this.DtLotes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DtLotes.ShowCellToolTips = false;
             this.DtLotes.ShowEditingIcon = false;
-            this.DtLotes.Size = new System.Drawing.Size(1834, 676);
+            this.DtLotes.Size = new System.Drawing.Size(1364, 646);
             this.DtLotes.TabIndex = 35;
             this.DtLotes.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.DtLotes_CellPainting);
             // 
@@ -326,7 +301,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1834, 818);
+            this.ClientSize = new System.Drawing.Size(1364, 788);
             this.Controls.Add(this.DtLotes);
             this.Controls.Add(this.plOpciones);
             this.Controls.Add(this.PlTitulo);
@@ -335,7 +310,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1834, 818);
-            this.MinimumSize = new System.Drawing.Size(1834, 818);
+            this.MinimumSize = new System.Drawing.Size(1364, 718);
             this.Name = "FrmExcelSM";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmExcelSM";
@@ -362,9 +337,7 @@
         private System.Windows.Forms.PictureBox PbExcel;
         private System.Windows.Forms.PictureBox PbFiltro;
         private System.Windows.Forms.Panel plOpciones;
-        private System.Windows.Forms.TextBox txtBuscador;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel PlFiltros;
         private System.Windows.Forms.CheckedListBox CLBFiltros;
         private System.Windows.Forms.Button BtnFiltrar;

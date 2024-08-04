@@ -2,6 +2,7 @@
 using ProyectoOFI.Otros;
 using System;
 using System.Data;
+using System.Drawing;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +19,25 @@ namespace ProyectoOFI.Reportes
         public FrmHistorial()
         {
             InitializeComponent();
+            AdjustFormSize();
+        }
+        private void AdjustFormSize()
+        {
+            // Tamaño deseado del formulario
+            int desiredWidth = 1834;
+            int desiredHeight = 788;
+
+            // Obtener tamaño de la pantalla
+            Rectangle screenRectangle = Screen.PrimaryScreen.WorkingArea;
+
+            // Ajustar tamaño del formulario
+            int newWidth = Math.Min(desiredWidth, screenRectangle.Width);
+            int newHeight = Math.Min(desiredHeight, screenRectangle.Height);
+
+            this.Size = new Size(newWidth, newHeight);
+
+            // Centrar el formulario en la pantalla
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         private async void FrmHistorial_Load(object sender, EventArgs e)
         {

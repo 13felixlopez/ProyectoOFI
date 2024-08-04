@@ -111,7 +111,7 @@
             this.plfooterSm.Controls.Add(this.panel4);
             this.plfooterSm.Controls.Add(this.panel11);
             this.plfooterSm.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plfooterSm.Location = new System.Drawing.Point(0, 752);
+            this.plfooterSm.Location = new System.Drawing.Point(0, 711);
             this.plfooterSm.Name = "plfooterSm";
             this.plfooterSm.Size = new System.Drawing.Size(1742, 77);
             this.plfooterSm.TabIndex = 4;
@@ -363,7 +363,7 @@
             this.PlSM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlSM.Location = new System.Drawing.Point(0, 74);
             this.PlSM.Name = "PlSM";
-            this.PlSM.Size = new System.Drawing.Size(1742, 678);
+            this.PlSM.Size = new System.Drawing.Size(1742, 637);
             this.PlSM.TabIndex = 5;
             // 
             // SMecánico
@@ -371,13 +371,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1742, 829);
+            this.ClientSize = new System.Drawing.Size(1742, 788);
             this.Controls.Add(this.PlSM);
             this.Controls.Add(this.plfooterSm);
             this.Controls.Add(this.plTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1742, 829);
+            this.MinimumSize = new System.Drawing.Size(1364, 718);
             this.Name = "SMecánico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SMecánico";

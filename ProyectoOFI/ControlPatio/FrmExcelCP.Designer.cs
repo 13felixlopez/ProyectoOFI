@@ -34,35 +34,35 @@
             this.LblFiltros = new System.Windows.Forms.Label();
             this.CLBFiltros = new System.Windows.Forms.CheckedListBox();
             this.PlCerrar = new System.Windows.Forms.Panel();
+            this.BtnCerrarFiltro = new System.Windows.Forms.Button();
             this.PlFiltros = new System.Windows.Forms.Panel();
+            this.BtnFiltrar = new System.Windows.Forms.Button();
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.plOpciones = new System.Windows.Forms.Panel();
-            this.LblTitulo = new System.Windows.Forms.Label();
-            this.PlTitulo = new System.Windows.Forms.Panel();
-            this.DtLotes = new System.Windows.Forms.DataGridView();
-            this.BtnFiltrar = new System.Windows.Forms.Button();
-            this.BtnCerrarFiltro = new System.Windows.Forms.Button();
             this.PbExcel = new System.Windows.Forms.PictureBox();
             this.PbFiltro = new System.Windows.Forms.PictureBox();
+            this.LblTitulo = new System.Windows.Forms.Label();
+            this.PlTitulo = new System.Windows.Forms.Panel();
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.DtLotes = new System.Windows.Forms.DataGridView();
             this.PlCerrar.SuspendLayout();
             this.PlFiltros.SuspendLayout();
             this.plOpciones.SuspendLayout();
-            this.PlTitulo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtLotes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).BeginInit();
+            this.PlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtLotes)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(115)))), ((int)(((byte)(192)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 803);
+            this.panel1.Location = new System.Drawing.Point(0, 773);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1834, 15);
             this.panel1.TabIndex = 32;
@@ -133,6 +133,19 @@
             this.PlCerrar.Size = new System.Drawing.Size(233, 42);
             this.PlCerrar.TabIndex = 0;
             // 
+            // BtnCerrarFiltro
+            // 
+            this.BtnCerrarFiltro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrarFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCerrarFiltro.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrarFiltro.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrarFiltro.Location = new System.Drawing.Point(184, 0);
+            this.BtnCerrarFiltro.Name = "BtnCerrarFiltro";
+            this.BtnCerrarFiltro.Size = new System.Drawing.Size(49, 42);
+            this.BtnCerrarFiltro.TabIndex = 2;
+            this.BtnCerrarFiltro.UseVisualStyleBackColor = true;
+            this.BtnCerrarFiltro.Click += new System.EventHandler(this.BtnCerrarFiltro_Click);
+            // 
             // PlFiltros
             // 
             this.PlFiltros.Controls.Add(this.CLBFiltros);
@@ -145,6 +158,22 @@
             this.PlFiltros.Size = new System.Drawing.Size(233, 395);
             this.PlFiltros.TabIndex = 31;
             this.PlFiltros.Visible = false;
+            // 
+            // BtnFiltrar
+            // 
+            this.BtnFiltrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnFiltrar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BtnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnFiltrar.Image = global::ProyectoOFI.Properties.Resources.task_alt_FILL1_wght400_GRAD0_opsz24;
+            this.BtnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnFiltrar.Location = new System.Drawing.Point(0, 336);
+            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(10);
+            this.BtnFiltrar.Name = "BtnFiltrar";
+            this.BtnFiltrar.Size = new System.Drawing.Size(233, 59);
+            this.BtnFiltrar.TabIndex = 2;
+            this.BtnFiltrar.Text = "Aplicar Filtro";
+            this.BtnFiltrar.UseVisualStyleBackColor = true;
+            this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
             // 
             // txtBuscador
             // 
@@ -189,6 +218,31 @@
             this.plOpciones.Size = new System.Drawing.Size(1834, 62);
             this.plOpciones.TabIndex = 29;
             // 
+            // PbExcel
+            // 
+            this.PbExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PbExcel.Image = global::ProyectoOFI.Properties.Resources.icons8_nube_comprobado;
+            this.PbExcel.Location = new System.Drawing.Point(1183, 6);
+            this.PbExcel.Name = "PbExcel";
+            this.PbExcel.Size = new System.Drawing.Size(64, 50);
+            this.PbExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbExcel.TabIndex = 4;
+            this.PbExcel.TabStop = false;
+            this.PbExcel.Click += new System.EventHandler(this.PbExcel_Click);
+            // 
+            // PbFiltro
+            // 
+            this.PbFiltro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PbFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PbFiltro.Image = global::ProyectoOFI.Properties.Resources.filter_list_FILL0_wght400_GRAD0_opsz24;
+            this.PbFiltro.Location = new System.Drawing.Point(906, 6);
+            this.PbFiltro.Name = "PbFiltro";
+            this.PbFiltro.Size = new System.Drawing.Size(64, 50);
+            this.PbFiltro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbFiltro.TabIndex = 4;
+            this.PbFiltro.TabStop = false;
+            this.PbFiltro.Click += new System.EventHandler(this.PbFiltro_Click);
+            // 
             // LblTitulo
             // 
             this.LblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -212,6 +266,30 @@
             this.PlTitulo.Name = "PlTitulo";
             this.PlTitulo.Size = new System.Drawing.Size(1834, 65);
             this.PlTitulo.TabIndex = 28;
+            // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrar.Location = new System.Drawing.Point(1759, 0);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(75, 65);
+            this.BtnCerrar.TabIndex = 1;
+            this.BtnCerrar.UseVisualStyleBackColor = true;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 65);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // DtLotes
             // 
@@ -238,93 +316,15 @@
             this.DtLotes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DtLotes.ShowCellToolTips = false;
             this.DtLotes.ShowEditingIcon = false;
-            this.DtLotes.Size = new System.Drawing.Size(1834, 676);
+            this.DtLotes.Size = new System.Drawing.Size(1834, 646);
             this.DtLotes.TabIndex = 30;
             this.DtLotes.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.DtLotes_CellPainting);
-            // 
-            // BtnFiltrar
-            // 
-            this.BtnFiltrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnFiltrar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BtnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnFiltrar.Image = global::ProyectoOFI.Properties.Resources.task_alt_FILL1_wght400_GRAD0_opsz24;
-            this.BtnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnFiltrar.Location = new System.Drawing.Point(0, 336);
-            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(10);
-            this.BtnFiltrar.Name = "BtnFiltrar";
-            this.BtnFiltrar.Size = new System.Drawing.Size(233, 59);
-            this.BtnFiltrar.TabIndex = 2;
-            this.BtnFiltrar.Text = "Aplicar Filtro";
-            this.BtnFiltrar.UseVisualStyleBackColor = true;
-            this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
-            // 
-            // BtnCerrarFiltro
-            // 
-            this.BtnCerrarFiltro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCerrarFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCerrarFiltro.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCerrarFiltro.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrarFiltro.Location = new System.Drawing.Point(184, 0);
-            this.BtnCerrarFiltro.Name = "BtnCerrarFiltro";
-            this.BtnCerrarFiltro.Size = new System.Drawing.Size(49, 42);
-            this.BtnCerrarFiltro.TabIndex = 2;
-            this.BtnCerrarFiltro.UseVisualStyleBackColor = true;
-            this.BtnCerrarFiltro.Click += new System.EventHandler(this.BtnCerrarFiltro_Click);
-            // 
-            // PbExcel
-            // 
-            this.PbExcel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PbExcel.Image = global::ProyectoOFI.Properties.Resources.icons8_nube_comprobado;
-            this.PbExcel.Location = new System.Drawing.Point(1183, 6);
-            this.PbExcel.Name = "PbExcel";
-            this.PbExcel.Size = new System.Drawing.Size(64, 50);
-            this.PbExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbExcel.TabIndex = 4;
-            this.PbExcel.TabStop = false;
-            this.PbExcel.Click += new System.EventHandler(this.PbExcel_Click);
-            // 
-            // PbFiltro
-            // 
-            this.PbFiltro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.PbFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PbFiltro.Image = global::ProyectoOFI.Properties.Resources.filter_list_FILL0_wght400_GRAD0_opsz24;
-            this.PbFiltro.Location = new System.Drawing.Point(906, 6);
-            this.PbFiltro.Name = "PbFiltro";
-            this.PbFiltro.Size = new System.Drawing.Size(64, 50);
-            this.PbFiltro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbFiltro.TabIndex = 4;
-            this.PbFiltro.TabStop = false;
-            this.PbFiltro.Click += new System.EventHandler(this.PbFiltro_Click);
-            // 
-            // BtnCerrar
-            // 
-            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrar.Location = new System.Drawing.Point(1759, 0);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(75, 65);
-            this.BtnCerrar.TabIndex = 1;
-            this.BtnCerrar.UseVisualStyleBackColor = true;
-            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 65);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // FrmExcelCP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1834, 818);
+            this.ClientSize = new System.Drawing.Size(1834, 788);
             this.Controls.Add(this.PlFiltros);
             this.Controls.Add(this.DtLotes);
             this.Controls.Add(this.panel1);
@@ -339,11 +339,11 @@
             this.PlFiltros.ResumeLayout(false);
             this.plOpciones.ResumeLayout(false);
             this.plOpciones.PerformLayout();
-            this.PlTitulo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtLotes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).EndInit();
+            this.PlTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtLotes)).EndInit();
             this.ResumeLayout(false);
 
         }

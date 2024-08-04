@@ -20,10 +20,28 @@ namespace ProyectoOFI.Reportes
         public FrmLotes_Tendido(DataTable dt,string Nombre)
         {
             InitializeComponent();
+            AdjustFormSize();
             dt2 = dt;
             Name = Nombre;
         }
+        private void AdjustFormSize()
+        {
+            // Tamaño deseado del formulario 1678; 679
+            int desiredWidth = 1678;
+            int desiredHeight = 679;
 
+            // Obtener tamaño de la pantalla
+            Rectangle screenRectangle = Screen.PrimaryScreen.WorkingArea;
+
+            // Ajustar tamaño del formulario
+            int newWidth = Math.Min(desiredWidth, screenRectangle.Width);
+            int newHeight = Math.Min(desiredHeight, screenRectangle.Height);
+
+            this.Size = new Size(newWidth, newHeight);
+
+            // Centrar el formulario en la pantalla
+            this.StartPosition = FormStartPosition.CenterScreen;
+        }
         private void LlenarCheckBoxList()
         {
             // Limpiar el CheckListBox antes de llenarlo

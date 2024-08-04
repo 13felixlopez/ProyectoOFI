@@ -67,7 +67,7 @@
             this.DtLotes.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.NullValue = "--";
             this.DtLotes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.DtLotes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DtLotes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtLotes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;

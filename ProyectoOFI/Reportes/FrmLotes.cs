@@ -19,6 +19,25 @@ namespace ProyectoOFI.Reportes
         public FrmLotes()
         {
             InitializeComponent();
+            AdjustFormSize();
+        }
+        private void AdjustFormSize()
+        {
+            // Tamaño deseado del formulario 1678; 679
+            int desiredWidth = 1678;
+            int desiredHeight = 679;
+
+            // Obtener tamaño de la pantalla
+            Rectangle screenRectangle = Screen.PrimaryScreen.WorkingArea;
+
+            // Ajustar tamaño del formulario
+            int newWidth = Math.Min(desiredWidth, screenRectangle.Width);
+            int newHeight = Math.Min(desiredHeight, screenRectangle.Height);
+
+            this.Size = new Size(newWidth, newHeight);
+
+            // Centrar el formulario en la pantalla
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         private async Task No_Asignado()
         {
@@ -50,74 +69,8 @@ namespace ProyectoOFI.Reportes
         private void PbExcel_Click(object sender, EventArgs e)
         {
             string fe = "Lotes No Asignados " + DateTime.Now.Day + "_" + DateTime.Today.Month + "_" + DateTime.Today.Year + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + DateTime.Now.Second;
-            //DtExcel(DtLotes, fe);
             SaveExcelFile(DtLotes, fe);
         }
-        //private void DtExcel(DataGridView grd, string nombreArchivo)
-        //{
-        //    using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-        //    {
-        //        saveFileDialog.Filter = "Archivos de Excel (*.xlsx)|*.xlsx|Todos los archivos (*.*)|*.*";
-        //        saveFileDialog.FileName = nombreArchivo + ".xlsx";
-
-        //        try
-        //        {
-        //            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-        //            {
-        //                string filePath = saveFileDialog.FileName;
-
-        //                using (var package = new ExcelPackage())
-        //                {
-        //                    var worksheet = package.Workbook.Worksheets.Add("Data");
-
-        //                    // Encabezados de columnas
-        //                    int ic = 1;
-        //                    foreach (DataGridViewColumn column in grd.Columns)
-        //                    {
-        //                        if (column.Visible) // Check if the column is visible
-        //                        {
-        //                            worksheet.Cells[1, ic].Value = column.HeaderText;
-        //                            worksheet.Cells[1, ic].Style.Font.Size = 16;
-        //                            worksheet.Cells[1, ic].Style.Font.Bold = true;
-        //                            ic++;
-        //                        }
-        //                    }
-
-        //                    int IR = 2;
-        //                    foreach (DataGridViewRow row in grd.Rows)
-        //                    {
-        //                        int colIndex = 0;
-        //                        for (int col = 0; col < grd.Columns.Count; col++)
-        //                        {
-        //                            DataGridViewColumn column = grd.Columns[col];
-        //                            if (column.Visible) // Check if the column is visible
-        //                            {
-        //                                worksheet.Cells[IR, colIndex + 1].Value = row.Cells[col].Value?.ToString();
-        //                                colIndex++;
-        //                            }
-        //                        }
-        //                        IR++;
-        //                    }
-
-        //                    // Guardar el archivo
-        //                    package.SaveAs(new FileInfo(filePath));
-        //                }
-
-        //                MessageBox.Show("Datos exportados exitosamente a Excel", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-        //                // Prompt user to open the file
-        //                if (MessageBox.Show("¿Desea abrir el archivo exportado?", "Abrir Archivo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-        //                {
-        //                    System.Diagnostics.Process.Start(filePath);
-        //                }
-        //            }
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show(ex.Message);
-        //        }
-        //    }
-        //}
         private void ExportToExcel(DataGridView dataGridView, string fileName)
         {
             IWorkbook workbook = new XSSFWorkbook();

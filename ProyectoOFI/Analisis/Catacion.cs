@@ -327,12 +327,15 @@ namespace ProyectoOFI.Analisis
                     {
                         FMuestra = DateTime.Parse(dr["Fecha Muestra"].ToString());
                         DTPFechaMuestra.Value = DateTime.Parse(dr["Fecha Muestra"].ToString());
+                        LblFMuestra.Text = dr["Fecha Muestra"].ToString();
                     }
                     else
                     {
                         FMuestra = DateTime.Today;
                         DTPFechaMuestra.Value = DateTime.Today;
+                        LblFMuestra.Text = "--";
                     }
+                    DtFechaCatacion.Value = DateTime.Today;
                     CalculoDias();
                 }
             }
@@ -568,9 +571,9 @@ namespace ProyectoOFI.Analisis
         }
         private void AbrirFormulario()
         {
-           // PLDatos.Size = new Size(1207, 622);
+            // PLDatos.Size = new Size(1207, 622);
             PLDatos.Location = new System.Drawing.Point(dtInventarioCat.Width / 2
-                - PLDatos.Width / 2, dtInventarioCat.Height / 2 - PLDatos.Height / 2);
+                - PLDatos.Width / 2, dtInventarioCat.Height / 2 - PLDatos.Height / 3);
             PLDatos.Visible = true;
             PLDatos.BringToFront();
             plOpciones.Enabled = false;
@@ -578,7 +581,8 @@ namespace ProyectoOFI.Analisis
             TxtAnalisis.Text = LblTicket.Text;
             Dcatacion funcion = new Dcatacion();
             funcion.MostrarVariedad(CbVariedad);
-            if (Proceso != "Almacén" && Proceso != "Analizado")
+            funcion.MostrarGrupoCalidad(CbGrupoCalidad);
+            if (Proceso != "Almacén" && Proceso != "Analizado" && Proceso != "Envio")
             {
                 Activar();
             }
@@ -813,8 +817,8 @@ namespace ProyectoOFI.Analisis
         private void Activar()
         {
             TxtAnalisis.Enabled = true;
-            DtFechaCatacion.Enabled = true;
-            DTPFechaMuestra.Enabled = true;
+            //DtFechaCatacion.Enabled = true;
+            //DTPFechaMuestra.Enabled = true;
             TxtBto.Enabled = true;
             CbVariedad.Enabled = true;
             TxtHumedad.Enabled = true;
@@ -825,6 +829,7 @@ namespace ProyectoOFI.Analisis
             BtnAnalisis.Enabled = true;
             ChbAnalizado.Enabled = true;
             ChbRechazado.Enabled = true;
+            CbGrupoCalidad.Visible = true;
         }
         private void Desactivar()
         {
@@ -842,6 +847,7 @@ namespace ProyectoOFI.Analisis
             BtnAnalisis.Enabled = false;
             ChbAnalizado.Enabled = false;
             ChbRechazado.Enabled = false;
+            CbGrupoCalidad.Visible = false;
         }
         private void InsertarCatacion()
         {
@@ -1254,6 +1260,7 @@ namespace ProyectoOFI.Analisis
                     else
                     {
                         LblGCalidad.Text = "--";
+                        CbGrupoCalidad.Text="--";
                     }
                     if (row["Estado"] != DBNull.Value && row["Estado"].ToString() != null)
                     {

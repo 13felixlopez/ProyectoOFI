@@ -398,7 +398,7 @@ namespace ProyectoOFI.ControlPatio
         private void AbrirFormulario()
         {
             PlControl.Location = new Point(dtInventariocp.Width / 2
-                - PlControl.Width / 2, dtInventariocp.Height / 2 - PlControl.Height / 2);
+                - PlControl.Width / 2, dtInventariocp.Height / 2 - PlControl.Height / 3);
             PlControl.Visible = true;
             PlControl.BringToFront();
             plOpciones.Enabled = false;

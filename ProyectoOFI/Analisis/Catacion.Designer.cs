@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioCat = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.BtnMostrarCompras = new System.Windows.Forms.Button();
@@ -159,6 +159,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label34 = new System.Windows.Forms.Label();
             this.BtnCerrarCambioTK = new System.Windows.Forms.Button();
+            this.CbGrupoCalidad = new System.Windows.Forms.ComboBox();
+            this.LblFMuestra = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioCat)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.plfooter.SuspendLayout();
@@ -182,23 +184,23 @@
             this.dtInventarioCat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioCat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioCat.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dtInventarioCat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioCat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioCat.Location = new System.Drawing.Point(0, 62);
             this.dtInventarioCat.Name = "dtInventarioCat";
             this.dtInventarioCat.ReadOnly = true;
             this.dtInventarioCat.RowHeadersVisible = false;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dtInventarioCat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioCat.ShowCellToolTips = false;
             this.dtInventarioCat.ShowEditingIcon = false;
@@ -447,13 +449,14 @@
             this.PLDatos.Controls.Add(this.PlCerrarDetalle);
             this.PLDatos.Location = new System.Drawing.Point(33, 62);
             this.PLDatos.Name = "PLDatos";
-            this.PLDatos.Size = new System.Drawing.Size(1178, 683);
+            this.PLDatos.Size = new System.Drawing.Size(1178, 425);
             this.PLDatos.TabIndex = 16;
             this.PLDatos.Visible = false;
             // 
             // PlCatacion
             // 
             this.PlCatacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.PlCatacion.Controls.Add(this.CbGrupoCalidad);
             this.PlCatacion.Controls.Add(this.BtnActivar);
             this.PlCatacion.Controls.Add(this.ChbAnalizado);
             this.PlCatacion.Controls.Add(this.ChbRechazado);
@@ -465,6 +468,7 @@
             this.PlCatacion.Controls.Add(this.label5);
             this.PlCatacion.Controls.Add(this.LblDias);
             this.PlCatacion.Controls.Add(this.label8);
+            this.PlCatacion.Controls.Add(this.LblFMuestra);
             this.PlCatacion.Controls.Add(this.LblTotal);
             this.PlCatacion.Controls.Add(this.label7);
             this.PlCatacion.Controls.Add(this.TxtScore);
@@ -502,7 +506,7 @@
             this.PlCatacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlCatacion.Location = new System.Drawing.Point(0, 332);
             this.PlCatacion.Name = "PlCatacion";
-            this.PlCatacion.Size = new System.Drawing.Size(1176, 342);
+            this.PlCatacion.Size = new System.Drawing.Size(1159, 342);
             this.PlCatacion.TabIndex = 17;
             // 
             // BtnActivar
@@ -975,7 +979,7 @@
             this.PlDetalleCompra.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlDetalleCompra.Location = new System.Drawing.Point(0, 145);
             this.PlDetalleCompra.Name = "PlDetalleCompra";
-            this.PlDetalleCompra.Size = new System.Drawing.Size(1176, 187);
+            this.PlDetalleCompra.Size = new System.Drawing.Size(1159, 187);
             this.PlDetalleCompra.TabIndex = 18;
             // 
             // label50
@@ -1304,7 +1308,7 @@
             this.PlDatosTk.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlDatosTk.Location = new System.Drawing.Point(0, 48);
             this.PlDatosTk.Name = "PlDatosTk";
-            this.PlDatosTk.Size = new System.Drawing.Size(1176, 97);
+            this.PlDatosTk.Size = new System.Drawing.Size(1159, 97);
             this.PlDatosTk.TabIndex = 0;
             // 
             // LblProcedencia
@@ -1516,7 +1520,7 @@
             this.PlCerrarDetalle.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlCerrarDetalle.Location = new System.Drawing.Point(0, 0);
             this.PlCerrarDetalle.Name = "PlCerrarDetalle";
-            this.PlCerrarDetalle.Size = new System.Drawing.Size(1176, 48);
+            this.PlCerrarDetalle.Size = new System.Drawing.Size(1159, 48);
             this.PlCerrarDetalle.TabIndex = 3;
             // 
             // BtnCambiarTK
@@ -1525,7 +1529,7 @@
             this.BtnCambiarTK.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnCambiarTK.Enabled = false;
             this.BtnCambiarTK.Image = global::ProyectoOFI.Properties.Resources.icons8_actualizar;
-            this.BtnCambiarTK.Location = new System.Drawing.Point(1022, 0);
+            this.BtnCambiarTK.Location = new System.Drawing.Point(1005, 0);
             this.BtnCambiarTK.Name = "BtnCambiarTK";
             this.BtnCambiarTK.Size = new System.Drawing.Size(75, 44);
             this.BtnCambiarTK.TabIndex = 5;
@@ -1539,7 +1543,7 @@
             this.LblTituloCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTituloCP.Location = new System.Drawing.Point(0, 0);
             this.LblTituloCP.Name = "LblTituloCP";
-            this.LblTituloCP.Size = new System.Drawing.Size(1097, 44);
+            this.LblTituloCP.Size = new System.Drawing.Size(1080, 44);
             this.LblTituloCP.TabIndex = 4;
             this.LblTituloCP.Text = "Editar Análisis";
             this.LblTituloCP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1549,7 +1553,7 @@
             this.BtnCerrarPldatos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnCerrarPldatos.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnCerrarPldatos.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrarPldatos.Location = new System.Drawing.Point(1097, 0);
+            this.BtnCerrarPldatos.Location = new System.Drawing.Point(1080, 0);
             this.BtnCerrarPldatos.Name = "BtnCerrarPldatos";
             this.BtnCerrarPldatos.Size = new System.Drawing.Size(75, 44);
             this.BtnCerrarPldatos.TabIndex = 3;
@@ -1653,6 +1657,24 @@
             this.BtnCerrarCambioTK.TabIndex = 3;
             this.BtnCerrarCambioTK.UseVisualStyleBackColor = true;
             this.BtnCerrarCambioTK.Click += new System.EventHandler(this.BtnCerrarCambioTK_Click);
+            // 
+            // CbGrupoCalidad
+            // 
+            this.CbGrupoCalidad.FormattingEnabled = true;
+            this.CbGrupoCalidad.Location = new System.Drawing.Point(820, 165);
+            this.CbGrupoCalidad.Name = "CbGrupoCalidad";
+            this.CbGrupoCalidad.Size = new System.Drawing.Size(279, 24);
+            this.CbGrupoCalidad.TabIndex = 12;
+            // 
+            // LblFMuestra
+            // 
+            this.LblFMuestra.AutoSize = true;
+            this.LblFMuestra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFMuestra.Location = new System.Drawing.Point(22, 291);
+            this.LblFMuestra.Name = "LblFMuestra";
+            this.LblFMuestra.Size = new System.Drawing.Size(17, 16);
+            this.LblFMuestra.TabIndex = 0;
+            this.LblFMuestra.Text = "--";
             // 
             // Catacion
             // 
@@ -1820,5 +1842,7 @@
         private System.Windows.Forms.Label LblCertificacion;
         private System.Windows.Forms.Label LblTCompra;
         private System.Windows.Forms.Label LblUbicacion;
+        private System.Windows.Forms.ComboBox CbGrupoCalidad;
+        private System.Windows.Forms.Label LblFMuestra;
     }
 }

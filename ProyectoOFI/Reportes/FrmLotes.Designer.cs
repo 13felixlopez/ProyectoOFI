@@ -161,6 +161,7 @@
             this.txtBuscador.Name = "txtBuscador";
             this.txtBuscador.Size = new System.Drawing.Size(199, 26);
             this.txtBuscador.TabIndex = 2;
+            this.txtBuscador.Visible = false;
             // 
             // label1
             // 
@@ -181,6 +182,7 @@
             this.label3.Size = new System.Drawing.Size(70, 20);
             this.label3.TabIndex = 0;
             this.label3.Text = "Buscar:";
+            this.label3.Visible = false;
             // 
             // PlCarga
             // 

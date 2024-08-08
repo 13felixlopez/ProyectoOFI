@@ -238,5 +238,11 @@ namespace ProyectoOFI.Otros
         {
             ObtenerDatos();
         }
+
+        private void BtnGCalidades_Click(object sender, EventArgs e)
+        {
+            FrmGrupoCalidades GC = new FrmGrupoCalidades();
+            GC.ShowDialog();
+        }
     }
 }

@@ -581,7 +581,7 @@ namespace ProyectoOFI.Analisis
             TxtAnalisis.Text = LblTicket.Text;
             Dcatacion funcion = new Dcatacion();
             funcion.MostrarVariedad(CbVariedad);
-            funcion.MostrarGrupoCalidad(CbGrupoCalidad);
+            funcion.MostrarGCalidad(CbGrupoCalidad);
             if (Proceso != "Almacén" && Proceso != "Analizado" && Proceso != "Envio")
             {
                 Activar();

@@ -314,5 +314,15 @@ namespace ProyectoOFI
             };
             PlPrincipal.Controls.Add(dashboard);
         }
+
+        private void BtnConsolidaciones_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            DReporte funcion = new DReporte();
+            funcion.ReporteConsolidados(ref dt);
+            string Nombre = "Lotes Consolidados ";
+            FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
+            LT.ShowDialog();
+        }
     }
 }

@@ -247,6 +247,12 @@
     <Compile Include="Otros\FrmEstFis.Designer.cs">
       <DependentUpon>FrmEstFis.cs</DependentUpon>
     </Compile>
+    <Compile Include="Otros\FrmGrupoCalidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Otros\FrmGrupoCalidades.Designer.cs">
+      <DependentUpon>FrmGrupoCalidades.cs</DependentUpon>
+    </Compile>
     <Compile Include="Otros\FrmOperadorSM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -490,6 +496,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Otros\FrmEstFis.resx">
       <DependentUpon>FrmEstFis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Otros\FrmGrupoCalidades.resx">
+      <DependentUpon>FrmGrupoCalidades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Otros\FrmOperadorSM.resx">
       <DependentUpon>FrmOperadorSM.cs</DependentUpon>
@@ -751,6 +760,7 @@
   <ItemGroup>
     <Content Include="CoffeeTech.sql" />
     <Content Include="Logo.ico" />
+    <None Include="Resources\Union.png" />
     <None Include="Resources\almacen.png" />
     <None Include="Resources\EnvioCF.jpg" />
     <None Include="Resources\Analisis.jpg" />

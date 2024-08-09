@@ -2,8 +2,10 @@
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,6 +26,7 @@ namespace ProyectoOFI.ControlPatio
         int IdTendido, IdEnfarde, IdEnvio;
         int dias, Rechazos;
         int diasEdit;
+        List<string> filtro = new List<string>();
         public CUControlPatio()
         {
             InitializeComponent();
@@ -42,6 +45,7 @@ namespace ProyectoOFI.ControlPatio
             dtInventariocp.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             MostrarLotes();
             ReiniciarPaginado();
+            LlenarCheckBoxList();
             await Task.Delay(1000);
         }
         private void MostrarLotes()
@@ -52,6 +56,17 @@ namespace ProyectoOFI.ControlPatio
             dtInventariocp.DataSource = dt;
             dtInventariocp.Columns["Proceso"].Visible = false;
             Base.DiseñoDtvEliminar(ref dtInventariocp);
+        }
+        private void LlenarCheckBoxList()
+        {
+            // Limpiar el CheckListBox antes de llenarlo
+            CLBFiltros.Items.Clear();
+
+            // Llenar el CheckListBox con los encabezados del DataGridView
+            foreach (DataGridViewColumn column in dtInventariocp.Columns)
+            {
+                CLBFiltros.Items.Add(column.HeaderText);
+            }
         }
         #region Paginado
         private void ReiniciarPaginado()
@@ -397,8 +412,29 @@ namespace ProyectoOFI.ControlPatio
         }
         private void AbrirFormulario()
         {
-            PlControl.Location = new Point(dtInventariocp.Width / 2
-                - PlControl.Width / 2, dtInventariocp.Height / 2 - PlControl.Height / 3);
+            //PlControl.Location = new Point(dtInventariocp.Width / 2
+            //    - PlControl.Width / 2, dtInventariocp.Height / 2 - PlControl.Height / 3);
+            int formWidth = this.ClientSize.Width;
+            int formHeight = this.ClientSize.Height;
+
+            // Verificamos si el panel es más grande que el formulario y ajustamos si es necesario
+            if (PlControl.Width > formWidth)
+            {
+                PlControl.Width = formWidth - 20; // Agregamos un margen
+            }
+
+            if (PlControl.Height > formHeight)
+            {
+                PlControl.Height = formHeight - 20; // Agregamos un margen
+            }
+
+            // Luego calculamos la nueva ubicación centrada
+            int newX = (formWidth - PlControl.Width) / 2;
+            int newY = (formHeight - PlControl.Height) / 2;
+
+            PlControl.Location = new System.Drawing.Point(newX, newY);
+
+
             PlControl.Visible = true;
             PlControl.BringToFront();
             plOpciones.Enabled = false;
@@ -1012,6 +1048,47 @@ namespace ProyectoOFI.ControlPatio
         {
             BuscarFechaCP();
             ReiniciarPaginado();
+        }
+
+        private void PbFiltro_Click(object sender, EventArgs e)
+        {
+            PlFiltros.Location = new Point(dtInventariocp.Width / 2
+                - PlFiltros.Width / 2, dtInventariocp.Height / 2 - PlFiltros.Height / 2);
+            PlFiltros.Visible = true;
+            PlFiltros.BringToFront();
+        }
+
+        private void BtnFiltrar_Click(object sender, EventArgs e)
+        {
+            FiltrarColumnas();
+            PlFiltros.Visible = false;
+        }
+        private void FiltrarColumnas()
+        {
+            foreach (DataGridViewColumn column in dtInventariocp.Columns)
+            {
+                if (filtro.Any(f => column.Name.Contains(f)))
+                {
+                    column.Visible = false;
+                }
+                else
+                {
+                    column.Visible = true;
+                }
+            }
+        }
+
+        private void CLBFiltros_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            string seleccion = CLBFiltros.Items[e.Index].ToString();
+            if (e.NewValue == CheckState.Checked)
+            {
+                filtro.Add(seleccion);
+            }
+            else if (e.NewValue == CheckState.Unchecked)
+            {
+                filtro.Remove(seleccion);
+            }
         }
 
         private bool validarEnvio()

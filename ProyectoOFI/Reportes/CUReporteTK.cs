@@ -176,5 +176,74 @@ namespace ProyectoOFI.Reportes
         {
             PlFiltros.Visible = false;
         }
+
+        private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DRecepcion funcion = new DRecepcion();
+            if (CbBuscar.Text == "Ticket" || CbBuscar.Text == "MTNR" || CbBuscar.Text == "Peso" || CbBuscar.Text == "Ticket Hijo")
+            {
+                CbBuscador.Text = "";
+                PlFiltroFecha.Visible = false;
+                txtBuscador.Visible = true;
+                CbBuscador.Visible = false;
+            }
+            else if (CbBuscar.Text == "Calidad")
+            {
+                TextBuscarVisible();
+                funcion.MostrarCalidad(CbBuscador);
+            }
+            else if (CbBuscar.Text == "Certificación")
+            {
+                TextBuscarVisible();
+                funcion.MostrarCert(CbBuscador);
+            }
+            else if (CbBuscar.Text == "Daño")
+            {
+                TextBuscarVisible();
+                funcion.MostrarDaño(CbBuscador);
+            }
+            else if (CbBuscar.Text == "Tipo Compra")
+            {
+                TextBuscarVisible();
+                funcion.MostrarCompra(CbBuscador);
+            }
+            else if (CbBuscar.Text == "Área Secado")
+            {
+                TextBuscarVisible();
+                funcion.MostrarAreaSecado(CbBuscador);
+            }
+        }
+        private void TextBuscarVisible()
+        {
+            txtBuscador.Clear();
+            txtBuscador.Visible = false;
+            CbBuscador.Visible = true;
+            CbBuscador.DataSource = null;
+            CbBuscador.SelectedIndex = -1;
+            PlFiltroFecha.Visible = false;
+        }
+        private void BuscarDato()
+        {
+            DReporteTK funcion = new DReporteTK();
+            DataTable dt = new DataTable();
+            funcion.BuscarReporteTK(CbBuscador.Text, CbBuscar.Text, ref dt);
+            DtDatos.DataSource = dt;
+        }
+        private void BuscarTK()
+        {
+            DReporteTK funcion = new DReporteTK();
+            DataTable dt = new DataTable();
+            funcion.BuscarReporteTK(txtBuscador.Text, CbBuscar.Text, ref dt);
+            DtDatos.DataSource = dt;
+        }
+        private void CbBuscador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            BuscarDato();
+        }
+
+        private void txtBuscador_TextChanged(object sender, EventArgs e)
+        {
+            BuscarTK();
+        }
     }
 }

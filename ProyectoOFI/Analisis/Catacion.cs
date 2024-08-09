@@ -599,7 +599,7 @@ namespace ProyectoOFI.Analisis
             PLDatos.BringToFront();
             plOpciones.Enabled = false;
             dtInventarioCat.Enabled = false;
-            TxtAnalisis.Text = LblTicket.Text;
+            Analisis();
             Dcatacion funcion = new Dcatacion();
             funcion.MostrarVariedad(CbVariedad);
             funcion.MostrarGCalidad(CbGrupoCalidad);
@@ -613,6 +613,24 @@ namespace ProyectoOFI.Analisis
             }
 
             MostrarCambiarTK();
+        }
+        private void Analisis()
+        {
+            string ticketText = LblTicket.Text;
+
+            // Verifica si el ticket contiene "-Parte1" o "-Parte2"
+            if (ticketText.Contains("-Parte1") || ticketText.Contains("-Parte2"))
+            {
+                // Si lo contiene, extrae solo la parte antes del guion
+                int dashIndex = ticketText.IndexOf("-");
+                TxtAnalisis.Text = ticketText.Substring(0, dashIndex);
+            }
+            else
+            {
+                // Si no lo contiene, muestra el ticket completo
+                TxtAnalisis.Text = ticketText;
+            }
+
         }
         private void ChbRechazado_CheckedChanged(object sender, EventArgs e)
         {

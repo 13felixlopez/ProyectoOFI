@@ -195,6 +195,7 @@
             this.BtnCerrarVerCons = new System.Windows.Forms.Button();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.PlEnvio.SuspendLayout();
             this.PlRecepcion.SuspendLayout();
             this.PlAlerta.SuspendLayout();
@@ -279,9 +280,9 @@
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.Location = new System.Drawing.Point(941, 192);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(46, 17);
+            this.label43.Size = new System.Drawing.Size(57, 17);
             this.label43.TabIndex = 149;
-            this.label43.Text = "Daño";
+            this.label43.Text = "Daño *";
             // 
             // cbEsFisico
             // 
@@ -303,11 +304,11 @@
             // 
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.Location = new System.Drawing.Point(305, 192);
+            this.label44.Location = new System.Drawing.Point(298, 192);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(105, 17);
+            this.label44.Size = new System.Drawing.Size(116, 17);
             this.label44.TabIndex = 145;
-            this.label44.Text = "Estado Fisico";
+            this.label44.Text = "Estado Fisico *";
             // 
             // cbCalidad
             // 
@@ -346,9 +347,9 @@
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.Location = new System.Drawing.Point(681, 118);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(62, 17);
+            this.label18.Size = new System.Drawing.Size(73, 17);
             this.label18.TabIndex = 58;
-            this.label18.Text = "Calidad";
+            this.label18.Text = "Calidad *";
             // 
             // label20
             // 
@@ -356,9 +357,9 @@
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.Location = new System.Drawing.Point(379, 119);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(105, 17);
+            this.label20.Size = new System.Drawing.Size(116, 17);
             this.label20.TabIndex = 59;
-            this.label20.Text = "Estado Fisico";
+            this.label20.Text = "Estado Fisico *";
             // 
             // txtTK
             // 
@@ -384,9 +385,9 @@
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.Location = new System.Drawing.Point(641, 194);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(88, 17);
+            this.label26.Size = new System.Drawing.Size(99, 17);
             this.label26.TabIndex = 74;
-            this.label26.Text = "Peso (Kgs)";
+            this.label26.Text = "Peso (Kgs) *";
             // 
             // label27
             // 
@@ -455,11 +456,11 @@
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(120, 192);
+            this.label37.Location = new System.Drawing.Point(113, 192);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(46, 17);
+            this.label37.Size = new System.Drawing.Size(57, 17);
             this.label37.TabIndex = 71;
-            this.label37.Text = "Daño";
+            this.label37.Text = "Daño *";
             // 
             // label38
             // 
@@ -673,11 +674,11 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(120, 56);
+            this.label17.Location = new System.Drawing.Point(107, 56);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(124, 17);
+            this.label17.Size = new System.Drawing.Size(135, 17);
             this.label17.TabIndex = 77;
-            this.label17.Text = "Ingrese el ticket";
+            this.label17.Text = "Ingrese el ticket *";
             // 
             // LblMerma
             // 
@@ -731,16 +732,17 @@
             this.nudSacos.Name = "nudSacos";
             this.nudSacos.Size = new System.Drawing.Size(91, 22);
             this.nudSacos.TabIndex = 22;
+            this.toolTip1.SetToolTip(this.nudSacos, "La cantidad Sacos tiene que ser mayor a 0");
             // 
             // label32
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(283, 251);
+            this.label32.Location = new System.Drawing.Point(276, 251);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(77, 17);
+            this.label32.Size = new System.Drawing.Size(88, 17);
             this.label32.TabIndex = 64;
-            this.label32.Text = "Recibidor";
+            this.label32.Text = "Recibidor *";
             // 
             // txtKgs
             // 
@@ -760,9 +762,9 @@
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label33.Location = new System.Drawing.Point(449, 195);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(52, 17);
+            this.label33.Size = new System.Drawing.Size(63, 17);
             this.label33.TabIndex = 76;
-            this.label33.Text = "Sacos";
+            this.label33.Text = "Sacos *";
             // 
             // txtMTNR
             // 
@@ -778,9 +780,9 @@
             this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label40.Location = new System.Drawing.Point(745, 56);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(101, 17);
+            this.label40.Size = new System.Drawing.Size(112, 17);
             this.label40.TabIndex = 68;
-            this.label40.Text = "Area Secado";
+            this.label40.Text = "Area Secado *";
             // 
             // PEnvio
             // 
@@ -820,6 +822,7 @@
             this.PEnvio.Name = "PEnvio";
             this.PEnvio.Size = new System.Drawing.Size(1225, 291);
             this.PEnvio.TabIndex = 107;
+            this.toolTip1.SetToolTip(this.PEnvio, "Los campos con * son obligatorios");
             // 
             // LblQQsEn
             // 
@@ -858,11 +861,11 @@
             // label48
             // 
             this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(360, 114);
+            this.label48.Location = new System.Drawing.Point(335, 114);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(70, 48);
+            this.label48.Size = new System.Drawing.Size(95, 48);
             this.label48.TabIndex = 106;
-            this.label48.Text = "Tipo de Compra";
+            this.label48.Text = "Tipo de Compra *";
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label50
@@ -902,7 +905,7 @@
             "Juan Carlos"});
             this.cbCliente.Location = new System.Drawing.Point(71, 126);
             this.cbCliente.Name = "cbCliente";
-            this.cbCliente.Size = new System.Drawing.Size(280, 24);
+            this.cbCliente.Size = new System.Drawing.Size(257, 24);
             this.cbCliente.TabIndex = 3;
             // 
             // label53
@@ -911,9 +914,9 @@
             this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label53.Location = new System.Drawing.Point(642, 192);
             this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(62, 17);
+            this.label53.Size = new System.Drawing.Size(73, 17);
             this.label53.TabIndex = 120;
-            this.label53.Text = "Calidad";
+            this.label53.Text = "Calidad *";
             // 
             // txtMTNT
             // 
@@ -937,6 +940,7 @@
             this.nudSacosE.Name = "nudSacosE";
             this.nudSacosE.Size = new System.Drawing.Size(91, 22);
             this.nudSacosE.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.nudSacosE, "La cantidad de Sacos tiene que ser mayor de 0");
             // 
             // label14
             // 
@@ -954,9 +958,9 @@
             this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label54.Location = new System.Drawing.Point(566, 261);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(96, 20);
+            this.label54.Size = new System.Drawing.Size(108, 20);
             this.label54.TabIndex = 113;
-            this.label54.Text = "Peso (Kgs)";
+            this.label54.Text = "Peso (Kgs) *";
             // 
             // label56
             // 
@@ -972,9 +976,9 @@
             // 
             this.cbCertificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCertificacion.FormattingEnabled = true;
-            this.cbCertificacion.Location = new System.Drawing.Point(103, 188);
+            this.cbCertificacion.Location = new System.Drawing.Point(113, 188);
             this.cbCertificacion.Name = "cbCertificacion";
-            this.cbCertificacion.Size = new System.Drawing.Size(179, 24);
+            this.cbCertificacion.Size = new System.Drawing.Size(169, 24);
             this.cbCertificacion.TabIndex = 7;
             // 
             // label57
@@ -983,9 +987,9 @@
             this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label57.Location = new System.Drawing.Point(2, 192);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(98, 17);
+            this.label57.Size = new System.Drawing.Size(109, 17);
             this.label57.TabIndex = 118;
-            this.label57.Text = "Certificación";
+            this.label57.Text = "Certificación *";
             // 
             // label58
             // 
@@ -993,9 +997,9 @@
             this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label58.Location = new System.Drawing.Point(331, 261);
             this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(59, 20);
+            this.label58.Size = new System.Drawing.Size(71, 20);
             this.label58.TabIndex = 110;
-            this.label58.Text = "Sacos";
+            this.label58.Text = "Sacos *";
             // 
             // TxtTally
             // 
@@ -1624,9 +1628,9 @@
             this.PnConsolidar.Controls.Add(this.PlBuscar);
             this.PnConsolidar.Controls.Add(this.PnTKCons);
             this.PnConsolidar.Controls.Add(this.panel1);
-            this.PnConsolidar.Location = new System.Drawing.Point(1529, 172);
+            this.PnConsolidar.Location = new System.Drawing.Point(1322, 133);
             this.PnConsolidar.Name = "PnConsolidar";
-            this.PnConsolidar.Size = new System.Drawing.Size(345, 169);
+            this.PnConsolidar.Size = new System.Drawing.Size(451, 169);
             this.PnConsolidar.TabIndex = 12;
             this.PnConsolidar.Visible = false;
             // 
@@ -1637,7 +1641,7 @@
             this.PnTickets.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnTickets.Location = new System.Drawing.Point(0, 484);
             this.PnTickets.Name = "PnTickets";
-            this.PnTickets.Size = new System.Drawing.Size(328, 0);
+            this.PnTickets.Size = new System.Drawing.Size(434, 0);
             this.PnTickets.TabIndex = 5;
             // 
             // DtTickets
@@ -1681,7 +1685,7 @@
             this.DtTickets.ReadOnly = true;
             this.DtTickets.RowHeadersVisible = false;
             this.DtTickets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtTickets.Size = new System.Drawing.Size(328, 0);
+            this.DtTickets.Size = new System.Drawing.Size(434, 0);
             this.DtTickets.TabIndex = 0;
             this.DtTickets.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtTickets_CellDoubleClick);
             // 
@@ -1735,7 +1739,7 @@
             this.PlBuscar.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlBuscar.Location = new System.Drawing.Point(0, 439);
             this.PlBuscar.Name = "PlBuscar";
-            this.PlBuscar.Size = new System.Drawing.Size(328, 45);
+            this.PlBuscar.Size = new System.Drawing.Size(434, 45);
             this.PlBuscar.TabIndex = 6;
             // 
             // TxtBuscar
@@ -1774,7 +1778,7 @@
             this.PnTKCons.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnTKCons.Location = new System.Drawing.Point(0, 62);
             this.PnTKCons.Name = "PnTKCons";
-            this.PnTKCons.Size = new System.Drawing.Size(328, 377);
+            this.PnTKCons.Size = new System.Drawing.Size(434, 377);
             this.PnTKCons.TabIndex = 4;
             // 
             // dtTKCons
@@ -1809,7 +1813,7 @@
             this.dtTKCons.ReadOnly = true;
             this.dtTKCons.RowHeadersVisible = false;
             this.dtTKCons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtTKCons.Size = new System.Drawing.Size(328, 377);
+            this.dtTKCons.Size = new System.Drawing.Size(434, 377);
             this.dtTKCons.TabIndex = 0;
             this.dtTKCons.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTKCons_CellDoubleClick);
             // 
@@ -1836,16 +1840,17 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(328, 62);
+            this.panel1.Size = new System.Drawing.Size(434, 62);
             this.panel1.TabIndex = 3;
             // 
             // LblTextsacos
             // 
             this.LblTextsacos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LblTextsacos.AutoSize = true;
             this.LblTextsacos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTextsacos.Location = new System.Drawing.Point(351, 12);
+            this.LblTextsacos.Location = new System.Drawing.Point(310, 5);
             this.LblTextsacos.Name = "LblTextsacos";
-            this.LblTextsacos.Size = new System.Drawing.Size(77, 47);
+            this.LblTextsacos.Size = new System.Drawing.Size(102, 16);
             this.LblTextsacos.TabIndex = 141;
             this.LblTextsacos.Text = "Total de Sacos:";
             this.LblTextsacos.Visible = false;
@@ -1855,7 +1860,7 @@
             this.LblSacosSM.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LblSacosSM.AutoSize = true;
             this.LblSacosSM.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblSacosSM.Location = new System.Drawing.Point(429, 21);
+            this.LblSacosSM.Location = new System.Drawing.Point(310, 29);
             this.LblSacosSM.Name = "LblSacosSM";
             this.LblSacosSM.Size = new System.Drawing.Size(23, 16);
             this.LblSacosSM.TabIndex = 142;
@@ -1867,9 +1872,9 @@
             this.CbCertCons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.CbCertCons.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbCertCons.FormattingEnabled = true;
-            this.CbCertCons.Location = new System.Drawing.Point(1212, 16);
+            this.CbCertCons.Location = new System.Drawing.Point(854, 25);
             this.CbCertCons.Name = "CbCertCons";
-            this.CbCertCons.Size = new System.Drawing.Size(198, 24);
+            this.CbCertCons.Size = new System.Drawing.Size(120, 24);
             this.CbCertCons.TabIndex = 139;
             // 
             // label15
@@ -1877,7 +1882,7 @@
             this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(1120, 20);
+            this.label15.Location = new System.Drawing.Point(851, 6);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(80, 16);
             this.label15.TabIndex = 138;
@@ -1889,7 +1894,7 @@
             this.CbAreaCons.Enabled = false;
             this.CbAreaCons.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbAreaCons.FormattingEnabled = true;
-            this.CbAreaCons.Location = new System.Drawing.Point(945, 16);
+            this.CbAreaCons.Location = new System.Drawing.Point(677, 25);
             this.CbAreaCons.Name = "CbAreaCons";
             this.CbAreaCons.Size = new System.Drawing.Size(155, 24);
             this.CbAreaCons.TabIndex = 29;
@@ -1903,7 +1908,7 @@
             this.BtnConsolidar.FlatAppearance.BorderSize = 2;
             this.BtnConsolidar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnConsolidar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnConsolidar.Location = new System.Drawing.Point(118, 0);
+            this.BtnConsolidar.Location = new System.Drawing.Point(224, 0);
             this.BtnConsolidar.Name = "BtnConsolidar";
             this.BtnConsolidar.Size = new System.Drawing.Size(104, 62);
             this.BtnConsolidar.TabIndex = 25;
@@ -1925,10 +1930,11 @@
             // LblTextAreaCons
             // 
             this.LblTextAreaCons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LblTextAreaCons.AutoSize = true;
             this.LblTextAreaCons.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTextAreaCons.Location = new System.Drawing.Point(869, 12);
+            this.LblTextAreaCons.Location = new System.Drawing.Point(674, 6);
             this.LblTextAreaCons.Name = "LblTextAreaCons";
-            this.LblTextAreaCons.Size = new System.Drawing.Size(65, 40);
+            this.LblTextAreaCons.Size = new System.Drawing.Size(109, 16);
             this.LblTextAreaCons.TabIndex = 26;
             this.LblTextAreaCons.Text = "Área de Secado:";
             // 
@@ -1938,7 +1944,7 @@
             this.TxtFolio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtFolio.Enabled = false;
             this.TxtFolio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtFolio.Location = new System.Drawing.Point(715, 18);
+            this.TxtFolio.Location = new System.Drawing.Point(527, 27);
             this.TxtFolio.Name = "TxtFolio";
             this.TxtFolio.Size = new System.Drawing.Size(108, 22);
             this.TxtFolio.TabIndex = 28;
@@ -1949,7 +1955,7 @@
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(242, 21);
+            this.label10.Location = new System.Drawing.Point(242, 6);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(49, 16);
             this.label10.TabIndex = 20;
@@ -1958,10 +1964,11 @@
             // label12
             // 
             this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(663, 11);
+            this.label12.Location = new System.Drawing.Point(528, 5);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(48, 34);
+            this.label12.Size = new System.Drawing.Size(76, 16);
             this.label12.TabIndex = 27;
             this.label12.Text = "N° de Folio:";
             // 
@@ -1970,7 +1977,7 @@
             this.LblTotalSacos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LblTotalSacos.AutoSize = true;
             this.LblTotalSacos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTotalSacos.Location = new System.Drawing.Point(297, 21);
+            this.LblTotalSacos.Location = new System.Drawing.Point(244, 29);
             this.LblTotalSacos.Name = "LblTotalSacos";
             this.LblTotalSacos.Size = new System.Drawing.Size(23, 16);
             this.LblTotalSacos.TabIndex = 21;
@@ -1979,10 +1986,11 @@
             // label11
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(524, 11);
+            this.label11.Location = new System.Drawing.Point(415, 5);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(48, 37);
+            this.label11.Size = new System.Drawing.Size(76, 16);
             this.label11.TabIndex = 18;
             this.label11.Text = "Peso (Kgs):";
             // 
@@ -1991,7 +1999,7 @@
             this.LblTotalPeso.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LblTotalPeso.AutoSize = true;
             this.LblTotalPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTotalPeso.Location = new System.Drawing.Point(578, 21);
+            this.LblTotalPeso.Location = new System.Drawing.Point(418, 29);
             this.LblTotalPeso.Name = "LblTotalPeso";
             this.LblTotalPeso.Size = new System.Drawing.Size(23, 16);
             this.LblTotalPeso.TabIndex = 19;
@@ -2011,7 +2019,7 @@
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(222, 0);
+            this.panel2.Location = new System.Drawing.Point(328, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 62);
             this.panel2.TabIndex = 140;
@@ -2024,7 +2032,7 @@
             this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCancelar.ForeColor = System.Drawing.Color.White;
-            this.BtnCancelar.Location = new System.Drawing.Point(232, 0);
+            this.BtnCancelar.Location = new System.Drawing.Point(338, 0);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(96, 62);
             this.BtnCancelar.TabIndex = 24;
@@ -2456,5 +2464,6 @@
         private System.Windows.Forms.Label LblTextsacos;
         private System.Windows.Forms.Label LblSacosSM;
         private System.Windows.Forms.Label LblCosecha;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -446,6 +446,7 @@ namespace ProyectoOFI.ControlPatio
             {
                 PlDatos.BackColor = Color.FromArgb(192, 255, 255);
             }
+            dtInventariocp.Enabled = false;
             DControlPatio Ten = new DControlPatio();
             Ten.MostrarPatio(CbPatio);
             //Ten.MostrarPatioUbicacion(CbUbicacionP,(int)CbPatio.SelectedValue);
@@ -523,6 +524,7 @@ namespace ProyectoOFI.ControlPatio
             TxtDNIN.Clear();
             CbEstFis.Text = "--";
             LblDigiEnvio.Text = "--";
+            dtInventariocp.Enabled = true;
         }
         private void BtnCerrarDetalleCp_Click(object sender, EventArgs e)
         {

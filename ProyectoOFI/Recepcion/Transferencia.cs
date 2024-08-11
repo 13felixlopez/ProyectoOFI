@@ -80,6 +80,7 @@ namespace ProyectoOFI.Recepcion
             PnGuardar.Visible = true;
             BtnEditar.Visible = false;
             LblDigitador.Text = Login.NombreA;
+            dtInventario.Enabled = false;
         }
         private void AbrirFormulario()
         {
@@ -89,6 +90,7 @@ namespace ProyectoOFI.Recepcion
             PlRecepcion.BringToFront();
             plOpciones.Enabled = false;
             PEnvio.Dock = DockStyle.Fill;
+            dtInventario.Enabled = false;
             DRecepcion funcion=new DRecepcion();
             funcion.Cosecha(LblCosecha);
             AdjustPanelInfoSizeAndPosition();
@@ -143,6 +145,7 @@ namespace ProyectoOFI.Recepcion
             nudSacosE.Enabled = true;
             txtPesoE.Enabled = true;
             txtKgs.Enabled = true;
+            dtInventario.Enabled = true;
         }
         private void btnSig_Click(object sender, EventArgs e)
         {
@@ -369,6 +372,7 @@ namespace ProyectoOFI.Recepcion
                     dtInventario.DataSource = dt;
                     //PlRecepcion.Visible = false;
                     PRecepcion.Visible = false;
+                    dtInventario.Enabled = true;
                     Alerta();
                     Limpiar();
                 }
@@ -1208,6 +1212,7 @@ namespace ProyectoOFI.Recepcion
                                 PEnvio.Visible = true;
                                 Limpiar();
                                 txtTK.Enabled = true;
+                                dtInventario.Enabled = true;
                             }
                         }
                         else
@@ -1615,7 +1620,7 @@ namespace ProyectoOFI.Recepcion
             funcion.MostrarDaño(cbDanioE);
             funcion.MostrarDaño(cbDaño);
             funcion.MostrarAreaSecado2(cbArea);
-            funcion.MostrarAreaSecado(CbAreaCons);
+            funcion.MostrarAreaSecado2(CbAreaCons);
         }
         private void BtnVerCons_Click(object sender, EventArgs e)
         {
@@ -1646,8 +1651,31 @@ namespace ProyectoOFI.Recepcion
         }
         private void AbrirVerCons(Panel Pl)
         {
-            Pl.Location = new Point(dtInventario.Width / 2
-                - Pl.Width / 2, dtInventario.Height / 2 - Pl.Height / 2);
+            //Pl.Location = new Point(dtInventario.Width / 2
+            //    - Pl.Width / 2, dtInventario.Height / 2 - Pl.Height / 2);
+            //Pl.Visible = true;
+            //Pl.BringToFront();
+            //plOpciones.Enabled = false;
+            //PEnvio.Dock = DockStyle.Fill;
+            int formWidth = this.ClientSize.Width;
+            int formHeight = this.ClientSize.Height;
+
+            // Verificamos si el panel es más grande que el formulario y ajustamos si es necesario
+            if (Pl.Width > formWidth)
+            {
+                Pl.Width = formWidth - 20; // Agregamos un margen
+            }
+
+            if (Pl.Height > formHeight)
+            {
+                Pl.Height = formHeight - 20; // Agregamos un margen
+            }
+
+            // Luego calculamos la nueva ubicación centrada
+            int newX = (formWidth - Pl.Width) / 2;
+            int newY = (formHeight - Pl.Height) / 2;
+
+            Pl.Location = new System.Drawing.Point(newX, newY);
             Pl.Visible = true;
             Pl.BringToFront();
             plOpciones.Enabled = false;

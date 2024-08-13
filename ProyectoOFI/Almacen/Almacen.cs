@@ -1,5 +1,6 @@
 ﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
+using ProyectoOFI.Reportes;
 using System;
 using System.Data;
 using System.Drawing;
@@ -662,6 +663,17 @@ namespace ProyectoOFI.Almacen
             Activar();
             BtnGuardar.Visible = true;
         }
+
+        private void PbExcel_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            DAlmacen funcion= new DAlmacen();
+            funcion.ExcelAlmacen(ref dt);
+            string Nombre = "Inventario Almacén";
+            FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
+            LT.ShowDialog();
+        }
+
         private void dtInventarioAlm_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             // Verificar si la columna actual es la columna "Proceso"

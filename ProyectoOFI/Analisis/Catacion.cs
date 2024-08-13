@@ -740,51 +740,55 @@ namespace ProyectoOFI.Analisis
         {
             if (Validar())
             {
-                LCatacion parametros = new LCatacion();
-                Dcatacion funcion = new Dcatacion();
-                parametros.Ticket = LblTKCD.Text;
-                parametros.Origen = "Compra Directa";
-                parametros.Analisis = TxtAnalisis.Text;
-                parametros.FechaMuestra = DTPFechaMuestra.Value;
-                parametros.FechaCatacion = DateTime.Today;
-                parametros.Dias = int.Parse(LblDias.Text);
-                parametros.RmtoObto = TxtBto.Text;
-                parametros.Cascarilla = LblCascarilla.Text;
-                parametros.TotalPS = LblTotal.Text;
-                parametros.IdVariedad = (int)CbVariedad.SelectedValue;
-                parametros.Humedad = TxtHumedad.Text;
-                parametros.Exp = double.Parse(TxtExp.Text);
-                parametros.DesmA = double.Parse(TxtDesmA.Text);
-                parametros.DesmD = double.Parse(TxtDesmD.Text);
-                parametros.DesmC = double.Parse(LblDesmC.Text);
-                parametros.Score = int.Parse(TxtScore.Text);
-                parametros.Tasa = LblTasa.Text;
-                parametros.GradoCalidad = LblGCalidad.Text;
-                parametros.ExpP = LblExpP.Text;
-                parametros.DesmAP = LblDesmAP.Text;
-                parametros.DesmCP = LblDesmCP.Text;
-                parametros.DesmDP = LblDesmDP.Text;
-                parametros.Digitador = Login.NombreA;
-                if (ChbRechazado.Checked == true)
+                if (DtFechaCatacion.Value.Date < DateTime.Today.Date)
                 {
-                    parametros.Estado = "0";
-                }
-                else if (ChbAnalizado.Checked == true)
-                {
-                    parametros.Estado = "1";
-                }
-                else
-                {
-                    parametros.Estado = "1";
-                }
-                if (funcion.InsertarCatacionCD(parametros) == true)
-                {
-                    PLDatos.Visible = false;
-                    Limpiar();
-                }
-                else
-                {
-                    MessageBox.Show("Error en los datos", "Error en interfaz", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    LCatacion parametros = new LCatacion();
+                    Dcatacion funcion = new Dcatacion();
+                    parametros.Ticket = LblTKCD.Text;
+                    parametros.Origen = "Compra Directa";
+                    parametros.Analisis = TxtAnalisis.Text;
+                    parametros.FechaMuestra = DTPFechaMuestra.Value;
+                    parametros.FechaCatacion = DateTime.Today;
+                    parametros.Dias = int.Parse(LblDias.Text);
+                    parametros.RmtoObto = TxtBto.Text;
+                    parametros.Cascarilla = LblCascarilla.Text;
+                    parametros.TotalPS = LblTotal.Text;
+                    parametros.IdVariedad = (int)CbVariedad.SelectedValue;
+                    parametros.Humedad = TxtHumedad.Text;
+                    parametros.Exp = double.Parse(TxtExp.Text);
+                    parametros.DesmA = double.Parse(TxtDesmA.Text);
+                    parametros.DesmD = double.Parse(TxtDesmD.Text);
+                    parametros.DesmC = double.Parse(LblDesmC.Text);
+                    parametros.Score = int.Parse(TxtScore.Text);
+                    parametros.Tasa = LblTasa.Text;
+                    parametros.GradoCalidad = LblGCalidad.Text;
+                    parametros.ExpP = LblExpP.Text;
+                    parametros.DesmAP = LblDesmAP.Text;
+                    parametros.DesmCP = LblDesmCP.Text;
+                    parametros.DesmDP = LblDesmDP.Text;
+                    parametros.Digitador = Login.NombreA;
+                    if (ChbRechazado.Checked == true)
+                    {
+                        parametros.Estado = "0";
+                    }
+                    else if (ChbAnalizado.Checked == true)
+                    {
+                        parametros.Estado = "1";
+                    }
+                    else
+                    {
+                        parametros.Estado = "1";
+                    }
+                    if (funcion.InsertarCatacionCD(parametros) == true)
+                    {
+                        PLDatos.Visible = false;
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error en los datos", "Error en interfaz", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -892,7 +896,7 @@ namespace ProyectoOFI.Analisis
         {
             if (Validar())
             {
-                if (DtFechaCatacion.Value < DateTime.Today)
+                if (DtFechaCatacion.Value.Date < DateTime.Today.Date)
                 {
                     LCatacion parametros = new LCatacion();
                     Dcatacion funcion = new Dcatacion();
@@ -1021,7 +1025,7 @@ namespace ProyectoOFI.Analisis
         {
             if (Validar())
             {
-                if (DtFechaCatacion.Value < DateTime.Today)
+                if (DtFechaCatacion.Value.Date < DateTime.Today.Date)
                 {
                     LCatacion parametros = new LCatacion();
                     Dcatacion funcion = new Dcatacion();
@@ -1299,7 +1303,7 @@ namespace ProyectoOFI.Analisis
                     else
                     {
                         LblGCalidad.Text = "--";
-                        CbGrupoCalidad.Text="--";
+                        CbGrupoCalidad.Text = "--";
                     }
                     if (row["Estado"] != DBNull.Value && row["Estado"].ToString() != null)
                     {

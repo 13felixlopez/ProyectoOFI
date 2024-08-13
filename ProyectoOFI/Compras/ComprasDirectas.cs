@@ -81,31 +81,34 @@ namespace ProyectoOFI.Compras
             {
                 if (Validar())
                 {
-                    DCompraD funcion = new DCompraD();
-                    LComprasD parametros = new LComprasD();
-                    parametros.Cosecha = TxtConsecha.Text;
-                    parametros.Fecha = DTPFecha.Value;
-                    parametros.Ticket = TxtTicket.Text;
-                    parametros.Remision = TxtRem.Text;
-                    parametros.Proveedor = CbProveedor.Text;
-                    parametros.KgsRem = double.Parse(TxtKgsRem.Text);
-                    parametros.Tally = TxtTally.Text;
-                    parametros.IdEmpaque = (int)CbTipoEmpaque.SelectedValue;
-                    parametros.Sacos = int.Parse(NudSacos.Text);
-                    parametros.Kilos = double.Parse(TxtPeso.Text);
-                    parametros.Diferencia = double.Parse(LblDiferencia.Text);
-                    parametros.IdBodega = (int)CbBodega.SelectedValue;
-                    parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
-                    parametros.IdCompra = (int)cbCompra.SelectedValue;
-                    parametros.IdCertificacion = (int)cbCertificacion.SelectedValue;
-                    parametros.Estado = "S/A";
-                    if (funcion.InsertarCompraDirecta(parametros) == true)
+                    if (DTPFecha.Value.Date < DateTime.Today.Date)
                     {
-                        MostrarComprasD();
-                        Limpiar();
-                        PLDatos.Visible = false;
-                        dtInventarioCompras.Enabled = true;
-                        plOpciones.Enabled = true;
+                        DCompraD funcion = new DCompraD();
+                        LComprasD parametros = new LComprasD();
+                        parametros.Cosecha = TxtConsecha.Text;
+                        parametros.Fecha = DTPFecha.Value;
+                        parametros.Ticket = TxtTicket.Text;
+                        parametros.Remision = TxtRem.Text;
+                        parametros.Proveedor = CbProveedor.Text;
+                        parametros.KgsRem = double.Parse(TxtKgsRem.Text);
+                        parametros.Tally = TxtTally.Text;
+                        parametros.IdEmpaque = (int)CbTipoEmpaque.SelectedValue;
+                        parametros.Sacos = int.Parse(NudSacos.Text);
+                        parametros.Kilos = double.Parse(TxtPeso.Text);
+                        parametros.Diferencia = double.Parse(LblDiferencia.Text);
+                        parametros.IdBodega = (int)CbBodega.SelectedValue;
+                        parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
+                        parametros.IdCompra = (int)cbCompra.SelectedValue;
+                        parametros.IdCertificacion = (int)cbCertificacion.SelectedValue;
+                        parametros.Estado = "S/A";
+                        if (funcion.InsertarCompraDirecta(parametros) == true)
+                        {
+                            MostrarComprasD();
+                            Limpiar();
+                            PLDatos.Visible = false;
+                            dtInventarioCompras.Enabled = true;
+                            plOpciones.Enabled = true;
+                        }
                     }
                 }
             }
@@ -121,31 +124,34 @@ namespace ProyectoOFI.Compras
             {
                 if (Validar())
                 {
-                    DCompraD funcion = new DCompraD();
-                    LComprasD parametros = new LComprasD();
-                    parametros.Cosecha = TxtConsecha.Text;
-                    parametros.Fecha = DTPFecha.Value;
-                    parametros.Ticket = TxtTicket.Text;
-                    parametros.Remision = TxtRem.Text;
-                    parametros.Proveedor = CbProveedor.Text;
-                    parametros.KgsRem = double.Parse(TxtKgsRem.Text);
-                    parametros.Tally = TxtTally.Text;
-                    parametros.IdEmpaque = (int)CbTipoEmpaque.SelectedValue;
-                    parametros.Sacos = int.Parse(NudSacos.Text);
-                    parametros.Kilos = double.Parse(TxtPeso.Text);
-                    parametros.Diferencia = double.Parse(LblDiferencia.Text);
-                    parametros.IdBodega = (int)CbBodega.SelectedValue;
-                    parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
-                    parametros.IdCompra = (int)cbCompra.SelectedValue;
-                    parametros.IdCertificacion = (int)cbCertificacion.SelectedValue;
-                    parametros.Estado = Estado;
-                    if (funcion.EditarCompraDirecta(parametros, Ticket) == true)
+                    if (DTPFecha.Value.Date < DateTime.Today.Date)
                     {
-                        MostrarComprasD();
-                        Limpiar();
-                        PLDatos.Visible = false;
-                        dtInventarioCompras.Enabled = true;
-                        plOpciones.Enabled = true;
+                        DCompraD funcion = new DCompraD();
+                        LComprasD parametros = new LComprasD();
+                        parametros.Cosecha = TxtConsecha.Text;
+                        parametros.Fecha = DTPFecha.Value;
+                        parametros.Ticket = TxtTicket.Text;
+                        parametros.Remision = TxtRem.Text;
+                        parametros.Proveedor = CbProveedor.Text;
+                        parametros.KgsRem = double.Parse(TxtKgsRem.Text);
+                        parametros.Tally = TxtTally.Text;
+                        parametros.IdEmpaque = (int)CbTipoEmpaque.SelectedValue;
+                        parametros.Sacos = int.Parse(NudSacos.Text);
+                        parametros.Kilos = double.Parse(TxtPeso.Text);
+                        parametros.Diferencia = double.Parse(LblDiferencia.Text);
+                        parametros.IdBodega = (int)CbBodega.SelectedValue;
+                        parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
+                        parametros.IdCompra = (int)cbCompra.SelectedValue;
+                        parametros.IdCertificacion = (int)cbCertificacion.SelectedValue;
+                        parametros.Estado = Estado;
+                        if (funcion.EditarCompraDirecta(parametros, Ticket) == true)
+                        {
+                            MostrarComprasD();
+                            Limpiar();
+                            PLDatos.Visible = false;
+                            dtInventarioCompras.Enabled = true;
+                            plOpciones.Enabled = true;
+                        }
                     }
                 }
             }
@@ -665,7 +671,7 @@ namespace ProyectoOFI.Compras
                 {
                     BtnActivar.Enabled = true;
                 }
-                if (Modulo== "Elminar CompraDirecta")
+                if (Modulo == "Elminar CompraDirecta")
                 {
                     dtInventarioCompras.Columns["Eliminar"].Visible = true;
                 }

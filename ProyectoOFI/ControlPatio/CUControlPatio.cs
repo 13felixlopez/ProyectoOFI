@@ -552,7 +552,7 @@ namespace ProyectoOFI.ControlPatio
         {
             if (validar())
             {
-                if (DTPFechaTendido.Value < DateTime.Today)
+                if (DTPFechaTendido.Value.Date <= DateTime.Today.Date)
                 {
                     LControlPatio parametros = new LControlPatio();
                     DControlPatio funcion = new DControlPatio();
@@ -581,7 +581,7 @@ namespace ProyectoOFI.ControlPatio
         {
             if (validar())
             {
-                if (DTPFechaTendido.Value < DateTime.Today)
+                if (DTPFechaTendido.Value.Date <= DateTime.Today.Date)
                 {
                     if (edit < 3 || Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
                     {
@@ -618,15 +618,17 @@ namespace ProyectoOFI.ControlPatio
             if (BtnTendido.Text == "Tendido")
             {
                 InsertarTendido();
+                Limpiar();
             }
             else
             {
                 EditarTendido();
                 PlTendido.Enabled = false;
                 BtnTendido.Text = "Tendido";
+                Limpiar();
             }
             plOpciones.Enabled = true;
-            Limpiar();
+            //Limpiar();
         }
         private void CbPatio_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -700,7 +702,7 @@ namespace ProyectoOFI.ControlPatio
         {
             if (validarEnfarde())
             {
-                if (DTPEnfarde.Value < DateTime.Today)
+                if (DTPEnfarde.Value.Date <= DateTime.Today.Date)
                 {
                     LControlPatio parametros = new LControlPatio();
                     DControlPatio funcion = new DControlPatio();
@@ -866,7 +868,7 @@ namespace ProyectoOFI.ControlPatio
             {
                 if (editenf < 3 || Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
                 {
-                    if (DTPEnfarde.Value < DateTime.Today)
+                    if (DTPEnfarde.Value.Date <= DateTime.Today.Date)
                     {
                         LControlPatio parametros = new LControlPatio();
                         DControlPatio funcion = new DControlPatio();
@@ -1017,7 +1019,7 @@ namespace ProyectoOFI.ControlPatio
         {
             if (validarEnvio())
             {
-                if (DTEnvio.Value < DateTime.Today)
+                if (DTEnvio.Value.Date <= DateTime.Today.Date)
                 {
                     LControlPatio parametros = new LControlPatio();
                     DControlPatio funcion = new DControlPatio();
@@ -1172,7 +1174,7 @@ namespace ProyectoOFI.ControlPatio
         {
             if (validarEnvio())
             {
-                if (DTEnvio.Value < DateTime.Today)
+                if (DTEnvio.Value.Date <= DateTime.Today.Date)
                 {
                     LControlPatio parametros = new LControlPatio();
                     DControlPatio funcion = new DControlPatio();

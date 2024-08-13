@@ -31,6 +31,25 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public void ExcelAlmacen(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("ExcelAlmacen", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar datos de Excel de Almacén" + ex.Message, "Error en datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al cargar datos en ExcelAlmacen ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
         public void ContarTK(ref int contador)
         {
             try
@@ -286,7 +305,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void MostrarTaraSaco( int IdEmpaque)
+        public void MostrarTaraSaco(int IdEmpaque)
         {
             try
             {
@@ -319,7 +338,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void DetalleAlmacen(ref DataTable dt,string TK)
+        public void DetalleAlmacen(ref DataTable dt, string TK)
         {
             try
             {

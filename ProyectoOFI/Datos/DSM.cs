@@ -353,36 +353,48 @@ namespace ProyectoOFI.Datos
                 da.SelectCommand.Parameters.AddWithValue("@Ticket", ticket);
                 da.Fill(dt);
 
+                //if (dt.Rows.Count == 2)
+                //{
+                //    foreach (DataRow dr in dt.Rows)
+                //    {
+                //        string resultado = dr["POA"].ToString();
+                //        if (resultado.EndsWith("-Parte1"))
+                //        {
+                //            LblG1.Text = resultado;
+                //        }
+                //        else if (resultado.EndsWith("-Parte2"))
+                //        {
+                //            LblG2.Text = resultado;
+                //        }
+                //    }
+                //}
+                //else if (dt.Rows.Count == 1)
+                //{
+                //    DataRow dr = dt.Rows[0];
+                //    string resultado = dr["POA"].ToString();
+                //    if (resultado.EndsWith("-Parte1"))
+                //    {
+                //        LblG1.Text = resultado;
+                //    }
+                //    else if (resultado.EndsWith("-Parte2"))
+                //    {
+                //        LblG2.Text = resultado;
+                //    }
+                //    LblG1.Text = resultado;
+                //    // Si solo hay un resultado, el otro Label quedará sin cambio
+                //}
                 if (dt.Rows.Count == 2)
                 {
-                    foreach (DataRow dr in dt.Rows)
-                    {
-                        string resultado = dr["POA"].ToString();
-                        if (resultado.EndsWith("-Parte1"))
-                        {
-                            LblG1.Text = resultado;
-                        }
-                        else if (resultado.EndsWith("-Parte2"))
-                        {
-                            LblG2.Text = resultado;
-                        }
-                    }
+                    // Asigna los dos tickets a los labels, sin importar la terminación
+                    LblG1.Text = dt.Rows[0]["POA"].ToString();
+                    LblG2.Text = dt.Rows[1]["POA"].ToString();
                 }
                 else if (dt.Rows.Count == 1)
                 {
-                    DataRow dr = dt.Rows[0];
-                    string resultado = dr["POA"].ToString();
-                    if (resultado.EndsWith("-Parte1"))
-                    {
-                        LblG1.Text = resultado;
-                    }
-                    else if (resultado.EndsWith("-Parte2"))
-                    {
-                        LblG2.Text = resultado;
-                    }
-                    LblG1.Text = resultado;
-                    // Si solo hay un resultado, el otro Label quedará sin cambio
+                    LblG1.Text = dt.Rows[0]["POA"].ToString();
+                    LblG2.Text = "";  // Limpia LblG2
                 }
+
             }
             catch (Exception ex)
             {

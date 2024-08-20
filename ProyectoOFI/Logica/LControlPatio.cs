@@ -23,5 +23,8 @@ namespace ProyectoOFI.Logica
         public int IdAreaSecado { get; set; }
         public string ProcesoCP { get; set; }
         public int Rechazos { get; set; }
+        public DateTime ReTendido { get; set; }
+        public DateTime FReEnfarde { get; set; }
+        public int DTotal { get; set; }
     }
 }

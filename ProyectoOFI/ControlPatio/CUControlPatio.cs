@@ -1,4 +1,5 @@
-﻿using ProyectoOFI.Datos;
+﻿using OfficeOpenXml;
+using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
 using System;
@@ -258,16 +259,16 @@ namespace ProyectoOFI.ControlPatio
                 PlEnfarde.Visible = true;
                 if (Proceso == "Tendido")
                 {
-                    VerTendidio();
+                    VerTendido();
                 }
                 else if (Proceso == "Enfarde" || Proceso == "Analizado")
                 {
-                    VerTendidio();
+                    VerTendido();
                     VerEnfarde();
                 }
                 else if (Proceso == "Envio" || Proceso == "Envio SM")
                 {
-                    VerTendidio();
+                    VerTendido();
                     VerEnfarde();
                     VerEnvioCp();
                 }
@@ -291,6 +292,7 @@ namespace ProyectoOFI.ControlPatio
                 //Tendido
                 PlTendido.Enabled = true;
                 PlTendido.Visible = true;
+                DtpRetendido.Value = DTPFechaTendido.Value;
             }
             if (Proceso == "Tendido")
             {
@@ -305,7 +307,34 @@ namespace ProyectoOFI.ControlPatio
                 TSLEnfarde.Enabled = true;
                 PlEnfarde.Visible = true;
                 PlEnfarde.Enabled = true;
-                VerTendidio();
+                VerTendido();
+                if (Rechazos != 0)
+                {
+                    VerEnfarde();
+                    DTPEnfarde.Enabled = false;
+                    BtnEnvSM.Visible = true;
+                    DtpReEnfarde.Enabled = true;
+                    BtnEnfarde.Text = "ReEnfarde";
+                }
+                //Validar que las fechas de tendido no sean iguales para mostrar el ReTendido
+                if (DtpRetendido.Value == DTPFechaTendido.Value)
+                {
+                    DtpRetendido.Visible = false;
+                    LblFReTendido.Visible = false;
+                    LblFechaReEnfarde.Visible = false;
+                    DtpReEnfarde.Visible = false;
+                    LblDtotal.Visible = false;
+                    LblDTS.Visible = false;
+                }
+                else
+                {
+                    DtpRetendido.Visible = true;
+                    LblFReTendido.Visible = true;
+                    LblFechaReEnfarde.Visible = true;
+                    DtpReEnfarde.Visible = true;
+                    LblDtotal.Visible = true;
+                    LblDTS.Visible = true;
+                }
             }
             else if (Proceso == "Enfarde" || Proceso == "Analizado" || Estado == "Tendido/Rechazado")
             {
@@ -327,23 +356,55 @@ namespace ProyectoOFI.ControlPatio
                 }
                 else if (Estado == "Tendido/Rechazado")
                 {
+                    PlTendido.Enabled = true;
                     LblMsj.Text = "Rechazado por humedad";
                     LblMsj.Visible = true;
-                    BtnEnfarde.Text = "Re-Enfarde";
-                    PlEnfarde.Enabled = true;
+                    BtnTendido.Text = "ReTendido";
+                    LblFReTendido.Visible = true;
+                    DtpRetendido.Visible = true;
+                    DTPFechaTendido.Enabled = false;
+                    LblFechaReEnfarde.Visible = false;
+                    DtpReEnfarde.Visible = false;
+                    LblDtotal.Visible = false;
+                    LblDTS.Visible = false;
+                    //PlEnfarde.Enabled = true;
                 }
-                VerTendidio();
+                VerTendido();
                 VerEnfarde();
-                    BtnEnvSM.Visible = true;
-                    PlEnfarde.Enabled = true;
-                    BtnEnfarde.Enabled = false;
-                    DTPEnfarde.Enabled = false;
-                    TxtSacosEnfardados.Enabled = false;
-                    TxtHumedadLevante.Enabled = false;
+                BtnEnvSM.Visible = true;
+                PlEnfarde.Enabled = true;
+                BtnEnfarde.Enabled = false;
+                DTPEnfarde.Enabled = false;
+                TxtSacosEnfardados.Enabled = false;
+                TxtHumedadLevante.Enabled = false;
                 //double Humedad = double.Parse(TxtHumedadLevante.Text);
                 //if (Humedad >= 13)
                 //{
                 //}
+                if (LblDiasSecado.Text == "--" || Estado == "Tendido/Rechazado" || LblFReTendido.Visible == false)
+                {
+                    LblFechaReEnfarde.Visible = false;
+                    LblDTS.Visible = false;
+                    DtpReEnfarde.Visible = false;
+                    LblDtotal.Visible = false;
+                }
+                else
+                {
+                    LblFechaReEnfarde.Visible = true;
+                    LblDTS.Visible = true;
+                    DtpReEnfarde.Visible = true;
+                    LblDtotal.Visible = true;
+                }
+                if (Rechazos != 0 && Estado == "Enfarde")
+                {
+                    LblFReTendido.Visible = true;
+                    DtpRetendido.Visible = true;
+                    LblFechaReEnfarde.Visible = true;
+                    DtpReEnfarde.Visible = true;
+                    LblDTS.Visible = true;
+                    LblDtotal.Visible = true;
+                    DtpReEnfarde.Enabled = false;
+                }
             }
             else if (Proceso == "Envio" || Proceso == "Envio SM")
             {
@@ -356,12 +417,12 @@ namespace ProyectoOFI.ControlPatio
                 TSLEnvio.Visible = true;
                 TSLEnvio.Enabled = true;
                 LblMsj.Visible = false;
-                VerTendidio();
+                VerTendido();
                 VerEnfarde();
                 VerEnvioCp();
             }
         }
-        private void VerTendidio()
+        private void VerTendido()
         {
             DControlPatio funcion = new DControlPatio();
             DataTable dt = new DataTable();
@@ -395,9 +456,22 @@ namespace ProyectoOFI.ControlPatio
                     {
                         DTPFechaTendido.Value = DateTime.Today;
                     }
+                    if (!string.IsNullOrEmpty(row["ReTendido"].ToString()))
+                    {
+                        // Verificar si se puede parsear a DateTime antes de asignar
+                        if (DateTime.TryParse(row["ReTendido"].ToString(), out DateTime retendidoDate))
+                        {
+                            DtpRetendido.Value = retendidoDate;
+                        }
+                    }
+                    else
+                    {
+                        DtpRetendido.Value = DTPFechaTendido.Value;
+                    }
                     CbPatio.Text = row["Patio"].ToString();
                     CbUbicacionP.Text = row["Ubicación Patio"].ToString();
                     LblDigitadorCp.Text = row["Digitador"].ToString();
+                    Rechazos = int.Parse(row["Rechazos"].ToString());
                     IdTendido = int.Parse(row["IdTendido"].ToString());
                 }
                 else
@@ -536,6 +610,18 @@ namespace ProyectoOFI.ControlPatio
             LblMsj.Text = "Falta Análisis de Catación";
             BtnEnfarde.Text = "Enfarde";
             LblMsj.Visible = false;
+            BtnTendido.Text = "Tendido";
+            LblFReTendido.Visible = false;
+            DtpRetendido.Visible = false;
+            DTPFechaTendido.Enabled = true;
+            DTPEnfarde.Enabled = true;
+            LblFechaReEnfarde.Visible = false;
+            DtpReEnfarde.Visible = false;
+            LblDtotal.Visible = false;
+            LblDTS.Visible = false;
+            TxtSacosEnfardados.Enabled = true;
+            TxtHumedadLevante.Enabled = true;
+            BtnEnfarde.Enabled = true;
             Limpiar();
         }
         private void ObtenerTK()
@@ -558,7 +644,8 @@ namespace ProyectoOFI.ControlPatio
                     DControlPatio funcion = new DControlPatio();
                     parametros.Ticket = LblTicket.Text;
                     parametros.Folio = int.Parse(TxtFolio.Text);
-                    parametros.FechaT = DateTime.Parse(DTPFechaTendido.Value.ToString());
+                    parametros.FechaT = DateTime.Parse(DTPFechaTendido.Value.Date.ToString());
+                    parametros.ReTendido = DateTime.Parse(DtpRetendido.Value.Date.ToString());
                     parametros.IdPatio = int.Parse(CbPatio.SelectedValue.ToString());
                     parametros.IdUbicacionP = int.Parse(CbUbicacionP.SelectedValue.ToString());
                     parametros.Digitador = Login.NombreA;
@@ -566,6 +653,36 @@ namespace ProyectoOFI.ControlPatio
                     if (funcion.InsertarTendido(parametros) == true)
                     {
                         MessageBox.Show("Tendido realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MostrarLotes();
+                        Limpiar();
+                        PlControl.Visible = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha de dia de hoy", "Error en la fecha", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
+        }
+        private void InsertarReTendido()
+        {
+            if (validar())
+            {
+                if (DTPFechaTendido.Value.Date <= DateTime.Today.Date)
+                {
+                    LControlPatio parametros = new LControlPatio();
+                    DControlPatio funcion = new DControlPatio();
+                    parametros.Ticket = LblTicket.Text;
+                    parametros.Folio = int.Parse(TxtFolio.Text);
+                    parametros.FechaT = DateTime.Parse(DTPFechaTendido.Value.Date.ToString());
+                    parametros.ReTendido = DateTime.Parse(DtpRetendido.Value.Date.ToString());
+                    parametros.IdPatio = int.Parse(CbPatio.SelectedValue.ToString());
+                    parametros.IdUbicacionP = int.Parse(CbUbicacionP.SelectedValue.ToString());
+                    parametros.Digitador = Login.NombreA;
+                    parametros.Rechazos = Rechazos + 1;
+                    if (funcion.InsertarRetendido(parametros) == true)
+                    {
+                        MessageBox.Show("ReTendido realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         MostrarLotes();
                         Limpiar();
                         PlControl.Visible = false;
@@ -589,11 +706,19 @@ namespace ProyectoOFI.ControlPatio
                         DControlPatio funcion = new DControlPatio();
                         parametros.Ticket = LblTicket.Text;
                         parametros.Folio = int.Parse(TxtFolio.Text);
-                        parametros.FechaT = DateTime.Parse(DTPFechaTendido.Value.ToString());
+                        parametros.FechaT = DateTime.Parse(DTPFechaTendido.Value.Date.ToString());
+                        parametros.ReTendido = DateTime.Parse(DtpRetendido.Value.Date.ToString());
                         parametros.IdPatio = int.Parse(CbPatio.SelectedValue.ToString());
                         parametros.IdUbicacionP = int.Parse(CbUbicacionP.SelectedValue.ToString());
                         parametros.Digitador = Login.NombreA;
-                        edit = edit + 1;
+                        if (BtnTendido.Text == "ReTendido")
+                        {
+                            edit = edit + 0;
+                        }
+                        else
+                        {
+                            edit = edit + 1;
+                        }
                         if (funcion.EditarTendido(parametros, edit) == true)
                         {
                             MessageBox.Show("Edición de Tendido realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -619,6 +744,20 @@ namespace ProyectoOFI.ControlPatio
             {
                 InsertarTendido();
                 Limpiar();
+            }
+            else if (BtnTendido.Text == "ReTendido")
+            {
+                if (DTPEnfarde.Value > DtpRetendido.Value)
+                {
+                    MessageBox.Show("Error en la Fecha de ReTendido, por favor verificar la Fecha", "Error Fecha menor que Enfarde", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    InsertarReTendido();
+                    PlTendido.Enabled = false;
+                    BtnTendido.Text = "Tendido";
+                    Limpiar();
+                }
             }
             else
             {
@@ -665,6 +804,20 @@ namespace ProyectoOFI.ControlPatio
             {
                 InsertarEnfarde();
             }
+            else if (BtnEnfarde.Text == "ReEnfarde")
+            {
+                if (DtpRetendido.Value > DtpReEnfarde.Value)
+                {
+                    MessageBox.Show("No se puede realizar el ReEnfarde porque la Fecha es menor que la Fecha de Enfarde", "Error en ReEnfarde", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    InsertarReEnfarde();
+                    PlTendido.Enabled = false;
+                    PlEnfarde.Enabled = false;
+                    BtnEnfarde.Text = "Enfarde";
+                }
+            }
             else
             {
                 EditarEnfarde();
@@ -697,6 +850,8 @@ namespace ProyectoOFI.ControlPatio
             TimeSpan Diferencia = Enfarde - Tendido;
             dias = Diferencia.Days;
             LblDiasSecado.Text = dias.ToString();
+            DtpReEnfarde.Value = DTPEnfarde.Value;
+            LblDtotal.Text = dias.ToString();
         }
         private void InsertarEnfarde()
         {
@@ -707,14 +862,51 @@ namespace ProyectoOFI.ControlPatio
                     LControlPatio parametros = new LControlPatio();
                     DControlPatio funcion = new DControlPatio();
                     parametros.IdTendido = IdTendido;
-                    parametros.FEnfarde = DateTime.Parse(DTPEnfarde.Value.ToString());
+                    parametros.FEnfarde = DateTime.Parse(DTPEnfarde.Value.Date.ToString());
+                    parametros.FReEnfarde = DateTime.Parse(DtpReEnfarde.Value.Date.ToString());
                     parametros.DiasSecado = int.Parse(LblDiasSecado.Text.ToString());
+                    parametros.DTotal = int.Parse(LblDtotal.Text.ToString());
                     parametros.Sacos = int.Parse(TxtSacosEnfardados.Text.ToString());
                     parametros.HumedadL = double.Parse(TxtHumedadLevante.Text.ToString());
                     parametros.Digitador = Login.NombreA;
                     if (funcion.InsertarEnfarde(parametros) == true)
                     {
                         MessageBox.Show("Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MostrarLotes();
+                        Limpiar();
+                        PlControl.Visible = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha de dia de hoy", "Error en la fecha", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Existen campos vacios", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void InsertarReEnfarde()
+        {
+            if (validarEnfarde())
+            {
+                if (DTPEnfarde.Value.Date <= DateTime.Today.Date)
+                {
+                    LControlPatio parametros = new LControlPatio();
+                    DControlPatio funcion = new DControlPatio();
+                    parametros.IdTendido = IdTendido;
+                    parametros.IdEnfarde = IdEnfarde;
+                    parametros.FEnfarde = DateTime.Parse(DTPEnfarde.Value.Date.ToString());
+                    parametros.FReEnfarde = DateTime.Parse(DtpReEnfarde.Value.Date.ToString());
+                    parametros.DiasSecado = int.Parse(LblDiasSecado.Text.ToString());
+                    parametros.DTotal = int.Parse(LblDtotal.Text.ToString());
+                    parametros.Sacos = int.Parse(TxtSacosEnfardados.Text.ToString());
+                    parametros.HumedadL = double.Parse(TxtHumedadLevante.Text.ToString());
+                    parametros.Digitador = Login.NombreA;
+                    if (funcion.InsertarReEnfarde(parametros) == true)
+                    {
+                        MessageBox.Show("ReEnfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         MostrarLotes();
                         Limpiar();
                         PlControl.Visible = false;
@@ -831,8 +1023,8 @@ namespace ProyectoOFI.ControlPatio
                         LblDigitadorEnfar.Text = "--";
                     }
                     IdEnfarde = int.Parse(row["IdEnfarde"].ToString());
-                    TSLEnfarde.Visible = true;
                     Rechazos = int.Parse(row["Rechazos"].ToString());
+                    TSLEnfarde.Visible = true;
                 }
                 else
                 {
@@ -874,42 +1066,54 @@ namespace ProyectoOFI.ControlPatio
                         DControlPatio funcion = new DControlPatio();
                         parametros.IdEnfarde = IdEnfarde;
                         parametros.IdTendido = IdTendido;
-                        parametros.FEnfarde = DateTime.Parse(DTPEnfarde.Value.ToString());
+                        parametros.FEnfarde = DateTime.Parse(DTPEnfarde.Value.Date.ToString());
+                        parametros.FReEnfarde = DateTime.Parse(DtpReEnfarde.Value.Date.ToString());
+                        parametros.DiasSecado = int.Parse(LblDiasSecado.Text);
+                        parametros.DTotal = int.Parse(LblDtotal.Text);
                         parametros.HumedadL = double.Parse(TxtHumedadLevante.Text.ToString());
                         parametros.Sacos = int.Parse(TxtSacosEnfardados.Text.ToString());
                         parametros.Digitador = Login.NombreA;
-                        if (BtnEnfarde.Text == "Actualizar")
+                        parametros.Rechazos = Rechazos;
+                        editenf = editenf + 1;
+                        if (funcion.EditarEnfarde(parametros, editenf) == true)
                         {
-                            parametros.Rechazos = Rechazos;
-                            parametros.DiasSecado = int.Parse(LblDiasSecado.Text);
-                            editenf = editenf + 1;
-                            if (funcion.EditarEnfarde(parametros, editenf) == true)
-                            {
-                                MessageBox.Show("Edición de Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                MostrarLotes();
-                                Limpiar();
-                                PlControl.Visible = false;
-                            }
+                            MessageBox.Show("Edición de Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MostrarLotes();
+                            Limpiar();
+                            PlControl.Visible = false;
                         }
-                        else if (BtnEnfarde.Text == "Re-Enfarde")
-                        {
-                            parametros.Rechazos = Rechazos + 1;
-                            if (diasEdit >= dias)
-                            {
-                                MessageBox.Show("El Re-Enfarde es erroneo por la cantidad de dias", "Error en dias Re-Enfarde", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            else
-                            {
-                                parametros.DiasSecado = int.Parse(LblDiasSecado.Text);
-                                if (funcion.EditarEnfarde(parametros, editenf) == true)
-                                {
-                                    MessageBox.Show("Edición de Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                                    MostrarLotes();
-                                    Limpiar();
-                                    PlControl.Visible = false;
-                                }
-                            }
-                        }
+                        //if (BtnEnfarde.Text == "Actualizar")
+                        //{
+                        //    parametros.Rechazos = Rechazos;
+                        //    parametros.DiasSecado = int.Parse(LblDiasSecado.Text);
+                        //    editenf = editenf + 1;
+                        //    if (funcion.EditarEnfarde(parametros, editenf) == true)
+                        //    {
+                        //        MessageBox.Show("Edición de Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        //        MostrarLotes();
+                        //        Limpiar();
+                        //        PlControl.Visible = false;
+                        //    }
+                        //}
+                        //else if (BtnEnfarde.Text == "Re-Enfarde")
+                        //{
+                        //    parametros.Rechazos = Rechazos + 1;
+                        //    if (diasEdit >= dias)
+                        //    {
+                        //        MessageBox.Show("El Re-Enfarde es erroneo por la cantidad de dias", "Error en dias Re-Enfarde", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //    }
+                        //    else
+                        //    {
+                        //        parametros.DiasSecado = int.Parse(LblDiasSecado.Text);
+                        //        if (funcion.EditarEnfarde(parametros, editenf) == true)
+                        //        {
+                        //            MessageBox.Show("Edición de Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        //            MostrarLotes();
+                        //            Limpiar();
+                        //            PlControl.Visible = false;
+                        //        }
+                        //    }
+                        //}
                     }
                     else
                     {
@@ -1093,6 +1297,22 @@ namespace ProyectoOFI.ControlPatio
             {
                 filtro.Remove(seleccion);
             }
+        }
+
+        private void DTPFechaTendido_ValueChanged(object sender, EventArgs e)
+        {
+            DtpRetendido.Value = DTPFechaTendido.Value;
+        }
+
+        private void DtpReEnfarde_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime Enfarde = DtpReEnfarde.Value;
+            DateTime Tendido = DtpRetendido.Value;
+            TimeSpan Diferencia = Enfarde - Tendido;
+            int Tdias = Diferencia.Days;
+            int DiasSecado = int.Parse(LblDiasSecado.Text);
+            Tdias = Tdias + DiasSecado;
+            LblDtotal.Text = Tdias.ToString();
         }
 
         private bool validarEnvio()

@@ -63,6 +63,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@IdUbicacionP", parametros.IdUbicacionP);
                 cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
                 cmd.Parameters.AddWithValue("@Rechazo", parametros.Rechazos);
+                cmd.Parameters.AddWithValue("@ReTendido", parametros.ReTendido);
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -86,6 +87,7 @@ namespace ProyectoOFI.Datos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
                 cmd.Parameters.AddWithValue("@FechaT", parametros.FechaT);
+                cmd.Parameters.AddWithValue("@ReTendido", parametros.ReTendido);
                 cmd.Parameters.AddWithValue("@Folio", parametros.Folio);
                 cmd.Parameters.AddWithValue("@IdPatio", parametros.IdPatio);
                 cmd.Parameters.AddWithValue("@IdUbicacionP", parametros.IdUbicacionP);
@@ -98,6 +100,35 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show("No se ha podido editar el registro " + ex.Message, "ERROR al actualizar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en EditarTendido ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool InsertarRetendido(LControlPatio parametros)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("InsertarRetendido", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                cmd.Parameters.AddWithValue("@FechaT", parametros.FechaT);
+                cmd.Parameters.AddWithValue("@Folio", parametros.Folio);
+                cmd.Parameters.AddWithValue("@IdPatio", parametros.IdPatio);
+                cmd.Parameters.AddWithValue("@IdUbicacionP", parametros.IdUbicacionP);
+                cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+                cmd.Parameters.AddWithValue("@Rechazos", parametros.Rechazos);
+                cmd.Parameters.AddWithValue("@ReTendido", parametros.ReTendido);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al ReTender el lote " + ex.Message, "ERROR ReTendido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en InsertarRetendido ✖️✖️ " + ex.Message);
                 return false;
             }
             finally
@@ -259,7 +290,9 @@ namespace ProyectoOFI.Datos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@IdTendido", parametros.IdTendido);
                 cmd.Parameters.AddWithValue("@FEnfarde", parametros.FEnfarde);
+                cmd.Parameters.AddWithValue("@ReEnfarde", parametros.FReEnfarde);
                 cmd.Parameters.AddWithValue("@DiasSecado", parametros.DiasSecado);
+                cmd.Parameters.AddWithValue("DTotal", parametros.DTotal);
                 cmd.Parameters.AddWithValue("@HumedadL", parametros.HumedadL);
                 cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
                 cmd.Parameters.AddWithValue("@SacosEnf", parametros.Sacos);
@@ -307,7 +340,9 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@IdEnfarde", parametros.IdEnfarde);
                 cmd.Parameters.AddWithValue("@IdTendido", parametros.IdTendido);
                 cmd.Parameters.AddWithValue("@FEnfarde", parametros.FEnfarde);
+                cmd.Parameters.AddWithValue("@ReEnfarde", parametros.FReEnfarde);
                 cmd.Parameters.AddWithValue("@DiasSecado", parametros.DiasSecado);
+                cmd.Parameters.AddWithValue("@DTotal", parametros.DTotal);
                 cmd.Parameters.AddWithValue("@HumedadL", parametros.HumedadL);
                 cmd.Parameters.AddWithValue("@SacosEnf", parametros.Sacos);
                 cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
@@ -320,6 +355,34 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show("No se ha podido editar el registro " + ex.Message, "ERROR al actualizar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en EditarEnfarde ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool InsertarReEnfarde(LControlPatio parametros)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("InsertarReEnfarde", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdTendido", parametros.IdTendido);
+                cmd.Parameters.AddWithValue("@IdEnfarde", parametros.IdEnfarde);
+                cmd.Parameters.AddWithValue("@ReEnfarde", parametros.FReEnfarde);
+                cmd.Parameters.AddWithValue("@DTotal", parametros.DTotal);
+                cmd.Parameters.AddWithValue("@HumedadL", parametros.HumedadL);
+                cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+                cmd.Parameters.AddWithValue("@SacosEnf", parametros.Sacos);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al ReEnfandar el lote " + ex.Message, "ERROR ReEnfarde", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en InsertarReEnfarde ✖️✖️ " + ex.Message);
                 return false;
             }
             finally

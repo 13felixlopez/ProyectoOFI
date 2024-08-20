@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Sig = new System.Windows.Forms.Button();
             this.btn_Primera = new System.Windows.Forms.Button();
             this.btn_Ultima = new System.Windows.Forms.Button();
@@ -60,8 +60,8 @@
             this.plfooter = new System.Windows.Forms.Panel();
             this.timerAct = new System.Windows.Forms.Timer(this.components);
             this.PlFiltros = new System.Windows.Forms.Panel();
-            this.BtnFiltrar = new System.Windows.Forms.Button();
             this.CLBFiltros = new System.Windows.Forms.CheckedListBox();
+            this.BtnFiltrar = new System.Windows.Forms.Button();
             this.PlCerrar = new System.Windows.Forms.Panel();
             this.LblFiltros = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
@@ -81,6 +81,8 @@
             this.TxtHumedadLevante = new System.Windows.Forms.TextBox();
             this.TxtSacosEnfardados = new System.Windows.Forms.TextBox();
             this.PlTendido = new System.Windows.Forms.Panel();
+            this.DtpRetendido = new System.Windows.Forms.DateTimePicker();
+            this.LblFReTendido = new System.Windows.Forms.Label();
             this.BtnTendido = new System.Windows.Forms.Button();
             this.CbUbicacionP = new System.Windows.Forms.ComboBox();
             this.CbPatio = new System.Windows.Forms.ComboBox();
@@ -129,6 +131,10 @@
             this.dtInventariocp = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.LblFechaReEnfarde = new System.Windows.Forms.Label();
+            this.DtpReEnfarde = new System.Windows.Forms.DateTimePicker();
+            this.LblDTS = new System.Windows.Forms.Label();
+            this.LblDtotal = new System.Windows.Forms.Label();
             this.PlCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.plOpciones.SuspendLayout();
@@ -484,6 +490,19 @@
             this.PlFiltros.TabIndex = 13;
             this.PlFiltros.Visible = false;
             // 
+            // CLBFiltros
+            // 
+            this.CLBFiltros.CheckOnClick = true;
+            this.CLBFiltros.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CLBFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CLBFiltros.FormattingEnabled = true;
+            this.CLBFiltros.Location = new System.Drawing.Point(0, 42);
+            this.CLBFiltros.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.CLBFiltros.Name = "CLBFiltros";
+            this.CLBFiltros.Size = new System.Drawing.Size(233, 294);
+            this.CLBFiltros.TabIndex = 1;
+            this.CLBFiltros.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBFiltros_ItemCheck);
+            // 
             // BtnFiltrar
             // 
             this.BtnFiltrar.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -498,19 +517,6 @@
             this.BtnFiltrar.Text = "Aplicar Filtro";
             this.BtnFiltrar.UseVisualStyleBackColor = true;
             this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
-            // 
-            // CLBFiltros
-            // 
-            this.CLBFiltros.CheckOnClick = true;
-            this.CLBFiltros.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CLBFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CLBFiltros.FormattingEnabled = true;
-            this.CLBFiltros.Location = new System.Drawing.Point(0, 42);
-            this.CLBFiltros.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
-            this.CLBFiltros.Name = "CLBFiltros";
-            this.CLBFiltros.Size = new System.Drawing.Size(233, 294);
-            this.CLBFiltros.TabIndex = 1;
-            this.CLBFiltros.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBFiltros_ItemCheck);
             // 
             // PlCerrar
             // 
@@ -597,12 +603,16 @@
             this.PlEnfarde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.PlEnfarde.Controls.Add(this.BtnEnvSM);
             this.PlEnfarde.Controls.Add(this.BtnEnfarde);
+            this.PlEnfarde.Controls.Add(this.DtpReEnfarde);
             this.PlEnfarde.Controls.Add(this.DTPEnfarde);
             this.PlEnfarde.Controls.Add(this.label8);
             this.PlEnfarde.Controls.Add(this.label9);
+            this.PlEnfarde.Controls.Add(this.LblFechaReEnfarde);
             this.PlEnfarde.Controls.Add(this.LblDigitadorEnfar);
             this.PlEnfarde.Controls.Add(this.label10);
+            this.PlEnfarde.Controls.Add(this.LblDtotal);
             this.PlEnfarde.Controls.Add(this.LblDiasSecado);
+            this.PlEnfarde.Controls.Add(this.LblDTS);
             this.PlEnfarde.Controls.Add(this.label11);
             this.PlEnfarde.Controls.Add(this.TxtHumedadLevante);
             this.PlEnfarde.Controls.Add(this.TxtSacosEnfardados);
@@ -638,28 +648,31 @@
             // 
             // DTPEnfarde
             // 
+            this.DTPEnfarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DTPEnfarde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPEnfarde.Location = new System.Drawing.Point(211, 20);
+            this.DTPEnfarde.Location = new System.Drawing.Point(164, 20);
             this.DTPEnfarde.Name = "DTPEnfarde";
-            this.DTPEnfarde.Size = new System.Drawing.Size(132, 26);
+            this.DTPEnfarde.Size = new System.Drawing.Size(112, 23);
             this.DTPEnfarde.TabIndex = 2;
             this.DTPEnfarde.ValueChanged += new System.EventHandler(this.DTPEnfarde_ValueChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(345, 84);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(318, 95);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(160, 20);
+            this.label8.Size = new System.Drawing.Size(144, 17);
             this.label8.TabIndex = 0;
             this.label8.Text = "Humedad Levante:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 84);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(16, 95);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(162, 20);
+            this.label9.Size = new System.Drawing.Size(145, 17);
             this.label9.TabIndex = 0;
             this.label9.Text = "Sacos Enfardados:";
             // 
@@ -675,47 +688,54 @@
             // label10
             // 
             this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(16, 23);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(158, 20);
+            this.label10.Size = new System.Drawing.Size(142, 17);
             this.label10.TabIndex = 0;
             this.label10.Text = "Fecha de Enfarde:";
             // 
             // LblDiasSecado
             // 
             this.LblDiasSecado.AutoSize = true;
-            this.LblDiasSecado.Location = new System.Drawing.Point(529, 20);
+            this.LblDiasSecado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDiasSecado.Location = new System.Drawing.Point(529, 23);
             this.LblDiasSecado.Name = "LblDiasSecado";
-            this.LblDiasSecado.Size = new System.Drawing.Size(21, 20);
+            this.LblDiasSecado.Size = new System.Drawing.Size(20, 17);
             this.LblDiasSecado.TabIndex = 0;
             this.LblDiasSecado.Text = "--";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(382, 20);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(382, 23);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(141, 20);
+            this.label11.Size = new System.Drawing.Size(127, 17);
             this.label11.TabIndex = 0;
             this.label11.Text = "Dias de Secado:";
             // 
             // TxtHumedadLevante
             // 
-            this.TxtHumedadLevante.Location = new System.Drawing.Point(511, 81);
+            this.TxtHumedadLevante.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtHumedadLevante.Location = new System.Drawing.Point(484, 92);
             this.TxtHumedadLevante.Name = "TxtHumedadLevante";
-            this.TxtHumedadLevante.Size = new System.Drawing.Size(91, 26);
+            this.TxtHumedadLevante.Size = new System.Drawing.Size(91, 23);
             this.TxtHumedadLevante.TabIndex = 1;
             // 
             // TxtSacosEnfardados
             // 
-            this.TxtSacosEnfardados.Location = new System.Drawing.Point(182, 81);
+            this.TxtSacosEnfardados.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtSacosEnfardados.Location = new System.Drawing.Point(185, 92);
             this.TxtSacosEnfardados.Name = "TxtSacosEnfardados";
-            this.TxtSacosEnfardados.Size = new System.Drawing.Size(119, 26);
+            this.TxtSacosEnfardados.Size = new System.Drawing.Size(119, 23);
             this.TxtSacosEnfardados.TabIndex = 1;
             // 
             // PlTendido
             // 
             this.PlTendido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.PlTendido.Controls.Add(this.DtpRetendido);
+            this.PlTendido.Controls.Add(this.LblFReTendido);
             this.PlTendido.Controls.Add(this.BtnTendido);
             this.PlTendido.Controls.Add(this.CbUbicacionP);
             this.PlTendido.Controls.Add(this.CbPatio);
@@ -733,8 +753,30 @@
             this.PlTendido.Size = new System.Drawing.Size(957, 135);
             this.PlTendido.TabIndex = 17;
             // 
+            // DtpRetendido
+            // 
+            this.DtpRetendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtpRetendido.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpRetendido.Location = new System.Drawing.Point(661, 19);
+            this.DtpRetendido.Name = "DtpRetendido";
+            this.DtpRetendido.Size = new System.Drawing.Size(119, 23);
+            this.DtpRetendido.TabIndex = 6;
+            this.DtpRetendido.Visible = false;
+            // 
+            // LblFReTendido
+            // 
+            this.LblFReTendido.AutoSize = true;
+            this.LblFReTendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFReTendido.Location = new System.Drawing.Point(512, 22);
+            this.LblFReTendido.Name = "LblFReTendido";
+            this.LblFReTendido.Size = new System.Drawing.Size(144, 15);
+            this.LblFReTendido.TabIndex = 5;
+            this.LblFReTendido.Text = "Fecha de ReTendido:";
+            this.LblFReTendido.Visible = false;
+            // 
             // BtnTendido
             // 
+            this.BtnTendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnTendido.Location = new System.Drawing.Point(814, 5);
             this.BtnTendido.Name = "BtnTendido";
             this.BtnTendido.Size = new System.Drawing.Size(142, 37);
@@ -746,31 +788,36 @@
             // 
             // CbUbicacionP
             // 
+            this.CbUbicacionP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbUbicacionP.FormattingEnabled = true;
             this.CbUbicacionP.Location = new System.Drawing.Point(497, 80);
             this.CbUbicacionP.Name = "CbUbicacionP";
-            this.CbUbicacionP.Size = new System.Drawing.Size(221, 28);
+            this.CbUbicacionP.Size = new System.Drawing.Size(221, 24);
             this.CbUbicacionP.TabIndex = 3;
             // 
             // CbPatio
             // 
+            this.CbPatio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbPatio.FormattingEnabled = true;
             this.CbPatio.Location = new System.Drawing.Point(84, 80);
             this.CbPatio.Name = "CbPatio";
-            this.CbPatio.Size = new System.Drawing.Size(221, 28);
+            this.CbPatio.Size = new System.Drawing.Size(221, 24);
             this.CbPatio.TabIndex = 3;
             this.CbPatio.SelectedIndexChanged += new System.EventHandler(this.CbPatio_SelectedIndexChanged);
             // 
             // DTPFechaTendido
             // 
+            this.DTPFechaTendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DTPFechaTendido.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPFechaTendido.Location = new System.Drawing.Point(543, 19);
+            this.DTPFechaTendido.Location = new System.Drawing.Point(379, 19);
             this.DTPFechaTendido.Name = "DTPFechaTendido";
-            this.DTPFechaTendido.Size = new System.Drawing.Size(132, 26);
+            this.DTPFechaTendido.Size = new System.Drawing.Size(116, 23);
             this.DTPFechaTendido.TabIndex = 2;
+            this.DTPFechaTendido.ValueChanged += new System.EventHandler(this.DTPFechaTendido_ValueChanged);
             // 
             // LblDigitadorCp
             // 
+            this.LblDigitadorCp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblDigitadorCp.Location = new System.Drawing.Point(747, 54);
             this.LblDigitadorCp.Name = "LblDigitadorCp";
             this.LblDigitadorCp.Size = new System.Drawing.Size(209, 62);
@@ -781,43 +828,48 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(319, 84);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(164, 20);
+            this.label7.Size = new System.Drawing.Size(149, 17);
             this.label7.TabIndex = 0;
             this.label7.Text = "Ubicación de Patio:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(15, 84);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 20);
+            this.label6.Size = new System.Drawing.Size(50, 17);
             this.label6.TabIndex = 0;
             this.label6.Text = "Patio:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(348, 22);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(225, 22);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(158, 20);
+            this.label5.Size = new System.Drawing.Size(144, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "Fecha de Tendido:";
             // 
             // TxtFolio
             // 
-            this.TxtFolio.Location = new System.Drawing.Point(153, 19);
+            this.TxtFolio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtFolio.Location = new System.Drawing.Point(112, 19);
             this.TxtFolio.Name = "TxtFolio";
-            this.TxtFolio.Size = new System.Drawing.Size(158, 26);
+            this.TxtFolio.Size = new System.Drawing.Size(98, 23);
             this.TxtFolio.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 22);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 20);
+            this.label1.Size = new System.Drawing.Size(94, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "N° de Folio:";
             // 
@@ -1194,37 +1246,37 @@
             this.dtInventariocp.AllowUserToDeleteRows = false;
             this.dtInventariocp.AllowUserToOrderColumns = true;
             this.dtInventariocp.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.NullValue = "--";
-            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle13.NullValue = "--";
+            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dtInventariocp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventariocp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventariocp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dtInventariocp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.NullValue = "--";
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.NullValue = "--";
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle15;
             this.dtInventariocp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventariocp.Location = new System.Drawing.Point(0, 62);
             this.dtInventariocp.Name = "dtInventariocp";
             this.dtInventariocp.ReadOnly = true;
             this.dtInventariocp.RowHeadersVisible = false;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dtInventariocp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventariocp.ShowCellToolTips = false;
             this.dtInventariocp.ShowEditingIcon = false;
@@ -1252,6 +1304,50 @@
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
+            // 
+            // LblFechaReEnfarde
+            // 
+            this.LblFechaReEnfarde.AutoSize = true;
+            this.LblFechaReEnfarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFechaReEnfarde.Location = new System.Drawing.Point(16, 59);
+            this.LblFechaReEnfarde.Name = "LblFechaReEnfarde";
+            this.LblFechaReEnfarde.Size = new System.Drawing.Size(162, 17);
+            this.LblFechaReEnfarde.TabIndex = 0;
+            this.LblFechaReEnfarde.Text = "Fecha de ReEnfarde:";
+            this.LblFechaReEnfarde.Visible = false;
+            // 
+            // DtpReEnfarde
+            // 
+            this.DtpReEnfarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtpReEnfarde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpReEnfarde.Location = new System.Drawing.Point(201, 56);
+            this.DtpReEnfarde.Name = "DtpReEnfarde";
+            this.DtpReEnfarde.Size = new System.Drawing.Size(112, 23);
+            this.DtpReEnfarde.TabIndex = 2;
+            this.DtpReEnfarde.Visible = false;
+            this.DtpReEnfarde.ValueChanged += new System.EventHandler(this.DtpReEnfarde_ValueChanged);
+            // 
+            // LblDTS
+            // 
+            this.LblDTS.AutoSize = true;
+            this.LblDTS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDTS.Location = new System.Drawing.Point(336, 59);
+            this.LblDTS.Name = "LblDTS";
+            this.LblDTS.Size = new System.Drawing.Size(169, 17);
+            this.LblDTS.TabIndex = 0;
+            this.LblDTS.Text = "Dias Total de Secado:";
+            this.LblDTS.Visible = false;
+            // 
+            // LblDtotal
+            // 
+            this.LblDtotal.AutoSize = true;
+            this.LblDtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDtotal.Location = new System.Drawing.Point(528, 59);
+            this.LblDtotal.Name = "LblDtotal";
+            this.LblDtotal.Size = new System.Drawing.Size(20, 17);
+            this.LblDtotal.TabIndex = 0;
+            this.LblDtotal.Text = "--";
+            this.LblDtotal.Visible = false;
             // 
             // CUControlPatio
             // 
@@ -1389,5 +1485,11 @@
         private System.Windows.Forms.TextBox TxtDNIN;
         private System.Windows.Forms.Label LblMsj;
         private System.Windows.Forms.Button BtnEnvSM;
+        private System.Windows.Forms.DateTimePicker DtpRetendido;
+        private System.Windows.Forms.Label LblFReTendido;
+        private System.Windows.Forms.DateTimePicker DtpReEnfarde;
+        private System.Windows.Forms.Label LblFechaReEnfarde;
+        private System.Windows.Forms.Label LblDtotal;
+        private System.Windows.Forms.Label LblDTS;
     }
 }

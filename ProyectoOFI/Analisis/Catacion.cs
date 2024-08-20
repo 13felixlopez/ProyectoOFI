@@ -97,6 +97,11 @@ namespace ProyectoOFI.Analisis
             //{
             //    Contador = ContarBusqueda;
             //}
+            if (BtnMostrarCompras.Text == "Análisis")
+            {
+                DCompraD DC = new DCompraD();
+                DC.Contar(ref Contador);
+            }
             else
             {
                 funcion.ContarTK(ref Contador);
@@ -225,12 +230,13 @@ namespace ProyectoOFI.Analisis
         #endregion
         public void MostrarLotes()
         {
+            BtnMostrarCompras.Text = "Compras Directas";
             Dcatacion funcion = new Dcatacion();
             DataTable dt = new DataTable();
             funcion.MostrarCata(ref dt, desde, hasta);
+            ReiniciarPaginado();
             dtInventarioCat.DataSource = dt;
             Base.DiseñoDtvEliminar(ref dtInventarioCat);
-            BtnMostrarCompras.Text = "Compras Directas";
         }
         private void VerDetalleCatacion()
         {
@@ -740,7 +746,7 @@ namespace ProyectoOFI.Analisis
         {
             if (Validar())
             {
-                if (DtFechaCatacion.Value.Date < DateTime.Today.Date)
+                if (DtFechaCatacion.Value.Date <= DateTime.Today.Date)
                 {
 
                     LCatacion parametros = new LCatacion();
@@ -896,7 +902,7 @@ namespace ProyectoOFI.Analisis
         {
             if (Validar())
             {
-                if (DtFechaCatacion.Value.Date < DateTime.Today.Date)
+                if (DtFechaCatacion.Value.Date <= DateTime.Today.Date)
                 {
                     LCatacion parametros = new LCatacion();
                     Dcatacion funcion = new Dcatacion();
@@ -1025,7 +1031,7 @@ namespace ProyectoOFI.Analisis
         {
             if (Validar())
             {
-                if (DtFechaCatacion.Value.Date < DateTime.Today.Date)
+                if (DtFechaCatacion.Value.Date <= DateTime.Today.Date)
                 {
                     LCatacion parametros = new LCatacion();
                     Dcatacion funcion = new Dcatacion();
@@ -1382,11 +1388,12 @@ namespace ProyectoOFI.Analisis
         }
         private void MostrarComprasD()
         {
+            BtnMostrarCompras.Text = "Análisis";
             DCompraD funcion = new DCompraD();
             DataTable dt = new DataTable();
             funcion.MostrarComprasD(ref dt, desde, hasta);
+            ReiniciarPaginado();
             dtInventarioCat.DataSource = dt;
-            BtnMostrarCompras.Text = "Análisis";
         }
         private void VerDetalleCompra()
         {

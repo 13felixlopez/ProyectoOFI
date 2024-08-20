@@ -37,7 +37,7 @@ namespace ProyectoOFI.Datos
                 Conexion.abrir();
                 SqlCommand cmd = new SqlCommand("select COUNT (Rec.Ticket) from Recepcion Rec " +
                     "LEFT JOIN PreSecado Pre ON Rec.Ticket=Pre.Ticket LEFT JOIN POA P ON Pre.IDPreSecado=P.IDPreSecado " +
-                    "where Estado = 'ACTIVO' AND (Proceso = 'Enfarde' OR Proceso = 'PS' OR Proceso = 'Envio' OR Proceso = 'Compra Directa') " +
+                    "where Estado = 'ACTIVO' AND (Proceso = 'Enfarde' OR Proceso = 'PS' OR Proceso = 'Envio' OR Proceso = 'Analizado') " +
                     "AND Cosecha=(select Cosecha from Cosecha where IdCosecha=(select max(IdCosecha) from Cosecha))",
                     Conexion.conectar);
                 contador = Convert.ToInt32(cmd.ExecuteScalar());

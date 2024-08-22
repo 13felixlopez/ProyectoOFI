@@ -1,8 +1,5 @@
-﻿using ProyectoOFI.SM;
+﻿using ProyectoOFI.Logica;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoOFI
@@ -17,6 +14,7 @@ namespace ProyectoOFI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
             Login frm = new Login();
             //SMecánico frm = new SMecánico();
             frm.FormClosed += Frm_FormClosed;

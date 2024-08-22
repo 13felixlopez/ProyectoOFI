@@ -157,7 +157,7 @@ namespace ProyectoOFI.Datos
                 da.Parameters.AddWithValue("@DesmCP", parametros.DesmCP);
                 da.Parameters.AddWithValue("@DesmDP", parametros.DesmDP);
                 da.Parameters.AddWithValue("@Score", parametros.Score);
-                da.Parameters.AddWithValue("@Taza", parametros.Tasa);
+                //da.Parameters.AddWithValue("@Taza", parametros.Tasa);
                 da.Parameters.AddWithValue("@GradoCalidad", parametros.GradoCalidad);
                 da.Parameters.AddWithValue("@Digitador", parametros.Digitador);
                 da.Parameters.AddWithValue("@Estado", parametros.Estado);
@@ -292,7 +292,7 @@ namespace ProyectoOFI.Datos
                 da.Parameters.AddWithValue("@DesmCP", parametros.DesmCP);
                 da.Parameters.AddWithValue("@DesmDP", parametros.DesmDP);
                 da.Parameters.AddWithValue("@Score", parametros.Score);
-                da.Parameters.AddWithValue("@Taza", parametros.Tasa);
+                //da.Parameters.AddWithValue("@Taza", parametros.Tasa);
                 da.Parameters.AddWithValue("@GradoCalidad", parametros.GradoCalidad);
                 da.Parameters.AddWithValue("@Digitador", parametros.Digitador);
                 da.Parameters.AddWithValue("@Estado", parametros.Estado);
@@ -337,7 +337,7 @@ namespace ProyectoOFI.Datos
                 da.Parameters.AddWithValue("@DesmCP", parametros.DesmCP);
                 da.Parameters.AddWithValue("@DesmDP", parametros.DesmDP);
                 da.Parameters.AddWithValue("@Score", parametros.Score);
-                da.Parameters.AddWithValue("@Taza", parametros.Tasa);
+                //da.Parameters.AddWithValue("@Taza", parametros.Tasa);
                 da.Parameters.AddWithValue("@GradoCalidad", parametros.GradoCalidad);
                 da.Parameters.AddWithValue("@Digitador", parametros.Digitador);
                 da.Parameters.AddWithValue("@Estado", parametros.Estado);

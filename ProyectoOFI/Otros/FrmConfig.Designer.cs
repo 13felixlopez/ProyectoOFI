@@ -39,7 +39,6 @@
             this.GbSM = new System.Windows.Forms.GroupBox();
             this.Gbcatacion = new System.Windows.Forms.GroupBox();
             this.GbAlmacen = new System.Windows.Forms.GroupBox();
-            this.BtnCosechas = new System.Windows.Forms.Button();
             this.PlCosecha = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,6 +50,7 @@
             this.BtnEditar = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.BtnCosechas = new System.Windows.Forms.Button();
             this.BtnUbicacion = new System.Windows.Forms.Button();
             this.BtnDescargador = new System.Windows.Forms.Button();
             this.BtnEmpaques = new System.Windows.Forms.Button();
@@ -182,17 +182,6 @@
             this.GbAlmacen.TabStop = false;
             this.GbAlmacen.Text = "Almacén";
             // 
-            // BtnCosechas
-            // 
-            this.BtnCosechas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.BtnCosechas.Location = new System.Drawing.Point(371, 541);
-            this.BtnCosechas.Name = "BtnCosechas";
-            this.BtnCosechas.Size = new System.Drawing.Size(220, 57);
-            this.BtnCosechas.TabIndex = 26;
-            this.BtnCosechas.Text = "Cosechas";
-            this.BtnCosechas.UseVisualStyleBackColor = true;
-            this.BtnCosechas.Click += new System.EventHandler(this.BtnCosechas_Click);
-            // 
             // PlCosecha
             // 
             this.PlCosecha.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -202,7 +191,7 @@
             this.PlCosecha.Controls.Add(this.TxtCosecha);
             this.PlCosecha.Controls.Add(this.label2);
             this.PlCosecha.Controls.Add(this.DtCosechas);
-            this.PlCosecha.Location = new System.Drawing.Point(817, 528);
+            this.PlCosecha.Location = new System.Drawing.Point(984, 101);
             this.PlCosecha.Name = "PlCosecha";
             this.PlCosecha.Size = new System.Drawing.Size(216, 152);
             this.PlCosecha.TabIndex = 27;
@@ -298,6 +287,7 @@
             this.dataGridViewImageColumn1.Image = global::ProyectoOFI.Properties.Resources.Delete;
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.Width = 5;
             // 
             // BtnCerrarCosecha
@@ -351,11 +341,25 @@
             this.Eliminar.ReadOnly = true;
             this.Eliminar.Width = 5;
             // 
+            // BtnCosechas
+            // 
+            this.BtnCosechas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.BtnCosechas.Image = global::ProyectoOFI.Properties.Resources.calendar;
+            this.BtnCosechas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCosechas.Location = new System.Drawing.Point(488, 505);
+            this.BtnCosechas.Name = "BtnCosechas";
+            this.BtnCosechas.Size = new System.Drawing.Size(136, 57);
+            this.BtnCosechas.TabIndex = 26;
+            this.BtnCosechas.Text = "Cosechas";
+            this.BtnCosechas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCosechas.UseVisualStyleBackColor = true;
+            this.BtnCosechas.Click += new System.EventHandler(this.BtnCosechas_Click);
+            // 
             // BtnUbicacion
             // 
             this.BtnUbicacion.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnUbicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnUbicacion.Image = global::ProyectoOFI.Properties.Resources.Operador;
+            this.BtnUbicacion.Image = global::ProyectoOFI.Properties.Resources.location;
             this.BtnUbicacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnUbicacion.Location = new System.Drawing.Point(183, 44);
             this.BtnUbicacion.Name = "BtnUbicacion";
@@ -370,7 +374,7 @@
             // 
             this.BtnDescargador.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnDescargador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnDescargador.Image = global::ProyectoOFI.Properties.Resources.Operador;
+            this.BtnDescargador.Image = global::ProyectoOFI.Properties.Resources.people;
             this.BtnDescargador.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnDescargador.Location = new System.Drawing.Point(15, 44);
             this.BtnDescargador.Name = "BtnDescargador";
@@ -384,7 +388,7 @@
             // BtnEmpaques
             // 
             this.BtnEmpaques.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEmpaques.Image = global::ProyectoOFI.Properties.Resources.icons8_grupos_de_usuarios;
+            this.BtnEmpaques.Image = global::ProyectoOFI.Properties.Resources.Empaque;
             this.BtnEmpaques.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnEmpaques.Location = new System.Drawing.Point(180, 121);
             this.BtnEmpaques.Name = "BtnEmpaques";
@@ -398,7 +402,7 @@
             // BtnTurnosAl
             // 
             this.BtnTurnosAl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnTurnosAl.Image = global::ProyectoOFI.Properties.Resources.icons8_grupos_de_usuarios;
+            this.BtnTurnosAl.Image = global::ProyectoOFI.Properties.Resources.clock2;
             this.BtnTurnosAl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnTurnosAl.Location = new System.Drawing.Point(84, 190);
             this.BtnTurnosAl.Name = "BtnTurnosAl";
@@ -412,7 +416,7 @@
             // BtnBodegas
             // 
             this.BtnBodegas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBodegas.Image = global::ProyectoOFI.Properties.Resources.icons8_tiempo_de_propiedades;
+            this.BtnBodegas.Image = global::ProyectoOFI.Properties.Resources.Bodega;
             this.BtnBodegas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnBodegas.Location = new System.Drawing.Point(15, 121);
             this.BtnBodegas.Name = "BtnBodegas";
@@ -441,7 +445,7 @@
             // BtnTurnos
             // 
             this.BtnTurnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnTurnos.Image = global::ProyectoOFI.Properties.Resources.icons8_grupos_de_usuarios;
+            this.BtnTurnos.Image = global::ProyectoOFI.Properties.Resources.clock2;
             this.BtnTurnos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnTurnos.Location = new System.Drawing.Point(44, 121);
             this.BtnTurnos.Name = "BtnTurnos";
@@ -485,7 +489,7 @@
             // 
             this.BtnVariedad.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnVariedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnVariedad.Image = global::ProyectoOFI.Properties.Resources.Catacion;
+            this.BtnVariedad.Image = global::ProyectoOFI.Properties.Resources.Variedad;
             this.BtnVariedad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnVariedad.Location = new System.Drawing.Point(71, 30);
             this.BtnVariedad.Name = "BtnVariedad";
@@ -687,7 +691,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1070, 692);
+            this.ClientSize = new System.Drawing.Size(1070, 586);
             this.Controls.Add(this.PlCosecha);
             this.Controls.Add(this.BtnCosechas);
             this.Controls.Add(this.GbAlmacen);

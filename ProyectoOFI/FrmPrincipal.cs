@@ -17,6 +17,7 @@ namespace ProyectoOFI
 {
     public partial class frmInicio : Form
     {
+        private Form FrmActivo = null;
         public frmInicio()
         {
             InitializeComponent();
@@ -61,7 +62,8 @@ namespace ProyectoOFI
         private void BtnCatalogo_Click(object sender, EventArgs e)
         {
             FrmConfig Cg = new FrmConfig();
-            Cg.ShowDialog();
+            AbrirFrm(Cg);
+            //Cg.ShowDialog();
         }
 
         private void BtnUser_Click(object sender, EventArgs e)
@@ -323,6 +325,21 @@ namespace ProyectoOFI
             string Nombre = "Lotes Consolidados ";
             FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
             LT.ShowDialog();
+        }
+        private void AbrirFrm(Form hijo)
+        {
+            if (FrmActivo != null)
+            {
+                FrmActivo.Close();
+            }
+
+            FrmActivo = hijo;
+            hijo.TopLevel = false;
+            hijo.Dock = DockStyle.Fill;
+            PlPrincipal.Controls.Add(hijo);
+            PlPrincipal.Tag = hijo;
+            hijo.BringToFront();
+            hijo.Show();
         }
     }
 }

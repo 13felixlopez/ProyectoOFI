@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioCat = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.BtnMostrarCompras = new System.Windows.Forms.Button();
@@ -62,15 +62,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.LblDias = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.LblFMuestra = new System.Windows.Forms.Label();
             this.LblTotal = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.TxtScore = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
-            this.LblGCalidad = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.LblTasa = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.TxtDesmD = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.LblDesmDP = new System.Windows.Forms.Label();
@@ -184,27 +180,27 @@
             this.dtInventarioCat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioCat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioCat.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtInventarioCat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioCat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioCat.Location = new System.Drawing.Point(0, 62);
             this.dtInventarioCat.Name = "dtInventarioCat";
             this.dtInventarioCat.ReadOnly = true;
             this.dtInventarioCat.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtInventarioCat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioCat.ShowCellToolTips = false;
             this.dtInventarioCat.ShowEditingIcon = false;
-            this.dtInventarioCat.Size = new System.Drawing.Size(1613, 683);
+            this.dtInventarioCat.Size = new System.Drawing.Size(1203, 553);
             this.dtInventarioCat.TabIndex = 12;
             this.dtInventarioCat.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtInventarioCat_CellDoubleClick);
             // 
@@ -220,14 +216,14 @@
             this.plOpciones.Location = new System.Drawing.Point(0, 0);
             this.plOpciones.Margin = new System.Windows.Forms.Padding(3, 3, 50, 3);
             this.plOpciones.Name = "plOpciones";
-            this.plOpciones.Size = new System.Drawing.Size(1613, 62);
+            this.plOpciones.Size = new System.Drawing.Size(1203, 62);
             this.plOpciones.TabIndex = 13;
             // 
             // BtnMostrarCompras
             // 
             this.BtnMostrarCompras.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnMostrarCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnMostrarCompras.Location = new System.Drawing.Point(1480, 0);
+            this.BtnMostrarCompras.Location = new System.Drawing.Point(1070, 0);
             this.BtnMostrarCompras.Name = "BtnMostrarCompras";
             this.BtnMostrarCompras.Size = new System.Drawing.Size(133, 62);
             this.BtnMostrarCompras.TabIndex = 5;
@@ -298,9 +294,9 @@
             this.plfooter.Controls.Add(this.lbl_Pagina);
             this.plfooter.Controls.Add(this.Label25);
             this.plfooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plfooter.Location = new System.Drawing.Point(0, 745);
+            this.plfooter.Location = new System.Drawing.Point(0, 615);
             this.plfooter.Name = "plfooter";
-            this.plfooter.Size = new System.Drawing.Size(1613, 60);
+            this.plfooter.Size = new System.Drawing.Size(1203, 60);
             this.plfooter.TabIndex = 14;
             // 
             // btn_atras
@@ -447,9 +443,9 @@
             this.PLDatos.Controls.Add(this.PlDetalleCompra);
             this.PLDatos.Controls.Add(this.PlDatosTk);
             this.PLDatos.Controls.Add(this.PlCerrarDetalle);
-            this.PLDatos.Location = new System.Drawing.Point(33, 62);
+            this.PLDatos.Location = new System.Drawing.Point(3, 62);
             this.PLDatos.Name = "PLDatos";
-            this.PLDatos.Size = new System.Drawing.Size(1178, 549);
+            this.PLDatos.Size = new System.Drawing.Size(1178, 495);
             this.PLDatos.TabIndex = 16;
             this.PLDatos.Visible = false;
             // 
@@ -468,15 +464,11 @@
             this.PlCatacion.Controls.Add(this.label5);
             this.PlCatacion.Controls.Add(this.LblDias);
             this.PlCatacion.Controls.Add(this.label8);
-            this.PlCatacion.Controls.Add(this.LblFMuestra);
             this.PlCatacion.Controls.Add(this.LblTotal);
             this.PlCatacion.Controls.Add(this.label7);
             this.PlCatacion.Controls.Add(this.TxtScore);
             this.PlCatacion.Controls.Add(this.label32);
-            this.PlCatacion.Controls.Add(this.LblGCalidad);
             this.PlCatacion.Controls.Add(this.label27);
-            this.PlCatacion.Controls.Add(this.LblTasa);
-            this.PlCatacion.Controls.Add(this.label24);
             this.PlCatacion.Controls.Add(this.TxtDesmD);
             this.PlCatacion.Controls.Add(this.label15);
             this.PlCatacion.Controls.Add(this.LblDesmDP);
@@ -512,9 +504,9 @@
             // CbGrupoCalidad
             // 
             this.CbGrupoCalidad.FormattingEnabled = true;
-            this.CbGrupoCalidad.Location = new System.Drawing.Point(820, 165);
+            this.CbGrupoCalidad.Location = new System.Drawing.Point(630, 164);
             this.CbGrupoCalidad.Name = "CbGrupoCalidad";
-            this.CbGrupoCalidad.Size = new System.Drawing.Size(279, 24);
+            this.CbGrupoCalidad.Size = new System.Drawing.Size(353, 24);
             this.CbGrupoCalidad.TabIndex = 12;
             // 
             // BtnActivar
@@ -637,16 +629,6 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Variedad:";
             // 
-            // LblFMuestra
-            // 
-            this.LblFMuestra.AutoSize = true;
-            this.LblFMuestra.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFMuestra.Location = new System.Drawing.Point(22, 291);
-            this.LblFMuestra.Name = "LblFMuestra";
-            this.LblFMuestra.Size = new System.Drawing.Size(17, 16);
-            this.LblFMuestra.TabIndex = 0;
-            this.LblFMuestra.Text = "--";
-            // 
             // LblTotal
             // 
             this.LblTotal.AutoSize = true;
@@ -669,11 +651,10 @@
             // 
             // TxtScore
             // 
-            this.TxtScore.Location = new System.Drawing.Point(89, 165);
+            this.TxtScore.Location = new System.Drawing.Point(195, 165);
             this.TxtScore.Name = "TxtScore";
             this.TxtScore.Size = new System.Drawing.Size(66, 22);
             this.TxtScore.TabIndex = 1;
-            this.TxtScore.TextChanged += new System.EventHandler(this.TxtScore_TextChanged);
             // 
             // label32
             // 
@@ -685,45 +666,15 @@
             this.label32.TabIndex = 0;
             this.label32.Text = "Dias:";
             // 
-            // LblGCalidad
-            // 
-            this.LblGCalidad.AutoSize = true;
-            this.LblGCalidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblGCalidad.Location = new System.Drawing.Point(626, 168);
-            this.LblGCalidad.Name = "LblGCalidad";
-            this.LblGCalidad.Size = new System.Drawing.Size(17, 16);
-            this.LblGCalidad.TabIndex = 0;
-            this.LblGCalidad.Text = "--";
-            // 
             // label27
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(488, 168);
+            this.label27.Location = new System.Drawing.Point(493, 168);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(132, 16);
+            this.label27.Size = new System.Drawing.Size(131, 16);
             this.label27.TabIndex = 0;
-            this.label27.Text = "Grado de calidad:";
-            // 
-            // LblTasa
-            // 
-            this.LblTasa.AutoSize = true;
-            this.LblTasa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTasa.Location = new System.Drawing.Point(241, 168);
-            this.LblTasa.Name = "LblTasa";
-            this.LblTasa.Size = new System.Drawing.Size(17, 16);
-            this.LblTasa.TabIndex = 0;
-            this.LblTasa.Text = "--";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(188, 168);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(47, 16);
-            this.label24.TabIndex = 0;
-            this.label24.Text = "Tasa:";
+            this.label27.Text = "Grupo de calidad:";
             // 
             // TxtDesmD
             // 
@@ -737,7 +688,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(18, 168);
+            this.label15.Location = new System.Drawing.Point(137, 168);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(52, 16);
             this.label15.TabIndex = 0;
@@ -1687,7 +1638,7 @@
             this.Controls.Add(this.plOpciones);
             this.Controls.Add(this.plfooter);
             this.Name = "Catacion";
-            this.Size = new System.Drawing.Size(1613, 805);
+            this.Size = new System.Drawing.Size(1203, 675);
             this.Load += new System.EventHandler(this.Catacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioCat)).EndInit();
             this.plOpciones.ResumeLayout(false);
@@ -1773,7 +1724,6 @@
         private System.Windows.Forms.Label LblCliente;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox TxtScore;
-        private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox TxtDesmD;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
@@ -1791,8 +1741,6 @@
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label LblTotal;
-        private System.Windows.Forms.Label LblGCalidad;
-        private System.Windows.Forms.Label LblTasa;
         private System.Windows.Forms.Label LblDesmDP;
         private System.Windows.Forms.Label LblDesmC;
         private System.Windows.Forms.Label LblDesmCP;
@@ -1843,6 +1791,5 @@
         private System.Windows.Forms.Label LblTCompra;
         private System.Windows.Forms.Label LblUbicacion;
         private System.Windows.Forms.ComboBox CbGrupoCalidad;
-        private System.Windows.Forms.Label LblFMuestra;
     }
 }

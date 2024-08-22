@@ -13,6 +13,23 @@ namespace ProyectoOFI.Otros
         public FrmConfig()
         {
             InitializeComponent();
+            int formWidth = this.ClientSize.Width;
+            int formHeight = this.ClientSize.Height;
+
+            // Verificamos si el panel es más grande que el formulario y ajustamos si es necesario
+            if (this.Width > formWidth)
+            {
+                this.Width = formWidth - 20; // Agregamos un margen
+            }
+
+            if (this.Height > formHeight)
+            {
+                this.Height = formHeight - 20; // Agregamos un margen
+            }
+
+            // Luego calculamos la nueva ubicación centrada
+            int newX = (formWidth - this.Width) / 2;
+            int newY = (formHeight - this.Height) / 2;
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)

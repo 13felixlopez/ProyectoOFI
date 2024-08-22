@@ -459,6 +459,25 @@ namespace ProyectoOFI.SM
             PLDatos.Size = new Size(1905, 743);
             PLDatos.Location = new System.Drawing.Point(dtInventarioSM.Width / 2
                 - PLDatos.Width / 2, dtInventarioSM.Height / 2 - PLDatos.Height / 2);
+            int formWidth = this.ClientSize.Width;
+            int formHeight = this.ClientSize.Height;
+
+            // Verificamos si el panel es más grande que el formulario y ajustamos si es necesario
+            if (PLDatos.Width > formWidth)
+            {
+                PLDatos.Width = formWidth - 20; // Agregamos un margen
+            }
+
+            if (PLDatos.Height > formHeight)
+            {
+                PLDatos.Height = formHeight - 20; // Agregamos un margen
+            }
+
+            // Luego calculamos la nueva ubicación centrada
+            int newX = (formWidth - PLDatos.Width) / 2;
+            int newY = (formHeight - PLDatos.Height) / 2;
+
+            PLDatos.Location = new Point(newX, newY);
             PLDatos.Visible = true;
             PLDatos.BringToFront();
             plOpciones.Enabled = false;

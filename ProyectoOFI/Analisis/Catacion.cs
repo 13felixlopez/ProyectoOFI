@@ -43,7 +43,6 @@ namespace ProyectoOFI.Analisis
             TxtScore.KeyPress += new KeyPressEventHandler(TextBox_KeyPress);
             ValidarPermisos();
         }
-
         private async void Catacion_Load(object sender, EventArgs e)
         {
             PlCarga.Dock = DockStyle.Fill;
@@ -54,12 +53,22 @@ namespace ProyectoOFI.Analisis
         }
         private async Task CargarDatos()
         {
-            await Task.Delay(1500);
-            dtInventarioCat.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            MostrarLotes();
-            ReiniciarPaginado();
-            await Task.Delay(1000);
-            dtInventarioCat.Columns["Proceso"].Visible = false;
+            try
+            {
+                await Task.Delay(1500);
+                dtInventarioCat.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                MostrarLotes();
+                ReiniciarPaginado();
+                await Task.Delay(1000);
+                dtInventarioCat.Columns["Proceso"].Visible = false;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error con el servidor", "Cerrando programa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Dispose();
+                Login lg = new Login();
+                lg.ShowDialog();
+            }
         }
         #region Paginado
         private void ReiniciarPaginado()
@@ -234,7 +243,7 @@ namespace ProyectoOFI.Analisis
             Dcatacion funcion = new Dcatacion();
             DataTable dt = new DataTable();
             funcion.MostrarCata(ref dt, desde, hasta);
-            ReiniciarPaginado();
+            //ReiniciarPaginado();
             dtInventarioCat.DataSource = dt;
             Base.DiseñoDtvEliminar(ref dtInventarioCat);
         }
@@ -333,13 +342,11 @@ namespace ProyectoOFI.Analisis
                     {
                         FMuestra = DateTime.Parse(dr["Fecha Muestra"].ToString());
                         DTPFechaMuestra.Value = DateTime.Parse(dr["Fecha Muestra"].ToString());
-                        LblFMuestra.Text = dr["Fecha Muestra"].ToString();
                     }
                     else
                     {
                         FMuestra = DateTime.Today;
                         DTPFechaMuestra.Value = DateTime.Today;
-                        LblFMuestra.Text = "--";
                     }
                     DtFechaCatacion.Value = DateTime.Today;
                     CalculoDias();
@@ -370,8 +377,8 @@ namespace ProyectoOFI.Analisis
                 TkDetalle = LblTKCD.Text;
                 DTPFechaMuestra.Value = DateTime.Parse(LblFecha.Text);
             }
-            VerDetalleCata();
             AbrirFormulario();
+            VerDetalleCata();
         }
         private void ObtenerTK()
         {
@@ -446,24 +453,24 @@ namespace ProyectoOFI.Analisis
             LblDesmAP.Text = Math.Round((Bto * DesmA) / 100, 2).ToString() + "%";
         }
 
-        private void TxtScore_TextChanged(object sender, EventArgs e)
-        {
-            if (TxtScore.Text == "")
-            {
-                LblTasa.Text = "";
-                LblGCalidad.Text = "";
-            }
-            else
-            {
-                SeleccionarScore();
-            }
-        }
-        private void SeleccionarScore()
-        {
-            Dcatacion funcion = new Dcatacion();
-            int score = int.Parse(TxtScore.Text);
-            funcion.SeleccionarScore(score, LblTasa, LblGCalidad);
-        }
+        //private void TxtScore_TextChanged(object sender, EventArgs e)
+        //{
+        //    //if (TxtScore.Text == "")
+        //    //{
+        //    //    LblTasa.Text = "";
+        //    //    LblGCalidad.Text = "";
+        //    //}
+        //    //else
+        //    //{
+        //    //    SeleccionarScore();
+        //    //}
+        //}
+        //private void SeleccionarScore()
+        //{
+        //    Dcatacion funcion = new Dcatacion();
+        //    int score = int.Parse(TxtScore.Text);
+        //    funcion.SeleccionarScore(score, LblTasa, LblGCalidad);
+        //}
         private void TxtHumedad_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(TxtHumedad.Text))
@@ -489,6 +496,7 @@ namespace ProyectoOFI.Analisis
             {
                 ChbRechazado.Checked = true;
                 ChbAnalizado.Enabled = false;
+                CbGrupoCalidad.Text = "";
             }
             else
             {
@@ -605,10 +613,10 @@ namespace ProyectoOFI.Analisis
             PLDatos.BringToFront();
             plOpciones.Enabled = false;
             dtInventarioCat.Enabled = false;
-            Analisis();
             Dcatacion funcion = new Dcatacion();
             funcion.MostrarVariedad(CbVariedad);
             funcion.MostrarGCalidad(CbGrupoCalidad);
+            Analisis();
             if (Proceso != "Almacén" && Proceso != "Analizado" && Proceso != "Envio")
             {
                 Activar();
@@ -707,7 +715,7 @@ namespace ProyectoOFI.Analisis
         {
             if (Validar())
             {
-                if (BtnAnalisis.Text != "Analizado")
+                if (BtnAnalisis.Text != "Analizado" || Estado != true)
                 {
                     if (BtnMostrarCompras.Text == "Análisis")
                     {
@@ -733,6 +741,7 @@ namespace ProyectoOFI.Analisis
                         MostrarLotes();
                     }
                 }
+                Desactivar();
             }
             else
             {
@@ -767,8 +776,8 @@ namespace ProyectoOFI.Analisis
                     parametros.DesmD = double.Parse(TxtDesmD.Text);
                     parametros.DesmC = double.Parse(LblDesmC.Text);
                     parametros.Score = int.Parse(TxtScore.Text);
-                    parametros.Tasa = LblTasa.Text;
-                    parametros.GradoCalidad = LblGCalidad.Text;
+                    //parametros.Tasa = LblTasa.Text;
+                    parametros.GradoCalidad = CbGrupoCalidad.Text;
                     parametros.ExpP = LblExpP.Text;
                     parametros.DesmAP = LblDesmAP.Text;
                     parametros.DesmCP = LblDesmCP.Text;
@@ -861,7 +870,7 @@ namespace ProyectoOFI.Analisis
         {
             Activar();
             BtnAnalisis.Visible = true;
-            BtnAnalisis.Text = "Re-Analizar";
+            BtnAnalisis.Text = "Editar Análisis";
         }
         private void Activar()
         {
@@ -878,7 +887,7 @@ namespace ProyectoOFI.Analisis
             BtnAnalisis.Enabled = true;
             ChbAnalizado.Enabled = true;
             ChbRechazado.Enabled = true;
-            CbGrupoCalidad.Visible = true;
+            CbGrupoCalidad.Enabled = true;
         }
         private void Desactivar()
         {
@@ -896,7 +905,7 @@ namespace ProyectoOFI.Analisis
             BtnAnalisis.Enabled = false;
             ChbAnalizado.Enabled = false;
             ChbRechazado.Enabled = false;
-            CbGrupoCalidad.Visible = false;
+            CbGrupoCalidad.Enabled = false;
         }
         private void InsertarCatacion()
         {
@@ -922,8 +931,8 @@ namespace ProyectoOFI.Analisis
                     parametros.DesmC = double.Parse(TxtDesmD.Text);
                     parametros.DesmD = double.Parse(LblDesmC.Text);
                     parametros.Score = int.Parse(TxtScore.Text);
-                    parametros.Tasa = LblTasa.Text;
-                    parametros.GradoCalidad = LblGCalidad.Text;
+                    //parametros.Tasa = LblTasa.Text;
+                    parametros.GradoCalidad = CbGrupoCalidad.Text;
                     parametros.ExpP = LblExpP.Text;
                     parametros.DesmAP = LblDesmAP.Text;
                     parametros.DesmCP = LblDesmCP.Text;
@@ -962,6 +971,7 @@ namespace ProyectoOFI.Analisis
             PlCarga.Dock = DockStyle.Fill;
             PlCarga.Visible = true;
             await Task.Delay(1500);
+            ReiniciarPaginado();
             if (BtnMostrarCompras.Text == "Compras Directas")
             {
                 MostrarComprasD();
@@ -970,6 +980,7 @@ namespace ProyectoOFI.Analisis
             {
                 MostrarLotes();
             }
+            ReiniciarPaginado();
             PlCarga.Visible = false;
             await Task.Delay(1000);
         }
@@ -995,8 +1006,8 @@ namespace ProyectoOFI.Analisis
                 parametros.DesmC = double.Parse(TxtDesmD.Text);
                 parametros.DesmD = double.Parse(LblDesmC.Text);
                 parametros.Score = int.Parse(TxtScore.Text);
-                parametros.Tasa = LblTasa.Text;
-                parametros.GradoCalidad = LblGCalidad.Text;
+                //parametros.Tasa = LblTasa.Text;
+                //parametros.GradoCalidad = LblGCalidad.Text;
                 parametros.ExpP = LblExpP.Text;
                 parametros.DesmAP = LblDesmAP.Text;
                 parametros.DesmCP = LblDesmCP.Text;
@@ -1050,8 +1061,8 @@ namespace ProyectoOFI.Analisis
                     parametros.DesmC = double.Parse(TxtDesmD.Text);
                     parametros.DesmD = double.Parse(LblDesmC.Text);
                     parametros.Score = int.Parse(TxtScore.Text);
-                    parametros.Tasa = LblTasa.Text;
-                    parametros.GradoCalidad = LblGCalidad.Text;
+                    //parametros.Tasa = LblTasa.Text;
+                    parametros.GradoCalidad = CbGrupoCalidad.Text;
                     parametros.ExpP = LblExpP.Text;
                     parametros.DesmAP = LblDesmAP.Text;
                     parametros.DesmCP = LblDesmCP.Text;
@@ -1292,23 +1303,23 @@ namespace ProyectoOFI.Analisis
                     }
 
                     // Asignar el valor de Cat.Taza 'Tasa'
-                    if (row["Tasa"] != DBNull.Value && row["Tasa"].ToString() != null)
-                    {
-                        LblTasa.Text = row["Tasa"].ToString();
-                    }
-                    else
-                    {
-                        LblTasa.Text = "--";
-                    }
+                    //if (row["Tasa"] != DBNull.Value && row["Tasa"].ToString() != null)
+                    //{
+                    //    LblTasa.Text = row["Tasa"].ToString();
+                    //}
+                    //else
+                    //{
+                    //    LblTasa.Text = "--";
+                    //}
 
                     // Asignar el valor de Cat.GradoCalidad
                     if (row["GradoCalidad"] != DBNull.Value && row["GradoCalidad"].ToString() != null)
                     {
-                        LblGCalidad.Text = row["GradoCalidad"].ToString();
+                        CbGrupoCalidad.Text = row["GradoCalidad"].ToString();
                     }
                     else
                     {
-                        LblGCalidad.Text = "--";
+                        //LblGCalidad.Text = "--";
                         CbGrupoCalidad.Text = "--";
                     }
                     if (row["Estado"] != DBNull.Value && row["Estado"].ToString() != null)
@@ -1321,6 +1332,7 @@ namespace ProyectoOFI.Analisis
                         else if (Estado == false)
                         {
                             ChbRechazado.Checked = true;
+                            BtnAnalisis.Text = "Re-Analizar";
                         }
                         else
                         {
@@ -1331,7 +1343,7 @@ namespace ProyectoOFI.Analisis
                     CalculoDias();
                     Idcatacion = int.Parse(row["IdCatacion"].ToString());
                     BtnActivar.Visible = true;
-                    Desactivar();
+                    //Desactivar();
                     //else
                     //{
                     //    Estado = false;
@@ -1392,7 +1404,7 @@ namespace ProyectoOFI.Analisis
             DCompraD funcion = new DCompraD();
             DataTable dt = new DataTable();
             funcion.MostrarComprasD(ref dt, desde, hasta);
-            ReiniciarPaginado();
+            //ReiniciarPaginado();
             dtInventarioCat.DataSource = dt;
         }
         private void VerDetalleCompra()

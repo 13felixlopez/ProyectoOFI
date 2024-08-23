@@ -30,49 +30,39 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.PlTitulo = new System.Windows.Forms.Panel();
-            this.BtnCerrar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtUser = new System.Windows.Forms.TextBox();
             this.PlUser = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PlPass = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.TxtPass = new System.Windows.Forms.TextBox();
-            this.PbLogo = new System.Windows.Forms.PictureBox();
             this.PlBotones = new System.Windows.Forms.Panel();
             this.Lblrestablecer = new System.Windows.Forms.LinkLabel();
             this.BtnInicio = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.CambiarServidor = new System.Windows.Forms.Button();
+            this.BtnCerrar = new System.Windows.Forms.Button();
+            this.PbLogo = new System.Windows.Forms.PictureBox();
             this.PlTitulo.SuspendLayout();
             this.PlUser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PlPass.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbLogo)).BeginInit();
             this.PlBotones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // PlTitulo
             // 
+            this.PlTitulo.Controls.Add(this.CambiarServidor);
             this.PlTitulo.Controls.Add(this.BtnCerrar);
             this.PlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlTitulo.Location = new System.Drawing.Point(636, 0);
             this.PlTitulo.Name = "PlTitulo";
             this.PlTitulo.Size = new System.Drawing.Size(460, 52);
             this.PlTitulo.TabIndex = 0;
-            // 
-            // BtnCerrar
-            // 
-            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrar.Location = new System.Drawing.Point(411, 0);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(49, 52);
-            this.BtnCerrar.TabIndex = 1;
-            this.BtnCerrar.UseVisualStyleBackColor = true;
-            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // label1
             // 
@@ -84,6 +74,7 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Bienvenidos a\r\nCoffeeTec \r\nofi";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
             // 
             // label2
             // 
@@ -115,16 +106,6 @@
             this.PlUser.Size = new System.Drawing.Size(460, 100);
             this.PlUser.TabIndex = 5;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.icons8_usuario;
-            this.pictureBox1.Location = new System.Drawing.Point(39, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(63, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            // 
             // PlPass
             // 
             this.PlPass.Controls.Add(this.pictureBox2);
@@ -135,16 +116,6 @@
             this.PlPass.Name = "PlPass";
             this.PlPass.Size = new System.Drawing.Size(460, 100);
             this.PlPass.TabIndex = 6;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::ProyectoOFI.Properties.Resources.icons8_bloquear;
-            this.pictureBox2.Location = new System.Drawing.Point(39, 28);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(63, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 5;
-            this.pictureBox2.TabStop = false;
             // 
             // label3
             // 
@@ -165,17 +136,6 @@
             this.TxtPass.Size = new System.Drawing.Size(301, 26);
             this.TxtPass.TabIndex = 4;
             this.TxtPass.UseSystemPasswordChar = true;
-            // 
-            // PbLogo
-            // 
-            this.PbLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PbLogo.Image = global::ProyectoOFI.Properties.Resources.Logo;
-            this.PbLogo.Location = new System.Drawing.Point(0, 0);
-            this.PbLogo.Name = "PbLogo";
-            this.PbLogo.Size = new System.Drawing.Size(636, 645);
-            this.PbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PbLogo.TabIndex = 1;
-            this.PbLogo.TabStop = false;
             // 
             // PlBotones
             // 
@@ -209,6 +169,62 @@
             this.BtnInicio.UseVisualStyleBackColor = true;
             this.BtnInicio.Click += new System.EventHandler(this.BtnInicio_Click);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::ProyectoOFI.Properties.Resources.icons8_bloquear;
+            this.pictureBox2.Location = new System.Drawing.Point(39, 28);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(63, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 5;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.icons8_usuario;
+            this.pictureBox1.Location = new System.Drawing.Point(39, 28);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(63, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // CambiarServidor
+            // 
+            this.CambiarServidor.BackgroundImage = global::ProyectoOFI.Properties.Resources.data_backup_80px;
+            this.CambiarServidor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.CambiarServidor.Dock = System.Windows.Forms.DockStyle.Left;
+            this.CambiarServidor.Location = new System.Drawing.Point(0, 0);
+            this.CambiarServidor.Name = "CambiarServidor";
+            this.CambiarServidor.Size = new System.Drawing.Size(49, 52);
+            this.CambiarServidor.TabIndex = 2;
+            this.CambiarServidor.UseVisualStyleBackColor = true;
+            this.CambiarServidor.Visible = false;
+            this.CambiarServidor.Click += new System.EventHandler(this.CambiarServidor_Click);
+            // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrar.Location = new System.Drawing.Point(411, 0);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(49, 52);
+            this.BtnCerrar.TabIndex = 1;
+            this.BtnCerrar.UseVisualStyleBackColor = true;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
+            // 
+            // PbLogo
+            // 
+            this.PbLogo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PbLogo.Image = global::ProyectoOFI.Properties.Resources.Logo;
+            this.PbLogo.Location = new System.Drawing.Point(0, 0);
+            this.PbLogo.Name = "PbLogo";
+            this.PbLogo.Size = new System.Drawing.Size(636, 645);
+            this.PbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PbLogo.TabIndex = 1;
+            this.PbLogo.TabStop = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -229,13 +245,13 @@
             this.PlTitulo.ResumeLayout(false);
             this.PlUser.ResumeLayout(false);
             this.PlUser.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PlPass.ResumeLayout(false);
             this.PlPass.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbLogo)).EndInit();
             this.PlBotones.ResumeLayout(false);
             this.PlBotones.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -257,5 +273,6 @@
         private System.Windows.Forms.Panel PlBotones;
         private System.Windows.Forms.LinkLabel Lblrestablecer;
         private System.Windows.Forms.Button BtnInicio;
+        private System.Windows.Forms.Button CambiarServidor;
     }
 }

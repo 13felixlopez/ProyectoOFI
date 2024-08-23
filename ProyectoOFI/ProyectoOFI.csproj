@@ -760,6 +760,7 @@
   <ItemGroup>
     <Content Include="CoffeeTech.sql" />
     <Content Include="Logo.ico" />
+    <None Include="Resources\data_backup_80px.png" />
     <None Include="Resources\calendar.png" />
     <None Include="Resources\Empaque.png" />
     <None Include="Resources\Bodega.png" />

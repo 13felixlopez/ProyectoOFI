@@ -406,7 +406,7 @@ namespace ProyectoOFI.ControlPatio
                     DtpReEnfarde.Enabled = false;
                 }
             }
-            else if (Proceso == "Envio" || Proceso == "Envio SM")
+            else if (Proceso == "Envio" || Proceso == "Envio SM" || Proceso=="Almacén")
             {
                 PlTendido.Enabled = false;
                 PlTendido.Visible = true;

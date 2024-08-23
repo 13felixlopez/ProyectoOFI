@@ -3,6 +3,8 @@ using ProyectoOFI.Logica;
 using System;
 using System.Data;
 using System.IO;
+using System.Reflection.Emit;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoOFI
@@ -21,6 +23,10 @@ namespace ProyectoOFI
         public static string Correo;
         public static string IP;
         public static string Pass;
+
+        private int clickCount = 0;
+        private DateTime lastClickTime = DateTime.MinValue;
+        private const int DoubleClickThreshold = 500;
         public Login()
         {
             InitializeComponent();
@@ -104,6 +110,8 @@ namespace ProyectoOFI
         {
             Validar_Conexion();
             TxtUser.Focus();
+            // Suscribir el evento MouseDown al label
+            label1.MouseDown += new MouseEventHandler(label1_MouseDown);
         }
         private void CrearArchivo()
         {
@@ -131,6 +139,43 @@ namespace ProyectoOFI
             catch (Exception ex)
             {
                 Console.WriteLine("Error al crear la carpeta y el archivo: " + ex.Message);
+            }
+        }
+
+        private void CambiarServidor_Click(object sender, EventArgs e)
+        {
+            Dispose();
+            FrmConexionIP IP = new FrmConexionIP();
+            IP.ShowDialog();
+        }
+
+        private void label1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right) // Verifica si es un clic derecho
+            {
+                // Calcula el tiempo transcurrido desde el último clic
+                TimeSpan timeSinceLastClick = DateTime.Now - lastClickTime;
+
+                if (timeSinceLastClick.TotalMilliseconds <= DoubleClickThreshold)
+                {
+                    clickCount++;
+
+                    if (clickCount == 10) // Si es el segundo clic derecho
+                    {
+                        //Task.Delay(10000);
+                        CambiarServidor.Visible = true;
+
+                        // Reinicia el contador
+                        clickCount = 0;
+                    }
+                }
+                else
+                {
+                    // Reinicia el contador si el tiempo entre clics es mayor que el umbral
+                    clickCount = 1;
+                }
+
+                lastClickTime = DateTime.Now; // Actualiza el tiempo del último clic
             }
         }
     }

@@ -26,6 +26,7 @@ namespace ProyectoOFI.Analisis
         Boolean Estado;
         string Proceso, Modulo;
         int Idcatacion;
+        string Analizar = "Proceso";//Variable que define si es compra directa o no
         public Catacion()
         {
             InitializeComponent();
@@ -631,20 +632,25 @@ namespace ProyectoOFI.Analisis
         private void Analisis()
         {
             string ticketText = LblTicket.Text;
-
-            // Verifica si el ticket contiene "-Parte1" o "-Parte2"
-            if (ticketText.Contains("-Parte1") || ticketText.Contains("-Parte2"))
+            if (Analizar == "Proceso")
             {
-                // Si lo contiene, extrae solo la parte antes del guion
-                int dashIndex = ticketText.IndexOf("-");
-                TxtAnalisis.Text = ticketText.Substring(0, dashIndex);
+                // Verifica si el ticket contiene "-Parte1" o "-Parte2"
+                if (ticketText.Contains("-Parte1") || ticketText.Contains("-Parte2"))
+                {
+                    // Si lo contiene, extrae solo la parte antes del guion
+                    int dashIndex = ticketText.IndexOf("-");
+                    TxtAnalisis.Text = ticketText.Substring(0, dashIndex);
+                }
+                else
+                {
+                    // Si no lo contiene, muestra el ticket completo
+                    TxtAnalisis.Text = ticketText;
+                }
             }
             else
             {
-                // Si no lo contiene, muestra el ticket completo
-                TxtAnalisis.Text = ticketText;
+                TxtAnalisis.Text = LblTKCD.Text;
             }
-
         }
         private void ChbRechazado_CheckedChanged(object sender, EventArgs e)
         {
@@ -715,25 +721,12 @@ namespace ProyectoOFI.Analisis
         {
             if (Validar())
             {
-                if (BtnAnalisis.Text != "Analizado" || Estado != true)
+                if (Analizar == "Proceso")
                 {
-                    if (BtnMostrarCompras.Text == "Análisis")
-                    {
-                        EditarCatacionCD();
-                        MostrarComprasD();
-                    }
-                    else
+                    if (BtnAnalisis.Text == "Re-Analizar" || BtnAnalisis.Text == "Editar Análisis")
                     {
                         EditarCatacionCD();
                         MostrarLotes();
-                    }
-                }
-                else
-                {
-                    if (BtnMostrarCompras.Text == "Análisis")
-                    {
-                        InsertarCatacionCD();
-                        MostrarComprasD();
                     }
                     else
                     {
@@ -741,6 +734,51 @@ namespace ProyectoOFI.Analisis
                         MostrarLotes();
                     }
                 }
+                else
+                {
+                    if (BtnAnalisis.Text == "Re-Analizar" || BtnAnalisis.Text == "Editar Análisis")
+                    {
+                        EditarCatacionCD();
+                        MostrarComprasD();
+                    }
+                    else
+                    {
+                        InsertarCatacionCD();
+                        MostrarComprasD();
+                    }
+                }
+                //if (BtnAnalisis.Text == "Analizado" || Estado == false)
+                //{
+
+                //    if (BtnAnalisis.Text == "Re-Analizar")
+                //    {
+                //        EditarCatacionCD();
+                //        MostrarLotes();
+                //    }
+                //    else if(BtnMostrarCompras.Text == "Análisis")
+                //    {
+                //        InsertarCatacionCD();
+                //        MostrarComprasD();
+                //    }
+                //    else
+                //    {
+                //        InsertarCatacion();
+                //        MostrarLotes();
+                //    }
+                //}
+                //else
+                //{
+                //    if (BtnMostrarCompras.Text == "Análisis")
+                //    {
+                //        EditarCatacionCD();
+                //        MostrarComprasD();
+                //    }
+                //    else
+                //    {
+                //        EditarCatacionCD();
+                //        MostrarLotes();
+                //    }
+                //}
                 Desactivar();
             }
             else
@@ -974,10 +1012,12 @@ namespace ProyectoOFI.Analisis
             ReiniciarPaginado();
             if (BtnMostrarCompras.Text == "Compras Directas")
             {
+                Analizar = "Compras";
                 MostrarComprasD();
             }
             else
             {
+                Analizar = "Proceso";
                 MostrarLotes();
             }
             ReiniciarPaginado();
@@ -1120,6 +1160,21 @@ namespace ProyectoOFI.Analisis
                 TxtBto.Text == "" || TxtDesmA.Text == ""
             || TxtDesmD.Text == "" || TxtScore.Text == "" || TxtExp.Text == "" || TxtHumedad.Text == "");
         }
+
+        private async void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            if (Analizar == "Proceso")
+            {
+                await CargarDatos();
+            }
+            else
+            {
+                MostrarComprasD();
+                ReiniciarPaginado();
+            }
+            MessageBox.Show("Datos Actualizados", "Refrescar Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
         private void VerDetalleCata()
         {
             Dcatacion funcion = new Dcatacion();
@@ -1328,6 +1383,11 @@ namespace ProyectoOFI.Analisis
                         if (Estado == true)
                         {
                             ChbAnalizado.Checked = true;
+                            BtnAnalisis.Enabled = false;
+                            if (BtnAnalisis.Text == "Re-Analizar")
+                            {
+                                BtnAnalisis.Enabled = true;
+                            }
                         }
                         else if (Estado == false)
                         {
@@ -1553,53 +1613,62 @@ namespace ProyectoOFI.Analisis
         }
         private void ValidarPermisos()
         {
-            DataTable dt = new DataTable();
-            DModulos funcion = new DModulos();
-            LPermisos parametros = new LPermisos();
-            parametros.IdUser = Login.Iduser;
-            funcion.PermisosUser(ref dt, Login.Iduser);
-
-            bool tieneAgregarAnalisis = false;
-            bool tieneEditarAnalisis = false;
-
-            foreach (DataRow rowpermisos in dt.Rows)
+            if (!Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
             {
-                Modulo = Convert.ToString(rowpermisos["Modulo"]);
-                if (Modulo == "Agregar Análisis")
+                DataTable dt = new DataTable();
+                DModulos funcion = new DModulos();
+                LPermisos parametros = new LPermisos();
+                parametros.IdUser = Login.Iduser;
+                funcion.PermisosUser(ref dt, Login.Iduser);
+
+                bool tieneAgregarAnalisis = false;
+                bool tieneEditarAnalisis = false;
+
+                foreach (DataRow rowpermisos in dt.Rows)
                 {
-                    tieneAgregarAnalisis = true;
+                    Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                    if (Modulo == "Agregar Análisis")
+                    {
+                        tieneAgregarAnalisis = true;
+                    }
+                    if (Modulo == "Editar Análisis")
+                    {
+                        tieneEditarAnalisis = true;
+                    }
                 }
-                if (Modulo == "Editar Análisis")
-                {
-                    tieneEditarAnalisis = true;
-                }
-            }
 
-            if (tieneAgregarAnalisis && tieneEditarAnalisis)
-            {
-                BtnAnalisis.Visible = true;
-                BtnCambiarTK.Enabled = true;
-                BtnActivar.Enabled = true;
-            }
-            else if (tieneAgregarAnalisis)
-            {
-                BtnAnalisis.Visible = true;
-                BtnCambiarTK.Enabled = true;
-                BtnActivar.Enabled = false;
-            }
-            else if (tieneEditarAnalisis)
-            {
-                BtnAnalisis.Visible = false;
-                BtnCambiarTK.Enabled = false;
-                BtnActivar.Enabled = true;
+                if (tieneAgregarAnalisis && tieneEditarAnalisis)
+                {
+                    BtnAnalisis.Visible = true;
+                    BtnCambiarTK.Enabled = true;
+                    BtnActivar.Enabled = true;
+                }
+                else if (tieneAgregarAnalisis)
+                {
+                    BtnAnalisis.Visible = true;
+                    BtnCambiarTK.Enabled = true;
+                    BtnActivar.Enabled = false;
+                }
+                else if (tieneEditarAnalisis)
+                {
+                    BtnAnalisis.Visible = false;
+                    BtnCambiarTK.Enabled = false;
+                    BtnActivar.Enabled = true;
+                }
+                else
+                {
+                    BtnAnalisis.Visible = false;
+                    BtnCambiarTK.Enabled = false;
+                    BtnActivar.Enabled = false;
+                }
             }
             else
             {
-                BtnAnalisis.Visible = false;
-                BtnCambiarTK.Enabled = false;
-                BtnActivar.Enabled = false;
+                // Hacer todos los controles visibles y habilitados
+                BtnAnalisis.Visible = true;
+                BtnCambiarTK.Enabled = true;
+                BtnActivar.Enabled = true;
             }
         }
-
     }
 }

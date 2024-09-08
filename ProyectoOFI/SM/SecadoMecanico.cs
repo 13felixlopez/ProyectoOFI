@@ -1030,6 +1030,13 @@ namespace ProyectoOFI.SM
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventarioSM);
         }
+
+        private async void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            await CargarDatos();
+            MessageBox.Show("Datos Actualizados", "Refrescar Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
         private void EnvioSM()
         {
             SM.Clear();

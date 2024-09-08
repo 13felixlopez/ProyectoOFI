@@ -184,6 +184,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label28 = new System.Windows.Forms.Label();
             this.BtnCerrarParticion = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.BtnActualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioSM)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.PlFiltroFecha.SuspendLayout();
@@ -211,6 +213,7 @@
             this.GbSF.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtInventarioSM
@@ -242,13 +245,14 @@
             this.dtInventarioSM.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioSM.ShowCellToolTips = false;
             this.dtInventarioSM.ShowEditingIcon = false;
-            this.dtInventarioSM.Size = new System.Drawing.Size(1194, 683);
+            this.dtInventarioSM.Size = new System.Drawing.Size(1370, 683);
             this.dtInventarioSM.TabIndex = 9;
             this.dtInventarioSM.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtInventarioSM_CellDoubleClick);
             // 
             // plOpciones
             // 
             this.plOpciones.BackColor = System.Drawing.Color.White;
+            this.plOpciones.Controls.Add(this.panel3);
             this.plOpciones.Controls.Add(this.PlFiltroFecha);
             this.plOpciones.Controls.Add(this.PbExcel);
             this.plOpciones.Controls.Add(this.CbBuscar);
@@ -261,7 +265,7 @@
             this.plOpciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.plOpciones.Location = new System.Drawing.Point(0, 0);
             this.plOpciones.Name = "plOpciones";
-            this.plOpciones.Size = new System.Drawing.Size(1194, 62);
+            this.plOpciones.Size = new System.Drawing.Size(1370, 62);
             this.plOpciones.TabIndex = 10;
             // 
             // PlFiltroFecha
@@ -428,7 +432,7 @@
             this.plfooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.plfooter.Location = new System.Drawing.Point(0, 745);
             this.plfooter.Name = "plfooter";
-            this.plfooter.Size = new System.Drawing.Size(1194, 60);
+            this.plfooter.Size = new System.Drawing.Size(1370, 60);
             this.plfooter.TabIndex = 11;
             // 
             // btn_atras
@@ -2019,6 +2023,30 @@
             this.BtnCerrarParticion.UseVisualStyleBackColor = true;
             this.BtnCerrarParticion.Click += new System.EventHandler(this.BtnCerrarParticion_Click);
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.BtnActualizar);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(1279, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(91, 62);
+            this.panel3.TabIndex = 9;
+            // 
+            // BtnActualizar
+            // 
+            this.BtnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnActualizar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnActualizar.FlatAppearance.BorderSize = 0;
+            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnActualizar.Image = global::ProyectoOFI.Properties.Resources.icons8_refrescar;
+            this.BtnActualizar.Location = new System.Drawing.Point(0, 0);
+            this.BtnActualizar.Name = "BtnActualizar";
+            this.BtnActualizar.Size = new System.Drawing.Size(91, 62);
+            this.BtnActualizar.TabIndex = 0;
+            this.BtnActualizar.UseVisualStyleBackColor = false;
+            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
+            // 
             // SecadoMecanico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2030,7 +2058,7 @@
             this.Controls.Add(this.plOpciones);
             this.Controls.Add(this.plfooter);
             this.Name = "SecadoMecanico";
-            this.Size = new System.Drawing.Size(1194, 805);
+            this.Size = new System.Drawing.Size(1370, 805);
             this.Load += new System.EventHandler(this.SecadoMecanico_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioSM)).EndInit();
             this.plOpciones.ResumeLayout(false);
@@ -2067,6 +2095,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2219,5 +2248,7 @@
         private System.Windows.Forms.DateTimePicker DtpFin;
         private System.Windows.Forms.Button BtnFiltroFecha;
         private System.Windows.Forms.DateTimePicker DtpInicio;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button BtnActualizar;
     }
 }

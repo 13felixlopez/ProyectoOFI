@@ -35,6 +35,8 @@ namespace ProyectoOFI.Recepcion
         object[,] dataArray;
         List<string> filtro = new List<string>();
         private Form FrmActivo = null;
+
+        List<string> permisosUsuario = new List<string>();
         public Transferencia()
         {
             InitializeComponent();
@@ -91,7 +93,7 @@ namespace ProyectoOFI.Recepcion
             plOpciones.Enabled = false;
             PEnvio.Dock = DockStyle.Fill;
             dtInventario.Enabled = false;
-            DRecepcion funcion=new DRecepcion();
+            DRecepcion funcion = new DRecepcion();
             funcion.Cosecha(LblCosecha);
             AdjustPanelInfoSizeAndPosition();
         }
@@ -146,6 +148,7 @@ namespace ProyectoOFI.Recepcion
             txtPesoE.Enabled = true;
             txtKgs.Enabled = true;
             dtInventario.Enabled = true;
+            PnGuardar.Visible = false;
         }
         private void btnSig_Click(object sender, EventArgs e)
         {
@@ -345,7 +348,7 @@ namespace ProyectoOFI.Recepcion
                 parametros.IdRecibidor = int.Parse(cbRecibidor.SelectedValue.ToString());
                 parametros.Digitador = Login.NombreA;
                 parametros.Consolidado = Consolidado;
-                parametros.Cosecha=LblCosecha.Text;
+                parametros.Cosecha = LblCosecha.Text;
 
 
                 LEnvio par = new LEnvio();
@@ -415,7 +418,7 @@ namespace ProyectoOFI.Recepcion
             lblTransferencia.Text = "Editar Transferencia";
             CHBConsSM.Visible = false;
             AbrirFormulario();
-            if (Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase) || Modulo == "EditarTK")
+            if (Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase) || permisosUsuario.Contains("EditarTK"))
             {
                 txtTK.Enabled = true;
             }
@@ -444,15 +447,16 @@ namespace ProyectoOFI.Recepcion
             {
                 BtnVerCons.Visible = false;
             }
-            if (Proceso != "No Asignado")
-            {
-                BtnEditar.Visible = false;
-            }
-            else
+            if (Proceso == "No Asignado" && permisosUsuario.Contains("EditarTransferencia"))
             {
                 BtnEditar.Visible = true;
                 PnGuardar.Visible = false;
             }
+            else
+            {
+                BtnEditar.Visible = false;
+            }
+
         }
         private void ObtenerTK()
         {
@@ -1549,7 +1553,7 @@ namespace ProyectoOFI.Recepcion
                 TextBuscarVisible();
                 funcion.MostrarAreaSecado(CbBuscador);
             }
-            else if (CbBuscar.Text=="Fecha")
+            else if (CbBuscar.Text == "Fecha")
             {
                 TextBuscarVisible();
                 CbBuscador.Visible = false;
@@ -1875,6 +1879,13 @@ namespace ProyectoOFI.Recepcion
             hijo.BringToFront();
             hijo.Show();
         }
+
+        private async void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            await CargarDatos();
+            MessageBox.Show("Datos Actualizados", "Refrescar Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
         private void ValidarPermisos()
         {
             DataTable dt = new DataTable();
@@ -1882,34 +1893,50 @@ namespace ProyectoOFI.Recepcion
             LPermisos parametros = new LPermisos();
             parametros.IdUser = Login.Iduser;
             funcion.PermisosUser(ref dt, Login.Iduser);
+
+            // Guardamos todos los permisos en la lista
             foreach (DataRow rowpermisos in dt.Rows)
             {
-                Modulo = Convert.ToString(rowpermisos["Modulo"]);
-                if (Modulo == "InsertarTranferencia")
-                {
-                    btnAgregar.Visible = true;
-                }
-                if (Modulo == "EditarTransferencia")
-                {
-                    BtnEditar.Visible = true;
-                    PlRecepcion.Enabled = true;
-                    PlEnvio.Enabled = true;
-                }
-                if (Modulo == "Consolidar")
-                {
-                    dtInventario.Columns["Consolidar"].Visible = true;
-                    BtnAddTK.Visible = true;
-                }
-                if ((Modulo == "Eliminar"))
-                {
-                    dtInventario.Columns["Eliminar"].Visible = true;
-                }
-                if (Modulo == "EditarTK")
-                {
-                    txtTK.Enabled = true;
-                }
+                permisosUsuario.Add(Convert.ToString(rowpermisos["Modulo"]));
+            }
+
+            // Ahora que tenemos todos los permisos, los validamos
+            AsignarPermisos();
+        }
+        private void AsignarPermisos()
+        {
+            // Validamos si el usuario tiene ciertos permisos
+            if (permisosUsuario.Contains("InsertarTranferencia"))
+            {
+                plAgregar.Visible = true;
+                btnAgregar.Visible = true;
+                //PnGuardar.Visible = true;
+            }
+
+            if (permisosUsuario.Contains("EditarTransferencia"))
+            {
+                BtnEditar.Visible = true;
+                PlRecepcion.Enabled = true;
+                PlEnvio.Enabled = true;
+            }
+
+            if (permisosUsuario.Contains("Consolidar"))
+            {
+                dtInventario.Columns["Consolidar"].Visible = true;
+                BtnAddTK.Visible = true;
+            }
+
+            if (permisosUsuario.Contains("Eliminar"))
+            {
+                dtInventario.Columns["Eliminar"].Visible = true;
+            }
+
+            if (permisosUsuario.Contains("EditarTK"))
+            {
+                txtTK.Enabled = true;
             }
         }
+
         private void AdjustPanelInfoSizeAndPosition()
         {
             // Tamaño deseado del panel en una pantalla de referencia (por ejemplo, 1920x1080)

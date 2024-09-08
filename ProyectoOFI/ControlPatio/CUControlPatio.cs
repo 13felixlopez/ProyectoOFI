@@ -395,18 +395,15 @@ namespace ProyectoOFI.ControlPatio
                     DtpReEnfarde.Visible = true;
                     LblDtotal.Visible = true;
                 }
-                if (Rechazos != 0 && Estado == "Enfarde")
+                if (Rechazos != 0)
                 {
-                    LblFReTendido.Visible = true;
-                    DtpRetendido.Visible = true;
-                    LblFechaReEnfarde.Visible = true;
-                    DtpReEnfarde.Visible = true;
-                    LblDTS.Visible = true;
-                    LblDtotal.Visible = true;
-                    DtpReEnfarde.Enabled = false;
+                    if (Estado == "Enfarde" || Estado == "Analizado")
+                    {
+                        Rechazado();
+                    }
                 }
             }
-            else if (Proceso == "Envio" || Proceso == "Envio SM" || Proceso=="Almacén")
+            else if (Proceso == "Envio" || Proceso == "Envio SM" || Proceso == "Almacén")
             {
                 PlTendido.Enabled = false;
                 PlTendido.Visible = true;
@@ -420,70 +417,23 @@ namespace ProyectoOFI.ControlPatio
                 VerTendido();
                 VerEnfarde();
                 VerEnvioCp();
+                if (Rechazos != 0)
+                {
+                    Rechazado();
+                }
             }
         }
-        private void VerTendido()
+        private void Rechazado()
         {
-            DControlPatio funcion = new DControlPatio();
-            DataTable dt = new DataTable();
-            try
-            {
-                funcion.MostrarDetalleTendido(ref dt, Ticket);
-                if (dt.Rows.Count > 0)
-                {
-                    DataRow row = dt.Rows[0];
-                    if (row["Folio"].ToString() != null)
-                    {
-                        TxtFolio.Text = row["Folio"].ToString();
-                    }
-                    else
-                    {
-                        TxtFolio.Text = "";
-                    }
-                    if (row["Edit"].ToString() != null)
-                    {
-                        edit = int.Parse(row["Edit"].ToString());
-                    }
-                    else
-                    {
-                        edit = 0;
-                    }
-                    if (row["Fecha Tendido"].ToString() != null)
-                    {
-                        DTPFechaTendido.Value = DateTime.Parse(row["Fecha Tendido"].ToString());
-                    }
-                    else
-                    {
-                        DTPFechaTendido.Value = DateTime.Today;
-                    }
-                    if (!string.IsNullOrEmpty(row["ReTendido"].ToString()))
-                    {
-                        // Verificar si se puede parsear a DateTime antes de asignar
-                        if (DateTime.TryParse(row["ReTendido"].ToString(), out DateTime retendidoDate))
-                        {
-                            DtpRetendido.Value = retendidoDate;
-                        }
-                    }
-                    else
-                    {
-                        DtpRetendido.Value = DTPFechaTendido.Value;
-                    }
-                    CbPatio.Text = row["Patio"].ToString();
-                    CbUbicacionP.Text = row["Ubicación Patio"].ToString();
-                    LblDigitadorCp.Text = row["Digitador"].ToString();
-                    Rechazos = int.Parse(row["Rechazos"].ToString());
-                    IdTendido = int.Parse(row["IdTendido"].ToString());
-                }
-                else
-                {
-                    MessageBox.Show("No se encontraron datos para el ticket especificado.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("No se pudieron cargar los datos Tendido " + ex.Message, "ERROR Tendido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            LblFReTendido.Visible = true;
+            DtpRetendido.Visible = true;
+            LblFechaReEnfarde.Visible = true;
+            DtpReEnfarde.Visible = true;
+            LblDTS.Visible = true;
+            LblDtotal.Visible = true;
+            DtpReEnfarde.Enabled = false;
         }
+
         private void AbrirFormulario()
         {
             //PlControl.Location = new Point(dtInventariocp.Width / 2
@@ -808,7 +758,7 @@ namespace ProyectoOFI.ControlPatio
             {
                 if (DtpRetendido.Value > DtpReEnfarde.Value)
                 {
-                    MessageBox.Show("No se puede realizar el ReEnfarde porque la Fecha es menor que la Fecha de Enfarde", "Error en ReEnfarde", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se puede realizar el ReEnfarde porque la Fecha es menor que la Fecha de ReTendido", "Error en ReEnfarde", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -891,7 +841,7 @@ namespace ProyectoOFI.ControlPatio
         {
             if (validarEnfarde())
             {
-                if (DTPEnfarde.Value.Date <= DateTime.Today.Date)
+                if (DtpReEnfarde.Value.Date <= DateTime.Today.Date)
                 {
                     LControlPatio parametros = new LControlPatio();
                     DControlPatio funcion = new DControlPatio();
@@ -963,6 +913,68 @@ namespace ProyectoOFI.ControlPatio
             plOpciones.Enabled = true;
             Limpiar();
         }
+        private void VerTendido()
+        {
+            DControlPatio funcion = new DControlPatio();
+            DataTable dt = new DataTable();
+            try
+            {
+                funcion.MostrarDetalleTendido(ref dt, Ticket);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow row = dt.Rows[0];
+                    if (row["Folio"].ToString() != null)
+                    {
+                        TxtFolio.Text = row["Folio"].ToString();
+                    }
+                    else
+                    {
+                        TxtFolio.Text = "";
+                    }
+                    if (row["Edit"].ToString() != null)
+                    {
+                        edit = int.Parse(row["Edit"].ToString());
+                    }
+                    else
+                    {
+                        edit = 0;
+                    }
+                    if (row["Fecha Tendido"].ToString() != null)
+                    {
+                        DTPFechaTendido.Value = DateTime.Parse(row["Fecha Tendido"].ToString());
+                    }
+                    else
+                    {
+                        DTPFechaTendido.Value = DateTime.Today;
+                    }
+                    if (!string.IsNullOrEmpty(row["ReTendido"].ToString()))
+                    {
+                        // Verificar si se puede parsear a DateTime antes de asignar
+                        if (DateTime.TryParse(row["ReTendido"].ToString(), out DateTime retendidoDate))
+                        {
+                            DtpRetendido.Value = retendidoDate;
+                        }
+                    }
+                    else
+                    {
+                        DtpRetendido.Value = DTPFechaTendido.Value;
+                    }
+                    CbPatio.Text = row["Patio"].ToString();
+                    CbUbicacionP.Text = row["Ubicación Patio"].ToString();
+                    LblDigitadorCp.Text = row["Digitador"].ToString();
+                    Rechazos = int.Parse(row["Rechazos"].ToString());
+                    IdTendido = int.Parse(row["IdTendido"].ToString());
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron datos para el ticket especificado.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron cargar los datos Tendido " + ex.Message, "ERROR Tendido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void VerEnfarde()
         {
             DControlPatio funcion = new DControlPatio();
@@ -997,6 +1009,27 @@ namespace ProyectoOFI.ControlPatio
                     else
                     {
                         DTPEnfarde.Value = DateTime.Today;
+                    }
+                    if (!string.IsNullOrEmpty(row["ReEnfarde"].ToString()))
+                    {
+                        // Verificar si se puede parsear a DateTime antes de asignar
+                        if (DateTime.TryParse(row["ReEnfarde"].ToString(), out DateTime reenfardeDate))
+                        {
+                            DtpReEnfarde.Value = reenfardeDate;
+                        }
+                    }
+                    else
+                    {
+                        DtpReEnfarde.Value = DTPEnfarde.Value;
+                    }
+                    if (row["TotalDias"].ToString() != null)
+                    {
+                        LblDtotal.Text = row["TotalDias"].ToString();
+                        //diasEdit = int.Parse(LblDiasSecado.Text);
+                    }
+                    else
+                    {
+                        LblDtotal.Text = LblDiasSecado.Text;
                     }
                     if (row["Sacos Enfardados"].ToString() != null)
                     {
@@ -1315,6 +1348,12 @@ namespace ProyectoOFI.ControlPatio
             LblDtotal.Text = Tdias.ToString();
         }
 
+        private async void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            await CargarDatos();
+            MessageBox.Show("Datos Actualizados", "Refrescar Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
         private bool validarEnvio()
         {
             return !(TxtDNIN.Text == "" || CbEstFis.Text == "" || CbDestino.Text == "");
@@ -1479,6 +1518,7 @@ namespace ProyectoOFI.ControlPatio
             {
                 BtnTendido.Visible = true;
                 BtnEnfarde.Visible = true;
+                BtnEnvSM.Visible = true;
                 BtnEnviar.Visible = true;
                 toolStrip1.Visible = true;
             }
@@ -1486,6 +1526,7 @@ namespace ProyectoOFI.ControlPatio
             {
                 BtnTendido.Visible = true;
                 BtnEnfarde.Visible = true;
+                BtnEnvSM.Visible = true;
                 BtnEnviar.Visible = true;
                 toolStrip1.Visible = false;
             }

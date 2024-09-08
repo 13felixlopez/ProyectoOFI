@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Sig = new System.Windows.Forms.Button();
             this.btn_Primera = new System.Windows.Forms.Button();
             this.btn_Ultima = new System.Windows.Forms.Button();
@@ -71,12 +71,16 @@
             this.PlEnfarde = new System.Windows.Forms.Panel();
             this.BtnEnvSM = new System.Windows.Forms.Button();
             this.BtnEnfarde = new System.Windows.Forms.Button();
+            this.DtpReEnfarde = new System.Windows.Forms.DateTimePicker();
             this.DTPEnfarde = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.LblFechaReEnfarde = new System.Windows.Forms.Label();
             this.LblDigitadorEnfar = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.LblDtotal = new System.Windows.Forms.Label();
             this.LblDiasSecado = new System.Windows.Forms.Label();
+            this.LblDTS = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.TxtHumedadLevante = new System.Windows.Forms.TextBox();
             this.TxtSacosEnfardados = new System.Windows.Forms.TextBox();
@@ -131,10 +135,8 @@
             this.dtInventariocp = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.LblFechaReEnfarde = new System.Windows.Forms.Label();
-            this.DtpReEnfarde = new System.Windows.Forms.DateTimePicker();
-            this.LblDTS = new System.Windows.Forms.Label();
-            this.LblDtotal = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.BtnActualizar = new System.Windows.Forms.Button();
             this.PlCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.plOpciones.SuspendLayout();
@@ -153,6 +155,7 @@
             this.PlCerrarDetalle.SuspendLayout();
             this.PlEnvio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Sig
@@ -297,6 +300,7 @@
             // plOpciones
             // 
             this.plOpciones.BackColor = System.Drawing.Color.White;
+            this.plOpciones.Controls.Add(this.panel3);
             this.plOpciones.Controls.Add(this.PlFiltroFecha);
             this.plOpciones.Controls.Add(this.BtnRangoFecha);
             this.plOpciones.Controls.Add(this.PbExcel);
@@ -646,6 +650,17 @@
             this.BtnEnfarde.Visible = false;
             this.BtnEnfarde.Click += new System.EventHandler(this.BtnEnfarde_Click);
             // 
+            // DtpReEnfarde
+            // 
+            this.DtpReEnfarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtpReEnfarde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpReEnfarde.Location = new System.Drawing.Point(201, 56);
+            this.DtpReEnfarde.Name = "DtpReEnfarde";
+            this.DtpReEnfarde.Size = new System.Drawing.Size(112, 23);
+            this.DtpReEnfarde.TabIndex = 2;
+            this.DtpReEnfarde.Visible = false;
+            this.DtpReEnfarde.ValueChanged += new System.EventHandler(this.DtpReEnfarde_ValueChanged);
+            // 
             // DTPEnfarde
             // 
             this.DTPEnfarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -676,6 +691,17 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Sacos Enfardados:";
             // 
+            // LblFechaReEnfarde
+            // 
+            this.LblFechaReEnfarde.AutoSize = true;
+            this.LblFechaReEnfarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFechaReEnfarde.Location = new System.Drawing.Point(16, 59);
+            this.LblFechaReEnfarde.Name = "LblFechaReEnfarde";
+            this.LblFechaReEnfarde.Size = new System.Drawing.Size(162, 17);
+            this.LblFechaReEnfarde.TabIndex = 0;
+            this.LblFechaReEnfarde.Text = "Fecha de ReEnfarde:";
+            this.LblFechaReEnfarde.Visible = false;
+            // 
             // LblDigitadorEnfar
             // 
             this.LblDigitadorEnfar.Location = new System.Drawing.Point(734, 62);
@@ -695,6 +721,17 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Fecha de Enfarde:";
             // 
+            // LblDtotal
+            // 
+            this.LblDtotal.AutoSize = true;
+            this.LblDtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDtotal.Location = new System.Drawing.Point(528, 59);
+            this.LblDtotal.Name = "LblDtotal";
+            this.LblDtotal.Size = new System.Drawing.Size(20, 17);
+            this.LblDtotal.TabIndex = 0;
+            this.LblDtotal.Text = "--";
+            this.LblDtotal.Visible = false;
+            // 
             // LblDiasSecado
             // 
             this.LblDiasSecado.AutoSize = true;
@@ -704,6 +741,17 @@
             this.LblDiasSecado.Size = new System.Drawing.Size(20, 17);
             this.LblDiasSecado.TabIndex = 0;
             this.LblDiasSecado.Text = "--";
+            // 
+            // LblDTS
+            // 
+            this.LblDTS.AutoSize = true;
+            this.LblDTS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDTS.Location = new System.Drawing.Point(336, 59);
+            this.LblDTS.Name = "LblDTS";
+            this.LblDTS.Size = new System.Drawing.Size(169, 17);
+            this.LblDTS.TabIndex = 0;
+            this.LblDTS.Text = "Dias Total de Secado:";
+            this.LblDTS.Visible = false;
             // 
             // label11
             // 
@@ -1246,37 +1294,37 @@
             this.dtInventariocp.AllowUserToDeleteRows = false;
             this.dtInventariocp.AllowUserToOrderColumns = true;
             this.dtInventariocp.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.NullValue = "--";
-            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.NullValue = "--";
+            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtInventariocp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventariocp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventariocp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtInventariocp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.NullValue = "--";
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.NullValue = "--";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtInventariocp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventariocp.Location = new System.Drawing.Point(0, 62);
             this.dtInventariocp.Name = "dtInventariocp";
             this.dtInventariocp.ReadOnly = true;
             this.dtInventariocp.RowHeadersVisible = false;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtInventariocp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventariocp.ShowCellToolTips = false;
             this.dtInventariocp.ShowEditingIcon = false;
@@ -1305,49 +1353,29 @@
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
             // 
-            // LblFechaReEnfarde
+            // panel3
             // 
-            this.LblFechaReEnfarde.AutoSize = true;
-            this.LblFechaReEnfarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFechaReEnfarde.Location = new System.Drawing.Point(16, 59);
-            this.LblFechaReEnfarde.Name = "LblFechaReEnfarde";
-            this.LblFechaReEnfarde.Size = new System.Drawing.Size(162, 17);
-            this.LblFechaReEnfarde.TabIndex = 0;
-            this.LblFechaReEnfarde.Text = "Fecha de ReEnfarde:";
-            this.LblFechaReEnfarde.Visible = false;
+            this.panel3.Controls.Add(this.BtnActualizar);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(1734, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(91, 62);
+            this.panel3.TabIndex = 9;
             // 
-            // DtpReEnfarde
+            // BtnActualizar
             // 
-            this.DtpReEnfarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DtpReEnfarde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpReEnfarde.Location = new System.Drawing.Point(201, 56);
-            this.DtpReEnfarde.Name = "DtpReEnfarde";
-            this.DtpReEnfarde.Size = new System.Drawing.Size(112, 23);
-            this.DtpReEnfarde.TabIndex = 2;
-            this.DtpReEnfarde.Visible = false;
-            this.DtpReEnfarde.ValueChanged += new System.EventHandler(this.DtpReEnfarde_ValueChanged);
-            // 
-            // LblDTS
-            // 
-            this.LblDTS.AutoSize = true;
-            this.LblDTS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDTS.Location = new System.Drawing.Point(336, 59);
-            this.LblDTS.Name = "LblDTS";
-            this.LblDTS.Size = new System.Drawing.Size(169, 17);
-            this.LblDTS.TabIndex = 0;
-            this.LblDTS.Text = "Dias Total de Secado:";
-            this.LblDTS.Visible = false;
-            // 
-            // LblDtotal
-            // 
-            this.LblDtotal.AutoSize = true;
-            this.LblDtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDtotal.Location = new System.Drawing.Point(528, 59);
-            this.LblDtotal.Name = "LblDtotal";
-            this.LblDtotal.Size = new System.Drawing.Size(20, 17);
-            this.LblDtotal.TabIndex = 0;
-            this.LblDtotal.Text = "--";
-            this.LblDtotal.Visible = false;
+            this.BtnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnActualizar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnActualizar.FlatAppearance.BorderSize = 0;
+            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnActualizar.Image = global::ProyectoOFI.Properties.Resources.icons8_refrescar;
+            this.BtnActualizar.Location = new System.Drawing.Point(0, 0);
+            this.BtnActualizar.Name = "BtnActualizar";
+            this.BtnActualizar.Size = new System.Drawing.Size(91, 62);
+            this.BtnActualizar.TabIndex = 0;
+            this.BtnActualizar.UseVisualStyleBackColor = false;
+            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
             // CUControlPatio
             // 
@@ -1383,6 +1411,7 @@
             this.PlEnvio.ResumeLayout(false);
             this.PlEnvio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).EndInit();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1491,5 +1520,7 @@
         private System.Windows.Forms.Label LblFechaReEnfarde;
         private System.Windows.Forms.Label LblDtotal;
         private System.Windows.Forms.Label LblDTS;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button BtnActualizar;
     }
 }

@@ -157,6 +157,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label34 = new System.Windows.Forms.Label();
             this.BtnCerrarCambioTK = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.BtnActualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioCat)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.plfooter.SuspendLayout();
@@ -169,6 +171,7 @@
             this.PlCerrarDetalle.SuspendLayout();
             this.PlCambioTK.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtInventarioCat
@@ -207,6 +210,7 @@
             // plOpciones
             // 
             this.plOpciones.BackColor = System.Drawing.Color.White;
+            this.plOpciones.Controls.Add(this.panel3);
             this.plOpciones.Controls.Add(this.BtnMostrarCompras);
             this.plOpciones.Controls.Add(this.CbBuscar);
             this.plOpciones.Controls.Add(this.label26);
@@ -1627,6 +1631,30 @@
             this.BtnCerrarCambioTK.UseVisualStyleBackColor = true;
             this.BtnCerrarCambioTK.Click += new System.EventHandler(this.BtnCerrarCambioTK_Click);
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.BtnActualizar);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(979, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(91, 62);
+            this.panel3.TabIndex = 10;
+            // 
+            // BtnActualizar
+            // 
+            this.BtnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnActualizar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnActualizar.FlatAppearance.BorderSize = 0;
+            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnActualizar.Image = global::ProyectoOFI.Properties.Resources.icons8_refrescar;
+            this.BtnActualizar.Location = new System.Drawing.Point(0, 0);
+            this.BtnActualizar.Name = "BtnActualizar";
+            this.BtnActualizar.Size = new System.Drawing.Size(91, 62);
+            this.BtnActualizar.TabIndex = 0;
+            this.BtnActualizar.UseVisualStyleBackColor = false;
+            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
+            // 
             // Catacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1658,6 +1686,7 @@
             this.PlCambioTK.ResumeLayout(false);
             this.PlCambioTK.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1791,5 +1820,7 @@
         private System.Windows.Forms.Label LblTCompra;
         private System.Windows.Forms.Label LblUbicacion;
         private System.Windows.Forms.ComboBox CbGrupoCalidad;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button BtnActualizar;
     }
 }

@@ -667,11 +667,17 @@ namespace ProyectoOFI.Almacen
         private void PbExcel_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            DAlmacen funcion= new DAlmacen();
+            DAlmacen funcion = new DAlmacen();
             funcion.ExcelAlmacen(ref dt);
             string Nombre = "Inventario Almacén";
             FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
             LT.ShowDialog();
+        }
+
+        private async void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            await CargarDatos();
+            MessageBox.Show("Datos Actualizados", "Refrescar Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         private void dtInventarioAlm_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -722,47 +728,50 @@ namespace ProyectoOFI.Almacen
         }
         private void ValidarPermisos()
         {
-            DataTable dt = new DataTable();
-            DModulos funcion = new DModulos();
-            LPermisos parametros = new LPermisos();
-            parametros.IdUser = Login.Iduser;
-            funcion.PermisosUser(ref dt, Login.Iduser);
-
-            bool tieneAgregarAlmacen = false;
-            bool tieneEditarAnalisis = false;
-
-            foreach (DataRow rowpermisos in dt.Rows)
+            if (!Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
             {
-                Modulo = Convert.ToString(rowpermisos["Modulo"]);
-                if (Modulo == "Agregar Almacén")
+                DataTable dt = new DataTable();
+                DModulos funcion = new DModulos();
+                LPermisos parametros = new LPermisos();
+                parametros.IdUser = Login.Iduser;
+                funcion.PermisosUser(ref dt, Login.Iduser);
+
+                bool tieneAgregarAlmacen = false;
+                bool tieneEditarAnalisis = false;
+
+                foreach (DataRow rowpermisos in dt.Rows)
                 {
-                    tieneAgregarAlmacen = true;
+                    Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                    if (Modulo == "Agregar Almacén")
+                    {
+                        tieneAgregarAlmacen = true;
+                    }
+                    if (Modulo == "Editar Almacén")
+                    {
+                        tieneEditarAnalisis = true;
+                    }
                 }
-                if (Modulo == "Editar Almacén")
-                {
-                    tieneEditarAnalisis = true;
-                }
-            }
 
-            if (tieneAgregarAlmacen && tieneEditarAnalisis)
-            {
-                BtnGuardar.Visible = true;
-                BtnActivar.Enabled = true;
-            }
-            else if (tieneAgregarAlmacen)
-            {
-                BtnGuardar.Visible = true;
-                BtnActivar.Enabled = false;
-            }
-            else if (tieneEditarAnalisis)
-            {
-                BtnGuardar.Visible = false;
-                BtnActivar.Enabled = true;
-            }
-            else
-            {
-                BtnGuardar.Visible = false;
-                BtnActivar.Enabled = false;
+                if (tieneAgregarAlmacen && tieneEditarAnalisis)
+                {
+                    BtnGuardar.Visible = true;
+                    BtnActivar.Enabled = true;
+                }
+                else if (tieneAgregarAlmacen)
+                {
+                    BtnGuardar.Visible = true;
+                    BtnActivar.Enabled = false;
+                }
+                else if (tieneEditarAnalisis)
+                {
+                    BtnGuardar.Visible = false;
+                    BtnActivar.Enabled = true;
+                }
+                else
+                {
+                    BtnGuardar.Visible = false;
+                    BtnActivar.Enabled = false;
+                }
             }
         }
 

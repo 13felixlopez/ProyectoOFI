@@ -64,6 +64,7 @@ namespace ProyectoOFI.Reportes
             PlCarga.Dock = DockStyle.Fill;
             await CargarDatos();
             PlCarga.Visible = false;
+            LblTitulo.Text = Name;
         }
         private async Task CargarDatos()
         {

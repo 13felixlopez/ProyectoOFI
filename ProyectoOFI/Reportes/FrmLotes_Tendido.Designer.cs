@@ -49,6 +49,7 @@
             this.LblFiltros = new System.Windows.Forms.Label();
             this.BtnCerrarFiltro = new System.Windows.Forms.Button();
             this.DtLotes_Tendido = new System.Windows.Forms.DataGridView();
+            this.LblTitulo = new System.Windows.Forms.Label();
             this.plOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).BeginInit();
@@ -62,6 +63,7 @@
             // plOpciones
             // 
             this.plOpciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.plOpciones.Controls.Add(this.LblTitulo);
             this.plOpciones.Controls.Add(this.BtnCerrar);
             this.plOpciones.Controls.Add(this.PbExcel);
             this.plOpciones.Controls.Add(this.PbFiltro);
@@ -280,6 +282,17 @@
             this.DtLotes_Tendido.Size = new System.Drawing.Size(1678, 617);
             this.DtLotes_Tendido.TabIndex = 34;
             // 
+            // LblTitulo
+            // 
+            this.LblTitulo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.LblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitulo.Location = new System.Drawing.Point(0, 0);
+            this.LblTitulo.Name = "LblTitulo";
+            this.LblTitulo.Size = new System.Drawing.Size(464, 62);
+            this.LblTitulo.TabIndex = 6;
+            this.LblTitulo.Text = "--";
+            this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmLotes_Tendido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -326,5 +339,6 @@
         private System.Windows.Forms.Label LblFiltros;
         private System.Windows.Forms.Button BtnCerrarFiltro;
         public System.Windows.Forms.DataGridView DtLotes_Tendido;
+        private System.Windows.Forms.Label LblTitulo;
     }
 }

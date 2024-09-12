@@ -416,5 +416,24 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public void ExcelCatacion(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("ExcelCatacion", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar datos de Excel de Catación" + ex.Message, "Error en datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al cargar datos en ExcelCatacion ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
     }
 }

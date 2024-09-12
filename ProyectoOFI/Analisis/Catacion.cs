@@ -1,6 +1,7 @@
 ﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
+using ProyectoOFI.Reportes;
 using System;
 using System.Data;
 using System.Drawing;
@@ -1173,6 +1174,16 @@ namespace ProyectoOFI.Analisis
                 ReiniciarPaginado();
             }
             MessageBox.Show("Datos Actualizados", "Refrescar Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void PbExcel_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            Dcatacion funcion = new Dcatacion();
+            funcion.ExcelCatacion(ref dt);
+            string Nombre = "Inventario Catación";
+            FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
+            LT.ShowDialog();
         }
 
         private void VerDetalleCata()

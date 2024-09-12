@@ -383,5 +383,233 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public void Lotes_POAV(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("Lotes_POAV", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron cargar los datos de Lotes POAV " + ex.Message, "Error en Lotes POAV", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("No se pudieron cargar datos en Lotes_POAV ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void CantLotes_POAV(ref double Tendido)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("Select COUNT(Ticket) from Recepcion where Estado='ACTIVO' AND Proceso='POAV' AND Cosecha = ( SELECT Cosecha FROM Cosecha WHERE IdCosecha = ( SELECT MAX ( IdCosecha ) FROM Cosecha ))", Conexion.conectar);
+                Tendido = Convert.ToDouble(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en mostrar cantidad de lotes poav " + ex.Message, "Error En Cantidad de poav", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en mostrar CantLotes_POAV ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+
+                Conexion.cerrar();
+            }
+        }
+        public void Lotes_Vertical(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("Lotes_Vertical", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron cargar los datos de Lotes Vertical " + ex.Message, "Error en Lotes Vertical", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("No se pudieron cargar datos en Lotes_Vertical ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void CantLotes_Vertical(ref double Tendido)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("Select COUNT(Ticket) from Recepcion where Estado='ACTIVO' AND Proceso='Vertical' AND Cosecha = ( SELECT Cosecha FROM Cosecha WHERE IdCosecha = ( SELECT MAX ( IdCosecha ) FROM Cosecha ))", Conexion.conectar);
+                Tendido = Convert.ToDouble(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en mostrar cantidad de lotes Vertical " + ex.Message, "Error En Cantidad de Vertical", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en mostrar CantLotes_Vertical ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+
+                Conexion.cerrar();
+            }
+        }
+        public void Lotes_POA(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("Lotes_POA", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron cargar los datos de Lotes POA " + ex.Message, "Error en Lotes POA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("No se pudieron cargar datos en Lotes_POA ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void CantLotes_POA(ref double Lote)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("Select COUNT(P.Ticket) from Recepcion Rec INNER JOIN PreSecado Pre ON Rec.Ticket=Pre.Ticket INNER JOIN POA P ON Pre.IDPreSecado=p.IDPreSecado where Estado='ACTIVO' AND ProcesoSF='POA' AND Cosecha = ( SELECT Cosecha FROM Cosecha WHERE IdCosecha = ( SELECT MAX ( IdCosecha ) FROM Cosecha ))", Conexion.conectar);
+                Lote = Convert.ToDouble(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en mostrar cantidad de lotes POA " + ex.Message, "Error En Cantidad de POA", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en mostrar CantLotes_POA ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+
+                Conexion.cerrar();
+            }
+        }
+        public void Lotes_Guardiola(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("Lotes_Guardiola", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron cargar los datos de Lotes Guardiola " + ex.Message, "Error en Lotes Guardiola", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("No se pudieron cargar datos en Lotes_Guardiola ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void CantLotes_Guardiola(ref double Lote)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("Select COUNT(P.Ticket) from Recepcion Rec INNER JOIN PreSecado Pre ON Rec.Ticket=Pre.Ticket INNER JOIN POA P ON Pre.IDPreSecado=p.IDPreSecado where Estado='ACTIVO' AND ProcesoSF='Guardiola' AND Cosecha = ( SELECT Cosecha FROM Cosecha WHERE IdCosecha = ( SELECT MAX ( IdCosecha ) FROM Cosecha ))", Conexion.conectar);
+                Lote = Convert.ToDouble(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en mostrar cantidad de lotes Guardiola " + ex.Message, "Error En Cantidad de Guardiola", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en mostrar CantLotes_Guardiola ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+
+                Conexion.cerrar();
+            }
+        }
+        public void Lotes_PS(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("Lotes_PS", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron cargar los datos de Lotes PS " + ex.Message, "Error en Lotes PS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("No se pudieron cargar datos en Lotes_PS ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void CantLotes_PS(ref double Lote)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("Select COUNT(P.Ticket) from Recepcion Rec INNER JOIN PreSecado Pre ON Rec.Ticket=Pre.Ticket INNER JOIN POA P ON Pre.IDPreSecado=p.IDPreSecado where Estado='ACTIVO' AND ProcesoSF='PS' AND Cosecha = ( SELECT Cosecha FROM Cosecha WHERE IdCosecha = ( SELECT MAX ( IdCosecha ) FROM Cosecha ))", Conexion.conectar);
+                Lote = Convert.ToDouble(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en mostrar cantidad de lotes PS " + ex.Message, "Error En Cantidad de PS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en mostrar CantLotes_PS ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+
+                Conexion.cerrar();
+            }
+        }
+        public void Lotes_EnviadosSM(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("Lotes_EnviadosSM", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron cargar los datos de Lotes Enviados SM " + ex.Message, "Error en Lotes Enviados SM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("No se pudieron cargar datos en Lotes_EnviadosSM ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void CantLotes_EnviadosSM(ref double Lote)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("Select COUNT(P.Ticket) from Recepcion Rec INNER JOIN PreSecado Pre ON Rec.Ticket=Pre.Ticket INNER JOIN POA P ON Pre.IDPreSecado=p.IDPreSecado where Estado='ACTIVO' AND ProcesoSF in ('Envio','Envío','Almacén','Alamcen','Analizado') AND Cosecha = ( SELECT Cosecha FROM Cosecha WHERE IdCosecha = ( SELECT MAX ( IdCosecha ) FROM Cosecha ))", Conexion.conectar);
+                Lote = Convert.ToDouble(cmd.ExecuteScalar());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en mostrar cantidad de Lotes Enviados SM " + ex.Message, "Error En Cantidad de Lotes Enviados SM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en mostrar CantLotes_EnviadosSM ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+
+                Conexion.cerrar();
+            }
+        }
     }
 }

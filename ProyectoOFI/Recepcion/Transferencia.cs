@@ -1906,7 +1906,7 @@ namespace ProyectoOFI.Recepcion
         private void AsignarPermisos()
         {
             // Validamos si el usuario tiene ciertos permisos
-            if (permisosUsuario.Contains("InsertarTranferencia"))
+            if (permisosUsuario.Contains("InsertarTransferencia"))
             {
                 plAgregar.Visible = true;
                 btnAgregar.Visible = true;

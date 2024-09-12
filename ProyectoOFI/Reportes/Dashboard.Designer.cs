@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.PlDatos = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -63,6 +63,13 @@
             this.chartSM = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.BtnPV = new System.Windows.Forms.Button();
+            this.BtnVertical = new System.Windows.Forms.Button();
+            this.BtnPOA = new System.Windows.Forms.Button();
+            this.BtnGuardiola = new System.Windows.Forms.Button();
+            this.BtnPS = new System.Windows.Forms.Button();
+            this.BtnEnviados = new System.Windows.Forms.Button();
             this.FlpSN = new System.Windows.Forms.FlowLayoutPanel();
             this.BtnNoAsignado = new System.Windows.Forms.Button();
             this.BtnTendido = new System.Windows.Forms.Button();
@@ -82,6 +89,7 @@
             this.PlSM.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartSM)).BeginInit();
             this.panel4.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
             this.FlpSN.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -239,32 +247,32 @@
             // 
             // chartKilos
             // 
-            chartArea1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
-            chartArea1.Name = "ChartArea1";
-            this.chartKilos.ChartAreas.Add(chartArea1);
+            chartArea4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+            chartArea4.Name = "ChartArea1";
+            this.chartKilos.ChartAreas.Add(chartArea4);
             this.chartKilos.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            legend1.IsTextAutoFit = false;
-            legend1.Name = "Legend1";
-            this.chartKilos.Legends.Add(legend1);
+            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            legend4.IsTextAutoFit = false;
+            legend4.Name = "Legend1";
+            this.chartKilos.Legends.Add(legend4);
             this.chartKilos.Location = new System.Drawing.Point(0, 28);
             this.chartKilos.Name = "chartKilos";
-            series1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-            series1.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Unscaled;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartKilos.Series.Add(series1);
-            this.chartKilos.Size = new System.Drawing.Size(882, 323);
+            series4.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            series4.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Unscaled;
+            series4.ChartArea = "ChartArea1";
+            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chartKilos.Series.Add(series4);
+            this.chartKilos.Size = new System.Drawing.Size(849, 323);
             this.chartKilos.TabIndex = 1;
             this.chartKilos.Text = "QQs por Área";
-            title1.DockedToChartArea = "ChartArea1";
-            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            title1.Name = "QQs por área";
-            this.chartKilos.Titles.Add(title1);
+            title4.DockedToChartArea = "ChartArea1";
+            title4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            title4.Name = "QQs por área";
+            this.chartKilos.Titles.Add(title4);
             // 
             // PlGrafico
             // 
@@ -273,7 +281,7 @@
             this.PlGrafico.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlGrafico.Location = new System.Drawing.Point(3, 3);
             this.PlGrafico.Name = "PlGrafico";
-            this.PlGrafico.Size = new System.Drawing.Size(882, 351);
+            this.PlGrafico.Size = new System.Drawing.Size(849, 351);
             this.PlGrafico.TabIndex = 2;
             // 
             // LblGrafico
@@ -283,7 +291,7 @@
             this.LblGrafico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblGrafico.Location = new System.Drawing.Point(0, 0);
             this.LblGrafico.Name = "LblGrafico";
-            this.LblGrafico.Size = new System.Drawing.Size(882, 28);
+            this.LblGrafico.Size = new System.Drawing.Size(849, 28);
             this.LblGrafico.TabIndex = 0;
             this.LblGrafico.Text = "Gráfico de QQs por tipo de secado";
             this.LblGrafico.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -291,8 +299,8 @@
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.1148F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.8852F));
             this.tableLayoutPanel1.Controls.Add(this.chartSN, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.PlGrafico, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.PlSM, 1, 0);
@@ -308,54 +316,54 @@
             // 
             // chartSN
             // 
-            chartArea2.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-            chartArea2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
-            chartArea2.Name = "ChartArea1";
-            this.chartSN.ChartAreas.Add(chartArea2);
+            chartArea5.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
+            chartArea5.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+            chartArea5.Name = "ChartArea1";
+            this.chartSN.ChartAreas.Add(chartArea5);
             this.chartSN.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend2.IsTextAutoFit = false;
-            legend2.Name = "Legend1";
-            this.chartSN.Legends.Add(legend2);
+            legend5.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend5.IsTextAutoFit = false;
+            legend5.Name = "Legend1";
+            this.chartSN.Legends.Add(legend5);
             this.chartSN.Location = new System.Drawing.Point(3, 360);
             this.chartSN.Name = "chartSN";
-            series2.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-            series2.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Unscaled;
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartSN.Series.Add(series2);
-            this.chartSN.Size = new System.Drawing.Size(882, 351);
+            series5.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            series5.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Unscaled;
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chartSN.Series.Add(series5);
+            this.chartSN.Size = new System.Drawing.Size(849, 351);
             this.chartSN.TabIndex = 5;
             this.chartSN.Text = "QQs por Área";
-            title2.DockedToChartArea = "ChartArea1";
-            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            title2.Name = "QQs por área";
-            this.chartSN.Titles.Add(title2);
+            title5.DockedToChartArea = "ChartArea1";
+            title5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            title5.Name = "QQs por área";
+            this.chartSN.Titles.Add(title5);
             // 
             // PlSM
             // 
             this.PlSM.Controls.Add(this.chartSM);
             this.PlSM.Controls.Add(this.label2);
             this.PlSM.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PlSM.Location = new System.Drawing.Point(891, 3);
+            this.PlSM.Location = new System.Drawing.Point(858, 3);
             this.PlSM.Name = "PlSM";
-            this.PlSM.Size = new System.Drawing.Size(883, 351);
+            this.PlSM.Size = new System.Drawing.Size(916, 351);
             this.PlSM.TabIndex = 4;
             // 
             // chartSM
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chartSM.ChartAreas.Add(chartArea3);
+            chartArea6.Name = "ChartArea1";
+            this.chartSM.ChartAreas.Add(chartArea6);
             this.chartSM.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend3.IsTextAutoFit = false;
-            legend3.Name = "Legend1";
-            this.chartSM.Legends.Add(legend3);
+            legend6.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend6.IsTextAutoFit = false;
+            legend6.Name = "Legend1";
+            this.chartSM.Legends.Add(legend6);
             this.chartSM.Location = new System.Drawing.Point(0, 40);
             this.chartSM.Name = "chartSM";
             this.chartSM.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
@@ -365,22 +373,22 @@
         System.Drawing.Color.Orange,
         System.Drawing.Color.DarkTurquoise,
         System.Drawing.Color.DodgerBlue};
-            series3.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
-            series3.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Unscaled;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series3.IsXValueIndexed = true;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chartSM.Series.Add(series3);
-            this.chartSM.Size = new System.Drawing.Size(883, 311);
+            series6.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
+            series6.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Unscaled;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series6.IsXValueIndexed = true;
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chartSM.Series.Add(series6);
+            this.chartSM.Size = new System.Drawing.Size(916, 311);
             this.chartSM.TabIndex = 5;
             this.chartSM.Text = "chart1";
-            title3.DockedToChartArea = "ChartArea1";
-            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title3.Name = "SM";
-            this.chartSM.Titles.Add(title3);
+            title6.DockedToChartArea = "ChartArea1";
+            title6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title6.Name = "SM";
+            this.chartSM.Titles.Add(title6);
             // 
             // label2
             // 
@@ -389,22 +397,140 @@
             this.label2.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(883, 40);
+            this.label2.Size = new System.Drawing.Size(916, 40);
             this.label2.TabIndex = 4;
             this.label2.Text = "Secado Mecánico";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.flowLayoutPanel1);
             this.panel4.Controls.Add(this.FlpSN);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(891, 360);
+            this.panel4.Location = new System.Drawing.Point(858, 360);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(883, 351);
+            this.panel4.Size = new System.Drawing.Size(916, 351);
             this.panel4.TabIndex = 6;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.flowLayoutPanel1.Controls.Add(this.BtnPV);
+            this.flowLayoutPanel1.Controls.Add(this.BtnVertical);
+            this.flowLayoutPanel1.Controls.Add(this.BtnPOA);
+            this.flowLayoutPanel1.Controls.Add(this.BtnGuardiola);
+            this.flowLayoutPanel1.Controls.Add(this.BtnPS);
+            this.flowLayoutPanel1.Controls.Add(this.BtnEnviados);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(317, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(342, 351);
+            this.flowLayoutPanel1.TabIndex = 2;
+            // 
+            // BtnPV
+            // 
+            this.BtnPV.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPV.Image = ((System.Drawing.Image)(resources.GetObject("BtnPV.Image")));
+            this.BtnPV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPV.Location = new System.Drawing.Point(3, 3);
+            this.BtnPV.Name = "BtnPV";
+            this.BtnPV.Size = new System.Drawing.Size(142, 81);
+            this.BtnPV.TabIndex = 0;
+            this.BtnPV.Text = "POA Vertical";
+            this.BtnPV.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnPV.UseVisualStyleBackColor = true;
+            this.BtnPV.Click += new System.EventHandler(this.BtnPV_Click);
+            // 
+            // BtnVertical
+            // 
+            this.BtnVertical.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnVertical.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnVertical.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnVertical.ForeColor = System.Drawing.Color.Black;
+            this.BtnVertical.Image = global::ProyectoOFI.Properties.Resources.Tendido__Custom_;
+            this.BtnVertical.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnVertical.Location = new System.Drawing.Point(151, 3);
+            this.BtnVertical.Name = "BtnVertical";
+            this.BtnVertical.Size = new System.Drawing.Size(142, 81);
+            this.BtnVertical.TabIndex = 1;
+            this.BtnVertical.Text = "Vertical";
+            this.BtnVertical.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnVertical.UseVisualStyleBackColor = true;
+            this.BtnVertical.Click += new System.EventHandler(this.BtnVertical_Click);
+            // 
+            // BtnPOA
+            // 
+            this.BtnPOA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPOA.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPOA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPOA.ForeColor = System.Drawing.Color.Black;
+            this.BtnPOA.Image = global::ProyectoOFI.Properties.Resources.Enfarde;
+            this.BtnPOA.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPOA.Location = new System.Drawing.Point(3, 90);
+            this.BtnPOA.Name = "BtnPOA";
+            this.BtnPOA.Size = new System.Drawing.Size(142, 81);
+            this.BtnPOA.TabIndex = 2;
+            this.BtnPOA.Text = "POASF";
+            this.BtnPOA.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnPOA.UseVisualStyleBackColor = true;
+            this.BtnPOA.Click += new System.EventHandler(this.BtnPOA_Click);
+            // 
+            // BtnGuardiola
+            // 
+            this.BtnGuardiola.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnGuardiola.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnGuardiola.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGuardiola.ForeColor = System.Drawing.Color.Black;
+            this.BtnGuardiola.Image = global::ProyectoOFI.Properties.Resources.Analisis;
+            this.BtnGuardiola.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnGuardiola.Location = new System.Drawing.Point(151, 90);
+            this.BtnGuardiola.Name = "BtnGuardiola";
+            this.BtnGuardiola.Size = new System.Drawing.Size(142, 81);
+            this.BtnGuardiola.TabIndex = 3;
+            this.BtnGuardiola.Text = "Guardiola";
+            this.BtnGuardiola.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnGuardiola.UseVisualStyleBackColor = true;
+            this.BtnGuardiola.Click += new System.EventHandler(this.BtnGuardiola_Click);
+            // 
+            // BtnPS
+            // 
+            this.BtnPS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPS.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPS.ForeColor = System.Drawing.Color.Black;
+            this.BtnPS.Image = global::ProyectoOFI.Properties.Resources.EnvioCF;
+            this.BtnPS.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPS.Location = new System.Drawing.Point(3, 177);
+            this.BtnPS.Name = "BtnPS";
+            this.BtnPS.Size = new System.Drawing.Size(142, 81);
+            this.BtnPS.TabIndex = 4;
+            this.BtnPS.Text = "PS";
+            this.BtnPS.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnPS.UseVisualStyleBackColor = true;
+            this.BtnPS.Click += new System.EventHandler(this.BtnPS_Click);
+            // 
+            // BtnEnviados
+            // 
+            this.BtnEnviados.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnEnviados.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnEnviados.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnEnviados.ForeColor = System.Drawing.Color.Black;
+            this.BtnEnviados.Image = global::ProyectoOFI.Properties.Resources.almacen;
+            this.BtnEnviados.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEnviados.Location = new System.Drawing.Point(151, 177);
+            this.BtnEnviados.Name = "BtnEnviados";
+            this.BtnEnviados.Size = new System.Drawing.Size(142, 81);
+            this.BtnEnviados.TabIndex = 5;
+            this.BtnEnviados.Text = "Almacén";
+            this.BtnEnviados.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnEnviados.UseVisualStyleBackColor = true;
+            this.BtnEnviados.Click += new System.EventHandler(this.BtnEnviados_Click);
             // 
             // FlpSN
             // 
+            this.FlpSN.AutoScroll = true;
             this.FlpSN.BackColor = System.Drawing.Color.DodgerBlue;
             this.FlpSN.Controls.Add(this.BtnNoAsignado);
             this.FlpSN.Controls.Add(this.BtnTendido);
@@ -538,6 +664,7 @@
             this.PlSM.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartSM)).EndInit();
             this.panel4.ResumeLayout(false);
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.FlpSN.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -574,5 +701,12 @@
         private System.Windows.Forms.Button BtnAnalizados;
         private System.Windows.Forms.Button BtnEnvio;
         private System.Windows.Forms.Button BtnAlmacen;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button BtnPV;
+        private System.Windows.Forms.Button BtnVertical;
+        private System.Windows.Forms.Button BtnPOA;
+        private System.Windows.Forms.Button BtnGuardiola;
+        private System.Windows.Forms.Button BtnPS;
+        private System.Windows.Forms.Button BtnEnviados;
     }
 }

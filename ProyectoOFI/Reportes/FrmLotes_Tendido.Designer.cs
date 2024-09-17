@@ -34,6 +34,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLotes_Tendido));
             this.plOpciones = new System.Windows.Forms.Panel();
+            this.LblTitulo = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.PbExcel = new System.Windows.Forms.PictureBox();
             this.PbFiltro = new System.Windows.Forms.PictureBox();
@@ -49,7 +50,6 @@
             this.LblFiltros = new System.Windows.Forms.Label();
             this.BtnCerrarFiltro = new System.Windows.Forms.Button();
             this.DtLotes_Tendido = new System.Windows.Forms.DataGridView();
-            this.LblTitulo = new System.Windows.Forms.Label();
             this.plOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).BeginInit();
@@ -75,6 +75,17 @@
             this.plOpciones.Name = "plOpciones";
             this.plOpciones.Size = new System.Drawing.Size(1678, 62);
             this.plOpciones.TabIndex = 31;
+            // 
+            // LblTitulo
+            // 
+            this.LblTitulo.Dock = System.Windows.Forms.DockStyle.Left;
+            this.LblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTitulo.Location = new System.Drawing.Point(0, 0);
+            this.LblTitulo.Name = "LblTitulo";
+            this.LblTitulo.Size = new System.Drawing.Size(464, 62);
+            this.LblTitulo.TabIndex = 6;
+            this.LblTitulo.Text = "--";
+            this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BtnCerrar
             // 
@@ -281,17 +292,6 @@
             this.DtLotes_Tendido.ShowEditingIcon = false;
             this.DtLotes_Tendido.Size = new System.Drawing.Size(1678, 617);
             this.DtLotes_Tendido.TabIndex = 34;
-            // 
-            // LblTitulo
-            // 
-            this.LblTitulo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.LblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTitulo.Location = new System.Drawing.Point(0, 0);
-            this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(464, 62);
-            this.LblTitulo.TabIndex = 6;
-            this.LblTitulo.Text = "--";
-            this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmLotes_Tendido
             // 

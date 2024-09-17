@@ -3,8 +3,10 @@ using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
 using ProyectoOFI.Reportes;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,6 +19,7 @@ namespace ProyectoOFI.Analisis
         private int items_por_pagina = 100;
         int totalPaginas;
         int Contador;
+        int ContarBusqueda;
         string Ticket, TkSM, TkDetalle;
         DateTime FRecibido, FMuestra;
         double Exp, DesmA, DesmC, DesmD;
@@ -27,6 +30,7 @@ namespace ProyectoOFI.Analisis
         Boolean Estado;
         string Proceso, Modulo;
         int Idcatacion;
+        List<string> filtro = new List<string>();
         string Analizar = "Proceso";//Variable que define si es compra directa o no
         public Catacion()
         {
@@ -61,6 +65,7 @@ namespace ProyectoOFI.Analisis
                 dtInventarioCat.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
                 MostrarLotes();
                 ReiniciarPaginado();
+                LlenarCheckBoxList();
                 await Task.Delay(1000);
                 dtInventarioCat.Columns["Proceso"].Visible = false;
             }
@@ -100,22 +105,25 @@ namespace ProyectoOFI.Analisis
         private void Contar()
         {
             Dcatacion funcion = new Dcatacion();
-            if (txtBuscador.Text != "")
-            {
-                // Contador = ContarBusqueda;
-            }
-            //else if (CbBuscador.Visible == true)
-            //{
-            //    Contador = ContarBusqueda;
-            //}
-            if (BtnMostrarCompras.Text == "Análisis")
+            if (Analizar != "Proceso")
             {
                 DCompraD DC = new DCompraD();
                 DC.Contar(ref Contador);
             }
             else
             {
-                funcion.ContarTK(ref Contador);
+                if (txtBuscador.Text != "")
+                {
+                    Contador = ContarBusqueda;
+                }
+                else if (CbBuscador.Visible == true || PlFiltroFecha.Visible == true)
+                {
+                    Contador = ContarBusqueda;
+                }
+                else
+                {
+                    funcion.ContarTK(ref Contador);
+                }
             }
         }
         private void Paginar()
@@ -137,12 +145,16 @@ namespace ProyectoOFI.Analisis
             hasta -= 100;
             if (txtBuscador.Text != "")
             {
-                //BuscarTK();
+                BuscarTK();
             }
-            //else if (CbBuscador.Visible == true)
-            //{
-            //    BuscarDatos();
-            //}
+            else if (CbBuscador.Visible == true)
+            {
+                BuscarDatos();
+            }
+            else if (PlFiltroFecha.Visible == true)
+            {
+                // BuscarRangoFecha();
+            }
             else
             {
                 MostrarLotes();
@@ -170,12 +182,16 @@ namespace ProyectoOFI.Analisis
             hasta += 100;
             if (txtBuscador.Text != "")
             {
-                // BuscarTK();
+                BuscarTK();
             }
-            //else if (CbBuscador.Visible == true)
-            //{
-            //    BuscarDatos();
-            //}
+            else if (CbBuscador.Visible == true)
+            {
+                BuscarDatos();
+            }
+            else if (PlFiltroFecha.Visible == true)
+            {
+                // BuscarRangoFecha();
+            }
             else
             {
                 MostrarLotes();
@@ -199,12 +215,16 @@ namespace ProyectoOFI.Analisis
             desde = hasta - 99;
             if (txtBuscador.Text != "")
             {
-                //BuscarTK();
+                BuscarTK();
             }
-            //else if (CbBuscador.Visible == true)
-            //{
-            //    BuscarDatos();
-            //}
+            else if (CbBuscador.Visible == true)
+            {
+                BuscarDatos();
+            }
+            else if (PlFiltroFecha.Visible == true)
+            {
+                //BuscarRangoFecha();
+            }
             else
             {
                 MostrarLotes();
@@ -227,18 +247,43 @@ namespace ProyectoOFI.Analisis
             ReiniciarPaginado();
             if (txtBuscador.Text != "")
             {
-                // BuscarTK();
+                BuscarTK();
             }
-            //else if (CbBuscador.Visible == true)
-            //{
-            //    BuscarDatos();
-            //}
+            else if (CbBuscador.Visible == true)
+            {
+                BuscarDatos();
+            }
+            else if (PlFiltroFecha.Visible == true)
+            {
+                //BuscarRangoFecha();
+            }
             else
             {
                 MostrarLotes();
             }
         }
+
         #endregion
+        private void BuscarDatos()
+        {
+            DataTable dt = new DataTable();
+            Dcatacion funcion = new Dcatacion();
+            //funcion.BuscarTK(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            funcion.BuscarCatacion(CbBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
+            dtInventarioCat.DataSource = dt;
+            ContarBusqueda = int.Parse(funcion.Contador.ToString());
+            Base.DiseñoDtvEliminar(ref dtInventarioCat);
+        }
+        private void BuscarTK()
+        {
+            DataTable dt = new DataTable();
+            Dcatacion funcion = new Dcatacion();
+            //funcion.BuscarTK(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            funcion.BuscarCatacion(txtBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
+            dtInventarioCat.DataSource = dt;
+            ContarBusqueda = int.Parse(funcion.Contador.ToString());
+            Base.DiseñoDtvEliminar(ref dtInventarioCat);
+        }
         public void MostrarLotes()
         {
             BtnMostrarCompras.Text = "Compras Directas";
@@ -1430,6 +1475,72 @@ namespace ProyectoOFI.Analisis
                 MessageBox.Show("Error en cargar datos interfaz", "Error en datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void BtnFiltrar_Click(object sender, EventArgs e)
+        {
+            FiltrarColumnas();
+            PlFiltros.Visible = false;
+        }
+        private void FiltrarColumnas()
+        {
+            foreach (DataGridViewColumn column in dtInventarioCat.Columns)
+            {
+                if (filtro.Any(f => column.Name.Contains(f)))
+                {
+                    column.Visible = false;
+                }
+                else
+                {
+                    column.Visible = true;
+                }
+            }
+        }
+        private void CLBFiltros_ItemCheck(object sender, ItemCheckEventArgs e)
+        {
+            string seleccion = CLBFiltros.Items[e.Index].ToString();
+            if (e.NewValue == CheckState.Checked)
+            {
+                filtro.Add(seleccion);
+            }
+            else if (e.NewValue == CheckState.Unchecked)
+            {
+                filtro.Remove(seleccion);
+            }
+        }
+
+        private void PbFiltro_Click(object sender, EventArgs e)
+        {
+            PlFiltros.Location = new Point(this.Width / 2
+               - PlFiltros.Width / 2, this.Height / 2 - PlFiltros.Height / 2);
+            PlFiltros.Visible = true;
+            PlFiltros.BringToFront();
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            PlFiltros.Visible = false;
+        }
+
+        private void txtBuscador_TextChanged(object sender, EventArgs e)
+        {
+            BuscarTK();
+            ReiniciarPaginado();
+        }
+
+        private void CbBuscador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CbBuscador.Text == "")
+            {
+                ReiniciarPaginado();
+                MostrarLotes();
+            }
+            else
+            {
+                BuscarDatos();
+                ReiniciarPaginado();
+            }
+        }
+
         private void CalculoDias()
         {
             DateTime fechaActual = DtFechaCatacion.Value;
@@ -1679,6 +1790,17 @@ namespace ProyectoOFI.Analisis
                 BtnAnalisis.Visible = true;
                 BtnCambiarTK.Enabled = true;
                 BtnActivar.Enabled = true;
+            }
+        }
+        private void LlenarCheckBoxList()
+        {
+            // Limpiar el CheckListBox antes de llenarlo
+            CLBFiltros.Items.Clear();
+
+            // Llenar el CheckListBox con los encabezados del DataGridView
+            foreach (DataGridViewColumn column in dtInventarioCat.Columns)
+            {
+                CLBFiltros.Items.Add(column.HeaderText);
             }
         }
     }

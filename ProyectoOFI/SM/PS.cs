@@ -735,7 +735,7 @@ namespace ProyectoOFI.SM
             foreach (DataRow rowpermisos in dt.Rows)
             {
                 Modulo = Convert.ToString(rowpermisos["Modulo"]);
-                if (Modulo == "Agregar SM")
+                if (Modulo == "Particionar SM")
                 {
                     TLPPS.Enabled = true;
                 }

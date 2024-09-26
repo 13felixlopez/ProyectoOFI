@@ -1541,6 +1541,52 @@ namespace ProyectoOFI.Analisis
             }
         }
 
+        private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DRecepcion funcion = new DRecepcion();
+            if (CbBuscar.Text == "Ticket" || CbBuscar.Text == "MTNT" || CbBuscar.Text == "Peso")
+            {
+                CbBuscador.Text = "";
+                PlFiltroFecha.Visible = false;
+                txtBuscador.Visible = true;
+                CbBuscador.Visible = false;
+                ReiniciarPaginado();
+            }
+            else if (CbBuscar.Text == "Calidad")
+            {
+                TextBuscarVisible();
+                funcion.MostrarCalidad(CbBuscador);
+            }
+            else if (CbBuscar.Text == "Certificación")
+            {
+                TextBuscarVisible();
+                funcion.MostrarCert(CbBuscador);
+            }
+            else if (CbBuscar.Text == "Daño")
+            {
+                TextBuscarVisible();
+                funcion.MostrarDaño(CbBuscador);
+            }
+            else if (CbBuscar.Text == "Tipo Compra")
+            {
+                TextBuscarVisible();
+                funcion.MostrarCompra(CbBuscador);
+            }
+            else if (CbBuscar.Text == "Área Secado")
+            {
+                TextBuscarVisible();
+                funcion.MostrarAreaSecado(CbBuscador);
+            }
+        }
+        private void TextBuscarVisible()
+        {
+            txtBuscador.Clear();
+            txtBuscador.Visible = false;
+            CbBuscador.Visible = true;
+            CbBuscador.DataSource = null;
+            CbBuscador.SelectedIndex = -1;
+            PlFiltroFecha.Visible = false;
+        }
         private void CalculoDias()
         {
             DateTime fechaActual = DtFechaCatacion.Value;

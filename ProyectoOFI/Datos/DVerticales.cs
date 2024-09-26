@@ -1,5 +1,4 @@
-﻿using ExcelDataReader.Log;
-using ProyectoOFI.Logica;
+﻿using ProyectoOFI.Logica;
 using System;
 using System.Data;
 using System.Data.SqlClient;

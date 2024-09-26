@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioCat = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
+            this.CbBuscador = new System.Windows.Forms.ComboBox();
+            this.PbFiltro = new System.Windows.Forms.PictureBox();
             this.PbExcel = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.BtnActualizar = new System.Windows.Forms.Button();
@@ -40,6 +42,10 @@
             this.label26 = new System.Windows.Forms.Label();
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.PlFiltroFecha = new System.Windows.Forms.Panel();
+            this.DtpFin = new System.Windows.Forms.DateTimePicker();
+            this.BtnFiltroFecha = new System.Windows.Forms.Button();
+            this.DtpInicio = new System.Windows.Forms.DateTimePicker();
             this.plfooter = new System.Windows.Forms.Panel();
             this.btn_atras = new System.Windows.Forms.Button();
             this.btn_Sig = new System.Windows.Forms.Button();
@@ -166,16 +172,12 @@
             this.LblFiltros = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.BtnFiltrar = new System.Windows.Forms.Button();
-            this.PbFiltro = new System.Windows.Forms.PictureBox();
-            this.CbBuscador = new System.Windows.Forms.ComboBox();
-            this.PlFiltroFecha = new System.Windows.Forms.Panel();
-            this.DtpFin = new System.Windows.Forms.DateTimePicker();
-            this.BtnFiltroFecha = new System.Windows.Forms.Button();
-            this.DtpInicio = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioCat)).BeginInit();
             this.plOpciones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).BeginInit();
             this.panel3.SuspendLayout();
+            this.PlFiltroFecha.SuspendLayout();
             this.plfooter.SuspendLayout();
             this.PlCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
@@ -188,8 +190,6 @@
             this.panel2.SuspendLayout();
             this.PlFiltros.SuspendLayout();
             this.PlCerrar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).BeginInit();
-            this.PlFiltroFecha.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtInventarioCat
@@ -201,23 +201,23 @@
             this.dtInventarioCat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioCat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioCat.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtInventarioCat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioCat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioCat.Location = new System.Drawing.Point(0, 62);
             this.dtInventarioCat.Name = "dtInventarioCat";
             this.dtInventarioCat.ReadOnly = true;
             this.dtInventarioCat.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtInventarioCat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioCat.ShowCellToolTips = false;
             this.dtInventarioCat.ShowEditingIcon = false;
@@ -244,6 +244,36 @@
             this.plOpciones.Name = "plOpciones";
             this.plOpciones.Size = new System.Drawing.Size(1203, 62);
             this.plOpciones.TabIndex = 13;
+            // 
+            // CbBuscador
+            // 
+            this.CbBuscador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CbBuscador.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CbBuscador.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.CbBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.CbBuscador.FormattingEnabled = true;
+            this.CbBuscador.Items.AddRange(new object[] {
+            "Ticket",
+            "Calidad"});
+            this.CbBuscador.Location = new System.Drawing.Point(522, 13);
+            this.CbBuscador.Name = "CbBuscador";
+            this.CbBuscador.Size = new System.Drawing.Size(168, 28);
+            this.CbBuscador.TabIndex = 13;
+            this.CbBuscador.Visible = false;
+            this.CbBuscador.SelectedIndexChanged += new System.EventHandler(this.CbBuscador_SelectedIndexChanged);
+            // 
+            // PbFiltro
+            // 
+            this.PbFiltro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PbFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PbFiltro.Image = global::ProyectoOFI.Properties.Resources.filter_list_FILL0_wght400_GRAD0_opsz24;
+            this.PbFiltro.Location = new System.Drawing.Point(767, 5);
+            this.PbFiltro.Name = "PbFiltro";
+            this.PbFiltro.Size = new System.Drawing.Size(64, 50);
+            this.PbFiltro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbFiltro.TabIndex = 12;
+            this.PbFiltro.TabStop = false;
+            this.PbFiltro.Click += new System.EventHandler(this.PbFiltro_Click);
             // 
             // PbExcel
             // 
@@ -316,6 +346,7 @@
             this.CbBuscar.Size = new System.Drawing.Size(168, 28);
             this.CbBuscar.TabIndex = 4;
             this.CbBuscar.Text = "Ticket";
+            this.CbBuscar.SelectedIndexChanged += new System.EventHandler(this.CbBuscar_SelectedIndexChanged);
             // 
             // label26
             // 
@@ -346,6 +377,44 @@
             this.label3.Size = new System.Drawing.Size(86, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Buscar:";
+            // 
+            // PlFiltroFecha
+            // 
+            this.PlFiltroFecha.Controls.Add(this.DtpFin);
+            this.PlFiltroFecha.Controls.Add(this.BtnFiltroFecha);
+            this.PlFiltroFecha.Controls.Add(this.DtpInicio);
+            this.PlFiltroFecha.Location = new System.Drawing.Point(518, 6);
+            this.PlFiltroFecha.Name = "PlFiltroFecha";
+            this.PlFiltroFecha.Size = new System.Drawing.Size(341, 50);
+            this.PlFiltroFecha.TabIndex = 14;
+            this.PlFiltroFecha.Visible = false;
+            // 
+            // DtpFin
+            // 
+            this.DtpFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.DtpFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpFin.Location = new System.Drawing.Point(140, 11);
+            this.DtpFin.Name = "DtpFin";
+            this.DtpFin.Size = new System.Drawing.Size(118, 26);
+            this.DtpFin.TabIndex = 5;
+            // 
+            // BtnFiltroFecha
+            // 
+            this.BtnFiltroFecha.Location = new System.Drawing.Point(264, 3);
+            this.BtnFiltroFecha.Name = "BtnFiltroFecha";
+            this.BtnFiltroFecha.Size = new System.Drawing.Size(65, 44);
+            this.BtnFiltroFecha.TabIndex = 6;
+            this.BtnFiltroFecha.Text = "Filtrar";
+            this.BtnFiltroFecha.UseVisualStyleBackColor = true;
+            // 
+            // DtpInicio
+            // 
+            this.DtpInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.DtpInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpInicio.Location = new System.Drawing.Point(16, 12);
+            this.DtpInicio.Name = "DtpInicio";
+            this.DtpInicio.Size = new System.Drawing.Size(118, 26);
+            this.DtpInicio.TabIndex = 5;
             // 
             // plfooter
             // 
@@ -1767,74 +1836,6 @@
             this.BtnFiltrar.UseVisualStyleBackColor = true;
             this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
             // 
-            // PbFiltro
-            // 
-            this.PbFiltro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.PbFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PbFiltro.Image = global::ProyectoOFI.Properties.Resources.filter_list_FILL0_wght400_GRAD0_opsz24;
-            this.PbFiltro.Location = new System.Drawing.Point(767, 5);
-            this.PbFiltro.Name = "PbFiltro";
-            this.PbFiltro.Size = new System.Drawing.Size(64, 50);
-            this.PbFiltro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbFiltro.TabIndex = 12;
-            this.PbFiltro.TabStop = false;
-            this.PbFiltro.Click += new System.EventHandler(this.PbFiltro_Click);
-            // 
-            // CbBuscador
-            // 
-            this.CbBuscador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CbBuscador.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.CbBuscador.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.CbBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.CbBuscador.FormattingEnabled = true;
-            this.CbBuscador.Items.AddRange(new object[] {
-            "Ticket",
-            "Calidad"});
-            this.CbBuscador.Location = new System.Drawing.Point(522, 13);
-            this.CbBuscador.Name = "CbBuscador";
-            this.CbBuscador.Size = new System.Drawing.Size(168, 28);
-            this.CbBuscador.TabIndex = 13;
-            this.CbBuscador.Visible = false;
-            this.CbBuscador.SelectedIndexChanged += new System.EventHandler(this.CbBuscador_SelectedIndexChanged);
-            // 
-            // PlFiltroFecha
-            // 
-            this.PlFiltroFecha.Controls.Add(this.DtpFin);
-            this.PlFiltroFecha.Controls.Add(this.BtnFiltroFecha);
-            this.PlFiltroFecha.Controls.Add(this.DtpInicio);
-            this.PlFiltroFecha.Location = new System.Drawing.Point(518, 6);
-            this.PlFiltroFecha.Name = "PlFiltroFecha";
-            this.PlFiltroFecha.Size = new System.Drawing.Size(341, 50);
-            this.PlFiltroFecha.TabIndex = 14;
-            this.PlFiltroFecha.Visible = false;
-            // 
-            // DtpFin
-            // 
-            this.DtpFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.DtpFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpFin.Location = new System.Drawing.Point(140, 11);
-            this.DtpFin.Name = "DtpFin";
-            this.DtpFin.Size = new System.Drawing.Size(118, 26);
-            this.DtpFin.TabIndex = 5;
-            // 
-            // BtnFiltroFecha
-            // 
-            this.BtnFiltroFecha.Location = new System.Drawing.Point(264, 3);
-            this.BtnFiltroFecha.Name = "BtnFiltroFecha";
-            this.BtnFiltroFecha.Size = new System.Drawing.Size(65, 44);
-            this.BtnFiltroFecha.TabIndex = 6;
-            this.BtnFiltroFecha.Text = "Filtrar";
-            this.BtnFiltroFecha.UseVisualStyleBackColor = true;
-            // 
-            // DtpInicio
-            // 
-            this.DtpInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.DtpInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpInicio.Location = new System.Drawing.Point(16, 12);
-            this.DtpInicio.Name = "DtpInicio";
-            this.DtpInicio.Size = new System.Drawing.Size(118, 26);
-            this.DtpInicio.TabIndex = 5;
-            // 
             // Catacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1852,8 +1853,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioCat)).EndInit();
             this.plOpciones.ResumeLayout(false);
             this.plOpciones.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).EndInit();
             this.panel3.ResumeLayout(false);
+            this.PlFiltroFecha.ResumeLayout(false);
             this.plfooter.ResumeLayout(false);
             this.plfooter.PerformLayout();
             this.PlCarga.ResumeLayout(false);
@@ -1871,8 +1874,6 @@
             this.panel2.ResumeLayout(false);
             this.PlFiltros.ResumeLayout(false);
             this.PlCerrar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).EndInit();
-            this.PlFiltroFecha.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

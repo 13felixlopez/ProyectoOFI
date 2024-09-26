@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioAlm = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.BtnActualizar = new System.Windows.Forms.Button();
             this.PbExcel = new System.Windows.Forms.PictureBox();
             this.CbBuscar = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
@@ -98,10 +100,10 @@
             this.PlCerrarDetalle = new System.Windows.Forms.Panel();
             this.LblTitulo = new System.Windows.Forms.Label();
             this.BtnCerrarPldatos = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.BtnActualizar = new System.Windows.Forms.Button();
+            this.CbBuscador = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioAlm)).BeginInit();
             this.plOpciones.SuspendLayout();
+            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).BeginInit();
             this.plfooter.SuspendLayout();
             this.PlCarga.SuspendLayout();
@@ -111,7 +113,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.NudSacos)).BeginInit();
             this.PlDatosTk.SuspendLayout();
             this.PlCerrarDetalle.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtInventarioAlm
@@ -123,23 +124,23 @@
             this.dtInventarioAlm.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioAlm.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioAlm.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioAlm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioAlm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dtInventarioAlm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioAlm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioAlm.Location = new System.Drawing.Point(0, 62);
             this.dtInventarioAlm.Name = "dtInventarioAlm";
             this.dtInventarioAlm.ReadOnly = true;
             this.dtInventarioAlm.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioAlm.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioAlm.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dtInventarioAlm.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioAlm.ShowCellToolTips = false;
             this.dtInventarioAlm.ShowEditingIcon = false;
@@ -151,6 +152,7 @@
             // plOpciones
             // 
             this.plOpciones.BackColor = System.Drawing.Color.White;
+            this.plOpciones.Controls.Add(this.CbBuscador);
             this.plOpciones.Controls.Add(this.panel3);
             this.plOpciones.Controls.Add(this.PbExcel);
             this.plOpciones.Controls.Add(this.CbBuscar);
@@ -162,6 +164,30 @@
             this.plOpciones.Name = "plOpciones";
             this.plOpciones.Size = new System.Drawing.Size(1613, 62);
             this.plOpciones.TabIndex = 16;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.BtnActualizar);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel3.Location = new System.Drawing.Point(1522, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(91, 62);
+            this.panel3.TabIndex = 11;
+            // 
+            // BtnActualizar
+            // 
+            this.BtnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnActualizar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnActualizar.FlatAppearance.BorderSize = 0;
+            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnActualizar.Image = global::ProyectoOFI.Properties.Resources.icons8_refrescar;
+            this.BtnActualizar.Location = new System.Drawing.Point(0, 0);
+            this.BtnActualizar.Name = "BtnActualizar";
+            this.BtnActualizar.Size = new System.Drawing.Size(91, 62);
+            this.BtnActualizar.TabIndex = 0;
+            this.BtnActualizar.UseVisualStyleBackColor = false;
+            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
             // PbExcel
             // 
@@ -198,6 +224,7 @@
             this.CbBuscar.Size = new System.Drawing.Size(168, 28);
             this.CbBuscar.TabIndex = 4;
             this.CbBuscar.Text = "Ticket";
+            this.CbBuscar.SelectedIndexChanged += new System.EventHandler(this.CbBuscar_SelectedIndexChanged);
             // 
             // label26
             // 
@@ -217,6 +244,7 @@
             this.txtBuscador.Name = "txtBuscador";
             this.txtBuscador.Size = new System.Drawing.Size(161, 26);
             this.txtBuscador.TabIndex = 2;
+            this.txtBuscador.TextChanged += new System.EventHandler(this.txtBuscador_TextChanged);
             // 
             // label3
             // 
@@ -259,6 +287,7 @@
             this.btn_atras.TabIndex = 20;
             this.btn_atras.Text = "Página Anterior";
             this.btn_atras.UseVisualStyleBackColor = false;
+            this.btn_atras.Click += new System.EventHandler(this.btn_atras_Click);
             // 
             // btn_Sig
             // 
@@ -273,6 +302,7 @@
             this.btn_Sig.TabIndex = 19;
             this.btn_Sig.Text = "Página Siguiente";
             this.btn_Sig.UseVisualStyleBackColor = false;
+            this.btn_Sig.Click += new System.EventHandler(this.btn_Sig_Click);
             // 
             // btn_Primera
             // 
@@ -287,6 +317,7 @@
             this.btn_Primera.TabIndex = 26;
             this.btn_Primera.Text = "Primera Página";
             this.btn_Primera.UseVisualStyleBackColor = false;
+            this.btn_Primera.Click += new System.EventHandler(this.btn_Primera_Click);
             // 
             // btn_Ultima
             // 
@@ -301,6 +332,7 @@
             this.btn_Ultima.TabIndex = 25;
             this.btn_Ultima.Text = "Última Página";
             this.btn_Ultima.UseVisualStyleBackColor = false;
+            this.btn_Ultima.Click += new System.EventHandler(this.btn_Ultima_Click);
             // 
             // lbl_totalPaginas
             // 
@@ -917,29 +949,22 @@
             this.BtnCerrarPldatos.UseVisualStyleBackColor = true;
             this.BtnCerrarPldatos.Click += new System.EventHandler(this.BtnCerrarPldatos_Click);
             // 
-            // panel3
+            // CbBuscador
             // 
-            this.panel3.Controls.Add(this.BtnActualizar);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(1522, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(91, 62);
-            this.panel3.TabIndex = 11;
-            // 
-            // BtnActualizar
-            // 
-            this.BtnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnActualizar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnActualizar.FlatAppearance.BorderSize = 0;
-            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnActualizar.Image = global::ProyectoOFI.Properties.Resources.icons8_refrescar;
-            this.BtnActualizar.Location = new System.Drawing.Point(0, 0);
-            this.BtnActualizar.Name = "BtnActualizar";
-            this.BtnActualizar.Size = new System.Drawing.Size(91, 62);
-            this.BtnActualizar.TabIndex = 0;
-            this.BtnActualizar.UseVisualStyleBackColor = false;
-            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
+            this.CbBuscador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CbBuscador.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CbBuscador.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.CbBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.CbBuscador.FormattingEnabled = true;
+            this.CbBuscador.Items.AddRange(new object[] {
+            "Ticket",
+            "Calidad"});
+            this.CbBuscador.Location = new System.Drawing.Point(594, 14);
+            this.CbBuscador.Name = "CbBuscador";
+            this.CbBuscador.Size = new System.Drawing.Size(168, 28);
+            this.CbBuscador.TabIndex = 14;
+            this.CbBuscador.Visible = false;
+            this.CbBuscador.SelectedIndexChanged += new System.EventHandler(this.CbBuscador_SelectedIndexChanged);
             // 
             // Almacen
             // 
@@ -956,6 +981,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioAlm)).EndInit();
             this.plOpciones.ResumeLayout(false);
             this.plOpciones.PerformLayout();
+            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).EndInit();
             this.plfooter.ResumeLayout(false);
             this.plfooter.PerformLayout();
@@ -968,7 +994,6 @@
             this.PlDatosTk.ResumeLayout(false);
             this.PlDatosTk.PerformLayout();
             this.PlCerrarDetalle.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1045,5 +1070,6 @@
         private System.Windows.Forms.PictureBox PbExcel;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button BtnActualizar;
+        private System.Windows.Forms.ComboBox CbBuscador;
     }
 }

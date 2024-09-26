@@ -73,7 +73,7 @@
             this.plOpciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.plOpciones.Location = new System.Drawing.Point(0, 0);
             this.plOpciones.Name = "plOpciones";
-            this.plOpciones.Size = new System.Drawing.Size(1678, 62);
+            this.plOpciones.Size = new System.Drawing.Size(1386, 62);
             this.plOpciones.TabIndex = 31;
             // 
             // LblTitulo
@@ -93,7 +93,7 @@
             this.BtnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrar.Location = new System.Drawing.Point(1603, 0);
+            this.BtnCerrar.Location = new System.Drawing.Point(1311, 0);
             this.BtnCerrar.Name = "BtnCerrar";
             this.BtnCerrar.Size = new System.Drawing.Size(75, 62);
             this.BtnCerrar.TabIndex = 5;
@@ -290,14 +290,14 @@
             this.DtLotes_Tendido.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DtLotes_Tendido.ShowCellToolTips = false;
             this.DtLotes_Tendido.ShowEditingIcon = false;
-            this.DtLotes_Tendido.Size = new System.Drawing.Size(1678, 617);
+            this.DtLotes_Tendido.Size = new System.Drawing.Size(1386, 617);
             this.DtLotes_Tendido.TabIndex = 34;
             // 
             // FrmLotes_Tendido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1678, 679);
+            this.ClientSize = new System.Drawing.Size(1386, 679);
             this.Controls.Add(this.PlFiltros);
             this.Controls.Add(this.PlCarga);
             this.Controls.Add(this.DtLotes_Tendido);

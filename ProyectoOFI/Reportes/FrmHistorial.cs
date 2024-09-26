@@ -3,6 +3,7 @@ using ProyectoOFI.Otros;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,7 @@ namespace ProyectoOFI.Reportes
         private int items_por_pagina = 100;
         int totalPaginas;
         int Contador;
+        int ContarBusqueda;
         public FrmHistorial()
         {
             InitializeComponent();
@@ -45,6 +47,7 @@ namespace ProyectoOFI.Reportes
             await CargarDatos();
             DtHistorial.Columns["IdHistorial"].Visible = false;
             PlCarga.Visible = false;
+            CargarEncabezadosEnComboBox();
         }
         private void MostrarHistorial()
         {
@@ -70,7 +73,22 @@ namespace ProyectoOFI.Reportes
         {
             desde -= 100;
             hasta -= 100;
-            MostrarHistorial();
+            if (txtBuscador.Text != "")
+            {
+                BuscarTK();
+            }
+            else if (CbBuscador.Visible == true)
+            {
+                BuscarDatos();
+            }
+            else if (PlFiltroFecha.Visible == true)
+            {
+                BuscarRangoFecha();
+            }
+            else
+            {
+                MostrarHistorial();
+            }
             Contar();
             if (Contador > hasta)
             {
@@ -88,11 +106,37 @@ namespace ProyectoOFI.Reportes
             }
             Paginar();
         }
+
+        private void BuscarDatos()
+        {
+            DataTable dt = new DataTable();
+            DHistorial funcion = new DHistorial();
+            //funcion.BuscarTK(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            funcion.BuscarHistorial(CbBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, Contador);
+            DtHistorial.DataSource = dt;
+            ContarBusqueda = int.Parse(funcion.Contador.ToString());
+        }
+
         private void btn_Sig_Click(object sender, EventArgs e)
         {
             desde += 100;
             hasta += 100;
-            MostrarHistorial();
+            if (txtBuscador.Text != "")
+            {
+                BuscarTK();
+            }
+            else if (CbBuscador.Visible == true)
+            {
+                BuscarDatos();
+            }
+            else if (PlFiltroFecha.Visible == true)
+            {
+                BuscarRangoFecha();
+            }
+            else
+            {
+                MostrarHistorial();
+            }
             Contar();
             if (Contador > hasta)
             {
@@ -104,13 +148,32 @@ namespace ProyectoOFI.Reportes
                 btn_Sig.Visible = false;
                 btn_atras.Visible = true;
             }
+            if (desde == 1)
+            {
+                ReiniciarPaginado();
+            }
             Paginar();
         }
         private void btn_Ultima_Click(object sender, EventArgs e)
         {
             hasta = totalPaginas * items_por_pagina;
             desde = hasta - 99;
-            MostrarHistorial();
+            if (txtBuscador.Text != "")
+            {
+                BuscarTK();
+            }
+            else if (CbBuscador.Visible == true)
+            {
+                BuscarDatos();
+            }
+            else if (PlFiltroFecha.Visible == true)
+            {
+                BuscarRangoFecha();
+            }
+            else
+            {
+                MostrarHistorial();
+            }
             Contar();
             if (Contador > hasta)
             {
@@ -127,7 +190,22 @@ namespace ProyectoOFI.Reportes
         private void btn_Primera_Click(object sender, EventArgs e)
         {
             ReiniciarPaginado();
-            MostrarHistorial();
+            if (txtBuscador.Text != "")
+            {
+                BuscarTK();
+            }
+            else if (CbBuscador.Visible == true)
+            {
+                BuscarDatos();
+            }
+            else if (PlFiltroFecha.Visible == true)
+            {
+                BuscarRangoFecha();
+            }
+            else
+            {
+                MostrarHistorial();
+            }
         }
         #endregion
         #region Paginado Metodos
@@ -158,7 +236,19 @@ namespace ProyectoOFI.Reportes
         private void Contar()
         {
             DHistorial funcion = new DHistorial();
-            funcion.ContarHistorial(ref Contador);
+            
+            if (txtBuscador.Text != "")
+            {
+                Contador = ContarBusqueda;
+            }
+            else if (CbBuscador.Visible == true || PlFiltroFecha.Visible == true)
+            {
+                Contador = ContarBusqueda;
+            }
+            else
+            {
+                funcion.ContarHistorial(ref Contador);
+            }
         }
         private void Paginar()
         {
@@ -175,5 +265,99 @@ namespace ProyectoOFI.Reportes
         }
 
         #endregion
+        private void CargarEncabezadosEnComboBox()
+        {
+            // Limpiar el ComboBox antes de cargar los encabezados
+            CbBuscar.Items.Clear();
+
+            // Definir el encabezado que no se debe cargar (en todas sus variaciones)
+            string[] encabezadosIgnorar = { "Observación", "Observacion", "observación", "observacion" };
+
+            // Iterar sobre las columnas visibles del DataGridView y agregar sus encabezados al ComboBox
+            foreach (DataGridViewColumn col in DtHistorial.Columns)
+            {
+                if (col.Visible)  // Solo añadir las columnas visibles
+                {
+                    // Si el encabezado no es "Observación" (en todas sus variaciones), lo agregamos
+                    if (!encabezadosIgnorar.Contains(col.HeaderText))
+                    {
+                        CbBuscar.Items.Add(col.HeaderText);
+                    }
+                }
+            }
+
+            // Opcional: Seleccionar el primer elemento por defecto si hay elementos en el ComboBox
+            if (CbBuscar.Items.Count > 0)
+            {
+                CbBuscar.SelectedIndex = 0;
+            }
+        }
+        private void BuscarTK()
+        {
+            DataTable dt = new DataTable();
+            DHistorial funcion = new DHistorial();
+            //funcion.BuscarTK(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            funcion.BuscarHistorial(txtBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, Contador);
+            DtHistorial.DataSource = dt;
+            ContarBusqueda = int.Parse(funcion.Contador.ToString());
+        }
+        private void BuscarRangoFecha()
+        {
+            DataTable dt = new DataTable();
+            DHistorial funcion = new DHistorial();
+            funcion.BuscarHistorialFecha(ref dt, DtpInicio.Value, DtpFin.Value, desde, hasta, Contador);
+            DtHistorial.DataSource = dt;
+            ContarBusqueda = int.Parse(funcion.Contador.ToString());
+        }
+
+        private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CbBuscar.Text == "Fecha")
+            {
+                CbBuscador.Visible = false;
+                txtBuscador.Visible = false;
+                PlFiltroFecha.Visible = true;
+            }
+            else if (CbBuscar.Text == "Ticket")
+            {
+                CbBuscador.Visible = false;
+                txtBuscador.Visible = true;
+                PlFiltroFecha.Visible = false;
+            }
+            else if (CbBuscar.Text == "Usuario")
+            {
+                CbBuscador.Visible = true;
+                txtBuscador.Visible = false;
+                PlFiltroFecha.Visible = false;
+                DHistorial funcion = new DHistorial();
+                funcion.MostrarUsuarios(CbBuscador);
+            }
+        }
+
+        private void BtnFiltroFecha_Click(object sender, EventArgs e)
+        {
+            BuscarRangoFecha();
+            ReiniciarPaginado();
+        }
+
+        private void txtBuscador_TextChanged(object sender, EventArgs e)
+        {
+            BuscarTK();
+            ReiniciarPaginado();
+        }
+
+        private void CbBuscador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CbBuscador.Text == "")
+            {
+                ReiniciarPaginado();
+                MostrarHistorial();
+            }
+            else
+            {
+                BuscarDatos();
+                ReiniciarPaginado();
+            }
+        }
     }
 }

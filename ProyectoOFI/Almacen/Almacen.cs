@@ -1,5 +1,6 @@
 ﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
+using ProyectoOFI.Otros;
 using ProyectoOFI.Reportes;
 using System;
 using System.Data;
@@ -20,6 +21,7 @@ namespace ProyectoOFI.Almacen
         int IdBodega, IdEmpaque, Edit;
         double PesoNeto, Tara;
         double rendimiento;
+        int ContarBusqueda;
         public Almacen()
         {
             InitializeComponent();
@@ -87,12 +89,12 @@ namespace ProyectoOFI.Almacen
             DAlmacen funcion = new DAlmacen();
             if (txtBuscador.Text != "")
             {
-                // Contador = ContarBusqueda;
+                Contador = ContarBusqueda;
             }
-            //else if (CbBuscador.Visible == true)
-            //{
-            //    Contador = ContarBusqueda;
-            //}
+            else if (CbBuscador.Visible == true)
+            {
+                Contador = ContarBusqueda;
+            }
             else
             {
                 funcion.ContarTK(ref Contador);
@@ -117,12 +119,12 @@ namespace ProyectoOFI.Almacen
             hasta -= 100;
             if (txtBuscador.Text != "")
             {
-                //BuscarTK();
+                BuscarTK();
             }
-            //else if (CbBuscador.Visible == true)
-            //{
-            //    BuscarDatos();
-            //}
+            else if (CbBuscador.Visible == true)
+            {
+                BuscarDatos();
+            }
             else
             {
                 MostrarAlmacen();
@@ -150,12 +152,12 @@ namespace ProyectoOFI.Almacen
             hasta += 100;
             if (txtBuscador.Text != "")
             {
-                // BuscarTK();
+                BuscarTK();
             }
-            //else if (CbBuscador.Visible == true)
-            //{
-            //    BuscarDatos();
-            //}
+            else if (CbBuscador.Visible == true)
+            {
+                BuscarDatos();
+            }
             else
             {
                 MostrarAlmacen();
@@ -179,12 +181,12 @@ namespace ProyectoOFI.Almacen
             desde = hasta - 99;
             if (txtBuscador.Text != "")
             {
-                //BuscarTK();
+                BuscarTK();
             }
-            //else if (CbBuscador.Visible == true)
-            //{
-            //    BuscarDatos();
-            //}
+            else if (CbBuscador.Visible == true)
+            {
+                BuscarDatos();
+            }
             else
             {
                 MostrarAlmacen();
@@ -207,12 +209,12 @@ namespace ProyectoOFI.Almacen
             ReiniciarPaginado();
             if (txtBuscador.Text != "")
             {
-                // BuscarTK();
+                BuscarTK();
             }
-            //else if (CbBuscador.Visible == true)
-            //{
-            //    BuscarDatos();
-            //}
+            else if (CbBuscador.Visible == true)
+            {
+                BuscarDatos();
+            }
             else
             {
                 MostrarAlmacen();
@@ -715,6 +717,69 @@ namespace ProyectoOFI.Almacen
             CbDescargador.Enabled = false;
             BtnGuardar.Enabled = false;
         }
+
+        private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DRecepcion funcion = new DRecepcion();
+            if (CbBuscar.Text == "Ticket" || CbBuscar.Text == "Analisis" || CbBuscar.Text == "Peso")
+            {
+                CbBuscador.Text = "";
+                //PlFiltroFecha.Visible = false;
+                txtBuscador.Visible = true;
+                CbBuscador.Visible = false;
+                ReiniciarPaginado();
+            }
+            else if (CbBuscar.Text == "Calidad")
+            {
+                TextBuscarVisible();
+                funcion.MostrarCalidad(CbBuscador);
+            }
+            else if (CbBuscar.Text == "Certificación")
+            {
+                TextBuscarVisible();
+                funcion.MostrarCert(CbBuscador);
+            }
+            else if (CbBuscar.Text == "Tipo Compra")
+            {
+                TextBuscarVisible();
+                funcion.MostrarCompra(CbBuscador);
+            }
+            else if (CbBuscar.Text == "Área Secado")
+            {
+                TextBuscarVisible();
+                funcion.MostrarAreaSecado(CbBuscador);
+            }
+        }
+        private void TextBuscarVisible()
+        {
+            txtBuscador.Clear();
+            txtBuscador.Visible = false;
+            CbBuscador.Visible = true;
+            CbBuscador.DataSource = null;
+            CbBuscador.SelectedIndex = -1;
+            //PlFiltroFecha.Visible = false;
+        }
+
+        private void CbBuscador_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CbBuscador.Text == "")
+            {
+                ReiniciarPaginado();
+                MostrarAlmacen();
+            }
+            else
+            {
+                BuscarDatos();
+                ReiniciarPaginado();
+            }
+        }
+
+        private void txtBuscador_TextChanged(object sender, EventArgs e)
+        {
+            BuscarTK();
+            ReiniciarPaginado();
+        }
+
         private void Activar()
         {
             DtpFAlmacen.Enabled = true;
@@ -774,6 +839,23 @@ namespace ProyectoOFI.Almacen
                 }
             }
         }
-
+        private void BuscarDatos()
+        {
+            DataTable dt = new DataTable();
+            DAlmacen funcion = new DAlmacen();
+            //funcion.BuscarTK(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            funcion.BuscarAlmacen(CbBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
+            dtInventarioAlm.DataSource = dt;
+            ContarBusqueda = int.Parse(funcion.Contador.ToString());
+        }
+        private void BuscarTK()
+        {
+            DataTable dt = new DataTable();
+            DAlmacen funcion = new DAlmacen();
+            //funcion.BuscarTK(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            funcion.BuscarAlmacen(txtBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
+            dtInventarioAlm.DataSource = dt;
+            ContarBusqueda = int.Parse(funcion.Contador.ToString());
+        }
     }
 }

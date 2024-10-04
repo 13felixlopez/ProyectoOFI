@@ -654,14 +654,44 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public void MostrarCalidadUA(ComboBox combo)
+        {
+            try
+            {
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("Select * from Calidad where Calidad Like '%' + 'UA'", Conexion.conectar);
+                da.CommandType = CommandType.Text;
+                SqlDataAdapter cb = new SqlDataAdapter(da);
+                DataTable dt = new DataTable();
+                cb.Fill(dt);
+                combo.ValueMember = "IdCalidad";
+                combo.DisplayMember = "Calidad";
+                combo.DataSource = dt;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    lista.Add(dt.Rows[i]["Calidad"].ToString());
+                }
+                combo.AutoCompleteCustomSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarCalidad ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
         public void MostrarCalidad(ComboBox combo)
         {
             try
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
                 Conexion.abrir();
-                SqlCommand da = new SqlCommand("MostrarCalidad", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
+                SqlCommand da = new SqlCommand("Select * from Calidad where Calidad NOT Like '%' + 'UA'", Conexion.conectar);
+                da.CommandType = CommandType.Text;
                 SqlDataAdapter cb = new SqlDataAdapter(da);
                 DataTable dt = new DataTable();
                 cb.Fill(dt);

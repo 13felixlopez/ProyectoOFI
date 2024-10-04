@@ -198,6 +198,7 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.ChUA = new System.Windows.Forms.CheckBox();
             this.PlEnvio.SuspendLayout();
             this.PlRecepcion.SuspendLayout();
             this.PlAlerta.SuspendLayout();
@@ -535,7 +536,7 @@
             this.PlRecepcion.Location = new System.Drawing.Point(19, 89);
             this.PlRecepcion.MinimumSize = new System.Drawing.Size(1188, 395);
             this.PlRecepcion.Name = "PlRecepcion";
-            this.PlRecepcion.Size = new System.Drawing.Size(1188, 395);
+            this.PlRecepcion.Size = new System.Drawing.Size(1261, 435);
             this.PlRecepcion.TabIndex = 9;
             this.PlRecepcion.Visible = false;
             // 
@@ -791,6 +792,7 @@
             // 
             this.PEnvio.AutoScroll = true;
             this.PEnvio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PEnvio.Controls.Add(this.ChUA);
             this.PEnvio.Controls.Add(this.LblQQsEn);
             this.PEnvio.Controls.Add(this.label7);
             this.PEnvio.Controls.Add(this.PlEnvio);
@@ -2283,6 +2285,18 @@
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
             // 
+            // ChUA
+            // 
+            this.ChUA.AutoSize = true;
+            this.ChUA.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChUA.Location = new System.Drawing.Point(962, 60);
+            this.ChUA.Name = "ChUA";
+            this.ChUA.Size = new System.Drawing.Size(43, 17);
+            this.ChUA.TabIndex = 157;
+            this.ChUA.Text = "UA";
+            this.ChUA.UseVisualStyleBackColor = true;
+            this.ChUA.CheckedChanged += new System.EventHandler(this.ChUA_CheckedChanged);
+            // 
             // Transferencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2498,5 +2512,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button BtnActualizar;
+        private System.Windows.Forms.CheckBox ChUA;
     }
 }

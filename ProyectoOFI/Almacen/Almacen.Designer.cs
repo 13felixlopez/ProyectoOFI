@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioAlm = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
+            this.CbBuscador = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.BtnActualizar = new System.Windows.Forms.Button();
             this.PbExcel = new System.Windows.Forms.PictureBox();
@@ -98,9 +99,20 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.PlCerrarDetalle = new System.Windows.Forms.Panel();
+            this.BtnSplit = new System.Windows.Forms.Button();
             this.LblTitulo = new System.Windows.Forms.Label();
             this.BtnCerrarPldatos = new System.Windows.Forms.Button();
-            this.CbBuscador = new System.Windows.Forms.ComboBox();
+            this.PlSplit = new System.Windows.Forms.Panel();
+            this.PlCerrar = new System.Windows.Forms.Panel();
+            this.LblFiltros = new System.Windows.Forms.Label();
+            this.BtnCerrar = new System.Windows.Forms.Button();
+            this.LblTKSplit = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.LblPesoO = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.TxtPesoNuevo = new System.Windows.Forms.TextBox();
+            this.BtnCrearSplit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioAlm)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -113,6 +125,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.NudSacos)).BeginInit();
             this.PlDatosTk.SuspendLayout();
             this.PlCerrarDetalle.SuspendLayout();
+            this.PlSplit.SuspendLayout();
+            this.PlCerrar.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtInventarioAlm
@@ -164,6 +178,23 @@
             this.plOpciones.Name = "plOpciones";
             this.plOpciones.Size = new System.Drawing.Size(1613, 62);
             this.plOpciones.TabIndex = 16;
+            // 
+            // CbBuscador
+            // 
+            this.CbBuscador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CbBuscador.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CbBuscador.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.CbBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.CbBuscador.FormattingEnabled = true;
+            this.CbBuscador.Items.AddRange(new object[] {
+            "Ticket",
+            "Calidad"});
+            this.CbBuscador.Location = new System.Drawing.Point(594, 14);
+            this.CbBuscador.Name = "CbBuscador";
+            this.CbBuscador.Size = new System.Drawing.Size(168, 28);
+            this.CbBuscador.TabIndex = 14;
+            this.CbBuscador.Visible = false;
+            this.CbBuscador.SelectedIndexChanged += new System.EventHandler(this.CbBuscador_SelectedIndexChanged);
             // 
             // panel3
             // 
@@ -413,7 +444,7 @@
             this.PLDatos.Controls.Add(this.PlAlmacen);
             this.PLDatos.Controls.Add(this.PlDatosTk);
             this.PLDatos.Controls.Add(this.PlCerrarDetalle);
-            this.PLDatos.Location = new System.Drawing.Point(203, 91);
+            this.PLDatos.Location = new System.Drawing.Point(2, 91);
             this.PLDatos.MaximumSize = new System.Drawing.Size(1207, 622);
             this.PLDatos.Name = "PLDatos";
             this.PLDatos.Size = new System.Drawing.Size(1207, 622);
@@ -918,6 +949,7 @@
             // PlCerrarDetalle
             // 
             this.PlCerrarDetalle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PlCerrarDetalle.Controls.Add(this.BtnSplit);
             this.PlCerrarDetalle.Controls.Add(this.LblTitulo);
             this.PlCerrarDetalle.Controls.Add(this.BtnCerrarPldatos);
             this.PlCerrarDetalle.Dock = System.Windows.Forms.DockStyle.Top;
@@ -925,6 +957,18 @@
             this.PlCerrarDetalle.Name = "PlCerrarDetalle";
             this.PlCerrarDetalle.Size = new System.Drawing.Size(1205, 48);
             this.PlCerrarDetalle.TabIndex = 3;
+            // 
+            // BtnSplit
+            // 
+            this.BtnSplit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnSplit.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnSplit.Image = global::ProyectoOFI.Properties.Resources.split_52966371;
+            this.BtnSplit.Location = new System.Drawing.Point(1051, 0);
+            this.BtnSplit.Name = "BtnSplit";
+            this.BtnSplit.Size = new System.Drawing.Size(75, 44);
+            this.BtnSplit.TabIndex = 5;
+            this.BtnSplit.UseVisualStyleBackColor = true;
+            this.BtnSplit.Click += new System.EventHandler(this.BtnSplit_Click);
             // 
             // LblTitulo
             // 
@@ -949,27 +993,129 @@
             this.BtnCerrarPldatos.UseVisualStyleBackColor = true;
             this.BtnCerrarPldatos.Click += new System.EventHandler(this.BtnCerrarPldatos_Click);
             // 
-            // CbBuscador
+            // PlSplit
             // 
-            this.CbBuscador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CbBuscador.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.CbBuscador.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.CbBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.CbBuscador.FormattingEnabled = true;
-            this.CbBuscador.Items.AddRange(new object[] {
-            "Ticket",
-            "Calidad"});
-            this.CbBuscador.Location = new System.Drawing.Point(594, 14);
-            this.CbBuscador.Name = "CbBuscador";
-            this.CbBuscador.Size = new System.Drawing.Size(168, 28);
-            this.CbBuscador.TabIndex = 14;
-            this.CbBuscador.Visible = false;
-            this.CbBuscador.SelectedIndexChanged += new System.EventHandler(this.CbBuscador_SelectedIndexChanged);
+            this.PlSplit.BackColor = System.Drawing.Color.White;
+            this.PlSplit.Controls.Add(this.BtnCrearSplit);
+            this.PlSplit.Controls.Add(this.TxtPesoNuevo);
+            this.PlSplit.Controls.Add(this.label14);
+            this.PlSplit.Controls.Add(this.LblPesoO);
+            this.PlSplit.Controls.Add(this.label24);
+            this.PlSplit.Controls.Add(this.LblTKSplit);
+            this.PlSplit.Controls.Add(this.label15);
+            this.PlSplit.Controls.Add(this.PlCerrar);
+            this.PlSplit.Location = new System.Drawing.Point(1225, 325);
+            this.PlSplit.Name = "PlSplit";
+            this.PlSplit.Size = new System.Drawing.Size(366, 192);
+            this.PlSplit.TabIndex = 20;
+            this.PlSplit.Visible = false;
+            // 
+            // PlCerrar
+            // 
+            this.PlCerrar.Controls.Add(this.LblFiltros);
+            this.PlCerrar.Controls.Add(this.BtnCerrar);
+            this.PlCerrar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PlCerrar.Location = new System.Drawing.Point(0, 0);
+            this.PlCerrar.Name = "PlCerrar";
+            this.PlCerrar.Size = new System.Drawing.Size(366, 42);
+            this.PlCerrar.TabIndex = 1;
+            // 
+            // LblFiltros
+            // 
+            this.LblFiltros.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFiltros.Location = new System.Drawing.Point(0, 0);
+            this.LblFiltros.Name = "LblFiltros";
+            this.LblFiltros.Size = new System.Drawing.Size(317, 42);
+            this.LblFiltros.TabIndex = 3;
+            this.LblFiltros.Text = "Split";
+            this.LblFiltros.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrar.Location = new System.Drawing.Point(317, 0);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(49, 42);
+            this.BtnCerrar.TabIndex = 2;
+            this.BtnCerrar.UseVisualStyleBackColor = true;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
+            // 
+            // LblTKSplit
+            // 
+            this.LblTKSplit.AutoSize = true;
+            this.LblTKSplit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTKSplit.Location = new System.Drawing.Point(75, 45);
+            this.LblTKSplit.Name = "LblTKSplit";
+            this.LblTKSplit.Size = new System.Drawing.Size(19, 20);
+            this.LblTKSplit.TabIndex = 2;
+            this.LblTKSplit.Text = "--";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(3, 45);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(62, 20);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Ticket:";
+            // 
+            // LblPesoO
+            // 
+            this.LblPesoO.AutoSize = true;
+            this.LblPesoO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPesoO.Location = new System.Drawing.Point(57, 77);
+            this.LblPesoO.Name = "LblPesoO";
+            this.LblPesoO.Size = new System.Drawing.Size(19, 20);
+            this.LblPesoO.TabIndex = 4;
+            this.LblPesoO.Text = "--";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(3, 77);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(44, 20);
+            this.label24.TabIndex = 5;
+            this.label24.Text = "Kgs:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(3, 115);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(109, 20);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "Nuevo Peso:";
+            // 
+            // TxtPesoNuevo
+            // 
+            this.TxtPesoNuevo.Location = new System.Drawing.Point(118, 115);
+            this.TxtPesoNuevo.Name = "TxtPesoNuevo";
+            this.TxtPesoNuevo.Size = new System.Drawing.Size(125, 20);
+            this.TxtPesoNuevo.TabIndex = 7;
+            // 
+            // BtnCrearSplit
+            // 
+            this.BtnCrearSplit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCrearSplit.Location = new System.Drawing.Point(275, 147);
+            this.BtnCrearSplit.Name = "BtnCrearSplit";
+            this.BtnCrearSplit.Size = new System.Drawing.Size(78, 39);
+            this.BtnCrearSplit.TabIndex = 11;
+            this.BtnCrearSplit.Text = "Guardar";
+            this.BtnCrearSplit.UseVisualStyleBackColor = true;
+            this.BtnCrearSplit.Click += new System.EventHandler(this.BtnCrearSplit_Click);
             // 
             // Almacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.PlSplit);
             this.Controls.Add(this.PLDatos);
             this.Controls.Add(this.PlCarga);
             this.Controls.Add(this.dtInventarioAlm);
@@ -994,6 +1140,9 @@
             this.PlDatosTk.ResumeLayout(false);
             this.PlDatosTk.PerformLayout();
             this.PlCerrarDetalle.ResumeLayout(false);
+            this.PlSplit.ResumeLayout(false);
+            this.PlSplit.PerformLayout();
+            this.PlCerrar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1071,5 +1220,17 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button BtnActualizar;
         private System.Windows.Forms.ComboBox CbBuscador;
+        private System.Windows.Forms.Button BtnSplit;
+        private System.Windows.Forms.Panel PlSplit;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label LblPesoO;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label LblTKSplit;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel PlCerrar;
+        private System.Windows.Forms.Label LblFiltros;
+        private System.Windows.Forms.Button BtnCerrar;
+        private System.Windows.Forms.Button BtnCrearSplit;
+        private System.Windows.Forms.TextBox TxtPesoNuevo;
     }
 }

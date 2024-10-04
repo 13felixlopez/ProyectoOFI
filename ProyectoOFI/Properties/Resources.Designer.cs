@@ -913,6 +913,36 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap split {
+            get {
+                object obj = ResourceManager.GetObject("split", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap split_5296637 {
+            get {
+                object obj = ResourceManager.GetObject("split_5296637", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap split_52966371 {
+            get {
+                object obj = ResourceManager.GetObject("split_52966371", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap task_alt_FILL1_wght400_GRAD0_opsz24 {
             get {
                 object obj = ResourceManager.GetObject("task_alt_FILL1_wght400_GRAD0_opsz24", resourceCulture);

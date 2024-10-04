@@ -1886,6 +1886,21 @@ namespace ProyectoOFI.Recepcion
             MessageBox.Show("Datos Actualizados", "Refrescar Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
+        private void ChUA_CheckedChanged(object sender, EventArgs e)
+        {
+            DRecepcion funcion = new DRecepcion();
+            if (ChUA.Checked == true)
+            {
+                funcion.MostrarCalidadUA(cbCalidadE);
+                funcion.MostrarCalidadUA(cbCalidad);
+            }
+            else
+            {
+                funcion.MostrarCalidad(cbCalidadE);
+                funcion.MostrarCalidad(cbCalidad);
+            }
+        }
+
         private void ValidarPermisos()
         {
             DataTable dt = new DataTable();

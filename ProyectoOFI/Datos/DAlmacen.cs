@@ -1,5 +1,4 @@
-﻿using NPOI.HSSF.Record.Chart;
-using ProyectoOFI.Logica;
+﻿using ProyectoOFI.Logica;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -387,6 +386,30 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en BuscarAlmacen ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool Split(double Peso,string TicketO, string Ticket)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("Split", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@PesoNuevo",Peso);
+                cmd.Parameters.AddWithValue("@TicketPrincipal", TicketO);
+                cmd.Parameters.AddWithValue("@TicketSeleccionado",Ticket);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al crear el Split " + ex.Message, "Split no creado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en Split ✖️✖️ " + ex.Message);
+                return false;
             }
             finally
             {

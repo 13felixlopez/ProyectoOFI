@@ -22,6 +22,7 @@ namespace ProyectoOFI.Almacen
         double PesoNeto, Tara;
         double rendimiento;
         int ContarBusqueda;
+        string TicketO;
         public Almacen()
         {
             InitializeComponent();
@@ -57,6 +58,7 @@ namespace ProyectoOFI.Almacen
             DAlmacen funcion = new DAlmacen();
             funcion.MostrarAlmacen(ref dt, desde, hasta);
             dtInventarioAlm.DataSource = dt;
+            dtInventarioAlm.Columns["TicketO"].Visible = false;
             //Base.DiseñoDtvEliminar(ref dtInventarioAlm);
         }
         #region Paginado
@@ -233,6 +235,10 @@ namespace ProyectoOFI.Almacen
             string nombrecolumna = "Ticket";
             int indice = dtInventarioAlm.Columns[nombrecolumna].Index;
             Ticket = dtInventarioAlm.SelectedCells[indice].Value.ToString();
+
+            string nombrecolumna2 = "TicketO";
+            int indice2 = dtInventarioAlm.Columns[nombrecolumna2].Index;
+            TicketO = dtInventarioAlm.SelectedCells[indice2].Value.ToString();
         }
         private void VerdetalleTkAlmacen()
         {
@@ -780,6 +786,33 @@ namespace ProyectoOFI.Almacen
             ReiniciarPaginado();
         }
 
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            LblTKSplit.Text = "--";
+            LblPesoO.Text = "--";
+            PlSplit.Visible = false;
+        }
+
+        private void BtnSplit_Click(object sender, EventArgs e)
+        {
+            PlSplit.Location = new Point(this.Width / 2
+               - PlSplit.Width / 2, this.Height / 2 - PlSplit.Height / 2);
+            PlSplit.Visible = true;
+            PlSplit.BringToFront();
+            LblTKSplit.Text = LblTicket.Text;
+            LblPesoO.Text = LblPeso.Text;
+        }
+
+        private void BtnCrearSplit_Click(object sender, EventArgs e)
+        {
+            DAlmacen funcion = new DAlmacen();
+            double pesoNuevo=double.Parse(TxtPesoNuevo.Text);
+            funcion.Split(pesoNuevo, TicketO, Ticket);
+            LblPeso.Text = pesoNuevo.ToString();
+            MessageBox.Show("Split realizado con éxito", "Correcto!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            PlSplit.Visible = false;
+        }
+
         private void Activar()
         {
             DtpFAlmacen.Enabled = true;
@@ -857,5 +890,6 @@ namespace ProyectoOFI.Almacen
             dtInventarioAlm.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.Contador.ToString());
         }
+        
     }
 }

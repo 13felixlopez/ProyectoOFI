@@ -130,9 +130,6 @@
   <data name="POA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\POA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-cerrar-sesión" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-cerrar-sesión.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="PS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -145,11 +142,14 @@
   <data name="wired-outline-35-edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wired-outline-35-edit.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="split_5296637" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\split_5296637.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-ubicación-en-todo-el-mundo (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-ubicación-en-todo-el-mundo (1).gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="filter_list_FILL0_wght400_GRAD0_opsz24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\filter_list_FILL0_wght400_GRAD0_opsz24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="data_backup_80px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\data_backup_80px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="documentos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\documentos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -165,9 +165,6 @@
   </data>
   <data name="location" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\location.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-bloquear" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-bloquear.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="three-11928" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\three-11928.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -196,9 +193,6 @@
   <data name="icons8-usuario-masculino-en-círculo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-usuario-masculino-en-círculo.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="clock1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clock1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Plan" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Plan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -226,6 +220,9 @@
   <data name="sobresalir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sobresalir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-usuario.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -235,11 +232,8 @@
   <data name="people" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\people.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="business_report_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\business_report_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="clock2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clock2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="split" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\split.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-ver" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-ver.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -268,11 +262,11 @@
   <data name="icons8-en-tránsito" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-en-tránsito.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Ant_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ant_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-cargando" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-cargando.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icons8-búsqueda" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-búsqueda.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="OFi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OFi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -292,23 +286,35 @@
   <data name="icons8-almacén" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-almacén.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="transfer_within_a_station_FILL0_wght400_GRAD0_opsz24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\transfer_within_a_station_FILL0_wght400_GRAD0_opsz24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="clock2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clock2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8_ok_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8_ok_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Guardiola" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Guardiola.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-gráfico-combinado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-gráfico-combinado.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="transfer_within_a_station_FILL0_wght400_GRAD0_opsz24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\transfer_within_a_station_FILL0_wght400_GRAD0_opsz24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="icons8-agregar-a-carrito-de-compras" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-agregar-a-carrito-de-compras.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-tareas-paralelas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-tareas-paralelas.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-cerrar-sesión" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-cerrar-sesión.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-refrescar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-refrescar.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="filter_list_FILL0_wght400_GRAD0_opsz24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\filter_list_FILL0_wght400_GRAD0_opsz24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="icons8-tareas-paralelas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-tareas-paralelas.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Operador" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Operador.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -321,6 +327,9 @@
   </data>
   <data name="MdiHandCoin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MdiHandCoin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="grey-9026_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\grey-9026_512.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Catacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Catacion.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -358,8 +367,8 @@
   <data name="icons8-historial-médico" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-historial-médico.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="grey-9026_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\grey-9026_512.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="clock1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clock1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Captura de pantalla 2024-07-30 125746" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Captura de pantalla 2024-07-30 125746.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -373,8 +382,8 @@
   <data name="icons8-grupos-de-usuarios" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-grupos-de-usuarios.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Guardiola" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Guardiola.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-bloquear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-bloquear.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="loading-12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\loading-12.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -394,11 +403,11 @@
   <data name="Guardiola2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Guardiola2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Ant_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Ant_64.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icons8-búsqueda" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-búsqueda.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="icons8-gráfico-combinado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-gráfico-combinado.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="business_report_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\business_report_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ant_642" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ant_642.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -406,7 +415,7 @@
   <data name="task_alt_FILL1_wght400_GRAD0_opsz24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\task_alt_FILL1_wght400_GRAD0_opsz24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="data_backup_80px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\data_backup_80px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="split_52966371" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\split_52966371.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

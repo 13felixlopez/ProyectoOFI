@@ -28,5 +28,6 @@ namespace ProyectoOFI.Logica
         public string Digitador { get; set; }
         public string Estado { get; set; }
         public string Analisis { get; set; }
+        public double PesoRecibido { get; set; }
     }
 }

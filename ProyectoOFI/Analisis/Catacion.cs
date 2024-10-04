@@ -867,6 +867,7 @@ namespace ProyectoOFI.Analisis
                     parametros.DesmCP = LblDesmCP.Text;
                     parametros.DesmDP = LblDesmDP.Text;
                     parametros.Digitador = Login.NombreA;
+                    parametros.PesoRecibido = double.Parse(LblPeso.Text);
                     if (ChbRechazado.Checked == true)
                     {
                         parametros.Estado = "0";
@@ -1022,6 +1023,7 @@ namespace ProyectoOFI.Analisis
                     parametros.DesmCP = LblDesmCP.Text;
                     parametros.DesmDP = LblDesmDP.Text;
                     parametros.Digitador = Login.NombreA;
+                    parametros.PesoRecibido = double.Parse(LblPeso.Text);
                     if (ChbRechazado.Checked == true)
                     {
                         parametros.Estado = "0";
@@ -1154,7 +1156,7 @@ namespace ProyectoOFI.Analisis
                     parametros.DesmCP = LblDesmCP.Text;
                     parametros.DesmDP = LblDesmDP.Text;
                     parametros.Digitador = Login.NombreA;
-
+                    parametros.PesoRecibido = double.Parse(LblPeso.Text);
                     if (ChbRechazado.Checked == true)
                     {
                         parametros.Estado = "0";

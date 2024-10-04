@@ -162,6 +162,7 @@ namespace ProyectoOFI.Datos
                 da.Parameters.AddWithValue("@Digitador", parametros.Digitador);
                 da.Parameters.AddWithValue("@Estado", parametros.Estado);
                 da.Parameters.AddWithValue("@Analisis", parametros.Analisis);
+                da.Parameters.AddWithValue("@PesoRecibido", parametros.PesoRecibido);
                 da.ExecuteNonQuery();
                 return true;
 
@@ -229,6 +230,7 @@ namespace ProyectoOFI.Datos
                 da.Parameters.AddWithValue("@Estado", parametros.Estado);
                 da.Parameters.AddWithValue("@Analisis", parametros.Analisis);
                 da.Parameters.AddWithValue("@ExpP", parametros.ExpP);
+                da.Parameters.AddWithValue("@PesoRecibido", parametros.PesoRecibido);
                 da.ExecuteNonQuery();
                 return true;
             }
@@ -297,6 +299,7 @@ namespace ProyectoOFI.Datos
                 da.Parameters.AddWithValue("@Digitador", parametros.Digitador);
                 da.Parameters.AddWithValue("@Estado", parametros.Estado);
                 da.Parameters.AddWithValue("@Analisis", parametros.Analisis);
+                da.Parameters.AddWithValue("@PesoRecibido", parametros.PesoRecibido);
                 da.ExecuteNonQuery();
                 return true;
 
@@ -343,6 +346,7 @@ namespace ProyectoOFI.Datos
                 da.Parameters.AddWithValue("@Estado", parametros.Estado);
                 da.Parameters.AddWithValue("@Analisis", parametros.Analisis);
                 da.Parameters.AddWithValue("@ExpP", parametros.ExpP);
+                da.Parameters.AddWithValue("@PesoRecibido", parametros.PesoRecibido);
                 da.ExecuteNonQuery();
                 return true;
             }

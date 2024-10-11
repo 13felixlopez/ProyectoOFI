@@ -755,7 +755,7 @@ namespace ProyectoOFI.SM
                 parametros.Humedad = double.Parse(txtHumedadPOA.Text);
                 //Paros();
                 parametros.ProcesoSF = "POA";
-                parametros.OperadorV = int.Parse(cbOperadorPOA.SelectedValue.ToString());
+                //parametros.OperadorV = int.Parse(cbOperadorPOA.SelectedValue.ToString());
                 parametros.TurnoV = int.Parse(cbTurnoPOA.SelectedValue.ToString());
                 parametros.POA1 = int.Parse(txtTolvaPOA.Text.Trim());
                 //parametros.POA2 = int.Parse(CbPOA2.Text.Trim());
@@ -847,7 +847,7 @@ namespace ProyectoOFI.SM
                 parametros.Ticket = cbTicketP.Text;
                 parametros.Guardiola = int.Parse(TxtGuariola.Text);
                 parametros.IdTurno = int.Parse(CbTurno.SelectedValue.ToString());
-                parametros.IdOperador = int.Parse(CbOperadores.SelectedValue.ToString());
+                //parametros.IdOperador = int.Parse(CbOperadores.SelectedValue.ToString());
                 parametros.FechaG = DateTime.Parse(DtPFDes1.Value.ToString());
                 parametros.HoraIniG = DateTime.Parse(DtHInicio1.Value.ToString());
                 parametros.HoraFinG = DateTime.Parse(DtHoraFin1.Value.ToString());

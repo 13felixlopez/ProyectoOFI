@@ -678,7 +678,7 @@ namespace ProyectoOFI.SM
                 DPS funcion = new DPS();
                 parametros.IdPS = IdPS;
                 parametros.FechaPS = DtPFEnvio.Value;
-                parametros.IdOperador = (int)CbOperadoresEn.SelectedValue;
+                //parametros.IdOperador = (int)CbOperadoresEn.SelectedValue;
                 parametros.IdTurno = (int)CbTurnoEn.SelectedValue;
                 parametros.DNIN = TxtDNIN.Text;
                 parametros.IdArea = (int)CbDestino.SelectedValue;

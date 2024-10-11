@@ -616,9 +616,9 @@ namespace ProyectoOFI.SM
                     {
                         LblTurnoPV.Text = "";
                     }
-                    if (row["Nombre"].ToString() != null)
+                    if (row["Operador"].ToString() != null)
                     {
-                        LblOperadorPV.Text = row["Nombre"].ToString();
+                        LblOperadorPV.Text = row["Operador"].ToString();
                     }
                     else
                     {
@@ -934,7 +934,7 @@ namespace ProyectoOFI.SM
                 parametros.HoraFin = DtHInicio2.Value;
                 parametros.Humedad = double.Parse(TxtHumedad.Text);
                 parametros.ProcesoSF = "POA";
-                parametros.OperadorV = int.Parse(CbOperadores.SelectedValue.ToString());
+               // parametros.OperadorV = int.Parse(CbOperadores.SelectedValue.ToString());
                 parametros.TurnoV = int.Parse(CbTurno.SelectedValue.ToString());
                 parametros.POA1 = int.Parse(CbPOA1.Text.Trim());
                 parametros.POA2 = int.Parse(CbPOA2.Text.Trim());

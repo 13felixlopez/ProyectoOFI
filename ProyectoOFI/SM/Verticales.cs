@@ -180,12 +180,14 @@ namespace ProyectoOFI.SM
             LblEFisicoV.Text = dt.Rows[0]["EstFisico"].ToString();
             LblOperador.Text = dt.Rows[0]["Nombre"].ToString();
             LblTurno.Text = dt.Rows[0]["TurnoV"].ToString();
-            dtFProcV.Text = dt.Rows[0]["FRecibidoV"].ToString();
+            //dtFProcV.Text = dt.Rows[0]["FRecibidoV"].ToString();
             dtHorainicioV.Text = dt.Rows[0]["HrInicioV"].ToString();
             dtHoraFinV.Text = dt.Rows[0]["HrFin"].ToString();
-            TimeSpan tiempo = (TimeSpan)dt.Rows[0]["Duracion"];
-            string duracionFormateada = $"{tiempo.Hours:D2}:{tiempo.Minutes:D2}";
-            LblDuracion.Text = duracionFormateada;
+            //TimeSpan tiempo = (TimeSpan)dt.Rows[0]["Duracion"];
+            //string duracionFormateada = $"{tiempo.Hours:D2}:{tiempo.Minutes:D2}";
+            //LblDuracion.Text = tiempo.ToString();
+            //LblDuracion.Text = dt.Rows[0]["Duracion"].ToString();
+            LblDuracion.Text = DateTime.Parse(dt.Rows[0]["Duracion"].ToString()).ToString("HH:mm:ss");
             LblFRecibido.Text = dt.Rows[0]["FRecibido"].ToString();
             LblCert.Text = dt.Rows[0]["Certificacion"].ToString();
             Lblver.Text = dt.Rows[0]["Ver"].ToString();
@@ -211,7 +213,7 @@ namespace ProyectoOFI.SM
             DPOAV funcion = new DPOAV();
             funcion.MostrarTurno(CbTurno);
             DSM fun = new DSM();
-            fun.MostrarOperador(CbOperadores);
+            //fun.MostrarOperador(CbOperadores);
         }
         private void btnV1_Click(object sender, EventArgs e)
         {
@@ -230,8 +232,8 @@ namespace ProyectoOFI.SM
         {
             CbPOA1.Text = "1";
             CbPOA2.Text = "2";
-            DtPFDes1.Value = DateTime.Now;
-            DtPFDes2.Value = DateTime.Now;
+            //DtPFDes1.Value = DateTime.Now;
+            //DtPFDes2.Value = DateTime.Now;
             DtHInicio1.Value = DateTime.Now;
             DtHInicio2.Value = DateTime.Now;
             DtHoraFin1.Value = DateTime.Now;
@@ -363,7 +365,7 @@ namespace ProyectoOFI.SM
                 LVertical parametros = new LVertical();
                 DVerticales funcion = new DVerticales();
                 parametros.Ticket = LblTicket.Text;
-                parametros.FechaDes = DtPFDes1.Value;
+                //parametros.FechaDes = DtPFDes1.Value;
                 parametros.HoradesIn = DtHInicio1.Value;
                 parametros.HoraFin = DtHoraFin2.Value;
                 parametros.Humedad = double.Parse(TxtHumedad.Text);
@@ -372,7 +374,7 @@ namespace ProyectoOFI.SM
                 parametros.Observacion = Observacion;
                 parametros.Total = LblTiempoPre.Text;
                 parametros.ProcesoSF = "POA";
-                parametros.OperadorV = int.Parse(CbOperadores.SelectedValue.ToString());
+                //parametros.OperadorV = int.Parse(CbOperadores.SelectedValue.ToString());
                 parametros.TurnoV = int.Parse(CbTurno.SelectedValue.ToString());
                 parametros.POA1 = int.Parse(CbPOA1.Text.Trim());
                 parametros.POA2 = int.Parse(CbPOA2.Text.Trim());
@@ -463,9 +465,12 @@ namespace ProyectoOFI.SM
 
 
             // Obtener las fechas y horas de los DateTimePickers
-            DateTime fechaInicio = DtPFDes1.Value.Date + DtHoraFin2.Value.TimeOfDay;
-            DateTime fechaFin = dtFProcV.Value.Date + dtHorainicioV.Value.TimeOfDay;
-
+            //DateTime fechaInicio = DtHInicio1.Value.Date + DtHoraFin2.Value.TimeOfDay;
+            //DateTime fechaFin = dtFProcV.Value.Date + dtHorainicioV.Value.TimeOfDay;
+            DateTime fechaInicio = DtHoraFin2.Value;
+            DateTime fechaFin = dtHoraFinV.Value;
+            //dtHoraFinV
+            //DtHoraFin2
             // Calcular la diferencia de tiempo total en horas
             TimeSpan tiempoTotal = fechaInicio - fechaFin;
             double totalHoras = tiempoTotal.TotalHours;
@@ -486,7 +491,8 @@ namespace ProyectoOFI.SM
             // Convertir el tiempo total nuevamente a días, horas y minutos si es necesario
             int diasFinal = (int)(totalHoras / 24);
             horas = (int)(totalHoras % 24);
-            string resultadoFinal = $"{diasFinal} días {horas} horas {minutos} minutos";
+            //string resultadoFinal = $"{diasFinal} días {horas} horas {minutos} minutos";
+            string resultadoFinal = $"{diasFinal} : {horas} : {minutos}";
             LblTiempoPre.Text = resultadoFinal;
         }
         private void ValidarPermisos()

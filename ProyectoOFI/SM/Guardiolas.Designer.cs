@@ -1046,6 +1046,7 @@
             this.label25.Size = new System.Drawing.Size(87, 20);
             this.label25.TabIndex = 6;
             this.label25.Text = "Digitador:";
+            this.label25.Visible = false;
             // 
             // label8
             // 
@@ -1073,6 +1074,7 @@
             this.LblDigitadorG.Size = new System.Drawing.Size(21, 20);
             this.LblDigitadorG.TabIndex = 6;
             this.LblDigitadorG.Text = "--";
+            this.LblDigitadorG.Visible = false;
             // 
             // LblTurno
             // 

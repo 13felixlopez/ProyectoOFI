@@ -18,7 +18,6 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@ID", parametros.ID);
                 cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
                 cmd.Parameters.AddWithValue("@POAV", parametros.POAV);
-                cmd.Parameters.AddWithValue("@IdOperador", parametros.OperadorPV);
                 cmd.Parameters.AddWithValue("@TurnoPV", parametros.TurnoPV);
                 cmd.Parameters.AddWithValue("@FRecibidoPV", parametros.FRecibidoPV);
                 cmd.Parameters.AddWithValue("@HumedadPV", parametros.HumedadPV);

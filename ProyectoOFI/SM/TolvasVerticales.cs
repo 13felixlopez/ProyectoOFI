@@ -351,7 +351,7 @@ namespace ProyectoOFI.SM
             DPOAV funcion = new DPOAV();
             parametros.Ticket = cbTicketV.Text;
             parametros.POAV = Convert.ToInt32(txtTolvaV.Text);
-            parametros.OperadorPV = cbOperadorPV.SelectedValue.ToString();
+            //parametros.OperadorPV = cbOperadorPV.SelectedValue.ToString();
             parametros.TurnoPV = Convert.ToInt32(cbTurnoPV.SelectedValue);
             parametros.FRecibidoPV = Convert.ToDateTime(dtFechaPV.Value);
             parametros.HumedadPV = Convert.ToDouble(txtHumedadPV.Text);
@@ -414,12 +414,12 @@ namespace ProyectoOFI.SM
             DVerticales funcion = new DVerticales();
             parametros.Ticket = cbTicketV.Text;
             parametros.Ver = int.Parse(txtVertical.Text);
-            parametros.OperadorV = int.Parse(cbOperadorV.SelectedValue.ToString());
+            //parametros.OperadorV = int.Parse(cbOperadorV.SelectedValue.ToString());
             parametros.TurnoV = int.Parse(cbTurnoPV.SelectedValue.ToString());
-            parametros.FRecibidoV = Convert.ToDateTime(dtFechaPV.Text);
+            //parametros.FRecibidoV = Convert.ToDateTime(dtFechaPV.Text);
             parametros.HrInicoV = Convert.ToDateTime(dtHorainicioV.Text);
             parametros.HrFin = Convert.ToDateTime(dtHoraFinV.Text);
-            parametros.Duracion = Convert.ToDateTime(txtDuracionV.Text);
+            parametros.Duracion = txtDuracionV.Text;
             parametros.DigitadorV = Login.NombreA;
             if (funcion.InsertarVertical(parametros) == true)
             {
@@ -488,7 +488,7 @@ namespace ProyectoOFI.SM
             LblCalidadV.Text = dt.Rows[0]["Calidad"].ToString();
             LblDanioV.Text = dt.Rows[0]["Danio"].ToString();
             LblEFisicoV.Text = dt.Rows[0]["EstFisico"].ToString();
-            cbOperadorPV.Text = dt.Rows[0]["Nombre"].ToString();
+            cbOperadorPV.Text = dt.Rows[0]["Operador"].ToString();
             cbTurnoPV.Text = dt.Rows[0]["TurnoPV"].ToString();
             dtFechaPV.Text = dt.Rows[0]["FRecibidoPV"].ToString();
             txtHumedadPV.Text = dt.Rows[0]["HumedadPV"].ToString();

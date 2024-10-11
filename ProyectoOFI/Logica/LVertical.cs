@@ -16,7 +16,7 @@ namespace ProyectoOFI.Logica
         public DateTime FRecibidoV { get; set; }
         public DateTime HrInicoV { get; set; }
         public DateTime HrFin { get; set; }
-        public DateTime Duracion { get; set; }
+        public string Duracion { get; set; }
         public string DigitadorV { get; set; }
         public DateTime FechaDes { get; set; }
         public DateTime HoradesIn { get; set; }

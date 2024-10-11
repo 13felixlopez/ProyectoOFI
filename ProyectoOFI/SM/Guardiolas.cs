@@ -307,7 +307,7 @@ namespace ProyectoOFI.SM
                 LblHumedadG.Text = dt.Rows[0]["Humedad"].ToString();
                 IdPOA = int.Parse(dt.Rows[0]["IdPOA"].ToString());
                 IdGuardiola = int.Parse(dt.Rows[0]["IdGuardiola"].ToString());
-                LblDigitadorG.Text = dt.Rows[0]["DigitadorG"].ToString();
+                //LblDigitadorG.Text = dt.Rows[0]["DigitadorG"].ToString();
                 TimeSpan tiempo = (TimeSpan)dt.Rows[0]["DuracionG"];
                 string duracionFormateada = $"{tiempo.Hours:D2}:{tiempo.Minutes:D2}";
                 LblDuracionG.Text = duracionFormateada;
@@ -682,7 +682,7 @@ namespace ProyectoOFI.SM
                 parametros.Observacion = Observacion;
                 parametros.TiempoSF = LblTiempoSF.Text;
                 parametros.TiempoTotal = LblTotalTime.Text;
-                parametros.IdOperador = int.Parse(CbOperadores.SelectedValue.ToString());
+                //parametros.IdOperador = int.Parse(CbOperadores.SelectedValue.ToString());
                 parametros.IdTurno = int.Parse(CbTurno.SelectedValue.ToString());
                 parametros.DigitadorPS = Login.NombreA;
                 if (funcion.InsertarPS(parametros) == true)

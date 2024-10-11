@@ -466,7 +466,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@HoraFin", parametros.HoraFin);
                 cmd.Parameters.AddWithValue("@Humedad", parametros.Humedad);
                 cmd.Parameters.AddWithValue("@ProcesoSF", parametros.ProcesoSF);
-                cmd.Parameters.AddWithValue("@IdOperador", parametros.OperadorV);
+                //cmd.Parameters.AddWithValue("@IdOperador", parametros.OperadorV);
                 cmd.Parameters.AddWithValue("@IdTurno", parametros.TurnoV);
                 cmd.Parameters.AddWithValue("@POA1", parametros.POA1);
                 cmd.Parameters.AddWithValue("POA2", parametros.POA2);

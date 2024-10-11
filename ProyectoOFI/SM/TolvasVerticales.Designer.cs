@@ -209,28 +209,31 @@
             // 
             // dtHoraFinV
             // 
-            this.dtHoraFinV.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtHoraFinV.Location = new System.Drawing.Point(923, 100);
+            this.dtHoraFinV.CustomFormat = "d/MM/yyyy HH:mm:ss";
+            this.dtHoraFinV.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtHoraFinV.Location = new System.Drawing.Point(819, 99);
             this.dtHoraFinV.Name = "dtHoraFinV";
-            this.dtHoraFinV.Size = new System.Drawing.Size(134, 26);
+            this.dtHoraFinV.Size = new System.Drawing.Size(216, 26);
             this.dtHoraFinV.TabIndex = 10;
             this.dtHoraFinV.ValueChanged += new System.EventHandler(this.dtHoraFinV_ValueChanged);
             // 
             // dtHorainicioV
             // 
-            this.dtHorainicioV.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtHorainicioV.Location = new System.Drawing.Point(676, 100);
+            this.dtHorainicioV.CustomFormat = "d/MM/yyyy HH:mm:ss";
+            this.dtHorainicioV.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtHorainicioV.Location = new System.Drawing.Point(447, 99);
             this.dtHorainicioV.Name = "dtHorainicioV";
-            this.dtHorainicioV.Size = new System.Drawing.Size(134, 26);
+            this.dtHorainicioV.Size = new System.Drawing.Size(217, 26);
             this.dtHorainicioV.TabIndex = 10;
             // 
             // dtFProcV
             // 
             this.dtFProcV.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFProcV.Location = new System.Drawing.Point(460, 100);
+            this.dtFProcV.Location = new System.Drawing.Point(166, 142);
             this.dtFProcV.Name = "dtFProcV";
             this.dtFProcV.Size = new System.Drawing.Size(135, 26);
             this.dtFProcV.TabIndex = 9;
+            this.dtFProcV.Visible = false;
             // 
             // cbOperadorV
             // 
@@ -259,7 +262,7 @@
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(861, 92);
+            this.label9.Location = new System.Drawing.Point(757, 91);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 43);
             this.label9.TabIndex = 4;
@@ -267,7 +270,7 @@
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(607, 92);
+            this.label10.Location = new System.Drawing.Point(378, 91);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 43);
             this.label10.TabIndex = 4;
@@ -275,11 +278,12 @@
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(355, 92);
+            this.label11.Location = new System.Drawing.Point(61, 134);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(93, 43);
             this.label11.TabIndex = 2;
             this.label11.Text = "Fecha de Recibido:";
+            this.label11.Visible = false;
             // 
             // label12
             // 

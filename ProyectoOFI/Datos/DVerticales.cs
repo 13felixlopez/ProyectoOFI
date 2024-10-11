@@ -30,9 +30,9 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@IDV", parametros.IDV);
                 cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
                 cmd.Parameters.AddWithValue("@Ver", parametros.Ver);
-                cmd.Parameters.AddWithValue("@OperadorV", parametros.OperadorV);
+                //cmd.Parameters.AddWithValue("@OperadorV", parametros.OperadorV);
                 cmd.Parameters.AddWithValue("@TurnoV", parametros.TurnoV);
-                cmd.Parameters.AddWithValue("@FRecibidoV", parametros.FRecibidoV);
+                //cmd.Parameters.AddWithValue("@FRecibidoV", parametros.FRecibidoV);
                 cmd.Parameters.AddWithValue("@HrInicioV", parametros.HrInicoV);
                 cmd.Parameters.AddWithValue("@HrFin", parametros.HrFin);
                 cmd.Parameters.AddWithValue("@Duracion", parametros.Duracion);
@@ -138,7 +138,7 @@ namespace ProyectoOFI.Datos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@IDV", parametros.IDV);
                 cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
-                cmd.Parameters.AddWithValue("@FechaDes", parametros.FechaDes);
+                //cmd.Parameters.AddWithValue("@FechaDes", parametros.FechaDes);
                 cmd.Parameters.AddWithValue("@HoradesIn", parametros.HoradesIn);
                 cmd.Parameters.AddWithValue("@HoraFin", parametros.HoraFin);
                 cmd.Parameters.AddWithValue("@Humedad", parametros.Humedad);
@@ -146,7 +146,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@Observacion", parametros.Observacion);
                 cmd.Parameters.AddWithValue("@Total", parametros.Total);
                 cmd.Parameters.AddWithValue("@ProcesoSF", parametros.ProcesoSF);
-                cmd.Parameters.AddWithValue("@IdOperador", parametros.OperadorV);
+                //cmd.Parameters.AddWithValue("@IdOperador", parametros.OperadorV);
                 cmd.Parameters.AddWithValue("@IdTurno", parametros.TurnoV);
                 cmd.Parameters.AddWithValue("@POA1", parametros.POA1);
                 cmd.Parameters.AddWithValue("POA2", parametros.POA2);

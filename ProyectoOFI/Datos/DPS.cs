@@ -52,7 +52,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@ObservacionSF", parametros.Observacion);
                 cmd.Parameters.AddWithValue("@TiempoSF", parametros.TiempoSF);
                 cmd.Parameters.AddWithValue("@TiempoTotal", parametros.TiempoTotal);
-                cmd.Parameters.AddWithValue("@IdOperador ", parametros.IdOperador);
+                //cmd.Parameters.AddWithValue("@IdOperador ", parametros.IdOperador);
                 cmd.Parameters.AddWithValue("@IdTurno", parametros.IdTurno);
                 cmd.Parameters.AddWithValue("@DigitadorPS ", parametros.DigitadorPS);
                 cmd.ExecuteNonQuery();
@@ -99,7 +99,7 @@ namespace ProyectoOFI.Datos
                 SqlCommand da = new SqlCommand("InsertarEnvioSM", Conexion.conectar);
                 da.CommandType = CommandType.StoredProcedure;
                 da.Parameters.AddWithValue("@IdPS", parametros.IdPS);
-                da.Parameters.AddWithValue("@IdOperador", parametros.IdOperador);
+                //da.Parameters.AddWithValue("@IdOperador", parametros.IdOperador);
                 da.Parameters.AddWithValue("@IdTurno", parametros.IdTurno);
                 da.Parameters.AddWithValue("@FechaEn", parametros.FechaPS);
                 da.Parameters.AddWithValue("@DigitadorPS", parametros.DigitadorPS);

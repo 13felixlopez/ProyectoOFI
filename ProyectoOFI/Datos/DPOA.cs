@@ -63,7 +63,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@HoraFin", parametros.HoraFin);
                 cmd.Parameters.AddWithValue("@Humedad", parametros.Humedad);
                 cmd.Parameters.AddWithValue("@ProcesoSF", parametros.ProcesoSF);
-                cmd.Parameters.AddWithValue("@IdOperador", parametros.OperadorV);
+                //cmd.Parameters.AddWithValue("@IdOperador", parametros.OperadorV);
                 cmd.Parameters.AddWithValue("@IdTurno", parametros.TurnoV);
                 cmd.Parameters.AddWithValue("@POA1", parametros.POA1);
                 cmd.Parameters.AddWithValue("@DigitadorSF", parametros.DigitadorV);
@@ -91,7 +91,7 @@ namespace ProyectoOFI.Datos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
                 cmd.Parameters.AddWithValue("@Guardiola", parametros.Guardiola);
-                cmd.Parameters.AddWithValue("@IdOperador", parametros.IdOperador);
+                //cmd.Parameters.AddWithValue("@IdOperador", parametros.IdOperador);
                 cmd.Parameters.AddWithValue("@IdTurno", parametros.IdTurno);
                 cmd.Parameters.AddWithValue("@FechaG", parametros.FechaG);
                 cmd.Parameters.AddWithValue("@HoraIniG", parametros.HoraIniG);

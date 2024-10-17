@@ -215,7 +215,7 @@ namespace ProyectoOFI.SM
                     gbVertical.Visible = true;
                     GbGuardiola.Visible = true;
                     GbPS.Visible = true;
-                    GbDatosSm.Visible = true;
+                    PlSF.Visible = true;
                     VerPOAV();
                     VerVertical();
                     EnvioSM();
@@ -246,6 +246,20 @@ namespace ProyectoOFI.SM
                     GbPS.Visible = true;
                     //VerPOAV();
                     //VerVertical();
+                    VerPreSecado();
+                    VerGuardiola();
+                    VerPS();
+                    EnvioSM();
+                }
+                else
+                {
+                    GbPreSecado.Visible = true;
+                    gbPOAV.Visible = true;
+                    gbVertical.Visible = true;
+                    GbGuardiola.Visible = true;
+                    GbPS.Visible = true;
+                    VerPOAV();
+                    VerVertical();
                     VerPreSecado();
                     VerGuardiola();
                     VerPS();
@@ -290,19 +304,13 @@ namespace ProyectoOFI.SM
                 SM.VerPreSecado(ref dt, Ticket, LblG1, LblG2);
                 if (dt.Rows.Count > 0)
                 {
+                    //Componer la captura de fechas formato dia/mes/año hora/min/seg
                     DataRow dr = dt.Rows[0];
-                    if (dr["FechaDes"].ToString() != null)
-                    {
-                        LblFDescargue.Text = Convert.ToDateTime(dr["FechaDes"]).ToShortDateString();
-                    }
-                    else
-                    {
-                        LblFDescargue.Text = "--";
-                    }
                     if (dr["HoradesIn"].ToString() != null)
                     {
-                        TimeSpan horaMinutos = (TimeSpan)dr["HoradesIn"];
-                        LblHrDescIn.Text = horaMinutos.ToString(@"hh\:mm");
+                        //TimeSpan horaMinutos = (TimeSpan)dr["HoradesIn"];
+                        //LblHrDescIn.Text = horaMinutos.ToString(@"hh\:mm");
+                        LblHrDescIn.Text = dr["HoradesIn"].ToString();
                     }
                     else
                     {
@@ -310,8 +318,9 @@ namespace ProyectoOFI.SM
                     }
                     if (dr["HoraFin"].ToString() != null)
                     {
-                        TimeSpan horaMaxutos = (TimeSpan)dr["HoraFin"];
-                        LblHrDesfin.Text = horaMaxutos.ToString(@"hh\:mm");
+                        //TimeSpan horaMaxutos = (TimeSpan)dr["HoraFin"];
+                        //LblHrDesfin.Text = horaMaxutos.ToString(@"hh\:mm");
+                        LblHrDesfin.Text = dr["HoraFin"].ToString();
                     }
                     else
                     {
@@ -405,14 +414,14 @@ namespace ProyectoOFI.SM
                     {
                         LblTurnoV.Text = "";
                     }
-                    if (dr["FRecibidoV"].ToString() != null)
-                    {
-                        dtFProcV.Value = DateTime.Parse(dr["FRecibidoV"].ToString());
-                    }
-                    else
-                    {
-                        dtFProcV.Value = DateTime.Today;
-                    }
+                    //if (dr["FRecibidoV"].ToString() != null)
+                    //{
+                    //    dtFProcV.Value = DateTime.Parse(dr["FRecibidoV"].ToString());
+                    //}
+                    //else
+                    //{
+                    //    dtFProcV.Value = DateTime.Today;
+                    //}
                     if (dr["HrInicioV"].ToString() != null)
                     {
                         dtHorainicioV.Value = DateTime.Parse(dr["HrInicioV"].ToString());
@@ -431,8 +440,9 @@ namespace ProyectoOFI.SM
                     }
                     if (dr["Duracion"].ToString() != null)
                     {
-                        TimeSpan tiempo = (TimeSpan)dr["Duracion"];
-                        string duracionFormateada = $"{tiempo.Hours:D2}:{tiempo.Minutes:D2}";
+                        //TimeSpan tiempo = (TimeSpan)dr["Duracion"];
+                        //string duracionFormateada = $"{tiempo.Hours:D2}:{tiempo.Minutes:D2}";
+                        string duracionFormateada = dr["Duracion"].ToString();
                         LblDuracion.Text = duracionFormateada;
                     }
                     else
@@ -492,7 +502,7 @@ namespace ProyectoOFI.SM
             GbGuardiola.Visible = false;
             gbVertical.Visible = false;
             GbPS.Visible = false;
-            GbDatosSm.Visible = false;
+            PlSF.Visible = false;
             SM.Clear();
             labelPreSeco.Text = "";
             labelPreSeco.BackColor = Color.Transparent;
@@ -510,7 +520,6 @@ namespace ProyectoOFI.SM
             LblOperadorV.Text = "--";
             LblTurnoV.Text = "--";
             LblDuracion.Text = "--";
-            LblFDescargue.Text = "--";
             LblHrDescIn.Text = "--";
             LblHrDesfin.Text = "--";
             LblParos.Text = "--";
@@ -624,14 +633,14 @@ namespace ProyectoOFI.SM
                     {
                         LblOperadorPV.Text = "";
                     }
-                    if (row["FRecibidoPV"].ToString() != null)
-                    {
-                        dtFechaPV.Text = row["FRecibidoPV"].ToString();
-                    }
-                    else
-                    {
-                        dtFechaPV.Text = DateTime.Today.ToString();
-                    }
+                    //if (row["FRecibidoPV"].ToString() != null)
+                    //{
+                    //    dtFechaPV.Text = row["FRecibidoPV"].ToString();
+                    //}
+                    //else
+                    //{
+                    //    dtFechaPV.Text = DateTime.Today.ToString();
+                    //}
                     if (row["HumedadPV"].ToString() != null)
                     {
                         LblHumedadPV.Text = row["HumedadPV"].ToString() + "%";
@@ -1042,13 +1051,13 @@ namespace ProyectoOFI.SM
             SM.Clear();
             DSM sM = new DSM();
             sM.VerEnvioSM(ref SM, Ticket);
-            VerEnvioSM(SM, GbDatosSm);
-            GbDatosSm.Visible = true;
+            VerEnvioSM(SM, PlDatosSm);
+            PlSF.Visible = true;
         }
-        private void VerEnvioSM(DataTable dt, GroupBox groupBox)
+        private void VerEnvioSM(DataTable dt, Panel Pl)
         {
             // Limpiar cualquier control existente en el GroupBox
-            groupBox.Controls.Clear();
+            Pl.Controls.Clear();
 
             // Variables para posicionamiento
             int posY = 55;
@@ -1066,7 +1075,7 @@ namespace ProyectoOFI.SM
                         label.AutoSize = true;
                         label.Location = new Point(posX, posY);
 
-                        groupBox.Controls.Add(label);
+                        Pl.Controls.Add(label);
 
                         // Ajustar posX para la próxima etiqueta en la misma fila
                         posX += label.Width + 10;
@@ -1076,6 +1085,7 @@ namespace ProyectoOFI.SM
                 // Ajustar posY para la próxima fila de etiquetas
                 posY += 50;
             }
+            PlSF.BackColor = Color.White;
         }
         private void ValidarPermisos()
         {

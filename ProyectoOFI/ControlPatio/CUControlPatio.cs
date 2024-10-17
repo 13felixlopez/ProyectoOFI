@@ -1,5 +1,4 @@
-﻿using OfficeOpenXml;
-using ProyectoOFI.Datos;
+﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
 using System;

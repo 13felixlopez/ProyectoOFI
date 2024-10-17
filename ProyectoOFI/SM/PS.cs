@@ -333,17 +333,15 @@ namespace ProyectoOFI.SM
                 LblPS.Text = dt.Rows[0]["PS"].ToString();
                 LblOperador.Text = dt.Rows[0]["Nombre"].ToString();
                 LblTurno.Text = dt.Rows[0]["Turno"].ToString();
-                DateTime Fecha = DateTime.Parse(dt.Rows[0]["FechaDes"].ToString());
-                LblFDesPS.Text = Fecha.ToShortDateString();
                 LblParos.Text = dt.Rows[0]["ParosSF"].ToString();
                 LblHumedad.Text = dt.Rows[0]["Humedad"].ToString() + " %";
                 IdPS = int.Parse(dt.Rows[0]["IdPS"].ToString());
-                TimeSpan Horai = (TimeSpan)dt.Rows[0]["HoraFinDes"];
-                string duracionFormateada = $"{Horai.Hours:D2}:{Horai.Minutes:D2}";
-                LblHrFinPS.Text = duracionFormateada;
-                TimeSpan HoraF = (TimeSpan)dt.Rows[0]["HoraInDes"];
-                string HoraFormateada = $"{HoraF.Hours:D2}:{HoraF.Minutes:D2}";
-                LblHrInPS.Text = HoraFormateada;
+                //TimeSpan Horai = (TimeSpan)dt.Rows[0]["HoraFinDes"];
+                //string duracionFormateada = $"{Horai.Hours:D2}:{Horai.Minutes:D2}";
+                LblHrFinPS.Text = dt.Rows[0]["HoraFinDes"].ToString();
+                //TimeSpan HoraF = (TimeSpan)dt.Rows[0]["HoraInDes"];
+                //string HoraFormateada = $"{HoraF.Hours:D2}:{HoraF.Minutes:D2}";
+                LblHrInPS.Text = dt.Rows[0]["HoraInDes"].ToString();
                 //Conversion de Tiempo Secado Final a Horas
                 if (dt.Rows[0]["TiempoSF"] != DBNull.Value)
                 {

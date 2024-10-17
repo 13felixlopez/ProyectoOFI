@@ -301,16 +301,15 @@ namespace ProyectoOFI.SM
                 LblGuardiola.Text = dt.Rows[0]["Guardiola"].ToString();
                 LblOperador.Text = dt.Rows[0]["Nombre"].ToString();
                 LblTurno.Text = dt.Rows[0]["TurnoG"].ToString();
-                dtFechaG.Text = dt.Rows[0]["FechaG"].ToString();
                 dtHoraIniG.Text = dt.Rows[0]["HoraIniG"].ToString();
                 dtHoraFinG.Text = dt.Rows[0]["HoraFinG"].ToString();
                 LblHumedadG.Text = dt.Rows[0]["Humedad"].ToString();
                 IdPOA = int.Parse(dt.Rows[0]["IdPOA"].ToString());
                 IdGuardiola = int.Parse(dt.Rows[0]["IdGuardiola"].ToString());
                 //LblDigitadorG.Text = dt.Rows[0]["DigitadorG"].ToString();
-                TimeSpan tiempo = (TimeSpan)dt.Rows[0]["DuracionG"];
-                string duracionFormateada = $"{tiempo.Hours:D2}:{tiempo.Minutes:D2}";
-                LblDuracionG.Text = duracionFormateada;
+                //TimeSpan tiempo = 
+                //string duracionFormateada = $"{tiempo.Hours:D2}:{tiempo.Minutes:D2}";
+                LblDuracionG.Text = dt.Rows[0]["DuracionG"].ToString(); 
                 string Total;
                 string resultado;
                 TimeSpan final;
@@ -370,7 +369,6 @@ namespace ProyectoOFI.SM
 
         private void TiempoDp()
         {
-            DtPFDes1.Value = dtFechaG.Value;
             DtHInicio1.Value = dtHoraFinG.Value;
             DtHoraFin1.Value = DtHInicio1.Value.AddMinutes(5);
         }
@@ -646,14 +644,6 @@ namespace ProyectoOFI.SM
 
         private bool ValidarTiempo()
         {
-
-            // Validar que DtPFDes1 no sea menor que dtFechaPOA
-            if (DtPFDes1.Value < dtFechaG.Value)
-            {
-                MessageBox.Show("La fecha de inicio no puede ser menor que la fecha de carga.", "Error en fecha", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
             // Validar que DtHInicio1 no sea menor que DtHoraFinPOA
             if (DtHInicio1.Value < dtHoraIniG.Value)
             {
@@ -673,7 +663,6 @@ namespace ProyectoOFI.SM
                 DPS funcion = new DPS();
                 parametros.IdGuardiola = IdGuardiola;
                 parametros.PS = int.Parse(LblPS.Text);
-                parametros.FechaPS = DtPFDes1.Value;
                 parametros.HoraIniPS = DtHInicio1.Value;
                 parametros.HoraFinPS = DtHoraFin1.Value;
                 parametros.HumedadPS = double.Parse(TxtHumedad.Text);
@@ -715,7 +704,6 @@ namespace ProyectoOFI.SM
         private void Limpiar()
         {
             LblPS.Text = "--";
-            DtPFDes1.Value = DateTime.Now;
             DtHInicio1.Value = DateTime.Now;
             DtHoraFin1.Value = DateTime.Now;
             TxtHumedad.Clear();
@@ -735,14 +723,8 @@ namespace ProyectoOFI.SM
         private void CalculateTimeDifference()
         {
             // Obtener los valores de los DateTimePickers
-            DateTime DtFechaG = dtFechaG.Value.Date;
-            DateTime HoraIniG = dtHoraIniG.Value;
-            DateTime dtPFDes1 = DtPFDes1.Value.Date;
-            DateTime HoraFin1 = DtHoraFin1.Value;
-
-            // Combinar fecha y hora
-            DateTime inicioProceso = DtFechaG.Add(HoraIniG.TimeOfDay);
-            DateTime finProceso = dtPFDes1.Add(HoraFin1.TimeOfDay);
+            DateTime inicioProceso = dtHoraIniG.Value;
+            DateTime finProceso = DtHoraFin1.Value;
 
             // Calcular la diferencia total
             TimeSpan diferenciaTotal = finProceso - inicioProceso;

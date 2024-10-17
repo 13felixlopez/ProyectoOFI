@@ -44,7 +44,6 @@ namespace ProyectoOFI.Datos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@IdGuardiola", parametros.IdGuardiola);
                 cmd.Parameters.AddWithValue("@PS", parametros.PS);
-                cmd.Parameters.AddWithValue("@FechaPS", parametros.FechaPS);
                 cmd.Parameters.AddWithValue("@HoraIniPS", parametros.HoraIniPS);
                 cmd.Parameters.AddWithValue("@HoraFinPS ", parametros.HoraFinPS);
                 cmd.Parameters.AddWithValue("@HumedadPS ", parametros.HumedadPS);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.TLPPS = new System.Windows.Forms.TableLayoutPanel();
             this.BtnPS18 = new System.Windows.Forms.Button();
             this.BtnPS17 = new System.Windows.Forms.Button();
@@ -86,14 +87,12 @@
             this.label23 = new System.Windows.Forms.Label();
             this.BtnPS = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.LblHrFinPS = new System.Windows.Forms.Label();
             this.LblParos = new System.Windows.Forms.Label();
             this.LblTurno = new System.Windows.Forms.Label();
             this.LblHrInPS = new System.Windows.Forms.Label();
             this.LblHumedad = new System.Windows.Forms.Label();
             this.LblOperador = new System.Windows.Forms.Label();
-            this.LblFDesPS = new System.Windows.Forms.Label();
             this.LblPS = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
@@ -125,6 +124,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.BtnCerrarPlDatos = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.TLPPS.SuspendLayout();
             this.PlDatos.SuspendLayout();
             this.GbEnvio.SuspendLayout();
@@ -844,14 +844,12 @@
             this.GbPS.Controls.Add(this.label23);
             this.GbPS.Controls.Add(this.BtnPS);
             this.GbPS.Controls.Add(this.label27);
-            this.GbPS.Controls.Add(this.label15);
             this.GbPS.Controls.Add(this.LblHrFinPS);
             this.GbPS.Controls.Add(this.LblParos);
             this.GbPS.Controls.Add(this.LblTurno);
             this.GbPS.Controls.Add(this.LblHrInPS);
             this.GbPS.Controls.Add(this.LblHumedad);
             this.GbPS.Controls.Add(this.LblOperador);
-            this.GbPS.Controls.Add(this.LblFDesPS);
             this.GbPS.Controls.Add(this.LblPS);
             this.GbPS.Controls.Add(this.label29);
             this.GbPS.Controls.Add(this.label28);
@@ -909,18 +907,10 @@
             this.label27.TabIndex = 13;
             this.label27.Text = "Tiempo total Secado:";
             // 
-            // label15
-            // 
-            this.label15.Location = new System.Drawing.Point(307, 19);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(102, 43);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "Fecha de Descarga:";
-            // 
             // LblHrFinPS
             // 
             this.LblHrFinPS.AutoSize = true;
-            this.LblHrFinPS.Location = new System.Drawing.Point(851, 32);
+            this.LblHrFinPS.Location = new System.Drawing.Point(744, 19);
             this.LblHrFinPS.Name = "LblHrFinPS";
             this.LblHrFinPS.Size = new System.Drawing.Size(20, 17);
             this.LblHrFinPS.TabIndex = 6;
@@ -947,7 +937,7 @@
             // LblHrInPS
             // 
             this.LblHrInPS.AutoSize = true;
-            this.LblHrInPS.Location = new System.Drawing.Point(632, 32);
+            this.LblHrInPS.Location = new System.Drawing.Point(378, 32);
             this.LblHrInPS.Name = "LblHrInPS";
             this.LblHrInPS.Size = new System.Drawing.Size(20, 17);
             this.LblHrInPS.TabIndex = 6;
@@ -970,15 +960,6 @@
             this.LblOperador.Size = new System.Drawing.Size(20, 17);
             this.LblOperador.TabIndex = 6;
             this.LblOperador.Text = "--";
-            // 
-            // LblFDesPS
-            // 
-            this.LblFDesPS.AutoSize = true;
-            this.LblFDesPS.Location = new System.Drawing.Point(421, 32);
-            this.LblFDesPS.Name = "LblFDesPS";
-            this.LblFDesPS.Size = new System.Drawing.Size(20, 17);
-            this.LblFDesPS.TabIndex = 6;
-            this.LblFDesPS.Text = "--";
             // 
             // LblPS
             // 
@@ -1015,6 +996,7 @@
             this.LblTotalTime.Size = new System.Drawing.Size(20, 17);
             this.LblTotalTime.TabIndex = 4;
             this.LblTotalTime.Text = "--";
+            this.toolTip1.SetToolTip(this.LblTotalTime, "Formato de Tiempo\r\nDias:Horas:Minutos\r\n");
             // 
             // LblTiempoSF
             // 
@@ -1024,6 +1006,7 @@
             this.LblTiempoSF.Size = new System.Drawing.Size(20, 17);
             this.LblTiempoSF.TabIndex = 4;
             this.LblTiempoSF.Text = "--";
+            this.toolTip1.SetToolTip(this.LblTiempoSF, "Formato de Tiempo\r\nDias:Horas:Minutos\r\n");
             // 
             // label14
             // 
@@ -1036,7 +1019,7 @@
             // 
             // label18
             // 
-            this.label18.Location = new System.Drawing.Point(563, 19);
+            this.label18.Location = new System.Drawing.Point(309, 19);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(57, 43);
             this.label18.TabIndex = 4;
@@ -1061,7 +1044,7 @@
             // 
             // label19
             // 
-            this.label19.Location = new System.Drawing.Point(774, 19);
+            this.label19.Location = new System.Drawing.Point(667, 6);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(65, 43);
             this.label19.TabIndex = 4;
@@ -1350,7 +1333,6 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Button BtnPS;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label LblPS;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;
@@ -1389,7 +1371,6 @@
         private System.Windows.Forms.Label LblHrInPS;
         private System.Windows.Forms.Label LblHumedad;
         private System.Windows.Forms.Label LblOperador;
-        private System.Windows.Forms.Label LblFDesPS;
         private System.Windows.Forms.TextBox TxtDNIN;
         private System.Windows.Forms.Button BtnEnviar;
         private System.Windows.Forms.Label label9;
@@ -1405,5 +1386,6 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label LblMsj;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

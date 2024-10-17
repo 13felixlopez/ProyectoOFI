@@ -1,6 +1,5 @@
 ﻿using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
-using OfficeOpenXml;
 using ProyectoOFI.Datos;
 using ProyectoOFI.Otros;
 using System;
@@ -21,7 +20,6 @@ namespace ProyectoOFI.ControlPatio
         {
             InitializeComponent();
             AdjustFormSize();
-            //ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
         }
         private void AdjustFormSize()
         {

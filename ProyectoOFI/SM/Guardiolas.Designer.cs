@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.TLPGuardiola = new System.Windows.Forms.TableLayoutPanel();
             this.BtnG18 = new System.Windows.Forms.Button();
             this.BtnG17 = new System.Windows.Forms.Button();
@@ -75,9 +76,7 @@
             this.TxtHumedad = new System.Windows.Forms.TextBox();
             this.TxtParos = new System.Windows.Forms.TextBox();
             this.CHParos = new System.Windows.Forms.CheckedListBox();
-            this.DtPFDes1 = new System.Windows.Forms.DateTimePicker();
             this.DtHoraFin1 = new System.Windows.Forms.DateTimePicker();
-            this.label15 = new System.Windows.Forms.Label();
             this.LblPS = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.DtHInicio1 = new System.Windows.Forms.DateTimePicker();
@@ -93,7 +92,6 @@
             this.BtnCargarPS = new System.Windows.Forms.Button();
             this.dtHoraFinG = new System.Windows.Forms.DateTimePicker();
             this.dtHoraIniG = new System.Windows.Forms.DateTimePicker();
-            this.dtFechaG = new System.Windows.Forms.DateTimePicker();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -105,7 +103,6 @@
             this.LblOperador = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -130,6 +127,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.BtnCerrarVerCons = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.TLPGuardiola.SuspendLayout();
             this.PlDatos.SuspendLayout();
             this.GbPS.SuspendLayout();
@@ -745,9 +743,7 @@
             this.GbPS.Controls.Add(this.TxtHumedad);
             this.GbPS.Controls.Add(this.TxtParos);
             this.GbPS.Controls.Add(this.CHParos);
-            this.GbPS.Controls.Add(this.DtPFDes1);
             this.GbPS.Controls.Add(this.DtHoraFin1);
-            this.GbPS.Controls.Add(this.label15);
             this.GbPS.Controls.Add(this.LblPS);
             this.GbPS.Controls.Add(this.label29);
             this.GbPS.Controls.Add(this.DtHInicio1);
@@ -841,31 +837,16 @@
             this.CHParos.Size = new System.Drawing.Size(251, 214);
             this.CHParos.TabIndex = 11;
             // 
-            // DtPFDes1
-            // 
-            this.DtPFDes1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtPFDes1.Location = new System.Drawing.Point(428, 26);
-            this.DtPFDes1.Name = "DtPFDes1";
-            this.DtPFDes1.Size = new System.Drawing.Size(129, 23);
-            this.DtPFDes1.TabIndex = 3;
-            this.DtPFDes1.ValueChanged += new System.EventHandler(this.DtPFDes1_ValueChanged);
-            // 
             // DtHoraFin1
             // 
-            this.DtHoraFin1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DtHoraFin1.Location = new System.Drawing.Point(920, 22);
+            this.DtHoraFin1.CustomFormat = "d/MM/yyyy HH:mm:ss";
+            this.DtHoraFin1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DtHoraFin1.Location = new System.Drawing.Point(824, 24);
             this.DtHoraFin1.Name = "DtHoraFin1";
-            this.DtHoraFin1.Size = new System.Drawing.Size(132, 23);
+            this.DtHoraFin1.Size = new System.Drawing.Size(180, 23);
             this.DtHoraFin1.TabIndex = 10;
+            this.DtHoraFin1.Value = new System.DateTime(2024, 10, 14, 13, 20, 44, 0);
             this.DtHoraFin1.ValueChanged += new System.EventHandler(this.DtHoraFin1_ValueChanged);
-            // 
-            // label15
-            // 
-            this.label15.Location = new System.Drawing.Point(331, 20);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(102, 43);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "Fecha de Descarga:";
             // 
             // LblPS
             // 
@@ -887,11 +868,13 @@
             // 
             // DtHInicio1
             // 
-            this.DtHInicio1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DtHInicio1.Location = new System.Drawing.Point(676, 22);
+            this.DtHInicio1.CustomFormat = "d/MM/yyyy HH:mm:ss";
+            this.DtHInicio1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DtHInicio1.Location = new System.Drawing.Point(527, 23);
             this.DtHInicio1.Name = "DtHInicio1";
-            this.DtHInicio1.Size = new System.Drawing.Size(146, 23);
+            this.DtHInicio1.Size = new System.Drawing.Size(193, 23);
             this.DtHInicio1.TabIndex = 10;
+            this.DtHInicio1.Value = new System.DateTime(2024, 10, 14, 13, 20, 19, 0);
             this.DtHInicio1.ValueChanged += new System.EventHandler(this.DtHInicio1_ValueChanged);
             // 
             // label28
@@ -911,6 +894,7 @@
             this.LblTotalTime.Size = new System.Drawing.Size(20, 17);
             this.LblTotalTime.TabIndex = 4;
             this.LblTotalTime.Text = "--";
+            this.toolTip1.SetToolTip(this.LblTotalTime, "Formato de Tiempo\r\nDias:Horas:Minutos");
             // 
             // LblTiempoSF
             // 
@@ -920,6 +904,7 @@
             this.LblTiempoSF.Size = new System.Drawing.Size(20, 17);
             this.LblTiempoSF.TabIndex = 4;
             this.LblTiempoSF.Text = "--";
+            this.toolTip1.SetToolTip(this.LblTiempoSF, "Formato de Tiempo\r\nDias:Horas:Minutos");
             // 
             // label14
             // 
@@ -932,7 +917,7 @@
             // 
             // label18
             // 
-            this.label18.Location = new System.Drawing.Point(596, 15);
+            this.label18.Location = new System.Drawing.Point(447, 16);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(57, 43);
             this.label18.TabIndex = 4;
@@ -956,7 +941,7 @@
             // 
             // label19
             // 
-            this.label19.Location = new System.Drawing.Point(853, 14);
+            this.label19.Location = new System.Drawing.Point(757, 16);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(65, 43);
             this.label19.TabIndex = 4;
@@ -967,7 +952,6 @@
             this.GbGuardiola.Controls.Add(this.BtnCargarPS);
             this.GbGuardiola.Controls.Add(this.dtHoraFinG);
             this.GbGuardiola.Controls.Add(this.dtHoraIniG);
-            this.GbGuardiola.Controls.Add(this.dtFechaG);
             this.GbGuardiola.Controls.Add(this.label24);
             this.GbGuardiola.Controls.Add(this.label25);
             this.GbGuardiola.Controls.Add(this.label8);
@@ -979,7 +963,6 @@
             this.GbGuardiola.Controls.Add(this.LblOperador);
             this.GbGuardiola.Controls.Add(this.label9);
             this.GbGuardiola.Controls.Add(this.label10);
-            this.GbGuardiola.Controls.Add(this.label11);
             this.GbGuardiola.Controls.Add(this.label12);
             this.GbGuardiola.Controls.Add(this.label13);
             this.GbGuardiola.Controls.Add(this.label21);
@@ -1004,30 +987,25 @@
             // 
             // dtHoraFinG
             // 
+            this.dtHoraFinG.CustomFormat = "d/MM/yyyy HH:mm:ss";
             this.dtHoraFinG.Enabled = false;
-            this.dtHoraFinG.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtHoraFinG.Location = new System.Drawing.Point(860, 98);
+            this.dtHoraFinG.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtHoraFinG.Location = new System.Drawing.Point(728, 88);
             this.dtHoraFinG.Name = "dtHoraFinG";
-            this.dtHoraFinG.Size = new System.Drawing.Size(132, 26);
+            this.dtHoraFinG.Size = new System.Drawing.Size(206, 26);
             this.dtHoraFinG.TabIndex = 10;
+            this.dtHoraFinG.Value = new System.DateTime(2024, 10, 14, 13, 19, 0, 0);
             // 
             // dtHoraIniG
             // 
+            this.dtHoraIniG.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dtHoraIniG.Enabled = false;
-            this.dtHoraIniG.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtHoraIniG.Location = new System.Drawing.Point(600, 100);
+            this.dtHoraIniG.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtHoraIniG.Location = new System.Drawing.Point(422, 98);
             this.dtHoraIniG.Name = "dtHoraIniG";
-            this.dtHoraIniG.Size = new System.Drawing.Size(146, 26);
+            this.dtHoraIniG.Size = new System.Drawing.Size(220, 26);
             this.dtHoraIniG.TabIndex = 10;
-            // 
-            // dtFechaG
-            // 
-            this.dtFechaG.Enabled = false;
-            this.dtFechaG.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaG.Location = new System.Drawing.Point(384, 100);
-            this.dtFechaG.Name = "dtFechaG";
-            this.dtFechaG.Size = new System.Drawing.Size(135, 26);
-            this.dtFechaG.TabIndex = 9;
+            this.dtHoraIniG.Value = new System.DateTime(2024, 10, 14, 13, 20, 52, 0);
             // 
             // label24
             // 
@@ -1114,7 +1092,7 @@
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(798, 90);
+            this.label9.Location = new System.Drawing.Point(666, 80);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 43);
             this.label9.TabIndex = 4;
@@ -1122,19 +1100,11 @@
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(531, 92);
+            this.label10.Location = new System.Drawing.Point(353, 90);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 43);
             this.label10.TabIndex = 4;
             this.label10.Text = "Hora Inicio:";
-            // 
-            // label11
-            // 
-            this.label11.Location = new System.Drawing.Point(279, 92);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(93, 43);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Fecha de Recibido:";
             // 
             // label12
             // 
@@ -1449,9 +1419,7 @@
         private System.Windows.Forms.TextBox TxtHumedad;
         private System.Windows.Forms.TextBox TxtParos;
         private System.Windows.Forms.CheckedListBox CHParos;
-        private System.Windows.Forms.DateTimePicker DtPFDes1;
         public System.Windows.Forms.DateTimePicker DtHoraFin1;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label29;
         public System.Windows.Forms.DateTimePicker DtHInicio1;
         private System.Windows.Forms.Label label28;
@@ -1465,7 +1433,6 @@
         public System.Windows.Forms.Button BtnCargarPS;
         public System.Windows.Forms.DateTimePicker dtHoraFinG;
         public System.Windows.Forms.DateTimePicker dtHoraIniG;
-        public System.Windows.Forms.DateTimePicker dtFechaG;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label LblTurno;
         private System.Windows.Forms.Label LblDuracionG;
@@ -1473,7 +1440,6 @@
         private System.Windows.Forms.Label LblOperador;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         public System.Windows.Forms.Label label21;
@@ -1505,5 +1471,6 @@
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label LblDigitadorG;
         private System.Windows.Forms.Label LblPS;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

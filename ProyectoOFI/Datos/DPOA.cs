@@ -58,7 +58,7 @@ namespace ProyectoOFI.Datos
                 SqlCommand cmd = new SqlCommand("CargaDirectaSF", Conexion.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
-                cmd.Parameters.AddWithValue("@FechaDes", parametros.FechaDes);
+                //cmd.Parameters.AddWithValue("@FechaDes", parametros.FechaDes);
                 cmd.Parameters.AddWithValue("@HoradesIn", parametros.HoradesIn);
                 cmd.Parameters.AddWithValue("@HoraFin", parametros.HoraFin);
                 cmd.Parameters.AddWithValue("@Humedad", parametros.Humedad);
@@ -93,7 +93,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@Guardiola", parametros.Guardiola);
                 //cmd.Parameters.AddWithValue("@IdOperador", parametros.IdOperador);
                 cmd.Parameters.AddWithValue("@IdTurno", parametros.IdTurno);
-                cmd.Parameters.AddWithValue("@FechaG", parametros.FechaG);
+                //cmd.Parameters.AddWithValue("@FechaG", parametros.FechaG);
                 cmd.Parameters.AddWithValue("@HoraIniG", parametros.HoraIniG);
                 cmd.Parameters.AddWithValue("@HoraFinG", parametros.HoraFinG);
                 cmd.Parameters.AddWithValue("@DuracionG", parametros.Duracion);

@@ -296,7 +296,6 @@ namespace ProyectoOFI.SM
                 txtTolvaPOA.Text = dt.Rows[0]["POA"].ToString();
                 cbOperadorPOA.Text = dt.Rows[0]["Nombre"].ToString();
                 cbTurnoPOA.Text = dt.Rows[0]["TurnoPOA"].ToString();
-                dtFechaPOA.Text = dt.Rows[0]["FechaDes"].ToString();
                 DtHoraInPOA.Text = dt.Rows[0]["HoradesIn"].ToString();
                 DtHoraFinPOA.Text = dt.Rows[0]["HoraFin"].ToString();
                 txtHumedadPOA.Text = dt.Rows[0]["Humedad"].ToString();
@@ -308,7 +307,6 @@ namespace ProyectoOFI.SM
                 txtHumedadPOA.Enabled = false;
                 cbOperadorPOA.Enabled = false;
                 cbTurnoPOA.Enabled = false;
-                dtFechaPOA.Enabled = false;
                 Capacidad();
                 AbrirFormulario();
             }
@@ -363,7 +361,6 @@ namespace ProyectoOFI.SM
 
         private void TiempoDp()
         {
-            DtPFDes1.Value = dtFechaPOA.Value;
             DtHInicio1.Value = DtHoraFinPOA.Value;
             DtHoraFin1.Value = DtHInicio1.Value.AddMinutes(5);
         }
@@ -395,7 +392,6 @@ namespace ProyectoOFI.SM
                 btnDescargarPOA.Visible = false;
                 cbOperadorPOA.Enabled = true;
                 cbTurnoPOA.Enabled = true;
-                dtFechaPOA.Enabled = true;
                 txtHumedadPOA.Enabled = true;
                 DtHoraInPOA.Enabled = true;
                 DtHoraFinPOA.Enabled = true;
@@ -442,7 +438,6 @@ namespace ProyectoOFI.SM
             cbOperadorPOA.Text = "";
             txtHumedadPOA.Clear();
             TxtGuariola.Clear();
-            DtPFDes1.Value = DateTime.Today;
             DtHInicio1.Value = DateTime.Today;
             DtHoraFin1.Value = DateTime.Today;
             LblDuracionG.Text = "--";
@@ -749,7 +744,6 @@ namespace ProyectoOFI.SM
                 LVertical parametros = new LVertical();
                 DPOA funcion = new DPOA();
                 parametros.Ticket = cbTicketP.Text;
-                parametros.FechaDes = dtFechaPOA.Value;
                 parametros.HoradesIn = DtHoraInPOA.Value;
                 parametros.HoraFin = DtHoraFinPOA.Value;
                 parametros.Humedad = double.Parse(txtHumedadPOA.Text);
@@ -820,13 +814,6 @@ namespace ProyectoOFI.SM
                 return false;
             }
 
-            // Validar que DtPFDes1 no sea menor que dtFechaPOA
-            if (DtPFDes1.Value < dtFechaPOA.Value)
-            {
-                MessageBox.Show("La fecha de inicio no puede ser menor que la fecha de carga.", "Error en fecha", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
             // Validar que DtHInicio1 no sea menor que DtHoraFinPOA
             if (DtHInicio1.Value < DtHoraFinPOA.Value)
             {
@@ -848,7 +835,7 @@ namespace ProyectoOFI.SM
                 parametros.Guardiola = int.Parse(TxtGuariola.Text);
                 parametros.IdTurno = int.Parse(CbTurno.SelectedValue.ToString());
                 //parametros.IdOperador = int.Parse(CbOperadores.SelectedValue.ToString());
-                parametros.FechaG = DateTime.Parse(DtPFDes1.Value.ToString());
+                //parametros.FechaG = DateTime.Parse(DtPFDes1.Value.ToString());
                 parametros.HoraIniG = DateTime.Parse(DtHInicio1.Value.ToString());
                 parametros.HoraFinG = DateTime.Parse(DtHoraFin1.Value.ToString());
                 parametros.Duracion = DateTime.Parse(LblDuracionG.Text);

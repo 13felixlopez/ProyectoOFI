@@ -1,8 +1,10 @@
-﻿using OfficeOpenXml;
+﻿using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 using ProyectoOFI.Datos;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -17,7 +19,6 @@ namespace ProyectoOFI.SM
         {
             InitializeComponent();
             AdjustFormSize();
-            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
         }
         private void AdjustFormSize()
         {
@@ -53,79 +54,74 @@ namespace ProyectoOFI.SM
         private void PbExcel_Click(object sender, EventArgs e)
         {
             string fe = "Secado Mecánico " + DateTime.Now.Day + "_" + DateTime.Today.Month + "_" + DateTime.Today.Year + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + DateTime.Now.Second;
-            DtExcel(DtLotes, fe);
+            SaveExcelFile(DtLotes, fe);
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-        private void DtExcel(DataGridView grd, string nombreArchivo)
+        private void SaveExcelFile(DataGridView dataGridView, string defaultFileName)
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                saveFileDialog.Filter = "Archivos de Excel (*.xlsx)|*.xlsx|Todos los archivos (*.*)|*.*";
-                saveFileDialog.FileName = nombreArchivo + ".xlsx";
+                saveFileDialog.Filter = "Excel Files|*.xlsx";
+                saveFileDialog.Title = "Guardar archivo Excel";
+                saveFileDialog.FileName = defaultFileName;
 
-                try
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    string fileName = saveFileDialog.FileName;
+                    ExportToExcel(dataGridView, fileName);
+
+                    DialogResult result = MessageBox.Show("Archivo Excel creado y guardado exitosamente. ¿Deseas abrir el archivo?", "Exportación Completada", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
                     {
-                        string filePath = saveFileDialog.FileName;
-
-                        using (var package = new ExcelPackage())
-                        {
-                            var worksheet = package.Workbook.Worksheets.Add("Data");
-
-                            // Encabezados de columnas
-                            int ic = 1;
-                            foreach (DataGridViewColumn column in grd.Columns)
-                            {
-                                if (column.Visible) // Check if the column is visible
-                                {
-                                    worksheet.Cells[1, ic].Value = column.HeaderText;
-                                    worksheet.Cells[1, ic].Style.Font.Size = 16;
-                                    worksheet.Cells[1, ic].Style.Font.Bold = true;
-                                    ic++;
-                                }
-                            }
-
-                            int IR = 2;
-                            foreach (DataGridViewRow row in grd.Rows)
-                            {
-                                int colIndex = 0;
-                                for (int col = 0; col < grd.Columns.Count; col++)
-                                {
-                                    DataGridViewColumn column = grd.Columns[col];
-                                    if (column.Visible) // Check if the column is visible
-                                    {
-                                        worksheet.Cells[IR, colIndex + 1].Value = row.Cells[col].Value?.ToString();
-                                        colIndex++;
-                                    }
-                                }
-                                IR++;
-                            }
-
-                            // Guardar el archivo
-                            package.SaveAs(new FileInfo(filePath));
-                        }
-
-                        MessageBox.Show("Datos exportados exitosamente a Excel", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        // Prompt user to open the file
-                        if (MessageBox.Show("¿Desea abrir el archivo exportado?", "Abrir Archivo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                        {
-                            System.Diagnostics.Process.Start(filePath);
-                        }
+                        Process.Start(new ProcessStartInfo(fileName) { UseShellExecute = true });
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
                 }
             }
         }
+        private void ExportToExcel(DataGridView dataGridView, string fileName)
+        {
+            IWorkbook workbook = new XSSFWorkbook();
+            ISheet sheet = workbook.CreateSheet("Secado_Mecánico");
 
+            // Crear la fila de encabezado con columnas visibles
+            IRow headerRow = sheet.CreateRow(0);
+            int visibleColumnIndex = 0;
+            foreach (DataGridViewColumn column in dataGridView.Columns)
+            {
+                if (column.Visible)
+                {
+                    ICell cell = headerRow.CreateCell(visibleColumnIndex++);
+                    cell.SetCellValue(column.HeaderText);
+                }
+            }
+
+            // Llenar las filas con datos del DataGridView solo de columnas visibles
+            int rowIndex = 1;
+            foreach (DataGridViewRow gridViewRow in dataGridView.Rows)
+            {
+                IRow row = sheet.CreateRow(rowIndex++);
+                visibleColumnIndex = 0;
+
+                foreach (DataGridViewColumn column in dataGridView.Columns)
+                {
+                    if (column.Visible)
+                    {
+                        ICell cell = row.CreateCell(visibleColumnIndex++);
+                        cell.SetCellValue(gridViewRow.Cells[column.Index].Value?.ToString() ?? string.Empty);
+                    }
+                }
+            }
+
+            // Guardar el archivo Excel
+            using (FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.Write))
+            {
+                workbook.Write(stream);
+            }
+        }
         private void PbFiltro_Click(object sender, EventArgs e)
         {
             PlFiltros.Location = new Point(this.Width / 2

@@ -72,10 +72,8 @@
             this.BtnSF = new System.Windows.Forms.Button();
             this.TxtHumedad = new System.Windows.Forms.TextBox();
             this.LblDuracionG = new System.Windows.Forms.Label();
-            this.DtPFDes1 = new System.Windows.Forms.DateTimePicker();
             this.label21 = new System.Windows.Forms.Label();
             this.DtHoraFin1 = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.DtHInicio1 = new System.Windows.Forms.DateTimePicker();
             this.label28 = new System.Windows.Forms.Label();
@@ -88,13 +86,11 @@
             this.label14 = new System.Windows.Forms.Label();
             this.btnDescargarPOA = new System.Windows.Forms.Button();
             this.btnGuardarPOA = new System.Windows.Forms.Button();
-            this.dtFechaPOA = new System.Windows.Forms.DateTimePicker();
             this.cbOperadorPOA = new System.Windows.Forms.ComboBox();
             this.DtHoraFinPOA = new System.Windows.Forms.DateTimePicker();
             this.txtHumedadPOA = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.DtHoraInPOA = new System.Windows.Forms.DateTimePicker();
-            this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.txtTolvaPOA = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -692,10 +688,8 @@
             this.GbDescarga.Controls.Add(this.BtnSF);
             this.GbDescarga.Controls.Add(this.TxtHumedad);
             this.GbDescarga.Controls.Add(this.LblDuracionG);
-            this.GbDescarga.Controls.Add(this.DtPFDes1);
             this.GbDescarga.Controls.Add(this.label21);
             this.GbDescarga.Controls.Add(this.DtHoraFin1);
-            this.GbDescarga.Controls.Add(this.label8);
             this.GbDescarga.Controls.Add(this.label29);
             this.GbDescarga.Controls.Add(this.DtHInicio1);
             this.GbDescarga.Controls.Add(this.label28);
@@ -757,14 +751,6 @@
             this.LblDuracionG.TabIndex = 6;
             this.LblDuracionG.Text = "--";
             // 
-            // DtPFDes1
-            // 
-            this.DtPFDes1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtPFDes1.Location = new System.Drawing.Point(348, 58);
-            this.DtPFDes1.Name = "DtPFDes1";
-            this.DtPFDes1.Size = new System.Drawing.Size(129, 26);
-            this.DtPFDes1.TabIndex = 21;
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -776,20 +762,14 @@
             // 
             // DtHoraFin1
             // 
-            this.DtHoraFin1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DtHoraFin1.Location = new System.Drawing.Point(840, 58);
+            this.DtHoraFin1.CustomFormat = "d/MM/yyyy HH:mm:ss";
+            this.DtHoraFin1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DtHoraFin1.Location = new System.Drawing.Point(731, 41);
             this.DtHoraFin1.Name = "DtHoraFin1";
-            this.DtHoraFin1.Size = new System.Drawing.Size(132, 26);
+            this.DtHoraFin1.Size = new System.Drawing.Size(205, 26);
             this.DtHoraFin1.TabIndex = 25;
+            this.DtHoraFin1.Value = new System.DateTime(2024, 10, 14, 13, 21, 8, 0);
             this.DtHoraFin1.ValueChanged += new System.EventHandler(this.DtHoraFin1_ValueChanged);
-            // 
-            // label8
-            // 
-            this.label8.Location = new System.Drawing.Point(251, 50);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(102, 43);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "Fecha de Descarga:";
             // 
             // label29
             // 
@@ -802,11 +782,13 @@
             // 
             // DtHInicio1
             // 
-            this.DtHInicio1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DtHInicio1.Location = new System.Drawing.Point(596, 58);
+            this.DtHInicio1.CustomFormat = "d/MM/yyyy HH:mm:ss";
+            this.DtHInicio1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DtHInicio1.Location = new System.Drawing.Point(251, 49);
             this.DtHInicio1.Name = "DtHInicio1";
-            this.DtHInicio1.Size = new System.Drawing.Size(146, 26);
+            this.DtHInicio1.Size = new System.Drawing.Size(230, 26);
             this.DtHInicio1.TabIndex = 26;
+            this.DtHInicio1.Value = new System.DateTime(2024, 10, 14, 13, 21, 8, 0);
             // 
             // label28
             // 
@@ -836,7 +818,7 @@
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(516, 50);
+            this.label10.Location = new System.Drawing.Point(171, 41);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 43);
             this.label10.TabIndex = 22;
@@ -852,7 +834,7 @@
             // 
             // label11
             // 
-            this.label11.Location = new System.Drawing.Point(773, 50);
+            this.label11.Location = new System.Drawing.Point(664, 33);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(65, 43);
             this.label11.TabIndex = 24;
@@ -863,13 +845,11 @@
             this.gbPOA.Controls.Add(this.label14);
             this.gbPOA.Controls.Add(this.btnDescargarPOA);
             this.gbPOA.Controls.Add(this.btnGuardarPOA);
-            this.gbPOA.Controls.Add(this.dtFechaPOA);
             this.gbPOA.Controls.Add(this.cbOperadorPOA);
             this.gbPOA.Controls.Add(this.DtHoraFinPOA);
             this.gbPOA.Controls.Add(this.txtHumedadPOA);
             this.gbPOA.Controls.Add(this.label15);
             this.gbPOA.Controls.Add(this.DtHoraInPOA);
-            this.gbPOA.Controls.Add(this.label18);
             this.gbPOA.Controls.Add(this.label19);
             this.gbPOA.Controls.Add(this.txtTolvaPOA);
             this.gbPOA.Controls.Add(this.label20);
@@ -914,15 +894,6 @@
             this.btnGuardarPOA.UseVisualStyleBackColor = true;
             this.btnGuardarPOA.Click += new System.EventHandler(this.btnGuardarPOA_Click);
             // 
-            // dtFechaPOA
-            // 
-            this.dtFechaPOA.Enabled = false;
-            this.dtFechaPOA.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaPOA.Location = new System.Drawing.Point(181, 74);
-            this.dtFechaPOA.Name = "dtFechaPOA";
-            this.dtFechaPOA.Size = new System.Drawing.Size(135, 26);
-            this.dtFechaPOA.TabIndex = 9;
-            // 
             // cbOperadorPOA
             // 
             this.cbOperadorPOA.Enabled = false;
@@ -935,12 +906,14 @@
             // 
             // DtHoraFinPOA
             // 
+            this.DtHoraFinPOA.CustomFormat = "d/MM/yyyy HH:mm:ss";
             this.DtHoraFinPOA.Enabled = false;
-            this.DtHoraFinPOA.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DtHoraFinPOA.Location = new System.Drawing.Point(706, 72);
+            this.DtHoraFinPOA.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DtHoraFinPOA.Location = new System.Drawing.Point(585, 72);
             this.DtHoraFinPOA.Name = "DtHoraFinPOA";
-            this.DtHoraFinPOA.Size = new System.Drawing.Size(132, 26);
+            this.DtHoraFinPOA.Size = new System.Drawing.Size(202, 26);
             this.DtHoraFinPOA.TabIndex = 25;
+            this.DtHoraFinPOA.Value = new System.DateTime(2024, 10, 14, 13, 21, 8, 0);
             // 
             // txtHumedadPOA
             // 
@@ -961,21 +934,14 @@
             // 
             // DtHoraInPOA
             // 
+            this.DtHoraInPOA.CustomFormat = "d/MM/yyyy HH:mm:ss";
             this.DtHoraInPOA.Enabled = false;
-            this.DtHoraInPOA.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DtHoraInPOA.Location = new System.Drawing.Point(462, 72);
+            this.DtHoraInPOA.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DtHoraInPOA.Location = new System.Drawing.Point(185, 72);
             this.DtHoraInPOA.Name = "DtHoraInPOA";
-            this.DtHoraInPOA.Size = new System.Drawing.Size(146, 26);
+            this.DtHoraInPOA.Size = new System.Drawing.Size(216, 26);
             this.DtHoraInPOA.TabIndex = 26;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(11, 77);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(164, 20);
-            this.label18.TabIndex = 2;
-            this.label18.Text = "Fecha de Recibido:";
+            this.DtHoraInPOA.Value = new System.DateTime(2024, 10, 14, 13, 21, 8, 0);
             // 
             // label19
             // 
@@ -1005,7 +971,7 @@
             // 
             // label13
             // 
-            this.label13.Location = new System.Drawing.Point(382, 64);
+            this.label13.Location = new System.Drawing.Point(105, 64);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(57, 43);
             this.label13.TabIndex = 22;
@@ -1027,7 +993,7 @@
             // 
             // label12
             // 
-            this.label12.Location = new System.Drawing.Point(639, 64);
+            this.label12.Location = new System.Drawing.Point(518, 64);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(65, 43);
             this.label12.TabIndex = 24;
@@ -1349,11 +1315,9 @@
         public System.Windows.Forms.Label label14;
         public System.Windows.Forms.Button btnDescargarPOA;
         public System.Windows.Forms.Button btnGuardarPOA;
-        public System.Windows.Forms.DateTimePicker dtFechaPOA;
         public System.Windows.Forms.ComboBox cbOperadorPOA;
         public System.Windows.Forms.TextBox txtHumedadPOA;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         public System.Windows.Forms.TextBox txtTolvaPOA;
         private System.Windows.Forms.Label label20;
@@ -1363,9 +1327,7 @@
         private System.Windows.Forms.ComboBox CbOperadores;
         private System.Windows.Forms.Button BtnSF;
         private System.Windows.Forms.TextBox TxtHumedad;
-        private System.Windows.Forms.DateTimePicker DtPFDes1;
         public System.Windows.Forms.DateTimePicker DtHoraFin1;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label29;
         public System.Windows.Forms.DateTimePicker DtHInicio1;
         private System.Windows.Forms.Label label28;

@@ -85,13 +85,13 @@ namespace ProyectoOFI.Reportes
         {
             DReporte funcion = new DReporte();
             funcion.QQsTotal(ref Total);
-            LblTotal.Text = Total.ToString() + " QQs";
+            LblTotal.Text = Total.ToString("N2") + " QQs";
         }
         private void TotalSN()
         {
             DReporte funcion = new DReporte();
             funcion.QQsSN(ref SN);
-            LblSN.Text = SN.ToString() + " QQs";
+            LblSN.Text = SN.ToString("N2") + " QQs";
         }
         private void BtnNoAsignado_Click(object sender, EventArgs e)
         {
@@ -111,7 +111,7 @@ namespace ProyectoOFI.Reportes
         {
             DReporte funcion = new DReporte();
             funcion.QQsSM(ref SM);
-            LblSM.Text = SM.ToString() + " QQs";
+            LblSM.Text = SM.ToString("N2") + " QQs";
         }
         private void BtnEnfarde_Click(object sender, EventArgs e)
         {
@@ -126,7 +126,7 @@ namespace ProyectoOFI.Reportes
         {
             DReporte funcion = new DReporte();
             funcion.TotalAnalisis(ref Cata);
-            LblAnalisis.Text = Cata.ToString() + " QQs";
+            LblAnalisis.Text = Cata.ToString("N2") + " QQs";
         }
         private void CantNoAsignado()
         {

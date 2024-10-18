@@ -757,6 +757,7 @@
   <ItemGroup>
     <Content Include="CoffeeTech.sql" />
     <Content Include="Logo.ico" />
+    <Content Include="Ultima.sql" />
     <None Include="Resources\split_52966371.png" />
     <None Include="Resources\split_5296637.png" />
     <None Include="Resources\split.png" />

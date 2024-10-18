@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.Reportes
@@ -12,25 +13,6 @@ namespace ProyectoOFI.Reportes
         public Dashboard()
         {
             InitializeComponent();
-            kilosArea();
-            TotalQQs();
-            TotalSN();
-            TotalSM();
-            TotalAnalisis();
-            DatosSM();
-            DatosSN();
-            CantNoAsignado();
-            Lotes_Tendido();
-            Lotes_Enfarde();
-            Lotes_Analizados();
-            Lotes_Enviados();
-            Lotes_Almacen();
-            CantLotes_POAV();
-            CantLotes_Vertical();
-            CantLotes_POA();
-            CantLotes_Guardiola();
-            CantLotes_PS();
-            CantLotes_EnviadosSM();
         }
         private void kilosArea()
         {
@@ -285,6 +267,38 @@ namespace ProyectoOFI.Reportes
             LT.ShowDialog();
         }
 
+        private void Dashboard_Load(object sender, EventArgs e)
+        {
+            CargarDatos();
+        }
+        private async Task CargarDatos()
+        {
+            PlCarga.Visible = true;
+            PlCarga.Dock = DockStyle.Fill;
+            await Task.Delay(1500);
+            kilosArea();
+            TotalQQs();
+            TotalSN();
+            TotalSM();
+            TotalAnalisis();
+            DatosSM();
+            DatosSN();
+            CantNoAsignado();
+            Lotes_Tendido();
+            Lotes_Enfarde();
+            Lotes_Analizados();
+            Lotes_Enviados();
+            Lotes_Almacen();
+            CantLotes_POAV();
+            CantLotes_Vertical();
+            CantLotes_POA();
+            CantLotes_Guardiola();
+            CantLotes_PS();
+            CantLotes_EnviadosSM();
+            //ReiniciarPaginado();
+            await Task.Delay(1000);
+            PlCarga.Visible = false;
+        }
         private void CantLotes_Guardiola()
         {
             DReporte funcion = new DReporte();

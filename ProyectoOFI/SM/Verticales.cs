@@ -505,7 +505,7 @@ namespace ProyectoOFI.SM
             foreach (DataRow rowpermisos in dt.Rows)
             {
                 Modulo = Convert.ToString(rowpermisos["Modulo"]);
-                if (Modulo == "Particionar SM")
+                if (Modulo == "Agregar SM")
                 {
                     TLPPlTolvas.Enabled = true;
                 }

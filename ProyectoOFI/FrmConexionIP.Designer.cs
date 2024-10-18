@@ -114,7 +114,7 @@
             this.TXTbasededatos.Name = "TXTbasededatos";
             this.TXTbasededatos.Size = new System.Drawing.Size(240, 26);
             this.TXTbasededatos.TabIndex = 22;
-            this.TXTbasededatos.Text = "OFI";
+            this.TXTbasededatos.Text = "coffeetec";
             // 
             // label3
             // 

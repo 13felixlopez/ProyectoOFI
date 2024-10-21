@@ -175,6 +175,7 @@
             this.Editar,
             this.Msj});
             this.DtUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtUser.Enabled = false;
             this.DtUser.Location = new System.Drawing.Point(0, 79);
             this.DtUser.Name = "DtUser";
             this.DtUser.ReadOnly = true;

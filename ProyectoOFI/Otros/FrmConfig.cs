@@ -1,5 +1,5 @@
-﻿using DocumentFormat.OpenXml.Vml.Spreadsheet;
-using ProyectoOFI.Datos;
+﻿using ProyectoOFI.Datos;
+using ProyectoOFI.Logica;
 using ProyectoOFI.Recepcion;
 using System;
 using System.Data;
@@ -30,6 +30,7 @@ namespace ProyectoOFI.Otros
             // Luego calculamos la nueva ubicación centrada
             int newX = (formWidth - this.Width) / 2;
             int newY = (formHeight - this.Height) / 2;
+            ValidarPermisos();
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)
@@ -260,6 +261,42 @@ namespace ProyectoOFI.Otros
         {
             FrmGrupoCalidades GC = new FrmGrupoCalidades();
             GC.ShowDialog();
+        }
+        private void ValidarPermisos()
+        {
+            DataTable dt = new DataTable();
+            DModulos funcion = new DModulos();
+            LPermisos parametros = new LPermisos();
+            parametros.IdUser = Login.Iduser;
+            funcion.PermisosUser(ref dt, Login.Iduser);
+            foreach (DataRow rowpermisos in dt.Rows)
+            {
+                string Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                if (Modulo == "Transferencia")
+                {
+                    GbTransfer.Visible = true;
+                }
+                if (Modulo == "ControlPatio")
+                {
+                    GbControlPatio.Visible = true;
+                }
+                if (Modulo == "SM")
+                {
+                    GbSM.Visible = true;
+                }
+                if ((Modulo == "Agregar Análisis"))
+                {
+                    Gbcatacion.Visible = true;
+                }
+                if (Modulo == "Usuarios")
+                {
+                    BtnCosechas.Visible = true;
+                }
+                if (Modulo == "Almacen")
+                {
+                    GbAlmacen.Visible = true;
+                }
+            }
         }
     }
 }

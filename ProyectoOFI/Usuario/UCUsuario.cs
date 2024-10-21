@@ -19,6 +19,7 @@ namespace ProyectoOFI.Usuario
         public UCUsuario()
         {
             InitializeComponent();
+            ValidarPermisos();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -390,5 +391,22 @@ namespace ProyectoOFI.Usuario
             }
         }
         #endregion
+        private void ValidarPermisos()
+        {
+            DataTable dt = new DataTable();
+            DModulos funcion = new DModulos();
+            LPermisos parametros = new LPermisos();
+            parametros.IdUser = Login.Iduser;
+            funcion.PermisosUser(ref dt, Login.Iduser);
+            foreach (DataRow rowpermisos in dt.Rows)
+            {
+                string Modulo = Convert.ToString(rowpermisos["Modulo"]);
+
+                if (Modulo == "Usuarios")
+                {
+                    DtUser.Enabled = true;
+                }
+            }
+        }
     }
 }

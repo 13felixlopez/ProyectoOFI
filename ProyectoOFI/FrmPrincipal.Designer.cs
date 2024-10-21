@@ -504,6 +504,7 @@ namespace ProyectoOFI
             this.BtnUser.Text = "Usuario";
             this.BtnUser.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnUser.UseVisualStyleBackColor = false;
+            this.BtnUser.Visible = false;
             this.BtnUser.Click += new System.EventHandler(this.BtnUser_Click);
             // 
             // BtnCatalogo

@@ -368,6 +368,12 @@
     <Compile Include="Reportes\FrmLotes_Tendido.Designer.cs">
       <DependentUpon>FrmLotes_Tendido.cs</DependentUpon>
     </Compile>
+    <Compile Include="SM\FrmEnvios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SM\FrmEnvios.Designer.cs">
+      <DependentUpon>FrmEnvios.cs</DependentUpon>
+    </Compile>
     <Compile Include="SM\FrmExcelSM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -558,6 +564,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmLotes_Tendido.resx">
       <DependentUpon>FrmLotes_Tendido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SM\FrmEnvios.resx">
+      <DependentUpon>FrmEnvios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SM\FrmExcelSM.resx">
       <DependentUpon>FrmExcelSM.cs</DependentUpon>

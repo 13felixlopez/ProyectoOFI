@@ -436,6 +436,12 @@
       <DependentUpon>FrmPerfil.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuario\Recuperacion.cs" />
+    <Compile Include="Usuario\Restablecer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Usuario\Restablecer.Designer.cs">
+      <DependentUpon>Restablecer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usuario\UCUsuario.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -597,6 +603,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Usuario\FrmPerfil.resx">
       <DependentUpon>FrmPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usuario\Restablecer.resx">
+      <DependentUpon>Restablecer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usuario\UCUsuario.resx">
       <DependentUpon>UCUsuario.cs</DependentUpon>
@@ -766,6 +775,13 @@
   <ItemGroup>
     <Content Include="CoffeeTech.sql" />
     <Content Include="Logo.ico" />
+    <None Include="Resources\split_52966372.png" />
+    <None Include="Resources\split_5296637o.png" />
+    <None Include="Resources\1-a3c3c779.jpeg" />
+    <None Include="Resources\1-2427ee8d.jpeg" />
+    <None Include="Resources\USUARIO.png" />
+    <None Include="Resources\icons8-cerrar-ventana1.gif" />
+    <None Include="Resources\send_30px1.png" />
     <Content Include="Ultima.sql" />
     <None Include="Resources\split_52966371.png" />
     <None Include="Resources\split_5296637.png" />

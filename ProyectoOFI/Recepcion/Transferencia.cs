@@ -95,6 +95,7 @@ namespace ProyectoOFI.Recepcion
             dtInventario.Enabled = false;
             DRecepcion funcion = new DRecepcion();
             funcion.Cosecha(LblCosecha);
+            ChUA.Checked = true;
             AdjustPanelInfoSizeAndPosition();
         }
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -421,6 +422,8 @@ namespace ProyectoOFI.Recepcion
             if (Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase) || permisosUsuario.Contains("EditarTK"))
             {
                 txtTK.Enabled = true;
+                //agregue la linea de BtnEditar
+                BtnEditar.Visible = true;
             }
             else
             {
@@ -447,7 +450,8 @@ namespace ProyectoOFI.Recepcion
             {
                 BtnVerCons.Visible = false;
             }
-            if (Proceso == "No Asignado" && permisosUsuario.Contains("EditarTransferencia"))
+            //Aca modifique, agregue esto Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase
+            if (Proceso == "No Asignado" && permisosUsuario.Contains("EditarTransferencia") && Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
             {
                 BtnEditar.Visible = true;
                 PnGuardar.Visible = false;
@@ -1619,8 +1623,8 @@ namespace ProyectoOFI.Recepcion
             funcion.MostrarCert(CbCertCons);
             funcion.MostrarEstFis(cbEsFisico);
             funcion.MostrarEstFis(cbEstadoFisico);
-            funcion.MostrarCalidad(cbCalidad);
-            funcion.MostrarCalidad(cbCalidadE);
+            funcion.MostrarCalidadUA(cbCalidadE);
+            funcion.MostrarCalidadUA(cbCalidad);
             funcion.MostrarDaño(cbDanioE);
             funcion.MostrarDaño(cbDaño);
             funcion.MostrarAreaSecado2(cbArea);

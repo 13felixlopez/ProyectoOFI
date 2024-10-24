@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DtPS = new System.Windows.Forms.DataGridView();
             this.PlTitulo = new System.Windows.Forms.Panel();
             this.LblTitulo = new System.Windows.Forms.Label();
@@ -53,8 +53,12 @@
             this.DtPFEnvio = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.GbPS = new System.Windows.Forms.GroupBox();
+            this.CHParos = new System.Windows.Forms.CheckedListBox();
+            this.TxtParos = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.txtObservacion = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.BtnCalcular = new System.Windows.Forms.Button();
             this.BtnPS = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.LblHrFinPS = new System.Windows.Forms.Label();
@@ -92,10 +96,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.BtnCerrarPlDatos = new System.Windows.Forms.Button();
-            this.BtnCalcular = new System.Windows.Forms.Button();
-            this.TxtParos = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.CHParos = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.DtPS)).BeginInit();
             this.PlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -113,40 +113,40 @@
             this.DtPS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtPS.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.DtPS.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtPS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtPS.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DtPS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DtPS.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DtPS.DefaultCellStyle = dataGridViewCellStyle2;
             this.DtPS.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtPS.Enabled = false;
             this.DtPS.Location = new System.Drawing.Point(0, 65);
             this.DtPS.Name = "DtPS";
             this.DtPS.ReadOnly = true;
             this.DtPS.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtPS.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtPS.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DtPS.RowHeadersVisible = false;
             this.DtPS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtPS.Size = new System.Drawing.Size(1328, 552);
+            this.DtPS.Size = new System.Drawing.Size(1555, 710);
             this.DtPS.TabIndex = 4;
             // 
             // PlTitulo
@@ -158,7 +158,7 @@
             this.PlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlTitulo.Location = new System.Drawing.Point(0, 0);
             this.PlTitulo.Name = "PlTitulo";
-            this.PlTitulo.Size = new System.Drawing.Size(1328, 65);
+            this.PlTitulo.Size = new System.Drawing.Size(1555, 65);
             this.PlTitulo.TabIndex = 23;
             // 
             // LblTitulo
@@ -167,7 +167,7 @@
             this.LblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTitulo.Location = new System.Drawing.Point(100, 0);
             this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(1153, 65);
+            this.LblTitulo.Size = new System.Drawing.Size(1380, 65);
             this.LblTitulo.TabIndex = 2;
             this.LblTitulo.Text = "Lotes en PS";
             this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -177,7 +177,7 @@
             this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrar.Location = new System.Drawing.Point(1253, 0);
+            this.BtnCerrar.Location = new System.Drawing.Point(1480, 0);
             this.BtnCerrar.Name = "BtnCerrar";
             this.BtnCerrar.Size = new System.Drawing.Size(75, 65);
             this.BtnCerrar.TabIndex = 1;
@@ -392,6 +392,34 @@
             this.GbPS.TabStop = false;
             this.GbPS.Text = "Tolva Pergamino Seco";
             // 
+            // CHParos
+            // 
+            this.CHParos.CheckOnClick = true;
+            this.CHParos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
+            this.CHParos.FormattingEnabled = true;
+            this.CHParos.HorizontalScrollbar = true;
+            this.CHParos.Location = new System.Drawing.Point(1067, 22);
+            this.CHParos.Name = "CHParos";
+            this.CHParos.ScrollAlwaysVisible = true;
+            this.CHParos.Size = new System.Drawing.Size(251, 214);
+            this.CHParos.TabIndex = 20;
+            // 
+            // TxtParos
+            // 
+            this.TxtParos.Location = new System.Drawing.Point(449, 112);
+            this.TxtParos.Name = "TxtParos";
+            this.TxtParos.Size = new System.Drawing.Size(100, 23);
+            this.TxtParos.TabIndex = 19;
+            this.TxtParos.Text = "0";
+            // 
+            // label20
+            // 
+            this.label20.Location = new System.Drawing.Point(338, 102);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(81, 43);
+            this.label20.TabIndex = 18;
+            this.label20.Text = "Total de Paros:";
+            // 
             // txtObservacion
             // 
             this.txtObservacion.Enabled = false;
@@ -409,6 +437,16 @@
             this.label23.Size = new System.Drawing.Size(225, 17);
             this.label23.TabIndex = 16;
             this.label23.Text = "Tiempo total de Secado Final:";
+            // 
+            // BtnCalcular
+            // 
+            this.BtnCalcular.Enabled = false;
+            this.BtnCalcular.Location = new System.Drawing.Point(938, 157);
+            this.BtnCalcular.Name = "BtnCalcular";
+            this.BtnCalcular.Size = new System.Drawing.Size(123, 47);
+            this.BtnCalcular.TabIndex = 14;
+            this.BtnCalcular.Text = "Calcular Tiempo";
+            this.BtnCalcular.UseVisualStyleBackColor = true;
             // 
             // BtnPS
             // 
@@ -769,49 +807,11 @@
             this.BtnCerrarPlDatos.TabIndex = 11;
             this.BtnCerrarPlDatos.UseVisualStyleBackColor = true;
             // 
-            // BtnCalcular
-            // 
-            this.BtnCalcular.Enabled = false;
-            this.BtnCalcular.Location = new System.Drawing.Point(938, 157);
-            this.BtnCalcular.Name = "BtnCalcular";
-            this.BtnCalcular.Size = new System.Drawing.Size(123, 47);
-            this.BtnCalcular.TabIndex = 14;
-            this.BtnCalcular.Text = "Calcular Tiempo";
-            this.BtnCalcular.UseVisualStyleBackColor = true;
-            // 
-            // TxtParos
-            // 
-            this.TxtParos.Location = new System.Drawing.Point(449, 112);
-            this.TxtParos.Name = "TxtParos";
-            this.TxtParos.Size = new System.Drawing.Size(100, 23);
-            this.TxtParos.TabIndex = 19;
-            this.TxtParos.Text = "0";
-            // 
-            // label20
-            // 
-            this.label20.Location = new System.Drawing.Point(338, 102);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(81, 43);
-            this.label20.TabIndex = 18;
-            this.label20.Text = "Total de Paros:";
-            // 
-            // CHParos
-            // 
-            this.CHParos.CheckOnClick = true;
-            this.CHParos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.CHParos.FormattingEnabled = true;
-            this.CHParos.HorizontalScrollbar = true;
-            this.CHParos.Location = new System.Drawing.Point(1067, 22);
-            this.CHParos.Name = "CHParos";
-            this.CHParos.ScrollAlwaysVisible = true;
-            this.CHParos.Size = new System.Drawing.Size(251, 214);
-            this.CHParos.TabIndex = 20;
-            // 
             // FrmEnvios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1328, 617);
+            this.ClientSize = new System.Drawing.Size(1555, 775);
             this.Controls.Add(this.PlDatos);
             this.Controls.Add(this.DtPS);
             this.Controls.Add(this.PlTitulo);

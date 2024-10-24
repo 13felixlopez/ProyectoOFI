@@ -63,6 +63,26 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1_2427ee8d {
+            get {
+                object obj = ResourceManager.GetObject("1-2427ee8d", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1_a3c3c779 {
+            get {
+                object obj = ResourceManager.GetObject("1-a3c3c779", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_64px {
             get {
                 object obj = ResourceManager.GetObject("add_64px", resourceCulture);
@@ -456,6 +476,16 @@ namespace ProyectoOFI.Properties {
         internal static System.Drawing.Bitmap icons8_cerrar_ventana {
             get {
                 object obj = ResourceManager.GetObject("icons8-cerrar-ventana", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_cerrar_ventana1 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cerrar-ventana1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -903,6 +933,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap send_30px1 {
+            get {
+                object obj = ResourceManager.GetObject("send_30px1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sobresalir {
             get {
                 object obj = ResourceManager.GetObject("sobresalir", resourceCulture);
@@ -936,6 +976,26 @@ namespace ProyectoOFI.Properties {
         internal static System.Drawing.Bitmap split_52966371 {
             get {
                 object obj = ResourceManager.GetObject("split_52966371", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap split_52966372 {
+            get {
+                object obj = ResourceManager.GetObject("split_52966372", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap split_5296637o {
+            get {
+                object obj = ResourceManager.GetObject("split_5296637o", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1016,6 +1076,16 @@ namespace ProyectoOFI.Properties {
         internal static System.Drawing.Bitmap Union {
             get {
                 object obj = ResourceManager.GetObject("Union", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap USUARIO {
+            get {
+                object obj = ResourceManager.GetObject("USUARIO", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

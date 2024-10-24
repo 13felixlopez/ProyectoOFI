@@ -630,7 +630,8 @@ namespace ProyectoOFI.Datos
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
                 Conexion.abrir();
-                SqlCommand da = new SqlCommand("SELECT IdestFis, EstFisico FROM EstFisico WHERE IdestFis IN (3,4,5)", Conexion.conectar);
+                //SqlCommand da = new SqlCommand("SELECT IdestFis, EstFisico FROM EstFisico WHERE IdestFis IN (3,4,5)", Conexion.conectar);
+                SqlCommand da = new SqlCommand("SELECT IdestFis, EstFisico FROM EstFisico", Conexion.conectar);
                 da.CommandType = CommandType.Text;
                 SqlDataAdapter cb = new SqlDataAdapter(da);
                 DataTable dt = new DataTable();

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioCat = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.CbBuscador = new System.Windows.Forms.ComboBox();
@@ -201,29 +201,30 @@
             this.dtInventarioCat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioCat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioCat.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dtInventarioCat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioCat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioCat.Location = new System.Drawing.Point(0, 62);
             this.dtInventarioCat.Name = "dtInventarioCat";
             this.dtInventarioCat.ReadOnly = true;
             this.dtInventarioCat.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dtInventarioCat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioCat.ShowCellToolTips = false;
             this.dtInventarioCat.ShowEditingIcon = false;
             this.dtInventarioCat.Size = new System.Drawing.Size(1203, 553);
             this.dtInventarioCat.TabIndex = 12;
             this.dtInventarioCat.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtInventarioCat_CellDoubleClick);
+            this.dtInventarioCat.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtInventarioCat_CellFormatting);
             // 
             // plOpciones
             // 
@@ -641,7 +642,7 @@
             this.CbGrupoCalidad.Location = new System.Drawing.Point(630, 164);
             this.CbGrupoCalidad.Name = "CbGrupoCalidad";
             this.CbGrupoCalidad.Size = new System.Drawing.Size(353, 24);
-            this.CbGrupoCalidad.TabIndex = 12;
+            this.CbGrupoCalidad.TabIndex = 8;
             // 
             // BtnActivar
             // 
@@ -649,7 +650,7 @@
             this.BtnActivar.Location = new System.Drawing.Point(748, 255);
             this.BtnActivar.Name = "BtnActivar";
             this.BtnActivar.Size = new System.Drawing.Size(93, 52);
-            this.BtnActivar.TabIndex = 11;
+            this.BtnActivar.TabIndex = 12;
             this.BtnActivar.Text = "Activar";
             this.BtnActivar.UseVisualStyleBackColor = true;
             this.BtnActivar.Visible = false;
@@ -662,7 +663,7 @@
             this.ChbAnalizado.Location = new System.Drawing.Point(368, 268);
             this.ChbAnalizado.Name = "ChbAnalizado";
             this.ChbAnalizado.Size = new System.Drawing.Size(95, 20);
-            this.ChbAnalizado.TabIndex = 8;
+            this.ChbAnalizado.TabIndex = 10;
             this.ChbAnalizado.Text = "Analizado";
             this.ChbAnalizado.UseVisualStyleBackColor = true;
             this.ChbAnalizado.CheckedChanged += new System.EventHandler(this.ChbAnalizado_CheckedChanged);
@@ -674,7 +675,7 @@
             this.ChbRechazado.Location = new System.Drawing.Point(195, 268);
             this.ChbRechazado.Name = "ChbRechazado";
             this.ChbRechazado.Size = new System.Drawing.Size(105, 20);
-            this.ChbRechazado.TabIndex = 8;
+            this.ChbRechazado.TabIndex = 9;
             this.ChbRechazado.Text = "Rechazado";
             this.ChbRechazado.UseVisualStyleBackColor = true;
             this.ChbRechazado.CheckedChanged += new System.EventHandler(this.ChbRechazado_CheckedChanged);
@@ -689,7 +690,7 @@
             this.CbVariedad.Location = new System.Drawing.Point(770, 65);
             this.CbVariedad.Name = "CbVariedad";
             this.CbVariedad.Size = new System.Drawing.Size(278, 24);
-            this.CbVariedad.TabIndex = 7;
+            this.CbVariedad.TabIndex = 2;
             // 
             // DtFechaCatacion
             // 
@@ -717,7 +718,7 @@
             this.BtnAnalisis.Location = new System.Drawing.Point(529, 251);
             this.BtnAnalisis.Name = "BtnAnalisis";
             this.BtnAnalisis.Size = new System.Drawing.Size(168, 61);
-            this.BtnAnalisis.TabIndex = 4;
+            this.BtnAnalisis.TabIndex = 11;
             this.BtnAnalisis.Text = "Analizado";
             this.BtnAnalisis.UseVisualStyleBackColor = true;
             this.BtnAnalisis.Visible = false;
@@ -788,7 +789,7 @@
             this.TxtScore.Location = new System.Drawing.Point(195, 165);
             this.TxtScore.Name = "TxtScore";
             this.TxtScore.Size = new System.Drawing.Size(66, 22);
-            this.TxtScore.TabIndex = 1;
+            this.TxtScore.TabIndex = 7;
             // 
             // label32
             // 
@@ -815,7 +816,7 @@
             this.TxtDesmD.Location = new System.Drawing.Point(670, 114);
             this.TxtDesmD.Name = "TxtDesmD";
             this.TxtDesmD.Size = new System.Drawing.Size(66, 22);
-            this.TxtDesmD.TabIndex = 1;
+            this.TxtDesmD.TabIndex = 6;
             this.TxtDesmD.TextChanged += new System.EventHandler(this.TxtDesmC_TextChanged);
             // 
             // label15
@@ -853,7 +854,7 @@
             this.TxtDesmA.Location = new System.Drawing.Point(466, 114);
             this.TxtDesmA.Name = "TxtDesmA";
             this.TxtDesmA.Size = new System.Drawing.Size(66, 22);
-            this.TxtDesmA.TabIndex = 1;
+            this.TxtDesmA.TabIndex = 5;
             this.TxtDesmA.TextChanged += new System.EventHandler(this.TxtDesmA_TextChanged);
             // 
             // LblDesmC
@@ -901,7 +902,7 @@
             this.TxtExp.Location = new System.Drawing.Point(262, 114);
             this.TxtExp.Name = "TxtExp";
             this.TxtExp.Size = new System.Drawing.Size(66, 22);
-            this.TxtExp.TabIndex = 1;
+            this.TxtExp.TabIndex = 4;
             this.TxtExp.TextChanged += new System.EventHandler(this.TxtExp_TextChanged);
             // 
             // label13
@@ -939,7 +940,7 @@
             this.TxtHumedad.Location = new System.Drawing.Point(115, 114);
             this.TxtHumedad.Name = "TxtHumedad";
             this.TxtHumedad.Size = new System.Drawing.Size(66, 22);
-            this.TxtHumedad.TabIndex = 1;
+            this.TxtHumedad.TabIndex = 3;
             this.TxtHumedad.TextChanged += new System.EventHandler(this.TxtHumedad_TextChanged);
             // 
             // label11
@@ -1025,7 +1026,7 @@
             this.TxtAnalisis.Location = new System.Drawing.Point(117, 19);
             this.TxtAnalisis.Name = "TxtAnalisis";
             this.TxtAnalisis.Size = new System.Drawing.Size(158, 22);
-            this.TxtAnalisis.TabIndex = 1;
+            this.TxtAnalisis.TabIndex = 0;
             // 
             // label4
             // 
@@ -1766,7 +1767,7 @@
             this.PlFiltros.Controls.Add(this.CLBFiltros);
             this.PlFiltros.Controls.Add(this.PlCerrar);
             this.PlFiltros.Controls.Add(this.BtnFiltrar);
-            this.PlFiltros.Location = new System.Drawing.Point(902, 160);
+            this.PlFiltros.Location = new System.Drawing.Point(1086, 160);
             this.PlFiltros.MaximumSize = new System.Drawing.Size(233, 395);
             this.PlFiltros.MinimumSize = new System.Drawing.Size(233, 395);
             this.PlFiltros.Name = "PlFiltros";

@@ -1589,6 +1589,31 @@ namespace ProyectoOFI.Analisis
             CbBuscador.SelectedIndex = -1;
             PlFiltroFecha.Visible = false;
         }
+
+        private void dtInventarioCat_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Verificar si la columna actual es la columna "Proceso"
+            if (dtInventarioCat.Columns[e.ColumnIndex].Name == "Proceso")
+            {
+                // Obtener el valor de la celda actual
+                string cellValue = e.Value as string;
+
+                // Verificar si el valor de la celda es "Almacén"
+                if (!string.IsNullOrEmpty(cellValue) && cellValue == "Almacén"||cellValue=="Analizado"||cellValue=="Envio" || cellValue == "Envío" || cellValue == "Enviado")
+                {
+                    // Cambiar el color de fondo y el color de fuente de la fila
+                    dtInventarioCat.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow; // Color de fondo
+                    dtInventarioCat.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;    // Color de fuente
+                }
+                else
+                {
+                    // Restablecer los estilos de las filas que no cumplen la condición
+                    dtInventarioCat.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                    dtInventarioCat.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+                }
+            }
+        }
+
         private void CalculoDias()
         {
             DateTime fechaActual = DtFechaCatacion.Value;

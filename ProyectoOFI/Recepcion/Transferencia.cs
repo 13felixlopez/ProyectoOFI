@@ -451,7 +451,7 @@ namespace ProyectoOFI.Recepcion
                 BtnVerCons.Visible = false;
             }
             //Aca modifique, agregue esto Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase
-            if (Proceso == "No Asignado" && permisosUsuario.Contains("EditarTransferencia") && Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
+            if (Proceso == "No Asignado" && permisosUsuario.Contains("EditarTransferencia") || Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
             {
                 BtnEditar.Visible = true;
                 PnGuardar.Visible = false;

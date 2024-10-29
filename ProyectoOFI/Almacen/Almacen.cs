@@ -236,9 +236,9 @@ namespace ProyectoOFI.Almacen
             int indice = dtInventarioAlm.Columns[nombrecolumna].Index;
             Ticket = dtInventarioAlm.SelectedCells[indice].Value.ToString();
 
-            string nombrecolumna2 = "TicketO";
-            int indice2 = dtInventarioAlm.Columns[nombrecolumna2].Index;
-            TicketO = dtInventarioAlm.SelectedCells[indice2].Value.ToString();
+            //string nombrecolumna2 = "TicketO";
+            //int indice2 = dtInventarioAlm.Columns[nombrecolumna2].Index;
+            //TicketO = dtInventarioAlm.SelectedCells[indice2].Value.ToString();
         }
         private void VerdetalleTkAlmacen()
         {

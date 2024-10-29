@@ -1,5 +1,6 @@
 ﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
+using ProyectoOFI.Usuario;
 using System;
 using System.Data;
 using System.IO;
@@ -177,6 +178,13 @@ namespace ProyectoOFI
 
                 lastClickTime = DateTime.Now; // Actualiza el tiempo del último clic
             }
+        }
+
+        private void Lblrestablecer_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Restablecer res = new Restablecer();
+            res.Show();
+            this.Hide();
         }
     }
 }

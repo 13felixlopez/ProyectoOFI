@@ -782,6 +782,7 @@
     <None Include="Resources\USUARIO.png" />
     <None Include="Resources\icons8-cerrar-ventana1.gif" />
     <None Include="Resources\send_30px1.png" />
+    <None Include="Resources\lock_500px.png" />
     <Content Include="Ultima.sql" />
     <None Include="Resources\split_52966371.png" />
     <None Include="Resources\split_5296637.png" />

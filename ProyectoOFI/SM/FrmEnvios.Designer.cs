@@ -146,7 +146,7 @@
             this.DtPS.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DtPS.RowHeadersVisible = false;
             this.DtPS.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtPS.Size = new System.Drawing.Size(1555, 710);
+            this.DtPS.Size = new System.Drawing.Size(1386, 710);
             this.DtPS.TabIndex = 4;
             // 
             // PlTitulo
@@ -158,7 +158,7 @@
             this.PlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlTitulo.Location = new System.Drawing.Point(0, 0);
             this.PlTitulo.Name = "PlTitulo";
-            this.PlTitulo.Size = new System.Drawing.Size(1555, 65);
+            this.PlTitulo.Size = new System.Drawing.Size(1386, 65);
             this.PlTitulo.TabIndex = 23;
             // 
             // LblTitulo
@@ -167,7 +167,7 @@
             this.LblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTitulo.Location = new System.Drawing.Point(100, 0);
             this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(1380, 65);
+            this.LblTitulo.Size = new System.Drawing.Size(1211, 65);
             this.LblTitulo.TabIndex = 2;
             this.LblTitulo.Text = "Lotes en PS";
             this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -177,7 +177,7 @@
             this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrar.Location = new System.Drawing.Point(1480, 0);
+            this.BtnCerrar.Location = new System.Drawing.Point(1311, 0);
             this.BtnCerrar.Name = "BtnCerrar";
             this.BtnCerrar.Size = new System.Drawing.Size(75, 65);
             this.BtnCerrar.TabIndex = 1;
@@ -811,7 +811,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1555, 775);
+            this.ClientSize = new System.Drawing.Size(1386, 775);
             this.Controls.Add(this.PlDatos);
             this.Controls.Add(this.DtPS);
             this.Controls.Add(this.PlTitulo);

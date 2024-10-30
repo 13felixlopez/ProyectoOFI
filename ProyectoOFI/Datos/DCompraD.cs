@@ -2,7 +2,6 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Security.Cryptography;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.Datos
@@ -31,6 +30,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@IdBodega", parametros.IdBodega);
                 cmd.Parameters.AddWithValue("@IdUbicacion", parametros.IdUbicacion);
                 cmd.Parameters.AddWithValue("@IdCompra", parametros.IdCompra);
+                cmd.Parameters.AddWithValue("@IdMaterial", parametros.IdMaterial);
                 cmd.Parameters.AddWithValue("@IdCertificacion", parametros.IdCertificacion);
                 cmd.Parameters.AddWithValue("@Estado", parametros.Estado);
                 cmd.Parameters.AddWithValue("@Usuario", Login.NombreA);
@@ -151,6 +151,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@IdBodega", parametros.IdBodega);
                 cmd.Parameters.AddWithValue("@IdUbicacion", parametros.IdUbicacion);
                 cmd.Parameters.AddWithValue("@IdCompra", parametros.IdCompra);
+                cmd.Parameters.AddWithValue("@IdMaterial", parametros.IdMaterial);
                 cmd.Parameters.AddWithValue("@IdCertificacion", parametros.IdCertificacion);
                 cmd.Parameters.AddWithValue("@Estado", parametros.Estado);
                 cmd.Parameters.AddWithValue("@Usuario", Login.NombreA);
@@ -162,6 +163,55 @@ namespace ProyectoOFI.Datos
                 MessageBox.Show("Error al editar los datos en CompraDirecta: " + ex.Message, "Error en CompraDirecta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en EditarCompraDirecta ✖️✖️ " + ex.Message);
                 return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void ExcelCompraDirecta(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("ExcelCompraDirecta", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos de compras directas " + ex.Message, "Error Compras Directas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al cargar datos en MostrarComprasD ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarMaterial(ComboBox combo)
+        {
+            try
+            {
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("MostrarMaterial", Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter cb = new SqlDataAdapter(da);
+                DataTable dt = new DataTable();
+                cb.Fill(dt);
+                combo.ValueMember = "IdMaterial";
+                combo.DisplayMember = "Material";
+                combo.DataSource = dt;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    lista.Add(dt.Rows[i]["Material"].ToString());
+                }
+                combo.AutoCompleteCustomSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarMaterial ✖️✖️" + ex.Message);
             }
             finally
             {

@@ -2009,5 +2009,93 @@ namespace ProyectoOFI.Datos
             }
         }
         #endregion
+        #region Material
+        public bool AgregarMaterial(string Material)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand sqlCommand = new SqlCommand("AgregarMaterial", Conexion.conectar);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Parameters.AddWithValue("@Material", Material);
+                sqlCommand.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al AgregarMaterial ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarMaterial(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("MostrarMaterial", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al MostrarMaterial ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EliminarMaterial(int IdMaterial)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EliminarMaterial", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdMaterial", IdMaterial);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EliminarMaterial ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EditarMaterial(int IdMaterial, string Material)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EditarMaterial", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdMaterial", IdMaterial);
+                cmd.Parameters.AddWithValue("@Material", Material);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EditarMaterial ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        #endregion
     }
 }

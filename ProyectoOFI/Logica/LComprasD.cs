@@ -21,5 +21,6 @@ namespace ProyectoOFI.Logica
         public int IdCompra { get; set; }
         public int IdCertificacion { get; set; }
         public string Estado { get; set; }
+        public int IdMaterial { get; set; }
     }
 }

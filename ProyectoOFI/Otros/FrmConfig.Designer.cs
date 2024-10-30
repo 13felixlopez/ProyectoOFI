@@ -75,6 +75,7 @@
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.BtnCosechas = new System.Windows.Forms.Button();
+            this.BtnMaterial = new System.Windows.Forms.Button();
             this.PlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.GbTransfer.SuspendLayout();
@@ -435,6 +436,7 @@
             // 
             this.GbAlmacen.Controls.Add(this.BtnUbicacion);
             this.GbAlmacen.Controls.Add(this.BtnDescargador);
+            this.GbAlmacen.Controls.Add(this.BtnMaterial);
             this.GbAlmacen.Controls.Add(this.BtnEmpaques);
             this.GbAlmacen.Controls.Add(this.BtnTurnosAl);
             this.GbAlmacen.Controls.Add(this.BtnBodegas);
@@ -496,7 +498,7 @@
             this.BtnTurnosAl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnTurnosAl.Image = global::ProyectoOFI.Properties.Resources.clock2;
             this.BtnTurnosAl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnTurnosAl.Location = new System.Drawing.Point(84, 190);
+            this.BtnTurnosAl.Location = new System.Drawing.Point(15, 190);
             this.BtnTurnosAl.Name = "BtnTurnosAl";
             this.BtnTurnosAl.Size = new System.Drawing.Size(176, 55);
             this.BtnTurnosAl.TabIndex = 19;
@@ -692,6 +694,20 @@
             this.BtnCosechas.Visible = false;
             this.BtnCosechas.Click += new System.EventHandler(this.BtnCosechas_Click);
             // 
+            // BtnMaterial
+            // 
+            this.BtnMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMaterial.Image = global::ProyectoOFI.Properties.Resources.Analisis;
+            this.BtnMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnMaterial.Location = new System.Drawing.Point(198, 190);
+            this.BtnMaterial.Name = "BtnMaterial";
+            this.BtnMaterial.Size = new System.Drawing.Size(144, 55);
+            this.BtnMaterial.TabIndex = 19;
+            this.BtnMaterial.Text = "Material";
+            this.BtnMaterial.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnMaterial.UseVisualStyleBackColor = true;
+            this.BtnMaterial.Click += new System.EventHandler(this.BtnMaterial_Click);
+            // 
             // FrmConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -770,5 +786,6 @@
         private System.Windows.Forms.Button BtnCerrarCosecha;
         private System.Windows.Forms.Button BtnGCalidades;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.Button BtnMaterial;
     }
 }

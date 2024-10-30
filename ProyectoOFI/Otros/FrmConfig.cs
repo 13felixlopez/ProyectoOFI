@@ -298,5 +298,11 @@ namespace ProyectoOFI.Otros
                 }
             }
         }
+
+        private void BtnMaterial_Click(object sender, EventArgs e)
+        {
+            FrmMaterial material = new FrmMaterial();
+            material.ShowDialog();
+        }
     }
 }

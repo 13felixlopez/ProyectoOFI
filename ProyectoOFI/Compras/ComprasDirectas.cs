@@ -1,5 +1,6 @@
 ﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
+using ProyectoOFI.Reportes;
 using System;
 using System.Data;
 using System.Drawing;
@@ -99,6 +100,7 @@ namespace ProyectoOFI.Compras
                         parametros.IdBodega = (int)CbBodega.SelectedValue;
                         parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
                         parametros.IdCompra = (int)cbCompra.SelectedValue;
+                        parametros.IdMaterial=(int)CbMaterial.SelectedValue;
                         parametros.IdCertificacion = (int)cbCertificacion.SelectedValue;
                         parametros.Estado = "S/A";
                         if (funcion.InsertarCompraDirecta(parametros) == true)
@@ -142,6 +144,7 @@ namespace ProyectoOFI.Compras
                         parametros.IdBodega = (int)CbBodega.SelectedValue;
                         parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
                         parametros.IdCompra = (int)cbCompra.SelectedValue;
+                        parametros.IdMaterial = (int)CbMaterial.SelectedValue;
                         parametros.IdCertificacion = (int)cbCertificacion.SelectedValue;
                         parametros.Estado = Estado;
                         if (funcion.EditarCompraDirecta(parametros, Ticket) == true)
@@ -330,6 +333,8 @@ namespace ProyectoOFI.Compras
             DA.MostrarEmpaque(CbTipoEmpaque);
             DA.MostrarBodega(CbBodega);
             DA.MostrarUbicacionPxBodega(CbUbicacion, IdBodega);
+            DCompraD CD=new DCompraD();
+            CD.MostrarMaterial(CbMaterial);
         }
         #region Paginado
         private void ReiniciarPaginado()
@@ -480,6 +485,17 @@ namespace ProyectoOFI.Compras
         {
             Activar();
         }
+
+        private void PbExcel_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            DCompraD funcion = new DCompraD();
+            funcion.ExcelCompraDirecta(ref dt);
+            string Nombre = "Compras Directas ";
+            FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
+            LT.ShowDialog();
+        }
+
         private void btn_Primera_Click(object sender, EventArgs e)
         {
             ReiniciarPaginado();

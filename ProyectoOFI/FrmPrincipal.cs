@@ -133,6 +133,7 @@ namespace ProyectoOFI
                 if (Modulo == "Usuarios")
                 {
                     BtnUser.Visible = true;
+                    BtnHistorial.Visible = true;
                 }
                 if (Modulo == "Compra Directa")
                 {

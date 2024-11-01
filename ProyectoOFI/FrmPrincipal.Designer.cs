@@ -85,7 +85,7 @@ namespace ProyectoOFI
             this.plTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.plTitulo.Location = new System.Drawing.Point(0, 0);
             this.plTitulo.Name = "plTitulo";
-            this.plTitulo.Size = new System.Drawing.Size(1796, 74);
+            this.plTitulo.Size = new System.Drawing.Size(1386, 74);
             this.plTitulo.TabIndex = 0;
             // 
             // LblModulo
@@ -94,7 +94,7 @@ namespace ProyectoOFI
             this.LblModulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold);
             this.LblModulo.Location = new System.Drawing.Point(474, 0);
             this.LblModulo.Name = "LblModulo";
-            this.LblModulo.Size = new System.Drawing.Size(979, 74);
+            this.LblModulo.Size = new System.Drawing.Size(569, 74);
             this.LblModulo.TabIndex = 7;
             this.LblModulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -102,7 +102,7 @@ namespace ProyectoOFI
             // 
             this.LblUser.Dock = System.Windows.Forms.DockStyle.Right;
             this.LblUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblUser.Location = new System.Drawing.Point(1453, 0);
+            this.LblUser.Location = new System.Drawing.Point(1043, 0);
             this.LblUser.Name = "LblUser";
             this.LblUser.Size = new System.Drawing.Size(244, 74);
             this.LblUser.TabIndex = 6;
@@ -113,7 +113,7 @@ namespace ProyectoOFI
             // 
             this.PlPerfil.Controls.Add(this.PbPerfil);
             this.PlPerfil.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PlPerfil.Location = new System.Drawing.Point(1697, 0);
+            this.PlPerfil.Location = new System.Drawing.Point(1287, 0);
             this.PlPerfil.Name = "PlPerfil";
             this.PlPerfil.Size = new System.Drawing.Size(99, 74);
             this.PlPerfil.TabIndex = 5;
@@ -152,7 +152,7 @@ namespace ProyectoOFI
             this.PlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlPrincipal.Location = new System.Drawing.Point(160, 74);
             this.PlPrincipal.Name = "PlPrincipal";
-            this.PlPrincipal.Size = new System.Drawing.Size(1636, 714);
+            this.PlPrincipal.Size = new System.Drawing.Size(1226, 714);
             this.PlPrincipal.TabIndex = 4;
             // 
             // PlOpciones
@@ -169,7 +169,7 @@ namespace ProyectoOFI
             this.PlOpciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlOpciones.Location = new System.Drawing.Point(0, 0);
             this.PlOpciones.Name = "PlOpciones";
-            this.PlOpciones.Size = new System.Drawing.Size(1636, 63);
+            this.PlOpciones.Size = new System.Drawing.Size(1226, 63);
             this.PlOpciones.TabIndex = 1;
             this.PlOpciones.Visible = false;
             // 
@@ -248,6 +248,7 @@ namespace ProyectoOFI
             this.BtnHistorial.Text = "Historial";
             this.BtnHistorial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnHistorial.UseVisualStyleBackColor = false;
+            this.BtnHistorial.Visible = false;
             this.BtnHistorial.Click += new System.EventHandler(this.BtnHistorial_Click);
             // 
             // panel7
@@ -297,7 +298,7 @@ namespace ProyectoOFI
             this.LblPrincipal.ForeColor = System.Drawing.Color.White;
             this.LblPrincipal.Location = new System.Drawing.Point(0, 0);
             this.LblPrincipal.Name = "LblPrincipal";
-            this.LblPrincipal.Size = new System.Drawing.Size(1636, 714);
+            this.LblPrincipal.Size = new System.Drawing.Size(1226, 714);
             this.LblPrincipal.TabIndex = 0;
             this.LblPrincipal.Text = "Bienvenido a \r\nCoffeeTec 👋";
             this.LblPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -572,7 +573,7 @@ namespace ProyectoOFI
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1796, 788);
+            this.ClientSize = new System.Drawing.Size(1386, 788);
             this.Controls.Add(this.PlPrincipal);
             this.Controls.Add(this.plfooter);
             this.Controls.Add(this.plTitulo);

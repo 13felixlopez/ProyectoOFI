@@ -32,6 +32,9 @@ namespace ProyectoOFI.Analisis
         int Idcatacion;
         List<string> filtro = new List<string>();
         string Analizar = "Proceso";//Variable que define si es compra directa o no
+
+        //Variables a utilizar para el envio de correo, Ticket y analisis se obtienen del metodo verdetallecata
+        string NumAnalisis, Rendimiento, Quality;
         public Catacion()
         {
             InitializeComponent();
@@ -385,16 +388,17 @@ namespace ProyectoOFI.Analisis
                         LblProcedencia.Text = "--";
                     }
                     FRecibido = DateTime.Parse(dr["FechaRecibido"].ToString());
-                    if (dr["Fecha Muestra"].ToString() != null)
+                    if (dr["Fecha Muestra"] != DBNull.Value && !string.IsNullOrWhiteSpace(dr["Fecha Muestra"].ToString()))
                     {
-                        FMuestra = DateTime.Parse(dr["Fecha Muestra"].ToString());
-                        DTPFechaMuestra.Value = DateTime.Parse(dr["Fecha Muestra"].ToString());
+                        FMuestra = DateTime.Parse(dr["Fecha Muestra"].ToString()).AddDays(1);
+                        DTPFechaMuestra.Value = FMuestra;
                     }
                     else
                     {
-                        FMuestra = DateTime.Today;
-                        DTPFechaMuestra.Value = DateTime.Today;
+                        FMuestra = DateTime.Today.AddDays(1);
+                        DTPFechaMuestra.Value = FMuestra;
                     }
+
                     DtFechaCatacion.Value = DateTime.Today;
                     CalculoDias();
                 }
@@ -1052,6 +1056,7 @@ namespace ProyectoOFI.Analisis
                 }
             }
         }
+
         private async void BtnMostrarCompras_Click(object sender, EventArgs e)
         {
             PlCarga.Dock = DockStyle.Fill;
@@ -1172,6 +1177,8 @@ namespace ProyectoOFI.Analisis
 
                     if (funcion.EditarCatacionCD(parametros, Ticket) == true)
                     {
+                        DateTime FEdicion = DateTime.Now;
+                        MSJ(Ticket, TxtAnalisis.Text, FEdicion, Rendimiento, Quality);
                         PLDatos.Visible = false;
                         Limpiar();
                     }
@@ -1184,6 +1191,40 @@ namespace ProyectoOFI.Analisis
                 {
                     MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha de dia de hoy", "Error en la fecha", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
+            }
+        }
+        private void MSJ(string TK, string Analisis, DateTime Fecha, string Rendimiento, string Quality)
+        {
+            try
+            {
+                // Verificar ambos cambios
+                if (Rendimiento != TxtBto.Text && Quality != CbVariedad.Text)
+                {
+                    string Texto = $"El usuario {Login.NombreA} ha realizado un cambio en el rendimiento y en Quality Grade: cambio el rendimiento de {Rendimiento} a {TxtBto.Text} y Quality Grade de {Quality} a {CbGrupoCalidad.Text}, este cambio lo relizó el dia {Fecha}";
+                    MessageBox.Show("" + Texto, "Envio de Correo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                // Verificar cambio en Rendimiento
+                else if (Rendimiento != TxtBto.Text)
+                {
+                    string Texto = $"El usuario {Login.NombreA} ha realizado un cambio en el rendimiento: cambio de {Rendimiento} a {TxtBto.Text}, este cambio lo relizó el dia {Fecha}";
+                    MessageBox.Show("" + Texto, "Envio de Correo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                // Verificar cambio en Quality
+                else if (Quality != CbVariedad.Text)
+                {
+                    string Texto = $"El usuario {Login.NombreA} ha realizado un cambio en el Quality Grade: cambio de {Quality} a {CbGrupoCalidad.Text}, este cambio lo relizó el dia {Fecha}";
+                    MessageBox.Show("" + Texto, "Envio de Correo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    // Opcionalmente, manejar el caso en el que no hubo cambios
+                    // MessageBox.Show("No se realizaron cambios en el rendimiento ni en Quality Grade.", "Envio de Correo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ha ocurrido un error al enviar el correo de edicion", "Error en el correo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                throw;
             }
         }
 
@@ -1279,6 +1320,7 @@ namespace ProyectoOFI.Analisis
                     if (row["RmtoObto"] != DBNull.Value && row["RmtoObto"].ToString() != null)
                     {
                         TxtBto.Text = row["RmtoObto"].ToString();
+                        Rendimiento = TxtBto.Text;
                     }
                     else
                     {
@@ -1429,6 +1471,7 @@ namespace ProyectoOFI.Analisis
                     if (row["GradoCalidad"] != DBNull.Value && row["GradoCalidad"].ToString() != null)
                     {
                         CbGrupoCalidad.Text = row["GradoCalidad"].ToString();
+                        Quality = CbGrupoCalidad.Text;
                     }
                     else
                     {
@@ -1598,8 +1641,13 @@ namespace ProyectoOFI.Analisis
                 // Obtener el valor de la celda actual
                 string cellValue = e.Value as string;
 
-                // Verificar si el valor de la celda es "Almacén"
-                if (!string.IsNullOrEmpty(cellValue) && cellValue == "Almacén"||cellValue=="Analizado"||cellValue=="Envio" || cellValue == "Envío" || cellValue == "Enviado")
+                // Verificar si el valor de la celda es alguno de los casos especificados
+                if (!string.IsNullOrEmpty(cellValue) &&
+                    (cellValue.Equals("Almacén", StringComparison.OrdinalIgnoreCase) ||
+                     cellValue.Equals("Analizado", StringComparison.OrdinalIgnoreCase) ||
+                     cellValue.Equals("Envio", StringComparison.OrdinalIgnoreCase) ||
+                     cellValue.Equals("Envío", StringComparison.OrdinalIgnoreCase) ||
+                     cellValue.Equals("Enviado", StringComparison.OrdinalIgnoreCase)))
                 {
                     // Cambiar el color de fondo y el color de fuente de la fila
                     dtInventarioCat.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow; // Color de fondo
@@ -1613,6 +1661,7 @@ namespace ProyectoOFI.Analisis
                 }
             }
         }
+
 
         private void CalculoDias()
         {

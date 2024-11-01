@@ -381,7 +381,8 @@ namespace ProyectoOFI.Almacen
         {
             if (validar())
             {
-                if (DtpFAlmacen.Value < DateTime.Today)
+                DateTime fechaAlmacen = DtpFAlmacen.Value.Date.AddDays(-1);
+                if (fechaAlmacen <= DateTime.Today.Date)
                 {
                     DAlmacen funcion = new DAlmacen();
                     LAlmacen parametros = new LAlmacen();
@@ -504,7 +505,9 @@ namespace ProyectoOFI.Almacen
         {
             if (validar())
             {
-                if (DtpFAlmacen.Value < DateTime.Today)
+                // Restar un día al valor de DtpFAlmacen DateTime fechaAlmacen = DtpFAlmacen.Value.Date.AddDays(-1)
+                DateTime fechaAlmacen = DtpFAlmacen.Value.Date.AddDays(-1);
+                if (fechaAlmacen <= DateTime.Today.Date)
                 {
                     DAlmacen funcion = new DAlmacen();
                     LAlmacen parametros = new LAlmacen();
@@ -806,7 +809,7 @@ namespace ProyectoOFI.Almacen
         private void BtnCrearSplit_Click(object sender, EventArgs e)
         {
             DAlmacen funcion = new DAlmacen();
-            double pesoNuevo=double.Parse(TxtPesoNuevo.Text);
+            double pesoNuevo = double.Parse(TxtPesoNuevo.Text);
             funcion.Split(pesoNuevo, TicketO, Ticket);
             LblPeso.Text = pesoNuevo.ToString();
             MessageBox.Show("Split realizado con éxito", "Correcto!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -890,6 +893,6 @@ namespace ProyectoOFI.Almacen
             dtInventarioAlm.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.Contador.ToString());
         }
-        
+
     }
 }

@@ -17,6 +17,7 @@ namespace ProyectoOFI.Otros
         public FrmMaterial()
         {
             InitializeComponent();
+            MostrarMaterial();
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)

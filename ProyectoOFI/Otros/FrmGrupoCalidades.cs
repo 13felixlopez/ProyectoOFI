@@ -33,7 +33,7 @@ namespace ProyectoOFI.Otros
         private void DtGCalidad_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string GCalidad;
-            GCalidad = DtGCalidad.SelectedCells[1].Value.ToString();
+            GCalidad = DtGCalidad.SelectedCells[2].Value.ToString();
             TxtGCalidad.Text = GCalidad;
             IdGCalidad = Convert.ToInt32(DtGCalidad.SelectedCells[1].Value.ToString());
             BtnEditar.Visible = true;
@@ -42,7 +42,7 @@ namespace ProyectoOFI.Otros
 
         private void DtGCalidad_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            IdGCalidad = int.Parse(DtGCalidad.SelectedCells[0].Value.ToString());
+            IdGCalidad = int.Parse(DtGCalidad.SelectedCells[1].Value.ToString());
             if (e.ColumnIndex == DtGCalidad.Columns["Eliminar"].Index)
             {
                 DialogResult result = MessageBox.Show("¿Esta seguro de eliminar la GCalidad, Desea Continuar?", "Eliminando registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);

@@ -1070,21 +1070,21 @@ namespace ProyectoOFI.ControlPatio
         }
         private void txtBuscador_TextChanged(object sender, EventArgs e)
         {
-            if (txtBuscador.Text == "")
-            {
-                ReiniciarPaginado();
-                MostrarLotes();
-            }
-            else if (CbBuscador.Text == "Peso")
-            {
-                Buscar();
-                ReiniciarPaginado();
-            }
-            else
-            {
-                BuscarTk();
-                ReiniciarPaginado();
-            }
+            //if (txtBuscador.Text == "")
+            //{
+            //    ReiniciarPaginado();
+            //    MostrarLotes();
+            //}
+            //else if (CbBuscador.Text == "Peso")
+            //{
+            //    Buscar();
+            //    ReiniciarPaginado();
+            //}
+            //else
+            //{
+            //    BuscarTk();
+            //    ReiniciarPaginado();
+            //}
         }
         private void EditarEnfarde()
         {
@@ -1167,6 +1167,7 @@ namespace ProyectoOFI.ControlPatio
                 PlFiltroFecha.Visible = false;
                 txtBuscador.Visible = true;
                 CbBuscador.Visible = false;
+                BtnBuscar.Visible = true;
                 ReiniciarPaginado();
             }
             else if (CbBuscar.Text == "Calidad")
@@ -1205,6 +1206,7 @@ namespace ProyectoOFI.ControlPatio
             CbBuscador.DataSource = null;
             CbBuscador.SelectedIndex = -1;
             PlFiltroFecha.Visible = false;
+            BtnBuscar.Visible = false;
         }
         private void CbDestino_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1351,6 +1353,25 @@ namespace ProyectoOFI.ControlPatio
         {
             await CargarDatos();
             MessageBox.Show("Datos Actualizados", "Refrescar Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtBuscador.Text == "")
+            {
+                ReiniciarPaginado();
+                MostrarLotes();
+            }
+            else if (CbBuscador.Text == "Peso")
+            {
+                Buscar();
+                ReiniciarPaginado();
+            }
+            else
+            {
+                BuscarTk();
+                ReiniciarPaginado();
+            }
         }
 
         private bool validarEnvio()

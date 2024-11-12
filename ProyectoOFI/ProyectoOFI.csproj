@@ -277,6 +277,12 @@
     <Compile Include="Otros\FrmPatio.Designer.cs">
       <DependentUpon>FrmPatio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Otros\FrmTasas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Otros\FrmTasas.Designer.cs">
+      <DependentUpon>FrmTasas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Otros\FrmTurnoAl.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -529,6 +535,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Otros\FrmPatio.resx">
       <DependentUpon>FrmPatio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Otros\FrmTasas.resx">
+      <DependentUpon>FrmTasas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Otros\FrmTurnoAl.resx">
       <DependentUpon>FrmTurnoAl.cs</DependentUpon>

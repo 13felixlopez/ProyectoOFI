@@ -157,7 +157,7 @@ namespace ProyectoOFI.Datos
                 da.Parameters.AddWithValue("@DesmCP", parametros.DesmCP);
                 da.Parameters.AddWithValue("@DesmDP", parametros.DesmDP);
                 da.Parameters.AddWithValue("@Score", parametros.Score);
-                //da.Parameters.AddWithValue("@Taza", parametros.Tasa);
+                da.Parameters.AddWithValue("@Taza", parametros.Tasa);
                 da.Parameters.AddWithValue("@GradoCalidad", parametros.GradoCalidad);
                 da.Parameters.AddWithValue("@Digitador", parametros.Digitador);
                 da.Parameters.AddWithValue("@Estado", parametros.Estado);
@@ -294,7 +294,7 @@ namespace ProyectoOFI.Datos
                 da.Parameters.AddWithValue("@DesmCP", parametros.DesmCP);
                 da.Parameters.AddWithValue("@DesmDP", parametros.DesmDP);
                 da.Parameters.AddWithValue("@Score", parametros.Score);
-                //da.Parameters.AddWithValue("@Taza", parametros.Tasa);
+                da.Parameters.AddWithValue("@Taza", parametros.Tasa);
                 da.Parameters.AddWithValue("@GradoCalidad", parametros.GradoCalidad);
                 da.Parameters.AddWithValue("@Digitador", parametros.Digitador);
                 da.Parameters.AddWithValue("@Estado", parametros.Estado);
@@ -340,7 +340,7 @@ namespace ProyectoOFI.Datos
                 da.Parameters.AddWithValue("@DesmCP", parametros.DesmCP);
                 da.Parameters.AddWithValue("@DesmDP", parametros.DesmDP);
                 da.Parameters.AddWithValue("@Score", parametros.Score);
-                //da.Parameters.AddWithValue("@Taza", parametros.Tasa);
+                da.Parameters.AddWithValue("@Taza", parametros.Tasa);
                 da.Parameters.AddWithValue("@GradoCalidad", parametros.GradoCalidad);
                 da.Parameters.AddWithValue("@Digitador", parametros.Digitador);
                 da.Parameters.AddWithValue("@Estado", parametros.Estado);
@@ -467,6 +467,36 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en BuscarCatacion ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarTasas(ComboBox combo)
+        {
+            try
+            {
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("MostrarTasas", Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter cb = new SqlDataAdapter(da);
+                DataTable dt = new DataTable();
+                cb.Fill(dt);
+                combo.ValueMember = "IdTasa";
+                combo.DisplayMember = "Tasa";
+                combo.DataSource = dt;
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    lista.Add(dt.Rows[i]["Tasa"].ToString());
+                }
+                combo.AutoCompleteCustomSource = lista;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarTasas ✖️✖️" + ex.Message);
             }
             finally
             {

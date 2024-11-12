@@ -199,5 +199,18 @@ namespace ProyectoOFI.Usuario
                 Conexion.cerrar();
             }
         }
+
+        private void NotificacionCambio()
+        {
+            try
+            {
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

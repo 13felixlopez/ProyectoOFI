@@ -236,9 +236,9 @@ namespace ProyectoOFI.Almacen
             int indice = dtInventarioAlm.Columns[nombrecolumna].Index;
             Ticket = dtInventarioAlm.SelectedCells[indice].Value.ToString();
 
-            //string nombrecolumna2 = "TicketO";
-            //int indice2 = dtInventarioAlm.Columns[nombrecolumna2].Index;
-            //TicketO = dtInventarioAlm.SelectedCells[indice2].Value.ToString();
+            string nombrecolumna2 = "Quality Grade";
+            int indice2 = dtInventarioAlm.Columns[nombrecolumna2].Index;
+            LblQuality.Text = dtInventarioAlm.SelectedCells[indice2].Value.ToString();
         }
         private void VerdetalleTkAlmacen()
         {
@@ -381,8 +381,8 @@ namespace ProyectoOFI.Almacen
         {
             if (validar())
             {
-                DateTime fechaAlmacen = DtpFAlmacen.Value.Date.AddDays(-1);
-                if (fechaAlmacen <= DateTime.Today.Date)
+               // DateTime fechaAlmacen = DtpFAlmacen.Value.Date.AddDays(-1);
+                if (DtpFAlmacen.Value.Date <= DateTime.Today.Date)
                 {
                     DAlmacen funcion = new DAlmacen();
                     LAlmacen parametros = new LAlmacen();
@@ -506,8 +506,8 @@ namespace ProyectoOFI.Almacen
             if (validar())
             {
                 // Restar un día al valor de DtpFAlmacen DateTime fechaAlmacen = DtpFAlmacen.Value.Date.AddDays(-1)
-                DateTime fechaAlmacen = DtpFAlmacen.Value.Date.AddDays(-1);
-                if (fechaAlmacen <= DateTime.Today.Date)
+                //DateTime fechaAlmacen = DtpFAlmacen.Value.Date.AddDays(-1);
+                if (DtpFAlmacen.Value.Date <= DateTime.Today.Date)
                 {
                     DAlmacen funcion = new DAlmacen();
                     LAlmacen parametros = new LAlmacen();

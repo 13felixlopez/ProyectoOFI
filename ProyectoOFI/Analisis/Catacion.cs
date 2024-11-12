@@ -2,6 +2,7 @@
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
 using ProyectoOFI.Reportes;
+using ProyectoOFI.Usuario;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -667,6 +668,7 @@ namespace ProyectoOFI.Analisis
             Dcatacion funcion = new Dcatacion();
             funcion.MostrarVariedad(CbVariedad);
             funcion.MostrarGCalidad(CbGrupoCalidad);
+            funcion.MostrarTasas(CbTasa);
             Analisis();
             if (Proceso != "Almacén" && Proceso != "Analizado" && Proceso != "Envio")
             {
@@ -977,6 +979,7 @@ namespace ProyectoOFI.Analisis
             ChbAnalizado.Enabled = true;
             ChbRechazado.Enabled = true;
             CbGrupoCalidad.Enabled = true;
+            CbTasa.Enabled = true;
         }
         private void Desactivar()
         {
@@ -995,6 +998,7 @@ namespace ProyectoOFI.Analisis
             ChbAnalizado.Enabled = false;
             ChbRechazado.Enabled = false;
             CbGrupoCalidad.Enabled = false;
+            CbTasa.Enabled = false;
         }
         private void InsertarCatacion()
         {
@@ -1020,7 +1024,7 @@ namespace ProyectoOFI.Analisis
                     parametros.DesmC = double.Parse(TxtDesmD.Text);
                     parametros.DesmD = double.Parse(LblDesmC.Text);
                     parametros.Score = int.Parse(TxtScore.Text);
-                    //parametros.Tasa = LblTasa.Text;
+                    parametros.Tasa = CbTasa.Text;
                     parametros.GradoCalidad = CbGrupoCalidad.Text;
                     parametros.ExpP = LblExpP.Text;
                     parametros.DesmAP = LblDesmAP.Text;
@@ -1099,7 +1103,7 @@ namespace ProyectoOFI.Analisis
                 parametros.DesmC = double.Parse(TxtDesmD.Text);
                 parametros.DesmD = double.Parse(LblDesmC.Text);
                 parametros.Score = int.Parse(TxtScore.Text);
-                //parametros.Tasa = LblTasa.Text;
+                parametros.Tasa = CbTasa.Text;
                 //parametros.GradoCalidad = LblGCalidad.Text;
                 parametros.ExpP = LblExpP.Text;
                 parametros.DesmAP = LblDesmAP.Text;
@@ -1154,7 +1158,7 @@ namespace ProyectoOFI.Analisis
                     parametros.DesmC = double.Parse(TxtDesmD.Text);
                     parametros.DesmD = double.Parse(LblDesmC.Text);
                     parametros.Score = int.Parse(TxtScore.Text);
-                    //parametros.Tasa = LblTasa.Text;
+                    parametros.Tasa = CbTasa.Text;
                     parametros.GradoCalidad = CbGrupoCalidad.Text;
                     parametros.ExpP = LblExpP.Text;
                     parametros.DesmAP = LblDesmAP.Text;
@@ -1179,6 +1183,7 @@ namespace ProyectoOFI.Analisis
                     {
                         DateTime FEdicion = DateTime.Now;
                         MSJ(Ticket, TxtAnalisis.Text, FEdicion, Rendimiento, Quality);
+                        MessageBox.Show("Registro editado con Exito", "Editar Analisis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         PLDatos.Visible = false;
                         Limpiar();
                     }
@@ -1193,38 +1198,67 @@ namespace ProyectoOFI.Analisis
                 }
             }
         }
-        private void MSJ(string TK, string Analisis, DateTime Fecha, string Rendimiento, string Quality)
+        private async void MSJ(string TK, string Analisis, DateTime Fecha, string Rendimiento, string Quality)
         {
             try
             {
+                string texto = "";
+
                 // Verificar ambos cambios
-                if (Rendimiento != TxtBto.Text && Quality != CbVariedad.Text)
+                if (Rendimiento != TxtBto.Text && Quality != CbGrupoCalidad.Text)
                 {
-                    string Texto = $"El usuario {Login.NombreA} ha realizado un cambio en el rendimiento y en Quality Grade: cambio el rendimiento de {Rendimiento} a {TxtBto.Text} y Quality Grade de {Quality} a {CbGrupoCalidad.Text}, este cambio lo relizó el dia {Fecha}";
-                    MessageBox.Show("" + Texto, "Envio de Correo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    texto = $"El usuario {Login.NombreA} ha realizado un cambio en el rendimiento y en Quality Grade en la Ticket {TK}: cambió el rendimiento de {Rendimiento} a {TxtBto.Text} y Quality Grade de {Quality} a {CbGrupoCalidad.Text}, este cambio lo realizó el día {Fecha}";
                 }
-                // Verificar cambio en Rendimiento
-                else if (Rendimiento != TxtBto.Text)
+                else if (Rendimiento != TxtBto.Text) // Verificar cambio en Rendimiento
                 {
-                    string Texto = $"El usuario {Login.NombreA} ha realizado un cambio en el rendimiento: cambio de {Rendimiento} a {TxtBto.Text}, este cambio lo relizó el dia {Fecha}";
-                    MessageBox.Show("" + Texto, "Envio de Correo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    texto = $"El usuario {Login.NombreA} ha realizado un cambio en el rendimiento en la Ticket {TK}: cambio de {Rendimiento} a {TxtBto.Text}, este cambio lo realizó el día {Fecha}";
                 }
-                // Verificar cambio en Quality
-                else if (Quality != CbVariedad.Text)
+                else if (Quality != CbGrupoCalidad.Text) // Verificar cambio en Quality
                 {
-                    string Texto = $"El usuario {Login.NombreA} ha realizado un cambio en el Quality Grade: cambio de {Quality} a {CbGrupoCalidad.Text}, este cambio lo relizó el dia {Fecha}";
-                    MessageBox.Show("" + Texto, "Envio de Correo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    texto = $"El usuario {Login.NombreA} ha realizado un cambio en el Quality Grade en la Ticket {TK}: cambio de {Quality} a {CbGrupoCalidad.Text}, este cambio lo realizó el día {Fecha}";
                 }
-                else
+
+                if (!string.IsNullOrEmpty(texto))
                 {
-                    // Opcionalmente, manejar el caso en el que no hubo cambios
-                    // MessageBox.Show("No se realizaron cambios en el rendimiento ni en Quality Grade.", "Envio de Correo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // Muestra el mensaje en pantalla
+                   // MessageBox.Show(texto, "Envio de Correo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // Envía el mensaje por correo
+                   await EnviarCorreoNotificacion(texto);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Ha ocurrido un error al enviar el correo de edicion", "Error en el correo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                throw;
+                //MessageBox.Show("Ha ocurrido un error al enviar el correo de edición. " + ex.Message, "Error en el correo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Ha ocurrido un error al enviar el correo de edición. " + ex.Message);
+            }
+        }
+
+        private async Task EnviarCorreoNotificacion(string mensaje)
+        {
+            try
+            {
+                // Crear una lista con el destinatario (puedes agregar más correos si lo necesitas)
+                //List<string> destinatarios = new List<string> { "lfelixlopez732@gmail.com" };
+
+                // Definir asunto y cuerpo del correo
+                string asunto = "Coffeetec ofi Sistema de seguimiento de lotes: Notificación de Cambios";
+                string cuerpo = mensaje;
+
+                // Llamar al método enviarCorreo de la clase Recuperacion
+                //Recuperacion rec = new Recuperacion();
+                //rec.enviarCorreo(asunto, cuerpo, destinatarios);
+
+                var mailservice = new DCorreoSoporte();
+                mailservice.enviarCorreo(
+                    subject: asunto,
+                    body: cuerpo,
+                    destinatarioCorreo: new List<string> { "lfelixlopez732@gmail.com" });
+               // MessageBox.Show("Correo enviado exitosamente.", "Envio de Correo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al enviar el correo: " + ex.Message, "Error en el correo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -1457,15 +1491,15 @@ namespace ProyectoOFI.Analisis
                         TxtScore.Clear();
                     }
 
-                    // Asignar el valor de Cat.Taza 'Tasa'
-                    //if (row["Tasa"] != DBNull.Value && row["Tasa"].ToString() != null)
-                    //{
-                    //    LblTasa.Text = row["Tasa"].ToString();
-                    //}
-                    //else
-                    //{
-                    //    LblTasa.Text = "--";
-                    //}
+                    //Asignar el valor de Cat.Taza 'Tasa'
+                    if (row["Tasa"] != DBNull.Value && row["Tasa"].ToString() != null)
+                    {
+                        CbTasa.Text = row["Tasa"].ToString();
+                    }
+                    else
+                    {
+                        CbTasa.Text = "--";
+                    }
 
                     // Asignar el valor de Cat.GradoCalidad
                     if (row["GradoCalidad"] != DBNull.Value && row["GradoCalidad"].ToString() != null)
@@ -1633,10 +1667,10 @@ namespace ProyectoOFI.Analisis
             PlFiltroFecha.Visible = false;
         }
 
-        private void dtInventarioCat_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void FormatCellBasedOnProceso(DataGridView dataGridView, DataGridViewCellFormattingEventArgs e)
         {
             // Verificar si la columna actual es la columna "Proceso"
-            if (dtInventarioCat.Columns[e.ColumnIndex].Name == "Proceso")
+            if (dataGridView.Columns[e.ColumnIndex].Name == "Proceso")
             {
                 // Obtener el valor de la celda actual
                 string cellValue = e.Value as string;
@@ -1650,18 +1684,23 @@ namespace ProyectoOFI.Analisis
                      cellValue.Equals("Enviado", StringComparison.OrdinalIgnoreCase)))
                 {
                     // Cambiar el color de fondo y el color de fuente de la fila
-                    dtInventarioCat.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow; // Color de fondo
-                    dtInventarioCat.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;    // Color de fuente
+                    dataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow; // Color de fondo
+                    dataGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;    // Color de fuente
                 }
                 else
                 {
                     // Restablecer los estilos de las filas que no cumplen la condición
-                    dtInventarioCat.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
-                    dtInventarioCat.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
+                    dataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
+                    dataGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
                 }
             }
         }
 
+        // Llama al método desde el evento CellFormatting
+        private void dtInventarioCat_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            FormatCellBasedOnProceso(dtInventarioCat, e);
+        }
 
         private void CalculoDias()
         {

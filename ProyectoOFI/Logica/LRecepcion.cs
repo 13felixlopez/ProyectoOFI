@@ -9,7 +9,7 @@ namespace ProyectoOFI.Logica
     public class LRecepcion
     {
         public string Ticket { get; set; }
-        public DateTime FRecibido { get; set; }
+        public DateTime? FRecibido { get; set; }
         public string Area { get; set; }
         public int IdArea { get; set; }
         public string MTNR { get; set; }

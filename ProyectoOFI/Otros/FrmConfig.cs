@@ -304,5 +304,11 @@ namespace ProyectoOFI.Otros
             FrmMaterial material = new FrmMaterial();
             material.ShowDialog();
         }
+
+        private void BtnTasas_Click(object sender, EventArgs e)
+        {
+            FrmTasas tasas = new FrmTasas();
+            tasas.ShowDialog();
+        }
     }
 }

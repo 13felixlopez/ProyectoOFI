@@ -31,6 +31,7 @@ namespace ProyectoOFI.Recepcion
         int ContadorEdit;
         string Proceso;
         DataTable Cons = new DataTable();
+        private DateTime? fechaMasReciente = null;
         // Crear un arreglo bidimensional para almacenar los datos del DataTable
         object[,] dataArray;
         List<string> filtro = new List<string>();
@@ -1079,6 +1080,7 @@ namespace ProyectoOFI.Recepcion
             BuscarTK();
             LimpiarCons();
         }
+           
         private void DtTickets_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // Verificar si se hizo doble clic en una celda válida
@@ -1103,8 +1105,15 @@ namespace ProyectoOFI.Recepcion
                     newRow.Cells[cell.ColumnIndex].Value = cell.Value;
                 }
 
-                // Agregar la nueva fila a dtTKCons
-                dtTKCons.Rows.Add(newRow);
+
+                // Actualizar la fecha más reciente
+                DateTime fechaRecibido = Convert.ToDateTime(selectedRow.Cells["FechaRecibido"].Value);
+                if (!fechaMasReciente.HasValue || fechaRecibido > fechaMasReciente.Value)
+                {
+                    fechaMasReciente = fechaRecibido;
+                }
+                    // Agregar la nueva fila a dtTKCons
+                    dtTKCons.Rows.Add(newRow);
 
                 // Eliminar la fila seleccionada de DtTickets
                 DtTickets.Rows.RemoveAt(e.RowIndex);
@@ -1116,6 +1125,8 @@ namespace ProyectoOFI.Recepcion
             // Inicializar las variables para los totales de sacos y peso
             int totalSacos = 0;
             double totalPeso = 0;
+            double totalpesoe = 0;
+            double merma = 0;
             int sacossm = int.Parse(LblSacosSM.Text);
 
             if (dtTKCons.Rows.Count == 0)
@@ -1134,6 +1145,9 @@ namespace ProyectoOFI.Recepcion
 
                     // Sumar el peso
                     totalPeso += Convert.ToDouble(row.Cells["Peso"].Value);
+
+                    //sumar el pesoe
+                    totalpesoe += Convert.ToDouble(row.Cells["PesoE"].Value);
                     if (LblSacosSM.Visible == true)
                     {
                         BtnConsolidar.Enabled = false;
@@ -1157,6 +1171,9 @@ namespace ProyectoOFI.Recepcion
             // Establecer los valores en los controles de etiqueta
             LblTotalSacos.Text = totalSacos.ToString();
             LblTotalPeso.Text = totalPeso.ToString();
+            LblPesoe.Text = totalpesoe.ToString();
+            merma = totalpesoe - totalPeso;
+            LblMermaC.Text=merma.ToString();
         }
         private void EditarTK()
         {
@@ -1741,12 +1758,14 @@ namespace ProyectoOFI.Recepcion
                 LRecepcion parametros = new LRecepcion();
                 LEnvio Par = new LEnvio();
                 parametros.Ticket = TxtTicketCons.Text;
+                parametros.FRecibido = fechaMasReciente.Value;
                 parametros.Sacos = int.Parse(LblTotalSacos.Text);
                 parametros.Peso = double.Parse(LblTotalPeso.Text);
+                Par.PesoE=double.Parse(LblPesoe.Text);
+                parametros.Merma = double.Parse(LblMermaC.Text);
                 parametros.Calidad = Calidad;
                 Par.IdCertificacionE = int.Parse(CbCertCons.SelectedValue.ToString());
                 parametros.EstadoFisico = EstadoFisico;
-                parametros.FRecibido = DateTime.Now;
                 parametros.Daño = Daño;
                 parametros.Digitador = Login.NombreA;
                 parametros.IdArea = int.Parse(CbAreaCons.SelectedValue.ToString());
@@ -1863,6 +1882,8 @@ namespace ProyectoOFI.Recepcion
         {
             LblTotalPeso.Text = "00";
             LblTotalSacos.Text = "00";
+            LblPesoe.Text = "00";
+            LblMermaC.Text = "00";
             TxtTicketCons.Clear();
             TxtFolio.Clear();
             TxtBuscar.Clear();

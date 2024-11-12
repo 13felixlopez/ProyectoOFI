@@ -317,6 +317,8 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
                 cmd.Parameters.AddWithValue("@sacos", parametros.Sacos);
                 cmd.Parameters.AddWithValue("@Peso", parametros.Peso);
+                cmd.Parameters.AddWithValue("@PesoE", Par.PesoE);
+                cmd.Parameters.AddWithValue("@Merma", parametros.Merma);
                 cmd.Parameters.AddWithValue("@Calidad", parametros.Calidad);
                 cmd.Parameters.AddWithValue("@IdCertificacion", Par.IdCertificacionE);
                 cmd.Parameters.AddWithValue("@EstFisico", parametros.EstadoFisico);

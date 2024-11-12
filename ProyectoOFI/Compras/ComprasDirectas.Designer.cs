@@ -49,12 +49,12 @@
             this.Label25 = new System.Windows.Forms.Label();
             this.PLDatos = new System.Windows.Forms.Panel();
             this.PlCompras = new System.Windows.Forms.Panel();
+            this.CbMaterial = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.BtnActivar = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
             this.cbCompra = new System.Windows.Forms.ComboBox();
             this.label48 = new System.Windows.Forms.Label();
-            this.cbCertificacion = new System.Windows.Forms.ComboBox();
-            this.label57 = new System.Windows.Forms.Label();
             this.CbUbicacion = new System.Windows.Forms.ComboBox();
             this.CbBodega = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -84,11 +84,9 @@
             this.dtInventarioCompras = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.plOpciones = new System.Windows.Forms.Panel();
+            this.PbExcel = new System.Windows.Forms.PictureBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.plfooter = new System.Windows.Forms.Panel();
-            this.PbExcel = new System.Windows.Forms.PictureBox();
-            this.CbMaterial = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.PlCerrarDetalle.SuspendLayout();
             this.PlCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
@@ -97,8 +95,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.NudSacos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioCompras)).BeginInit();
             this.plOpciones.SuspendLayout();
-            this.plfooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).BeginInit();
+            this.plfooter.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblTituloCP
@@ -341,8 +339,6 @@
             this.PlCompras.Controls.Add(this.BtnGuardar);
             this.PlCompras.Controls.Add(this.cbCompra);
             this.PlCompras.Controls.Add(this.label48);
-            this.PlCompras.Controls.Add(this.cbCertificacion);
-            this.PlCompras.Controls.Add(this.label57);
             this.PlCompras.Controls.Add(this.CbUbicacion);
             this.PlCompras.Controls.Add(this.CbBodega);
             this.PlCompras.Controls.Add(this.label13);
@@ -375,6 +371,25 @@
             this.PlCompras.Name = "PlCompras";
             this.PlCompras.Size = new System.Drawing.Size(1205, 532);
             this.PlCompras.TabIndex = 17;
+            // 
+            // CbMaterial
+            // 
+            this.CbMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbMaterial.FormattingEnabled = true;
+            this.CbMaterial.Location = new System.Drawing.Point(849, 177);
+            this.CbMaterial.Name = "CbMaterial";
+            this.CbMaterial.Size = new System.Drawing.Size(253, 28);
+            this.CbMaterial.TabIndex = 125;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(768, 181);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(69, 20);
+            this.label15.TabIndex = 124;
+            this.label15.Text = "Material:";
             // 
             // BtnActivar
             // 
@@ -425,25 +440,6 @@
             this.label48.TabIndex = 121;
             this.label48.Text = "Tipo de Compra";
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cbCertificacion
-            // 
-            this.cbCertificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCertificacion.FormattingEnabled = true;
-            this.cbCertificacion.Location = new System.Drawing.Point(837, 372);
-            this.cbCertificacion.Name = "cbCertificacion";
-            this.cbCertificacion.Size = new System.Drawing.Size(240, 28);
-            this.cbCertificacion.TabIndex = 120;
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(727, 376);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(96, 20);
-            this.label57.TabIndex = 122;
-            this.label57.Text = "Certificación";
             // 
             // CbUbicacion
             // 
@@ -754,6 +750,20 @@
             this.plOpciones.Size = new System.Drawing.Size(1613, 62);
             this.plOpciones.TabIndex = 19;
             // 
+            // PbExcel
+            // 
+            this.PbExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PbExcel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PbExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PbExcel.Image = global::ProyectoOFI.Properties.Resources.sobresalir;
+            this.PbExcel.Location = new System.Drawing.Point(774, 6);
+            this.PbExcel.Name = "PbExcel";
+            this.PbExcel.Size = new System.Drawing.Size(64, 50);
+            this.PbExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbExcel.TabIndex = 6;
+            this.PbExcel.TabStop = false;
+            this.PbExcel.Click += new System.EventHandler(this.PbExcel_Click);
+            // 
             // btnAgregar
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -787,39 +797,6 @@
             this.plfooter.Size = new System.Drawing.Size(1613, 60);
             this.plfooter.TabIndex = 20;
             // 
-            // PbExcel
-            // 
-            this.PbExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.PbExcel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PbExcel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PbExcel.Image = global::ProyectoOFI.Properties.Resources.sobresalir;
-            this.PbExcel.Location = new System.Drawing.Point(774, 6);
-            this.PbExcel.Name = "PbExcel";
-            this.PbExcel.Size = new System.Drawing.Size(64, 50);
-            this.PbExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbExcel.TabIndex = 6;
-            this.PbExcel.TabStop = false;
-            this.PbExcel.Click += new System.EventHandler(this.PbExcel_Click);
-            // 
-            // CbMaterial
-            // 
-            this.CbMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CbMaterial.FormattingEnabled = true;
-            this.CbMaterial.Location = new System.Drawing.Point(849, 177);
-            this.CbMaterial.Name = "CbMaterial";
-            this.CbMaterial.Size = new System.Drawing.Size(253, 28);
-            this.CbMaterial.TabIndex = 125;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(768, 181);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(69, 20);
-            this.label15.TabIndex = 124;
-            this.label15.Text = "Material:";
-            // 
             // ComprasDirectas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -842,9 +819,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioCompras)).EndInit();
             this.plOpciones.ResumeLayout(false);
             this.plOpciones.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).EndInit();
             this.plfooter.ResumeLayout(false);
             this.plfooter.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -898,8 +875,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cbCompra;
         private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.ComboBox cbCertificacion;
-        private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TextBox TxtTicket;

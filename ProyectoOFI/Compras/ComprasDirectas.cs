@@ -101,7 +101,7 @@ namespace ProyectoOFI.Compras
                         parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
                         parametros.IdCompra = (int)cbCompra.SelectedValue;
                         parametros.IdMaterial=(int)CbMaterial.SelectedValue;
-                        parametros.IdCertificacion = (int)cbCertificacion.SelectedValue;
+                        //parametros.IdCertificacion = (int)cbCertificacion.SelectedValue;
                         parametros.Estado = "S/A";
                         if (funcion.InsertarCompraDirecta(parametros) == true)
                         {
@@ -145,7 +145,7 @@ namespace ProyectoOFI.Compras
                         parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
                         parametros.IdCompra = (int)cbCompra.SelectedValue;
                         parametros.IdMaterial = (int)CbMaterial.SelectedValue;
-                        parametros.IdCertificacion = (int)cbCertificacion.SelectedValue;
+                        //parametros.IdCertificacion = (int)cbCertificacion.SelectedValue;
                         parametros.Estado = Estado;
                         if (funcion.EditarCompraDirecta(parametros, Ticket) == true)
                         {
@@ -189,7 +189,7 @@ namespace ProyectoOFI.Compras
             CbBodega.Enabled = true;
             CbUbicacion.Enabled = true;
             cbCompra.Enabled = true;
-            cbCertificacion.Enabled = true;
+            //cbCertificacion.Enabled = true;
             TxtTicket.Enabled = true;
             BtnActivar.Visible = false;
             plOpciones.Enabled = true;
@@ -210,7 +210,7 @@ namespace ProyectoOFI.Compras
             CbBodega.Enabled = false;
             CbUbicacion.Enabled = false;
             cbCompra.Enabled = false;
-            cbCertificacion.Enabled = false;
+            //cbCertificacion.Enabled = false;
             TxtTicket.Enabled = false;
         }
         private bool Validar()
@@ -328,7 +328,7 @@ namespace ProyectoOFI.Compras
             DRecepcion DR = new DRecepcion();
             DR.MostrarCliente(CbProveedor);
             DR.MostrarCompra(cbCompra);
-            DR.MostrarCert(cbCertificacion);
+            //DR.MostrarCert(cbCertificacion);
             DAlmacen DA = new DAlmacen();
             DA.MostrarEmpaque(CbTipoEmpaque);
             DA.MostrarBodega(CbBodega);
@@ -635,14 +635,14 @@ namespace ProyectoOFI.Compras
                     {
                         cbCompra.Text = "--";
                     }
-                    if (row["Certificacion"].ToString() != null)
-                    {
-                        cbCertificacion.Text = row["Certificacion"].ToString();
-                    }
-                    else
-                    {
-                        cbCertificacion.Text = "--";
-                    }
+                    //if (row["Certificacion"].ToString() != null)
+                    //{
+                    //    cbCertificacion.Text = row["Certificacion"].ToString();
+                    //}
+                    //else
+                    //{
+                    //    cbCertificacion.Text = "--";
+                    //}
                     Desactivar();
                     BtnGuardar.Enabled = false;
                     BtnActivar.Visible = true;

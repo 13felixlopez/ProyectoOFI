@@ -60,6 +60,7 @@
             this.GbAlmacen = new System.Windows.Forms.GroupBox();
             this.BtnUbicacion = new System.Windows.Forms.Button();
             this.BtnDescargador = new System.Windows.Forms.Button();
+            this.BtnMaterial = new System.Windows.Forms.Button();
             this.BtnEmpaques = new System.Windows.Forms.Button();
             this.BtnTurnosAl = new System.Windows.Forms.Button();
             this.BtnBodegas = new System.Windows.Forms.Button();
@@ -75,7 +76,7 @@
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.BtnCosechas = new System.Windows.Forms.Button();
-            this.BtnMaterial = new System.Windows.Forms.Button();
+            this.BtnTasas = new System.Windows.Forms.Button();
             this.PlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.GbTransfer.SuspendLayout();
@@ -391,11 +392,12 @@
             // Gbcatacion
             // 
             this.Gbcatacion.Controls.Add(this.BtnGCalidades);
+            this.Gbcatacion.Controls.Add(this.BtnTasas);
             this.Gbcatacion.Controls.Add(this.BtnVariedad);
             this.Gbcatacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Gbcatacion.Location = new System.Drawing.Point(710, 71);
             this.Gbcatacion.Name = "Gbcatacion";
-            this.Gbcatacion.Size = new System.Drawing.Size(251, 159);
+            this.Gbcatacion.Size = new System.Drawing.Size(318, 159);
             this.Gbcatacion.TabIndex = 24;
             this.Gbcatacion.TabStop = false;
             this.Gbcatacion.Text = "Catación";
@@ -407,7 +409,7 @@
             this.BtnGCalidades.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGCalidades.Image = global::ProyectoOFI.Properties.Resources.Catacion;
             this.BtnGCalidades.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnGCalidades.Location = new System.Drawing.Point(71, 91);
+            this.BtnGCalidades.Location = new System.Drawing.Point(12, 91);
             this.BtnGCalidades.Name = "BtnGCalidades";
             this.BtnGCalidades.Size = new System.Drawing.Size(158, 55);
             this.BtnGCalidades.TabIndex = 13;
@@ -423,7 +425,7 @@
             this.BtnVariedad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnVariedad.Image = global::ProyectoOFI.Properties.Resources.Variedad;
             this.BtnVariedad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnVariedad.Location = new System.Drawing.Point(71, 30);
+            this.BtnVariedad.Location = new System.Drawing.Point(12, 30);
             this.BtnVariedad.Name = "BtnVariedad";
             this.BtnVariedad.Size = new System.Drawing.Size(158, 55);
             this.BtnVariedad.TabIndex = 13;
@@ -478,6 +480,20 @@
             this.BtnDescargador.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnDescargador.UseVisualStyleBackColor = true;
             this.BtnDescargador.Click += new System.EventHandler(this.BtnDescargador_Click);
+            // 
+            // BtnMaterial
+            // 
+            this.BtnMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnMaterial.Image = global::ProyectoOFI.Properties.Resources.Analisis;
+            this.BtnMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnMaterial.Location = new System.Drawing.Point(198, 190);
+            this.BtnMaterial.Name = "BtnMaterial";
+            this.BtnMaterial.Size = new System.Drawing.Size(144, 55);
+            this.BtnMaterial.TabIndex = 19;
+            this.BtnMaterial.Text = "Material";
+            this.BtnMaterial.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnMaterial.UseVisualStyleBackColor = true;
+            this.BtnMaterial.Click += new System.EventHandler(this.BtnMaterial_Click);
             // 
             // BtnEmpaques
             // 
@@ -694,19 +710,20 @@
             this.BtnCosechas.Visible = false;
             this.BtnCosechas.Click += new System.EventHandler(this.BtnCosechas_Click);
             // 
-            // BtnMaterial
+            // BtnTasas
             // 
-            this.BtnMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnMaterial.Image = global::ProyectoOFI.Properties.Resources.Analisis;
-            this.BtnMaterial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnMaterial.Location = new System.Drawing.Point(198, 190);
-            this.BtnMaterial.Name = "BtnMaterial";
-            this.BtnMaterial.Size = new System.Drawing.Size(144, 55);
-            this.BtnMaterial.TabIndex = 19;
-            this.BtnMaterial.Text = "Material";
-            this.BtnMaterial.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnMaterial.UseVisualStyleBackColor = true;
-            this.BtnMaterial.Click += new System.EventHandler(this.BtnMaterial_Click);
+            this.BtnTasas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnTasas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTasas.Image = global::ProyectoOFI.Properties.Resources.Variedad;
+            this.BtnTasas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTasas.Location = new System.Drawing.Point(176, 32);
+            this.BtnTasas.Name = "BtnTasas";
+            this.BtnTasas.Size = new System.Drawing.Size(158, 55);
+            this.BtnTasas.TabIndex = 13;
+            this.BtnTasas.Text = "Tasas";
+            this.BtnTasas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnTasas.UseVisualStyleBackColor = true;
+            this.BtnTasas.Click += new System.EventHandler(this.BtnTasas_Click);
             // 
             // FrmConfig
             // 
@@ -787,5 +804,6 @@
         private System.Windows.Forms.Button BtnGCalidades;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.Button BtnMaterial;
+        private System.Windows.Forms.Button BtnTasas;
     }
 }

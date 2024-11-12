@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioAlm = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.CbBuscador = new System.Windows.Forms.ComboBox();
@@ -103,16 +103,18 @@
             this.LblTitulo = new System.Windows.Forms.Label();
             this.BtnCerrarPldatos = new System.Windows.Forms.Button();
             this.PlSplit = new System.Windows.Forms.Panel();
+            this.BtnCrearSplit = new System.Windows.Forms.Button();
+            this.TxtPesoNuevo = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.LblPesoO = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.LblTKSplit = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.PlCerrar = new System.Windows.Forms.Panel();
             this.LblFiltros = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
-            this.LblTKSplit = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.LblPesoO = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.TxtPesoNuevo = new System.Windows.Forms.TextBox();
-            this.BtnCrearSplit = new System.Windows.Forms.Button();
+            this.label27 = new System.Windows.Forms.Label();
+            this.LblQuality = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioAlm)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -138,23 +140,23 @@
             this.dtInventarioAlm.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioAlm.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioAlm.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioAlm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioAlm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtInventarioAlm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioAlm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioAlm.Location = new System.Drawing.Point(0, 62);
             this.dtInventarioAlm.Name = "dtInventarioAlm";
             this.dtInventarioAlm.ReadOnly = true;
             this.dtInventarioAlm.RowHeadersVisible = false;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioAlm.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioAlm.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtInventarioAlm.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioAlm.ShowCellToolTips = false;
             this.dtInventarioAlm.ShowEditingIcon = false;
@@ -728,11 +730,13 @@
             this.PlDatosTk.Controls.Add(this.label23);
             this.PlDatosTk.Controls.Add(this.LblEstFis);
             this.PlDatosTk.Controls.Add(this.label22);
+            this.PlDatosTk.Controls.Add(this.LblQuality);
             this.PlDatosTk.Controls.Add(this.LblCliente);
             this.PlDatosTk.Controls.Add(this.LblQQs);
             this.PlDatosTk.Controls.Add(this.label21);
             this.PlDatosTk.Controls.Add(this.LblPeso);
             this.PlDatosTk.Controls.Add(this.label20);
+            this.PlDatosTk.Controls.Add(this.label27);
             this.PlDatosTk.Controls.Add(this.LblSacos);
             this.PlDatosTk.Controls.Add(this.label12);
             this.PlDatosTk.Controls.Add(this.label19);
@@ -830,7 +834,7 @@
             // 
             this.LblCliente.AutoSize = true;
             this.LblCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCliente.Location = new System.Drawing.Point(932, 16);
+            this.LblCliente.Location = new System.Drawing.Point(770, 16);
             this.LblCliente.Name = "LblCliente";
             this.LblCliente.Size = new System.Drawing.Size(19, 20);
             this.LblCliente.TabIndex = 0;
@@ -840,7 +844,7 @@
             // 
             this.LblQQs.AutoSize = true;
             this.LblQQs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblQQs.Location = new System.Drawing.Point(759, 16);
+            this.LblQQs.Location = new System.Drawing.Point(597, 16);
             this.LblQQs.Name = "LblQQs";
             this.LblQQs.Size = new System.Drawing.Size(19, 20);
             this.LblQQs.TabIndex = 0;
@@ -860,7 +864,7 @@
             // 
             this.LblPeso.AutoSize = true;
             this.LblPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPeso.Location = new System.Drawing.Point(539, 16);
+            this.LblPeso.Location = new System.Drawing.Point(428, 16);
             this.LblPeso.Name = "LblPeso";
             this.LblPeso.Size = new System.Drawing.Size(19, 20);
             this.LblPeso.TabIndex = 0;
@@ -880,7 +884,7 @@
             // 
             this.LblSacos.AutoSize = true;
             this.LblSacos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblSacos.Location = new System.Drawing.Point(324, 16);
+            this.LblSacos.Location = new System.Drawing.Point(267, 16);
             this.LblSacos.Name = "LblSacos";
             this.LblSacos.Size = new System.Drawing.Size(19, 20);
             this.LblSacos.TabIndex = 0;
@@ -890,7 +894,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(857, 16);
+            this.label12.Location = new System.Drawing.Point(695, 16);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(70, 20);
             this.label12.TabIndex = 0;
@@ -900,7 +904,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(700, 16);
+            this.label19.Location = new System.Drawing.Point(538, 16);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(49, 20);
             this.label19.TabIndex = 0;
@@ -920,7 +924,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(485, 16);
+            this.label18.Location = new System.Drawing.Point(374, 16);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(44, 20);
             this.label18.TabIndex = 0;
@@ -930,7 +934,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(250, 16);
+            this.label17.Location = new System.Drawing.Point(193, 16);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(64, 20);
             this.label17.TabIndex = 0;
@@ -1010,6 +1014,74 @@
             this.PlSplit.TabIndex = 20;
             this.PlSplit.Visible = false;
             // 
+            // BtnCrearSplit
+            // 
+            this.BtnCrearSplit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCrearSplit.Location = new System.Drawing.Point(275, 147);
+            this.BtnCrearSplit.Name = "BtnCrearSplit";
+            this.BtnCrearSplit.Size = new System.Drawing.Size(78, 39);
+            this.BtnCrearSplit.TabIndex = 11;
+            this.BtnCrearSplit.Text = "Guardar";
+            this.BtnCrearSplit.UseVisualStyleBackColor = true;
+            this.BtnCrearSplit.Click += new System.EventHandler(this.BtnCrearSplit_Click);
+            // 
+            // TxtPesoNuevo
+            // 
+            this.TxtPesoNuevo.Location = new System.Drawing.Point(118, 115);
+            this.TxtPesoNuevo.Name = "TxtPesoNuevo";
+            this.TxtPesoNuevo.Size = new System.Drawing.Size(125, 20);
+            this.TxtPesoNuevo.TabIndex = 7;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(3, 115);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(109, 20);
+            this.label14.TabIndex = 6;
+            this.label14.Text = "Nuevo Peso:";
+            // 
+            // LblPesoO
+            // 
+            this.LblPesoO.AutoSize = true;
+            this.LblPesoO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPesoO.Location = new System.Drawing.Point(57, 77);
+            this.LblPesoO.Name = "LblPesoO";
+            this.LblPesoO.Size = new System.Drawing.Size(19, 20);
+            this.LblPesoO.TabIndex = 4;
+            this.LblPesoO.Text = "--";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(3, 77);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(44, 20);
+            this.label24.TabIndex = 5;
+            this.label24.Text = "Kgs:";
+            // 
+            // LblTKSplit
+            // 
+            this.LblTKSplit.AutoSize = true;
+            this.LblTKSplit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTKSplit.Location = new System.Drawing.Point(75, 45);
+            this.LblTKSplit.Name = "LblTKSplit";
+            this.LblTKSplit.Size = new System.Drawing.Size(19, 20);
+            this.LblTKSplit.TabIndex = 2;
+            this.LblTKSplit.Text = "--";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(3, 45);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(62, 20);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Ticket:";
+            // 
             // PlCerrar
             // 
             this.PlCerrar.Controls.Add(this.LblFiltros);
@@ -1043,73 +1115,25 @@
             this.BtnCerrar.UseVisualStyleBackColor = true;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
-            // LblTKSplit
+            // label27
             // 
-            this.LblTKSplit.AutoSize = true;
-            this.LblTKSplit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTKSplit.Location = new System.Drawing.Point(75, 45);
-            this.LblTKSplit.Name = "LblTKSplit";
-            this.LblTKSplit.Size = new System.Drawing.Size(19, 20);
-            this.LblTKSplit.TabIndex = 2;
-            this.LblTKSplit.Text = "--";
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(407, 111);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(124, 20);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "Quality Grade:";
             // 
-            // label15
+            // LblQuality
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(3, 45);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(62, 20);
-            this.label15.TabIndex = 3;
-            this.label15.Text = "Ticket:";
-            // 
-            // LblPesoO
-            // 
-            this.LblPesoO.AutoSize = true;
-            this.LblPesoO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPesoO.Location = new System.Drawing.Point(57, 77);
-            this.LblPesoO.Name = "LblPesoO";
-            this.LblPesoO.Size = new System.Drawing.Size(19, 20);
-            this.LblPesoO.TabIndex = 4;
-            this.LblPesoO.Text = "--";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(3, 77);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(44, 20);
-            this.label24.TabIndex = 5;
-            this.label24.Text = "Kgs:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(3, 115);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(109, 20);
-            this.label14.TabIndex = 6;
-            this.label14.Text = "Nuevo Peso:";
-            // 
-            // TxtPesoNuevo
-            // 
-            this.TxtPesoNuevo.Location = new System.Drawing.Point(118, 115);
-            this.TxtPesoNuevo.Name = "TxtPesoNuevo";
-            this.TxtPesoNuevo.Size = new System.Drawing.Size(125, 20);
-            this.TxtPesoNuevo.TabIndex = 7;
-            // 
-            // BtnCrearSplit
-            // 
-            this.BtnCrearSplit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCrearSplit.Location = new System.Drawing.Point(275, 147);
-            this.BtnCrearSplit.Name = "BtnCrearSplit";
-            this.BtnCrearSplit.Size = new System.Drawing.Size(78, 39);
-            this.BtnCrearSplit.TabIndex = 11;
-            this.BtnCrearSplit.Text = "Guardar";
-            this.BtnCrearSplit.UseVisualStyleBackColor = true;
-            this.BtnCrearSplit.Click += new System.EventHandler(this.BtnCrearSplit_Click);
+            this.LblQuality.AutoSize = true;
+            this.LblQuality.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblQuality.Location = new System.Drawing.Point(535, 111);
+            this.LblQuality.Name = "LblQuality";
+            this.LblQuality.Size = new System.Drawing.Size(19, 20);
+            this.LblQuality.TabIndex = 0;
+            this.LblQuality.Text = "--";
             // 
             // Almacen
             // 
@@ -1232,5 +1256,7 @@
         private System.Windows.Forms.Button BtnCerrar;
         private System.Windows.Forms.Button BtnCrearSplit;
         private System.Windows.Forms.TextBox TxtPesoNuevo;
+        private System.Windows.Forms.Label LblQuality;
+        private System.Windows.Forms.Label label27;
     }
 }

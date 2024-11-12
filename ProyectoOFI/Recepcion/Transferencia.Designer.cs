@@ -153,19 +153,14 @@
             this.PnConsolidar = new System.Windows.Forms.Panel();
             this.PnTickets = new System.Windows.Forms.Panel();
             this.DtTickets = new System.Windows.Forms.DataGridView();
-            this.Tickets = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sacos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Certificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EsFisico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cali = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Danio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PlBuscar = new System.Windows.Forms.Panel();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.PnTKCons = new System.Windows.Forms.Panel();
             this.dtTKCons = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LblMermaC = new System.Windows.Forms.Label();
+            this.LblPesoe = new System.Windows.Forms.Label();
             this.LblTextsacos = new System.Windows.Forms.Label();
             this.LblSacosSM = new System.Windows.Forms.Label();
             this.CbCertCons = new System.Windows.Forms.ComboBox();
@@ -199,6 +194,15 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.Tickets = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaRecibido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sacos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PesoE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Certificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EsFisico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cali = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Danio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PlEnvio.SuspendLayout();
             this.PlRecepcion.SuspendLayout();
             this.PlAlerta.SuspendLayout();
@@ -1674,9 +1678,9 @@
             this.PnConsolidar.Controls.Add(this.PlBuscar);
             this.PnConsolidar.Controls.Add(this.PnTKCons);
             this.PnConsolidar.Controls.Add(this.panel1);
-            this.PnConsolidar.Location = new System.Drawing.Point(1322, 133);
+            this.PnConsolidar.Location = new System.Drawing.Point(1323, 109);
             this.PnConsolidar.Name = "PnConsolidar";
-            this.PnConsolidar.Size = new System.Drawing.Size(451, 169);
+            this.PnConsolidar.Size = new System.Drawing.Size(451, 559);
             this.PnConsolidar.TabIndex = 12;
             this.PnConsolidar.Visible = false;
             // 
@@ -1687,7 +1691,7 @@
             this.PnTickets.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnTickets.Location = new System.Drawing.Point(0, 484);
             this.PnTickets.Name = "PnTickets";
-            this.PnTickets.Size = new System.Drawing.Size(434, 0);
+            this.PnTickets.Size = new System.Drawing.Size(451, 75);
             this.PnTickets.TabIndex = 5;
             // 
             // DtTickets
@@ -1709,8 +1713,10 @@
             this.DtTickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtTickets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Tickets,
+            this.FechaRecibido,
             this.Sacos,
             this.Peso,
+            this.PesoE,
             this.Certificacion,
             this.EsFisico,
             this.Cali,
@@ -1731,51 +1737,9 @@
             this.DtTickets.ReadOnly = true;
             this.DtTickets.RowHeadersVisible = false;
             this.DtTickets.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtTickets.Size = new System.Drawing.Size(434, 0);
+            this.DtTickets.Size = new System.Drawing.Size(451, 75);
             this.DtTickets.TabIndex = 0;
             this.DtTickets.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtTickets_CellDoubleClick);
-            // 
-            // Tickets
-            // 
-            this.Tickets.HeaderText = "Ticket";
-            this.Tickets.Name = "Tickets";
-            this.Tickets.ReadOnly = true;
-            // 
-            // Sacos
-            // 
-            this.Sacos.HeaderText = "Sacos";
-            this.Sacos.Name = "Sacos";
-            this.Sacos.ReadOnly = true;
-            // 
-            // Peso
-            // 
-            this.Peso.HeaderText = "Peso";
-            this.Peso.Name = "Peso";
-            this.Peso.ReadOnly = true;
-            // 
-            // Certificacion
-            // 
-            this.Certificacion.HeaderText = "Certificación";
-            this.Certificacion.Name = "Certificacion";
-            this.Certificacion.ReadOnly = true;
-            // 
-            // EsFisico
-            // 
-            this.EsFisico.HeaderText = "Estado Fisico";
-            this.EsFisico.Name = "EsFisico";
-            this.EsFisico.ReadOnly = true;
-            // 
-            // Cali
-            // 
-            this.Cali.HeaderText = "Calidad";
-            this.Cali.Name = "Cali";
-            this.Cali.ReadOnly = true;
-            // 
-            // Danio
-            // 
-            this.Danio.HeaderText = "Daño";
-            this.Danio.Name = "Danio";
-            this.Danio.ReadOnly = true;
             // 
             // PlBuscar
             // 
@@ -1785,7 +1749,7 @@
             this.PlBuscar.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlBuscar.Location = new System.Drawing.Point(0, 439);
             this.PlBuscar.Name = "PlBuscar";
-            this.PlBuscar.Size = new System.Drawing.Size(434, 45);
+            this.PlBuscar.Size = new System.Drawing.Size(451, 45);
             this.PlBuscar.TabIndex = 6;
             // 
             // TxtBuscar
@@ -1824,7 +1788,7 @@
             this.PnTKCons.Dock = System.Windows.Forms.DockStyle.Top;
             this.PnTKCons.Location = new System.Drawing.Point(0, 62);
             this.PnTKCons.Name = "PnTKCons";
-            this.PnTKCons.Size = new System.Drawing.Size(434, 377);
+            this.PnTKCons.Size = new System.Drawing.Size(451, 377);
             this.PnTKCons.TabIndex = 4;
             // 
             // dtTKCons
@@ -1859,13 +1823,15 @@
             this.dtTKCons.ReadOnly = true;
             this.dtTKCons.RowHeadersVisible = false;
             this.dtTKCons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtTKCons.Size = new System.Drawing.Size(434, 377);
+            this.dtTKCons.Size = new System.Drawing.Size(451, 377);
             this.dtTKCons.TabIndex = 0;
             this.dtTKCons.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtTKCons_CellDoubleClick);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.LblMermaC);
+            this.panel1.Controls.Add(this.LblPesoe);
             this.panel1.Controls.Add(this.LblTextsacos);
             this.panel1.Controls.Add(this.LblSacosSM);
             this.panel1.Controls.Add(this.CbCertCons);
@@ -1886,8 +1852,32 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(434, 62);
+            this.panel1.Size = new System.Drawing.Size(451, 62);
             this.panel1.TabIndex = 3;
+            // 
+            // LblMermaC
+            // 
+            this.LblMermaC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LblMermaC.AutoSize = true;
+            this.LblMermaC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblMermaC.Location = new System.Drawing.Point(159, 43);
+            this.LblMermaC.Name = "LblMermaC";
+            this.LblMermaC.Size = new System.Drawing.Size(23, 16);
+            this.LblMermaC.TabIndex = 144;
+            this.LblMermaC.Text = "00";
+            this.LblMermaC.Visible = false;
+            // 
+            // LblPesoe
+            // 
+            this.LblPesoe.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LblPesoe.AutoSize = true;
+            this.LblPesoe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPesoe.Location = new System.Drawing.Point(93, 43);
+            this.LblPesoe.Name = "LblPesoe";
+            this.LblPesoe.Size = new System.Drawing.Size(23, 16);
+            this.LblPesoe.TabIndex = 143;
+            this.LblPesoe.Text = "00";
+            this.LblPesoe.Visible = false;
             // 
             // LblTextsacos
             // 
@@ -1954,7 +1944,7 @@
             this.BtnConsolidar.FlatAppearance.BorderSize = 2;
             this.BtnConsolidar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnConsolidar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnConsolidar.Location = new System.Drawing.Point(224, 0);
+            this.BtnConsolidar.Location = new System.Drawing.Point(241, 0);
             this.BtnConsolidar.Name = "BtnConsolidar";
             this.BtnConsolidar.Size = new System.Drawing.Size(104, 62);
             this.BtnConsolidar.TabIndex = 25;
@@ -2065,7 +2055,7 @@
             // panel2
             // 
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(328, 0);
+            this.panel2.Location = new System.Drawing.Point(345, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(10, 62);
             this.panel2.TabIndex = 140;
@@ -2078,7 +2068,7 @@
             this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCancelar.ForeColor = System.Drawing.Color.White;
-            this.BtnCancelar.Location = new System.Drawing.Point(338, 0);
+            this.BtnCancelar.Location = new System.Drawing.Point(355, 0);
             this.BtnCancelar.Name = "BtnCancelar";
             this.BtnCancelar.Size = new System.Drawing.Size(96, 62);
             this.BtnCancelar.TabIndex = 24;
@@ -2299,6 +2289,60 @@
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
             // 
+            // Tickets
+            // 
+            this.Tickets.HeaderText = "Ticket";
+            this.Tickets.Name = "Tickets";
+            this.Tickets.ReadOnly = true;
+            // 
+            // FechaRecibido
+            // 
+            this.FechaRecibido.HeaderText = "Fecha Recibido";
+            this.FechaRecibido.Name = "FechaRecibido";
+            this.FechaRecibido.ReadOnly = true;
+            // 
+            // Sacos
+            // 
+            this.Sacos.HeaderText = "Sacos";
+            this.Sacos.Name = "Sacos";
+            this.Sacos.ReadOnly = true;
+            // 
+            // Peso
+            // 
+            this.Peso.HeaderText = "Peso";
+            this.Peso.Name = "Peso";
+            this.Peso.ReadOnly = true;
+            // 
+            // PesoE
+            // 
+            this.PesoE.HeaderText = "Peso Envio";
+            this.PesoE.Name = "PesoE";
+            this.PesoE.ReadOnly = true;
+            // 
+            // Certificacion
+            // 
+            this.Certificacion.HeaderText = "Certificación";
+            this.Certificacion.Name = "Certificacion";
+            this.Certificacion.ReadOnly = true;
+            // 
+            // EsFisico
+            // 
+            this.EsFisico.HeaderText = "Estado Fisico";
+            this.EsFisico.Name = "EsFisico";
+            this.EsFisico.ReadOnly = true;
+            // 
+            // Cali
+            // 
+            this.Cali.HeaderText = "Calidad";
+            this.Cali.Name = "Cali";
+            this.Cali.ReadOnly = true;
+            // 
+            // Danio
+            // 
+            this.Danio.HeaderText = "Daño";
+            this.Danio.Name = "Danio";
+            this.Danio.ReadOnly = true;
+            // 
             // Transferencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2455,13 +2499,6 @@
         private System.Windows.Forms.Panel PlBuscar;
         private System.Windows.Forms.TextBox TxtBuscar;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tickets;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sacos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Peso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Certificacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EsFisico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cali;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Danio;
         private System.Windows.Forms.PictureBox PbFiltro;
         private System.Windows.Forms.Panel PlFiltros;
         private System.Windows.Forms.Panel PlCerrar;
@@ -2515,5 +2552,16 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button BtnActualizar;
         private System.Windows.Forms.CheckBox ChUA;
+        private System.Windows.Forms.Label LblMermaC;
+        private System.Windows.Forms.Label LblPesoe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tickets;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaRecibido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sacos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Peso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PesoE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Certificacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EsFisico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cali;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Danio;
     }
 }

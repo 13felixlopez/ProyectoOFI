@@ -510,18 +510,18 @@ namespace ProyectoOFI.Datos
             {
                 Conexion.abrir();
                 SqlCommand cmd = new SqlCommand("BuscarFechaCP", Conexion.conectar);
-                cmd.CommandType=CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Desde", desde);
                 cmd.Parameters.AddWithValue("@Hasta", hasta);
                 cmd.Parameters.AddWithValue("@FInicio", FInicio);
                 cmd.Parameters.AddWithValue("@FFin", FFin);
-                SqlParameter contarparam = new SqlParameter("@Contar",SqlDbType.Int);
-                contarparam.Direction=ParameterDirection.Output;
+                SqlParameter contarparam = new SqlParameter("@Contar", SqlDbType.Int);
+                contarparam.Direction = ParameterDirection.Output;
                 cmd.Parameters.Add(contarparam);
 
-                SqlDataAdapter da=new SqlDataAdapter(cmd);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(dt);
-                Contar=Convert.ToInt32(contarparam.Value);
+                Contar = Convert.ToInt32(contarparam.Value);
                 contador = Contar;
             }
             catch (Exception ex)
@@ -547,7 +547,7 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Error al cargar los datos", "Error LotesExcelCP", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error al cargar los datos en LotesExcelCP ✖️✖️ "+ex.Message);
+                Log.Writeerror("Error al cargar los datos en LotesExcelCP ✖️✖️ " + ex.Message);
             }
             finally
             {
@@ -577,6 +577,24 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        
+        public void LotesRechazos(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("LotesRechazados", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos", "Error en Lotes Rechazados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al cargar los datos en lotesRechazados ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
     }
 }

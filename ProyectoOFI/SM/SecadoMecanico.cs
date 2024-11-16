@@ -1,6 +1,7 @@
 ﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
+using ProyectoOFI.Reportes;
 using System;
 using System.Data;
 using System.Drawing;
@@ -926,10 +927,12 @@ namespace ProyectoOFI.SM
         }
         private void PbExcel_Click(object sender, EventArgs e)
         {
-            FrmExcelSM excel = new FrmExcelSM();
-            excel.Dock = DockStyle.Fill;
-            excel.BringToFront();
-            excel.ShowDialog();
+            DSM funcion = new DSM();
+            DataTable dt = new DataTable();
+            funcion.ExcelSM(ref dt);
+            string Nombre = "Secado Mecánico ";
+            FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
+            LT.ShowDialog();
         }
         private void ParticionSM()
         {

@@ -85,7 +85,12 @@ namespace ProyectoOFI.SM
         private void ExportToExcel(DataGridView dataGridView, string fileName)
         {
             IWorkbook workbook = new XSSFWorkbook();
-            ISheet sheet = workbook.CreateSheet("Secado_Mecánico");
+            ISheet sheet = workbook.CreateSheet("Lotes");
+
+            // Crear el formato de fecha
+            ICellStyle dateCellStyle = workbook.CreateCellStyle();
+            short dateFormat = workbook.CreateDataFormat().GetFormat("yyyy-MM-dd"); // Formato de fecha
+            dateCellStyle.DataFormat = dateFormat;
 
             // Crear la fila de encabezado con columnas visibles
             IRow headerRow = sheet.CreateRow(0);
@@ -111,7 +116,23 @@ namespace ProyectoOFI.SM
                     if (column.Visible)
                     {
                         ICell cell = row.CreateCell(visibleColumnIndex++);
-                        cell.SetCellValue(gridViewRow.Cells[column.Index].Value?.ToString() ?? string.Empty);
+                        var cellValue = gridViewRow.Cells[column.Index].Value;
+
+                        if (cellValue is DateTime dateValue)
+                        {
+                            // Formatear como fecha
+                            cell.SetCellValue(dateValue);
+                            cell.CellStyle = dateCellStyle;
+                        }
+                        else if (decimal.TryParse(cellValue?.ToString(), out decimal numericValue))
+                        {
+                            // Formatear como número
+                            cell.SetCellValue((double)numericValue);
+                        }
+                        else
+                        {
+                            cell.SetCellValue(cellValue?.ToString() ?? string.Empty);
+                        }
                     }
                 }
             }

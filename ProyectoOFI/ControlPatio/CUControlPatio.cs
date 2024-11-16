@@ -1,6 +1,7 @@
 ﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
+using ProyectoOFI.Reportes;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -509,6 +510,13 @@ namespace ProyectoOFI.ControlPatio
                     kilos = kilos / 46;
                     LblQQs.Text = Math.Round(kilos, 2).ToString();
                     Proceso = row["Proceso SN"].ToString();
+                    string nombrecolumna = "Cliente";
+                    int indice = dtInventariocp.Columns[nombrecolumna].Index;
+                    LblCliente.Text = dtInventariocp.SelectedCells[indice].Value.ToString();
+
+                    string nombrecolumna2 = "Tipo Compra";
+                    int indice2 = dtInventariocp.Columns[nombrecolumna2].Index;
+                    LblTCompra.Text = dtInventariocp.SelectedCells[indice2].Value.ToString();
                 }
                 else
                 {
@@ -1221,10 +1229,12 @@ namespace ProyectoOFI.ControlPatio
         }
         private void PbExcel_Click(object sender, EventArgs e)
         {
-            FrmExcelCP excel = new FrmExcelCP();
-            excel.Dock = DockStyle.Fill;
-            excel.BringToFront();
-            excel.ShowDialog();
+            DControlPatio funcion = new DControlPatio();
+            DataTable dt = new DataTable();
+            funcion.LotesExcelCP(ref dt);
+            string Nombre = "Control de Patio ";
+            FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
+            LT.ShowDialog();
         }
         private void BtnEnvSM_Click(object sender, EventArgs e)
         {
@@ -1372,6 +1382,16 @@ namespace ProyectoOFI.ControlPatio
                 BuscarTk();
                 ReiniciarPaginado();
             }
+        }
+
+        private void BtnRechazos_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            DControlPatio Cp= new DControlPatio();
+            Cp.LotesRechazos(ref dt);
+            string Nombre = "Lotes Rechazados ";
+            FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
+            LT.ShowDialog();
         }
 
         private bool validarEnvio()

@@ -1,6 +1,7 @@
 ﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
+using ProyectoOFI.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -656,11 +657,11 @@ namespace ProyectoOFI.Recepcion
         }
         private void cbEsFisico_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbEstadoFisico.Text = (cbEsFisico.Text);
+            //cbEstadoFisico.Text = (cbEsFisico.Text);
         }
         private void cbCalidadE_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbCalidad.Text = cbCalidadE.Text;
+            //cbCalidad.Text = cbCalidadE.Text;
         }
         private void nudSacosE_ValueChanged(object sender, EventArgs e)
         {
@@ -668,7 +669,7 @@ namespace ProyectoOFI.Recepcion
         }
         private void cbDanioE_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbDaño.Text = cbDanioE.Text;
+            //cbDaño.Text = cbDanioE.Text;
         }
         //Ordenamientos
         private void OrdenarDatos()
@@ -1611,10 +1612,12 @@ namespace ProyectoOFI.Recepcion
         private void PbExcel_Click(object sender, EventArgs e)
         {
             //AbrirFrm(new FrmExportExcel());
-            FrmExportExcel excel = new FrmExportExcel();
-            excel.Dock = DockStyle.Fill;
-            excel.BringToFront();
-            excel.ShowDialog();
+            DRecepcion funcion = new DRecepcion();
+            DataTable dt = new DataTable();
+            funcion.MostrarLotesExcel(ref dt);
+            string Nombre = "Transferencias ";
+            FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
+            LT.ShowDialog();
         }
         private void CbBuscador_SelectedIndexChanged(object sender, EventArgs e)
         {

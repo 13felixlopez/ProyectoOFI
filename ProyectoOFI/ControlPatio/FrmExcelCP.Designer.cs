@@ -64,7 +64,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 773);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1834, 15);
+            this.panel1.Size = new System.Drawing.Size(1386, 15);
             this.panel1.TabIndex = 32;
             // 
             // LblFiltros
@@ -215,7 +215,7 @@
             this.plOpciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.plOpciones.Location = new System.Drawing.Point(0, 65);
             this.plOpciones.Name = "plOpciones";
-            this.plOpciones.Size = new System.Drawing.Size(1834, 62);
+            this.plOpciones.Size = new System.Drawing.Size(1386, 62);
             this.plOpciones.TabIndex = 29;
             // 
             // PbExcel
@@ -250,7 +250,7 @@
             this.LblTitulo.ForeColor = System.Drawing.Color.White;
             this.LblTitulo.Location = new System.Drawing.Point(100, 0);
             this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(1659, 65);
+            this.LblTitulo.Size = new System.Drawing.Size(1211, 65);
             this.LblTitulo.TabIndex = 2;
             this.LblTitulo.Text = "Exportar a Excel";
             this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -264,7 +264,7 @@
             this.PlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlTitulo.Location = new System.Drawing.Point(0, 0);
             this.PlTitulo.Name = "PlTitulo";
-            this.PlTitulo.Size = new System.Drawing.Size(1834, 65);
+            this.PlTitulo.Size = new System.Drawing.Size(1386, 65);
             this.PlTitulo.TabIndex = 28;
             // 
             // BtnCerrar
@@ -273,7 +273,7 @@
             this.BtnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrar.Location = new System.Drawing.Point(1759, 0);
+            this.BtnCerrar.Location = new System.Drawing.Point(1311, 0);
             this.BtnCerrar.Name = "BtnCerrar";
             this.BtnCerrar.Size = new System.Drawing.Size(75, 65);
             this.BtnCerrar.TabIndex = 1;
@@ -316,7 +316,7 @@
             this.DtLotes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DtLotes.ShowCellToolTips = false;
             this.DtLotes.ShowEditingIcon = false;
-            this.DtLotes.Size = new System.Drawing.Size(1834, 646);
+            this.DtLotes.Size = new System.Drawing.Size(1386, 646);
             this.DtLotes.TabIndex = 30;
             this.DtLotes.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.DtLotes_CellPainting);
             // 
@@ -324,7 +324,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1834, 788);
+            this.ClientSize = new System.Drawing.Size(1386, 788);
             this.Controls.Add(this.PlFiltros);
             this.Controls.Add(this.DtLotes);
             this.Controls.Add(this.panel1);

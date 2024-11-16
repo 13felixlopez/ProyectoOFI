@@ -478,6 +478,7 @@ namespace ProyectoOFI.Analisis
             Casc = 100 - Bto;
             LblCascarilla.Text = Casc.ToString();
             LblTotal.Text = (Casc + Bto).ToString();
+            CalcularDesmD();
         }
 
         private void TxtDesmA_TextChanged(object sender, EventArgs e)
@@ -579,7 +580,7 @@ namespace ProyectoOFI.Analisis
             }
 
             CalcularDesmD();
-            LblDesmCP.Text = Math.Round((Bto * DesmC) / 100, 2).ToString() + "%";
+            LblDesmDP.Text = Math.Round((Bto * DesmC) / 100, 2).ToString() + "%";
         }
 
         private void TxtExp_TextChanged(object sender, EventArgs e)
@@ -621,7 +622,7 @@ namespace ProyectoOFI.Analisis
 
             double DesmD = Math.Round(100 - Exp - DesmA - DesmC, 2);
             LblDesmC.Text = DesmD.ToString();
-            LblDesmDP.Text = Math.Round((Bto * DesmD) / 100, 2).ToString() + "%";
+            LblDesmCP.Text = Math.Round((Bto * DesmD) / 100, 2).ToString() + "%";
         }
 
         private void BtnCerrarPldatos_Click(object sender, EventArgs e)
@@ -1021,8 +1022,8 @@ namespace ProyectoOFI.Analisis
                     parametros.Humedad = TxtHumedad.Text;
                     parametros.Exp = double.Parse(TxtExp.Text);
                     parametros.DesmA = double.Parse(TxtDesmA.Text);
-                    parametros.DesmC = double.Parse(TxtDesmD.Text);
-                    parametros.DesmD = double.Parse(LblDesmC.Text);
+                    parametros.DesmC = double.Parse(LblDesmC.Text);
+                    parametros.DesmD = double.Parse(TxtDesmD.Text);
                     parametros.Score = int.Parse(TxtScore.Text);
                     parametros.Tasa = CbTasa.Text;
                     parametros.GradoCalidad = CbGrupoCalidad.Text;
@@ -1155,8 +1156,8 @@ namespace ProyectoOFI.Analisis
                     parametros.Humedad = TxtHumedad.Text;
                     parametros.Exp = double.Parse(TxtExp.Text);
                     parametros.DesmA = double.Parse(TxtDesmA.Text);
-                    parametros.DesmC = double.Parse(TxtDesmD.Text);
-                    parametros.DesmD = double.Parse(LblDesmC.Text);
+                    parametros.DesmC = double.Parse(LblDesmC.Text);
+                    parametros.DesmD = double.Parse(TxtDesmD.Text);
                     parametros.Score = int.Parse(TxtScore.Text);
                     parametros.Tasa = CbTasa.Text;
                     parametros.GradoCalidad = CbGrupoCalidad.Text;
@@ -1221,10 +1222,10 @@ namespace ProyectoOFI.Analisis
                 if (!string.IsNullOrEmpty(texto))
                 {
                     // Muestra el mensaje en pantalla
-                   // MessageBox.Show(texto, "Envio de Correo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // MessageBox.Show(texto, "Envio de Correo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Envía el mensaje por correo
-                   await EnviarCorreoNotificacion(texto);
+                    await EnviarCorreoNotificacion(texto);
                 }
             }
             catch (Exception ex)
@@ -1254,7 +1255,7 @@ namespace ProyectoOFI.Analisis
                     subject: asunto,
                     body: cuerpo,
                     destinatarioCorreo: new List<string> { "lfelixlopez732@gmail.com" });
-               // MessageBox.Show("Correo enviado exitosamente.", "Envio de Correo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // MessageBox.Show("Correo enviado exitosamente.", "Envio de Correo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -1424,21 +1425,21 @@ namespace ProyectoOFI.Analisis
                     // Asignar el valor de Cat.DesmC
                     if (row["DesmC"] != DBNull.Value && row["DesmC"].ToString() != null)
                     {
-                        TxtDesmD.Text = row["DesmC"].ToString();
+                        LblDesmC.Text = row["DesmC"].ToString();
                     }
                     else
                     {
-                        TxtDesmD.Clear();
+                        LblDesmC.Text = "--";
                     }
 
                     // Asignar el valor de Cat.DesmD
                     if (row["DesmD"] != DBNull.Value && row["DesmD"].ToString() != null)
                     {
-                        LblDesmC.Text = row["DesmD"].ToString();
+                        TxtDesmD.Text = row["DesmD"].ToString();
                     }
                     else
                     {
-                        LblDesmC.Text = "--";
+                        TxtDesmD.Clear();
                     }
 
                     // Asignar el valor de Cat.DesmAP

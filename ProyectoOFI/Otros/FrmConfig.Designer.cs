@@ -56,6 +56,7 @@
             this.BtnParos = new System.Windows.Forms.Button();
             this.Gbcatacion = new System.Windows.Forms.GroupBox();
             this.BtnGCalidades = new System.Windows.Forms.Button();
+            this.BtnTasas = new System.Windows.Forms.Button();
             this.BtnVariedad = new System.Windows.Forms.Button();
             this.GbAlmacen = new System.Windows.Forms.GroupBox();
             this.BtnUbicacion = new System.Windows.Forms.Button();
@@ -76,7 +77,7 @@
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.BtnCosechas = new System.Windows.Forms.Button();
-            this.BtnTasas = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.PlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.GbTransfer.SuspendLayout();
@@ -87,6 +88,7 @@
             this.PlCosecha.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtCosechas)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PlTitulo
@@ -148,7 +150,7 @@
             this.GbTransfer.Controls.Add(this.BtnAcopio);
             this.GbTransfer.Controls.Add(this.BtnAreaS);
             this.GbTransfer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbTransfer.Location = new System.Drawing.Point(12, 71);
+            this.GbTransfer.Location = new System.Drawing.Point(3, 3);
             this.GbTransfer.Name = "GbTransfer";
             this.GbTransfer.Size = new System.Drawing.Size(435, 428);
             this.GbTransfer.TabIndex = 23;
@@ -295,7 +297,7 @@
             this.GbControlPatio.Controls.Add(this.BtnPatio);
             this.GbControlPatio.Controls.Add(this.BtnUbicacionesPatio);
             this.GbControlPatio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbControlPatio.Location = new System.Drawing.Point(453, 71);
+            this.GbControlPatio.Location = new System.Drawing.Point(444, 276);
             this.GbControlPatio.Name = "GbControlPatio";
             this.GbControlPatio.Size = new System.Drawing.Size(251, 159);
             this.GbControlPatio.TabIndex = 24;
@@ -339,7 +341,7 @@
             this.GbSM.Controls.Add(this.BtnTurnos);
             this.GbSM.Controls.Add(this.BtnParos);
             this.GbSM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbSM.Location = new System.Drawing.Point(453, 232);
+            this.GbSM.Location = new System.Drawing.Point(798, 3);
             this.GbSM.Name = "GbSM";
             this.GbSM.Size = new System.Drawing.Size(251, 267);
             this.GbSM.TabIndex = 24;
@@ -395,9 +397,9 @@
             this.Gbcatacion.Controls.Add(this.BtnTasas);
             this.Gbcatacion.Controls.Add(this.BtnVariedad);
             this.Gbcatacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Gbcatacion.Location = new System.Drawing.Point(710, 71);
+            this.Gbcatacion.Location = new System.Drawing.Point(3, 437);
             this.Gbcatacion.Name = "Gbcatacion";
-            this.Gbcatacion.Size = new System.Drawing.Size(318, 159);
+            this.Gbcatacion.Size = new System.Drawing.Size(360, 159);
             this.Gbcatacion.TabIndex = 24;
             this.Gbcatacion.TabStop = false;
             this.Gbcatacion.Text = "Catación";
@@ -418,6 +420,21 @@
             this.BtnGCalidades.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnGCalidades.UseVisualStyleBackColor = true;
             this.BtnGCalidades.Click += new System.EventHandler(this.BtnGCalidades_Click);
+            // 
+            // BtnTasas
+            // 
+            this.BtnTasas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnTasas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTasas.Image = global::ProyectoOFI.Properties.Resources.Variedad;
+            this.BtnTasas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTasas.Location = new System.Drawing.Point(176, 32);
+            this.BtnTasas.Name = "BtnTasas";
+            this.BtnTasas.Size = new System.Drawing.Size(158, 55);
+            this.BtnTasas.TabIndex = 13;
+            this.BtnTasas.Text = "Tasas";
+            this.BtnTasas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnTasas.UseVisualStyleBackColor = true;
+            this.BtnTasas.Click += new System.EventHandler(this.BtnTasas_Click);
             // 
             // BtnVariedad
             // 
@@ -443,7 +460,7 @@
             this.GbAlmacen.Controls.Add(this.BtnTurnosAl);
             this.GbAlmacen.Controls.Add(this.BtnBodegas);
             this.GbAlmacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbAlmacen.Location = new System.Drawing.Point(710, 232);
+            this.GbAlmacen.Location = new System.Drawing.Point(444, 3);
             this.GbAlmacen.Name = "GbAlmacen";
             this.GbAlmacen.Size = new System.Drawing.Size(348, 267);
             this.GbAlmacen.TabIndex = 25;
@@ -700,7 +717,7 @@
             this.BtnCosechas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.BtnCosechas.Image = global::ProyectoOFI.Properties.Resources.calendar;
             this.BtnCosechas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCosechas.Location = new System.Drawing.Point(488, 505);
+            this.BtnCosechas.Location = new System.Drawing.Point(798, 276);
             this.BtnCosechas.Name = "BtnCosechas";
             this.BtnCosechas.Size = new System.Drawing.Size(136, 57);
             this.BtnCosechas.TabIndex = 26;
@@ -710,33 +727,29 @@
             this.BtnCosechas.Visible = false;
             this.BtnCosechas.Click += new System.EventHandler(this.BtnCosechas_Click);
             // 
-            // BtnTasas
+            // flowLayoutPanel1
             // 
-            this.BtnTasas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnTasas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnTasas.Image = global::ProyectoOFI.Properties.Resources.Variedad;
-            this.BtnTasas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnTasas.Location = new System.Drawing.Point(176, 32);
-            this.BtnTasas.Name = "BtnTasas";
-            this.BtnTasas.Size = new System.Drawing.Size(158, 55);
-            this.BtnTasas.TabIndex = 13;
-            this.BtnTasas.Text = "Tasas";
-            this.BtnTasas.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnTasas.UseVisualStyleBackColor = true;
-            this.BtnTasas.Click += new System.EventHandler(this.BtnTasas_Click);
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Controls.Add(this.GbTransfer);
+            this.flowLayoutPanel1.Controls.Add(this.Gbcatacion);
+            this.flowLayoutPanel1.Controls.Add(this.GbAlmacen);
+            this.flowLayoutPanel1.Controls.Add(this.GbControlPatio);
+            this.flowLayoutPanel1.Controls.Add(this.GbSM);
+            this.flowLayoutPanel1.Controls.Add(this.BtnCosechas);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 65);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1070, 521);
+            this.flowLayoutPanel1.TabIndex = 28;
             // 
             // FrmConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 586);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.PlCosecha);
-            this.Controls.Add(this.BtnCosechas);
-            this.Controls.Add(this.GbAlmacen);
-            this.Controls.Add(this.GbSM);
-            this.Controls.Add(this.Gbcatacion);
-            this.Controls.Add(this.GbControlPatio);
-            this.Controls.Add(this.GbTransfer);
             this.Controls.Add(this.PlTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -754,6 +767,7 @@
             this.PlCosecha.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtCosechas)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -805,5 +819,6 @@
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.Button BtnMaterial;
         private System.Windows.Forms.Button BtnTasas;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

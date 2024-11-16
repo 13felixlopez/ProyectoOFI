@@ -10,6 +10,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using HorizontalAlignment = NPOI.SS.UserModel.HorizontalAlignment;
 
 namespace ProyectoOFI.Recepcion
 {
@@ -20,7 +21,7 @@ namespace ProyectoOFI.Recepcion
         {
             InitializeComponent();
             AdjustFormSize();
-           // ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            // ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
             MostrarLotes();
         }
         private void AdjustFormSize()
@@ -76,7 +77,19 @@ namespace ProyectoOFI.Recepcion
         private void ExportToExcel(DataGridView dataGridView, string fileName)
         {
             IWorkbook workbook = new XSSFWorkbook();
-            ISheet sheet = workbook.CreateSheet("No_Asignados");
+            ISheet sheet = workbook.CreateSheet("Lotes");
+
+            // Crear estilo para el encabezado
+            ICellStyle headerStyle = workbook.CreateCellStyle();
+            headerStyle.Alignment = HorizontalAlignment.Center;
+            headerStyle.VerticalAlignment = VerticalAlignment.Center;
+            headerStyle.FillForegroundColor = IndexedColors.LightBlue.Index;
+            headerStyle.FillPattern = FillPattern.SolidForeground;
+
+            // Crear fuente en negrita para el encabezado
+            IFont headerFont = workbook.CreateFont();
+            headerFont.IsBold = true;
+            headerStyle.SetFont(headerFont);
 
             // Crear la fila de encabezado con columnas visibles
             IRow headerRow = sheet.CreateRow(0);
@@ -87,6 +100,7 @@ namespace ProyectoOFI.Recepcion
                 {
                     ICell cell = headerRow.CreateCell(visibleColumnIndex++);
                     cell.SetCellValue(column.HeaderText);
+                    cell.CellStyle = headerStyle; // Aplicar estilo al encabezado
                 }
             }
 
@@ -102,9 +116,27 @@ namespace ProyectoOFI.Recepcion
                     if (column.Visible)
                     {
                         ICell cell = row.CreateCell(visibleColumnIndex++);
-                        cell.SetCellValue(gridViewRow.Cells[column.Index].Value?.ToString() ?? string.Empty);
+
+                        // Verificar si la celda contiene una fecha y formatearla
+                        if (gridViewRow.Cells[column.Index].Value is DateTime dateValue)
+                        {
+                            ICellStyle dateStyle = workbook.CreateCellStyle();
+                            dateStyle.DataFormat = workbook.CreateDataFormat().GetFormat("yyyy-MM-dd");
+                            cell.SetCellValue(dateValue);
+                            cell.CellStyle = dateStyle;
+                        }
+                        else
+                        {
+                            cell.SetCellValue(gridViewRow.Cells[column.Index].Value?.ToString() ?? string.Empty);
+                        }
                     }
                 }
+            }
+
+            // Ajustar el ancho de las columnas automáticamente
+            for (int i = 0; i < visibleColumnIndex; i++)
+            {
+                sheet.AutoSizeColumn(i);
             }
 
             // Guardar el archivo Excel
@@ -113,7 +145,6 @@ namespace ProyectoOFI.Recepcion
                 workbook.Write(stream);
             }
         }
-
         private void SaveExcelFile(DataGridView dataGridView, string defaultFileName)
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioCat = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.CbBuscador = new System.Windows.Forms.ComboBox();
@@ -59,6 +59,8 @@
             this.PbCarga = new System.Windows.Forms.PictureBox();
             this.PLDatos = new System.Windows.Forms.Panel();
             this.PlCatacion = new System.Windows.Forms.Panel();
+            this.CbTasa = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.CbGrupoCalidad = new System.Windows.Forms.ComboBox();
             this.BtnActivar = new System.Windows.Forms.Button();
             this.ChbAnalizado = new System.Windows.Forms.CheckBox();
@@ -172,8 +174,6 @@
             this.LblFiltros = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.BtnFiltrar = new System.Windows.Forms.Button();
-            this.CbTasa = new System.Windows.Forms.ComboBox();
-            this.label24 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioCat)).BeginInit();
             this.plOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).BeginInit();
@@ -203,23 +203,23 @@
             this.dtInventarioCat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioCat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioCat.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtInventarioCat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioCat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioCat.Location = new System.Drawing.Point(0, 62);
             this.dtInventarioCat.Name = "dtInventarioCat";
             this.dtInventarioCat.ReadOnly = true;
             this.dtInventarioCat.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtInventarioCat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioCat.ShowCellToolTips = false;
             this.dtInventarioCat.ShowEditingIcon = false;
@@ -580,14 +580,15 @@
             this.PLDatos.Controls.Add(this.PlDetalleCompra);
             this.PLDatos.Controls.Add(this.PlDatosTk);
             this.PLDatos.Controls.Add(this.PlCerrarDetalle);
-            this.PLDatos.Location = new System.Drawing.Point(3, 62);
+            this.PLDatos.Location = new System.Drawing.Point(3, 0);
             this.PLDatos.Name = "PLDatos";
-            this.PLDatos.Size = new System.Drawing.Size(1178, 547);
+            this.PLDatos.Size = new System.Drawing.Size(1156, 556);
             this.PLDatos.TabIndex = 16;
             this.PLDatos.Visible = false;
             // 
             // PlCatacion
             // 
+            this.PlCatacion.AutoScroll = true;
             this.PlCatacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.PlCatacion.Controls.Add(this.CbTasa);
             this.PlCatacion.Controls.Add(this.label24);
@@ -637,8 +638,26 @@
             this.PlCatacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlCatacion.Location = new System.Drawing.Point(0, 332);
             this.PlCatacion.Name = "PlCatacion";
-            this.PlCatacion.Size = new System.Drawing.Size(1159, 342);
+            this.PlCatacion.Size = new System.Drawing.Size(1137, 342);
             this.PlCatacion.TabIndex = 17;
+            // 
+            // CbTasa
+            // 
+            this.CbTasa.FormattingEnabled = true;
+            this.CbTasa.Location = new System.Drawing.Point(883, 163);
+            this.CbTasa.Name = "CbTasa";
+            this.CbTasa.Size = new System.Drawing.Size(208, 24);
+            this.CbTasa.TabIndex = 14;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(826, 168);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(46, 16);
+            this.label24.TabIndex = 13;
+            this.label24.Text = "Taza:";
             // 
             // CbGrupoCalidad
             // 
@@ -837,7 +856,7 @@
             // 
             this.LblDesmDP.AutoSize = true;
             this.LblDesmDP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDesmDP.Location = new System.Drawing.Point(1008, 212);
+            this.LblDesmDP.Location = new System.Drawing.Point(673, 209);
             this.LblDesmDP.Name = "LblDesmDP";
             this.LblDesmDP.Size = new System.Drawing.Size(28, 16);
             this.LblDesmDP.TabIndex = 0;
@@ -847,7 +866,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(890, 212);
+            this.label30.Location = new System.Drawing.Point(555, 209);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(112, 16);
             this.label30.TabIndex = 0;
@@ -885,7 +904,7 @@
             // 
             this.LblDesmCP.AutoSize = true;
             this.LblDesmCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDesmCP.Location = new System.Drawing.Point(689, 212);
+            this.LblDesmCP.Location = new System.Drawing.Point(1012, 209);
             this.LblDesmCP.Name = "LblDesmCP";
             this.LblDesmCP.Size = new System.Drawing.Size(28, 16);
             this.LblDesmCP.TabIndex = 0;
@@ -895,7 +914,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(568, 212);
+            this.label29.Location = new System.Drawing.Point(891, 209);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(111, 16);
             this.label29.TabIndex = 0;
@@ -1087,7 +1106,7 @@
             this.PlDetalleCompra.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlDetalleCompra.Location = new System.Drawing.Point(0, 145);
             this.PlDetalleCompra.Name = "PlDetalleCompra";
-            this.PlDetalleCompra.Size = new System.Drawing.Size(1159, 187);
+            this.PlDetalleCompra.Size = new System.Drawing.Size(1137, 187);
             this.PlDetalleCompra.TabIndex = 18;
             // 
             // label50
@@ -1416,7 +1435,7 @@
             this.PlDatosTk.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlDatosTk.Location = new System.Drawing.Point(0, 48);
             this.PlDatosTk.Name = "PlDatosTk";
-            this.PlDatosTk.Size = new System.Drawing.Size(1159, 97);
+            this.PlDatosTk.Size = new System.Drawing.Size(1137, 97);
             this.PlDatosTk.TabIndex = 0;
             // 
             // LblProcedencia
@@ -1628,7 +1647,7 @@
             this.PlCerrarDetalle.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlCerrarDetalle.Location = new System.Drawing.Point(0, 0);
             this.PlCerrarDetalle.Name = "PlCerrarDetalle";
-            this.PlCerrarDetalle.Size = new System.Drawing.Size(1159, 48);
+            this.PlCerrarDetalle.Size = new System.Drawing.Size(1137, 48);
             this.PlCerrarDetalle.TabIndex = 3;
             // 
             // BtnCambiarTK
@@ -1637,7 +1656,7 @@
             this.BtnCambiarTK.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnCambiarTK.Enabled = false;
             this.BtnCambiarTK.Image = global::ProyectoOFI.Properties.Resources.icons8_actualizar;
-            this.BtnCambiarTK.Location = new System.Drawing.Point(1005, 0);
+            this.BtnCambiarTK.Location = new System.Drawing.Point(983, 0);
             this.BtnCambiarTK.Name = "BtnCambiarTK";
             this.BtnCambiarTK.Size = new System.Drawing.Size(75, 44);
             this.BtnCambiarTK.TabIndex = 5;
@@ -1651,7 +1670,7 @@
             this.LblTituloCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTituloCP.Location = new System.Drawing.Point(0, 0);
             this.LblTituloCP.Name = "LblTituloCP";
-            this.LblTituloCP.Size = new System.Drawing.Size(1080, 44);
+            this.LblTituloCP.Size = new System.Drawing.Size(1058, 44);
             this.LblTituloCP.TabIndex = 4;
             this.LblTituloCP.Text = "Editar Análisis";
             this.LblTituloCP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1661,7 +1680,7 @@
             this.BtnCerrarPldatos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnCerrarPldatos.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnCerrarPldatos.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrarPldatos.Location = new System.Drawing.Point(1080, 0);
+            this.BtnCerrarPldatos.Location = new System.Drawing.Point(1058, 0);
             this.BtnCerrarPldatos.Name = "BtnCerrarPldatos";
             this.BtnCerrarPldatos.Size = new System.Drawing.Size(75, 44);
             this.BtnCerrarPldatos.TabIndex = 3;
@@ -1840,24 +1859,6 @@
             this.BtnFiltrar.Text = "Aplicar Filtro";
             this.BtnFiltrar.UseVisualStyleBackColor = true;
             this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
-            // 
-            // CbTasa
-            // 
-            this.CbTasa.FormattingEnabled = true;
-            this.CbTasa.Location = new System.Drawing.Point(883, 163);
-            this.CbTasa.Name = "CbTasa";
-            this.CbTasa.Size = new System.Drawing.Size(208, 24);
-            this.CbTasa.TabIndex = 14;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(826, 168);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(47, 16);
-            this.label24.TabIndex = 13;
-            this.label24.Text = "Tasa:";
             // 
             // Catacion
             // 

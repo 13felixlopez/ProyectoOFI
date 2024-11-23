@@ -483,6 +483,13 @@ namespace ProyectoOFI.SM
             {
                 MostrarDatos(lblP4);
             }
+            else
+            {
+                Limpiar();
+                DSM DV = new DSM();
+                DV.CargarTk(cbTicketP);
+                CargarDatos();
+            }
         }
 
         private void btnP5_Click(object sender, EventArgs e)
@@ -753,7 +760,7 @@ namespace ProyectoOFI.SM
                 parametros.TurnoV = int.Parse(cbTurnoPOA.SelectedValue.ToString());
                 parametros.POA1 = int.Parse(txtTolvaPOA.Text.Trim());
                 //parametros.POA2 = int.Parse(CbPOA2.Text.Trim());
-                parametros.DigitadorV = Login.NombreA;
+                parametros.DigitadorV = cbOperadorPOA.Text;
                 //parametros.IDV = "";
                 if (funcion.CargaDirectaSF(parametros) == true)
                 {
@@ -840,7 +847,7 @@ namespace ProyectoOFI.SM
                 parametros.HoraFinG = DateTime.Parse(DtHoraFin1.Value.ToString());
                 parametros.Duracion = DateTime.Parse(LblDuracionG.Text);
                 parametros.Humedad = double.Parse(TxtHumedad.Text);
-                parametros.DigitadorG = Login.NombreA;
+                parametros.DigitadorG = CbOperadores.Text;
                 parametros.IdPOA = IdPOA;
                 if (funcion.InsertarGuardiola(parametros) == true)
                 {

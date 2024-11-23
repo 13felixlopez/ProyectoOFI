@@ -603,6 +603,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_información_480 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-información-480", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_magazine_50 {
             get {
                 object obj = ResourceManager.GetObject("icons8-magazine-50", resourceCulture);

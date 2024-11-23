@@ -559,7 +559,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("Select COUNT(P.Ticket) from Recepcion Rec INNER JOIN PreSecado Pre ON Rec.Ticket=Pre.Ticket INNER JOIN POA P ON Pre.IDPreSecado=p.IDPreSecado where Estado='ACTIVO' AND ProcesoSF='PS' AND Cosecha = ( SELECT Cosecha FROM Cosecha WHERE IdCosecha = ( SELECT MAX ( IdCosecha ) FROM Cosecha ))", Conexion.conectar);
+                SqlCommand cmd = new SqlCommand("Select COUNT(P.Ticket) from Recepcion Rec INNER JOIN PreSecado Pre ON Rec.Ticket=Pre.Ticket INNER JOIN POA P ON Pre.IDPreSecado=p.IDPreSecado where Estado='ACTIVO' AND ProcesoSF in ('PS','Analizado') AND Cosecha = ( SELECT Cosecha FROM Cosecha WHERE IdCosecha = ( SELECT MAX ( IdCosecha ) FROM Cosecha ))", Conexion.conectar);
                 Lote = Convert.ToDouble(cmd.ExecuteScalar());
             }
             catch (Exception ex)
@@ -597,7 +597,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("Select COUNT(P.Ticket) from Recepcion Rec INNER JOIN PreSecado Pre ON Rec.Ticket=Pre.Ticket INNER JOIN POA P ON Pre.IDPreSecado=p.IDPreSecado where Estado='ACTIVO' AND ProcesoSF in ('Envio','Envío','Almacén','Alamcen','Analizado') AND Cosecha = ( SELECT Cosecha FROM Cosecha WHERE IdCosecha = ( SELECT MAX ( IdCosecha ) FROM Cosecha ))", Conexion.conectar);
+                SqlCommand cmd = new SqlCommand("Select COUNT(P.Ticket) from Recepcion Rec INNER JOIN PreSecado Pre ON Rec.Ticket=Pre.Ticket INNER JOIN POA P ON Pre.IDPreSecado=p.IDPreSecado where Estado='ACTIVO' AND ProcesoSF in ('Envio','Envío','Almacén','Almacen') AND Cosecha = ( SELECT Cosecha FROM Cosecha WHERE IdCosecha = ( SELECT MAX ( IdCosecha ) FROM Cosecha ))", Conexion.conectar);
                 Lote = Convert.ToDouble(cmd.ExecuteScalar());
             }
             catch (Exception ex)

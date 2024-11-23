@@ -816,6 +816,16 @@ namespace ProyectoOFI.Almacen
             PlSplit.Visible = false;
         }
 
+        private void BtnReporte_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            DAlmacen funcion = new DAlmacen();
+            funcion.ReporteAlmacen(ref dt);
+            string Nombre = "Reporte Almacén";
+            FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
+            LT.ShowDialog();
+        }
+
         private void Activar()
         {
             DtpFAlmacen.Enabled = true;

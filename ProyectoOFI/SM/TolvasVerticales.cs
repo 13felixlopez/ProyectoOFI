@@ -355,7 +355,7 @@ namespace ProyectoOFI.SM
             parametros.TurnoPV = Convert.ToInt32(cbTurnoPV.SelectedValue);
             parametros.FRecibidoPV = Convert.ToDateTime(dtFechaPV.Value);
             parametros.HumedadPV = Convert.ToDouble(txtHumedadPV.Text);
-            parametros.DigitadorPOA = Login.NombreA;
+            parametros.DigitadorPOA = cbOperadorPV.Text;
             if (funcion.InsertarPOAV(parametros) == true)
             {
                 MessageBox.Show("Carga realizada con exito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -420,7 +420,7 @@ namespace ProyectoOFI.SM
             parametros.HrInicoV = Convert.ToDateTime(dtHorainicioV.Text);
             parametros.HrFin = Convert.ToDateTime(dtHoraFinV.Text);
             parametros.Duracion = txtDuracionV.Text;
-            parametros.DigitadorV = Login.NombreA;
+            parametros.DigitadorV = cbOperadorV.Text;
             if (funcion.InsertarVertical(parametros) == true)
             {
                 //string TK = cbTicketV.Text;

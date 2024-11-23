@@ -27,7 +27,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@EstadoFisico", parametros.IdEstFis);
                 cmd.Parameters.AddWithValue("@Calidad", parametros.IdCalidad);
                 cmd.Parameters.AddWithValue("@Danio", parametros.IdDaño);
-                cmd.Parameters.AddWithValue("@SacosE", parametros.Sacos);
+                cmd.Parameters.AddWithValue("@Sacos", parametros.Sacos);
                 cmd.Parameters.AddWithValue("@Peso", parametros.Peso);
                 cmd.Parameters.AddWithValue("@Merma", parametros.Merma);
                 cmd.Parameters.AddWithValue("@Recibidor", parametros.IdRecibidor);
@@ -47,7 +47,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@EsFisico", parametro.IdEsFisico);
                 cmd.Parameters.AddWithValue("@CalidadE", parametro.IdCalidadE);
                 cmd.Parameters.AddWithValue("@DanioE", parametro.IdDanioE);
-                cmd.Parameters.AddWithValue("@Sacos", parametro.SacosE);
+                cmd.Parameters.AddWithValue("@SacosE", parametro.SacosE);
                 cmd.Parameters.AddWithValue("@PesoE", parametro.PesoE);
                 cmd.Parameters.AddWithValue("@Tally", parametro.Tally);
                 cmd.ExecuteNonQuery();

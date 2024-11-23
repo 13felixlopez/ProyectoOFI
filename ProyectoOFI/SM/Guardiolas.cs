@@ -673,7 +673,7 @@ namespace ProyectoOFI.SM
                 parametros.TiempoTotal = LblTotalTime.Text;
                 //parametros.IdOperador = int.Parse(CbOperadores.SelectedValue.ToString());
                 parametros.IdTurno = int.Parse(CbTurno.SelectedValue.ToString());
-                parametros.DigitadorPS = Login.NombreA;
+                parametros.DigitadorPS = CbOperadores.Text;
                 if (funcion.InsertarPS(parametros) == true)
                 {
                     MessageBox.Show("Operación realizada con éxito", "Secado final", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

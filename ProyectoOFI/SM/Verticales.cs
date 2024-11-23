@@ -378,7 +378,7 @@ namespace ProyectoOFI.SM
                 parametros.TurnoV = int.Parse(CbTurno.SelectedValue.ToString());
                 parametros.POA1 = int.Parse(CbPOA1.Text.Trim());
                 parametros.POA2 = int.Parse(CbPOA2.Text.Trim());
-                parametros.DigitadorV = Login.NombreA;
+                parametros.DigitadorV = CbOperadores.Text;
                 parametros.IDV = IDV;
                 if (funcion.InsertarPreSecado(parametros) == true)
                 {

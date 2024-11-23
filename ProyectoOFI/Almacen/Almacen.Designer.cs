@@ -86,11 +86,13 @@
             this.label23 = new System.Windows.Forms.Label();
             this.LblEstFis = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.LblQuality = new System.Windows.Forms.Label();
             this.LblCliente = new System.Windows.Forms.Label();
             this.LblQQs = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.LblPeso = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             this.LblSacos = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -113,8 +115,7 @@
             this.PlCerrar = new System.Windows.Forms.Panel();
             this.LblFiltros = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
-            this.label27 = new System.Windows.Forms.Label();
-            this.LblQuality = new System.Windows.Forms.Label();
+            this.BtnReporte = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioAlm)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -168,6 +169,7 @@
             // plOpciones
             // 
             this.plOpciones.BackColor = System.Drawing.Color.White;
+            this.plOpciones.Controls.Add(this.BtnReporte);
             this.plOpciones.Controls.Add(this.CbBuscador);
             this.plOpciones.Controls.Add(this.panel3);
             this.plOpciones.Controls.Add(this.PbExcel);
@@ -830,6 +832,16 @@
             this.label22.TabIndex = 0;
             this.label22.Text = "Daño:";
             // 
+            // LblQuality
+            // 
+            this.LblQuality.AutoSize = true;
+            this.LblQuality.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblQuality.Location = new System.Drawing.Point(535, 111);
+            this.LblQuality.Name = "LblQuality";
+            this.LblQuality.Size = new System.Drawing.Size(19, 20);
+            this.LblQuality.TabIndex = 0;
+            this.LblQuality.Text = "--";
+            // 
             // LblCliente
             // 
             this.LblCliente.AutoSize = true;
@@ -879,6 +891,16 @@
             this.label20.Size = new System.Drawing.Size(123, 20);
             this.label20.TabIndex = 0;
             this.label20.Text = "Estado Fisico:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(407, 111);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(124, 20);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "Quality Grade:";
             // 
             // LblSacos
             // 
@@ -1115,25 +1137,16 @@
             this.BtnCerrar.UseVisualStyleBackColor = true;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
-            // label27
+            // BtnReporte
             // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(407, 111);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(124, 20);
-            this.label27.TabIndex = 0;
-            this.label27.Text = "Quality Grade:";
-            // 
-            // LblQuality
-            // 
-            this.LblQuality.AutoSize = true;
-            this.LblQuality.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblQuality.Location = new System.Drawing.Point(535, 111);
-            this.LblQuality.Name = "LblQuality";
-            this.LblQuality.Size = new System.Drawing.Size(19, 20);
-            this.LblQuality.TabIndex = 0;
-            this.LblQuality.Text = "--";
+            this.BtnReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnReporte.Location = new System.Drawing.Point(824, 6);
+            this.BtnReporte.Name = "BtnReporte";
+            this.BtnReporte.Size = new System.Drawing.Size(100, 50);
+            this.BtnReporte.TabIndex = 15;
+            this.BtnReporte.Text = "Reporte";
+            this.BtnReporte.UseVisualStyleBackColor = true;
+            this.BtnReporte.Click += new System.EventHandler(this.BtnReporte_Click);
             // 
             // Almacen
             // 
@@ -1258,5 +1271,6 @@
         private System.Windows.Forms.TextBox TxtPesoNuevo;
         private System.Windows.Forms.Label LblQuality;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Button BtnReporte;
     }
 }

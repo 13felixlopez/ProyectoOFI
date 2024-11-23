@@ -1,4 +1,5 @@
-﻿using ProyectoOFI.Datos;
+﻿using DocumentFormat.OpenXml.Drawing.Diagrams;
+using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
 using ProyectoOFI.Reportes;
@@ -88,7 +89,7 @@ namespace ProyectoOFI.Recepcion
         }
         private void AbrirFormulario()
         {
-            PlRecepcion.Location = new Point(dtInventario.Width / 2
+            PlRecepcion.Location = new System.Drawing.Point(dtInventario.Width / 2
                 - PlRecepcion.Width / 2, dtInventario.Height / 2 - PlRecepcion.Height / 2);
             PlRecepcion.Visible = true;
             PlRecepcion.BringToFront();
@@ -97,7 +98,7 @@ namespace ProyectoOFI.Recepcion
             dtInventario.Enabled = false;
             DRecepcion funcion = new DRecepcion();
             funcion.Cosecha(LblCosecha);
-            ChUA.Checked = true;
+            //ChUA.Checked = true;
             AdjustPanelInfoSizeAndPosition();
         }
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -1452,7 +1453,7 @@ namespace ProyectoOFI.Recepcion
         }
         private void PbFiltro_Click(object sender, EventArgs e)
         {
-            PlFiltros.Location = new Point(dtInventario.Width / 2
+            PlFiltros.Location = new System.Drawing.Point(dtInventario.Width / 2
                 - PlFiltros.Width / 2, dtInventario.Height / 2 - PlFiltros.Height / 2);
             PlFiltros.Visible = true;
             PlFiltros.BringToFront();
@@ -1643,8 +1644,8 @@ namespace ProyectoOFI.Recepcion
             funcion.MostrarCert(CbCertCons);
             funcion.MostrarEstFis(cbEsFisico);
             funcion.MostrarEstFis(cbEstadoFisico);
-            funcion.MostrarCalidadUA(cbCalidadE);
-            funcion.MostrarCalidadUA(cbCalidad);
+            funcion.MostrarCalidad(cbCalidadE);
+            funcion.MostrarCalidad(cbCalidad);
             funcion.MostrarDaño(cbDanioE);
             funcion.MostrarDaño(cbDaño);
             funcion.MostrarAreaSecado2(cbArea);
@@ -1927,6 +1928,12 @@ namespace ProyectoOFI.Recepcion
                 funcion.MostrarCalidad(cbCalidadE);
                 funcion.MostrarCalidad(cbCalidad);
             }
+        }
+
+        private void cbAgencia_KeyDown(object sender, KeyEventArgs e)
+        {
+            DRecepcion funcion = new DRecepcion();
+            funcion.MostrarAgencia(cbAgencia);
         }
 
         private void ValidarPermisos()

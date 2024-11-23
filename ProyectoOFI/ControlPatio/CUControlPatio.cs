@@ -38,6 +38,7 @@ namespace ProyectoOFI.ControlPatio
             PlCarga.Dock = DockStyle.Fill;
             await CargarDatos();
             Base.DiseñoDtvEliminar(ref dtInventariocp);
+            Base.DiseñoDtv(ref dtInventariocp);
             PlCarga.Visible = false;
         }
         private async Task CargarDatos()

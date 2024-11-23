@@ -50,6 +50,25 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public void ReporteAlmacen(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("ReporteAlmacen", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar datos de Reporte de Almacén" + ex.Message, "Error en datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al cargar datos en ReporteAlmacen ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
         public void ContarTK(ref int contador)
         {
             try

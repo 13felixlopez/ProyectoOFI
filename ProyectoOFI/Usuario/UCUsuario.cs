@@ -99,6 +99,7 @@ namespace ProyectoOFI.Usuario
             {
                 ObtenerIdUser();
                 InsertarPermisos();
+                Plheader.Visible = true;
             }
         }
         private void ObtenerIdUser()

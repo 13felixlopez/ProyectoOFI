@@ -681,7 +681,7 @@ namespace ProyectoOFI.SM
                 parametros.DNIN = TxtDNIN.Text;
                 parametros.IdArea = (int)CbDestino.SelectedValue;
                 parametros.IdEstFis = (int)CbEstFis.SelectedValue;
-                parametros.DigitadorPS = Login.NombreA;
+                parametros.DigitadorPS = CbOperadoresEn.Text;
                 if (funcion.InsertarEnvioSM(parametros, IdPS) == true)
                 {
                     GbEnvio.Visible = false;

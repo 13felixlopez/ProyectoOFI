@@ -34,5 +34,18 @@ namespace ProyectoOFI.Otros
             cabecera.Font = new Font("Segoe UI", 10, FontStyle.Bold);
             Listado.ColumnHeadersDefaultCellStyle = cabecera;
         }
+        public static void DiseñoEnvio(ref DataGridView Listado)
+        {
+            foreach (DataGridViewRow row in Listado.Rows)
+            {
+                string estado;
+                estado = row.Cells["Proce"].Value.ToString();
+                if (estado == "Analizado" || estado=="Envio" || estado == "Almacén")
+                {
+                    row.DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Strikeout | FontStyle.Bold);
+                    row.DefaultCellStyle.ForeColor = Color.FromArgb(229, 48, 37);
+                }
+            }
+        }
     }
 }

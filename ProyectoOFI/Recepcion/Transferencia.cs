@@ -109,7 +109,7 @@ namespace ProyectoOFI.Recepcion
                 {
                     if (nudSacosE.Value > 0)
                     {
-                        if (dtFEnvio.Value <= dtpRecibido.Value)
+                        if (dtFEnvio.Value.Date <= dtpRecibido.Value.Date)
                         {
                             carga();
                         }
@@ -1067,6 +1067,7 @@ namespace ProyectoOFI.Recepcion
             //}
             //else
             //{
+            Task.Delay(3000);
             BuscarTK();
             ReiniciarPaginado();
             //}
@@ -1082,7 +1083,7 @@ namespace ProyectoOFI.Recepcion
             BuscarTK();
             LimpiarCons();
         }
-           
+
         private void DtTickets_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             // Verificar si se hizo doble clic en una celda válida
@@ -1114,8 +1115,8 @@ namespace ProyectoOFI.Recepcion
                 {
                     fechaMasReciente = fechaRecibido;
                 }
-                    // Agregar la nueva fila a dtTKCons
-                    dtTKCons.Rows.Add(newRow);
+                // Agregar la nueva fila a dtTKCons
+                dtTKCons.Rows.Add(newRow);
 
                 // Eliminar la fila seleccionada de DtTickets
                 DtTickets.Rows.RemoveAt(e.RowIndex);
@@ -1175,7 +1176,7 @@ namespace ProyectoOFI.Recepcion
             LblTotalPeso.Text = totalPeso.ToString();
             LblPesoe.Text = totalpesoe.ToString();
             merma = totalpesoe - totalPeso;
-            LblMermaC.Text=merma.ToString();
+            LblMermaC.Text = merma.ToString();
         }
         private void EditarTK()
         {
@@ -1226,6 +1227,7 @@ namespace ProyectoOFI.Recepcion
                         par.Tally = TxtTally.Text;
                         if (ContadorEdit < 3 || Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
                         {
+
                             if (funcion.EditarTK(parametros, par, Ticket) == true)
                             {
                                 DataTable dt = new DataTable();
@@ -1344,9 +1346,40 @@ namespace ProyectoOFI.Recepcion
                 {
                     if (nudSacosE.Value > 0)
                     {
-                        if (dtFEnvio.Value <= dtpRecibido.Value)
+                        if (dtFEnvio.Value.Date <= dtpRecibido.Value.Date)
                         {
-                            DialogResult res = MessageBox.Show("Esta seguro de guardar los datos editados", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                            // Crear el mensaje con los datos
+                            string mensaje = $"Verifique los datos antes de proceder:\n" +
+                                             $"- Ticket: {txtTK.Text}\n" +
+                                             $"- Fecha Envío: {dtFEnvio.Text}\n" +
+                                             $"- Agencia: {cbAgencia.Text}\n" +
+                                             $"- Acopio: {cbAcopio.Text}\n" +
+                                             $"- Cliente: {cbCliente.Text}\n" +
+                                             $"- MTNT: {txtMTNT.Text}\n" +
+                                             $"- Tipo Compra: {cbCompra.Text}\n" +
+                                             $"- Certificación: {cbCertificacion.Text}\n" +
+                                             $"- Es Físico: {cbEsFisico.Text}\n" +
+                                             $"- Calidad Envío: {cbCalidadE.Text}\n" +
+                                             $"- Daño Envío: {cbDanioE.Text}\n" +
+                                             $"- Sacos Envío: {nudSacosE.Value}\n" +
+                                             $"- Peso Envío: {txtPesoE.Text}\n" +
+                                             $"- Tally: {TxtTally.Text}\n" +
+                                             $"- Fecha Recibido: {dtpRecibido.Text}\n" +
+                                             $"- Área Secado: {cbArea.Text}\n" +
+                                             $"- MTNR: {txtMTNR.Text}\n" +
+                                             $"- Estado Físico: {cbEstadoFisico.Text}\n" +
+                                             $"- Calidad: {cbCalidad.Text}\n" +
+                                             $"- Daño: {cbDaño.Text}\n" +
+                                             $"- SacosE: {nudSacos.Value}\n" +
+                                             $"- Peso: {txtKgs.Text}\n" +
+                                             $"- Merma: {LblMerma.Text}\n" +
+                                             $"- Recibidor: {cbRecibidor.Text}\n" +
+                                             $"- Digitador: {Login.NombreA}\n" +
+                                             $"- Proceso: {Proceso}\n";
+
+                            // Mostrar el mensaje y esperar la confirmación del usuario
+                            DialogResult res = MessageBox.Show(mensaje, "Confirmar Edición", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
                             if (res == DialogResult.Yes)
                             {
                                 CargaEditar();
@@ -1354,8 +1387,7 @@ namespace ProyectoOFI.Recepcion
                         }
                         else
                         {
-                            MessageBox.Show("La fecha de envio no puede ser mayor que la fecha de recibido", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                            MessageBox.Show("La fecha de envío no puede ser mayor que la fecha de recibido", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
@@ -1373,6 +1405,7 @@ namespace ProyectoOFI.Recepcion
                 MessageBox.Show(ex.Message, ex.StackTrace);
             }
         }
+
         private void TxtTicketCons_TextChanged(object sender, EventArgs e)
         {
             if (TxtTicketCons.Text != "")
@@ -1765,7 +1798,7 @@ namespace ProyectoOFI.Recepcion
                 parametros.FRecibido = fechaMasReciente.Value;
                 parametros.Sacos = int.Parse(LblTotalSacos.Text);
                 parametros.Peso = double.Parse(LblTotalPeso.Text);
-                Par.PesoE=double.Parse(LblPesoe.Text);
+                Par.PesoE = double.Parse(LblPesoe.Text);
                 parametros.Merma = double.Parse(LblMermaC.Text);
                 parametros.Calidad = Calidad;
                 Par.IdCertificacionE = int.Parse(CbCertCons.SelectedValue.ToString());

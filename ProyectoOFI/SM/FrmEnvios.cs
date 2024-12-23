@@ -16,5 +16,10 @@ namespace ProyectoOFI.SM
         {
             InitializeComponent();
         }
+
+        private void BtnEnviar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

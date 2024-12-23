@@ -213,7 +213,7 @@ namespace ProyectoOFI.SM
             DPOAV funcion = new DPOAV();
             funcion.MostrarTurno(CbTurno);
             DSM fun = new DSM();
-            //fun.MostrarOperador(CbOperadores);
+            fun.MostrarOperador(CbOperadores);
         }
         private void btnV1_Click(object sender, EventArgs e)
         {

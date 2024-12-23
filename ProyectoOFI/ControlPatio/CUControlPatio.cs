@@ -798,6 +798,10 @@ namespace ProyectoOFI.ControlPatio
             {
                 BtnEnfarde.Visible = true;
                 PlEnfarde.Enabled = true;
+                BtnEnfarde.Enabled = true;
+                DTPEnfarde.Enabled = true;
+                TxtSacosEnfardados.Enabled = true;
+                TxtHumedadLevante.Enabled = true;
                 BtnEnfarde.Text = "Actualizar";
             }
         }

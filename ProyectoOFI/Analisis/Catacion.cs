@@ -10,6 +10,7 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace ProyectoOFI.Analisis
 {
@@ -57,7 +58,8 @@ namespace ProyectoOFI.Analisis
         {
             PlCarga.Dock = DockStyle.Fill;
             await CargarDatos();
-            Base.DiseñoDtvEliminar(ref dtInventarioCat);
+            //Base.DiseñoDtvEliminar(ref dtInventarioCat);
+            //Base.DiseñoEnvio(ref dtInventarioCat);
             PlCarga.Visible = false;
             CalcularDesmD();
         }
@@ -70,6 +72,7 @@ namespace ProyectoOFI.Analisis
                 MostrarLotes();
                 ReiniciarPaginado();
                 LlenarCheckBoxList();
+                LblContador.Text = Contador.ToString();
                 await Task.Delay(1000);
                 dtInventarioCat.Columns["Proceso"].Visible = false;
             }
@@ -137,6 +140,8 @@ namespace ProyectoOFI.Analisis
                 lbl_Pagina.Text = (hasta / items_por_pagina).ToString();
                 lbl_totalPaginas.Text = Math.Ceiling(Convert.ToSingle(Contador) / items_por_pagina).ToString();
                 totalPaginas = Convert.ToInt32(lbl_totalPaginas.Text);
+                LblContador.Text = Contador.ToString();
+                //Base.DiseñoEnvio(ref dtInventarioCat);
             }
             catch (Exception)
             {
@@ -276,7 +281,7 @@ namespace ProyectoOFI.Analisis
             funcion.BuscarCatacion(CbBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
             dtInventarioCat.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.Contador.ToString());
-            Base.DiseñoDtvEliminar(ref dtInventarioCat);
+            //Base.DiseñoEnvio(ref dtInventarioCat);
         }
         private void BuscarTK()
         {
@@ -286,7 +291,7 @@ namespace ProyectoOFI.Analisis
             funcion.BuscarCatacion(txtBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
             dtInventarioCat.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.Contador.ToString());
-            Base.DiseñoDtvEliminar(ref dtInventarioCat);
+            //Base.DiseñoEnvio(ref dtInventarioCat);
         }
         public void MostrarLotes()
         {
@@ -296,7 +301,7 @@ namespace ProyectoOFI.Analisis
             funcion.MostrarCata(ref dt, desde, hasta);
             //ReiniciarPaginado();
             dtInventarioCat.DataSource = dt;
-            Base.DiseñoDtvEliminar(ref dtInventarioCat);
+            //Base.DiseñoDtvEliminar(ref dtInventarioCat);
         }
         private void VerDetalleCatacion()
         {
@@ -668,7 +673,15 @@ namespace ProyectoOFI.Analisis
             dtInventarioCat.Enabled = false;
             Dcatacion funcion = new Dcatacion();
             funcion.MostrarVariedad(CbVariedad);
-            funcion.MostrarGCalidad(CbGrupoCalidad);
+            string calidad = LblCalidad.Text;
+            if (calidad.EndsWith("UA"))
+            {
+                funcion.MostrarGrupoCalidadUA(CbGrupoCalidad);
+            }
+            else
+            {
+                funcion.MostrarGCalidad(CbGrupoCalidad);
+            }
             funcion.MostrarTasas(CbTasa);
             Analisis();
             if (Proceso != "Almacén" && Proceso != "Analizado" && Proceso != "Envio")
@@ -772,6 +785,7 @@ namespace ProyectoOFI.Analisis
         }
         private void BtnAnalisis_Click(object sender, EventArgs e)
         {
+            DialogResult res;
             if (Validar())
             {
                 if (Analizar == "Proceso")
@@ -779,12 +793,42 @@ namespace ProyectoOFI.Analisis
                     if (BtnAnalisis.Text == "Re-Analizar" || BtnAnalisis.Text == "Editar Análisis")
                     {
                         EditarCatacionCD();
+                        Task.Delay(3000);
                         MostrarLotes();
+                        Desactivar();
                     }
                     else
                     {
-                        InsertarCatacion();
-                        MostrarLotes();
+                        // Crear el mensaje con los datos
+                        string mensaje = $"Verifique los datos antes de proceder:\n" +
+                                         $"- Ticket: {LblTicket.Text}\n" +
+                                         $"- Analisis: {TxtAnalisis.Text}\n" +
+                                         $"- Rendimineto Oro Bruto: {TxtBto.Text}\n" +
+                                         $"- Cascarilla: {LblCascarilla.Text}\n" +
+                                         $"- Total PS: {LblTotal.Text}\n" +
+                                         $"- Variedad: {CbVariedad.Text}\n" +
+                                         $"- Humedad: {TxtHumedad.Text}\n" +
+                                         $"- Exp: {TxtExp.Text}\n" +
+                                         $"- DesmA: {TxtDesmA.Text}\n" +
+                                         $"- DesmD: {TxtDesmD.Text}\n" +
+                                         $"- DesmC: {LblDesmC.Text}\n" +
+                                         $"- Score: {TxtScore.Text}\n" +
+                                         $"- Quality Grade: {CbGrupoCalidad.Text}\n" +
+                                         $"- Taza: {CbTasa.Text}\n";
+
+                        // Mostrar el mensaje y esperar la confirmación del usuario
+                        res = MessageBox.Show(mensaje, "Confirmar Edición", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        if (res == DialogResult.Yes)
+                        {
+                            InsertarCatacion();
+                            Task.Delay(3000);
+                            MostrarLotes();
+                            Desactivar();
+                        }
+                        else
+                        {
+                            Activar();
+                        }
                     }
                 }
                 else
@@ -792,12 +836,16 @@ namespace ProyectoOFI.Analisis
                     if (BtnAnalisis.Text == "Re-Analizar" || BtnAnalisis.Text == "Editar Análisis")
                     {
                         EditarCatacionCD();
+                        Task.Delay(3000);
                         MostrarComprasD();
+                        Desactivar();
                     }
                     else
                     {
                         InsertarCatacionCD();
+                        Task.Delay(3000);
                         MostrarComprasD();
+                        Desactivar();
                     }
                 }
                 //if (BtnAnalisis.Text == "Analizado" || Estado == false)
@@ -832,7 +880,6 @@ namespace ProyectoOFI.Analisis
                 //        MostrarLotes();
                 //    }
                 //}
-                Desactivar();
             }
             else
             {
@@ -1603,6 +1650,7 @@ namespace ProyectoOFI.Analisis
 
         private void txtBuscador_TextChanged(object sender, EventArgs e)
         {
+            Task.Delay(3000);
             BuscarTK();
             ReiniciarPaginado();
         }
@@ -1671,7 +1719,7 @@ namespace ProyectoOFI.Analisis
         private void FormatCellBasedOnProceso(DataGridView dataGridView, DataGridViewCellFormattingEventArgs e)
         {
             // Verificar si la columna actual es la columna "Proceso"
-            if (dataGridView.Columns[e.ColumnIndex].Name == "Proceso")
+            if (dataGridView.Columns[e.ColumnIndex].Name == "Proce")
             {
                 // Obtener el valor de la celda actual
                 string cellValue = e.Value as string;

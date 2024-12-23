@@ -297,7 +297,7 @@
             this.GbControlPatio.Controls.Add(this.BtnPatio);
             this.GbControlPatio.Controls.Add(this.BtnUbicacionesPatio);
             this.GbControlPatio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbControlPatio.Location = new System.Drawing.Point(444, 276);
+            this.GbControlPatio.Location = new System.Drawing.Point(810, 3);
             this.GbControlPatio.Name = "GbControlPatio";
             this.GbControlPatio.Size = new System.Drawing.Size(251, 159);
             this.GbControlPatio.TabIndex = 24;
@@ -341,7 +341,7 @@
             this.GbSM.Controls.Add(this.BtnTurnos);
             this.GbSM.Controls.Add(this.BtnParos);
             this.GbSM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbSM.Location = new System.Drawing.Point(798, 3);
+            this.GbSM.Location = new System.Drawing.Point(810, 168);
             this.GbSM.Name = "GbSM";
             this.GbSM.Size = new System.Drawing.Size(251, 267);
             this.GbSM.TabIndex = 24;
@@ -397,7 +397,7 @@
             this.Gbcatacion.Controls.Add(this.BtnTasas);
             this.Gbcatacion.Controls.Add(this.BtnVariedad);
             this.Gbcatacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Gbcatacion.Location = new System.Drawing.Point(3, 437);
+            this.Gbcatacion.Location = new System.Drawing.Point(444, 3);
             this.Gbcatacion.Name = "Gbcatacion";
             this.Gbcatacion.Size = new System.Drawing.Size(360, 159);
             this.Gbcatacion.TabIndex = 24;
@@ -460,7 +460,7 @@
             this.GbAlmacen.Controls.Add(this.BtnTurnosAl);
             this.GbAlmacen.Controls.Add(this.BtnBodegas);
             this.GbAlmacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbAlmacen.Location = new System.Drawing.Point(444, 3);
+            this.GbAlmacen.Location = new System.Drawing.Point(444, 168);
             this.GbAlmacen.Name = "GbAlmacen";
             this.GbAlmacen.Size = new System.Drawing.Size(348, 267);
             this.GbAlmacen.TabIndex = 25;
@@ -563,7 +563,7 @@
             this.PlCosecha.Controls.Add(this.TxtCosecha);
             this.PlCosecha.Controls.Add(this.label2);
             this.PlCosecha.Controls.Add(this.DtCosechas);
-            this.PlCosecha.Location = new System.Drawing.Point(984, 101);
+            this.PlCosecha.Location = new System.Drawing.Point(1067, 3);
             this.PlCosecha.Name = "PlCosecha";
             this.PlCosecha.Size = new System.Drawing.Size(216, 152);
             this.PlCosecha.TabIndex = 27;
@@ -717,7 +717,7 @@
             this.BtnCosechas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.BtnCosechas.Image = global::ProyectoOFI.Properties.Resources.calendar;
             this.BtnCosechas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCosechas.Location = new System.Drawing.Point(798, 276);
+            this.BtnCosechas.Location = new System.Drawing.Point(810, 441);
             this.BtnCosechas.Name = "BtnCosechas";
             this.BtnCosechas.Size = new System.Drawing.Size(136, 57);
             this.BtnCosechas.TabIndex = 26;
@@ -736,6 +736,7 @@
             this.flowLayoutPanel1.Controls.Add(this.GbControlPatio);
             this.flowLayoutPanel1.Controls.Add(this.GbSM);
             this.flowLayoutPanel1.Controls.Add(this.BtnCosechas);
+            this.flowLayoutPanel1.Controls.Add(this.PlCosecha);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 65);
@@ -749,7 +750,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1070, 586);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.PlCosecha);
             this.Controls.Add(this.PlTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

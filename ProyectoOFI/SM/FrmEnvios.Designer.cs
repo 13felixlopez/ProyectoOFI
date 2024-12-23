@@ -331,6 +331,7 @@
             this.BtnEnviar.TabIndex = 14;
             this.BtnEnviar.Text = "Enviar";
             this.BtnEnviar.UseVisualStyleBackColor = true;
+            this.BtnEnviar.Click += new System.EventHandler(this.BtnEnviar_Click);
             // 
             // label9
             // 

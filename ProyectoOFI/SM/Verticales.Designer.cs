@@ -389,6 +389,8 @@
             // 
             // PlDatos
             // 
+            this.PlDatos.AutoScroll = true;
+            this.PlDatos.AutoSize = true;
             this.PlDatos.Controls.Add(this.GbSF);
             this.PlDatos.Controls.Add(this.gbVertical);
             this.PlDatos.Controls.Add(this.gbDatos);
@@ -1081,6 +1083,7 @@
             this.gbDatos.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

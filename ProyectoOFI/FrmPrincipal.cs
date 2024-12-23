@@ -10,6 +10,7 @@ using ProyectoOFI.SM;
 using ProyectoOFI.Usuario;
 using System;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -133,7 +134,6 @@ namespace ProyectoOFI
                 if (Modulo == "Usuarios")
                 {
                     BtnUser.Visible = true;
-                    BtnHistorial.Visible = true;
                 }
                 if (Modulo == "Compra Directa")
                 {
@@ -146,6 +146,10 @@ namespace ProyectoOFI
                 if (Modulo == "Almacen")
                 {
                     BtnAlmacen.Visible = true;
+                }
+                if (Modulo == "Historial")
+                {
+                    BtnHistorial.Visible = true;
                 }
             }
         }
@@ -341,6 +345,11 @@ namespace ProyectoOFI
             PlPrincipal.Tag = hijo;
             hijo.BringToFront();
             hijo.Show();
+        }
+
+        private void BtnInfo_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://13felixlopez.github.io/Proceso/");
         }
     }
 }

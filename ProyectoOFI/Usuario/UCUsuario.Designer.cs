@@ -56,8 +56,6 @@
             this.label20 = new System.Windows.Forms.Label();
             this.btnVolverPersonal = new System.Windows.Forms.Button();
             this.PlPermisos = new System.Windows.Forms.Panel();
-            this.DtPermisos = new System.Windows.Forms.DataGridView();
-            this.Marcar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
@@ -77,6 +75,8 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.DtPermisos = new System.Windows.Forms.DataGridView();
+            this.Marcar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Plheader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbBuscar)).BeginInit();
             this.panel1.SuspendLayout();
@@ -84,8 +84,8 @@
             this.PlRegistro.SuspendLayout();
             this.PlPass.SuspendLayout();
             this.PlPermisos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtPermisos)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtPermisos)).BeginInit();
             this.SuspendLayout();
             // 
             // Plheader
@@ -409,38 +409,6 @@
             this.PlPermisos.Size = new System.Drawing.Size(543, 629);
             this.PlPermisos.TabIndex = 662;
             // 
-            // DtPermisos
-            // 
-            this.DtPermisos.AllowUserToAddRows = false;
-            this.DtPermisos.AllowUserToDeleteRows = false;
-            this.DtPermisos.AllowUserToOrderColumns = true;
-            this.DtPermisos.AllowUserToResizeRows = false;
-            this.DtPermisos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DtPermisos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.DtPermisos.BackgroundColor = System.Drawing.Color.White;
-            this.DtPermisos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DtPermisos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.DtPermisos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.DtPermisos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtPermisos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Marcar});
-            this.DtPermisos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtPermisos.EnableHeadersVisualStyles = false;
-            this.DtPermisos.Location = new System.Drawing.Point(0, 0);
-            this.DtPermisos.Name = "DtPermisos";
-            this.DtPermisos.RowHeadersVisible = false;
-            this.DtPermisos.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtPermisos.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.DtPermisos.RowTemplate.Height = 30;
-            this.DtPermisos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtPermisos.Size = new System.Drawing.Size(543, 629);
-            this.DtPermisos.TabIndex = 620;
-            // 
-            // Marcar
-            // 
-            this.Marcar.HeaderText = "Marcar";
-            this.Marcar.Name = "Marcar";
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.btnGuardar);
@@ -642,6 +610,38 @@
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.Width = 511;
             // 
+            // DtPermisos
+            // 
+            this.DtPermisos.AllowUserToAddRows = false;
+            this.DtPermisos.AllowUserToDeleteRows = false;
+            this.DtPermisos.AllowUserToOrderColumns = true;
+            this.DtPermisos.AllowUserToResizeRows = false;
+            this.DtPermisos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DtPermisos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.DtPermisos.BackgroundColor = System.Drawing.Color.White;
+            this.DtPermisos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DtPermisos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.DtPermisos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.DtPermisos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtPermisos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Marcar});
+            this.DtPermisos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtPermisos.EnableHeadersVisualStyles = false;
+            this.DtPermisos.Location = new System.Drawing.Point(0, 0);
+            this.DtPermisos.Name = "DtPermisos";
+            this.DtPermisos.RowHeadersVisible = false;
+            this.DtPermisos.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtPermisos.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.DtPermisos.RowTemplate.Height = 30;
+            this.DtPermisos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtPermisos.Size = new System.Drawing.Size(543, 629);
+            this.DtPermisos.TabIndex = 621;
+            // 
+            // Marcar
+            // 
+            this.Marcar.HeaderText = "Marcar";
+            this.Marcar.Name = "Marcar";
+            // 
             // UCUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -663,8 +663,8 @@
             this.PlPass.ResumeLayout(false);
             this.PlPass.PerformLayout();
             this.PlPermisos.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtPermisos)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtPermisos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -702,8 +702,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnVolverPersonal;
-        private System.Windows.Forms.DataGridView DtPermisos;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Marcar;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.TextBox TxtUser;
         private System.Windows.Forms.Label label20;
@@ -720,5 +718,7 @@
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Msj;
+        private System.Windows.Forms.DataGridView DtPermisos;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Marcar;
     }
 }

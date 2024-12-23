@@ -722,6 +722,8 @@
             // 
             // PlDatos
             // 
+            this.PlDatos.AutoScroll = true;
+            this.PlDatos.AutoSize = true;
             this.PlDatos.BackColor = System.Drawing.Color.White;
             this.PlDatos.Controls.Add(this.GbPS);
             this.PlDatos.Controls.Add(this.GbGuardiola);
@@ -735,6 +737,7 @@
             // 
             // GbPS
             // 
+            this.GbPS.AutoSize = true;
             this.GbPS.Controls.Add(this.label23);
             this.GbPS.Controls.Add(this.CbTurno);
             this.GbPS.Controls.Add(this.CbOperadores);
@@ -757,9 +760,9 @@
             this.GbPS.Controls.Add(this.label19);
             this.GbPS.Dock = System.Windows.Forms.DockStyle.Top;
             this.GbPS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.GbPS.Location = new System.Drawing.Point(0, 354);
+            this.GbPS.Location = new System.Drawing.Point(0, 348);
             this.GbPS.Name = "GbPS";
-            this.GbPS.Size = new System.Drawing.Size(1398, 236);
+            this.GbPS.Size = new System.Drawing.Size(1398, 252);
             this.GbPS.TabIndex = 15;
             this.GbPS.TabStop = false;
             this.GbPS.Text = "Envío para Secado Final";
@@ -949,6 +952,7 @@
             // 
             // GbGuardiola
             // 
+            this.GbGuardiola.AutoSize = true;
             this.GbGuardiola.Controls.Add(this.BtnCargarPS);
             this.GbGuardiola.Controls.Add(this.dtHoraFinG);
             this.GbGuardiola.Controls.Add(this.dtHoraIniG);
@@ -968,9 +972,9 @@
             this.GbGuardiola.Controls.Add(this.label21);
             this.GbGuardiola.Dock = System.Windows.Forms.DockStyle.Top;
             this.GbGuardiola.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GbGuardiola.Location = new System.Drawing.Point(0, 168);
+            this.GbGuardiola.Location = new System.Drawing.Point(0, 159);
             this.GbGuardiola.Name = "GbGuardiola";
-            this.GbGuardiola.Size = new System.Drawing.Size(1398, 186);
+            this.GbGuardiola.Size = new System.Drawing.Size(1398, 189);
             this.GbGuardiola.TabIndex = 14;
             this.GbGuardiola.TabStop = false;
             this.GbGuardiola.Text = "Guardiola";
@@ -1134,6 +1138,7 @@
             // 
             // gbDatos
             // 
+            this.gbDatos.AutoSize = true;
             this.gbDatos.BackColor = System.Drawing.Color.White;
             this.gbDatos.Controls.Add(this.LblTicket);
             this.gbDatos.Controls.Add(this.LblCert);
@@ -1156,7 +1161,7 @@
             this.gbDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDatos.Location = new System.Drawing.Point(0, 43);
             this.gbDatos.Name = "gbDatos";
-            this.gbDatos.Size = new System.Drawing.Size(1398, 125);
+            this.gbDatos.Size = new System.Drawing.Size(1398, 116);
             this.gbDatos.TabIndex = 12;
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Datos Ticket";
@@ -1360,6 +1365,7 @@
             this.Load += new System.EventHandler(this.Guardiolas_Load);
             this.TLPGuardiola.ResumeLayout(false);
             this.PlDatos.ResumeLayout(false);
+            this.PlDatos.PerformLayout();
             this.GbPS.ResumeLayout(false);
             this.GbPS.PerformLayout();
             this.GbGuardiola.ResumeLayout(false);
@@ -1368,6 +1374,7 @@
             this.gbDatos.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

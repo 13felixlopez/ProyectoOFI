@@ -168,12 +168,12 @@ namespace ProyectoOFI.Otros
 
         private void BtnCosechas_Click(object sender, EventArgs e)
         {
-            Gbcatacion.Enabled = false;
-            GbControlPatio.Enabled = false;
-            GbTransfer.Enabled = false;
-            GbSM.Enabled = false;
-            GbAlmacen.Enabled = false;
-            BtnCerrar.Enabled = false;
+            Gbcatacion.Visible = false;
+            GbControlPatio.Visible = false;
+            GbTransfer.Visible = false;
+            GbSM.Visible = false;
+            GbAlmacen.Visible = false;
+            BtnCerrar.Visible = false;
             PlCosecha.Visible = true;
             PlCosecha.Location = new System.Drawing.Point(220, 161);
             PlCosecha.Size = new System.Drawing.Size(493, 395);
@@ -183,12 +183,12 @@ namespace ProyectoOFI.Otros
         private void BtnCerrarCosecha_Click(object sender, EventArgs e)
         {
             PlCosecha.Visible = false;
-            Gbcatacion.Enabled = true;
-            GbControlPatio.Enabled = true;
-            GbTransfer.Enabled = true;
-            GbSM.Enabled = true;
-            GbAlmacen.Enabled = true;
-            BtnCerrar.Enabled = true;
+            Gbcatacion.Visible = true;
+            GbControlPatio.Visible = true;
+            GbTransfer.Visible = true;
+            GbSM.Visible = true;
+            GbAlmacen.Visible = true;
+            BtnCerrar.Visible = true;
         }
         private void InsertarCosecha()
         {

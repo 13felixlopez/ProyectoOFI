@@ -228,10 +228,11 @@
             // 
             // dtFProcV
             // 
-            this.dtFProcV.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFProcV.CustomFormat = "dd/MM/yyyy hh:mm";
+            this.dtFProcV.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtFProcV.Location = new System.Drawing.Point(166, 142);
             this.dtFProcV.Name = "dtFProcV";
-            this.dtFProcV.Size = new System.Drawing.Size(135, 26);
+            this.dtFProcV.Size = new System.Drawing.Size(203, 26);
             this.dtFProcV.TabIndex = 9;
             this.dtFProcV.Visible = false;
             // 
@@ -365,7 +366,7 @@
             // 
             // btnDescargarPV
             // 
-            this.btnDescargarPV.Location = new System.Drawing.Point(1049, 27);
+            this.btnDescargarPV.Location = new System.Drawing.Point(1039, 27);
             this.btnDescargarPV.Name = "btnDescargarPV";
             this.btnDescargarPV.Size = new System.Drawing.Size(112, 67);
             this.btnDescargarPV.TabIndex = 11;
@@ -376,7 +377,7 @@
             // 
             // btnGuardarPV
             // 
-            this.btnGuardarPV.Location = new System.Drawing.Point(942, 27);
+            this.btnGuardarPV.Location = new System.Drawing.Point(932, 27);
             this.btnGuardarPV.Name = "btnGuardarPV";
             this.btnGuardarPV.Size = new System.Drawing.Size(93, 67);
             this.btnGuardarPV.TabIndex = 11;
@@ -386,10 +387,11 @@
             // 
             // dtFechaPV
             // 
-            this.dtFechaPV.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtFechaPV.Location = new System.Drawing.Point(568, 71);
+            this.dtFechaPV.CustomFormat = "dd/MM/yyyy hh:mm";
+            this.dtFechaPV.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtFechaPV.Location = new System.Drawing.Point(519, 71);
             this.dtFechaPV.Name = "dtFechaPV";
-            this.dtFechaPV.Size = new System.Drawing.Size(135, 26);
+            this.dtFechaPV.Size = new System.Drawing.Size(195, 26);
             this.dtFechaPV.TabIndex = 9;
             // 
             // cbOperadorPV
@@ -403,7 +405,7 @@
             // 
             // txtHumedadPV
             // 
-            this.txtHumedadPV.Location = new System.Drawing.Point(826, 71);
+            this.txtHumedadPV.Location = new System.Drawing.Point(837, 71);
             this.txtHumedadPV.Name = "txtHumedadPV";
             this.txtHumedadPV.Size = new System.Drawing.Size(75, 26);
             this.txtHumedadPV.TabIndex = 7;
@@ -411,7 +413,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(719, 74);
+            this.label15.Location = new System.Drawing.Point(730, 74);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(91, 20);
             this.label15.TabIndex = 6;
@@ -420,7 +422,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(379, 74);
+            this.label18.Location = new System.Drawing.Point(330, 74);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(164, 20);
             this.label18.TabIndex = 2;
@@ -429,7 +431,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(79, 74);
+            this.label19.Location = new System.Drawing.Point(30, 74);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(60, 20);
             this.label19.TabIndex = 2;
@@ -460,7 +462,7 @@
             "1",
             "2",
             "3"});
-            this.cbTurnoPV.Location = new System.Drawing.Point(152, 72);
+            this.cbTurnoPV.Location = new System.Drawing.Point(103, 72);
             this.cbTurnoPV.Name = "cbTurnoPV";
             this.cbTurnoPV.Size = new System.Drawing.Size(200, 24);
             this.cbTurnoPV.TabIndex = 1;

@@ -174,6 +174,7 @@
             this.LblFiltros = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.BtnFiltrar = new System.Windows.Forms.Button();
+            this.LblContador = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioCat)).BeginInit();
             this.plOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).BeginInit();
@@ -422,6 +423,7 @@
             // plfooter
             // 
             this.plfooter.BackColor = System.Drawing.Color.Red;
+            this.plfooter.Controls.Add(this.LblContador);
             this.plfooter.Controls.Add(this.btn_atras);
             this.plfooter.Controls.Add(this.btn_Sig);
             this.plfooter.Controls.Add(this.btn_Primera);
@@ -1860,6 +1862,16 @@
             this.BtnFiltrar.UseVisualStyleBackColor = true;
             this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
             // 
+            // LblContador
+            // 
+            this.LblContador.AutoSize = true;
+            this.LblContador.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblContador.Location = new System.Drawing.Point(1099, 19);
+            this.LblContador.Name = "LblContador";
+            this.LblContador.Size = new System.Drawing.Size(30, 22);
+            this.LblContador.TabIndex = 27;
+            this.LblContador.Text = "--";
+            // 
             // Catacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2048,5 +2060,6 @@
         private System.Windows.Forms.DateTimePicker DtpInicio;
         private System.Windows.Forms.ComboBox CbTasa;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label LblContador;
     }
 }

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Sig = new System.Windows.Forms.Button();
             this.btn_Primera = new System.Windows.Forms.Button();
             this.btn_Ultima = new System.Windows.Forms.Button();
@@ -105,6 +105,10 @@
             this.TSLEnfarde = new System.Windows.Forms.ToolStripLabel();
             this.TSLEnvio = new System.Windows.Forms.ToolStripLabel();
             this.PlDatos = new System.Windows.Forms.Panel();
+            this.LblTCompra = new System.Windows.Forms.Label();
+            this.LblCliente = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             this.LblCert = new System.Windows.Forms.Label();
             this.LblDanio = new System.Windows.Forms.Label();
             this.LblCalidad = new System.Windows.Forms.Label();
@@ -138,10 +142,6 @@
             this.dtInventariocp = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.LblTCompra = new System.Windows.Forms.Label();
-            this.LblCliente = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
             this.PlCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.plOpciones.SuspendLayout();
@@ -636,7 +636,7 @@
             this.LblMsj.Dock = System.Windows.Forms.DockStyle.Top;
             this.LblMsj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.LblMsj.ForeColor = System.Drawing.Color.Red;
-            this.LblMsj.Location = new System.Drawing.Point(0, 456);
+            this.LblMsj.Location = new System.Drawing.Point(0, 487);
             this.LblMsj.Name = "LblMsj";
             this.LblMsj.Size = new System.Drawing.Size(957, 34);
             this.LblMsj.TabIndex = 5;
@@ -664,7 +664,7 @@
             this.PlEnfarde.Controls.Add(this.TxtSacosEnfardados);
             this.PlEnfarde.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlEnfarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlEnfarde.Location = new System.Drawing.Point(0, 321);
+            this.PlEnfarde.Location = new System.Drawing.Point(0, 352);
             this.PlEnfarde.Name = "PlEnfarde";
             this.PlEnfarde.Size = new System.Drawing.Size(957, 135);
             this.PlEnfarde.TabIndex = 18;
@@ -837,7 +837,7 @@
             this.PlTendido.Controls.Add(this.label1);
             this.PlTendido.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlTendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlTendido.Location = new System.Drawing.Point(0, 186);
+            this.PlTendido.Location = new System.Drawing.Point(0, 217);
             this.PlTendido.Name = "PlTendido";
             this.PlTendido.Size = new System.Drawing.Size(957, 135);
             this.PlTendido.TabIndex = 17;
@@ -1029,6 +1029,46 @@
             this.PlDatos.Name = "PlDatos";
             this.PlDatos.Size = new System.Drawing.Size(957, 138);
             this.PlDatos.TabIndex = 0;
+            // 
+            // LblTCompra
+            // 
+            this.LblTCompra.AutoSize = true;
+            this.LblTCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTCompra.Location = new System.Drawing.Point(723, 104);
+            this.LblTCompra.Name = "LblTCompra";
+            this.LblTCompra.Size = new System.Drawing.Size(19, 20);
+            this.LblTCompra.TabIndex = 1;
+            this.LblTCompra.Text = "--";
+            // 
+            // LblCliente
+            // 
+            this.LblCliente.AutoSize = true;
+            this.LblCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCliente.Location = new System.Drawing.Point(206, 104);
+            this.LblCliente.Name = "LblCliente";
+            this.LblCliente.Size = new System.Drawing.Size(19, 20);
+            this.LblCliente.TabIndex = 2;
+            this.LblCliente.Text = "--";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(577, 104);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(137, 20);
+            this.label26.TabIndex = 3;
+            this.label26.Text = "Tipo de compra:";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(122, 104);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(70, 20);
+            this.label27.TabIndex = 4;
+            this.label27.Text = "Cliente:";
             // 
             // LblCert
             // 
@@ -1239,7 +1279,7 @@
             this.PlEnvio.Controls.Add(this.TxtDNIN);
             this.PlEnvio.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PlEnvio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlEnvio.Location = new System.Drawing.Point(0, 490);
+            this.PlEnvio.Location = new System.Drawing.Point(0, 521);
             this.PlEnvio.Name = "PlEnvio";
             this.PlEnvio.Size = new System.Drawing.Size(957, 135);
             this.PlEnvio.TabIndex = 20;
@@ -1339,37 +1379,37 @@
             this.dtInventariocp.AllowUserToDeleteRows = false;
             this.dtInventariocp.AllowUserToOrderColumns = true;
             this.dtInventariocp.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.NullValue = "--";
-            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.NullValue = "--";
+            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtInventariocp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventariocp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventariocp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtInventariocp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.NullValue = "--";
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.NullValue = "--";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtInventariocp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventariocp.Location = new System.Drawing.Point(0, 62);
             this.dtInventariocp.Name = "dtInventariocp";
             this.dtInventariocp.ReadOnly = true;
             this.dtInventariocp.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtInventariocp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventariocp.ShowCellToolTips = false;
             this.dtInventariocp.ShowEditingIcon = false;
@@ -1397,46 +1437,6 @@
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
-            // 
-            // LblTCompra
-            // 
-            this.LblTCompra.AutoSize = true;
-            this.LblTCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTCompra.Location = new System.Drawing.Point(723, 104);
-            this.LblTCompra.Name = "LblTCompra";
-            this.LblTCompra.Size = new System.Drawing.Size(19, 20);
-            this.LblTCompra.TabIndex = 1;
-            this.LblTCompra.Text = "--";
-            // 
-            // LblCliente
-            // 
-            this.LblCliente.AutoSize = true;
-            this.LblCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCliente.Location = new System.Drawing.Point(206, 104);
-            this.LblCliente.Name = "LblCliente";
-            this.LblCliente.Size = new System.Drawing.Size(19, 20);
-            this.LblCliente.TabIndex = 2;
-            this.LblCliente.Text = "--";
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(577, 104);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(137, 20);
-            this.label26.TabIndex = 3;
-            this.label26.Text = "Tipo de compra:";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(122, 104);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(70, 20);
-            this.label27.TabIndex = 4;
-            this.label27.Text = "Cliente:";
             // 
             // CUControlPatio
             // 

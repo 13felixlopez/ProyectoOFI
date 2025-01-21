@@ -32,9 +32,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioAlm = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
+            this.BtnReporte = new System.Windows.Forms.Button();
             this.CbBuscador = new System.Windows.Forms.ComboBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.BtnActualizar = new System.Windows.Forms.Button();
             this.PbExcel = new System.Windows.Forms.PictureBox();
             this.CbBuscar = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
@@ -115,10 +114,8 @@
             this.PlCerrar = new System.Windows.Forms.Panel();
             this.LblFiltros = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
-            this.BtnReporte = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioAlm)).BeginInit();
             this.plOpciones.SuspendLayout();
-            this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).BeginInit();
             this.plfooter.SuspendLayout();
             this.PlCarga.SuspendLayout();
@@ -161,17 +158,17 @@
             this.dtInventarioAlm.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioAlm.ShowCellToolTips = false;
             this.dtInventarioAlm.ShowEditingIcon = false;
-            this.dtInventarioAlm.Size = new System.Drawing.Size(1613, 683);
+            this.dtInventarioAlm.Size = new System.Drawing.Size(1230, 683);
             this.dtInventarioAlm.TabIndex = 15;
             this.dtInventarioAlm.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtInventarioAlm_CellDoubleClick);
             this.dtInventarioAlm.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dtInventarioAlm_CellFormatting);
             // 
             // plOpciones
             // 
+            this.plOpciones.AutoScroll = true;
             this.plOpciones.BackColor = System.Drawing.Color.White;
             this.plOpciones.Controls.Add(this.BtnReporte);
             this.plOpciones.Controls.Add(this.CbBuscador);
-            this.plOpciones.Controls.Add(this.panel3);
             this.plOpciones.Controls.Add(this.PbExcel);
             this.plOpciones.Controls.Add(this.CbBuscar);
             this.plOpciones.Controls.Add(this.label26);
@@ -180,8 +177,19 @@
             this.plOpciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.plOpciones.Location = new System.Drawing.Point(0, 0);
             this.plOpciones.Name = "plOpciones";
-            this.plOpciones.Size = new System.Drawing.Size(1613, 62);
+            this.plOpciones.Size = new System.Drawing.Size(1230, 62);
             this.plOpciones.TabIndex = 16;
+            // 
+            // BtnReporte
+            // 
+            this.BtnReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnReporte.Location = new System.Drawing.Point(824, 6);
+            this.BtnReporte.Name = "BtnReporte";
+            this.BtnReporte.Size = new System.Drawing.Size(100, 50);
+            this.BtnReporte.TabIndex = 15;
+            this.BtnReporte.Text = "Reporte";
+            this.BtnReporte.UseVisualStyleBackColor = true;
+            this.BtnReporte.Click += new System.EventHandler(this.BtnReporte_Click);
             // 
             // CbBuscador
             // 
@@ -199,30 +207,6 @@
             this.CbBuscador.TabIndex = 14;
             this.CbBuscador.Visible = false;
             this.CbBuscador.SelectedIndexChanged += new System.EventHandler(this.CbBuscador_SelectedIndexChanged);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.BtnActualizar);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel3.Location = new System.Drawing.Point(1522, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(91, 62);
-            this.panel3.TabIndex = 11;
-            // 
-            // BtnActualizar
-            // 
-            this.BtnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnActualizar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnActualizar.FlatAppearance.BorderSize = 0;
-            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnActualizar.Image = global::ProyectoOFI.Properties.Resources.icons8_refrescar;
-            this.BtnActualizar.Location = new System.Drawing.Point(0, 0);
-            this.BtnActualizar.Name = "BtnActualizar";
-            this.BtnActualizar.Size = new System.Drawing.Size(91, 62);
-            this.BtnActualizar.TabIndex = 0;
-            this.BtnActualizar.UseVisualStyleBackColor = false;
-            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
             // PbExcel
             // 
@@ -305,7 +289,7 @@
             this.plfooter.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.plfooter.Location = new System.Drawing.Point(0, 745);
             this.plfooter.Name = "plfooter";
-            this.plfooter.Size = new System.Drawing.Size(1613, 60);
+            this.plfooter.Size = new System.Drawing.Size(1230, 60);
             this.plfooter.TabIndex = 17;
             // 
             // btn_atras
@@ -1030,7 +1014,7 @@
             this.PlSplit.Controls.Add(this.LblTKSplit);
             this.PlSplit.Controls.Add(this.label15);
             this.PlSplit.Controls.Add(this.PlCerrar);
-            this.PlSplit.Location = new System.Drawing.Point(1225, 325);
+            this.PlSplit.Location = new System.Drawing.Point(478, 68);
             this.PlSplit.Name = "PlSplit";
             this.PlSplit.Size = new System.Drawing.Size(366, 192);
             this.PlSplit.TabIndex = 20;
@@ -1137,17 +1121,6 @@
             this.BtnCerrar.UseVisualStyleBackColor = true;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
-            // BtnReporte
-            // 
-            this.BtnReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnReporte.Location = new System.Drawing.Point(824, 6);
-            this.BtnReporte.Name = "BtnReporte";
-            this.BtnReporte.Size = new System.Drawing.Size(100, 50);
-            this.BtnReporte.TabIndex = 15;
-            this.BtnReporte.Text = "Reporte";
-            this.BtnReporte.UseVisualStyleBackColor = true;
-            this.BtnReporte.Click += new System.EventHandler(this.BtnReporte_Click);
-            // 
             // Almacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1159,12 +1132,11 @@
             this.Controls.Add(this.plOpciones);
             this.Controls.Add(this.plfooter);
             this.Name = "Almacen";
-            this.Size = new System.Drawing.Size(1613, 805);
+            this.Size = new System.Drawing.Size(1230, 805);
             this.Load += new System.EventHandler(this.Almacen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioAlm)).EndInit();
             this.plOpciones.ResumeLayout(false);
             this.plOpciones.PerformLayout();
-            this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).EndInit();
             this.plfooter.ResumeLayout(false);
             this.plfooter.PerformLayout();
@@ -1254,8 +1226,6 @@
         private System.Windows.Forms.Button BtnGuardar;
         private System.Windows.Forms.Button BtnActivar;
         private System.Windows.Forms.PictureBox PbExcel;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button BtnActualizar;
         private System.Windows.Forms.ComboBox CbBuscador;
         private System.Windows.Forms.Button BtnSplit;
         private System.Windows.Forms.Panel PlSplit;

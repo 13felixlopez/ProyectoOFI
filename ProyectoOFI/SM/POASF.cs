@@ -362,7 +362,7 @@ namespace ProyectoOFI.SM
         private void TiempoDp()
         {
             DtHInicio1.Value = DtHoraFinPOA.Value;
-            DtHoraFin1.Value = DtHInicio1.Value.AddMinutes(5);
+            DtHoraFin1.Value = DtHInicio1.Value.AddMinutes(10);
         }
 
         private void btnP1_Click(object sender, EventArgs e)
@@ -901,6 +901,11 @@ namespace ProyectoOFI.SM
                     TLPPOA.Enabled = true;
                 }
             }
+        }
+
+        private void DtHInicio1_Leave(object sender, EventArgs e)
+        {
+            DtHoraFin1.Value = DtHInicio1.Value.AddMinutes(10);
         }
     }
 }

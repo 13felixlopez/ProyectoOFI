@@ -12,6 +12,7 @@ namespace ProyectoOFI.Logica
         public DateTime? FRecibido { get; set; }
         public string Area { get; set; }
         public int IdArea { get; set; }
+        public string Patio { get; set; }
         public string MTNR { get; set; }
         public string EstadoFisico { get; set; }
         public int IdEstFis { get; set; }

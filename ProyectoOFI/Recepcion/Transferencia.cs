@@ -62,7 +62,7 @@ namespace ProyectoOFI.Recepcion
         private async void Transferencia_Load(object sender, EventArgs e)
         {
             PlCarga.Dock = DockStyle.Fill;
-            await CargarDatos();
+            //await CargarDatos();
             Base.DiseñoDtvEliminar(ref dtInventario);
             PlCarga.Visible = false;
             ValidarPermisos();
@@ -159,6 +159,26 @@ namespace ProyectoOFI.Recepcion
             PRecepcion.Dock = DockStyle.Fill;
             PRecepcion.Visible = true;
             PEnvio.Visible = false;
+            if (Login.NombreA == "León Sequeira" || Login.NombreA == "Pedro Gonzalez" || Login.NombreA == "Lilliam Ocotal")
+            {
+                cbArea.Enabled = false;
+                CbPatio.Enabled = false;
+                if (Login.NombreA == "Lilliam Ocotal")
+                {
+                    CbPatio.Text = "Patio Peralta Coffee";
+                    //CbPatio.Enabled = false;
+                }
+                else if (Login.NombreA == "León Sequeira" || Login.NombreA == "Pedro Gonzalez")
+                {
+                    CbPatio.Text = "Patio Acoyapa";
+                    //CbPatio.Enabled = false;
+                }
+            }
+            else
+            {
+                cbArea.Enabled = true;
+                CbPatio.Enabled = true;
+            }
         }
         private void btnAnt_Click(object sender, EventArgs e)
         {
@@ -339,8 +359,9 @@ namespace ProyectoOFI.Recepcion
                 }
                 LRecepcion parametros = new LRecepcion();
                 DRecepcion funcion = new DRecepcion();
-                parametros.Ticket = txtTK.Text;
+                parametros.Ticket = txtTK.Text.Replace(" ", "");
                 parametros.FRecibido = Convert.ToDateTime(dtpRecibido.Text);
+                parametros.Patio = CbPatio.Text;
                 parametros.IdArea = int.Parse(cbArea.SelectedValue.ToString());
                 parametros.MTNR = txtMTNR.Text;
                 parametros.IdEstFis = int.Parse(cbEstadoFisico.SelectedValue.ToString());
@@ -356,7 +377,7 @@ namespace ProyectoOFI.Recepcion
 
 
                 LEnvio par = new LEnvio();
-                par.Ticket = txtTK.Text;
+                par.Ticket = txtTK.Text.Replace(" ", "");
                 par.FEnvio = dtFEnvio.Value;
                 par.IdAgencia = int.Parse(cbAgencia.SelectedValue.ToString());
                 par.IdAcopio = int.Parse(cbAcopio.SelectedValue.ToString());
@@ -375,8 +396,9 @@ namespace ProyectoOFI.Recepcion
                 {
                     //frmInicio fr = new frmInicio();
                     DataTable dt = new DataTable();
-                    funcion.MostrarLote(ref dt, desde, hasta);
-                    dtInventario.DataSource = dt;
+                    Task.Delay(3000);
+                    //funcion.MostrarLote(ref dt, desde, hasta);
+                    //dtInventario.DataSource = dt;
                     //PlRecepcion.Visible = false;
                     PRecepcion.Visible = false;
                     dtInventario.Enabled = true;
@@ -594,6 +616,15 @@ namespace ProyectoOFI.Recepcion
                     txtTK.Text = Ticket.ToString();
                     dtpRecibido.Value = DateTime.Parse(row["Fecha Recibido"].ToString());
                     cbArea.Text = row["AreaSecado"].ToString();
+                    //CbPatio.Text = row["Patio"].ToString();
+                    if (row["Patio"].ToString() != null)
+                    {
+                        CbPatio.Text = row["Patio"].ToString();
+                    }
+                    else
+                    {
+                        CbPatio.Text = "--";
+                    }
                     areaAc = row["AreaSecado"].ToString();
                     if (row["MTNR"].ToString() != null)
                     {
@@ -1067,10 +1098,10 @@ namespace ProyectoOFI.Recepcion
             //}
             //else
             //{
-            Task.Delay(3000);
-            BuscarTK();
-            ReiniciarPaginado();
             //}
+            //Task.Delay(3000);
+            //BuscarTK();
+            //ReiniciarPaginado();
         }
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
@@ -1080,6 +1111,7 @@ namespace ProyectoOFI.Recepcion
             plOpciones.Visible = true;
             dtTKCons.Rows.Clear();
             Cons.Rows.Clear();
+            TxtTicketCons.Enabled=true;
             BuscarTK();
             LimpiarCons();
         }
@@ -1194,9 +1226,10 @@ namespace ProyectoOFI.Recepcion
 
                         LRecepcion parametros = new LRecepcion();
                         DRecepcion funcion = new DRecepcion();
-                        parametros.Ticket = txtTK.Text;
+                        parametros.Ticket = txtTK.Text.Replace(" ", "");
                         parametros.FRecibido = Convert.ToDateTime(dtpRecibido.Text);
                         parametros.IdArea = int.Parse(cbArea.SelectedValue.ToString());
+                        parametros.Patio = CbPatio.Text;
                         parametros.MTNR = txtMTNR.Text;
                         parametros.IdEstFis = int.Parse(cbEstadoFisico.SelectedValue.ToString());
                         parametros.IdCalidad = int.Parse(cbCalidad.SelectedValue.ToString());
@@ -1211,7 +1244,7 @@ namespace ProyectoOFI.Recepcion
 
 
                         LEnvio par = new LEnvio();
-                        par.Ticket = txtTK.Text;
+                        par.Ticket = txtTK.Text.Replace(" ", "");
                         par.FEnvio = Convert.ToDateTime(dtFEnvio.Text);
                         par.IdAgencia = int.Parse(cbAgencia.SelectedValue.ToString());
                         par.IdAcopio = int.Parse(cbAcopio.SelectedValue.ToString());
@@ -1230,9 +1263,9 @@ namespace ProyectoOFI.Recepcion
 
                             if (funcion.EditarTK(parametros, par, Ticket) == true)
                             {
-                                DataTable dt = new DataTable();
-                                funcion.MostrarLote(ref dt, desde, hasta);
-                                dtInventario.DataSource = dt;
+                                //DataTable dt = new DataTable();
+                                //funcion.MostrarLote(ref dt, desde, hasta);
+                                //dtInventario.DataSource = dt;
                                 PRecepcion.Visible = false;
                                 Alerta();
                                 PlRecepcion.Visible = false;
@@ -1365,6 +1398,7 @@ namespace ProyectoOFI.Recepcion
                                              $"- Peso Envío: {txtPesoE.Text}\n" +
                                              $"- Tally: {TxtTally.Text}\n" +
                                              $"- Fecha Recibido: {dtpRecibido.Text}\n" +
+                                             $"- Patio: {CbPatio.Text}\n" +
                                              $"- Área Secado: {cbArea.Text}\n" +
                                              $"- MTNR: {txtMTNR.Text}\n" +
                                              $"- Estado Físico: {cbEstadoFisico.Text}\n" +
@@ -1442,6 +1476,18 @@ namespace ProyectoOFI.Recepcion
         private void CbAreaCons_SelectedIndexChanged(object sender, EventArgs e)
         {
             ActivarCons();
+            if (CbAreaCons.Text == "Control Patio")
+            {
+                CbPatioCons.Enabled = true;
+                DControlPatio fun = new DControlPatio();
+                fun.MostrarPatio(CbPatioCons);
+            }
+            else
+            {
+                CbPatioCons.Text = "SM";
+                CbPatioCons.Enabled = false;
+            }
+
         }
         private void ActivarCons()
         {
@@ -1582,6 +1628,7 @@ namespace ProyectoOFI.Recepcion
                 PlFiltroFecha.Visible = false;
                 txtBuscador.Visible = true;
                 CbBuscador.Visible = false;
+                BtnBuscar.Visible = true;
                 ReiniciarPaginado();
             }
             else if (CbBuscar.Text == "Calidad")
@@ -1624,6 +1671,7 @@ namespace ProyectoOFI.Recepcion
             CbBuscador.DataSource = null;
             CbBuscador.SelectedIndex = -1;
             PlFiltroFecha.Visible = false;
+            BtnBuscar.Visible = false;
         }
         private void BuscarRangoFecha()
         {
@@ -1794,7 +1842,7 @@ namespace ProyectoOFI.Recepcion
                 }
                 LRecepcion parametros = new LRecepcion();
                 LEnvio Par = new LEnvio();
-                parametros.Ticket = TxtTicketCons.Text;
+                parametros.Ticket = TxtTicketCons.Text.Replace(" ", "");
                 parametros.FRecibido = fechaMasReciente.Value;
                 parametros.Sacos = int.Parse(LblTotalSacos.Text);
                 parametros.Peso = double.Parse(LblTotalPeso.Text);
@@ -1805,6 +1853,7 @@ namespace ProyectoOFI.Recepcion
                 parametros.EstadoFisico = EstadoFisico;
                 parametros.Daño = Daño;
                 parametros.Digitador = Login.NombreA;
+                parametros.Patio = CbPatioCons.Text;
                 parametros.IdArea = int.Parse(CbAreaCons.SelectedValue.ToString());
                 string folio = TxtFolio.Text;
                 string proceso = "No Asignado";
@@ -1818,7 +1867,7 @@ namespace ProyectoOFI.Recepcion
                     plOpciones.Visible = true;
                     dtTKCons.Rows.Clear();
                     Cons.Rows.Clear();
-                    await CargarDatos();
+                    //await CargarDatos();
                     LimpiarCons();
                 }
             }
@@ -1842,7 +1891,7 @@ namespace ProyectoOFI.Recepcion
                 }
                 LRecepcion parametros = new LRecepcion();
                 LEnvio Par = new LEnvio();
-                parametros.Ticket = TxtTicketCons.Text;
+                parametros.Ticket = TxtTicketCons.Text.Replace(" ", "");
                 parametros.Sacos = int.Parse(LblTotalSacos.Text);
                 parametros.Peso = double.Parse(LblTotalPeso.Text);
                 parametros.Calidad = Calidad;
@@ -1863,7 +1912,7 @@ namespace ProyectoOFI.Recepcion
                     plOpciones.Visible = true;
                     dtTKCons.Rows.Clear();
                     Cons.Rows.Clear();
-                    await CargarDatos();
+                    //await CargarDatos();
                     LimpiarCons();
                     PlVerCons.Size = new Size(129, 194);
                     PlVerCons.Visible = false;
@@ -1967,6 +2016,33 @@ namespace ProyectoOFI.Recepcion
         {
             DRecepcion funcion = new DRecepcion();
             funcion.MostrarAgencia(cbAgencia);
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            Task.Delay(3000);
+            BuscarTK();
+            ReiniciarPaginado();
+        }
+
+        private void cbArea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbArea.Text == "Control Patio")
+            {
+                CbPatio.Enabled = true;
+                DControlPatio fun = new DControlPatio();
+                fun.MostrarPatio(CbPatio);
+            }
+            else
+            {
+                CbPatio.Text = "SM";
+                CbPatio.Enabled = false;
+            }
+        }
+
+        private void timerAct_Tick(object sender, EventArgs e)
+        {
+
         }
 
         private void ValidarPermisos()

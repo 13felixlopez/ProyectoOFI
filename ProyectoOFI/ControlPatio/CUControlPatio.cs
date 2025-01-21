@@ -36,7 +36,7 @@ namespace ProyectoOFI.ControlPatio
         private async void CUControlPatio_Load(object sender, EventArgs e)
         {
             PlCarga.Dock = DockStyle.Fill;
-            await CargarDatos();
+            //await CargarDatos();
             Base.DiseñoDtvEliminar(ref dtInventariocp);
             Base.DiseñoDtv(ref dtInventariocp);
             PlCarga.Visible = false;
@@ -45,7 +45,7 @@ namespace ProyectoOFI.ControlPatio
         {
             await Task.Delay(1500);
             dtInventariocp.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            MostrarLotes();
+            //MostrarLotes();
             ReiniciarPaginado();
             LlenarCheckBoxList();
             await Task.Delay(1000);
@@ -611,7 +611,7 @@ namespace ProyectoOFI.ControlPatio
                     if (funcion.InsertarTendido(parametros) == true)
                     {
                         MessageBox.Show("Tendido realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        MostrarLotes();
+                        //MostrarLotes();
                         Limpiar();
                         PlControl.Visible = false;
                     }
@@ -641,7 +641,7 @@ namespace ProyectoOFI.ControlPatio
                     if (funcion.InsertarRetendido(parametros) == true)
                     {
                         MessageBox.Show("ReTendido realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        MostrarLotes();
+                        //MostrarLotes();
                         Limpiar();
                         PlControl.Visible = false;
                     }
@@ -834,7 +834,7 @@ namespace ProyectoOFI.ControlPatio
                     if (funcion.InsertarEnfarde(parametros) == true)
                     {
                         MessageBox.Show("Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        MostrarLotes();
+                        //MostrarLotes();
                         Limpiar();
                         PlControl.Visible = false;
                     }
@@ -869,7 +869,7 @@ namespace ProyectoOFI.ControlPatio
                     if (funcion.InsertarReEnfarde(parametros) == true)
                     {
                         MessageBox.Show("ReEnfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        MostrarLotes();
+                        //MostrarLotes();
                         Limpiar();
                         PlControl.Visible = false;
                     }
@@ -1285,7 +1285,7 @@ namespace ProyectoOFI.ControlPatio
                     if (funcion.InsertarEnvio(parametros) == true)
                     {
                         MessageBox.Show("Envio realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        MostrarLotes();
+                        //MostrarLotes();
                         Limpiar();
                         PlControl.Visible = false;
                     }
@@ -1366,7 +1366,7 @@ namespace ProyectoOFI.ControlPatio
 
         private async void BtnActualizar_Click(object sender, EventArgs e)
         {
-            await CargarDatos();
+            //await CargarDatos();
             MessageBox.Show("Datos Actualizados", "Refrescar Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
@@ -1493,7 +1493,7 @@ namespace ProyectoOFI.ControlPatio
                     if (funcion.EditarEnvio(parametros, editEn) == true)
                     {
                         MessageBox.Show("Envio realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        MostrarLotes();
+                        //MostrarLotes();
                         Limpiar();
                         PlControl.Visible = false;
                     }

@@ -446,9 +446,26 @@ namespace ProyectoOFI.SM
             }
             else
             {
-                BtnPS.Enabled = false;
-                LblMsj.Visible = true;
-                BtnPS.Text = "Realizar Envio";
+                double humedad;
+                if (double.TryParse(LblHumedad.Text.TrimEnd('%'), out humedad))
+                {
+                    if (humedad >= 13)
+                    {
+                        BtnPS.Enabled = true;
+                        LblMsj.Visible = false;
+                        BtnPS.Text = "Realizar Envio";
+                    }
+                    else
+                    {
+                        BtnPS.Enabled = false;
+                        LblMsj.Visible = true;
+                        BtnPS.Text = "Realizar Envio";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se puede convertir el numero","Error en la Humedad",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
             }
         }
         #region Botones

@@ -22,7 +22,7 @@ namespace ProyectoOFI.Analisis
         int totalPaginas;
         int Contador;
         int ContarBusqueda;
-        string Ticket, TkSM, TkDetalle;
+        string Ticket, TkSM, TkDetalle, EstadoEnv;
         DateTime FRecibido, FMuestra;
         double Exp, DesmA, DesmC, DesmD;
         double Bto = 0;
@@ -452,6 +452,10 @@ namespace ProyectoOFI.Analisis
                 string nombreEstado = "Proce";
                 int numEstado = dtInventarioCat.Columns[nombreEstado].Index;
                 Proceso = dtInventarioCat.SelectedCells[numEstado].Value.ToString();
+
+                string Est_Env = "Est_Envio";
+                int numEst = dtInventarioCat.Columns[Est_Env].Index;
+                EstadoEnv = dtInventarioCat.SelectedCells[numEst].Value.ToString();
             }
             else
             {
@@ -690,7 +694,14 @@ namespace ProyectoOFI.Analisis
             }
             else
             {
-                Desactivar();
+                if (EstadoEnv == "Pre-Seco")
+                {
+                    Activar();
+                }
+                else
+                {
+                    Desactivar();
+                }
             }
 
             MostrarCambiarTK();
@@ -848,38 +859,6 @@ namespace ProyectoOFI.Analisis
                         Desactivar();
                     }
                 }
-                //if (BtnAnalisis.Text == "Analizado" || Estado == false)
-                //{
-
-                //    if (BtnAnalisis.Text == "Re-Analizar")
-                //    {
-                //        EditarCatacionCD();
-                //        MostrarLotes();
-                //    }
-                //    else if(BtnMostrarCompras.Text == "Análisis")
-                //    {
-                //        InsertarCatacionCD();
-                //        MostrarComprasD();
-                //    }
-                //    else
-                //    {
-                //        InsertarCatacion();
-                //        MostrarLotes();
-                //    }
-                //}
-                //else
-                //{
-                //    if (BtnMostrarCompras.Text == "Análisis")
-                //    {
-                //        EditarCatacionCD();
-                //        MostrarComprasD();
-                //    }
-                //    else
-                //    {
-                //        EditarCatacionCD();
-                //        MostrarLotes();
-                //    }
-                //}
             }
             else
             {
@@ -946,54 +925,6 @@ namespace ProyectoOFI.Analisis
                 }
             }
         }
-        //Prueba Placeholders
-        //private void SetPlaceholder(TextBox textBox, string placeholderText)
-        //{
-        //    if (string.IsNullOrWhiteSpace(textBox.Text))
-        //    {
-        //        isPlaceholder = true;
-        //        textBox.Text = placeholderText;
-        //        textBox.ForeColor = System.Drawing.Color.Gray;
-        //    }
-        //    else
-        //    {
-        //        isPlaceholder = false;
-        //        textBox.ForeColor = System.Drawing.Color.Black;
-        //    }
-
-        //    textBox.GotFocus += (sender, e) => RemovePlaceholder(sender, e, placeholderText);
-        //    textBox.LostFocus += (sender, e) => ShowPlaceholder(sender, e, placeholderText);
-        //}
-        //private void RemovePlaceholder(object sender, EventArgs e, string placeholderText)
-        //{
-        //    TextBox textBox = sender as TextBox;
-        //    if (textBox.Text == placeholderText)
-        //    {
-        //        textBox.Text = "";
-        //        textBox.ForeColor = System.Drawing.Color.Black;
-        //        isPlaceholder = false;
-        //    }
-        //}
-        private void BtnCambiarTK_Click(object sender, EventArgs e)
-        {
-            PlCambioTK.Size = new Size(457, 229);
-            PlCambioTK.Location = new System.Drawing.Point(dtInventarioCat.Width / 2
-                - PlCambioTK.Width / 2, dtInventarioCat.Height / 2 - PlCambioTK.Height / 2);
-            PlCambioTK.Visible = true;
-            PlCambioTK.BringToFront();
-            PLDatos.Enabled = false;
-            LblTK.Text = LblTicket.Text;
-        }
-        //private void ShowPlaceholder(object sender, EventArgs e, string placeholderText)
-        //{
-        //    TextBox textBox = sender as TextBox;
-        //    if (string.IsNullOrWhiteSpace(textBox.Text))
-        //    {
-        //        textBox.Text = placeholderText;
-        //        textBox.ForeColor = System.Drawing.Color.Gray;
-        //        isPlaceholder = true;
-        //    }
-        //}
         private void BtnCerrarCambioTK_Click(object sender, EventArgs e)
         {
             PlCambioTK.Visible = false;
@@ -1706,6 +1637,18 @@ namespace ProyectoOFI.Analisis
                 funcion.MostrarAreaSecado(CbBuscador);
             }
         }
+
+        private void BtnCambiarTK_Click(object sender, EventArgs e)
+        {
+            PlCambioTK.Size = new Size(457, 229);
+            PlCambioTK.Location = new System.Drawing.Point(dtInventarioCat.Width / 2
+                - PlCambioTK.Width / 2, dtInventarioCat.Height / 2 - PlCambioTK.Height / 2);
+            PlCambioTK.Visible = true;
+            PlCambioTK.BringToFront();
+            PLDatos.Enabled = false;
+            LblTK.Text = LblTicket.Text;
+        }
+
         private void TextBuscarVisible()
         {
             txtBuscador.Clear();
@@ -1718,13 +1661,16 @@ namespace ProyectoOFI.Analisis
 
         private void FormatCellBasedOnProceso(DataGridView dataGridView, DataGridViewCellFormattingEventArgs e)
         {
-            // Verificar si la columna actual es la columna "Proceso"
-            if (dataGridView.Columns[e.ColumnIndex].Name == "Proce")
+            // Obtener los valores de las columnas relevantes
+            string columnName = dataGridView.Columns[e.ColumnIndex].Name;
+
+            // Verificar si la columna es "Proce"
+            if (columnName == "Proce")
             {
                 // Obtener el valor de la celda actual
                 string cellValue = e.Value as string;
 
-                // Verificar si el valor de la celda es alguno de los casos especificados
+                // Verificar si el valor de la celda cumple las condiciones para formatear la fila
                 if (!string.IsNullOrEmpty(cellValue) &&
                     (cellValue.Equals("Almacén", StringComparison.OrdinalIgnoreCase) ||
                      cellValue.Equals("Analizado", StringComparison.OrdinalIgnoreCase) ||
@@ -1732,18 +1678,39 @@ namespace ProyectoOFI.Analisis
                      cellValue.Equals("Envío", StringComparison.OrdinalIgnoreCase) ||
                      cellValue.Equals("Enviado", StringComparison.OrdinalIgnoreCase)))
                 {
-                    // Cambiar el color de fondo y el color de fuente de la fila
-                    dataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow; // Color de fondo
-                    dataGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;    // Color de fuente
+                    // Formatear toda la fila con fondo amarillo y letras rojas
+                    dataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow;
+                    dataGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Red;
                 }
                 else
                 {
-                    // Restablecer los estilos de las filas que no cumplen la condición
+                    // Restablecer el estilo de las filas que no cumplen la condición
                     dataGridView.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.White;
                     dataGridView.Rows[e.RowIndex].DefaultCellStyle.ForeColor = Color.Black;
                 }
             }
+
+            // Verificar si la columna es "Est_Envio"
+            if (columnName == "Est_Envio")
+            {
+                // Obtener el valor de la celda actual
+                string cellValue = e.Value as string;
+
+                if (!string.IsNullOrEmpty(cellValue) && cellValue.Equals("Pre-Seco", StringComparison.OrdinalIgnoreCase))
+                {
+                    // Cambiar el color de fondo y el color de fuente de la celda actual
+                    e.CellStyle.BackColor = Color.Green;
+                    e.CellStyle.ForeColor = Color.White;
+                }
+                else
+                {
+                    // Restablecer el estilo predeterminado de la celda
+                    e.CellStyle.BackColor = dataGridView.DefaultCellStyle.BackColor;
+                    e.CellStyle.ForeColor = dataGridView.DefaultCellStyle.ForeColor;
+                }
+            }
         }
+
 
         // Llama al método desde el evento CellFormatting
         private void dtInventarioCat_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)

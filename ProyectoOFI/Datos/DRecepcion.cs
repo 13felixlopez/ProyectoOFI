@@ -22,6 +22,7 @@ namespace ProyectoOFI.Datos
                 };
                 cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
                 cmd.Parameters.AddWithValue("@FechaRecibido", parametros.FRecibido);
+                cmd.Parameters.AddWithValue("@Patio", parametros.Patio);
                 cmd.Parameters.AddWithValue("@AreaSecado", parametros.IdArea);
                 cmd.Parameters.AddWithValue("@MTNR", parametros.MTNR);
                 cmd.Parameters.AddWithValue("@EstadoFisico", parametros.IdEstFis);
@@ -246,6 +247,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@TicketAnterior", TicketAnteriror);
                 cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
                 cmd.Parameters.AddWithValue("@FechaRecibido", parametros.FRecibido);
+                cmd.Parameters.AddWithValue("@Patio", parametros.Patio);
                 cmd.Parameters.AddWithValue("@AreaSecado", parametros.IdArea);
                 cmd.Parameters.AddWithValue("@MTNR", parametros.MTNR);
                 cmd.Parameters.AddWithValue("@EstadoFisico", parametros.IdEstFis);
@@ -325,6 +327,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
                 cmd.Parameters.AddWithValue("@FRecibido", parametros.FRecibido);
                 cmd.Parameters.AddWithValue("@Danio", parametros.Daño);
+                cmd.Parameters.AddWithValue("@Patio", parametros.Patio);
                 cmd.Parameters.AddWithValue("@AreaSecado", parametros.IdArea);
                 cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
                 cmd.Parameters.AddWithValue("@Folio", folio);

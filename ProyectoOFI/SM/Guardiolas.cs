@@ -309,7 +309,7 @@ namespace ProyectoOFI.SM
                 //LblDigitadorG.Text = dt.Rows[0]["DigitadorG"].ToString();
                 //TimeSpan tiempo = 
                 //string duracionFormateada = $"{tiempo.Hours:D2}:{tiempo.Minutes:D2}";
-                LblDuracionG.Text = dt.Rows[0]["DuracionG"].ToString(); 
+                LblDuracionG.Text = dt.Rows[0]["DuracionG"].ToString();
                 string Total;
                 string resultado;
                 TimeSpan final;
@@ -370,7 +370,7 @@ namespace ProyectoOFI.SM
         private void TiempoDp()
         {
             DtHInicio1.Value = dtHoraFinG.Value;
-            DtHoraFin1.Value = DtHInicio1.Value.AddMinutes(5);
+            DtHoraFin1.Value = DtHInicio1.Value.AddMinutes(10);
         }
 
         #region Botones
@@ -786,6 +786,12 @@ namespace ProyectoOFI.SM
                 Observacion += item.ToString() + ", ";
             }
         }
+
+        private void DtHInicio1_Leave(object sender, EventArgs e)
+        {
+            DtHoraFin1.Value = DtHInicio1.Value.AddMinutes(10);
+        }
+
         private void ValidarPermisos()
         {
             DataTable dt = new DataTable();

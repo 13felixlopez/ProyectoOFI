@@ -879,6 +879,7 @@
             this.DtHInicio1.TabIndex = 10;
             this.DtHInicio1.Value = new System.DateTime(2024, 10, 14, 13, 20, 19, 0);
             this.DtHInicio1.ValueChanged += new System.EventHandler(this.DtHInicio1_ValueChanged);
+            this.DtHInicio1.Leave += new System.EventHandler(this.DtHInicio1_Leave);
             // 
             // label28
             // 
@@ -994,7 +995,7 @@
             this.dtHoraFinG.CustomFormat = "d/MM/yyyy HH:mm:ss";
             this.dtHoraFinG.Enabled = false;
             this.dtHoraFinG.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtHoraFinG.Location = new System.Drawing.Point(728, 88);
+            this.dtHoraFinG.Location = new System.Drawing.Point(728, 94);
             this.dtHoraFinG.Name = "dtHoraFinG";
             this.dtHoraFinG.Size = new System.Drawing.Size(206, 26);
             this.dtHoraFinG.TabIndex = 10;
@@ -1005,7 +1006,7 @@
             this.dtHoraIniG.CustomFormat = "dd/MM/yyyy HH:mm:ss";
             this.dtHoraIniG.Enabled = false;
             this.dtHoraIniG.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtHoraIniG.Location = new System.Drawing.Point(422, 98);
+            this.dtHoraIniG.Location = new System.Drawing.Point(422, 94);
             this.dtHoraIniG.Name = "dtHoraIniG";
             this.dtHoraIniG.Size = new System.Drawing.Size(220, 26);
             this.dtHoraIniG.TabIndex = 10;
@@ -1061,7 +1062,7 @@
             // LblTurno
             // 
             this.LblTurno.AutoSize = true;
-            this.LblTurno.Location = new System.Drawing.Point(92, 103);
+            this.LblTurno.Location = new System.Drawing.Point(92, 97);
             this.LblTurno.Name = "LblTurno";
             this.LblTurno.Size = new System.Drawing.Size(21, 20);
             this.LblTurno.TabIndex = 6;
@@ -1096,7 +1097,7 @@
             // 
             // label9
             // 
-            this.label9.Location = new System.Drawing.Point(666, 80);
+            this.label9.Location = new System.Drawing.Point(666, 86);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(65, 43);
             this.label9.TabIndex = 4;
@@ -1104,7 +1105,7 @@
             // 
             // label10
             // 
-            this.label10.Location = new System.Drawing.Point(353, 90);
+            this.label10.Location = new System.Drawing.Point(353, 86);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(57, 43);
             this.label10.TabIndex = 4;
@@ -1113,7 +1114,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(26, 103);
+            this.label12.Location = new System.Drawing.Point(26, 97);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(60, 20);
             this.label12.TabIndex = 2;

@@ -100,7 +100,7 @@ namespace ProyectoOFI.Compras
                         parametros.IdBodega = (int)CbBodega.SelectedValue;
                         parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
                         parametros.IdCompra = (int)cbCompra.SelectedValue;
-                        parametros.IdMaterial=(int)CbMaterial.SelectedValue;
+                        parametros.IdMaterial = (int)CbMaterial.SelectedValue;
                         //parametros.IdCertificacion = (int)cbCertificacion.SelectedValue;
                         parametros.Estado = "S/A";
                         if (funcion.InsertarCompraDirecta(parametros) == true)
@@ -333,7 +333,7 @@ namespace ProyectoOFI.Compras
             DA.MostrarEmpaque(CbTipoEmpaque);
             DA.MostrarBodega(CbBodega);
             DA.MostrarUbicacionPxBodega(CbUbicacion, IdBodega);
-            DCompraD CD=new DCompraD();
+            DCompraD CD = new DCompraD();
             CD.MostrarMaterial(CbMaterial);
         }
         #region Paginado
@@ -671,26 +671,35 @@ namespace ProyectoOFI.Compras
         }
         private void ValidarPermisos()
         {
-            DataTable dt = new DataTable();
-            DModulos funcion = new DModulos();
-            LPermisos parametros = new LPermisos();
-            parametros.IdUser = Login.Iduser;
-            funcion.PermisosUser(ref dt, Login.Iduser);
-            foreach (DataRow rowpermisos in dt.Rows)
+            if (!Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
             {
-                Modulo = Convert.ToString(rowpermisos["Modulo"]);
-                if (Modulo == "Agregar CompraDirecta")
+                DataTable dt = new DataTable();
+                DModulos funcion = new DModulos();
+                LPermisos parametros = new LPermisos();
+                parametros.IdUser = Login.Iduser;
+                funcion.PermisosUser(ref dt, Login.Iduser);
+                foreach (DataRow rowpermisos in dt.Rows)
                 {
-                    btnAgregar.Visible = true;
+                    Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                    if (Modulo == "Agregar CompraDirecta")
+                    {
+                        btnAgregar.Visible = true;
+                    }
+                    if (Modulo == "Editar CompraDirecta")
+                    {
+                        BtnActivar.Enabled = true;
+                    }
+                    if (Modulo == "Elminar CompraDirecta")
+                    {
+                        dtInventarioCompras.Columns["Eliminar"].Visible = true;
+                    }
                 }
-                if (Modulo == "Editar CompraDirecta")
-                {
-                    BtnActivar.Enabled = true;
-                }
-                if (Modulo == "Elminar CompraDirecta")
-                {
-                    dtInventarioCompras.Columns["Eliminar"].Visible = true;
-                }
+            }
+            else
+            {
+                btnAgregar.Visible = true;
+                BtnActivar.Enabled = true;
+                dtInventarioCompras.Columns["Eliminar"].Visible = true;
             }
         }
     }

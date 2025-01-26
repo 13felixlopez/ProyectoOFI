@@ -888,18 +888,25 @@ namespace ProyectoOFI.SM
         }
         private void ValidarPermisos()
         {
-            DataTable dt = new DataTable();
-            DModulos funcion = new DModulos();
-            LPermisos parametros = new LPermisos();
-            parametros.IdUser = Login.Iduser;
-            funcion.PermisosUser(ref dt, Login.Iduser);
-            foreach (DataRow rowpermisos in dt.Rows)
+            if (!Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
             {
-                Modulo = Convert.ToString(rowpermisos["Modulo"]);
-                if (Modulo == "Agregar SM")
+                DataTable dt = new DataTable();
+                DModulos funcion = new DModulos();
+                LPermisos parametros = new LPermisos();
+                parametros.IdUser = Login.Iduser;
+                funcion.PermisosUser(ref dt, Login.Iduser);
+                foreach (DataRow rowpermisos in dt.Rows)
                 {
-                    TLPPOA.Enabled = true;
+                    Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                    if (Modulo == "Agregar SM")
+                    {
+                        TLPPOA.Enabled = true;
+                    }
                 }
+            }
+            else
+            {
+                TLPPOA.Enabled = true;
             }
         }
 

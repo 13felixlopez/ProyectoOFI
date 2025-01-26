@@ -1081,24 +1081,6 @@ namespace ProyectoOFI.ControlPatio
                 MessageBox.Show("No se pudieron cargar los datos Tendido " + ex.Message, "ERROR Tendido", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void txtBuscador_TextChanged(object sender, EventArgs e)
-        {
-            //if (txtBuscador.Text == "")
-            //{
-            //    ReiniciarPaginado();
-            //    MostrarLotes();
-            //}
-            //else if (CbBuscador.Text == "Peso")
-            //{
-            //    Buscar();
-            //    ReiniciarPaginado();
-            //}
-            //else
-            //{
-            //    BuscarTk();
-            //    ReiniciarPaginado();
-            //}
-        }
         private void EditarEnfarde()
         {
             if (validar())
@@ -1127,38 +1109,6 @@ namespace ProyectoOFI.ControlPatio
                             Limpiar();
                             PlControl.Visible = false;
                         }
-                        //if (BtnEnfarde.Text == "Actualizar")
-                        //{
-                        //    parametros.Rechazos = Rechazos;
-                        //    parametros.DiasSecado = int.Parse(LblDiasSecado.Text);
-                        //    editenf = editenf + 1;
-                        //    if (funcion.EditarEnfarde(parametros, editenf) == true)
-                        //    {
-                        //        MessageBox.Show("Edición de Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        //        MostrarLotes();
-                        //        Limpiar();
-                        //        PlControl.Visible = false;
-                        //    }
-                        //}
-                        //else if (BtnEnfarde.Text == "Re-Enfarde")
-                        //{
-                        //    parametros.Rechazos = Rechazos + 1;
-                        //    if (diasEdit >= dias)
-                        //    {
-                        //        MessageBox.Show("El Re-Enfarde es erroneo por la cantidad de dias", "Error en dias Re-Enfarde", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        //    }
-                        //    else
-                        //    {
-                        //        parametros.DiasSecado = int.Parse(LblDiasSecado.Text);
-                        //        if (funcion.EditarEnfarde(parametros, editenf) == true)
-                        //        {
-                        //            MessageBox.Show("Edición de Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        //            MostrarLotes();
-                        //            Limpiar();
-                        //            PlControl.Visible = false;
-                        //        }
-                        //    }
-                        //}
                     }
                     else
                     {
@@ -1392,11 +1342,80 @@ namespace ProyectoOFI.ControlPatio
         private void BtnRechazos_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            DControlPatio Cp= new DControlPatio();
+            DControlPatio Cp = new DControlPatio();
             Cp.LotesRechazos(ref dt);
             string Nombre = "Lotes Rechazados ";
             FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
             LT.ShowDialog();
+        }
+
+        private void BtnBusqueda_Click(object sender, EventArgs e)
+        {
+            BuscarAreaSecado();
+        }
+        private void BuscarAreaSecado()
+        {
+            DControlPatio funcion = new DControlPatio();
+            DataTable dt = new DataTable();
+            try
+            {
+                funcion.BuscarAreaSecado(ref dt, TxtTK.Text);
+                if (dt.Rows.Count > 0 && !string.IsNullOrEmpty(dt.Rows[0]["AreaSecado"].ToString()))
+                {
+                    DataRow row = dt.Rows[0];
+                    if (row["AreaSecado"].ToString() != null)
+                    {
+                        LblAreaActual.Text = row["AreaSecado"].ToString();
+                        BtnCambioUbicacion.Enabled = true;
+                    }
+                    else
+                    {
+                        LblAreaActual.Text = "";
+                    }
+                }
+                else
+                {
+                    BtnCambioUbicacion.Enabled = false;
+                    MessageBox.Show("No hay registros", "ERROR en Ticket", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        private void BtnCerrarCambio_Click(object sender, EventArgs e)
+        {
+            PlCambio.Visible = false;
+            BtnCambioUbicacion.Enabled = false;
+        }
+
+        private void BtnCambio_Click(object sender, EventArgs e)
+        {
+            PlCambio.Location = new Point(dtInventariocp.Width / 2
+                - PlCambio.Width / 2, dtInventariocp.Height / 2 - PlCambio.Height / 2);
+            PlCambio.Visible = true;
+            PlCambio.BringToFront();
+        }
+
+        private void BtnCambioUbicacion_Click(object sender, EventArgs e)
+        {
+            DControlPatio funcion = new DControlPatio();
+            string Area;
+            if (LblAreaActual.Text == "Control Patio")
+            {
+                Area = "Secado Mecánico";
+            }
+            else
+            {
+                Area = "Control Patio";
+            }
+            if (funcion.CambioArea(TxtTK.Text, Area) == true)
+            {
+                MessageBox.Show("Cambio de área de secado con éxito", "Cambio de área de secado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                BuscarAreaSecado();
+            }
         }
 
         private bool validarEnvio()
@@ -1566,6 +1585,7 @@ namespace ProyectoOFI.ControlPatio
                 BtnEnvSM.Visible = true;
                 BtnEnviar.Visible = true;
                 toolStrip1.Visible = true;
+                BtnCambio.Visible = true;
             }
             else if (tieneAgregarSN)
             {
@@ -1574,6 +1594,7 @@ namespace ProyectoOFI.ControlPatio
                 BtnEnvSM.Visible = true;
                 BtnEnviar.Visible = true;
                 toolStrip1.Visible = false;
+                BtnCambio.Visible = true;
             }
             else if (tieneEditarSN)
             {
@@ -1588,6 +1609,15 @@ namespace ProyectoOFI.ControlPatio
                 BtnEnfarde.Visible = false;
                 BtnEnviar.Visible = false;
                 toolStrip1.Visible = false;
+            }
+            if (Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
+            {
+                BtnTendido.Visible = true;
+                BtnEnfarde.Visible = true;
+                BtnEnvSM.Visible = true;
+                BtnEnviar.Visible = true;
+                toolStrip1.Visible = true;
+                BtnCambio.Visible = true;
             }
         }
 

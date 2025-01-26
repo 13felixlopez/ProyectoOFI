@@ -264,38 +264,51 @@ namespace ProyectoOFI.Otros
         }
         private void ValidarPermisos()
         {
-            DataTable dt = new DataTable();
-            DModulos funcion = new DModulos();
-            LPermisos parametros = new LPermisos();
-            parametros.IdUser = Login.Iduser;
-            funcion.PermisosUser(ref dt, Login.Iduser);
-            foreach (DataRow rowpermisos in dt.Rows)
+            if (!Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
             {
-                string Modulo = Convert.ToString(rowpermisos["Modulo"]);
-                if (Modulo == "Transferencia")
+
+                DataTable dt = new DataTable();
+                DModulos funcion = new DModulos();
+                LPermisos parametros = new LPermisos();
+                parametros.IdUser = Login.Iduser;
+                funcion.PermisosUser(ref dt, Login.Iduser);
+                foreach (DataRow rowpermisos in dt.Rows)
                 {
-                    GbTransfer.Visible = true;
+                    string Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                    if (Modulo == "Transferencia")
+                    {
+                        GbTransfer.Visible = true;
+                    }
+                    if (Modulo == "ControlPatio")
+                    {
+                        GbControlPatio.Visible = true;
+                    }
+                    if (Modulo == "SM")
+                    {
+                        GbSM.Visible = true;
+                    }
+                    if ((Modulo == "Agregar Análisis"))
+                    {
+                        Gbcatacion.Visible = true;
+                    }
+                    if (Modulo == "Usuarios")
+                    {
+                        BtnCosechas.Visible = true;
+                    }
+                    if (Modulo == "Almacen")
+                    {
+                        GbAlmacen.Visible = true;
+                    }
                 }
-                if (Modulo == "ControlPatio")
-                {
-                    GbControlPatio.Visible = true;
-                }
-                if (Modulo == "SM")
-                {
-                    GbSM.Visible = true;
-                }
-                if ((Modulo == "Agregar Análisis"))
-                {
-                    Gbcatacion.Visible = true;
-                }
-                if (Modulo == "Usuarios")
-                {
-                    BtnCosechas.Visible = true;
-                }
-                if (Modulo == "Almacen")
-                {
-                    GbAlmacen.Visible = true;
-                }
+            }
+            else 
+            {
+                GbTransfer.Visible = true;
+                GbControlPatio.Visible = true;
+                GbSM.Visible = true;
+                Gbcatacion.Visible = true;
+                BtnCosechas.Visible = true;
+                GbAlmacen.Visible = true;
             }
         }
 

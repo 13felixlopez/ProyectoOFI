@@ -77,19 +77,19 @@ namespace ProyectoOFI.SM
                     {
                         LblTicket.Text = "--";
                     }
-                    if (row["Humedad"].ToString()!=null)
+                    if (row["Humedad"].ToString() != null)
                     {
                         LblHumedad.Text = row["Humedad"].ToString();
                     }
                     else
                     {
-                        LblHumedad.Text= "--";
+                        LblHumedad.Text = "--";
                     }
                 }
             }
             catch (Exception)
             {
-                MessageBox.Show("Error en cargar datos en interfaz Tolvas Finales","Error TF",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error en cargar datos en interfaz Tolvas Finales", "Error TF", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -101,31 +101,38 @@ namespace ProyectoOFI.SM
         private void ReProceso()
         {
             DPS funcion = new DPS();
-            double Humedad=double.Parse(LblHumedad.Text);
-            int POA=int.Parse(CbPOA.Text);
-            if(funcion.ReProceso(LblTicket.Text,Humedad,POA)==true)
+            double Humedad = double.Parse(LblHumedad.Text);
+            int POA = int.Parse(CbPOA.Text);
+            if (funcion.ReProceso(LblTicket.Text, Humedad, POA) == true)
             {
                 PlTolvasFin.Visible = false;
                 LblHumedad.Text = "--";
-                LblTicket.Text= "--";
+                LblTicket.Text = "--";
                 DtTolvasFinales.Enabled = true;
                 MostrarTF();
             }
         }
         private void ValidarPermisos()
         {
-            DataTable dt = new DataTable();
-            DModulos funcion = new DModulos();
-            LPermisos parametros = new LPermisos();
-            parametros.IdUser = Login.Iduser;
-            funcion.PermisosUser(ref dt, Login.Iduser);
-            foreach (DataRow rowpermisos in dt.Rows)
+            if (!Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
             {
-                Modulo = Convert.ToString(rowpermisos["Modulo"]);
-                if (Modulo == "Agregar SM")
+                DataTable dt = new DataTable();
+                DModulos funcion = new DModulos();
+                LPermisos parametros = new LPermisos();
+                parametros.IdUser = Login.Iduser;
+                funcion.PermisosUser(ref dt, Login.Iduser);
+                foreach (DataRow rowpermisos in dt.Rows)
                 {
-                    DtTolvasFinales.Enabled = true;
+                    Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                    if (Modulo == "Agregar SM")
+                    {
+                        DtTolvasFinales.Enabled = true;
+                    }
                 }
+            }
+            else
+            {
+                DtTolvasFinales.Enabled = true;
             }
         }
     }

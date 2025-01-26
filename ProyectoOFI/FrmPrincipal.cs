@@ -152,6 +152,18 @@ namespace ProyectoOFI
                     BtnHistorial.Visible = true;
                 }
             }
+            if (Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
+            {
+                btnTransferencia.Visible = true;
+                BtnCPatio.Visible = true;
+                BtnSM.Visible = true;
+                BtnCatalogo.Visible = true;
+                BtnUser.Visible = true;
+                BtnComprasD.Visible = true;
+                BtnReportes.Visible = true;
+                BtnAlmacen.Visible = true;
+                BtnHistorial.Visible = true;
+            }
         }
 
         private void BtnCerrarSesion_Click(object sender, EventArgs e)

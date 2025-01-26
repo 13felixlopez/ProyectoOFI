@@ -394,19 +394,26 @@ namespace ProyectoOFI.Usuario
         #endregion
         private void ValidarPermisos()
         {
-            DataTable dt = new DataTable();
-            DModulos funcion = new DModulos();
-            LPermisos parametros = new LPermisos();
-            parametros.IdUser = Login.Iduser;
-            funcion.PermisosUser(ref dt, Login.Iduser);
-            foreach (DataRow rowpermisos in dt.Rows)
+            if (!Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
             {
-                string Modulo = Convert.ToString(rowpermisos["Modulo"]);
-
-                if (Modulo == "Usuarios")
+                DataTable dt = new DataTable();
+                DModulos funcion = new DModulos();
+                LPermisos parametros = new LPermisos();
+                parametros.IdUser = Login.Iduser;
+                funcion.PermisosUser(ref dt, Login.Iduser);
+                foreach (DataRow rowpermisos in dt.Rows)
                 {
-                    DtUser.Enabled = true;
+                    string Modulo = Convert.ToString(rowpermisos["Modulo"]);
+
+                    if (Modulo == "Usuarios")
+                    {
+                        DtUser.Enabled = true;
+                    }
                 }
+            }
+            else
+            {
+                DtUser.Enabled = true;
             }
         }
     }

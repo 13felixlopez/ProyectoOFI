@@ -884,6 +884,11 @@ namespace ProyectoOFI.Almacen
                     BtnActivar.Enabled = false;
                 }
             }
+            else
+            {
+                BtnGuardar.Visible = true;
+                BtnActivar.Enabled = true;
+            }
         }
         private void BuscarDatos()
         {

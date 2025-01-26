@@ -946,7 +946,7 @@ namespace ProyectoOFI.SM
                 parametros.HoraFin = DtHInicio2.Value;
                 parametros.Humedad = double.Parse(TxtHumedad.Text);
                 parametros.ProcesoSF = "POA";
-               // parametros.OperadorV = int.Parse(CbOperadores.SelectedValue.ToString());
+                // parametros.OperadorV = int.Parse(CbOperadores.SelectedValue.ToString());
                 parametros.TurnoV = int.Parse(CbTurno.SelectedValue.ToString());
                 parametros.POA1 = int.Parse(CbPOA1.Text.Trim());
                 parametros.POA2 = int.Parse(CbPOA2.Text.Trim());
@@ -1092,18 +1092,25 @@ namespace ProyectoOFI.SM
         }
         private void ValidarPermisos()
         {
-            DataTable dt = new DataTable();
-            DModulos funcion = new DModulos();
-            LPermisos parametros = new LPermisos();
-            parametros.IdUser = Login.Iduser;
-            funcion.PermisosUser(ref dt, Login.Iduser);
-            foreach (DataRow rowpermisos in dt.Rows)
+            if (!Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
             {
-                Modulo = Convert.ToString(rowpermisos["Modulo"]);
-                if (Modulo == "Particionar SM")
+                DataTable dt = new DataTable();
+                DModulos funcion = new DModulos();
+                LPermisos parametros = new LPermisos();
+                parametros.IdUser = Login.Iduser;
+                funcion.PermisosUser(ref dt, Login.Iduser);
+                foreach (DataRow rowpermisos in dt.Rows)
                 {
-                    BtnParticionar.Enabled = true;
+                    Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                    if (Modulo == "Particionar SM")
+                    {
+                        BtnParticionar.Enabled = true;
+                    }
                 }
+            }
+            else
+            {
+                BtnParticionar.Enabled = true;
             }
         }
     }

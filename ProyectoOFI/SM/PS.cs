@@ -425,7 +425,8 @@ namespace ProyectoOFI.SM
         }
         private void AbrirFormulario()
         {
-            PlDatos.Size = new Size(1398, 619);
+            //PlDatos.Size = new Size(1398, 619);
+
             PlDatos.Visible = true;
             PlDatos.Location = new Point(TLPPS.Width / 2
                 - PlDatos.Width / 2, TLPPS.Height / 2 - PlDatos.Height / 2);
@@ -464,7 +465,7 @@ namespace ProyectoOFI.SM
                 }
                 else
                 {
-                    MessageBox.Show("No se puede convertir el numero","Error en la Humedad",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("No se puede convertir el numero", "Error en la Humedad", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -740,20 +741,28 @@ namespace ProyectoOFI.SM
                 lblTicket.Text = "--";
             }
         }
+
         private void ValidarPermisos()
         {
-            DataTable dt = new DataTable();
-            DModulos funcion = new DModulos();
-            LPermisos parametros = new LPermisos();
-            parametros.IdUser = Login.Iduser;
-            funcion.PermisosUser(ref dt, Login.Iduser);
-            foreach (DataRow rowpermisos in dt.Rows)
+            if (!Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
             {
-                Modulo = Convert.ToString(rowpermisos["Modulo"]);
-                if (Modulo == "Agregar SM")
+                DataTable dt = new DataTable();
+                DModulos funcion = new DModulos();
+                LPermisos parametros = new LPermisos();
+                parametros.IdUser = Login.Iduser;
+                funcion.PermisosUser(ref dt, Login.Iduser);
+                foreach (DataRow rowpermisos in dt.Rows)
                 {
-                    TLPPS.Enabled = true;
+                    Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                    if (Modulo == "Agregar SM")
+                    {
+                        TLPPS.Enabled = true;
+                    }
                 }
+            }
+            else
+            {
+                TLPPS.Enabled = true;
             }
         }
     }

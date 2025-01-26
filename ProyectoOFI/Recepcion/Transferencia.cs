@@ -1,5 +1,4 @@
-﻿using DocumentFormat.OpenXml.Drawing.Diagrams;
-using ProyectoOFI.Datos;
+﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
 using ProyectoOFI.Reportes;
@@ -17,6 +16,7 @@ namespace ProyectoOFI.Recepcion
     public partial class Transferencia : UserControl
     {
         string Modulo;
+        bool Search;
         string Ticket;
         //string TicketAnterior;
         string Estado, areaAc;
@@ -810,7 +810,14 @@ namespace ProyectoOFI.Recepcion
             hasta -= 100;
             if (txtBuscador.Text != "")
             {
-                BuscarTK();
+                if (Search == true)
+                {
+                    BuscarTK3();
+                }
+                else
+                {
+                    BuscarTK();
+                }
             }
             else if (CbBuscador.Visible == true)
             {
@@ -847,7 +854,14 @@ namespace ProyectoOFI.Recepcion
             hasta += 100;
             if (txtBuscador.Text != "")
             {
-                BuscarTK();
+                if (Search == true)
+                {
+                    BuscarTK3();
+                }
+                else
+                {
+                    BuscarTK();
+                }
             }
             else if (CbBuscador.Visible == true)
             {
@@ -880,7 +894,14 @@ namespace ProyectoOFI.Recepcion
             desde = hasta - 99;
             if (txtBuscador.Text != "")
             {
-                BuscarTK();
+                if (Search == true)
+                {
+                    BuscarTK3();
+                }
+                else
+                {
+                    BuscarTK();
+                }
             }
             else if (CbBuscador.Visible == true)
             {
@@ -912,7 +933,14 @@ namespace ProyectoOFI.Recepcion
             ReiniciarPaginado();
             if (txtBuscador.Text != "")
             {
-                BuscarTK();
+                if (Search == true)
+                {
+                    BuscarTK3();
+                }
+                else
+                {
+                    BuscarTK();
+                }
             }
             else if (CbBuscador.Visible == true)
             {
@@ -1079,6 +1107,16 @@ namespace ProyectoOFI.Recepcion
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventario);
         }
+        private void BuscarTK3()
+        {
+            DataTable dt = new DataTable();
+            DRecepcion funcion = new DRecepcion();
+            //funcion.BuscarTK(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            funcion.BuscarTK3(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            dtInventario.DataSource = dt;
+            ContarBusqueda = int.Parse(funcion.contador.ToString());
+            Base.DiseñoDtvEliminar(ref dtInventario);
+        }
         private void txtBuscador_TextChanged(object sender, EventArgs e)
         {
             //if (txtBuscador.Text == "")
@@ -1111,7 +1149,7 @@ namespace ProyectoOFI.Recepcion
             plOpciones.Visible = true;
             dtTKCons.Rows.Clear();
             Cons.Rows.Clear();
-            TxtTicketCons.Enabled=true;
+            TxtTicketCons.Enabled = true;
             BuscarTK();
             LimpiarCons();
         }
@@ -1622,7 +1660,7 @@ namespace ProyectoOFI.Recepcion
         private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
         {
             DRecepcion funcion = new DRecepcion();
-            if (CbBuscar.Text == "Ticket" || CbBuscar.Text == "MTNT" || CbBuscar.Text == "Peso")
+            if (CbBuscar.Text == "Ticket" || CbBuscar.Text == "MTNT" || CbBuscar.Text == "Peso" || CbBuscar.Text == "MTNR")
             {
                 CbBuscador.Text = "";
                 PlFiltroFecha.Visible = false;
@@ -1661,6 +1699,14 @@ namespace ProyectoOFI.Recepcion
                 TextBuscarVisible();
                 CbBuscador.Visible = false;
                 PlFiltroFecha.Visible = true;
+            }
+            if (CbBuscar.Text == "Ticket")
+            {
+                BtnMultiBusqueda.Visible = true;
+            }
+            else
+            {
+                BtnMultiBusqueda.Visible = false;
             }
         }
         private void TextBuscarVisible()
@@ -2021,6 +2067,7 @@ namespace ProyectoOFI.Recepcion
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             Task.Delay(3000);
+            Search = false;
             BuscarTK();
             ReiniciarPaginado();
         }
@@ -2043,6 +2090,14 @@ namespace ProyectoOFI.Recepcion
         private void timerAct_Tick(object sender, EventArgs e)
         {
 
+        }
+
+        private void BtnMultiBusqueda_Click(object sender, EventArgs e)
+        {
+            Task.Delay(3000);
+            Search = true;
+            BuscarTK3();
+            ReiniciarPaginado();
         }
 
         private void ValidarPermisos()
@@ -2092,6 +2147,18 @@ namespace ProyectoOFI.Recepcion
 
             if (permisosUsuario.Contains("EditarTK"))
             {
+                txtTK.Enabled = true;
+            }
+            if (Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
+            {
+                plAgregar.Visible = true;
+                btnAgregar.Visible = true;
+                BtnEditar.Visible = true;
+                PlRecepcion.Enabled = true;
+                PlEnvio.Enabled = true;
+                dtInventario.Columns["Consolidar"].Visible = true;
+                BtnAddTK.Visible = true;
+                dtInventario.Columns["Eliminar"].Visible = true;
                 txtTK.Enabled = true;
             }
         }

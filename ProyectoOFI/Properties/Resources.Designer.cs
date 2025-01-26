@@ -443,9 +443,29 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_buscador_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-buscador-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_búsqueda {
             get {
                 object obj = ResourceManager.GetObject("icons8-búsqueda", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_búsqueda_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-búsqueda-64", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

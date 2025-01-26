@@ -92,5 +92,17 @@ namespace ProyectoOFI.SM
             TF.BringToFront();
             PlSM.Controls.Add(TF);
         }
+
+        private void BtnPS_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button==MouseButtons.Right)
+            {
+                PSData pS = new PSData();
+                PlSM.Controls.Clear();
+                pS.Dock = DockStyle.Fill;
+                pS.BringToFront();
+                PlSM.Controls.Add(pS);
+            }
+        }
     }
 }

@@ -64,7 +64,7 @@
             this.plTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.plTitulo.Location = new System.Drawing.Point(0, 0);
             this.plTitulo.Name = "plTitulo";
-            this.plTitulo.Size = new System.Drawing.Size(1370, 74);
+            this.plTitulo.Size = new System.Drawing.Size(1386, 74);
             this.plTitulo.TabIndex = 1;
             // 
             // label1
@@ -73,7 +73,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(101, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1269, 74);
+            this.label1.Size = new System.Drawing.Size(1285, 74);
             this.label1.TabIndex = 4;
             this.label1.Text = "Control de Secado Mecánico OFI";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -111,9 +111,9 @@
             this.plfooterSm.Controls.Add(this.panel4);
             this.plfooterSm.Controls.Add(this.panel11);
             this.plfooterSm.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.plfooterSm.Location = new System.Drawing.Point(0, 672);
+            this.plfooterSm.Location = new System.Drawing.Point(0, 711);
             this.plfooterSm.Name = "plfooterSm";
-            this.plfooterSm.Size = new System.Drawing.Size(1370, 77);
+            this.plfooterSm.Size = new System.Drawing.Size(1386, 77);
             this.plfooterSm.TabIndex = 4;
             // 
             // BtnTF
@@ -165,6 +165,7 @@
             this.BtnPS.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.BtnPS.UseVisualStyleBackColor = false;
             this.BtnPS.Click += new System.EventHandler(this.BtnPS_Click);
+            this.BtnPS.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnPS_MouseUp);
             // 
             // panel5
             // 
@@ -291,7 +292,7 @@
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnSalir.Image = global::ProyectoOFI.Properties.Resources.Atras;
-            this.btnSalir.Location = new System.Drawing.Point(1295, 5);
+            this.btnSalir.Location = new System.Drawing.Point(1311, 5);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(75, 62);
             this.btnSalir.TabIndex = 1;
@@ -335,7 +336,7 @@
             this.panel8.Location = new System.Drawing.Point(11, 0);
             this.panel8.Margin = new System.Windows.Forms.Padding(2);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1359, 5);
+            this.panel8.Size = new System.Drawing.Size(1375, 5);
             this.panel8.TabIndex = 13;
             // 
             // panel4
@@ -345,7 +346,7 @@
             this.panel4.Location = new System.Drawing.Point(11, 67);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1359, 10);
+            this.panel4.Size = new System.Drawing.Size(1375, 10);
             this.panel4.TabIndex = 12;
             // 
             // panel11
@@ -364,7 +365,7 @@
             this.PlSM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlSM.Location = new System.Drawing.Point(0, 74);
             this.PlSM.Name = "PlSM";
-            this.PlSM.Size = new System.Drawing.Size(1370, 598);
+            this.PlSM.Size = new System.Drawing.Size(1386, 637);
             this.PlSM.TabIndex = 5;
             // 
             // SMecánico

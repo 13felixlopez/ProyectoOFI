@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PlEnvio = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.cbDanioE = new System.Windows.Forms.ComboBox();
@@ -72,7 +72,6 @@
             this.LblDigitador = new System.Windows.Forms.Label();
             this.PlRecibido = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnAnt = new System.Windows.Forms.Button();
             this.LblCosecha = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.LblMerma = new System.Windows.Forms.Label();
@@ -89,7 +88,6 @@
             this.ChUA = new System.Windows.Forms.CheckBox();
             this.LblQQsEn = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnSig = new System.Windows.Forms.Button();
             this.label48 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.cbCalidadE = new System.Windows.Forms.ComboBox();
@@ -109,26 +107,14 @@
             this.label51 = new System.Windows.Forms.Label();
             this.dtFEnvio = new System.Windows.Forms.DateTimePicker();
             this.PlTexto = new System.Windows.Forms.Panel();
-            this.bntAtras = new System.Windows.Forms.Button();
-            this.BtnVerCons = new System.Windows.Forms.Button();
             this.lblTransferencia = new System.Windows.Forms.Label();
             this.PnGuardar = new System.Windows.Forms.Panel();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.BtnEditar = new System.Windows.Forms.Button();
             this.PlCargaTran = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dtInventario = new System.Windows.Forms.DataGridView();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Consolidar = new System.Windows.Forms.DataGridViewImageColumn();
             this.plOpciones = new System.Windows.Forms.Panel();
-            this.BtnBuscar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.BtnActualizar = new System.Windows.Forms.Button();
             this.BtnRangoFecha = new System.Windows.Forms.Button();
-            this.PbExcel = new System.Windows.Forms.PictureBox();
-            this.PbFiltro = new System.Windows.Forms.PictureBox();
             this.plAgregar = new System.Windows.Forms.Panel();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.CbBuscador = new System.Windows.Forms.ComboBox();
             this.CbBuscar = new System.Windows.Forms.ComboBox();
@@ -151,7 +137,6 @@
             this.lbl_Pagina = new System.Windows.Forms.Label();
             this.Label25 = new System.Windows.Forms.Label();
             this.PlCarga = new System.Windows.Forms.Panel();
-            this.PbCarga = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.PnConsolidar = new System.Windows.Forms.Panel();
             this.PnTickets = new System.Windows.Forms.Panel();
@@ -196,18 +181,34 @@
             this.CLBFiltros = new System.Windows.Forms.CheckedListBox();
             this.PlCerrar = new System.Windows.Forms.Panel();
             this.LblFiltros = new System.Windows.Forms.Label();
-            this.BtnCerrar = new System.Windows.Forms.Button();
-            this.BtnFiltrar = new System.Windows.Forms.Button();
             this.PlContenedor = new System.Windows.Forms.Panel();
             this.PlVerCons = new System.Windows.Forms.Panel();
             this.DtVerCons = new System.Windows.Forms.DataGridView();
             this.PlSalirVerCons = new System.Windows.Forms.Panel();
-            this.BtnAddTK = new System.Windows.Forms.Button();
             this.LblVerCons = new System.Windows.Forms.Label();
-            this.BtnCerrarVerCons = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.PbCarga = new System.Windows.Forms.PictureBox();
+            this.BtnAddTK = new System.Windows.Forms.Button();
+            this.BtnCerrarVerCons = new System.Windows.Forms.Button();
+            this.BtnCerrar = new System.Windows.Forms.Button();
+            this.BtnFiltrar = new System.Windows.Forms.Button();
+            this.btnAnt = new System.Windows.Forms.Button();
+            this.btnSig = new System.Windows.Forms.Button();
+            this.bntAtras = new System.Windows.Forms.Button();
+            this.BtnVerCons = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.BtnEditar = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Consolidar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.BtnMultiBusqueda = new System.Windows.Forms.Button();
+            this.BtnBuscar = new System.Windows.Forms.Button();
+            this.BtnActualizar = new System.Windows.Forms.Button();
+            this.PbExcel = new System.Windows.Forms.PictureBox();
+            this.PbFiltro = new System.Windows.Forms.PictureBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.PlEnvio.SuspendLayout();
             this.PlRecepcion.SuspendLayout();
             this.PlAlerta.SuspendLayout();
@@ -219,17 +220,13 @@
             this.PlTexto.SuspendLayout();
             this.PnGuardar.SuspendLayout();
             this.PlCargaTran.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventario)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).BeginInit();
             this.plAgregar.SuspendLayout();
             this.PlFiltroFecha.SuspendLayout();
             this.plfooter.SuspendLayout();
             this.PlCarga.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.PnConsolidar.SuspendLayout();
             this.PnTickets.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtTickets)).BeginInit();
@@ -243,6 +240,10 @@
             this.PlVerCons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtVerCons)).BeginInit();
             this.PlSalirVerCons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).BeginInit();
             this.SuspendLayout();
             // 
             // PlEnvio
@@ -688,21 +689,6 @@
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label6.UseCompatibleTextRendering = true;
             // 
-            // btnAnt
-            // 
-            this.btnAnt.BackColor = System.Drawing.Color.Transparent;
-            this.btnAnt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAnt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnt.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnAnt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnt.Image = global::ProyectoOFI.Properties.Resources.Ant_642;
-            this.btnAnt.Location = new System.Drawing.Point(1058, 229);
-            this.btnAnt.Name = "btnAnt";
-            this.btnAnt.Size = new System.Drawing.Size(106, 57);
-            this.btnAnt.TabIndex = 26;
-            this.btnAnt.UseVisualStyleBackColor = false;
-            this.btnAnt.Click += new System.EventHandler(this.btnAnt_Click);
-            // 
             // LblCosecha
             // 
             this.LblCosecha.AutoSize = true;
@@ -902,20 +888,6 @@
             this.label7.Size = new System.Drawing.Size(49, 20);
             this.label7.TabIndex = 156;
             this.label7.Text = "QQs:";
-            // 
-            // btnSig
-            // 
-            this.btnSig.BackColor = System.Drawing.Color.Transparent;
-            this.btnSig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSig.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnSig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSig.Image = global::ProyectoOFI.Properties.Resources.Next_64;
-            this.btnSig.Location = new System.Drawing.Point(1019, 221);
-            this.btnSig.Name = "btnSig";
-            this.btnSig.Size = new System.Drawing.Size(106, 57);
-            this.btnSig.TabIndex = 13;
-            this.btnSig.UseVisualStyleBackColor = false;
-            this.btnSig.Click += new System.EventHandler(this.btnSig_Click);
             // 
             // label48
             // 
@@ -1126,35 +1098,6 @@
             this.PlTexto.Size = new System.Drawing.Size(1343, 63);
             this.PlTexto.TabIndex = 108;
             // 
-            // bntAtras
-            // 
-            this.bntAtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.bntAtras.Dock = System.Windows.Forms.DockStyle.Right;
-            this.bntAtras.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.bntAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bntAtras.Image = global::ProyectoOFI.Properties.Resources.Atras;
-            this.bntAtras.Location = new System.Drawing.Point(979, 0);
-            this.bntAtras.Name = "bntAtras";
-            this.bntAtras.Size = new System.Drawing.Size(91, 63);
-            this.bntAtras.TabIndex = 28;
-            this.bntAtras.UseVisualStyleBackColor = false;
-            this.bntAtras.Click += new System.EventHandler(this.bntAtras_Click);
-            // 
-            // BtnVerCons
-            // 
-            this.BtnVerCons.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.BtnVerCons.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnVerCons.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BtnVerCons.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnVerCons.Image = global::ProyectoOFI.Properties.Resources.icons8_ver;
-            this.BtnVerCons.Location = new System.Drawing.Point(1070, 0);
-            this.BtnVerCons.Name = "BtnVerCons";
-            this.BtnVerCons.Size = new System.Drawing.Size(91, 63);
-            this.BtnVerCons.TabIndex = 60;
-            this.BtnVerCons.UseVisualStyleBackColor = false;
-            this.BtnVerCons.Visible = false;
-            this.BtnVerCons.Click += new System.EventHandler(this.BtnVerCons_Click);
-            // 
             // lblTransferencia
             // 
             this.lblTransferencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -1178,35 +1121,6 @@
             this.PnGuardar.TabIndex = 57;
             this.PnGuardar.Visible = false;
             // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.btnGuardar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Image = global::ProyectoOFI.Properties.Resources.icons8_ok_64;
-            this.btnGuardar.Location = new System.Drawing.Point(0, 0);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(91, 63);
-            this.btnGuardar.TabIndex = 27;
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // BtnEditar
-            // 
-            this.BtnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.BtnEditar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnEditar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEditar.Image = global::ProyectoOFI.Properties.Resources.edit_property_30px;
-            this.BtnEditar.Location = new System.Drawing.Point(1252, 0);
-            this.BtnEditar.Name = "BtnEditar";
-            this.BtnEditar.Size = new System.Drawing.Size(91, 63);
-            this.BtnEditar.TabIndex = 59;
-            this.BtnEditar.UseVisualStyleBackColor = false;
-            this.BtnEditar.Visible = false;
-            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
-            // 
             // PlCargaTran
             // 
             this.PlCargaTran.Controls.Add(this.pictureBox1);
@@ -1216,58 +1130,46 @@
             this.PlCargaTran.TabIndex = 109;
             this.PlCargaTran.Visible = false;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.loading_12;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1337, 226);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // dtInventario
             // 
             this.dtInventario.AllowUserToAddRows = false;
             this.dtInventario.AllowUserToDeleteRows = false;
             this.dtInventario.AllowUserToOrderColumns = true;
             this.dtInventario.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.NullValue = "--";
-            this.dtInventario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle19.NullValue = "--";
+            this.dtInventario.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.dtInventario.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventario.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventario.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventario.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dtInventario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventario.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar,
             this.Consolidar});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.NullValue = "--";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtInventario.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle21.NullValue = "--";
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtInventario.DefaultCellStyle = dataGridViewCellStyle21;
             this.dtInventario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventario.Location = new System.Drawing.Point(0, 62);
             this.dtInventario.Name = "dtInventario";
             this.dtInventario.ReadOnly = true;
             this.dtInventario.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventario.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventario.RowsDefaultCellStyle = dataGridViewCellStyle22;
             this.dtInventario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventario.ShowCellToolTips = false;
             this.dtInventario.ShowEditingIcon = false;
@@ -1277,30 +1179,10 @@
             this.dtInventario.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtInventario_CellDoubleClick);
             this.dtInventario.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dtInventario_CellPainting);
             // 
-            // Eliminar
-            // 
-            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.Image = global::ProyectoOFI.Properties.Resources.Delete;
-            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Eliminar.MinimumWidth = 10;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.ReadOnly = true;
-            this.Eliminar.Visible = false;
-            // 
-            // Consolidar
-            // 
-            this.Consolidar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Consolidar.HeaderText = "";
-            this.Consolidar.Image = global::ProyectoOFI.Properties.Resources.join;
-            this.Consolidar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Consolidar.Name = "Consolidar";
-            this.Consolidar.ReadOnly = true;
-            this.Consolidar.Visible = false;
-            // 
             // plOpciones
             // 
             this.plOpciones.BackColor = System.Drawing.Color.White;
+            this.plOpciones.Controls.Add(this.BtnMultiBusqueda);
             this.plOpciones.Controls.Add(this.BtnBuscar);
             this.plOpciones.Controls.Add(this.panel3);
             this.plOpciones.Controls.Add(this.BtnRangoFecha);
@@ -1321,17 +1203,6 @@
             this.plOpciones.Size = new System.Drawing.Size(1806, 62);
             this.plOpciones.TabIndex = 7;
             // 
-            // BtnBuscar
-            // 
-            this.BtnBuscar.BackgroundImage = global::ProyectoOFI.Properties.Resources.icons8_búsqueda;
-            this.BtnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnBuscar.Location = new System.Drawing.Point(587, 7);
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(53, 44);
-            this.BtnBuscar.TabIndex = 9;
-            this.BtnBuscar.UseVisualStyleBackColor = true;
-            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.BtnActualizar);
@@ -1340,22 +1211,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(91, 62);
             this.panel3.TabIndex = 8;
-            // 
-            // BtnActualizar
-            // 
-            this.BtnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnActualizar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnActualizar.FlatAppearance.BorderSize = 0;
-            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnActualizar.Image = global::ProyectoOFI.Properties.Resources.icons8_refrescar;
-            this.BtnActualizar.Location = new System.Drawing.Point(0, 0);
-            this.BtnActualizar.Name = "BtnActualizar";
-            this.BtnActualizar.Size = new System.Drawing.Size(91, 62);
-            this.BtnActualizar.TabIndex = 0;
-            this.BtnActualizar.UseVisualStyleBackColor = false;
-            this.BtnActualizar.Visible = false;
-            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
             // BtnRangoFecha
             // 
@@ -1368,33 +1223,6 @@
             this.BtnRangoFecha.Visible = false;
             this.BtnRangoFecha.Click += new System.EventHandler(this.BtnRangoFecha_Click);
             // 
-            // PbExcel
-            // 
-            this.PbExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.PbExcel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PbExcel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PbExcel.Image = global::ProyectoOFI.Properties.Resources.sobresalir;
-            this.PbExcel.Location = new System.Drawing.Point(947, 6);
-            this.PbExcel.Name = "PbExcel";
-            this.PbExcel.Size = new System.Drawing.Size(64, 50);
-            this.PbExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbExcel.TabIndex = 4;
-            this.PbExcel.TabStop = false;
-            this.PbExcel.Click += new System.EventHandler(this.PbExcel_Click);
-            // 
-            // PbFiltro
-            // 
-            this.PbFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.PbFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PbFiltro.Image = global::ProyectoOFI.Properties.Resources.filter_list_FILL0_wght400_GRAD0_opsz24;
-            this.PbFiltro.Location = new System.Drawing.Point(857, 6);
-            this.PbFiltro.Name = "PbFiltro";
-            this.PbFiltro.Size = new System.Drawing.Size(64, 50);
-            this.PbFiltro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbFiltro.TabIndex = 4;
-            this.PbFiltro.TabStop = false;
-            this.PbFiltro.Click += new System.EventHandler(this.PbFiltro_Click);
-            // 
             // plAgregar
             // 
             this.plAgregar.Controls.Add(this.btnAgregar);
@@ -1404,21 +1232,6 @@
             this.plAgregar.Size = new System.Drawing.Size(91, 62);
             this.plAgregar.TabIndex = 3;
             this.plAgregar.Visible = false;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAgregar.FlatAppearance.BorderSize = 0;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnAgregar.Image = global::ProyectoOFI.Properties.Resources.add_64px;
-            this.btnAgregar.Location = new System.Drawing.Point(0, 0);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(91, 62);
-            this.btnAgregar.TabIndex = 0;
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtBuscador
             // 
@@ -1457,6 +1270,7 @@
             this.CbBuscar.Items.AddRange(new object[] {
             "Ticket",
             "Calidad",
+            "MTNR",
             "Certificación",
             "Daño",
             "Tipo Compra",
@@ -1705,18 +1519,6 @@
             this.PlCarga.Size = new System.Drawing.Size(250, 172);
             this.PlCarga.TabIndex = 10;
             // 
-            // PbCarga
-            // 
-            this.PbCarga.BackColor = System.Drawing.Color.White;
-            this.PbCarga.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PbCarga.Image = global::ProyectoOFI.Properties.Resources.grey_9026_512;
-            this.PbCarga.Location = new System.Drawing.Point(0, 0);
-            this.PbCarga.Name = "PbCarga";
-            this.PbCarga.Size = new System.Drawing.Size(250, 172);
-            this.PbCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbCarga.TabIndex = 0;
-            this.PbCarga.TabStop = false;
-            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.HeaderText = "";
@@ -1753,15 +1555,15 @@
             this.DtTickets.AllowUserToOrderColumns = true;
             this.DtTickets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtTickets.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.DtTickets.BackgroundColor = System.Drawing.Color.Teal;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtTickets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.DtTickets.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(196)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtTickets.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.DtTickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtTickets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Tickets,
@@ -1773,14 +1575,14 @@
             this.EsFisico,
             this.Cali,
             this.Danio});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DtTickets.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DtTickets.DefaultCellStyle = dataGridViewCellStyle24;
             this.DtTickets.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtTickets.Enabled = false;
             this.DtTickets.Location = new System.Drawing.Point(0, 0);
@@ -1904,24 +1706,24 @@
             this.dtTKCons.AllowUserToOrderColumns = true;
             this.dtTKCons.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtTKCons.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dtTKCons.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtTKCons.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dtTKCons.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(196)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtTKCons.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.dtTKCons.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtTKCons.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtTKCons.DefaultCellStyle = dataGridViewCellStyle26;
             this.dtTKCons.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtTKCons.Location = new System.Drawing.Point(0, 0);
             this.dtTKCons.MultiSelect = false;
@@ -2271,33 +2073,6 @@
             this.LblFiltros.Text = "Filtros";
             this.LblFiltros.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // BtnCerrar
-            // 
-            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrar.Location = new System.Drawing.Point(184, 0);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(49, 42);
-            this.BtnCerrar.TabIndex = 2;
-            this.BtnCerrar.UseVisualStyleBackColor = true;
-            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
-            // 
-            // BtnFiltrar
-            // 
-            this.BtnFiltrar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BtnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnFiltrar.Image = global::ProyectoOFI.Properties.Resources.task_alt_FILL1_wght400_GRAD0_opsz24;
-            this.BtnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnFiltrar.Location = new System.Drawing.Point(0, 336);
-            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(10);
-            this.BtnFiltrar.Name = "BtnFiltrar";
-            this.BtnFiltrar.Size = new System.Drawing.Size(233, 59);
-            this.BtnFiltrar.TabIndex = 2;
-            this.BtnFiltrar.Text = "Aplicar Filtro";
-            this.BtnFiltrar.UseVisualStyleBackColor = true;
-            this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
-            // 
             // PlContenedor
             // 
             this.PlContenedor.AutoScroll = true;
@@ -2340,8 +2115,8 @@
             this.DtVerCons.Name = "DtVerCons";
             this.DtVerCons.ReadOnly = true;
             this.DtVerCons.RowHeadersVisible = false;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.DtVerCons.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.DtVerCons.RowsDefaultCellStyle = dataGridViewCellStyle27;
             this.DtVerCons.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DtVerCons.Size = new System.Drawing.Size(996, 141);
             this.DtVerCons.TabIndex = 0;
@@ -2359,22 +2134,6 @@
             this.PlSalirVerCons.Size = new System.Drawing.Size(996, 53);
             this.PlSalirVerCons.TabIndex = 1;
             // 
-            // BtnAddTK
-            // 
-            this.BtnAddTK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnAddTK.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnAddTK.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnAddTK.FlatAppearance.BorderSize = 0;
-            this.BtnAddTK.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnAddTK.Image = global::ProyectoOFI.Properties.Resources.add_64px;
-            this.BtnAddTK.Location = new System.Drawing.Point(830, 0);
-            this.BtnAddTK.Name = "BtnAddTK";
-            this.BtnAddTK.Size = new System.Drawing.Size(91, 53);
-            this.BtnAddTK.TabIndex = 4;
-            this.BtnAddTK.UseVisualStyleBackColor = false;
-            this.BtnAddTK.Visible = false;
-            this.BtnAddTK.Click += new System.EventHandler(this.BtnAddTK_Click);
-            // 
             // LblVerCons
             // 
             this.LblVerCons.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(213)))), ((int)(((byte)(53)))), ((int)(((byte)(71)))));
@@ -2387,18 +2146,6 @@
             this.LblVerCons.TabIndex = 3;
             this.LblVerCons.Text = "Detalle de Consolidación de Ticket: ";
             this.LblVerCons.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // BtnCerrarVerCons
-            // 
-            this.BtnCerrarVerCons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCerrarVerCons.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCerrarVerCons.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrarVerCons.Location = new System.Drawing.Point(921, 0);
-            this.BtnCerrarVerCons.Name = "BtnCerrarVerCons";
-            this.BtnCerrarVerCons.Size = new System.Drawing.Size(75, 53);
-            this.BtnCerrarVerCons.TabIndex = 2;
-            this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
-            this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
             // 
             // dataGridViewImageColumn2
             // 
@@ -2420,6 +2167,274 @@
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
+            // 
+            // PbCarga
+            // 
+            this.PbCarga.BackColor = System.Drawing.Color.White;
+            this.PbCarga.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PbCarga.Image = global::ProyectoOFI.Properties.Resources.grey_9026_512;
+            this.PbCarga.Location = new System.Drawing.Point(0, 0);
+            this.PbCarga.Name = "PbCarga";
+            this.PbCarga.Size = new System.Drawing.Size(250, 172);
+            this.PbCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbCarga.TabIndex = 0;
+            this.PbCarga.TabStop = false;
+            // 
+            // BtnAddTK
+            // 
+            this.BtnAddTK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnAddTK.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAddTK.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnAddTK.FlatAppearance.BorderSize = 0;
+            this.BtnAddTK.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnAddTK.Image = global::ProyectoOFI.Properties.Resources.add_64px;
+            this.BtnAddTK.Location = new System.Drawing.Point(830, 0);
+            this.BtnAddTK.Name = "BtnAddTK";
+            this.BtnAddTK.Size = new System.Drawing.Size(91, 53);
+            this.BtnAddTK.TabIndex = 4;
+            this.BtnAddTK.UseVisualStyleBackColor = false;
+            this.BtnAddTK.Visible = false;
+            this.BtnAddTK.Click += new System.EventHandler(this.BtnAddTK_Click);
+            // 
+            // BtnCerrarVerCons
+            // 
+            this.BtnCerrarVerCons.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrarVerCons.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrarVerCons.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrarVerCons.Location = new System.Drawing.Point(921, 0);
+            this.BtnCerrarVerCons.Name = "BtnCerrarVerCons";
+            this.BtnCerrarVerCons.Size = new System.Drawing.Size(75, 53);
+            this.BtnCerrarVerCons.TabIndex = 2;
+            this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
+            this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
+            // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrar.Location = new System.Drawing.Point(184, 0);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(49, 42);
+            this.BtnCerrar.TabIndex = 2;
+            this.BtnCerrar.UseVisualStyleBackColor = true;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
+            // 
+            // BtnFiltrar
+            // 
+            this.BtnFiltrar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BtnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnFiltrar.Image = global::ProyectoOFI.Properties.Resources.task_alt_FILL1_wght400_GRAD0_opsz24;
+            this.BtnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnFiltrar.Location = new System.Drawing.Point(0, 336);
+            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(10);
+            this.BtnFiltrar.Name = "BtnFiltrar";
+            this.BtnFiltrar.Size = new System.Drawing.Size(233, 59);
+            this.BtnFiltrar.TabIndex = 2;
+            this.BtnFiltrar.Text = "Aplicar Filtro";
+            this.BtnFiltrar.UseVisualStyleBackColor = true;
+            this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
+            // 
+            // btnAnt
+            // 
+            this.btnAnt.BackColor = System.Drawing.Color.Transparent;
+            this.btnAnt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAnt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnt.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAnt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnt.Image = global::ProyectoOFI.Properties.Resources.Ant_642;
+            this.btnAnt.Location = new System.Drawing.Point(1058, 229);
+            this.btnAnt.Name = "btnAnt";
+            this.btnAnt.Size = new System.Drawing.Size(106, 57);
+            this.btnAnt.TabIndex = 26;
+            this.btnAnt.UseVisualStyleBackColor = false;
+            this.btnAnt.Click += new System.EventHandler(this.btnAnt_Click);
+            // 
+            // btnSig
+            // 
+            this.btnSig.BackColor = System.Drawing.Color.Transparent;
+            this.btnSig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSig.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnSig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSig.Image = global::ProyectoOFI.Properties.Resources.Next_64;
+            this.btnSig.Location = new System.Drawing.Point(1019, 221);
+            this.btnSig.Name = "btnSig";
+            this.btnSig.Size = new System.Drawing.Size(106, 57);
+            this.btnSig.TabIndex = 13;
+            this.btnSig.UseVisualStyleBackColor = false;
+            this.btnSig.Click += new System.EventHandler(this.btnSig_Click);
+            // 
+            // bntAtras
+            // 
+            this.bntAtras.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.bntAtras.Dock = System.Windows.Forms.DockStyle.Right;
+            this.bntAtras.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.bntAtras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bntAtras.Image = global::ProyectoOFI.Properties.Resources.Atras;
+            this.bntAtras.Location = new System.Drawing.Point(979, 0);
+            this.bntAtras.Name = "bntAtras";
+            this.bntAtras.Size = new System.Drawing.Size(91, 63);
+            this.bntAtras.TabIndex = 28;
+            this.bntAtras.UseVisualStyleBackColor = false;
+            this.bntAtras.Click += new System.EventHandler(this.bntAtras_Click);
+            // 
+            // BtnVerCons
+            // 
+            this.BtnVerCons.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.BtnVerCons.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnVerCons.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnVerCons.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnVerCons.Image = global::ProyectoOFI.Properties.Resources.icons8_ver;
+            this.BtnVerCons.Location = new System.Drawing.Point(1070, 0);
+            this.BtnVerCons.Name = "BtnVerCons";
+            this.BtnVerCons.Size = new System.Drawing.Size(91, 63);
+            this.BtnVerCons.TabIndex = 60;
+            this.BtnVerCons.UseVisualStyleBackColor = false;
+            this.BtnVerCons.Visible = false;
+            this.BtnVerCons.Click += new System.EventHandler(this.BtnVerCons_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btnGuardar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Image = global::ProyectoOFI.Properties.Resources.icons8_ok_64;
+            this.btnGuardar.Location = new System.Drawing.Point(0, 0);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(91, 63);
+            this.btnGuardar.TabIndex = 27;
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // BtnEditar
+            // 
+            this.BtnEditar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.BtnEditar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnEditar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEditar.Image = global::ProyectoOFI.Properties.Resources.edit_property_30px;
+            this.BtnEditar.Location = new System.Drawing.Point(1252, 0);
+            this.BtnEditar.Name = "BtnEditar";
+            this.BtnEditar.Size = new System.Drawing.Size(91, 63);
+            this.BtnEditar.TabIndex = 59;
+            this.BtnEditar.UseVisualStyleBackColor = false;
+            this.BtnEditar.Visible = false;
+            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.loading_12;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1337, 226);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Image = global::ProyectoOFI.Properties.Resources.Delete;
+            this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Eliminar.MinimumWidth = 10;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Visible = false;
+            this.Eliminar.Width = 10;
+            // 
+            // Consolidar
+            // 
+            this.Consolidar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Consolidar.HeaderText = "";
+            this.Consolidar.Image = global::ProyectoOFI.Properties.Resources.join;
+            this.Consolidar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Consolidar.Name = "Consolidar";
+            this.Consolidar.ReadOnly = true;
+            this.Consolidar.Visible = false;
+            // 
+            // BtnMultiBusqueda
+            // 
+            this.BtnMultiBusqueda.BackgroundImage = global::ProyectoOFI.Properties.Resources.icons8_buscador_32;
+            this.BtnMultiBusqueda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnMultiBusqueda.Location = new System.Drawing.Point(742, 8);
+            this.BtnMultiBusqueda.Name = "BtnMultiBusqueda";
+            this.BtnMultiBusqueda.Size = new System.Drawing.Size(53, 44);
+            this.BtnMultiBusqueda.TabIndex = 10;
+            this.BtnMultiBusqueda.UseVisualStyleBackColor = true;
+            this.BtnMultiBusqueda.Click += new System.EventHandler(this.BtnMultiBusqueda_Click);
+            // 
+            // BtnBuscar
+            // 
+            this.BtnBuscar.BackgroundImage = global::ProyectoOFI.Properties.Resources.icons8_búsqueda;
+            this.BtnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnBuscar.Location = new System.Drawing.Point(587, 7);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(53, 44);
+            this.BtnBuscar.TabIndex = 9;
+            this.BtnBuscar.UseVisualStyleBackColor = true;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            // 
+            // BtnActualizar
+            // 
+            this.BtnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnActualizar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnActualizar.FlatAppearance.BorderSize = 0;
+            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnActualizar.Image = global::ProyectoOFI.Properties.Resources.icons8_refrescar;
+            this.BtnActualizar.Location = new System.Drawing.Point(0, 0);
+            this.BtnActualizar.Name = "BtnActualizar";
+            this.BtnActualizar.Size = new System.Drawing.Size(91, 62);
+            this.BtnActualizar.TabIndex = 0;
+            this.BtnActualizar.UseVisualStyleBackColor = false;
+            this.BtnActualizar.Visible = false;
+            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
+            // 
+            // PbExcel
+            // 
+            this.PbExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PbExcel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PbExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PbExcel.Image = global::ProyectoOFI.Properties.Resources.sobresalir;
+            this.PbExcel.Location = new System.Drawing.Point(947, 6);
+            this.PbExcel.Name = "PbExcel";
+            this.PbExcel.Size = new System.Drawing.Size(64, 50);
+            this.PbExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbExcel.TabIndex = 4;
+            this.PbExcel.TabStop = false;
+            this.PbExcel.Click += new System.EventHandler(this.PbExcel_Click);
+            // 
+            // PbFiltro
+            // 
+            this.PbFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PbFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PbFiltro.Image = global::ProyectoOFI.Properties.Resources.filter_list_FILL0_wght400_GRAD0_opsz24;
+            this.PbFiltro.Location = new System.Drawing.Point(857, 6);
+            this.PbFiltro.Name = "PbFiltro";
+            this.PbFiltro.Size = new System.Drawing.Size(64, 50);
+            this.PbFiltro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbFiltro.TabIndex = 4;
+            this.PbFiltro.TabStop = false;
+            this.PbFiltro.Click += new System.EventHandler(this.PbFiltro_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregar.Image = global::ProyectoOFI.Properties.Resources.add_64px;
+            this.btnAgregar.Location = new System.Drawing.Point(0, 0);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(91, 62);
+            this.btnAgregar.TabIndex = 0;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // Transferencia
             // 
@@ -2445,19 +2460,15 @@
             this.PlTexto.ResumeLayout(false);
             this.PnGuardar.ResumeLayout(false);
             this.PlCargaTran.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventario)).EndInit();
             this.plOpciones.ResumeLayout(false);
             this.plOpciones.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).EndInit();
             this.plAgregar.ResumeLayout(false);
             this.PlFiltroFecha.ResumeLayout(false);
             this.plfooter.ResumeLayout(false);
             this.plfooter.PerformLayout();
             this.PlCarga.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
             this.PnConsolidar.ResumeLayout(false);
             this.PnTickets.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtTickets)).EndInit();
@@ -2473,6 +2484,10 @@
             this.PlVerCons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtVerCons)).EndInit();
             this.PlSalirVerCons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2650,5 +2665,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox CbPatioCons;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button BtnMultiBusqueda;
     }
 }

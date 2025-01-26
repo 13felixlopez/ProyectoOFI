@@ -31,6 +31,26 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public void BuscarAreaSecado(ref DataTable dt, string Ticket)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("BuscarAreaSecado", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Ticket", Ticket);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos " + ex.Message, "ERROR Buscar Área Secado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarAreaSecado ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
         public void ContarTKCP(ref int Contador)
         {
             try
@@ -100,6 +120,29 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show("No se ha podido editar el registro " + ex.Message, "ERROR al actualizar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en EditarTendido ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool CambioArea(string Ticket, string Area)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("CambioArea", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Ticket", Ticket);
+                cmd.Parameters.AddWithValue("@Area", Area);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se ha podido cambiar el área de secado" + ex.Message, "ERROR al cambiar área de secado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en CambioArea ✖️✖️" + ex.Message);
                 return false;
             }
             finally

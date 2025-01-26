@@ -1,6 +1,5 @@
 ﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
-using ProyectoOFI.Otros;
 using ProyectoOFI.Reportes;
 using ProyectoOFI.Usuario;
 using System;
@@ -10,7 +9,6 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace ProyectoOFI.Analisis
 {

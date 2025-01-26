@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoOFI.Logica;
 using DocumentFormat.OpenXml.Spreadsheet;
+using System.Security.Cryptography;
 
 namespace ProyectoOFI.Datos
 {
@@ -29,6 +30,47 @@ namespace ProyectoOFI.Datos
                 MessageBox.Show(ex.Message + ex.StackTrace);
                 Log.Writeerror("No se ha podido cargar los datos en MostrarPS" + ex.Message);
                 return tablaTickets;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void BuscarLotesPS(string Ticket, ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("BuscarLotesPS", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Ticket", Ticket);
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarLotesPS ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public void MostrarLotesPS2(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("MostrarLotesPS2", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarLotesPS2 ✖️✖️" + ex.Message);
             }
             finally
             {

@@ -1,4 +1,5 @@
-﻿using ProyectoOFI.Datos;
+﻿using Microsoft.Office.Interop.Excel;
+using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
 using ProyectoOFI.Reportes;
@@ -9,11 +10,14 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataTable = System.Data.DataTable;
+using Point = System.Drawing.Point;
 
 namespace ProyectoOFI.ControlPatio
 {
     public partial class CUControlPatio : UserControl
     {
+        bool Search;
         int desde = 1;
         int hasta = 100;
         private int items_por_pagina = 100;
@@ -52,7 +56,7 @@ namespace ProyectoOFI.ControlPatio
         }
         private void MostrarLotes()
         {
-            DataTable dt = new DataTable();
+            System.Data.DataTable dt = new DataTable();
             DControlPatio funcion = new DControlPatio();
             funcion.MostrarLotesCP(ref dt, desde, hasta);
             dtInventariocp.DataSource = dt;
@@ -130,7 +134,14 @@ namespace ProyectoOFI.ControlPatio
             hasta -= 100;
             if (txtBuscador.Text != "")
             {
-                BuscarTk();
+                if (Search == true)
+                {
+                    BuscarTKCP2();
+                }
+                else
+                {
+                    BuscarTk();
+                }
             }
             else if (CbBuscador.Visible == true)
             {
@@ -167,7 +178,14 @@ namespace ProyectoOFI.ControlPatio
             hasta += 100;
             if (txtBuscador.Text != "")
             {
-                BuscarTk();
+                if (Search == true)
+                {
+                    BuscarTKCP2();
+                }
+                else
+                {
+                    BuscarTk();
+                }
             }
             else if (CbBuscador.Visible == true)
             {
@@ -200,7 +218,14 @@ namespace ProyectoOFI.ControlPatio
             desde = hasta - 99;
             if (txtBuscador.Text != "")
             {
-                BuscarTk();
+                if (Search == true)
+                {
+                    BuscarTKCP2();
+                }
+                else
+                {
+                    BuscarTk();
+                }
             }
             else if (CbBuscador.Visible == true)
             {
@@ -232,7 +257,14 @@ namespace ProyectoOFI.ControlPatio
             ReiniciarPaginado();
             if (txtBuscador.Text != "")
             {
-                BuscarTk();
+                if (Search == true)
+                {
+                    BuscarTKCP2();
+                }
+                else
+                {
+                    BuscarTk();
+                }
             }
             else if (CbBuscador.Visible == true)
             {
@@ -482,7 +514,7 @@ namespace ProyectoOFI.ControlPatio
         private void ObtenerDatos()
         {
             DControlPatio funcion = new DControlPatio();
-            DataTable dt = new DataTable();
+            System.Data.DataTable dt = new System.Data.DataTable();
 
             try
             {
@@ -1259,7 +1291,7 @@ namespace ProyectoOFI.ControlPatio
 
         private void PbFiltro_Click(object sender, EventArgs e)
         {
-            PlFiltros.Location = new Point(dtInventariocp.Width / 2
+            PlFiltros.Location = new System.Drawing.Point(dtInventariocp.Width / 2
                 - PlFiltros.Width / 2, dtInventariocp.Height / 2 - PlFiltros.Height / 2);
             PlFiltros.Visible = true;
             PlFiltros.BringToFront();
@@ -1416,6 +1448,24 @@ namespace ProyectoOFI.ControlPatio
                 MessageBox.Show("Cambio de área de secado con éxito", "Cambio de área de secado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 BuscarAreaSecado();
             }
+        }
+
+        private void BtnMultiBusqueda_Click(object sender, EventArgs e)
+        {
+            Task.Delay(3000);
+            Search = true;
+            BuscarTKCP2();
+            ReiniciarPaginado();
+        }
+
+        private void BuscarTKCP2()
+        {
+            DataTable dt = new DataTable();
+            DControlPatio funcion = new DControlPatio();
+            funcion.BuscarTKCP2(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            dtInventariocp.DataSource = dt;
+            ContarBusqueda = int.Parse(funcion.contador.ToString());
+            Base.DiseñoDtvEliminar(ref dtInventariocp);
         }
 
         private bool validarEnvio()

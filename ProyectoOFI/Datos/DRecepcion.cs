@@ -133,6 +133,33 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public bool EditarSacosPeso(string Tk,double peso,double pesoe,int sacos,int sacose)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EditarSacosPeso", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Ticket", Tk);
+                cmd.Parameters.AddWithValue("@Sacos", sacos);
+                cmd.Parameters.AddWithValue("@Peso", peso);
+                //Envio
+                cmd.Parameters.AddWithValue("@SacosE", sacose);
+                cmd.Parameters.AddWithValue("@PesoE", pesoe);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se ha podido editar el registro " + ex.Message, "ERROR al actualizar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en EditarSacosPeso ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
         public void ContarTK(ref int Contador)
         {
             try
@@ -253,7 +280,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@EstadoFisico", parametros.IdEstFis);
                 cmd.Parameters.AddWithValue("@Calidad", parametros.IdCalidad);
                 cmd.Parameters.AddWithValue("@Danio", parametros.IdDaño);
-                cmd.Parameters.AddWithValue("@SacosE", parametros.Sacos);
+                cmd.Parameters.AddWithValue("@Sacos", parametros.Sacos);
                 cmd.Parameters.AddWithValue("@Peso", parametros.Peso);
                 cmd.Parameters.AddWithValue("@Merma", parametros.Merma);
                 cmd.Parameters.AddWithValue("@Recibidor", parametros.IdRecibidor);
@@ -271,7 +298,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@EsFisico", par.IdEsFisico);
                 cmd.Parameters.AddWithValue("@CalidadE", par.IdCalidadE);
                 cmd.Parameters.AddWithValue("@DanioE", par.IdDanioE);
-                cmd.Parameters.AddWithValue("@Sacos", par.SacosE);
+                cmd.Parameters.AddWithValue("@SacosE", par.SacosE);
                 cmd.Parameters.AddWithValue("@PesoE", par.PesoE);
                 cmd.Parameters.AddWithValue("@Tally", par.Tally);
                 cmd.ExecuteNonQuery();

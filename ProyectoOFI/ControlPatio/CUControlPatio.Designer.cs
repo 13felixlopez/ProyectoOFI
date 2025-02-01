@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CUControlPatio));
             this.btn_Sig = new System.Windows.Forms.Button();
             this.btn_Primera = new System.Windows.Forms.Button();
             this.btn_Ultima = new System.Windows.Forms.Button();
@@ -41,12 +42,15 @@
             this.lbl_Pagina = new System.Windows.Forms.Label();
             this.Label25 = new System.Windows.Forms.Label();
             this.PlCarga = new System.Windows.Forms.Panel();
+            this.PbCarga = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.btn_atras = new System.Windows.Forms.Button();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.BtnActualizar = new System.Windows.Forms.Button();
             this.BtnRechazos = new System.Windows.Forms.Button();
+            this.PbFiltro = new System.Windows.Forms.PictureBox();
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.CbBuscador = new System.Windows.Forms.ComboBox();
             this.CbBuscar = new System.Windows.Forms.ComboBox();
@@ -56,13 +60,27 @@
             this.DtpFin = new System.Windows.Forms.DateTimePicker();
             this.BtnFiltroFecha = new System.Windows.Forms.Button();
             this.DtpInicio = new System.Windows.Forms.DateTimePicker();
+            this.BtnCambio = new System.Windows.Forms.Button();
+            this.PbExcel = new System.Windows.Forms.PictureBox();
             this.plfooter = new System.Windows.Forms.Panel();
             this.timerAct = new System.Windows.Forms.Timer(this.components);
             this.PlFiltros = new System.Windows.Forms.Panel();
             this.CLBFiltros = new System.Windows.Forms.CheckedListBox();
+            this.BtnFiltrar = new System.Windows.Forms.Button();
             this.PlCerrar = new System.Windows.Forms.Panel();
             this.LblFiltros = new System.Windows.Forms.Label();
+            this.BtnCerrar = new System.Windows.Forms.Button();
             this.PlContenedor = new System.Windows.Forms.Panel();
+            this.PlCambio = new System.Windows.Forms.Panel();
+            this.BtnBusqueda = new System.Windows.Forms.Button();
+            this.TxtTK = new System.Windows.Forms.TextBox();
+            this.BtnCambioUbicacion = new System.Windows.Forms.Button();
+            this.LblAreaActual = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label29 = new System.Windows.Forms.Label();
+            this.BtnCerrarCambio = new System.Windows.Forms.Button();
             this.PlControl = new System.Windows.Forms.Panel();
             this.LblMsj = new System.Windows.Forms.Label();
             this.PlEnfarde = new System.Windows.Forms.Panel();
@@ -121,6 +139,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.PlCerrarDetalle = new System.Windows.Forms.Panel();
             this.LblTituloCP = new System.Windows.Forms.Label();
+            this.BtnCerrarDetalleCp = new System.Windows.Forms.Button();
             this.PlEnvio = new System.Windows.Forms.Panel();
             this.BtnEnviar = new System.Windows.Forms.Button();
             this.CbDestino = new System.Windows.Forms.ComboBox();
@@ -133,34 +152,22 @@
             this.label14 = new System.Windows.Forms.Label();
             this.TxtDNIN = new System.Windows.Forms.TextBox();
             this.dtInventariocp = new System.Windows.Forms.DataGridView();
-            this.PlCambio = new System.Windows.Forms.Panel();
-            this.BtnCambioUbicacion = new System.Windows.Forms.Button();
-            this.LblAreaActual = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label29 = new System.Windows.Forms.Label();
-            this.TxtTK = new System.Windows.Forms.TextBox();
-            this.BtnBusqueda = new System.Windows.Forms.Button();
-            this.BtnCerrarCambio = new System.Windows.Forms.Button();
-            this.BtnCerrarDetalleCp = new System.Windows.Forms.Button();
-            this.PbCarga = new System.Windows.Forms.PictureBox();
-            this.BtnFiltrar = new System.Windows.Forms.Button();
-            this.BtnCerrar = new System.Windows.Forms.Button();
-            this.BtnCambio = new System.Windows.Forms.Button();
-            this.BtnActualizar = new System.Windows.Forms.Button();
-            this.PbExcel = new System.Windows.Forms.PictureBox();
-            this.PbFiltro = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.BtnMultiBusqueda = new System.Windows.Forms.Button();
             this.PlCarga.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.plOpciones.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).BeginInit();
             this.PlFiltroFecha.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).BeginInit();
             this.plfooter.SuspendLayout();
             this.PlFiltros.SuspendLayout();
             this.PlCerrar.SuspendLayout();
             this.PlContenedor.SuspendLayout();
+            this.PlCambio.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.PlControl.SuspendLayout();
             this.PlEnfarde.SuspendLayout();
             this.PlTendido.SuspendLayout();
@@ -169,11 +176,6 @@
             this.PlCerrarDetalle.SuspendLayout();
             this.PlEnvio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).BeginInit();
-            this.PlCambio.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Sig
@@ -281,6 +283,18 @@
             this.PlCarga.Size = new System.Drawing.Size(250, 172);
             this.PlCarga.TabIndex = 10;
             // 
+            // PbCarga
+            // 
+            this.PbCarga.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.PbCarga.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PbCarga.Image = global::ProyectoOFI.Properties.Resources.loading_12;
+            this.PbCarga.Location = new System.Drawing.Point(0, 0);
+            this.PbCarga.Name = "PbCarga";
+            this.PbCarga.Size = new System.Drawing.Size(250, 172);
+            this.PbCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbCarga.TabIndex = 0;
+            this.PbCarga.TabStop = false;
+            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.HeaderText = "";
@@ -306,6 +320,7 @@
             // plOpciones
             // 
             this.plOpciones.BackColor = System.Drawing.Color.White;
+            this.plOpciones.Controls.Add(this.BtnMultiBusqueda);
             this.plOpciones.Controls.Add(this.BtnBuscar);
             this.plOpciones.Controls.Add(this.panel3);
             this.plOpciones.Controls.Add(this.BtnRechazos);
@@ -327,7 +342,7 @@
             // BtnBuscar
             // 
             this.BtnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBuscar.Location = new System.Drawing.Point(707, 8);
+            this.BtnBuscar.Location = new System.Drawing.Point(565, 8);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(83, 44);
             this.BtnBuscar.TabIndex = 10;
@@ -345,6 +360,22 @@
             this.panel3.TabIndex = 9;
             this.panel3.Visible = false;
             // 
+            // BtnActualizar
+            // 
+            this.BtnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.BtnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnActualizar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnActualizar.FlatAppearance.BorderSize = 0;
+            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnActualizar.Image = global::ProyectoOFI.Properties.Resources.icons8_refrescar;
+            this.BtnActualizar.Location = new System.Drawing.Point(0, 0);
+            this.BtnActualizar.Name = "BtnActualizar";
+            this.BtnActualizar.Size = new System.Drawing.Size(91, 62);
+            this.BtnActualizar.TabIndex = 0;
+            this.BtnActualizar.UseVisualStyleBackColor = false;
+            this.BtnActualizar.Visible = false;
+            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
+            // 
             // BtnRechazos
             // 
             this.BtnRechazos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -356,11 +387,24 @@
             this.BtnRechazos.UseVisualStyleBackColor = true;
             this.BtnRechazos.Click += new System.EventHandler(this.BtnRechazos_Click);
             // 
+            // PbFiltro
+            // 
+            this.PbFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PbFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PbFiltro.Image = global::ProyectoOFI.Properties.Resources.filter_list_FILL0_wght400_GRAD0_opsz24;
+            this.PbFiltro.Location = new System.Drawing.Point(948, 3);
+            this.PbFiltro.Name = "PbFiltro";
+            this.PbFiltro.Size = new System.Drawing.Size(64, 50);
+            this.PbFiltro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbFiltro.TabIndex = 4;
+            this.PbFiltro.TabStop = false;
+            this.PbFiltro.Click += new System.EventHandler(this.PbFiltro_Click);
+            // 
             // txtBuscador
             // 
             this.txtBuscador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.txtBuscador.Location = new System.Drawing.Point(506, 15);
+            this.txtBuscador.Location = new System.Drawing.Point(364, 15);
             this.txtBuscador.Name = "txtBuscador";
             this.txtBuscador.Size = new System.Drawing.Size(161, 26);
             this.txtBuscador.TabIndex = 2;
@@ -376,7 +420,7 @@
             "SBX",
             "RFA",
             "ILLY"});
-            this.CbBuscador.Location = new System.Drawing.Point(506, 14);
+            this.CbBuscador.Location = new System.Drawing.Point(364, 14);
             this.CbBuscador.Name = "CbBuscador";
             this.CbBuscador.Size = new System.Drawing.Size(168, 28);
             this.CbBuscador.TabIndex = 1;
@@ -398,9 +442,9 @@
             "Patio",
             "Peso",
             "Fecha"});
-            this.CbBuscar.Location = new System.Drawing.Point(246, 14);
+            this.CbBuscar.Location = new System.Drawing.Point(145, 14);
             this.CbBuscar.Name = "CbBuscar";
-            this.CbBuscar.Size = new System.Drawing.Size(168, 28);
+            this.CbBuscar.Size = new System.Drawing.Size(125, 28);
             this.CbBuscar.TabIndex = 1;
             this.CbBuscar.Text = "Ticket";
             this.CbBuscar.SelectedIndexChanged += new System.EventHandler(this.CbBuscar_SelectedIndexChanged);
@@ -410,7 +454,7 @@
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(430, 18);
+            this.label3.Location = new System.Drawing.Point(288, 18);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 20);
             this.label3.TabIndex = 0;
@@ -419,11 +463,10 @@
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(15, 18);
+            this.label4.Location = new System.Drawing.Point(15, 6);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(215, 20);
+            this.label4.Size = new System.Drawing.Size(133, 46);
             this.label4.TabIndex = 0;
             this.label4.Text = "Elija lo que desee buscar:";
             // 
@@ -432,7 +475,7 @@
             this.PlFiltroFecha.Controls.Add(this.DtpFin);
             this.PlFiltroFecha.Controls.Add(this.BtnFiltroFecha);
             this.PlFiltroFecha.Controls.Add(this.DtpInicio);
-            this.PlFiltroFecha.Location = new System.Drawing.Point(500, 3);
+            this.PlFiltroFecha.Location = new System.Drawing.Point(358, 3);
             this.PlFiltroFecha.Name = "PlFiltroFecha";
             this.PlFiltroFecha.Size = new System.Drawing.Size(341, 50);
             this.PlFiltroFecha.TabIndex = 7;
@@ -465,6 +508,33 @@
             this.DtpInicio.Name = "DtpInicio";
             this.DtpInicio.Size = new System.Drawing.Size(118, 26);
             this.DtpInicio.TabIndex = 5;
+            // 
+            // BtnCambio
+            // 
+            this.BtnCambio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCambio.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCambio.Image = global::ProyectoOFI.Properties.Resources.split_52966371;
+            this.BtnCambio.Location = new System.Drawing.Point(1750, 0);
+            this.BtnCambio.Name = "BtnCambio";
+            this.BtnCambio.Size = new System.Drawing.Size(75, 62);
+            this.BtnCambio.TabIndex = 11;
+            this.BtnCambio.UseVisualStyleBackColor = true;
+            this.BtnCambio.Visible = false;
+            this.BtnCambio.Click += new System.EventHandler(this.BtnCambio_Click);
+            // 
+            // PbExcel
+            // 
+            this.PbExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PbExcel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PbExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PbExcel.Image = global::ProyectoOFI.Properties.Resources.sobresalir;
+            this.PbExcel.Location = new System.Drawing.Point(1038, 3);
+            this.PbExcel.Name = "PbExcel";
+            this.PbExcel.Size = new System.Drawing.Size(64, 50);
+            this.PbExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbExcel.TabIndex = 4;
+            this.PbExcel.TabStop = false;
+            this.PbExcel.Click += new System.EventHandler(this.PbExcel_Click);
             // 
             // plfooter
             // 
@@ -509,6 +579,21 @@
             this.CLBFiltros.TabIndex = 1;
             this.CLBFiltros.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBFiltros_ItemCheck);
             // 
+            // BtnFiltrar
+            // 
+            this.BtnFiltrar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.BtnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnFiltrar.Image = global::ProyectoOFI.Properties.Resources.task_alt_FILL1_wght400_GRAD0_opsz24;
+            this.BtnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnFiltrar.Location = new System.Drawing.Point(0, 336);
+            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(10);
+            this.BtnFiltrar.Name = "BtnFiltrar";
+            this.BtnFiltrar.Size = new System.Drawing.Size(233, 59);
+            this.BtnFiltrar.TabIndex = 2;
+            this.BtnFiltrar.Text = "Aplicar Filtro";
+            this.BtnFiltrar.UseVisualStyleBackColor = true;
+            this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
+            // 
             // PlCerrar
             // 
             this.PlCerrar.Controls.Add(this.LblFiltros);
@@ -530,6 +615,18 @@
             this.LblFiltros.Text = "Filtros";
             this.LblFiltros.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // BtnCerrar
+            // 
+            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrar.Location = new System.Drawing.Point(184, 0);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(49, 42);
+            this.BtnCerrar.TabIndex = 2;
+            this.BtnCerrar.UseVisualStyleBackColor = true;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
+            // 
             // PlContenedor
             // 
             this.PlContenedor.Controls.Add(this.PlCambio);
@@ -544,6 +641,117 @@
             this.PlContenedor.Name = "PlContenedor";
             this.PlContenedor.Size = new System.Drawing.Size(1825, 842);
             this.PlContenedor.TabIndex = 15;
+            // 
+            // PlCambio
+            // 
+            this.PlCambio.BackColor = System.Drawing.Color.White;
+            this.PlCambio.Controls.Add(this.BtnBusqueda);
+            this.PlCambio.Controls.Add(this.TxtTK);
+            this.PlCambio.Controls.Add(this.BtnCambioUbicacion);
+            this.PlCambio.Controls.Add(this.LblAreaActual);
+            this.PlCambio.Controls.Add(this.label24);
+            this.PlCambio.Controls.Add(this.label28);
+            this.PlCambio.Controls.Add(this.panel1);
+            this.PlCambio.Location = new System.Drawing.Point(1232, 96);
+            this.PlCambio.Name = "PlCambio";
+            this.PlCambio.Size = new System.Drawing.Size(366, 192);
+            this.PlCambio.TabIndex = 21;
+            this.PlCambio.Visible = false;
+            // 
+            // BtnBusqueda
+            // 
+            this.BtnBusqueda.BackgroundImage = global::ProyectoOFI.Properties.Resources.icons8_búsqueda_64;
+            this.BtnBusqueda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBusqueda.Location = new System.Drawing.Point(256, 48);
+            this.BtnBusqueda.Name = "BtnBusqueda";
+            this.BtnBusqueda.Size = new System.Drawing.Size(48, 47);
+            this.BtnBusqueda.TabIndex = 13;
+            this.BtnBusqueda.UseVisualStyleBackColor = true;
+            this.BtnBusqueda.Click += new System.EventHandler(this.BtnBusqueda_Click);
+            // 
+            // TxtTK
+            // 
+            this.TxtTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.TxtTK.Location = new System.Drawing.Point(91, 59);
+            this.TxtTK.Name = "TxtTK";
+            this.TxtTK.Size = new System.Drawing.Size(159, 26);
+            this.TxtTK.TabIndex = 12;
+            // 
+            // BtnCambioUbicacion
+            // 
+            this.BtnCambioUbicacion.Enabled = false;
+            this.BtnCambioUbicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCambioUbicacion.Location = new System.Drawing.Point(153, 142);
+            this.BtnCambioUbicacion.Name = "BtnCambioUbicacion";
+            this.BtnCambioUbicacion.Size = new System.Drawing.Size(78, 39);
+            this.BtnCambioUbicacion.TabIndex = 11;
+            this.BtnCambioUbicacion.Text = "Cambiar";
+            this.BtnCambioUbicacion.UseVisualStyleBackColor = true;
+            this.BtnCambioUbicacion.Click += new System.EventHandler(this.BtnCambioUbicacion_Click);
+            // 
+            // LblAreaActual
+            // 
+            this.LblAreaActual.AutoSize = true;
+            this.LblAreaActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblAreaActual.Location = new System.Drawing.Point(175, 103);
+            this.LblAreaActual.Name = "LblAreaActual";
+            this.LblAreaActual.Size = new System.Drawing.Size(19, 20);
+            this.LblAreaActual.TabIndex = 4;
+            this.LblAreaActual.Text = "--";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(23, 103);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(140, 20);
+            this.label24.TabIndex = 5;
+            this.label24.Text = "Área de secado:";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(23, 62);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(62, 20);
+            this.label28.TabIndex = 3;
+            this.label28.Text = "Ticket:";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label29);
+            this.panel1.Controls.Add(this.BtnCerrarCambio);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(366, 42);
+            this.panel1.TabIndex = 1;
+            // 
+            // label29
+            // 
+            this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(0, 0);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(317, 42);
+            this.label29.TabIndex = 3;
+            this.label29.Text = "Cambiar Ubicación";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnCerrarCambio
+            // 
+            this.BtnCerrarCambio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrarCambio.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrarCambio.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrarCambio.Location = new System.Drawing.Point(317, 0);
+            this.BtnCerrarCambio.Name = "BtnCerrarCambio";
+            this.BtnCerrarCambio.Size = new System.Drawing.Size(49, 42);
+            this.BtnCerrarCambio.TabIndex = 2;
+            this.BtnCerrarCambio.UseVisualStyleBackColor = true;
+            this.BtnCerrarCambio.Click += new System.EventHandler(this.BtnCerrarCambio_Click);
             // 
             // PlControl
             // 
@@ -1186,6 +1394,18 @@
             this.LblTituloCP.Text = "Editar Control Patio";
             this.LblTituloCP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // BtnCerrarDetalleCp
+            // 
+            this.BtnCerrarDetalleCp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrarDetalleCp.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrarDetalleCp.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrarDetalleCp.Location = new System.Drawing.Point(878, 0);
+            this.BtnCerrarDetalleCp.Name = "BtnCerrarDetalleCp";
+            this.BtnCerrarDetalleCp.Size = new System.Drawing.Size(75, 44);
+            this.BtnCerrarDetalleCp.TabIndex = 3;
+            this.BtnCerrarDetalleCp.UseVisualStyleBackColor = true;
+            this.BtnCerrarDetalleCp.Click += new System.EventHandler(this.BtnCerrarDetalleCp_Click);
+            // 
             // PlEnvio
             // 
             this.PlEnvio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -1301,261 +1521,43 @@
             this.dtInventariocp.AllowUserToDeleteRows = false;
             this.dtInventariocp.AllowUserToOrderColumns = true;
             this.dtInventariocp.AllowUserToResizeRows = false;
-            dataGridViewCellStyle37.NullValue = "--";
-            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle1.NullValue = "--";
+            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtInventariocp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventariocp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventariocp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtInventariocp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle39.NullValue = "--";
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.NullValue = "--";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtInventariocp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventariocp.Location = new System.Drawing.Point(0, 62);
             this.dtInventariocp.Name = "dtInventariocp";
             this.dtInventariocp.ReadOnly = true;
             this.dtInventariocp.RowHeadersVisible = false;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtInventariocp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventariocp.ShowCellToolTips = false;
             this.dtInventariocp.ShowEditingIcon = false;
             this.dtInventariocp.Size = new System.Drawing.Size(1825, 720);
             this.dtInventariocp.TabIndex = 6;
             this.dtInventariocp.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtInventariocp_CellDoubleClick);
-            // 
-            // PlCambio
-            // 
-            this.PlCambio.BackColor = System.Drawing.Color.White;
-            this.PlCambio.Controls.Add(this.BtnBusqueda);
-            this.PlCambio.Controls.Add(this.TxtTK);
-            this.PlCambio.Controls.Add(this.BtnCambioUbicacion);
-            this.PlCambio.Controls.Add(this.LblAreaActual);
-            this.PlCambio.Controls.Add(this.label24);
-            this.PlCambio.Controls.Add(this.label28);
-            this.PlCambio.Controls.Add(this.panel1);
-            this.PlCambio.Location = new System.Drawing.Point(1232, 96);
-            this.PlCambio.Name = "PlCambio";
-            this.PlCambio.Size = new System.Drawing.Size(366, 192);
-            this.PlCambio.TabIndex = 21;
-            this.PlCambio.Visible = false;
-            // 
-            // BtnCambioUbicacion
-            // 
-            this.BtnCambioUbicacion.Enabled = false;
-            this.BtnCambioUbicacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCambioUbicacion.Location = new System.Drawing.Point(153, 142);
-            this.BtnCambioUbicacion.Name = "BtnCambioUbicacion";
-            this.BtnCambioUbicacion.Size = new System.Drawing.Size(78, 39);
-            this.BtnCambioUbicacion.TabIndex = 11;
-            this.BtnCambioUbicacion.Text = "Cambiar";
-            this.BtnCambioUbicacion.UseVisualStyleBackColor = true;
-            this.BtnCambioUbicacion.Click += new System.EventHandler(this.BtnCambioUbicacion_Click);
-            // 
-            // LblAreaActual
-            // 
-            this.LblAreaActual.AutoSize = true;
-            this.LblAreaActual.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblAreaActual.Location = new System.Drawing.Point(175, 103);
-            this.LblAreaActual.Name = "LblAreaActual";
-            this.LblAreaActual.Size = new System.Drawing.Size(19, 20);
-            this.LblAreaActual.TabIndex = 4;
-            this.LblAreaActual.Text = "--";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(23, 103);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(140, 20);
-            this.label24.TabIndex = 5;
-            this.label24.Text = "Área de secado:";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label28.Location = new System.Drawing.Point(23, 62);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(62, 20);
-            this.label28.TabIndex = 3;
-            this.label28.Text = "Ticket:";
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label29);
-            this.panel1.Controls.Add(this.BtnCerrarCambio);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(366, 42);
-            this.panel1.TabIndex = 1;
-            // 
-            // label29
-            // 
-            this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label29.Location = new System.Drawing.Point(0, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(317, 42);
-            this.label29.TabIndex = 3;
-            this.label29.Text = "Cambiar Ubicación";
-            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // TxtTK
-            // 
-            this.TxtTK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.TxtTK.Location = new System.Drawing.Point(91, 59);
-            this.TxtTK.Name = "TxtTK";
-            this.TxtTK.Size = new System.Drawing.Size(159, 26);
-            this.TxtTK.TabIndex = 12;
-            // 
-            // BtnBusqueda
-            // 
-            this.BtnBusqueda.BackgroundImage = global::ProyectoOFI.Properties.Resources.icons8_búsqueda_64;
-            this.BtnBusqueda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBusqueda.Location = new System.Drawing.Point(256, 48);
-            this.BtnBusqueda.Name = "BtnBusqueda";
-            this.BtnBusqueda.Size = new System.Drawing.Size(48, 47);
-            this.BtnBusqueda.TabIndex = 13;
-            this.BtnBusqueda.UseVisualStyleBackColor = true;
-            this.BtnBusqueda.Click += new System.EventHandler(this.BtnBusqueda_Click);
-            // 
-            // BtnCerrarCambio
-            // 
-            this.BtnCerrarCambio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCerrarCambio.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCerrarCambio.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrarCambio.Location = new System.Drawing.Point(317, 0);
-            this.BtnCerrarCambio.Name = "BtnCerrarCambio";
-            this.BtnCerrarCambio.Size = new System.Drawing.Size(49, 42);
-            this.BtnCerrarCambio.TabIndex = 2;
-            this.BtnCerrarCambio.UseVisualStyleBackColor = true;
-            this.BtnCerrarCambio.Click += new System.EventHandler(this.BtnCerrarCambio_Click);
-            // 
-            // BtnCerrarDetalleCp
-            // 
-            this.BtnCerrarDetalleCp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCerrarDetalleCp.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCerrarDetalleCp.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrarDetalleCp.Location = new System.Drawing.Point(878, 0);
-            this.BtnCerrarDetalleCp.Name = "BtnCerrarDetalleCp";
-            this.BtnCerrarDetalleCp.Size = new System.Drawing.Size(75, 44);
-            this.BtnCerrarDetalleCp.TabIndex = 3;
-            this.BtnCerrarDetalleCp.UseVisualStyleBackColor = true;
-            this.BtnCerrarDetalleCp.Click += new System.EventHandler(this.BtnCerrarDetalleCp_Click);
-            // 
-            // PbCarga
-            // 
-            this.PbCarga.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.PbCarga.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PbCarga.Image = global::ProyectoOFI.Properties.Resources.loading_12;
-            this.PbCarga.Location = new System.Drawing.Point(0, 0);
-            this.PbCarga.Name = "PbCarga";
-            this.PbCarga.Size = new System.Drawing.Size(250, 172);
-            this.PbCarga.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbCarga.TabIndex = 0;
-            this.PbCarga.TabStop = false;
-            // 
-            // BtnFiltrar
-            // 
-            this.BtnFiltrar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.BtnFiltrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnFiltrar.Image = global::ProyectoOFI.Properties.Resources.task_alt_FILL1_wght400_GRAD0_opsz24;
-            this.BtnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnFiltrar.Location = new System.Drawing.Point(0, 336);
-            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(10);
-            this.BtnFiltrar.Name = "BtnFiltrar";
-            this.BtnFiltrar.Size = new System.Drawing.Size(233, 59);
-            this.BtnFiltrar.TabIndex = 2;
-            this.BtnFiltrar.Text = "Aplicar Filtro";
-            this.BtnFiltrar.UseVisualStyleBackColor = true;
-            this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
-            // 
-            // BtnCerrar
-            // 
-            this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrar.Location = new System.Drawing.Point(184, 0);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(49, 42);
-            this.BtnCerrar.TabIndex = 2;
-            this.BtnCerrar.UseVisualStyleBackColor = true;
-            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
-            // 
-            // BtnCambio
-            // 
-            this.BtnCambio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnCambio.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnCambio.Image = global::ProyectoOFI.Properties.Resources.split_52966371;
-            this.BtnCambio.Location = new System.Drawing.Point(1750, 0);
-            this.BtnCambio.Name = "BtnCambio";
-            this.BtnCambio.Size = new System.Drawing.Size(75, 62);
-            this.BtnCambio.TabIndex = 11;
-            this.BtnCambio.UseVisualStyleBackColor = true;
-            this.BtnCambio.Visible = false;
-            this.BtnCambio.Click += new System.EventHandler(this.BtnCambio_Click);
-            // 
-            // BtnActualizar
-            // 
-            this.BtnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.BtnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnActualizar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnActualizar.FlatAppearance.BorderSize = 0;
-            this.BtnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnActualizar.Image = global::ProyectoOFI.Properties.Resources.icons8_refrescar;
-            this.BtnActualizar.Location = new System.Drawing.Point(0, 0);
-            this.BtnActualizar.Name = "BtnActualizar";
-            this.BtnActualizar.Size = new System.Drawing.Size(91, 62);
-            this.BtnActualizar.TabIndex = 0;
-            this.BtnActualizar.UseVisualStyleBackColor = false;
-            this.BtnActualizar.Visible = false;
-            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
-            // 
-            // PbExcel
-            // 
-            this.PbExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.PbExcel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PbExcel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PbExcel.Image = global::ProyectoOFI.Properties.Resources.sobresalir;
-            this.PbExcel.Location = new System.Drawing.Point(1038, 3);
-            this.PbExcel.Name = "PbExcel";
-            this.PbExcel.Size = new System.Drawing.Size(64, 50);
-            this.PbExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbExcel.TabIndex = 4;
-            this.PbExcel.TabStop = false;
-            this.PbExcel.Click += new System.EventHandler(this.PbExcel_Click);
-            // 
-            // PbFiltro
-            // 
-            this.PbFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.PbFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PbFiltro.Image = global::ProyectoOFI.Properties.Resources.filter_list_FILL0_wght400_GRAD0_opsz24;
-            this.PbFiltro.Location = new System.Drawing.Point(948, 3);
-            this.PbFiltro.Name = "PbFiltro";
-            this.PbFiltro.Size = new System.Drawing.Size(64, 50);
-            this.PbFiltro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PbFiltro.TabIndex = 4;
-            this.PbFiltro.TabStop = false;
-            this.PbFiltro.Click += new System.EventHandler(this.PbFiltro_Click);
             // 
             // dataGridViewImageColumn2
             // 
@@ -1578,6 +1580,18 @@
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
             // 
+            // BtnMultiBusqueda
+            // 
+            this.BtnMultiBusqueda.BackColor = System.Drawing.Color.Black;
+            this.BtnMultiBusqueda.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnMultiBusqueda.BackgroundImage")));
+            this.BtnMultiBusqueda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnMultiBusqueda.Location = new System.Drawing.Point(701, 9);
+            this.BtnMultiBusqueda.Name = "BtnMultiBusqueda";
+            this.BtnMultiBusqueda.Size = new System.Drawing.Size(53, 44);
+            this.BtnMultiBusqueda.TabIndex = 12;
+            this.BtnMultiBusqueda.UseVisualStyleBackColor = false;
+            this.BtnMultiBusqueda.Click += new System.EventHandler(this.BtnMultiBusqueda_Click);
+            // 
             // CUControlPatio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1587,15 +1601,21 @@
             this.Size = new System.Drawing.Size(1825, 842);
             this.Load += new System.EventHandler(this.CUControlPatio_Load);
             this.PlCarga.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
             this.plOpciones.ResumeLayout(false);
             this.plOpciones.PerformLayout();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).EndInit();
             this.PlFiltroFecha.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).EndInit();
             this.plfooter.ResumeLayout(false);
             this.plfooter.PerformLayout();
             this.PlFiltros.ResumeLayout(false);
             this.PlCerrar.ResumeLayout(false);
             this.PlContenedor.ResumeLayout(false);
+            this.PlCambio.ResumeLayout(false);
+            this.PlCambio.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.PlControl.ResumeLayout(false);
             this.PlControl.PerformLayout();
             this.PlEnfarde.ResumeLayout(false);
@@ -1610,12 +1630,6 @@
             this.PlEnvio.ResumeLayout(false);
             this.PlEnvio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).EndInit();
-            this.PlCambio.ResumeLayout(false);
-            this.PlCambio.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1742,5 +1756,6 @@
         private System.Windows.Forms.Button BtnCambio;
         private System.Windows.Forms.Button BtnBusqueda;
         private System.Windows.Forms.TextBox TxtTK;
+        private System.Windows.Forms.Button BtnMultiBusqueda;
     }
 }

@@ -2,6 +2,7 @@
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
 using ProyectoOFI.Reportes;
+using ProyectoOFI.SM;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +11,7 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static NPOI.HSSF.Util.HSSFColor;
 
 namespace ProyectoOFI.Recepcion
 {
@@ -1331,6 +1333,47 @@ namespace ProyectoOFI.Recepcion
                 MessageBox.Show(ex.Message);
             }
         }
+        private void EditarSacosPeso()
+        {
+            try
+            {
+                double Peso, PesoE, Merma;
+                int Sacos, SacosE;
+                DRecepcion funcion = new DRecepcion();
+                Sacos = Convert.ToInt32(nudSacos.Value);
+                Peso = Convert.ToDouble(txtKgs.Text);
+                Merma = Convert.ToDouble(LblMerma.Text);
+
+                LEnvio par = new LEnvio();
+                SacosE = Convert.ToInt32(nudSacosE.Value);
+                PesoE = Convert.ToDouble(txtPesoE.Text);
+                if (ContadorEdit < 3 || Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
+                {
+                    if (funcion.EditarSacosPeso(txtTK.Text, Peso, PesoE, Sacos, SacosE) == true)
+                    {
+                        MessageBox.Show("Registro realizado con exito", "Peso y Sacos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        PRecepcion.Visible = false;
+                        Alerta();
+                        PlRecepcion.Visible = false;
+                        PRecepcion.Visible = false;
+                        PEnvio.Dock = DockStyle.Fill;
+                        PEnvio.Visible = true;
+                        Limpiar();
+                        txtTK.Enabled = true;
+                        dtInventario.Enabled = true;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ya supero los 3 intentos de edición, comuniquese con un administrador", "Superó los intentos de edición", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
             BuscarCons();
@@ -1509,6 +1552,17 @@ namespace ProyectoOFI.Recepcion
             else
             {
                 CbCertCons.Enabled = true;
+            }
+            if (CbAreaCons.Text == "Control Patio")
+            {
+                CbPatioCons.Enabled = true;
+                DControlPatio fun = new DControlPatio();
+                fun.MostrarPatio(CbPatioCons);
+            }
+            else
+            {
+                CbPatioCons.Text = "SM";
+                CbPatioCons.Enabled = false;
             }
         }
         private void CbAreaCons_SelectedIndexChanged(object sender, EventArgs e)
@@ -2100,6 +2154,16 @@ namespace ProyectoOFI.Recepcion
             ReiniciarPaginado();
         }
 
+        private void BtnEditar_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
+            {
+                if (e.Button == MouseButtons.Right)
+                {
+                    EditarSacosPeso();
+                }
+            }
+        }
         private void ValidarPermisos()
         {
             DataTable dt = new DataTable();

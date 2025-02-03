@@ -70,6 +70,6 @@ Eficiencia: La API en Node.js asegura un bajo consumo de internet en dispositivo
 📧 Email: lfelixfermin@gmail.com
 📱 Celular: +(505) 87056321
 
-
+---
 
 CoffeeTec: Eficiencia, control y calidad para el secado de café.

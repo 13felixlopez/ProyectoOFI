@@ -67,8 +67,8 @@ Eficiencia: La API en Node.js asegura un bajo consumo de internet en dispositivo
 
 📝 Contacto
 ¿Tienes preguntas o necesitas más información? ¡No dudes en contactarnos!
-📧 Email: lfelixfermin@gmail.com
-📱 Celular: +(505) 87056321
+- **📧 Email:** lfelixfermin@gmail.com
+- **📱 Celular:** +(505) 87056321
 
 ---
 

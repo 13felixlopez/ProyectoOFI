@@ -39,6 +39,15 @@
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PlOpciones = new System.Windows.Forms.Panel();
+            this.PlFiltroFecha = new System.Windows.Forms.Panel();
+            this.DtpFin = new System.Windows.Forms.DateTimePicker();
+            this.BtnFiltroFecha = new System.Windows.Forms.Button();
+            this.DtpInicio = new System.Windows.Forms.DateTimePicker();
+            this.txtBuscador = new System.Windows.Forms.TextBox();
+            this.CbBuscador = new System.Windows.Forms.ComboBox();
+            this.CbBuscar = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.plfooter = new System.Windows.Forms.Panel();
             this.btn_atras = new System.Windows.Forms.Button();
             this.btn_Sig = new System.Windows.Forms.Button();
@@ -51,23 +60,16 @@
             this.DtHistorial = new System.Windows.Forms.DataGridView();
             this.PlCarga = new System.Windows.Forms.Panel();
             this.PbCarga = new System.Windows.Forms.PictureBox();
-            this.PlFiltroFecha = new System.Windows.Forms.Panel();
-            this.DtpFin = new System.Windows.Forms.DateTimePicker();
-            this.BtnFiltroFecha = new System.Windows.Forms.Button();
-            this.DtpInicio = new System.Windows.Forms.DateTimePicker();
-            this.txtBuscador = new System.Windows.Forms.TextBox();
-            this.CbBuscador = new System.Windows.Forms.ComboBox();
-            this.CbBuscar = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.PbExcel = new System.Windows.Forms.PictureBox();
             this.PlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PlOpciones.SuspendLayout();
+            this.PlFiltroFecha.SuspendLayout();
             this.plfooter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtHistorial)).BeginInit();
             this.PlCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
-            this.PlFiltroFecha.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).BeginInit();
             this.SuspendLayout();
             // 
             // PlTitulo
@@ -121,6 +123,7 @@
             // PlOpciones
             // 
             this.PlOpciones.BackColor = System.Drawing.Color.White;
+            this.PlOpciones.Controls.Add(this.PbExcel);
             this.PlOpciones.Controls.Add(this.PlFiltroFecha);
             this.PlOpciones.Controls.Add(this.txtBuscador);
             this.PlOpciones.Controls.Add(this.CbBuscador);
@@ -132,6 +135,107 @@
             this.PlOpciones.Name = "PlOpciones";
             this.PlOpciones.Size = new System.Drawing.Size(1386, 67);
             this.PlOpciones.TabIndex = 8;
+            // 
+            // PlFiltroFecha
+            // 
+            this.PlFiltroFecha.Controls.Add(this.DtpFin);
+            this.PlFiltroFecha.Controls.Add(this.BtnFiltroFecha);
+            this.PlFiltroFecha.Controls.Add(this.DtpInicio);
+            this.PlFiltroFecha.Location = new System.Drawing.Point(611, 6);
+            this.PlFiltroFecha.Name = "PlFiltroFecha";
+            this.PlFiltroFecha.Size = new System.Drawing.Size(341, 50);
+            this.PlFiltroFecha.TabIndex = 13;
+            this.PlFiltroFecha.Visible = false;
+            // 
+            // DtpFin
+            // 
+            this.DtpFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.DtpFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpFin.Location = new System.Drawing.Point(140, 11);
+            this.DtpFin.Name = "DtpFin";
+            this.DtpFin.Size = new System.Drawing.Size(118, 26);
+            this.DtpFin.TabIndex = 5;
+            // 
+            // BtnFiltroFecha
+            // 
+            this.BtnFiltroFecha.Location = new System.Drawing.Point(264, 3);
+            this.BtnFiltroFecha.Name = "BtnFiltroFecha";
+            this.BtnFiltroFecha.Size = new System.Drawing.Size(65, 44);
+            this.BtnFiltroFecha.TabIndex = 6;
+            this.BtnFiltroFecha.Text = "Filtrar";
+            this.BtnFiltroFecha.UseVisualStyleBackColor = true;
+            this.BtnFiltroFecha.Click += new System.EventHandler(this.BtnFiltroFecha_Click);
+            // 
+            // DtpInicio
+            // 
+            this.DtpInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.DtpInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtpInicio.Location = new System.Drawing.Point(16, 12);
+            this.DtpInicio.Name = "DtpInicio";
+            this.DtpInicio.Size = new System.Drawing.Size(118, 26);
+            this.DtpInicio.TabIndex = 5;
+            // 
+            // txtBuscador
+            // 
+            this.txtBuscador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.txtBuscador.Location = new System.Drawing.Point(618, 17);
+            this.txtBuscador.Name = "txtBuscador";
+            this.txtBuscador.Size = new System.Drawing.Size(161, 26);
+            this.txtBuscador.TabIndex = 12;
+            this.txtBuscador.TextChanged += new System.EventHandler(this.txtBuscador_TextChanged);
+            // 
+            // CbBuscador
+            // 
+            this.CbBuscador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CbBuscador.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CbBuscador.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.CbBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CbBuscador.FormattingEnabled = true;
+            this.CbBuscador.Items.AddRange(new object[] {
+            "Ticket",
+            "Calidad"});
+            this.CbBuscador.Location = new System.Drawing.Point(618, 16);
+            this.CbBuscador.Name = "CbBuscador";
+            this.CbBuscador.Size = new System.Drawing.Size(168, 28);
+            this.CbBuscador.TabIndex = 10;
+            this.CbBuscador.Visible = false;
+            this.CbBuscador.SelectedIndexChanged += new System.EventHandler(this.CbBuscador_SelectedIndexChanged);
+            // 
+            // CbBuscar
+            // 
+            this.CbBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.CbBuscar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CbBuscar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.CbBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.CbBuscar.FormattingEnabled = true;
+            this.CbBuscar.Location = new System.Drawing.Point(358, 16);
+            this.CbBuscar.Name = "CbBuscar";
+            this.CbBuscar.Size = new System.Drawing.Size(168, 28);
+            this.CbBuscar.TabIndex = 11;
+            this.CbBuscar.SelectedIndexChanged += new System.EventHandler(this.CbBuscar_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(542, 20);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(70, 20);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Buscar:";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(127, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(215, 20);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Elija lo que desee buscar:";
             // 
             // plfooter
             // 
@@ -331,106 +435,19 @@
             this.PbCarga.TabIndex = 0;
             this.PbCarga.TabStop = false;
             // 
-            // PlFiltroFecha
+            // PbExcel
             // 
-            this.PlFiltroFecha.Controls.Add(this.DtpFin);
-            this.PlFiltroFecha.Controls.Add(this.BtnFiltroFecha);
-            this.PlFiltroFecha.Controls.Add(this.DtpInicio);
-            this.PlFiltroFecha.Location = new System.Drawing.Point(611, 6);
-            this.PlFiltroFecha.Name = "PlFiltroFecha";
-            this.PlFiltroFecha.Size = new System.Drawing.Size(341, 50);
-            this.PlFiltroFecha.TabIndex = 13;
-            this.PlFiltroFecha.Visible = false;
-            // 
-            // DtpFin
-            // 
-            this.DtpFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.DtpFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpFin.Location = new System.Drawing.Point(140, 11);
-            this.DtpFin.Name = "DtpFin";
-            this.DtpFin.Size = new System.Drawing.Size(118, 26);
-            this.DtpFin.TabIndex = 5;
-            // 
-            // BtnFiltroFecha
-            // 
-            this.BtnFiltroFecha.Location = new System.Drawing.Point(264, 3);
-            this.BtnFiltroFecha.Name = "BtnFiltroFecha";
-            this.BtnFiltroFecha.Size = new System.Drawing.Size(65, 44);
-            this.BtnFiltroFecha.TabIndex = 6;
-            this.BtnFiltroFecha.Text = "Filtrar";
-            this.BtnFiltroFecha.UseVisualStyleBackColor = true;
-            this.BtnFiltroFecha.Click += new System.EventHandler(this.BtnFiltroFecha_Click);
-            // 
-            // DtpInicio
-            // 
-            this.DtpInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.DtpInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpInicio.Location = new System.Drawing.Point(16, 12);
-            this.DtpInicio.Name = "DtpInicio";
-            this.DtpInicio.Size = new System.Drawing.Size(118, 26);
-            this.DtpInicio.TabIndex = 5;
-            // 
-            // txtBuscador
-            // 
-            this.txtBuscador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.txtBuscador.Location = new System.Drawing.Point(618, 17);
-            this.txtBuscador.Name = "txtBuscador";
-            this.txtBuscador.Size = new System.Drawing.Size(161, 26);
-            this.txtBuscador.TabIndex = 12;
-            this.txtBuscador.TextChanged += new System.EventHandler(this.txtBuscador_TextChanged);
-            // 
-            // CbBuscador
-            // 
-            this.CbBuscador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CbBuscador.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.CbBuscador.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.CbBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.CbBuscador.FormattingEnabled = true;
-            this.CbBuscador.Items.AddRange(new object[] {
-            "Ticket",
-            "Calidad"});
-            this.CbBuscador.Location = new System.Drawing.Point(618, 16);
-            this.CbBuscador.Name = "CbBuscador";
-            this.CbBuscador.Size = new System.Drawing.Size(168, 28);
-            this.CbBuscador.TabIndex = 10;
-            this.CbBuscador.Visible = false;
-            this.CbBuscador.SelectedIndexChanged += new System.EventHandler(this.CbBuscador_SelectedIndexChanged);
-            // 
-            // CbBuscar
-            // 
-            this.CbBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.CbBuscar.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.CbBuscar.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.CbBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.CbBuscar.FormattingEnabled = true;
-            this.CbBuscar.Location = new System.Drawing.Point(358, 16);
-            this.CbBuscar.Name = "CbBuscar";
-            this.CbBuscar.Size = new System.Drawing.Size(168, 28);
-            this.CbBuscar.TabIndex = 11;
-            this.CbBuscar.SelectedIndexChanged += new System.EventHandler(this.CbBuscar_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(542, 20);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 20);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Buscar:";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(127, 20);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(215, 20);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Elija lo que desee buscar:";
+            this.PbExcel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PbExcel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PbExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PbExcel.Image = global::ProyectoOFI.Properties.Resources.sobresalir;
+            this.PbExcel.Location = new System.Drawing.Point(1045, 6);
+            this.PbExcel.Name = "PbExcel";
+            this.PbExcel.Size = new System.Drawing.Size(64, 50);
+            this.PbExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PbExcel.TabIndex = 14;
+            this.PbExcel.TabStop = false;
+            this.PbExcel.Click += new System.EventHandler(this.PbExcel_Click);
             // 
             // FrmHistorial
             // 
@@ -452,12 +469,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.PlOpciones.ResumeLayout(false);
             this.PlOpciones.PerformLayout();
+            this.PlFiltroFecha.ResumeLayout(false);
             this.plfooter.ResumeLayout(false);
             this.plfooter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtHistorial)).EndInit();
             this.PlCarga.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).EndInit();
-            this.PlFiltroFecha.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -490,5 +508,6 @@
         private System.Windows.Forms.ComboBox CbBuscar;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox PbExcel;
     }
 }

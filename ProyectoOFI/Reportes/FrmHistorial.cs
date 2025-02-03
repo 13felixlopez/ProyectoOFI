@@ -359,5 +359,15 @@ namespace ProyectoOFI.Reportes
                 ReiniciarPaginado();
             }
         }
+
+        private void PbExcel_Click(object sender, EventArgs e)
+        {
+            DHistorial funcion = new DHistorial();
+            DataTable dt = new DataTable();
+            funcion.ExcelHistorial(ref dt);
+            string Nombre = "Historial ";
+            FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
+            LT.ShowDialog();
+        }
     }
 }

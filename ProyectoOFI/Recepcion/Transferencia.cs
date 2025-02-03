@@ -261,18 +261,18 @@ namespace ProyectoOFI.Recepcion
         }
         private void txtMTNT_TextChanged(object sender, EventArgs e)
         {
-            Transferencia s = new Transferencia();
-            foreach (DataRow row in s.dtInventario.Rows)
-            {
-                for (int i = 0; i < s.dtInventario.Rows.Count; i++)
-                {
-                    if (txtMTNT.Text == Convert.ToString(row["MTNT"]))
-                    {
-                        MessageBox.Show("MTNT ya existe", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        txtMTNT.Clear();
-                    }
-                }
-            }
+            //Transferencia s = new Transferencia();
+            //foreach (DataRow row in s.dtInventario.Rows)
+            //{
+            //    for (int i = 0; i < s.dtInventario.Rows.Count; i++)
+            //    {
+            //        if (txtMTNT.Text == Convert.ToString(row["MTNT"]))
+            //        {
+            //            MessageBox.Show("MTNT ya existe", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //            txtMTNT.Clear();
+            //        }
+            //    }
+            //}
         }
         private void txtKgs_TextChanged(object sender, EventArgs e)
         {

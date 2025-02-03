@@ -34,6 +34,25 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public void ExcelHistorial(ref DataTable dt)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("ExcelHistorial", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al ExcelHistorial ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
         public void ContarHistorial(ref int Contador)
         {
             try

@@ -1802,7 +1802,7 @@
             this.PlFiltros.Controls.Add(this.CLBFiltros);
             this.PlFiltros.Controls.Add(this.PlCerrar);
             this.PlFiltros.Controls.Add(this.BtnFiltrar);
-            this.PlFiltros.Location = new System.Drawing.Point(1086, 160);
+            this.PlFiltros.Location = new System.Drawing.Point(1163, 160);
             this.PlFiltros.MaximumSize = new System.Drawing.Size(233, 395);
             this.PlFiltros.MinimumSize = new System.Drawing.Size(233, 395);
             this.PlFiltros.Name = "PlFiltros";

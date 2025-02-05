@@ -151,6 +151,10 @@ namespace ProyectoOFI
                 {
                     BtnHistorial.Visible = true;
                 }
+                if (Modulo == "Digitacion")
+                {
+                    BtnDigitacion.Visible = true;
+                }
             }
             if (Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
             {
@@ -163,6 +167,7 @@ namespace ProyectoOFI
                 BtnReportes.Visible = true;
                 BtnAlmacen.Visible = true;
                 BtnHistorial.Visible = true;
+                BtnDigitacion.Visible = true;
             }
         }
 
@@ -362,6 +367,12 @@ namespace ProyectoOFI
         private void BtnInfo_Click(object sender, EventArgs e)
         {
             Process.Start("https://13felixlopez.github.io/Proceso/");
+        }
+
+        private void BtnDigitacion_Click(object sender, EventArgs e)
+        {
+            Digitacion dg = new Digitacion();
+            dg.ShowDialog();
         }
     }
 }

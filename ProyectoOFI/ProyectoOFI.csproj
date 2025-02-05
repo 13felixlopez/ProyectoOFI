@@ -374,6 +374,12 @@
     <Compile Include="Reportes\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\Digitacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\Digitacion.Designer.cs">
+      <DependentUpon>Digitacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\FrmHistorial.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -600,6 +606,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\Digitacion.resx">
+      <DependentUpon>Digitacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmHistorial.resx">
       <DependentUpon>FrmHistorial.cs</DependentUpon>

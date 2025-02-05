@@ -1156,7 +1156,7 @@ namespace ProyectoOFI.Analisis
                         parametros.Estado = "1";
                     }
 
-                    if (funcion.EditarCatacionCD(parametros, Ticket) == true)
+                    if (funcion.EditarCatacionCD(parametros, LblTicket.Text) == true)
                     {
                         DateTime FEdicion = DateTime.Now;
                         MSJ(Ticket, TxtAnalisis.Text, FEdicion, Rendimiento, Quality);

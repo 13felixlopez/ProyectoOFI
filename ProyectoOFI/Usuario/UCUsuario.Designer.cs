@@ -408,7 +408,7 @@
             this.PlPermisos.Controls.Add(this.DtPermisos);
             this.PlPermisos.Location = new System.Drawing.Point(620, 32);
             this.PlPermisos.Name = "PlPermisos";
-            this.PlPermisos.Size = new System.Drawing.Size(543, 667);
+            this.PlPermisos.Size = new System.Drawing.Size(543, 435);
             this.PlPermisos.TabIndex = 662;
             // 
             // DtPermisos
@@ -436,7 +436,7 @@
             this.DtPermisos.RowTemplate.Height = 30;
             this.DtPermisos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.DtPermisos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtPermisos.Size = new System.Drawing.Size(543, 667);
+            this.DtPermisos.Size = new System.Drawing.Size(543, 435);
             this.DtPermisos.TabIndex = 621;
             // 
             // Marcar

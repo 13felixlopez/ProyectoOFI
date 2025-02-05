@@ -114,6 +114,7 @@ namespace ProyectoOFI.Recepcion
                         if (dtFEnvio.Value.Date <= dtpRecibido.Value.Date)
                         {
                             carga();
+                            PlRecepcion.Refresh();
                         }
                         else
                         {

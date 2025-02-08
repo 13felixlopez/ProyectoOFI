@@ -613,6 +613,7 @@ namespace ProyectoOFI.ControlPatio
             TxtHumedadLevante.Enabled = true;
             BtnEnfarde.Enabled = true;
             Limpiar();
+            PlControl.Refresh();
         }
         private void ObtenerTK()
         {
@@ -835,6 +836,7 @@ namespace ProyectoOFI.ControlPatio
                 TxtSacosEnfardados.Enabled = true;
                 TxtHumedadLevante.Enabled = true;
                 BtnEnfarde.Text = "Actualizar";
+                DtpReEnfarde.Enabled = true;
             }
         }
         private void DTPEnfarde_ValueChanged(object sender, EventArgs e)
@@ -1668,6 +1670,9 @@ namespace ProyectoOFI.ControlPatio
                 BtnEnviar.Visible = true;
                 toolStrip1.Visible = true;
                 BtnCambio.Visible = true;
+                TSLTendido.Enabled = true;
+                TSLEnfarde.Enabled = true;
+                TSLEnvio.Enabled = true;
             }
         }
 

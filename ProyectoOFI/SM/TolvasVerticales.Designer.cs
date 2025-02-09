@@ -525,6 +525,7 @@
             this.cbTicketV.Location = new System.Drawing.Point(253, 29);
             this.cbTicketV.Name = "cbTicketV";
             this.cbTicketV.Size = new System.Drawing.Size(218, 26);
+            this.cbTicketV.Sorted = true;
             this.cbTicketV.TabIndex = 19;
             this.cbTicketV.SelectedIndexChanged += new System.EventHandler(this.cbTicketV_SelectedIndexChanged);
             // 

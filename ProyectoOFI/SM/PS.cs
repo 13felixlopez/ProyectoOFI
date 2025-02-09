@@ -294,7 +294,6 @@ namespace ProyectoOFI.SM
                 dPS.MostrarEstFis(CbEstFis);
             }
         }
-
         private void InsertarTF()
         {
             DPS funcion = new DPS();
@@ -481,7 +480,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("PS Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void BtnPS2_Click(object sender, EventArgs e)
         {
             if (LblPS2.Text != "--")
@@ -493,7 +491,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("PS Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void BtnPS3_Click(object sender, EventArgs e)
         {
             if (LblPS3.Text != "--")
@@ -505,7 +502,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("PS Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void BtnPS4_Click(object sender, EventArgs e)
         {
             if (LblPS4.Text != "--")
@@ -517,7 +513,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("PS Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void BtnPS5_Click(object sender, EventArgs e)
         {
             if (LblPS5.Text != "--")
@@ -529,7 +524,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("PS Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void BtnPS6_Click(object sender, EventArgs e)
         {
             if (LblPS6.Text != "--")
@@ -541,7 +535,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("PS Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void BtnPS7_Click(object sender, EventArgs e)
         {
             if (LblPS7.Text != "--")
@@ -553,7 +546,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("PS Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void BtnPS8_Click(object sender, EventArgs e)
         {
             if (LblPS8.Text != "--")
@@ -565,7 +557,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("PS Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void BtnPS9_Click(object sender, EventArgs e)
         {
             if (LblPS9.Text != "--")
@@ -577,7 +568,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("PS Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void BtnPS10_Click(object sender, EventArgs e)
         {
             if (LblPS10.Text != "--")
@@ -589,7 +579,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("PS Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void BtnPS11_Click(object sender, EventArgs e)
         {
             if (LblPS11.Text != "--")
@@ -601,7 +590,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("PS Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void BtnPS12_Click(object sender, EventArgs e)
         {
             if (LblPS12.Text != "--")
@@ -613,7 +601,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("PS Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void BtnPS13_Click(object sender, EventArgs e)
         {
             if (LblPS13.Text != "--")
@@ -625,7 +612,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("PS Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void BtnPS14_Click(object sender, EventArgs e)
         {
             if (LblPS14.Text != "--")
@@ -637,7 +623,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("PS Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void BtnPS15_Click(object sender, EventArgs e)
         {
             if (LblPS15.Text != "--")
@@ -649,7 +634,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("PS Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void BtnPS16_Click(object sender, EventArgs e)
         {
             if (LblPS16.Text != "--")
@@ -661,7 +645,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("PS Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void BtnPS17_Click(object sender, EventArgs e)
         {
             if (LblPS17.Text != "--")
@@ -673,7 +656,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("PS Vacia", "No hay datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         private void BtnPS18_Click(object sender, EventArgs e)
         {
             if (LblPS18.Text != "--")
@@ -718,7 +700,6 @@ namespace ProyectoOFI.SM
                 MessageBox.Show("Error al insertar datos Pre-Secado " + ex.Message, "ERROR Datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void BtnEnviar_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(TxtDNIN.Text))
@@ -741,7 +722,6 @@ namespace ProyectoOFI.SM
                 lblTicket.Text = "--";
             }
         }
-
         private void ValidarPermisos()
         {
             if (!Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
@@ -757,6 +737,7 @@ namespace ProyectoOFI.SM
                     if (Modulo == "Agregar SM")
                     {
                         TLPPS.Enabled = true;
+
                     }
                 }
             }

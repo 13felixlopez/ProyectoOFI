@@ -44,6 +44,11 @@ namespace ProyectoOFI.SM
             MostrarSM();
             ReiniciarPaginado();
             await Task.Delay(1000);
+            txtBuscador.Enabled = true;
+            CbBuscador.Enabled = true;
+            PlFiltroFecha.Enabled = true;
+            CbBuscar.Enabled = true;
+            PbExcel.Enabled = true;
         }
         private void MostrarSM()
         {

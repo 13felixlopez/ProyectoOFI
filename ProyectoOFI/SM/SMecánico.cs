@@ -95,7 +95,7 @@ namespace ProyectoOFI.SM
 
         private void BtnPS_MouseUp(object sender, MouseEventArgs e)
         {
-            if (e.Button==MouseButtons.Right)
+            if (e.Button == MouseButtons.Right)
             {
                 PSData pS = new PSData();
                 PlSM.Controls.Clear();

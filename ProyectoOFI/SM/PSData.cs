@@ -1,23 +1,16 @@
 ﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.SM
 {
     public partial class PSData : UserControl
     {
-        string Proceso, Ticket, Tolva;
+        string Proceso, Ticket, Tolva, Modulo;
         int IdPS;
         public PSData()
         {
@@ -27,6 +20,7 @@ namespace ProyectoOFI.SM
         private void PSData_Load(object sender, EventArgs e)
         {
             MostrarLotesPS2();
+            ValidarPermisos();
         }
         private void MostrarLotesPS2()
         {
@@ -316,6 +310,30 @@ namespace ProyectoOFI.SM
             string Status = "PS";
             int num1 = DtPS.Columns[Status].Index;
             Tolva = DtPS.SelectedCells[num1].Value.ToString();
+        }
+        private void ValidarPermisos()
+        {
+            if (!Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
+            {
+                DataTable dt = new DataTable();
+                DModulos funcion = new DModulos();
+                LPermisos parametros = new LPermisos();
+                parametros.IdUser = Login.Iduser;
+                funcion.PermisosUser(ref dt, Login.Iduser);
+                foreach (DataRow rowpermisos in dt.Rows)
+                {
+                    Modulo = Convert.ToString(rowpermisos["Modulo"]);
+                    if (Modulo == "Agregar SM")
+                    {
+                        DtPS.Enabled = true;
+
+                    }
+                }
+            }
+            else
+            {
+                DtPS.Enabled = true;
+            }
         }
     }
 }

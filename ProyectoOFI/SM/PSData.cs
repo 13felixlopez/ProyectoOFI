@@ -10,7 +10,7 @@ namespace ProyectoOFI.SM
 {
     public partial class PSData : UserControl
     {
-        string Proceso, Ticket, Tolva, Modulo;
+        string Proceso, Ticket, Tolva, Modulo, Tk;
         int IdPS;
         public PSData()
         {
@@ -282,6 +282,11 @@ namespace ProyectoOFI.SM
             }
         }
 
+        private void BtnSplit_Click(object sender, EventArgs e)
+        {
+            CambioAEnvio();
+        }
+
         private void BtnBusqueda_Click(object sender, EventArgs e)
         {
             if (txtTicket.Text == "")
@@ -302,6 +307,10 @@ namespace ProyectoOFI.SM
             string nombrecolumna = "Ticket Hijo";
             int indice = DtPS.Columns[nombrecolumna].Index;
             Ticket = DtPS.SelectedCells[indice].Value.ToString();
+
+            string nombrecolumna2 = "Ticket";
+            int indice2 = DtPS.Columns[nombrecolumna2].Index;
+            Tk = DtPS.SelectedCells[indice2].Value.ToString();
 
             string nombrecolum = "Proceso";
             int num = DtPS.Columns[nombrecolum].Index;
@@ -332,6 +341,20 @@ namespace ProyectoOFI.SM
             }
             else
             {
+                DtPS.Enabled = true;
+            }
+        }
+        private void CambioAEnvio()
+        {
+            DPS funcion = new DPS();
+            if (funcion.CambioAEnvio(Ticket, Tk) == true)
+            {
+                GbEnvio.Visible = false;
+                PlDatos.Visible = false;
+                TxtDNIN.Clear();
+                MessageBox.Show("Cambio realizado con éxito", "Cambio a Envio", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                int PS = int.Parse(LblPS.Text);
+                MostrarLotesPS2();
                 DtPS.Enabled = true;
             }
         }

@@ -114,6 +114,7 @@
             this.PlCerrar = new System.Windows.Forms.Panel();
             this.LblFiltros = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
+            this.BtnBusqueda = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioAlm)).BeginInit();
             this.plOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).BeginInit();
@@ -167,6 +168,7 @@
             // 
             this.plOpciones.AutoScroll = true;
             this.plOpciones.BackColor = System.Drawing.Color.White;
+            this.plOpciones.Controls.Add(this.BtnBusqueda);
             this.plOpciones.Controls.Add(this.BtnReporte);
             this.plOpciones.Controls.Add(this.CbBuscador);
             this.plOpciones.Controls.Add(this.PbExcel);
@@ -183,7 +185,7 @@
             // BtnReporte
             // 
             this.BtnReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnReporte.Location = new System.Drawing.Point(824, 6);
+            this.BtnReporte.Location = new System.Drawing.Point(862, 6);
             this.BtnReporte.Name = "BtnReporte";
             this.BtnReporte.Size = new System.Drawing.Size(100, 50);
             this.BtnReporte.TabIndex = 15;
@@ -201,7 +203,7 @@
             this.CbBuscador.Items.AddRange(new object[] {
             "Ticket",
             "Calidad"});
-            this.CbBuscador.Location = new System.Drawing.Point(594, 14);
+            this.CbBuscador.Location = new System.Drawing.Point(512, 14);
             this.CbBuscador.Name = "CbBuscador";
             this.CbBuscador.Size = new System.Drawing.Size(168, 28);
             this.CbBuscador.TabIndex = 14;
@@ -214,7 +216,7 @@
             this.PbExcel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PbExcel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PbExcel.Image = global::ProyectoOFI.Properties.Resources.sobresalir;
-            this.PbExcel.Location = new System.Drawing.Point(955, 6);
+            this.PbExcel.Location = new System.Drawing.Point(993, 6);
             this.PbExcel.Name = "PbExcel";
             this.PbExcel.Size = new System.Drawing.Size(64, 50);
             this.PbExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -238,7 +240,7 @@
             "MTNT",
             "Peso",
             "Área Secado"});
-            this.CbBuscar.Location = new System.Drawing.Point(287, 15);
+            this.CbBuscar.Location = new System.Drawing.Point(241, 15);
             this.CbBuscar.Name = "CbBuscar";
             this.CbBuscar.Size = new System.Drawing.Size(168, 28);
             this.CbBuscar.TabIndex = 4;
@@ -250,7 +252,7 @@
             this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label26.Location = new System.Drawing.Point(56, 19);
+            this.label26.Location = new System.Drawing.Point(10, 19);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(215, 20);
             this.label26.TabIndex = 3;
@@ -259,7 +261,7 @@
             // txtBuscador
             // 
             this.txtBuscador.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscador.Location = new System.Drawing.Point(614, 16);
+            this.txtBuscador.Location = new System.Drawing.Point(532, 16);
             this.txtBuscador.Name = "txtBuscador";
             this.txtBuscador.Size = new System.Drawing.Size(161, 26);
             this.txtBuscador.TabIndex = 2;
@@ -269,7 +271,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(513, 17);
+            this.label3.Location = new System.Drawing.Point(431, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(86, 25);
             this.label3.TabIndex = 0;
@@ -1121,6 +1123,18 @@
             this.BtnCerrar.UseVisualStyleBackColor = true;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
+            // BtnBusqueda
+            // 
+            this.BtnBusqueda.BackgroundImage = global::ProyectoOFI.Properties.Resources.icons8_búsqueda_64;
+            this.BtnBusqueda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBusqueda.Location = new System.Drawing.Point(702, 6);
+            this.BtnBusqueda.Name = "BtnBusqueda";
+            this.BtnBusqueda.Size = new System.Drawing.Size(48, 47);
+            this.BtnBusqueda.TabIndex = 16;
+            this.BtnBusqueda.UseVisualStyleBackColor = true;
+            this.BtnBusqueda.Click += new System.EventHandler(this.BtnBusqueda_Click);
+            // 
             // Almacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1242,5 +1256,6 @@
         private System.Windows.Forms.Label LblQuality;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button BtnReporte;
+        private System.Windows.Forms.Button BtnBusqueda;
     }
 }

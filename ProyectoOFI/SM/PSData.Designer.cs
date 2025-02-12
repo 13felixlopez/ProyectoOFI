@@ -31,9 +31,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.plOpciones = new System.Windows.Forms.Panel();
+            this.BtnBusqueda = new System.Windows.Forms.Button();
             this.txtTicket = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.BtnBusqueda = new System.Windows.Forms.Button();
             this.PlDatos = new System.Windows.Forms.Panel();
             this.LblMsj = new System.Windows.Forms.Label();
             this.GbEnvio = new System.Windows.Forms.GroupBox();
@@ -93,6 +93,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.BtnCerrarPlDatos = new System.Windows.Forms.Button();
             this.DtPS = new System.Windows.Forms.DataGridView();
+            this.BtnSplit = new System.Windows.Forms.Button();
             this.plOpciones.SuspendLayout();
             this.PlDatos.SuspendLayout();
             this.GbEnvio.SuspendLayout();
@@ -114,6 +115,18 @@
             this.plOpciones.Size = new System.Drawing.Size(1225, 62);
             this.plOpciones.TabIndex = 11;
             // 
+            // BtnBusqueda
+            // 
+            this.BtnBusqueda.BackgroundImage = global::ProyectoOFI.Properties.Resources.icons8_búsqueda_64;
+            this.BtnBusqueda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnBusqueda.Location = new System.Drawing.Point(693, 5);
+            this.BtnBusqueda.Name = "BtnBusqueda";
+            this.BtnBusqueda.Size = new System.Drawing.Size(48, 47);
+            this.BtnBusqueda.TabIndex = 14;
+            this.BtnBusqueda.UseVisualStyleBackColor = true;
+            this.BtnBusqueda.Click += new System.EventHandler(this.BtnBusqueda_Click);
+            // 
             // txtTicket
             // 
             this.txtTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -131,18 +144,6 @@
             this.label3.Size = new System.Drawing.Size(86, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Buscar:";
-            // 
-            // BtnBusqueda
-            // 
-            this.BtnBusqueda.BackgroundImage = global::ProyectoOFI.Properties.Resources.icons8_búsqueda_64;
-            this.BtnBusqueda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnBusqueda.Location = new System.Drawing.Point(693, 5);
-            this.BtnBusqueda.Name = "BtnBusqueda";
-            this.BtnBusqueda.Size = new System.Drawing.Size(48, 47);
-            this.BtnBusqueda.TabIndex = 14;
-            this.BtnBusqueda.UseVisualStyleBackColor = true;
-            this.BtnBusqueda.Click += new System.EventHandler(this.BtnBusqueda_Click);
             // 
             // PlDatos
             // 
@@ -316,6 +317,7 @@
             // 
             // GbPS
             // 
+            this.GbPS.Controls.Add(this.BtnSplit);
             this.GbPS.Controls.Add(this.txtObservacion);
             this.GbPS.Controls.Add(this.label23);
             this.GbPS.Controls.Add(this.BtnPS);
@@ -774,6 +776,17 @@
             this.DtPS.TabIndex = 15;
             this.DtPS.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtPS_CellDoubleClick);
             // 
+            // BtnSplit
+            // 
+            this.BtnSplit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnSplit.Image = global::ProyectoOFI.Properties.Resources.split_52966371;
+            this.BtnSplit.Location = new System.Drawing.Point(584, 155);
+            this.BtnSplit.Name = "BtnSplit";
+            this.BtnSplit.Size = new System.Drawing.Size(75, 44);
+            this.BtnSplit.TabIndex = 24;
+            this.BtnSplit.UseVisualStyleBackColor = true;
+            this.BtnSplit.Click += new System.EventHandler(this.BtnSplit_Click);
+            // 
             // PSData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -864,5 +877,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button BtnCerrarPlDatos;
         public System.Windows.Forms.DataGridView DtPS;
+        private System.Windows.Forms.Button BtnSplit;
     }
 }

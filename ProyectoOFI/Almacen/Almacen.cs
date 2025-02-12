@@ -1,6 +1,5 @@
 ﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
-using ProyectoOFI.Otros;
 using ProyectoOFI.Reportes;
 using System;
 using System.Data;
@@ -32,7 +31,7 @@ namespace ProyectoOFI.Almacen
         private async void Almacen_Load(object sender, EventArgs e)
         {
             PlCarga.Dock = DockStyle.Fill;
-            await CargarDatos();
+            //await CargarDatos();
             PlCarga.Visible = false;
             DAlmacen funcion = new DAlmacen();
             funcion.MostrarBodega(CbBodega);
@@ -785,8 +784,8 @@ namespace ProyectoOFI.Almacen
 
         private void txtBuscador_TextChanged(object sender, EventArgs e)
         {
-            BuscarTK();
-            ReiniciarPaginado();
+            //BuscarTK();
+            //ReiniciarPaginado();
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)
@@ -824,6 +823,12 @@ namespace ProyectoOFI.Almacen
             string Nombre = "Reporte Almacén";
             FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
             LT.ShowDialog();
+        }
+
+        private void BtnBusqueda_Click(object sender, EventArgs e)
+        {
+            BuscarTK();
+            ReiniciarPaginado();
         }
 
         private void Activar()

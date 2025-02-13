@@ -6,7 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -55,7 +57,7 @@ namespace ProyectoOFI.Analisis
         private async void Catacion_Load(object sender, EventArgs e)
         {
             PlCarga.Dock = DockStyle.Fill;
-            await CargarDatos();
+            //await CargarDatos();
             //Base.DiseñoDtvEliminar(ref dtInventarioCat);
             //Base.DiseñoEnvio(ref dtInventarioCat);
             PlCarga.Visible = false;
@@ -539,7 +541,9 @@ namespace ProyectoOFI.Analisis
             }
             else
             {
-                if (double.TryParse(TxtHumedad.Text, out double result))
+                CultureInfo culture = new CultureInfo("en-US");
+
+                if (double.TryParse(TxtHumedad.Text, NumberStyles.Any, culture, out double result))
                 {
                     Humedad = result;
                 }
@@ -712,15 +716,27 @@ namespace ProyectoOFI.Analisis
                 // Verifica si el ticket contiene "-Parte1" o "-Parte2"
                 if (ticketText.Contains("-Parte1") || ticketText.Contains("-Parte2"))
                 {
-                    // Si lo contiene, extrae solo la parte antes del guion
-                    int dashIndex = ticketText.IndexOf("-");
-                    TxtAnalisis.Text = ticketText.Substring(0, dashIndex);
+                    // Utiliza Regex para extraer la parte después de "24/25-"
+                    string pattern = @"24\/25-(\w+)-";
+                    Match match = Regex.Match(ticketText, pattern);
+
+                    if (match.Success)
+                    {
+                        // Si se encuentra una coincidencia, establece el texto extraído
+                        TxtAnalisis.Text = match.Groups[1].Value;
+                    }
+                    else
+                    {
+                        // Si no se encuentra una coincidencia, muestra un mensaje de error
+                        TxtAnalisis.Text = "No se encontró una coincidencia válida.";
+                    }
                 }
                 else
                 {
                     // Si no lo contiene, muestra el ticket completo
                     TxtAnalisis.Text = ticketText;
                 }
+
             }
             else
             {
@@ -1579,9 +1595,9 @@ namespace ProyectoOFI.Analisis
 
         private void txtBuscador_TextChanged(object sender, EventArgs e)
         {
-            Task.Delay(3000);
-            BuscarTK();
-            ReiniciarPaginado();
+            //Task.Delay(3000);
+            //BuscarTK();
+            //ReiniciarPaginado();
         }
 
         private void CbBuscador_SelectedIndexChanged(object sender, EventArgs e)
@@ -1645,6 +1661,13 @@ namespace ProyectoOFI.Analisis
             PlCambioTK.BringToFront();
             PLDatos.Enabled = false;
             LblTK.Text = LblTicket.Text;
+        }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            Task.Delay(3000);
+            BuscarTK();
+            ReiniciarPaginado();
         }
 
         private void TextBuscarVisible()

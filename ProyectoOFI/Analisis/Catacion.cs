@@ -405,7 +405,7 @@ namespace ProyectoOFI.Analisis
                         DTPFechaMuestra.Value = FMuestra;
                     }
 
-                    DtFechaCatacion.Value = DateTime.Today;
+                    DtFechaCatacion.Value = DateTime.Today.Date;
                     CalculoDias();
                 }
             }
@@ -1668,6 +1668,34 @@ namespace ProyectoOFI.Analisis
             Task.Delay(3000);
             BuscarTK();
             ReiniciarPaginado();
+        }
+
+        private void BtnSplit_Click(object sender, EventArgs e)
+        {
+            if (TxtBto.Text == "")
+            {
+                Dcatacion funcion = new Dcatacion();
+                if (funcion.CambioCatacion(LblProcedencia.Text, LblTicket.Text))
+                {
+                    MessageBox.Show("Registro editado con Exito", "Cambio de proceso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    PLDatos.Visible = false;
+                    dtInventarioCat.Enabled = true;
+                    plOpciones.Enabled = true;
+                    BtnAnalisis.Text = "Analizado";
+                    BtnActivar.Visible = false;
+                    Desactivar();
+                    Limpiar();
+                }
+                else
+                {
+                    MessageBox.Show("Error en los datos", "Error en interfaz", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("No se puede cambiar el proceso", "Error con cambioCatacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void TextBuscarVisible()

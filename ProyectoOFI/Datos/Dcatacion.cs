@@ -178,14 +178,14 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void VerDetalleCata(ref DataTable dt,string Ticket)
+        public void VerDetalleCata(ref DataTable dt, string Ticket)
         {
             try
             {
                 Conexion.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("VerDetalleCata", Conexion.conectar);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Ticket",Ticket);
+                da.SelectCommand.Parameters.AddWithValue("@Ticket", Ticket);
                 da.Fill(dt);
             }
             catch (Exception ex)
@@ -198,7 +198,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public bool EditarCatacion(LCatacion parametros,int IdCatacion)
+        public bool EditarCatacion(LCatacion parametros, int IdCatacion)
         {
             try
             {
@@ -245,22 +245,22 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public bool EditarTKAnalisis(string Ticket,string TicketNueva)
+        public bool EditarTKAnalisis(string Ticket, string TicketNueva)
         {
             try
             {
                 Conexion.abrir();
                 SqlCommand cmd = new SqlCommand("EditarTKAnalisis", Conexion.conectar);
-                cmd.CommandType=CommandType.StoredProcedure;
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Ticket", Ticket);
-                cmd.Parameters.AddWithValue("@TicketNueva",TicketNueva);
+                cmd.Parameters.AddWithValue("@TicketNueva", TicketNueva);
                 cmd.ExecuteNonQuery();
                 return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al editar la Ticket" + ex.Message, "Error en editar ticket", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en EditarTKAnalisis ✖️✖️ "+ex.Message);
+                Log.Writeerror("Error en EditarTKAnalisis ✖️✖️ " + ex.Message);
                 return false;
             }
             finally
@@ -354,6 +354,29 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show("Error al editar los datos " + ex.Message, "Error al editar Análisis", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en EditarCatacion ✖️✖️ " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool CambioCatacion(string Area, string Ticket)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand da = new SqlCommand("CambioCatacion", Conexion.conectar);
+                da.CommandType = CommandType.StoredProcedure;
+                da.Parameters.AddWithValue("@Area", Area);
+                da.Parameters.AddWithValue("@Ticket", Ticket);
+                da.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al editar los datos " + ex.Message, "Error al Cambio Catacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en CambioCatacion ✖️✖️ " + ex.Message);
                 return false;
             }
             finally

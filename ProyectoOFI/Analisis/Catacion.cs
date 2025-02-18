@@ -1668,6 +1668,7 @@ namespace ProyectoOFI.Analisis
             Task.Delay(3000);
             BuscarTK();
             ReiniciarPaginado();
+            txtBuscador.Focus();
         }
 
         private void BtnSplit_Click(object sender, EventArgs e)

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioCat = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.BtnBuscar = new System.Windows.Forms.Button();
@@ -156,6 +156,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.PlCerrarDetalle = new System.Windows.Forms.Panel();
+            this.BtnSplit = new System.Windows.Forms.Button();
             this.BtnCambiarTK = new System.Windows.Forms.Button();
             this.LblTituloCP = new System.Windows.Forms.Label();
             this.BtnCerrarPldatos = new System.Windows.Forms.Button();
@@ -174,7 +175,6 @@
             this.LblFiltros = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.BtnFiltrar = new System.Windows.Forms.Button();
-            this.BtnSplit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioCat)).BeginInit();
             this.plOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).BeginInit();
@@ -203,14 +203,14 @@
             this.dtInventarioCat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioCat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioCat.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dtInventarioCat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioCat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioCat.Location = new System.Drawing.Point(0, 62);
@@ -218,9 +218,9 @@
             this.dtInventarioCat.ReadOnly = true;
             this.dtInventarioCat.RowHeadersVisible = false;
             this.dtInventarioCat.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dtInventarioCat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioCat.ShowCellToolTips = false;
             this.dtInventarioCat.ShowEditingIcon = false;
@@ -253,7 +253,7 @@
             // 
             this.BtnBuscar.BackgroundImage = global::ProyectoOFI.Properties.Resources.icons8_búsqueda;
             this.BtnBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnBuscar.Location = new System.Drawing.Point(824, 10);
+            this.BtnBuscar.Location = new System.Drawing.Point(685, 8);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(53, 44);
             this.BtnBuscar.TabIndex = 15;
@@ -282,7 +282,7 @@
             this.PbFiltro.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PbFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PbFiltro.Image = global::ProyectoOFI.Properties.Resources.filter_list_FILL0_wght400_GRAD0_opsz24;
-            this.PbFiltro.Location = new System.Drawing.Point(719, 5);
+            this.PbFiltro.Location = new System.Drawing.Point(833, 3);
             this.PbFiltro.Name = "PbFiltro";
             this.PbFiltro.Size = new System.Drawing.Size(64, 50);
             this.PbFiltro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1650,6 +1650,17 @@
             this.PlCerrarDetalle.Size = new System.Drawing.Size(1137, 48);
             this.PlCerrarDetalle.TabIndex = 3;
             // 
+            // BtnSplit
+            // 
+            this.BtnSplit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnSplit.Image = global::ProyectoOFI.Properties.Resources.split_52966371;
+            this.BtnSplit.Location = new System.Drawing.Point(902, 1);
+            this.BtnSplit.Name = "BtnSplit";
+            this.BtnSplit.Size = new System.Drawing.Size(75, 44);
+            this.BtnSplit.TabIndex = 25;
+            this.BtnSplit.UseVisualStyleBackColor = true;
+            this.BtnSplit.Click += new System.EventHandler(this.BtnSplit_Click);
+            // 
             // BtnCambiarTK
             // 
             this.BtnCambiarTK.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -1852,24 +1863,13 @@
             this.BtnFiltrar.Image = global::ProyectoOFI.Properties.Resources.task_alt_FILL1_wght400_GRAD0_opsz24;
             this.BtnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnFiltrar.Location = new System.Drawing.Point(0, 336);
-            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.BtnFiltrar.Margin = new System.Windows.Forms.Padding(10);
             this.BtnFiltrar.Name = "BtnFiltrar";
             this.BtnFiltrar.Size = new System.Drawing.Size(233, 59);
             this.BtnFiltrar.TabIndex = 2;
             this.BtnFiltrar.Text = "Aplicar Filtro";
             this.BtnFiltrar.UseVisualStyleBackColor = true;
             this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
-            // 
-            // BtnSplit
-            // 
-            this.BtnSplit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnSplit.Image = global::ProyectoOFI.Properties.Resources.split_52966371;
-            this.BtnSplit.Location = new System.Drawing.Point(902, 1);
-            this.BtnSplit.Name = "BtnSplit";
-            this.BtnSplit.Size = new System.Drawing.Size(75, 44);
-            this.BtnSplit.TabIndex = 25;
-            this.BtnSplit.UseVisualStyleBackColor = true;
-            this.BtnSplit.Click += new System.EventHandler(this.BtnSplit_Click);
             // 
             // Catacion
             // 

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioCat = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.BtnBuscar = new System.Windows.Forms.Button();
@@ -203,14 +203,14 @@
             this.dtInventarioCat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioCat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioCat.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtInventarioCat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioCat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioCat.Location = new System.Drawing.Point(0, 62);
@@ -218,9 +218,9 @@
             this.dtInventarioCat.ReadOnly = true;
             this.dtInventarioCat.RowHeadersVisible = false;
             this.dtInventarioCat.RowHeadersWidth = 51;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtInventarioCat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioCat.ShowCellToolTips = false;
             this.dtInventarioCat.ShowEditingIcon = false;
@@ -233,7 +233,6 @@
             // 
             this.plOpciones.BackColor = System.Drawing.Color.White;
             this.plOpciones.Controls.Add(this.BtnBuscar);
-            this.plOpciones.Controls.Add(this.CbBuscador);
             this.plOpciones.Controls.Add(this.PbFiltro);
             this.plOpciones.Controls.Add(this.PbExcel);
             this.plOpciones.Controls.Add(this.BtnMostrarCompras);
@@ -242,6 +241,7 @@
             this.plOpciones.Controls.Add(this.txtBuscador);
             this.plOpciones.Controls.Add(this.label3);
             this.plOpciones.Controls.Add(this.PlFiltroFecha);
+            this.plOpciones.Controls.Add(this.CbBuscador);
             this.plOpciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.plOpciones.Location = new System.Drawing.Point(0, 0);
             this.plOpciones.Margin = new System.Windows.Forms.Padding(3, 3, 50, 3);
@@ -256,7 +256,7 @@
             this.BtnBuscar.Location = new System.Drawing.Point(685, 8);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(53, 44);
-            this.BtnBuscar.TabIndex = 15;
+            this.BtnBuscar.TabIndex = 0;
             this.BtnBuscar.UseVisualStyleBackColor = true;
             this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
             // 
@@ -270,7 +270,7 @@
             this.CbBuscador.Items.AddRange(new object[] {
             "Ticket",
             "Calidad"});
-            this.CbBuscador.Location = new System.Drawing.Point(474, 13);
+            this.CbBuscador.Location = new System.Drawing.Point(475, 13);
             this.CbBuscador.Name = "CbBuscador";
             this.CbBuscador.Size = new System.Drawing.Size(168, 28);
             this.CbBuscador.TabIndex = 13;
@@ -374,7 +374,7 @@
             this.PlFiltroFecha.Controls.Add(this.DtpFin);
             this.PlFiltroFecha.Controls.Add(this.BtnFiltroFecha);
             this.PlFiltroFecha.Controls.Add(this.DtpInicio);
-            this.PlFiltroFecha.Location = new System.Drawing.Point(470, 6);
+            this.PlFiltroFecha.Location = new System.Drawing.Point(788, 8);
             this.PlFiltroFecha.Name = "PlFiltroFecha";
             this.PlFiltroFecha.Size = new System.Drawing.Size(341, 50);
             this.PlFiltroFecha.TabIndex = 14;
@@ -387,7 +387,7 @@
             this.DtpFin.Location = new System.Drawing.Point(140, 11);
             this.DtpFin.Name = "DtpFin";
             this.DtpFin.Size = new System.Drawing.Size(118, 26);
-            this.DtpFin.TabIndex = 5;
+            this.DtpFin.TabIndex = 0;
             // 
             // BtnFiltroFecha
             // 
@@ -642,11 +642,13 @@
             // 
             // CbTasa
             // 
+            this.CbTasa.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CbTasa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.CbTasa.FormattingEnabled = true;
             this.CbTasa.Location = new System.Drawing.Point(883, 163);
             this.CbTasa.Name = "CbTasa";
             this.CbTasa.Size = new System.Drawing.Size(208, 24);
-            this.CbTasa.TabIndex = 14;
+            this.CbTasa.TabIndex = 11;
             // 
             // label24
             // 
@@ -660,11 +662,13 @@
             // 
             // CbGrupoCalidad
             // 
+            this.CbGrupoCalidad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CbGrupoCalidad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.CbGrupoCalidad.FormattingEnabled = true;
             this.CbGrupoCalidad.Location = new System.Drawing.Point(425, 164);
             this.CbGrupoCalidad.Name = "CbGrupoCalidad";
             this.CbGrupoCalidad.Size = new System.Drawing.Size(353, 24);
-            this.CbGrupoCalidad.TabIndex = 8;
+            this.CbGrupoCalidad.TabIndex = 10;
             // 
             // BtnActivar
             // 
@@ -672,7 +676,7 @@
             this.BtnActivar.Location = new System.Drawing.Point(748, 252);
             this.BtnActivar.Name = "BtnActivar";
             this.BtnActivar.Size = new System.Drawing.Size(93, 52);
-            this.BtnActivar.TabIndex = 12;
+            this.BtnActivar.TabIndex = 15;
             this.BtnActivar.Text = "Activar";
             this.BtnActivar.UseVisualStyleBackColor = true;
             this.BtnActivar.Visible = false;
@@ -685,7 +689,7 @@
             this.ChbAnalizado.Location = new System.Drawing.Point(368, 268);
             this.ChbAnalizado.Name = "ChbAnalizado";
             this.ChbAnalizado.Size = new System.Drawing.Size(95, 20);
-            this.ChbAnalizado.TabIndex = 10;
+            this.ChbAnalizado.TabIndex = 13;
             this.ChbAnalizado.Text = "Analizado";
             this.ChbAnalizado.UseVisualStyleBackColor = true;
             this.ChbAnalizado.CheckedChanged += new System.EventHandler(this.ChbAnalizado_CheckedChanged);
@@ -697,13 +701,15 @@
             this.ChbRechazado.Location = new System.Drawing.Point(195, 268);
             this.ChbRechazado.Name = "ChbRechazado";
             this.ChbRechazado.Size = new System.Drawing.Size(105, 20);
-            this.ChbRechazado.TabIndex = 9;
+            this.ChbRechazado.TabIndex = 12;
             this.ChbRechazado.Text = "Rechazado";
             this.ChbRechazado.UseVisualStyleBackColor = true;
             this.ChbRechazado.CheckedChanged += new System.EventHandler(this.ChbRechazado_CheckedChanged);
             // 
             // CbVariedad
             // 
+            this.CbVariedad.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CbVariedad.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.CbVariedad.FormattingEnabled = true;
             this.CbVariedad.Items.AddRange(new object[] {
             "Arabico",
@@ -712,7 +718,7 @@
             this.CbVariedad.Location = new System.Drawing.Point(770, 65);
             this.CbVariedad.Name = "CbVariedad";
             this.CbVariedad.Size = new System.Drawing.Size(278, 24);
-            this.CbVariedad.TabIndex = 2;
+            this.CbVariedad.TabIndex = 4;
             // 
             // DtFechaCatacion
             // 
@@ -721,7 +727,7 @@
             this.DtFechaCatacion.Location = new System.Drawing.Point(772, 19);
             this.DtFechaCatacion.Name = "DtFechaCatacion";
             this.DtFechaCatacion.Size = new System.Drawing.Size(132, 22);
-            this.DtFechaCatacion.TabIndex = 6;
+            this.DtFechaCatacion.TabIndex = 2;
             this.DtFechaCatacion.ValueChanged += new System.EventHandler(this.DtFechaCatacion_ValueChanged);
             // 
             // label2
@@ -740,7 +746,7 @@
             this.BtnAnalisis.Location = new System.Drawing.Point(529, 248);
             this.BtnAnalisis.Name = "BtnAnalisis";
             this.BtnAnalisis.Size = new System.Drawing.Size(168, 61);
-            this.BtnAnalisis.TabIndex = 11;
+            this.BtnAnalisis.TabIndex = 14;
             this.BtnAnalisis.Text = "Analizado";
             this.BtnAnalisis.UseVisualStyleBackColor = true;
             this.BtnAnalisis.Visible = false;
@@ -753,7 +759,7 @@
             this.DTPFechaMuestra.Location = new System.Drawing.Point(456, 19);
             this.DTPFechaMuestra.Name = "DTPFechaMuestra";
             this.DTPFechaMuestra.Size = new System.Drawing.Size(132, 22);
-            this.DTPFechaMuestra.TabIndex = 2;
+            this.DTPFechaMuestra.TabIndex = 1;
             this.DTPFechaMuestra.ValueChanged += new System.EventHandler(this.DTPFechaMuestra_ValueChanged);
             // 
             // label5
@@ -811,7 +817,7 @@
             this.TxtScore.Location = new System.Drawing.Point(195, 165);
             this.TxtScore.Name = "TxtScore";
             this.TxtScore.Size = new System.Drawing.Size(66, 22);
-            this.TxtScore.TabIndex = 7;
+            this.TxtScore.TabIndex = 9;
             // 
             // label32
             // 
@@ -838,7 +844,7 @@
             this.TxtDesmD.Location = new System.Drawing.Point(670, 114);
             this.TxtDesmD.Name = "TxtDesmD";
             this.TxtDesmD.Size = new System.Drawing.Size(66, 22);
-            this.TxtDesmD.TabIndex = 6;
+            this.TxtDesmD.TabIndex = 8;
             this.TxtDesmD.TextChanged += new System.EventHandler(this.TxtDesmC_TextChanged);
             // 
             // label15
@@ -876,7 +882,7 @@
             this.TxtDesmA.Location = new System.Drawing.Point(466, 114);
             this.TxtDesmA.Name = "TxtDesmA";
             this.TxtDesmA.Size = new System.Drawing.Size(66, 22);
-            this.TxtDesmA.TabIndex = 5;
+            this.TxtDesmA.TabIndex = 7;
             this.TxtDesmA.TextChanged += new System.EventHandler(this.TxtDesmA_TextChanged);
             // 
             // LblDesmC
@@ -924,7 +930,7 @@
             this.TxtExp.Location = new System.Drawing.Point(262, 114);
             this.TxtExp.Name = "TxtExp";
             this.TxtExp.Size = new System.Drawing.Size(66, 22);
-            this.TxtExp.TabIndex = 4;
+            this.TxtExp.TabIndex = 6;
             this.TxtExp.TextChanged += new System.EventHandler(this.TxtExp_TextChanged);
             // 
             // label13
@@ -962,7 +968,7 @@
             this.TxtHumedad.Location = new System.Drawing.Point(115, 114);
             this.TxtHumedad.Name = "TxtHumedad";
             this.TxtHumedad.Size = new System.Drawing.Size(66, 22);
-            this.TxtHumedad.TabIndex = 3;
+            this.TxtHumedad.TabIndex = 5;
             this.TxtHumedad.TextChanged += new System.EventHandler(this.TxtHumedad_TextChanged);
             // 
             // label11
@@ -1000,7 +1006,7 @@
             this.TxtBto.Location = new System.Drawing.Point(123, 66);
             this.TxtBto.Name = "TxtBto";
             this.TxtBto.Size = new System.Drawing.Size(66, 22);
-            this.TxtBto.TabIndex = 1;
+            this.TxtBto.TabIndex = 3;
             this.TxtBto.TextChanged += new System.EventHandler(this.TxtBto_TextChanged);
             // 
             // label10
@@ -1594,7 +1600,7 @@
             this.label19.Location = new System.Drawing.Point(700, 16);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(49, 20);
-            this.label19.TabIndex = 0;
+            this.label19.TabIndex = 2;
             this.label19.Text = "QQs:";
             // 
             // LblTicket
@@ -1614,7 +1620,7 @@
             this.label18.Location = new System.Drawing.Point(485, 16);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(44, 20);
-            this.label18.TabIndex = 0;
+            this.label18.TabIndex = 2;
             this.label18.Text = "Kgs:";
             // 
             // label17

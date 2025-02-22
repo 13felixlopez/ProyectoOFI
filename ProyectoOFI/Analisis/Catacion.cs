@@ -707,6 +707,7 @@ namespace ProyectoOFI.Analisis
             }
 
             MostrarCambiarTK();
+            TxtBto.Focus();
         }
         private void Analisis()
         {
@@ -1582,6 +1583,7 @@ namespace ProyectoOFI.Analisis
 
         private void PbFiltro_Click(object sender, EventArgs e)
         {
+            LlenarCheckBoxList();
             PlFiltros.Location = new Point(this.Width / 2
                - PlFiltros.Width / 2, this.Height / 2 - PlFiltros.Height / 2);
             PlFiltros.Visible = true;

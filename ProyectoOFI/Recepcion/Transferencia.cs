@@ -2,7 +2,6 @@
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
 using ProyectoOFI.Reportes;
-using ProyectoOFI.SM;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +10,6 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static NPOI.HSSF.Util.HSSFColor;
 
 namespace ProyectoOFI.Recepcion
 {

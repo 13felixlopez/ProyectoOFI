@@ -150,6 +150,29 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public bool CambioProc(string Ticket, string Proceso)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("CambioProc", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Ticket", Ticket);
+                cmd.Parameters.AddWithValue("@Proceso", Proceso);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se ha podido cambiar el proceso" + ex.Message, "ERROR al cambiar el proceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en CambioProc ✖️✖️" + ex.Message);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
         public bool InsertarRetendido(LControlPatio parametros)
         {
             try
@@ -673,5 +696,41 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public (string Proceso, string ProcesoCP) MostrarProceso(string Ticket)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("MostrarProceso", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Ticket", Ticket);
+
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        string proceso = reader["Proceso"].ToString();
+                        string procesoCP = reader["ProcesoCP"].ToString();
+                        return (proceso, procesoCP);
+                    }
+                    else
+                    {
+                        throw new Exception("No se encontraron datos para el ticket proporcionado.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los resultados", "Error en MostrarProceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al cargar datos en MostrarProceso ✖️✖️ " + ex.Message);
+                // Puedes retornar valores predeterminados en caso de error si lo deseas
+                return (string.Empty, string.Empty);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+
     }
 }

@@ -79,15 +79,26 @@ namespace ProyectoOFI.SM
             AbrirFormulario();
             if (Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
             {
-                if (Proceso == "POAV")
-                {
-                    VerPOAV();
-                }
-                else if (Proceso == "Vertical")
-                {
-                    VerPOAV();
-                    VerVertical();
-                }
+                GbPreSecado.Visible = true;
+                gbPOAV.Visible = true;
+                gbVertical.Visible = true;
+                GbGuardiola.Visible = true;
+                GbPS.Visible = true;
+                VerPOAV();
+                VerVertical();
+                VerPreSecado();
+                VerGuardiola();
+                VerPS();
+                EnvioSM();
+                //if (Proceso == "POAV")
+                //{
+                //    VerPOAV();
+                //}
+                //else if (Proceso == "Vertical")
+                //{
+                //    VerPOAV();
+                //    VerVertical();
+                //}
             }
             else
             {

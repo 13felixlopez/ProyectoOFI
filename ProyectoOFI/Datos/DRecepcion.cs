@@ -3,8 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO.Compression;
+using System.IO;
 using System.Reflection.Emit;
+using System.Text;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace ProyectoOFI.Datos
 {
@@ -133,7 +137,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public bool EditarSacosPeso(string Tk,double peso,double pesoe,int sacos,int sacose)
+        public bool EditarSacosPeso(string Tk, double peso, double pesoe, int sacos, int sacose)
         {
             try
             {
@@ -1207,7 +1211,7 @@ namespace ProyectoOFI.Datos
             {
                 Conexion.abrir();
                 SqlCommand cmd = new SqlCommand("select Cosecha from Cosecha where IdCosecha=(select max(IdCosecha) from Cosecha)", Conexion.conectar);
-                object Temporada =cmd.ExecuteScalar();
+                object Temporada = cmd.ExecuteScalar();
                 if (Temporada != null && Temporada != DBNull.Value)
                 {
                     Cosecha.Text = Temporada.ToString();

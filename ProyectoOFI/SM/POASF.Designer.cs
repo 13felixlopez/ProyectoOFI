@@ -1232,7 +1232,7 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(1307, 43);
             this.label16.TabIndex = 13;
-            this.label16.Text = "Detalles de lote POA Secaco Final";
+            this.label16.Text = "Detalles de lote POA Secado Final";
             this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BtnCerrarVerCons

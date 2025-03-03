@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CUControlPatio));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CUControlPatio));
             this.btn_Sig = new System.Windows.Forms.Button();
             this.btn_Primera = new System.Windows.Forms.Button();
             this.btn_Ultima = new System.Windows.Forms.Button();
@@ -46,6 +46,7 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.btn_atras = new System.Windows.Forms.Button();
             this.plOpciones = new System.Windows.Forms.Panel();
+            this.BtnMultiBusqueda = new System.Windows.Forms.Button();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.BtnActualizar = new System.Windows.Forms.Button();
@@ -154,7 +155,20 @@
             this.dtInventariocp = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.BtnMultiBusqueda = new System.Windows.Forms.Button();
+            this.PlProceso = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.BtnOcultar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.LblTkCambio = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.CbProceso = new System.Windows.Forms.ComboBox();
+            this.BtnProcesoCambio = new System.Windows.Forms.Button();
+            this.BtnProceso = new System.Windows.Forms.Button();
+            this.LblProceso = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.LblProcesoCP = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
             this.PlCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.plOpciones.SuspendLayout();
@@ -176,6 +190,8 @@
             this.PlCerrarDetalle.SuspendLayout();
             this.PlEnvio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).BeginInit();
+            this.PlProceso.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Sig
@@ -338,6 +354,18 @@
             this.plOpciones.Name = "plOpciones";
             this.plOpciones.Size = new System.Drawing.Size(1825, 62);
             this.plOpciones.TabIndex = 7;
+            // 
+            // BtnMultiBusqueda
+            // 
+            this.BtnMultiBusqueda.BackColor = System.Drawing.Color.Black;
+            this.BtnMultiBusqueda.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnMultiBusqueda.BackgroundImage")));
+            this.BtnMultiBusqueda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnMultiBusqueda.Location = new System.Drawing.Point(701, 9);
+            this.BtnMultiBusqueda.Name = "BtnMultiBusqueda";
+            this.BtnMultiBusqueda.Size = new System.Drawing.Size(53, 44);
+            this.BtnMultiBusqueda.TabIndex = 12;
+            this.BtnMultiBusqueda.UseVisualStyleBackColor = false;
+            this.BtnMultiBusqueda.Click += new System.EventHandler(this.BtnMultiBusqueda_Click);
             // 
             // BtnBuscar
             // 
@@ -629,6 +657,7 @@
             // 
             // PlContenedor
             // 
+            this.PlContenedor.Controls.Add(this.PlProceso);
             this.PlContenedor.Controls.Add(this.PlCambio);
             this.PlContenedor.Controls.Add(this.PlControl);
             this.PlContenedor.Controls.Add(this.PlCarga);
@@ -1112,7 +1141,7 @@
             this.TSLTendido,
             this.TSLEnfarde,
             this.TSLEnvio});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 186);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 189);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(957, 31);
             this.toolStrip1.TabIndex = 1;
@@ -1375,6 +1404,7 @@
             // PlCerrarDetalle
             // 
             this.PlCerrarDetalle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PlCerrarDetalle.Controls.Add(this.BtnProceso);
             this.PlCerrarDetalle.Controls.Add(this.LblTituloCP);
             this.PlCerrarDetalle.Controls.Add(this.BtnCerrarDetalleCp);
             this.PlCerrarDetalle.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1580,17 +1610,165 @@
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
             // 
-            // BtnMultiBusqueda
+            // PlProceso
             // 
-            this.BtnMultiBusqueda.BackColor = System.Drawing.Color.Black;
-            this.BtnMultiBusqueda.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnMultiBusqueda.BackgroundImage")));
-            this.BtnMultiBusqueda.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnMultiBusqueda.Location = new System.Drawing.Point(701, 9);
-            this.BtnMultiBusqueda.Name = "BtnMultiBusqueda";
-            this.BtnMultiBusqueda.Size = new System.Drawing.Size(53, 44);
-            this.BtnMultiBusqueda.TabIndex = 12;
-            this.BtnMultiBusqueda.UseVisualStyleBackColor = false;
-            this.BtnMultiBusqueda.Click += new System.EventHandler(this.BtnMultiBusqueda_Click);
+            this.PlProceso.Controls.Add(this.LblProcesoCP);
+            this.PlProceso.Controls.Add(this.label36);
+            this.PlProceso.Controls.Add(this.LblProceso);
+            this.PlProceso.Controls.Add(this.label33);
+            this.PlProceso.Controls.Add(this.BtnProcesoCambio);
+            this.PlProceso.Controls.Add(this.CbProceso);
+            this.PlProceso.Controls.Add(this.label32);
+            this.PlProceso.Controls.Add(this.LblTkCambio);
+            this.PlProceso.Controls.Add(this.label31);
+            this.PlProceso.Controls.Add(this.panel4);
+            this.PlProceso.Location = new System.Drawing.Point(43, 226);
+            this.PlProceso.Name = "PlProceso";
+            this.PlProceso.Size = new System.Drawing.Size(449, 271);
+            this.PlProceso.TabIndex = 22;
+            this.PlProceso.Visible = false;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.BtnOcultar);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(449, 47);
+            this.panel4.TabIndex = 0;
+            // 
+            // BtnOcultar
+            // 
+            this.BtnOcultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnOcultar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnOcultar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnOcultar.Location = new System.Drawing.Point(389, 0);
+            this.BtnOcultar.Name = "BtnOcultar";
+            this.BtnOcultar.Size = new System.Drawing.Size(60, 47);
+            this.BtnOcultar.TabIndex = 4;
+            this.BtnOcultar.UseVisualStyleBackColor = true;
+            this.BtnOcultar.Click += new System.EventHandler(this.BtnOcultar_Click);
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(389, 47);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Cambio de Proceso";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LblTkCambio
+            // 
+            this.LblTkCambio.AutoSize = true;
+            this.LblTkCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTkCambio.Location = new System.Drawing.Point(102, 55);
+            this.LblTkCambio.Name = "LblTkCambio";
+            this.LblTkCambio.Size = new System.Drawing.Size(19, 20);
+            this.LblTkCambio.TabIndex = 1;
+            this.LblTkCambio.Text = "--";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(30, 55);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(62, 20);
+            this.label31.TabIndex = 2;
+            this.label31.Text = "Ticket:";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(30, 171);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(79, 20);
+            this.label32.TabIndex = 4;
+            this.label32.Text = "Proceso:";
+            // 
+            // CbProceso
+            // 
+            this.CbProceso.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbProceso.FormattingEnabled = true;
+            this.CbProceso.Items.AddRange(new object[] {
+            "No Asignado",
+            "Tendido",
+            "Enfarde",
+            "Analizado",
+            "Envio",
+            "Almacén"});
+            this.CbProceso.Location = new System.Drawing.Point(114, 169);
+            this.CbProceso.Name = "CbProceso";
+            this.CbProceso.Size = new System.Drawing.Size(221, 24);
+            this.CbProceso.TabIndex = 5;
+            // 
+            // BtnProcesoCambio
+            // 
+            this.BtnProcesoCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnProcesoCambio.Location = new System.Drawing.Point(140, 211);
+            this.BtnProcesoCambio.Name = "BtnProcesoCambio";
+            this.BtnProcesoCambio.Size = new System.Drawing.Size(167, 40);
+            this.BtnProcesoCambio.TabIndex = 6;
+            this.BtnProcesoCambio.Text = "Cambiar Proceso";
+            this.BtnProcesoCambio.UseVisualStyleBackColor = true;
+            this.BtnProcesoCambio.Click += new System.EventHandler(this.BtnProcesoCambio_Click);
+            // 
+            // BtnProceso
+            // 
+            this.BtnProceso.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnProceso.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnProceso.Image = global::ProyectoOFI.Properties.Resources.split_52966371;
+            this.BtnProceso.Location = new System.Drawing.Point(827, 0);
+            this.BtnProceso.Name = "BtnProceso";
+            this.BtnProceso.Size = new System.Drawing.Size(51, 44);
+            this.BtnProceso.TabIndex = 6;
+            this.BtnProceso.UseVisualStyleBackColor = true;
+            this.BtnProceso.Click += new System.EventHandler(this.BtnProceso_Click);
+            // 
+            // LblProceso
+            // 
+            this.LblProceso.AutoSize = true;
+            this.LblProceso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblProceso.Location = new System.Drawing.Point(123, 95);
+            this.LblProceso.Name = "LblProceso";
+            this.LblProceso.Size = new System.Drawing.Size(19, 20);
+            this.LblProceso.TabIndex = 7;
+            this.LblProceso.Text = "--";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(30, 95);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(79, 20);
+            this.label33.TabIndex = 8;
+            this.label33.Text = "Proceso:";
+            // 
+            // LblProcesoCP
+            // 
+            this.LblProcesoCP.AutoSize = true;
+            this.LblProcesoCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblProcesoCP.Location = new System.Drawing.Point(143, 134);
+            this.LblProcesoCP.Name = "LblProcesoCP";
+            this.LblProcesoCP.Size = new System.Drawing.Size(19, 20);
+            this.LblProcesoCP.TabIndex = 9;
+            this.LblProcesoCP.Text = "--";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(30, 134);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(102, 20);
+            this.label36.TabIndex = 10;
+            this.label36.Text = "ProcesoCP:";
             // 
             // CUControlPatio
             // 
@@ -1630,6 +1808,9 @@
             this.PlEnvio.ResumeLayout(false);
             this.PlEnvio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).EndInit();
+            this.PlProceso.ResumeLayout(false);
+            this.PlProceso.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1757,5 +1938,19 @@
         private System.Windows.Forms.Button BtnBusqueda;
         private System.Windows.Forms.TextBox TxtTK;
         private System.Windows.Forms.Button BtnMultiBusqueda;
+        private System.Windows.Forms.Panel PlProceso;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label LblTkCambio;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button BtnOcultar;
+        private System.Windows.Forms.Button BtnProcesoCambio;
+        private System.Windows.Forms.ComboBox CbProceso;
+        private System.Windows.Forms.Button BtnProceso;
+        private System.Windows.Forms.Label LblProcesoCP;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label LblProceso;
+        private System.Windows.Forms.Label label33;
     }
 }

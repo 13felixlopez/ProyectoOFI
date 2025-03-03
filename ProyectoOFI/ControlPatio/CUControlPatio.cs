@@ -1470,6 +1470,51 @@ namespace ProyectoOFI.ControlPatio
             Base.DiseñoDtvEliminar(ref dtInventariocp);
         }
 
+        private void BtnProceso_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DControlPatio funcion = new DControlPatio();
+                var Result = funcion.MostrarProceso(LblTicket.Text);
+                LblProceso.Text = Result.Proceso;
+                LblProcesoCP.Text = Result.ProcesoCP;
+                PlProceso.Location = new Point(dtInventariocp.Width / 2
+                    - PlProceso.Width / 2, dtInventariocp.Height / 2 - PlProceso.Height / 2);
+                PlProceso.Visible = true;
+                LblTkCambio.Text = LblTicket.Text;
+                PlProceso.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void BtnOcultar_Click(object sender, EventArgs e)
+        {
+            PlProceso.Visible = false;
+            LblTkCambio.Text = "--";
+            LblProceso.Text = "--";
+            LblProcesoCP.Text = "--";
+        }
+
+        private void BtnProcesoCambio_Click(object sender, EventArgs e)
+        {
+            DControlPatio funcion = new DControlPatio();
+            if (funcion.CambioProc(LblTkCambio.Text, CbProceso.Text)==true)
+            {
+                MessageBox.Show("Cambio de proceso exitoso", "Se ha cambiado el proceso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                PlProceso.Visible = false;
+                LblTkCambio.Text = "--";
+                LblProceso.Text = "--";
+                LblProcesoCP.Text = "--";
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un error", "ERROR ✖️✖️", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private bool validarEnvio()
         {
             return !(TxtDNIN.Text == "" || CbEstFis.Text == "" || CbDestino.Text == "");

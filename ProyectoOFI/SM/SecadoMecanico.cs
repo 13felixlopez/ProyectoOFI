@@ -1079,7 +1079,7 @@ namespace ProyectoOFI.SM
             Pl.Controls.Clear();
 
             // Variables para posicionamiento
-            int posY = 55;
+            int posY = 15;
 
             foreach (DataRow row in dt.Rows)
             {

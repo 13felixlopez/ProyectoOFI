@@ -1196,28 +1196,41 @@ namespace ProyectoOFI.Analisis
         {
             try
             {
-                string texto = "";
+                string texto = "<html>" +
+              "<body style='font-family: Arial, sans-serif; line-height: 1.6; color: #333;'>" +
+              "<h2 style='color: #0056b3;'>Notificación de Cambios en la Ticket " + TK + "</h2>" +
+              "<p>Modificaciones hechas por: <b>" + Login.NombreA + "</b>,</p>";
 
-                // Verificar ambos cambios
                 if (Rendimiento != TxtBto.Text && Quality != CbGrupoCalidad.Text)
                 {
-                    texto = $"El usuario {Login.NombreA} ha realizado un cambio en el rendimiento y en Quality Grade en la Ticket {TK}: cambió el rendimiento de {Rendimiento} a {TxtBto.Text} y Quality Grade de {Quality} a {CbGrupoCalidad.Text}, este cambio lo realizó el día {Fecha}";
+                    texto += "<p>Se han realizado los siguientes cambios en la Ticket <b>" + TK + "</b>:</p>" +
+                            "<p><b>Rendimiento:</b> de <span style='color: #d9534f;'>" + Rendimiento + "</span> a <span style='color: #5cb85c;'>" + TxtBto.Text + "</span></p>" +
+                            "<p><b>Quality Grade:</b> de <span style='color: #d9534f;'>" + Quality + "</span> a <span style='color: #5cb85c;'>" + CbGrupoCalidad.Text + "</span></p>";
                 }
-                else if (Rendimiento != TxtBto.Text) // Verificar cambio en Rendimiento
+                else if (Rendimiento != TxtBto.Text)
                 {
-                    texto = $"El usuario {Login.NombreA} ha realizado un cambio en el rendimiento en la Ticket {TK}: cambio de {Rendimiento} a {TxtBto.Text}, este cambio lo realizó el día {Fecha}";
+                    texto += "<p>Se ha realizado el siguiente cambio en la Ticket <b>" + TK + "</b>:</p>" +
+                            "<p><b>Rendimiento:</b> de <span style='color: #d9534f;'>" + Rendimiento + "</span> a <span style='color: #5cb85c;'>" + TxtBto.Text + "</span></p>";
                 }
-                else if (Quality != CbGrupoCalidad.Text) // Verificar cambio en Quality
+                else if (Quality != CbGrupoCalidad.Text)
                 {
-                    texto = $"El usuario {Login.NombreA} ha realizado un cambio en el Quality Grade en la Ticket {TK}: cambio de {Quality} a {CbGrupoCalidad.Text}, este cambio lo realizó el día {Fecha}";
+                    texto += "<p>Se ha realizado el siguiente cambio en la Ticket <b>" + TK + "</b>:</p>" +
+                            "<p><b>Quality Grade:</b> de <span style='color: #d9534f;'>" + Quality + "</span> a <span style='color: #5cb85c;'>" + CbGrupoCalidad.Text + "</span></p>";
                 }
 
+                texto += "<p>Este cambio fue realizado el día <b>" + Fecha + "</b>.</p>" +
+                        "<hr style='border: 0; border-top: 1px solid #ccc;' />" +
+                        "<p>Saludos cordiales,<br>Equipo de Soporte<br><b>ofi Sistema de seguimiento de lotes</b></p>" +
+                        "</body>" +
+                        "</html>";
+
+                // Si hay un mensaje, realizar acción
                 if (!string.IsNullOrEmpty(texto))
                 {
-                    // Muestra el mensaje en pantalla
+                    // Mostrar el mensaje en pantalla
                     // MessageBox.Show(texto, "Envio de Correo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Envía el mensaje por correo
+                    // Enviar el mensaje por correo
                     await EnviarCorreoNotificacion(texto);
                 }
             }

@@ -57,6 +57,7 @@ namespace ProyectoOFI.Usuario
                 }
                 MsjCorreo.Subject = subject;
                 MsjCorreo.Body = body;
+                MsjCorreo.IsBodyHtml = true;
                 MsjCorreo.Priority = MailPriority.Normal;
                 smtpClient.Send(MsjCorreo);
             }

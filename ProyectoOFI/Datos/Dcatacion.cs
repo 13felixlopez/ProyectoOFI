@@ -352,7 +352,7 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al editar los datos " + ex.Message, "Error al editar Análisis", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error al editar Análisis", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en EditarCatacion ✖️✖️ " + ex.Message);
                 return false;
             }

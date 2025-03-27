@@ -163,6 +163,7 @@
     <Compile Include="Logica\LAlmacen.cs" />
     <Compile Include="Logica\LCatacion.cs" />
     <Compile Include="Logica\LComprasD.cs" />
+    <Compile Include="Logica\LControlPatio2.cs" />
     <Compile Include="Logica\LEnvio.cs" />
     <Compile Include="Logica\LModulos.cs" />
     <Compile Include="Logica\LPermisos.cs" />
@@ -398,6 +399,8 @@
     <Compile Include="Reportes\FrmLotes_Tendido.Designer.cs">
       <DependentUpon>FrmLotes_Tendido.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\ApiResponse.cs" />
+    <Compile Include="Services\ApiService.cs" />
     <Compile Include="SM\FrmEnvios.cs">
       <SubType>Form</SubType>
     </Compile>

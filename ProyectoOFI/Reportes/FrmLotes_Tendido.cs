@@ -68,7 +68,7 @@ namespace ProyectoOFI.Reportes
         }
         private async Task CargarDatos()
         {
-            //await Task.Delay(1500);
+            await Task.Delay(1500);
             MostrarLotes();
             LlenarCheckBoxList();
             await Task.Delay(1000);

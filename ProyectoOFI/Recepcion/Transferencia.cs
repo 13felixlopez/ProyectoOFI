@@ -28,7 +28,7 @@ namespace ProyectoOFI.Recepcion
         private int items_por_pagina = 100;
         int totalPaginas;
         static string Calidad, EstadoFisico, Daño;
-        int IdCertificacionE;
+        //int IdCertificacionE;
         string CertificacionE;
         int ContadorEdit;
         string Proceso;
@@ -257,21 +257,6 @@ namespace ProyectoOFI.Recepcion
             lblTransferencia.Text = "Agregar Transferencia";
             TxtTally.Clear();
             CHBConsSM.Checked = false;
-        }
-        private void txtMTNT_TextChanged(object sender, EventArgs e)
-        {
-            //Transferencia s = new Transferencia();
-            //foreach (DataRow row in s.dtInventario.Rows)
-            //{
-            //    for (int i = 0; i < s.dtInventario.Rows.Count; i++)
-            //    {
-            //        if (txtMTNT.Text == Convert.ToString(row["MTNT"]))
-            //        {
-            //            MessageBox.Show("MTNT ya existe", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //            txtMTNT.Clear();
-            //        }
-            //    }
-            //}
         }
         private void txtKgs_TextChanged(object sender, EventArgs e)
         {
@@ -687,22 +672,6 @@ namespace ProyectoOFI.Recepcion
             {
                 MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-        private void cbEsFisico_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //cbEstadoFisico.Text = (cbEsFisico.Text);
-        }
-        private void cbCalidadE_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //cbCalidad.Text = cbCalidadE.Text;
-        }
-        private void nudSacosE_ValueChanged(object sender, EventArgs e)
-        {
-            nudSacos.Value = nudSacosE.Value;
-        }
-        private void cbDanioE_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //cbDaño.Text = cbDanioE.Text;
         }
         //Ordenamientos
         private void OrdenarDatos()

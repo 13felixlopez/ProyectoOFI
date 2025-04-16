@@ -301,7 +301,7 @@ namespace ProyectoOFI.Otros
                     }
                 }
             }
-            else 
+            else
             {
                 GbTransfer.Visible = true;
                 GbControlPatio.Visible = true;

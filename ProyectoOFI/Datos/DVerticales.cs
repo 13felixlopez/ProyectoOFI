@@ -115,7 +115,7 @@ namespace ProyectoOFI.Datos
                 // Recorrer el DataTable y agregar los elementos al CheckListBox
                 foreach (DataRow row in dt.Rows)
                 {
-                    checkListBox.Items.Add(row["Paros"].ToString()); 
+                    checkListBox.Items.Add(row["Paros"].ToString());
                 }
             }
             catch (Exception ex)
@@ -125,7 +125,7 @@ namespace ProyectoOFI.Datos
             }
             finally
             {
-                Conexion.cerrar(); 
+                Conexion.cerrar();
             }
 
         }

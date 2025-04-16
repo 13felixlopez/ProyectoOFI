@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProyectoOFI.Logica
 {
-    public  class LPOA
+    public class LPOA
     {
         public int IdPOA { get; set; }
         public int Guardiola { get; set; }

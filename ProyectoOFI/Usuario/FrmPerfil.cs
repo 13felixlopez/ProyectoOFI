@@ -1,15 +1,8 @@
 ﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.Usuario
@@ -27,7 +20,7 @@ namespace ProyectoOFI.Usuario
 
         private void FrmPerfil_Load(object sender, EventArgs e)
         {
-            FrmPerfil Fp= new FrmPerfil();
+            FrmPerfil Fp = new FrmPerfil();
             Fp.Text = "Perfil de " + Login.NombreA;
             MostrarDatos();
         }
@@ -55,7 +48,7 @@ namespace ProyectoOFI.Usuario
             int user = Login.Iduser;
             DUsuarios funcion = new DUsuarios();
             DataTable dt = new DataTable();
-            funcion.MostrarUsuarioLogueado(dt,user);
+            funcion.MostrarUsuarioLogueado(dt, user);
             if (dt.Rows.Count > 0)
             {
                 DataRow row = dt.Rows[0];
@@ -137,7 +130,7 @@ namespace ProyectoOFI.Usuario
                 labelsVerdes = Validaciones.ValidarLabelsVerdes(lblNombreApellidos, LblUser, LblPass, lblCorreo);
 
                 // Habilitar o deshabilitar el botón guardar según el estado de los labels
-               // btnGuardar.Enabled = labelsVerdes;
+                // btnGuardar.Enabled = labelsVerdes;
                 btnActualizar.Enabled = labelsVerdes;
             }
 

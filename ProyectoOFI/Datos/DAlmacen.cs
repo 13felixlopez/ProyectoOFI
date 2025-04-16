@@ -411,16 +411,16 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public bool Split(double Peso,string TicketO, string Ticket)
+        public bool Split(double Peso, string TicketO, string Ticket)
         {
             try
             {
                 Conexion.abrir();
                 SqlCommand cmd = new SqlCommand("Split", Conexion.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@PesoNuevo",Peso);
+                cmd.Parameters.AddWithValue("@PesoNuevo", Peso);
                 cmd.Parameters.AddWithValue("@TicketPrincipal", TicketO);
-                cmd.Parameters.AddWithValue("@TicketSeleccionado",Ticket);
+                cmd.Parameters.AddWithValue("@TicketSeleccionado", Ticket);
                 cmd.ExecuteNonQuery();
                 return true;
             }

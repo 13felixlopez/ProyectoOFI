@@ -1,5 +1,4 @@
-﻿using ProyectoOFI.Logica;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace ProyectoOFI

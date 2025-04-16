@@ -13,7 +13,7 @@ namespace ProyectoOFI.Otros
         {
             InitializeComponent();
             MostrarUbicacionP();
-            
+
         }
 
         private void BtnCerrar_Click(object sender, EventArgs e)

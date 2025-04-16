@@ -116,7 +116,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void MostrarDatosTKSM(Label sacos, Label kilos, Label QQS, Label calidad, Label daño, Label esfisico, Label FRecibido,Label Cert, string TK)
+        public void MostrarDatosTKSM(Label sacos, Label kilos, Label QQS, Label calidad, Label daño, Label esfisico, Label FRecibido, Label Cert, string TK)
         {
             try
             {
@@ -249,13 +249,13 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void VerEnvioSM(ref DataTable dt,string TK)
+        public void VerEnvioSM(ref DataTable dt, string TK)
         {
             try
             {
                 Conexion.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("VerEnvioSM", Conexion.conectar);
-                da.SelectCommand.CommandType=CommandType.StoredProcedure;
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@Ticket", TK);
                 da.Fill(dt);
             }
@@ -406,7 +406,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void BuscarTKSM(string Buscar, ref DataTable dt, int desde, int hasta, int Contar,string Dato)
+        public void BuscarTKSM(string Buscar, ref DataTable dt, int desde, int hasta, int Contar, string Dato)
         {
             try
             {
@@ -491,8 +491,8 @@ namespace ProyectoOFI.Datos
             try
             {
                 Conexion.abrir();
-                SqlDataAdapter da=new SqlDataAdapter("ExcelSM",Conexion.conectar);
-                da.SelectCommand.CommandType=CommandType.StoredProcedure;
+                SqlDataAdapter da = new SqlDataAdapter("ExcelSM", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.Fill(dt);
             }
             catch (Exception ex)

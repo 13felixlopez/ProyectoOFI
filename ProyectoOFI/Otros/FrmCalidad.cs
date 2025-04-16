@@ -7,7 +7,7 @@ namespace ProyectoOFI.Otros
 {
     public partial class FrmCalidad : Form
     {
-        DCatalogo funcion=new DCatalogo();
+        DCatalogo funcion = new DCatalogo();
         int IdCalidad;
         public FrmCalidad()
         {

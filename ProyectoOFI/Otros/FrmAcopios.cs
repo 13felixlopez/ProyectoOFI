@@ -67,7 +67,7 @@ namespace ProyectoOFI.Otros
 
         private void CbAgencia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Idagencia=(int)CbAgencia.SelectedIndex;
+            Idagencia = (int)CbAgencia.SelectedIndex;
         }
 
         private void DtAcopio_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -86,7 +86,7 @@ namespace ProyectoOFI.Otros
         private void EliminarAcopio()
         {
             DCatalogo funcion = new DCatalogo();
-            if (funcion.EliminarAcopio(idacopio)==true)
+            if (funcion.EliminarAcopio(idacopio) == true)
             {
                 MostrarAcopios();
             }
@@ -94,14 +94,14 @@ namespace ProyectoOFI.Otros
 
         private void Editarcopio()
         {
-            DCatalogo funcion=new DCatalogo();
+            DCatalogo funcion = new DCatalogo();
             if (funcion.EditarAcopio(idacopio, TxtAcopio.Text, (int)CbAgencia.SelectedValue) == true)
             {
                 MostrarAcopios();
                 TxtAcopio.Clear();
                 BtnEditar.Visible = false;
                 BtnGuardar.Visible = true;
-                label3 .Visible = false;
+                label3.Visible = false;
                 LblAgencia.Visible = false;
             }
         }

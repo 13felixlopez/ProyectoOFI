@@ -16,9 +16,9 @@ namespace ProyectoOFI.Datos
                 Conexion.abrir();
                 SqlCommand cmd = new SqlCommand("InsertarCompraDirecta", Conexion.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Ticket",parametros.Ticket);
+                cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
                 cmd.Parameters.AddWithValue("@Cosecha", parametros.Cosecha);
-                cmd.Parameters.AddWithValue("@Fecha",parametros.Fecha);
+                cmd.Parameters.AddWithValue("@Fecha", parametros.Fecha);
                 cmd.Parameters.AddWithValue("@Remision", parametros.Remision);
                 cmd.Parameters.AddWithValue("@Proveedor", parametros.Proveedor);
                 cmd.Parameters.AddWithValue("@KgsRem", parametros.KgsRem);
@@ -48,7 +48,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void MostrarComprasD(ref DataTable dt,int Desde,int Hasta)
+        public void MostrarComprasD(ref DataTable dt, int Desde, int Hasta)
         {
             try
             {
@@ -74,8 +74,8 @@ namespace ProyectoOFI.Datos
             try
             {
                 Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("select count (Ticket) from CompraDirecta",Conexion.conectar);
-                contador=Convert.ToInt32(cmd.ExecuteScalar());
+                SqlCommand cmd = new SqlCommand("select count (Ticket) from CompraDirecta", Conexion.conectar);
+                contador = Convert.ToInt32(cmd.ExecuteScalar());
             }
             catch (Exception)
             {
@@ -86,7 +86,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public bool EliminarCompraD(string TK,string Usuario)
+        public bool EliminarCompraD(string TK, string Usuario)
         {
             try
             {
@@ -94,14 +94,14 @@ namespace ProyectoOFI.Datos
                 SqlCommand cmd = new SqlCommand("EliminarCompraD", Conexion.conectar);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@Ticket", TK);
-                cmd.Parameters.AddWithValue("@Usuario",Usuario);
+                cmd.Parameters.AddWithValue("@Usuario", Usuario);
                 cmd.ExecuteNonQuery();
                 return true;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudo eliminar el registro " + ex.Message, "Error al eliminar", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en EliminarCompraD ✖️✖️ "+ex.Message);
+                Log.Writeerror("Error en EliminarCompraD ✖️✖️ " + ex.Message);
                 return false;
             }
             finally
@@ -109,14 +109,14 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void VerdetalleCompraD(ref DataTable dt,string TK)
+        public void VerdetalleCompraD(ref DataTable dt, string TK)
         {
             try
             {
                 Conexion.abrir();
-                SqlDataAdapter da= new SqlDataAdapter("VerdetalleCompraD",Conexion.conectar);
-                da.SelectCommand.CommandType= CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Ticket",TK);
+                SqlDataAdapter da = new SqlDataAdapter("VerdetalleCompraD", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@Ticket", TK);
                 da.Fill(dt);
             }
             catch (Exception ex)
@@ -129,7 +129,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public bool EditarCompraDirecta(LComprasD parametros,string TK)
+        public bool EditarCompraDirecta(LComprasD parametros, string TK)
         {
             try
             {

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.Usuario
@@ -96,7 +94,7 @@ namespace ProyectoOFI.Usuario
                     numero = true;
                 }
             }
-            return mayuscula && minuscula && numero ;
+            return mayuscula && minuscula && numero;
         }
         public static bool EsCorreoValido(string correo)
         {

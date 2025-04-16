@@ -1,7 +1,6 @@
 ﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using System.Data;
-using System.Security.Principal;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.Recepcion
@@ -15,7 +14,7 @@ namespace ProyectoOFI.Recepcion
             InitializeComponent();
             DRecepcion funcion = new DRecepcion();
             DataTable dt = new DataTable();
-            parametros.Calidad=Calidad;
+            parametros.Calidad = Calidad;
             par.CertificacionE = CertificacionE;
             parametros.EstadoFisico = EstadoFisico;
             parametros.Daño = Daño;

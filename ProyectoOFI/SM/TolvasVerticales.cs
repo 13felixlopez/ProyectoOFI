@@ -1,5 +1,4 @@
-﻿using DocumentFormat.OpenXml.Presentation;
-using ProyectoOFI.Datos;
+﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using System;
 using System.Data;

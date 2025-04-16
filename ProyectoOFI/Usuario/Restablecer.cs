@@ -60,7 +60,7 @@ namespace ProyectoOFI.Usuario
                 lblProgress.BackColor = Color.White;
             }
 
-            if (conteo< 100)
+            if (conteo < 100)
             {
                 conteo += 10;
             }

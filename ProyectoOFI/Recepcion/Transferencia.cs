@@ -2224,7 +2224,7 @@ namespace ProyectoOFI.Recepcion
                 dtInventario.Columns["Eliminar"].Visible = true;
                 txtTK.Enabled = true;
                 nudSacosE.Enabled = true;
-                nudSacos.Enabled=true;
+                nudSacos.Enabled = true;
                 txtPesoE.Enabled = true;
                 txtKgs.Enabled = true;
             }

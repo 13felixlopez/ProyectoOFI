@@ -4,8 +4,6 @@ using ProyectoOFI.Usuario;
 using System;
 using System.Data;
 using System.IO;
-using System.Reflection.Emit;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoOFI

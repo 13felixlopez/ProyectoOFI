@@ -38,7 +38,7 @@ namespace ProyectoOFI.Otros
             else
             {
                 DCatalogo funcion = new DCatalogo();
-                if (funcion.AgregarCliente(TxtIdentificacion.Text,TxtCliente.Text) == true)
+                if (funcion.AgregarCliente(TxtIdentificacion.Text, TxtCliente.Text) == true)
                 {
                     MostrarClientes();
                     TxtCliente.Clear();
@@ -65,7 +65,7 @@ namespace ProyectoOFI.Otros
             if (TxtCliente.Text != "" && TxtIdentificacion.Text != "")
             {
                 DCatalogo funcion = new DCatalogo();
-                if (funcion.EditarCliente(idcliente, TxtIdentificacion.Text,TxtCliente.Text) == true)
+                if (funcion.EditarCliente(idcliente, TxtIdentificacion.Text, TxtCliente.Text) == true)
                 {
                     MostrarClientes();
                     TxtCliente.Clear();

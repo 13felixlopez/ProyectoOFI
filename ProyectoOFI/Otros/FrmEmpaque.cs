@@ -75,8 +75,8 @@ namespace ProyectoOFI.Otros
             else
             {
                 DCatalogo funcion = new DCatalogo();
-                tara=double.Parse(TxtTara.Text);
-                if (funcion.AgregarEmpaque(TxtEmpaque.Text,TxtCapacidad.Text,tara) == true)
+                tara = double.Parse(TxtTara.Text);
+                if (funcion.AgregarEmpaque(TxtEmpaque.Text, TxtCapacidad.Text, tara) == true)
                 {
                     MostrarEmpaque();
                     Limpiar();
@@ -89,7 +89,7 @@ namespace ProyectoOFI.Otros
             {
                 DCatalogo funcion = new DCatalogo();
                 tara = double.Parse(TxtTara.Text);
-                if (funcion.EditarEmpaque(IdEmpaque, TxtEmpaque.Text,TxtCapacidad.Text,tara) == true)
+                if (funcion.EditarEmpaque(IdEmpaque, TxtEmpaque.Text, TxtCapacidad.Text, tara) == true)
                 {
                     MostrarEmpaque();
                     Limpiar();

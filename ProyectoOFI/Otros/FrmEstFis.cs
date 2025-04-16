@@ -1,19 +1,13 @@
 ﻿using ProyectoOFI.Datos;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.Otros
 {
     public partial class FrmEstFis : Form
     {
-        DCatalogo funcion=new DCatalogo();
+        DCatalogo funcion = new DCatalogo();
         int IdEstFis;
         public FrmEstFis()
         {
@@ -29,14 +23,14 @@ namespace ProyectoOFI.Otros
         }
         private void InsertarEstFis()
         {
-            if (TxtEstFis.Text=="")
+            if (TxtEstFis.Text == "")
             {
                 MessageBox.Show("No se permiten campos vacios", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtEstFis.Focus();
             }
             else
             {
-                if (funcion.AgregarEstFist(TxtEstFis.Text)==true)
+                if (funcion.AgregarEstFist(TxtEstFis.Text) == true)
                 {
                     MostrarEstFis();
                     TxtEstFis.Clear();
@@ -45,9 +39,9 @@ namespace ProyectoOFI.Otros
         }
         private void EditarEstFis()
         {
-            if (TxtEstFis.Text!="")
+            if (TxtEstFis.Text != "")
             {
-                if (funcion.EditarEstFis(IdEstFis,TxtEstFis.Text)==true)
+                if (funcion.EditarEstFis(IdEstFis, TxtEstFis.Text) == true)
                 {
                     MostrarEstFis();
                     TxtEstFis.Clear();
@@ -56,7 +50,7 @@ namespace ProyectoOFI.Otros
                 }
                 else
                 {
-                    MessageBox.Show("No se permiten campos vacios","ERROR",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se permiten campos vacios", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TxtEstFis.Focus();
                 }
             }

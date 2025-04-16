@@ -380,7 +380,7 @@ namespace ProyectoOFI.Almacen
         {
             if (validar())
             {
-               // DateTime fechaAlmacen = DtpFAlmacen.Value.Date.AddDays(-1);
+                // DateTime fechaAlmacen = DtpFAlmacen.Value.Date.AddDays(-1);
                 if (DtpFAlmacen.Value.Date <= DateTime.Today.Date)
                 {
                     DAlmacen funcion = new DAlmacen();

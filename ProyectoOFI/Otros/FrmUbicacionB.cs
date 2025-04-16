@@ -97,7 +97,7 @@ namespace ProyectoOFI.Otros
 
         private void FrmUbicacionB_Load(object sender, EventArgs e)
         {
-            DAlmacen funcion=new DAlmacen();
+            DAlmacen funcion = new DAlmacen();
             funcion.MostrarBodega(CbBodega);
         }
     }

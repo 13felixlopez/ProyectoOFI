@@ -17,7 +17,7 @@ namespace ProyectoOFI.Reportes
         DataTable dt2 = new DataTable();
         List<string> filtro = new List<string>();
         string Name;
-        public FrmLotes_Tendido(DataTable dt,string Nombre)
+        public FrmLotes_Tendido(DataTable dt, string Nombre)
         {
             InitializeComponent();
             AdjustFormSize();

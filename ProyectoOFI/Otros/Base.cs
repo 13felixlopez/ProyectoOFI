@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.Otros
@@ -40,7 +39,7 @@ namespace ProyectoOFI.Otros
             {
                 string estado;
                 estado = row.Cells["Proce"].Value.ToString();
-                if (estado == "Analizado" || estado=="Envio" || estado == "Almacén")
+                if (estado == "Analizado" || estado == "Envio" || estado == "Almacén")
                 {
                     row.DefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Strikeout | FontStyle.Bold);
                     row.DefaultCellStyle.ForeColor = Color.FromArgb(229, 48, 37);

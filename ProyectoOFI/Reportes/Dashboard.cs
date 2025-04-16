@@ -259,7 +259,7 @@ namespace ProyectoOFI.Reportes
 
         private void BtnEnviados_Click(object sender, EventArgs e)
         {
-            DataTable dt=new DataTable();
+            DataTable dt = new DataTable();
             DReporte funcion = new DReporte();
             funcion.Lotes_EnviadosSM(ref dt);
             string Nombre = "Inventario de Envios";
@@ -317,7 +317,7 @@ namespace ProyectoOFI.Reportes
         {
             DReporte funcion = new DReporte();
             double EnviadosSM = 0;
-            funcion.CantLotes_EnviadosSM(ref  EnviadosSM);
+            funcion.CantLotes_EnviadosSM(ref EnviadosSM);
             BtnEnviados.Text = "Enviados " + EnviadosSM.ToString() + " Lotes";
         }
     }

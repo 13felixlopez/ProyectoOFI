@@ -7,7 +7,7 @@ namespace ProyectoOFI.Otros
 {
     public partial class FrmTurnoAl : Form
     {
-        DCatalogo funcion =new DCatalogo();
+        DCatalogo funcion = new DCatalogo();
         int IdTurnoAl;
         public FrmTurnoAl()
         {

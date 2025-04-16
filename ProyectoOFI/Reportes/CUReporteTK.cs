@@ -19,7 +19,7 @@ namespace ProyectoOFI.Reportes
         public CUReporteTK()
         {
             InitializeComponent();
-           // ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
+            // ExcelPackage.LicenseContext = OfficeOpenXml.LicenseContext.NonCommercial;
         }
 
         private async void CUReporteTK_Load(object sender, EventArgs e)

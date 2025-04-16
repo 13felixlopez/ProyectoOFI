@@ -1,5 +1,4 @@
-﻿using ProyectoOFI.Logica;
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -26,15 +25,15 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        public void PermisosUser(ref DataTable dt,int IdUser)
+        public void PermisosUser(ref DataTable dt, int IdUser)
         {
             try
             {
                 Conexion.abrir();
                 SqlDataAdapter da = new SqlDataAdapter("PermisosUser", Conexion.conectar);
-                da.SelectCommand.CommandType=CommandType.StoredProcedure;
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@IdUser", IdUser);
-                
+
                 da.Fill(dt);
             }
             catch (Exception ex)

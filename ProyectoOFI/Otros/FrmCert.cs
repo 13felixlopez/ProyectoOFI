@@ -24,7 +24,7 @@ namespace ProyectoOFI.Otros
         }
         private void InsertarCert()
         {
-            if (TxtCert.Text=="")
+            if (TxtCert.Text == "")
             {
                 MessageBox.Show("No se permiten campos vacíos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtCert.Focus();
@@ -42,7 +42,7 @@ namespace ProyectoOFI.Otros
         {
             if (TxtCert.Text != "")
             {
-                if (funcion.EditarCertificacion(Idcert,TxtCert.Text)==true)
+                if (funcion.EditarCertificacion(Idcert, TxtCert.Text) == true)
                 {
                     MostrarCert();
                     TxtCert.Clear();
@@ -51,7 +51,7 @@ namespace ProyectoOFI.Otros
                 }
                 else
                 {
-                    MessageBox.Show("No se permiten campos vacíos","ERROR",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("No se permiten campos vacíos", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     TxtCert.Focus();
                 }
             }
@@ -75,7 +75,7 @@ namespace ProyectoOFI.Otros
             if (e.ColumnIndex == DtCert.Columns["Eliminar"].Index)
             {
                 DialogResult result = MessageBox.Show("¿Esta seguro de eliminar esta certificación, Desea Continuar?", "Eliminando registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-                if (result==DialogResult.OK)
+                if (result == DialogResult.OK)
                 {
                     EliminarCert();
                 }

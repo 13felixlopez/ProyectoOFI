@@ -810,7 +810,7 @@ namespace ProyectoOFI.SM
                     }
                 }
             }
-            else 
+            else
             {
                 TLPGuardiola.Enabled = true;
             }

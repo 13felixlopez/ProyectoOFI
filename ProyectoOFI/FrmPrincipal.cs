@@ -16,14 +16,17 @@ using System.Windows.Forms;
 
 namespace ProyectoOFI
 {
+
     public partial class frmInicio : Form
     {
         private Form FrmActivo = null;
+
         public frmInicio()
         {
             InitializeComponent();
             MedirPantalla();
         }
+
         private void MedirPantalla()
         {
             this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
@@ -64,7 +67,6 @@ namespace ProyectoOFI
         {
             FrmConfig Cg = new FrmConfig();
             AbrirFrm(Cg);
-            //Cg.ShowDialog();
         }
 
         private void BtnUser_Click(object sender, EventArgs e)
@@ -105,6 +107,7 @@ namespace ProyectoOFI
             CambiarColor(BtnUser);
             CambiarColor(BtnReportes);
         }
+
         private void ValidarPermisos()
         {
             DataTable dt = new DataTable();
@@ -261,6 +264,7 @@ namespace ProyectoOFI
             PlPrincipal.Controls.Add(al);
             LblModulo.Text = "Almacén";
         }
+
         public void CambiarColor(Button Btn)
         {
             // Guardar el color original del botón
@@ -348,6 +352,7 @@ namespace ProyectoOFI
             FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
             LT.ShowDialog();
         }
+
         private void AbrirFrm(Form hijo)
         {
             if (FrmActivo != null)

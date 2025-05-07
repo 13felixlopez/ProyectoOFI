@@ -1314,7 +1314,7 @@ namespace ProyectoOFI.ControlPatio
                     DControlPatio funcion = new DControlPatio();
                     parametros.IdEnfarde = IdEnfarde;
                     parametros.FEnvio = DateTime.Parse(DTEnvio.Value.ToString());
-                    parametros.DNIN = int.Parse(TxtDNIN.Text.ToString());
+                    parametros.DNIN = TxtDNIN.Text;
                     parametros.IdEstFis = int.Parse(CbEstFis.SelectedValue.ToString());
                     parametros.IdAreaSecado = int.Parse(CbDestino.SelectedValue.ToString());
                     parametros.Digitador = Login.NombreA;
@@ -1566,11 +1566,11 @@ namespace ProyectoOFI.ControlPatio
                 MessageBox.Show("Ha ocurrido un error", "ERROR ✖️✖️", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private bool validarEnvio()
         {
-            return !(TxtDNIN.Text == "" || CbEstFis.Text == "" || CbDestino.Text == "");
+            return !(string.IsNullOrEmpty(TxtDNIN.Text) || string.IsNullOrEmpty(CbEstFis.Text) || string.IsNullOrEmpty(CbDestino.Text));
         }
+
         private void VerEnvioCp()
         {
             DControlPatio funcion = new DControlPatio();
@@ -1653,7 +1653,7 @@ namespace ProyectoOFI.ControlPatio
                     parametros.IdEnvio = IdEnvio;
                     parametros.IdEnfarde = IdEnfarde;
                     parametros.FEnvio = DateTime.Parse(DTEnvio.Value.ToString());
-                    parametros.DNIN = int.Parse(TxtDNIN.Text.ToString());
+                    parametros.DNIN = TxtDNIN.Text;
                     parametros.IdEstFis = int.Parse(CbEstFis.SelectedValue.ToString());
                     parametros.IdAreaSecado = int.Parse(CbDestino.SelectedValue.ToString());
                     parametros.Digitador = Login.NombreA;

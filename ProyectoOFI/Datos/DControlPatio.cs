@@ -476,7 +476,7 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al Enfandar el lote " + ex.Message, "ERROR Envio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al Envio el lote " + ex.Message, "ERROR Envio", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en InsertarEnvio ✖️✖️ " + ex.Message);
                 return false;
             }

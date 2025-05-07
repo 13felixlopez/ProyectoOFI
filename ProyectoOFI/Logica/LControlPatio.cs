@@ -18,7 +18,7 @@ namespace ProyectoOFI.Logica
         public int IdEnfarde { get; set; }
         public int IdEnvio { get; set; }
         public DateTime FEnvio { get; set; }
-        public int DNIN { get; set; }
+        public string DNIN { get; set; }
         public int IdEstFis { get; set; }
         public int IdAreaSecado { get; set; }
         public string ProcesoCP { get; set; }

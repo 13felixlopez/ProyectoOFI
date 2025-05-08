@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CUControlPatio));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Sig = new System.Windows.Forms.Button();
             this.btn_Primera = new System.Windows.Forms.Button();
             this.btn_Ultima = new System.Windows.Forms.Button();
@@ -72,6 +72,19 @@
             this.LblFiltros = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.PlContenedor = new System.Windows.Forms.Panel();
+            this.PlProceso = new System.Windows.Forms.Panel();
+            this.LblProcesoCP = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.LblProceso = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.BtnProcesoCambio = new System.Windows.Forms.Button();
+            this.CbProceso = new System.Windows.Forms.ComboBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.LblTkCambio = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.BtnOcultar = new System.Windows.Forms.Button();
             this.PlCambio = new System.Windows.Forms.Panel();
             this.BtnBusqueda = new System.Windows.Forms.Button();
             this.TxtTK = new System.Windows.Forms.TextBox();
@@ -114,9 +127,9 @@
             this.TxtFolio = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.TSLTendido = new System.Windows.Forms.ToolStripLabel();
-            this.TSLEnfarde = new System.Windows.Forms.ToolStripLabel();
-            this.TSLEnvio = new System.Windows.Forms.ToolStripLabel();
+            this.TSLTendido = new System.Windows.Forms.ToolStripSplitButton();
+            this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarTendido = new System.Windows.Forms.ToolStripMenuItem();
             this.PlDatos = new System.Windows.Forms.Panel();
             this.LblTCompra = new System.Windows.Forms.Label();
             this.LblCliente = new System.Windows.Forms.Label();
@@ -139,6 +152,7 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.PlCerrarDetalle = new System.Windows.Forms.Panel();
+            this.BtnProceso = new System.Windows.Forms.Button();
             this.LblTituloCP = new System.Windows.Forms.Label();
             this.BtnCerrarDetalleCp = new System.Windows.Forms.Button();
             this.PlEnvio = new System.Windows.Forms.Panel();
@@ -155,20 +169,12 @@
             this.dtInventariocp = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.PlProceso = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.BtnOcultar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.LblTkCambio = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.CbProceso = new System.Windows.Forms.ComboBox();
-            this.BtnProcesoCambio = new System.Windows.Forms.Button();
-            this.BtnProceso = new System.Windows.Forms.Button();
-            this.LblProceso = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.LblProcesoCP = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
+            this.TSLEnfarde = new System.Windows.Forms.ToolStripSplitButton();
+            this.editarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarEnfarde = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSLEnvio = new System.Windows.Forms.ToolStripSplitButton();
+            this.editarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarEnvio = new System.Windows.Forms.ToolStripMenuItem();
             this.PlCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.plOpciones.SuspendLayout();
@@ -180,6 +186,8 @@
             this.PlFiltros.SuspendLayout();
             this.PlCerrar.SuspendLayout();
             this.PlContenedor.SuspendLayout();
+            this.PlProceso.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.PlCambio.SuspendLayout();
             this.panel1.SuspendLayout();
             this.PlControl.SuspendLayout();
@@ -190,8 +198,6 @@
             this.PlCerrarDetalle.SuspendLayout();
             this.PlEnvio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).BeginInit();
-            this.PlProceso.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Sig
@@ -671,6 +677,154 @@
             this.PlContenedor.Size = new System.Drawing.Size(1825, 842);
             this.PlContenedor.TabIndex = 15;
             // 
+            // PlProceso
+            // 
+            this.PlProceso.Controls.Add(this.LblProcesoCP);
+            this.PlProceso.Controls.Add(this.label36);
+            this.PlProceso.Controls.Add(this.LblProceso);
+            this.PlProceso.Controls.Add(this.label33);
+            this.PlProceso.Controls.Add(this.BtnProcesoCambio);
+            this.PlProceso.Controls.Add(this.CbProceso);
+            this.PlProceso.Controls.Add(this.label32);
+            this.PlProceso.Controls.Add(this.LblTkCambio);
+            this.PlProceso.Controls.Add(this.label31);
+            this.PlProceso.Controls.Add(this.panel4);
+            this.PlProceso.Location = new System.Drawing.Point(1211, 331);
+            this.PlProceso.Name = "PlProceso";
+            this.PlProceso.Size = new System.Drawing.Size(449, 271);
+            this.PlProceso.TabIndex = 22;
+            this.PlProceso.Visible = false;
+            // 
+            // LblProcesoCP
+            // 
+            this.LblProcesoCP.AutoSize = true;
+            this.LblProcesoCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblProcesoCP.Location = new System.Drawing.Point(143, 134);
+            this.LblProcesoCP.Name = "LblProcesoCP";
+            this.LblProcesoCP.Size = new System.Drawing.Size(19, 20);
+            this.LblProcesoCP.TabIndex = 9;
+            this.LblProcesoCP.Text = "--";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(30, 134);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(102, 20);
+            this.label36.TabIndex = 10;
+            this.label36.Text = "ProcesoCP:";
+            // 
+            // LblProceso
+            // 
+            this.LblProceso.AutoSize = true;
+            this.LblProceso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblProceso.Location = new System.Drawing.Point(123, 95);
+            this.LblProceso.Name = "LblProceso";
+            this.LblProceso.Size = new System.Drawing.Size(19, 20);
+            this.LblProceso.TabIndex = 7;
+            this.LblProceso.Text = "--";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(30, 95);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(79, 20);
+            this.label33.TabIndex = 8;
+            this.label33.Text = "Proceso:";
+            // 
+            // BtnProcesoCambio
+            // 
+            this.BtnProcesoCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnProcesoCambio.Location = new System.Drawing.Point(140, 211);
+            this.BtnProcesoCambio.Name = "BtnProcesoCambio";
+            this.BtnProcesoCambio.Size = new System.Drawing.Size(167, 40);
+            this.BtnProcesoCambio.TabIndex = 6;
+            this.BtnProcesoCambio.Text = "Cambiar Proceso";
+            this.BtnProcesoCambio.UseVisualStyleBackColor = true;
+            this.BtnProcesoCambio.Click += new System.EventHandler(this.BtnProcesoCambio_Click);
+            // 
+            // CbProceso
+            // 
+            this.CbProceso.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbProceso.FormattingEnabled = true;
+            this.CbProceso.Items.AddRange(new object[] {
+            "No Asignado",
+            "Tendido",
+            "Enfarde",
+            "Analizado",
+            "Envio",
+            "Almacén"});
+            this.CbProceso.Location = new System.Drawing.Point(114, 169);
+            this.CbProceso.Name = "CbProceso";
+            this.CbProceso.Size = new System.Drawing.Size(221, 24);
+            this.CbProceso.TabIndex = 5;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(30, 171);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(79, 20);
+            this.label32.TabIndex = 4;
+            this.label32.Text = "Proceso:";
+            // 
+            // LblTkCambio
+            // 
+            this.LblTkCambio.AutoSize = true;
+            this.LblTkCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTkCambio.Location = new System.Drawing.Point(102, 55);
+            this.LblTkCambio.Name = "LblTkCambio";
+            this.LblTkCambio.Size = new System.Drawing.Size(19, 20);
+            this.LblTkCambio.TabIndex = 1;
+            this.LblTkCambio.Text = "--";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(30, 55);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(62, 20);
+            this.label31.TabIndex = 2;
+            this.label31.Text = "Ticket:";
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.BtnOcultar);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(449, 47);
+            this.panel4.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(389, 47);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Cambio de Proceso";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnOcultar
+            // 
+            this.BtnOcultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnOcultar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnOcultar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnOcultar.Location = new System.Drawing.Point(389, 0);
+            this.BtnOcultar.Name = "BtnOcultar";
+            this.BtnOcultar.Size = new System.Drawing.Size(60, 47);
+            this.BtnOcultar.TabIndex = 4;
+            this.BtnOcultar.UseVisualStyleBackColor = true;
+            this.BtnOcultar.Click += new System.EventHandler(this.BtnOcultar_Click);
+            // 
             // PlCambio
             // 
             this.PlCambio.BackColor = System.Drawing.Color.White;
@@ -807,7 +961,7 @@
             this.LblMsj.Dock = System.Windows.Forms.DockStyle.Top;
             this.LblMsj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.LblMsj.ForeColor = System.Drawing.Color.Red;
-            this.LblMsj.Location = new System.Drawing.Point(0, 456);
+            this.LblMsj.Location = new System.Drawing.Point(0, 491);
             this.LblMsj.Name = "LblMsj";
             this.LblMsj.Size = new System.Drawing.Size(957, 34);
             this.LblMsj.TabIndex = 5;
@@ -835,7 +989,7 @@
             this.PlEnfarde.Controls.Add(this.TxtSacosEnfardados);
             this.PlEnfarde.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlEnfarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlEnfarde.Location = new System.Drawing.Point(0, 321);
+            this.PlEnfarde.Location = new System.Drawing.Point(0, 356);
             this.PlEnfarde.Name = "PlEnfarde";
             this.PlEnfarde.Size = new System.Drawing.Size(957, 135);
             this.PlEnfarde.TabIndex = 18;
@@ -1008,7 +1162,7 @@
             this.PlTendido.Controls.Add(this.label1);
             this.PlTendido.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlTendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlTendido.Location = new System.Drawing.Point(0, 186);
+            this.PlTendido.Location = new System.Drawing.Point(0, 221);
             this.PlTendido.Name = "PlTendido";
             this.PlTendido.Size = new System.Drawing.Size(957, 135);
             this.PlTendido.TabIndex = 17;
@@ -1141,37 +1295,35 @@
             this.TSLTendido,
             this.TSLEnfarde,
             this.TSLEnvio});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 189);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 186);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(957, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(957, 35);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.Visible = false;
             // 
             // TSLTendido
             // 
+            this.TSLTendido.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editarToolStripMenuItem,
+            this.eliminarTendido});
             this.TSLTendido.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TSLTendido.Name = "TSLTendido";
-            this.TSLTendido.Size = new System.Drawing.Size(87, 28);
+            this.TSLTendido.Size = new System.Drawing.Size(103, 32);
             this.TSLTendido.Text = "Tendido";
-            this.TSLTendido.Click += new System.EventHandler(this.TSLTendido_Click);
             // 
-            // TSLEnfarde
+            // editarToolStripMenuItem
             // 
-            this.TSLEnfarde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TSLEnfarde.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.TSLEnfarde.Name = "TSLEnfarde";
-            this.TSLEnfarde.Size = new System.Drawing.Size(85, 28);
-            this.TSLEnfarde.Text = "Enfarde";
-            this.TSLEnfarde.Click += new System.EventHandler(this.TSLEnfarde_Click);
+            this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(180, 32);
+            this.editarToolStripMenuItem.Text = "Editar";
+            this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
-            // TSLEnvio
+            // eliminarTendido
             // 
-            this.TSLEnvio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.TSLEnvio.Name = "TSLEnvio";
-            this.TSLEnvio.Size = new System.Drawing.Size(64, 28);
-            this.TSLEnvio.Text = "Envio";
-            this.TSLEnvio.Click += new System.EventHandler(this.TSLEnvio_Click);
+            this.eliminarTendido.Name = "eliminarTendido";
+            this.eliminarTendido.Size = new System.Drawing.Size(180, 32);
+            this.eliminarTendido.Text = "Eliminar";
+            this.eliminarTendido.Click += new System.EventHandler(this.eliminarTendido_Click);
             // 
             // PlDatos
             // 
@@ -1413,6 +1565,18 @@
             this.PlCerrarDetalle.Size = new System.Drawing.Size(957, 48);
             this.PlCerrarDetalle.TabIndex = 3;
             // 
+            // BtnProceso
+            // 
+            this.BtnProceso.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnProceso.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnProceso.Image = global::ProyectoOFI.Properties.Resources.split_52966371;
+            this.BtnProceso.Location = new System.Drawing.Point(827, 0);
+            this.BtnProceso.Name = "BtnProceso";
+            this.BtnProceso.Size = new System.Drawing.Size(51, 44);
+            this.BtnProceso.TabIndex = 6;
+            this.BtnProceso.UseVisualStyleBackColor = true;
+            this.BtnProceso.Click += new System.EventHandler(this.BtnProceso_Click);
+            // 
             // LblTituloCP
             // 
             this.LblTituloCP.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1451,7 +1615,7 @@
             this.PlEnvio.Controls.Add(this.TxtDNIN);
             this.PlEnvio.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PlEnvio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlEnvio.Location = new System.Drawing.Point(0, 490);
+            this.PlEnvio.Location = new System.Drawing.Point(0, 525);
             this.PlEnvio.Name = "PlEnvio";
             this.PlEnvio.Size = new System.Drawing.Size(957, 135);
             this.PlEnvio.TabIndex = 20;
@@ -1551,37 +1715,37 @@
             this.dtInventariocp.AllowUserToDeleteRows = false;
             this.dtInventariocp.AllowUserToOrderColumns = true;
             this.dtInventariocp.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.NullValue = "--";
-            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.NullValue = "--";
+            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dtInventariocp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventariocp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventariocp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dtInventariocp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.NullValue = "--";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.NullValue = "--";
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle7;
             this.dtInventariocp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventariocp.Location = new System.Drawing.Point(0, 62);
             this.dtInventariocp.Name = "dtInventariocp";
             this.dtInventariocp.ReadOnly = true;
             this.dtInventariocp.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dtInventariocp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventariocp.ShowCellToolTips = false;
             this.dtInventariocp.ShowEditingIcon = false;
@@ -1610,165 +1774,54 @@
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
             // 
-            // PlProceso
+            // TSLEnfarde
             // 
-            this.PlProceso.Controls.Add(this.LblProcesoCP);
-            this.PlProceso.Controls.Add(this.label36);
-            this.PlProceso.Controls.Add(this.LblProceso);
-            this.PlProceso.Controls.Add(this.label33);
-            this.PlProceso.Controls.Add(this.BtnProcesoCambio);
-            this.PlProceso.Controls.Add(this.CbProceso);
-            this.PlProceso.Controls.Add(this.label32);
-            this.PlProceso.Controls.Add(this.LblTkCambio);
-            this.PlProceso.Controls.Add(this.label31);
-            this.PlProceso.Controls.Add(this.panel4);
-            this.PlProceso.Location = new System.Drawing.Point(43, 226);
-            this.PlProceso.Name = "PlProceso";
-            this.PlProceso.Size = new System.Drawing.Size(449, 271);
-            this.PlProceso.TabIndex = 22;
-            this.PlProceso.Visible = false;
+            this.TSLEnfarde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TSLEnfarde.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editarToolStripMenuItem1,
+            this.eliminarEnfarde});
+            this.TSLEnfarde.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.TSLEnfarde.Name = "TSLEnfarde";
+            this.TSLEnfarde.Size = new System.Drawing.Size(101, 32);
+            this.TSLEnfarde.Text = "Enfarde";
             // 
-            // panel4
+            // editarToolStripMenuItem1
             // 
-            this.panel4.Controls.Add(this.label2);
-            this.panel4.Controls.Add(this.BtnOcultar);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(449, 47);
-            this.panel4.TabIndex = 0;
+            this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
+            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(180, 32);
+            this.editarToolStripMenuItem1.Text = "Editar";
+            this.editarToolStripMenuItem1.Click += new System.EventHandler(this.editarToolStripMenuItem1_Click);
             // 
-            // BtnOcultar
+            // eliminarEnfarde
             // 
-            this.BtnOcultar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnOcultar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnOcultar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnOcultar.Location = new System.Drawing.Point(389, 0);
-            this.BtnOcultar.Name = "BtnOcultar";
-            this.BtnOcultar.Size = new System.Drawing.Size(60, 47);
-            this.BtnOcultar.TabIndex = 4;
-            this.BtnOcultar.UseVisualStyleBackColor = true;
-            this.BtnOcultar.Click += new System.EventHandler(this.BtnOcultar_Click);
+            this.eliminarEnfarde.Name = "eliminarEnfarde";
+            this.eliminarEnfarde.Size = new System.Drawing.Size(180, 32);
+            this.eliminarEnfarde.Text = "Eliminar";
+            this.eliminarEnfarde.Click += new System.EventHandler(this.eliminarEnfarde_Click);
             // 
-            // label2
+            // TSLEnvio
             // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(389, 47);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Cambio de Proceso";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TSLEnvio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.TSLEnvio.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editarToolStripMenuItem2,
+            this.eliminarEnvio});
+            this.TSLEnvio.Name = "TSLEnvio";
+            this.TSLEnvio.Size = new System.Drawing.Size(80, 32);
+            this.TSLEnvio.Text = "Envio";
             // 
-            // LblTkCambio
+            // editarToolStripMenuItem2
             // 
-            this.LblTkCambio.AutoSize = true;
-            this.LblTkCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTkCambio.Location = new System.Drawing.Point(102, 55);
-            this.LblTkCambio.Name = "LblTkCambio";
-            this.LblTkCambio.Size = new System.Drawing.Size(19, 20);
-            this.LblTkCambio.TabIndex = 1;
-            this.LblTkCambio.Text = "--";
+            this.editarToolStripMenuItem2.Name = "editarToolStripMenuItem2";
+            this.editarToolStripMenuItem2.Size = new System.Drawing.Size(180, 32);
+            this.editarToolStripMenuItem2.Text = "Editar";
+            this.editarToolStripMenuItem2.Click += new System.EventHandler(this.editarToolStripMenuItem2_Click);
             // 
-            // label31
+            // eliminarEnvio
             // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label31.Location = new System.Drawing.Point(30, 55);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(62, 20);
-            this.label31.TabIndex = 2;
-            this.label31.Text = "Ticket:";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(30, 171);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(79, 20);
-            this.label32.TabIndex = 4;
-            this.label32.Text = "Proceso:";
-            // 
-            // CbProceso
-            // 
-            this.CbProceso.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CbProceso.FormattingEnabled = true;
-            this.CbProceso.Items.AddRange(new object[] {
-            "No Asignado",
-            "Tendido",
-            "Enfarde",
-            "Analizado",
-            "Envio",
-            "Almacén"});
-            this.CbProceso.Location = new System.Drawing.Point(114, 169);
-            this.CbProceso.Name = "CbProceso";
-            this.CbProceso.Size = new System.Drawing.Size(221, 24);
-            this.CbProceso.TabIndex = 5;
-            // 
-            // BtnProcesoCambio
-            // 
-            this.BtnProcesoCambio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnProcesoCambio.Location = new System.Drawing.Point(140, 211);
-            this.BtnProcesoCambio.Name = "BtnProcesoCambio";
-            this.BtnProcesoCambio.Size = new System.Drawing.Size(167, 40);
-            this.BtnProcesoCambio.TabIndex = 6;
-            this.BtnProcesoCambio.Text = "Cambiar Proceso";
-            this.BtnProcesoCambio.UseVisualStyleBackColor = true;
-            this.BtnProcesoCambio.Click += new System.EventHandler(this.BtnProcesoCambio_Click);
-            // 
-            // BtnProceso
-            // 
-            this.BtnProceso.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnProceso.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnProceso.Image = global::ProyectoOFI.Properties.Resources.split_52966371;
-            this.BtnProceso.Location = new System.Drawing.Point(827, 0);
-            this.BtnProceso.Name = "BtnProceso";
-            this.BtnProceso.Size = new System.Drawing.Size(51, 44);
-            this.BtnProceso.TabIndex = 6;
-            this.BtnProceso.UseVisualStyleBackColor = true;
-            this.BtnProceso.Click += new System.EventHandler(this.BtnProceso_Click);
-            // 
-            // LblProceso
-            // 
-            this.LblProceso.AutoSize = true;
-            this.LblProceso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblProceso.Location = new System.Drawing.Point(123, 95);
-            this.LblProceso.Name = "LblProceso";
-            this.LblProceso.Size = new System.Drawing.Size(19, 20);
-            this.LblProceso.TabIndex = 7;
-            this.LblProceso.Text = "--";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(30, 95);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(79, 20);
-            this.label33.TabIndex = 8;
-            this.label33.Text = "Proceso:";
-            // 
-            // LblProcesoCP
-            // 
-            this.LblProcesoCP.AutoSize = true;
-            this.LblProcesoCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblProcesoCP.Location = new System.Drawing.Point(143, 134);
-            this.LblProcesoCP.Name = "LblProcesoCP";
-            this.LblProcesoCP.Size = new System.Drawing.Size(19, 20);
-            this.LblProcesoCP.TabIndex = 9;
-            this.LblProcesoCP.Text = "--";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(30, 134);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(102, 20);
-            this.label36.TabIndex = 10;
-            this.label36.Text = "ProcesoCP:";
+            this.eliminarEnvio.Name = "eliminarEnvio";
+            this.eliminarEnvio.Size = new System.Drawing.Size(180, 32);
+            this.eliminarEnvio.Text = "Eliminar";
+            this.eliminarEnvio.Click += new System.EventHandler(this.eliminarEnvio_Click);
             // 
             // CUControlPatio
             // 
@@ -1791,6 +1844,9 @@
             this.PlFiltros.ResumeLayout(false);
             this.PlCerrar.ResumeLayout(false);
             this.PlContenedor.ResumeLayout(false);
+            this.PlProceso.ResumeLayout(false);
+            this.PlProceso.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.PlCambio.ResumeLayout(false);
             this.PlCambio.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -1808,9 +1864,6 @@
             this.PlEnvio.ResumeLayout(false);
             this.PlEnvio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).EndInit();
-            this.PlProceso.ResumeLayout(false);
-            this.PlProceso.PerformLayout();
-            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1856,9 +1909,6 @@
         private System.Windows.Forms.Panel PlControl;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.Panel PlDatos;
-        private System.Windows.Forms.ToolStripLabel TSLTendido;
-        private System.Windows.Forms.ToolStripLabel TSLEnfarde;
-        private System.Windows.Forms.ToolStripLabel TSLEnvio;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label LblCert;
         private System.Windows.Forms.Label LblDanio;
@@ -1952,5 +2002,14 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label LblProceso;
         private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.ToolStripSplitButton TSLTendido;
+        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarTendido;
+        private System.Windows.Forms.ToolStripSplitButton TSLEnfarde;
+        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem eliminarEnfarde;
+        private System.Windows.Forms.ToolStripSplitButton TSLEnvio;
+        private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem eliminarEnvio;
     }
 }

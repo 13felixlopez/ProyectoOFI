@@ -1,44 +1,61 @@
-﻿using ProyectoOFI.Datos;
-using ProyectoOFI.Logica;
-using ProyectoOFI.Otros;
-using ProyectoOFI.Reportes;
-using ProyectoOFI.Services;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DataTable = System.Data.DataTable;
-using Point = System.Drawing.Point;
-
-namespace ProyectoOFI.ControlPatio
+﻿namespace ProyectoOFI.ControlPatio
 {
+    using ProyectoOFI.Datos;
+    using ProyectoOFI.Logica;
+    using ProyectoOFI.Otros;
+    using ProyectoOFI.Reportes;
+    using ProyectoOFI.Services;
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Drawing;
+    using System.Linq;
+    using System.Threading.Tasks;
+    using System.Windows.Forms;
+    using DataTable = System.Data.DataTable;
+    using Point = System.Drawing.Point;
+
     public partial class CUControlPatio : UserControl
     {
-        bool Search;
-        int desde = 1;
-        int hasta = 100;
+        internal bool Search;
+
+        internal int desde = 1;
+
+        internal int hasta = 100;
+
         private int items_por_pagina = 100;
-        int totalPaginas;
-        int Contador, edit, editenf, editEn;
-        int ContarBusqueda;
-        string Modulo;
-        string Ticket, Estado;
-        DateTime Frecibido;
-        string Proceso;
-        int IdTendido, IdEnfarde, IdEnvio;
-        int dias, Rechazos;
-        int diasEdit;
-        List<string> filtro = new List<string>();
+
+        internal int totalPaginas;
+
+        internal int Contador, edit, editenf, editEn;
+
+        internal int ContarBusqueda;
+
+        internal string Modulo;
+
+        internal string Ticket, Estado;
+
+        internal DateTime Frecibido;
+
+        internal string Proceso;
+
+        internal int IdTendido, IdEnfarde, IdEnvio;
+
+        internal int dias, Rechazos;
+
+        internal int diasEdit;
+
+        internal List<string> filtro = new List<string>();
+
         private readonly ApiService _apiService;
+
         public CUControlPatio()
         {
             InitializeComponent();
             _apiService = new ApiService();
             ValidarPermisos();
         }
+
         private async void CUControlPatio_Load(object sender, EventArgs e)
         {
             PlCarga.Dock = DockStyle.Fill;
@@ -47,6 +64,7 @@ namespace ProyectoOFI.ControlPatio
             Base.DiseñoDtv(ref dtInventariocp);
             PlCarga.Visible = false;
         }
+
         private async Task CargarDatos()
         {
             await Task.Delay(1500);
@@ -56,6 +74,7 @@ namespace ProyectoOFI.ControlPatio
             LlenarCheckBoxList();
             await Task.Delay(1000);
         }
+
         private void MostrarLotes()
         {
             System.Data.DataTable dt = new DataTable();
@@ -65,6 +84,7 @@ namespace ProyectoOFI.ControlPatio
             dtInventariocp.Columns["Proceso"].Visible = false;
             Base.DiseñoDtvEliminar(ref dtInventariocp);
         }
+
         private void LlenarCheckBoxList()
         {
             // Limpiar el CheckListBox antes de llenarlo
@@ -76,7 +96,7 @@ namespace ProyectoOFI.ControlPatio
                 CLBFiltros.Items.Add(column.HeaderText);
             }
         }
-        #region Paginado
+
         private void ReiniciarPaginado()
         {
             desde = 1;
@@ -101,6 +121,7 @@ namespace ProyectoOFI.ControlPatio
             }
             Paginar();
         }
+
         private void Contar()
         {
             DRecepcion funcion = new DRecepcion();
@@ -117,6 +138,7 @@ namespace ProyectoOFI.ControlPatio
                 funcion.ContarTKCP(ref Contador);
             }
         }
+
         private void Paginar()
         {
             try
@@ -130,6 +152,7 @@ namespace ProyectoOFI.ControlPatio
 
             }
         }
+
         private void btn_atras_Click(object sender, EventArgs e)
         {
             desde -= 100;
@@ -174,6 +197,7 @@ namespace ProyectoOFI.ControlPatio
             }
             Paginar();
         }
+
         private void btn_Sig_Click(object sender, EventArgs e)
         {
             desde += 100;
@@ -214,6 +238,7 @@ namespace ProyectoOFI.ControlPatio
             }
             Paginar();
         }
+
         private void btn_Ultima_Click(object sender, EventArgs e)
         {
             hasta = totalPaginas * items_por_pagina;
@@ -254,6 +279,7 @@ namespace ProyectoOFI.ControlPatio
             }
             Paginar();
         }
+
         private void btn_Primera_Click(object sender, EventArgs e)
         {
             ReiniciarPaginado();
@@ -281,7 +307,7 @@ namespace ProyectoOFI.ControlPatio
                 MostrarLotes();
             }
         }
-        #endregion
+
         private void dtInventariocp_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             ObtenerTK();
@@ -314,6 +340,7 @@ namespace ProyectoOFI.ControlPatio
                 TipoProceso();
             }
         }
+
         private void TipoProceso()
         {
             if (Proceso == "No Asignado" || Proceso == "")
@@ -458,6 +485,7 @@ namespace ProyectoOFI.ControlPatio
                 }
             }
         }
+
         private void Rechazado()
         {
             LblFReTendido.Visible = true;
@@ -493,7 +521,6 @@ namespace ProyectoOFI.ControlPatio
 
             PlControl.Location = new System.Drawing.Point(newX, newY);
 
-
             PlControl.Visible = true;
             PlControl.BringToFront();
             plOpciones.Enabled = false;
@@ -513,6 +540,7 @@ namespace ProyectoOFI.ControlPatio
             Ten.MostrarAreaSecado(CbDestino);
             Ten.MostrarEstFis(CbEstFis);
         }
+
         private void ObtenerDatos()
         {
             DControlPatio funcion = new DControlPatio();
@@ -563,6 +591,7 @@ namespace ProyectoOFI.ControlPatio
                 MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void Limpiar()
         {
             LblTicket.Text = "--";
@@ -592,6 +621,7 @@ namespace ProyectoOFI.ControlPatio
             LblDigiEnvio.Text = "--";
             dtInventariocp.Enabled = true;
         }
+
         private void BtnCerrarDetalleCp_Click(object sender, EventArgs e)
         {
             PlControl.Visible = false;
@@ -617,6 +647,7 @@ namespace ProyectoOFI.ControlPatio
             Limpiar();
             PlControl.Refresh();
         }
+
         private void ObtenerTK()
         {
             string nombrecolumna = "Ticket";
@@ -627,6 +658,7 @@ namespace ProyectoOFI.ControlPatio
             int num = dtInventariocp.Columns[nombrecolum].Index;
             Estado = dtInventariocp.SelectedCells[num].Value.ToString();
         }
+
         private void InsertarTendido()
         {
             if (validar())
@@ -657,6 +689,7 @@ namespace ProyectoOFI.ControlPatio
                 }
             }
         }
+
         private void InsertarReTendido()
         {
             if (validar())
@@ -687,6 +720,7 @@ namespace ProyectoOFI.ControlPatio
                 }
             }
         }
+
         private void EditarTendido()
         {
             if (validar())
@@ -731,6 +765,7 @@ namespace ProyectoOFI.ControlPatio
                 }
             }
         }
+
         private void BtnTendido_Click(object sender, EventArgs e)
         {
             if (BtnTendido.Text == "Tendido")
@@ -760,13 +795,14 @@ namespace ProyectoOFI.ControlPatio
                 Limpiar();
             }
             plOpciones.Enabled = true;
-            //Limpiar();
         }
+
         private void CbPatio_SelectedIndexChanged(object sender, EventArgs e)
         {
             DControlPatio funcion = new DControlPatio();
             funcion.MostrarPatioUbicacion(CbUbicacionP, (int)CbPatio.SelectedValue);
         }
+
         private void TSLTendido_Click(object sender, EventArgs e)
         {
             ValidarPermisos();
@@ -782,6 +818,7 @@ namespace ProyectoOFI.ControlPatio
                 BtnTendido.Text = "Actualizar";
             }
         }
+
         private bool validar()
         {
             double entero;
@@ -791,6 +828,7 @@ namespace ProyectoOFI.ControlPatio
             }
             return !(TxtFolio.Text == "" || CbPatio.Text == "" || CbUbicacionP.Text == "");
         }
+
         private void BtnEnfarde_Click(object sender, EventArgs e)
         {
             if (BtnEnfarde.Text == "Enfarde")
@@ -821,6 +859,7 @@ namespace ProyectoOFI.ControlPatio
             plOpciones.Enabled = true;
             Limpiar();
         }
+
         private void TSLEnfarde_Click(object sender, EventArgs e)
         {
             ValidarPermisos();
@@ -841,6 +880,7 @@ namespace ProyectoOFI.ControlPatio
                 DtpReEnfarde.Enabled = true;
             }
         }
+
         private void DTPEnfarde_ValueChanged(object sender, EventArgs e)
         {
             DateTime Enfarde = DTPEnfarde.Value;
@@ -851,6 +891,7 @@ namespace ProyectoOFI.ControlPatio
             DtpReEnfarde.Value = DTPEnfarde.Value;
             LblDtotal.Text = dias.ToString();
         }
+
         private void InsertarEnfarde()
         {
             if (validarEnfarde())
@@ -885,6 +926,7 @@ namespace ProyectoOFI.ControlPatio
                 MessageBox.Show("Existen campos vacios", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void InsertarReEnfarde()
         {
             if (validarEnfarde())
@@ -920,6 +962,7 @@ namespace ProyectoOFI.ControlPatio
                 MessageBox.Show("Existen campos vacios", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private bool validarEnfarde()
         {
             double entero;
@@ -929,6 +972,7 @@ namespace ProyectoOFI.ControlPatio
             }
             return !(TxtSacosEnfardados.Text == "" || TxtHumedadLevante.Text == "");
         }
+
         private void TSLEnvio_Click(object sender, EventArgs e)
         {
             ValidarPermisos();
@@ -944,6 +988,7 @@ namespace ProyectoOFI.ControlPatio
                 BtnEnviar.Text = "Actualizar";
             }
         }
+
         private void BtnEnviar_Click(object sender, EventArgs e)
         {
             if (BtnEnviar.Text == "Enviar")
@@ -961,6 +1006,7 @@ namespace ProyectoOFI.ControlPatio
             plOpciones.Enabled = true;
             Limpiar();
         }
+
         private void VerTendido()
         {
             DControlPatio funcion = new DControlPatio();
@@ -1023,6 +1069,7 @@ namespace ProyectoOFI.ControlPatio
                 MessageBox.Show("No se pudieron cargar los datos Tendido " + ex.Message, "ERROR Tendido", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void VerEnfarde()
         {
             DControlPatio funcion = new DControlPatio();
@@ -1117,6 +1164,7 @@ namespace ProyectoOFI.ControlPatio
                 MessageBox.Show("No se pudieron cargar los datos Tendido " + ex.Message, "ERROR Tendido", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void EditarEnfarde()
         {
             if (validar())
@@ -1157,6 +1205,7 @@ namespace ProyectoOFI.ControlPatio
                 }
             }
         }
+
         private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
         {
             DRecepcion funcion = new DRecepcion();
@@ -1197,6 +1246,7 @@ namespace ProyectoOFI.ControlPatio
                 PlFiltroFecha.Visible = true;
             }
         }
+
         private void TextBuscarVisible()
         {
             txtBuscador.Clear();
@@ -1207,6 +1257,7 @@ namespace ProyectoOFI.ControlPatio
             PlFiltroFecha.Visible = false;
             BtnBuscar.Visible = false;
         }
+
         private void CbDestino_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CbDestino.Text == "Secado Mecánico")
@@ -1218,6 +1269,7 @@ namespace ProyectoOFI.ControlPatio
                 CbEstFis.Text = "Seco";
             }
         }
+
         private async void PbExcel_Click(object sender, EventArgs e)
         {
             DControlPatio funcion = new DControlPatio();
@@ -1226,11 +1278,8 @@ namespace ProyectoOFI.ControlPatio
             string Nombre = "Control de Patio ";
             FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
             LT.ShowDialog();
-            //PlCarga.Visible = true;
-            //PlCarga.Dock = DockStyle.Fill;
-            //await GetExcelControlPatio();
-            //PlCarga.Visible = false;
         }
+
         private async Task GetExcelControlPatio()
         {
             DataTable dt = new DataTable();
@@ -1247,6 +1296,7 @@ namespace ProyectoOFI.ControlPatio
                 MessageBox.Show("Error al cargar los datos", "Api error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private DataTable ConvertToDataTable<T>(List<T> data)
         {
             DataTable dt = new DataTable();
@@ -1285,6 +1335,7 @@ namespace ProyectoOFI.ControlPatio
             CbDestino.Text = "Secado Mecánico";
             CbDestino.Enabled = false;
         }
+
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             PlFiltros.Visible = false;
@@ -1356,6 +1407,7 @@ namespace ProyectoOFI.ControlPatio
             FiltrarColumnas();
             PlFiltros.Visible = false;
         }
+
         private void FiltrarColumnas()
         {
             foreach (DataGridViewColumn column in dtInventariocp.Columns)
@@ -1439,6 +1491,7 @@ namespace ProyectoOFI.ControlPatio
         {
             BuscarAreaSecado();
         }
+
         private void BuscarAreaSecado()
         {
             DControlPatio funcion = new DControlPatio();
@@ -1471,6 +1524,7 @@ namespace ProyectoOFI.ControlPatio
                 throw;
             }
         }
+
         private void BtnCerrarCambio_Click(object sender, EventArgs e)
         {
             PlCambio.Visible = false;
@@ -1566,6 +1620,132 @@ namespace ProyectoOFI.ControlPatio
                 MessageBox.Show("Ha ocurrido un error", "ERROR ✖️✖️", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ValidarPermisos();
+            if (PlTendido.Enabled == true)
+            {
+                PlTendido.Enabled = false;
+                BtnTendido.Text = "Tendido";
+            }
+            else
+            {
+                BtnTendido.Visible = true;
+                PlTendido.Enabled = true;
+                BtnTendido.Text = "Actualizar";
+            }
+        }
+
+        private void eliminarTendido_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Esta seguro de eliminar este Tendido, Desea Continuar?", "Eliminando registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                ElminarTendido();
+            }
+        }
+
+        private void ElminarTendido()
+        {
+            LControlPatio parametros = new LControlPatio();
+            DControlPatio funcion = new DControlPatio();
+            parametros.IdTendido = IdTendido;
+            parametros.Digitador = Login.NombreA;
+            parametros.ProcesoCP = Proceso;
+            if (funcion.EliminarTendido(parametros) == true)
+            {
+                Limpiar();
+                PlControl.Visible = false;
+            }
+            plOpciones.Enabled = true;
+        }
+
+        private void editarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ValidarPermisos();
+            if (PlEnfarde.Enabled == true)
+            {
+                PlEnfarde.Enabled = false;
+                BtnEnfarde.Text = "Enfarde";
+            }
+            else
+            {
+                BtnEnfarde.Visible = true;
+                PlEnfarde.Enabled = true;
+                BtnEnfarde.Enabled = true;
+                DTPEnfarde.Enabled = true;
+                TxtSacosEnfardados.Enabled = true;
+                TxtHumedadLevante.Enabled = true;
+                BtnEnfarde.Text = "Actualizar";
+                DtpReEnfarde.Enabled = true;
+            }
+        }
+
+        private void eliminarEnfarde_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Esta seguro de eliminar este enfarde, Desea Continuar?", "Eliminando registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                ElminarEnfarde();
+            }
+        }
+
+        private void ElminarEnfarde()
+        {
+            LControlPatio parametros = new LControlPatio();
+            DControlPatio funcion = new DControlPatio();
+            parametros.IdTendido = IdTendido;
+            parametros.IdEnfarde = IdEnfarde;
+            parametros.Digitador = Login.NombreA;
+            parametros.ProcesoCP = Proceso;
+            if (funcion.EliminarEnfarde(parametros) == true)
+            {
+                Limpiar();
+                PlControl.Visible = false;
+            }
+            plOpciones.Enabled = true;
+        }
+
+        private void editarToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            ValidarPermisos();
+            if (PlEnvio.Enabled == true)
+            {
+                PlEnvio.Enabled = false;
+                BtnEnviar.Text = "Envio";
+            }
+            else
+            {
+                BtnEnviar.Visible = true;
+                PlEnvio.Enabled = true;
+                BtnEnviar.Text = "Actualizar";
+            }
+        }
+
+        private void eliminarEnvio_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("¿Esta seguro de eliminar este envio, Desea Continuar?", "Eliminando registro", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (result == DialogResult.OK)
+            {
+                EliminarEnvio();
+            }
+        }
+        private void EliminarEnvio()
+        {
+            LControlPatio parametros = new LControlPatio();
+            DControlPatio funcion = new DControlPatio();
+            parametros.IdTendido = IdTendido;
+            parametros.IdEnvio = IdEnvio;
+            parametros.Digitador = Login.NombreA;
+            parametros.ProcesoCP = Proceso;
+            if (funcion.EliminarEnvio(parametros) == true)
+            {
+                Limpiar();
+                PlControl.Visible = false;
+            }
+            plOpciones.Enabled = true;
+        }
         private bool validarEnvio()
         {
             return !(string.IsNullOrEmpty(TxtDNIN.Text) || string.IsNullOrEmpty(CbEstFis.Text) || string.IsNullOrEmpty(CbDestino.Text));
@@ -1642,6 +1822,7 @@ namespace ProyectoOFI.ControlPatio
                 MessageBox.Show("No se pudieron cargar los datos Tendido " + ex.Message, "ERROR Tendido", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void EditarEnvio()
         {
             if (validarEnvio())
@@ -1676,6 +1857,7 @@ namespace ProyectoOFI.ControlPatio
                 }
             }
         }
+
         private void Buscar()
         {
             DataTable dt = new DataTable();
@@ -1685,6 +1867,7 @@ namespace ProyectoOFI.ControlPatio
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventariocp);
         }
+
         private void BuscarTk()
         {
             DataTable dt = new DataTable();
@@ -1694,6 +1877,7 @@ namespace ProyectoOFI.ControlPatio
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventariocp);
         }
+
         private void BuscarFechaCP()
         {
             DataTable dt = new DataTable();
@@ -1703,6 +1887,7 @@ namespace ProyectoOFI.ControlPatio
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventariocp);
         }
+
         private void ValidarPermisos()
         {
             DataTable dt = new DataTable();
@@ -1772,6 +1957,5 @@ namespace ProyectoOFI.ControlPatio
                 TSLEnvio.Enabled = true;
             }
         }
-
     }
 }

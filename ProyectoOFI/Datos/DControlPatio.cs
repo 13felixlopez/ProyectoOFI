@@ -222,6 +222,33 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public bool EliminarTendido(LControlPatio parametros)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EliminarTendido", Conexion.conectar)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@IdTendido", parametros.IdTendido);
+                cmd.Parameters.AddWithValue("@Usuario", parametros.Digitador);
+                cmd.Parameters.AddWithValue("@ProcesoCP",parametros.ProcesoCP);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("El registro ha sido eliminado.", "Eliminado con éxito ✅", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Eliminar Tendido " + ex.Message, "Error aļ Eliminar Tendido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en EliminarTendido ✖️✖️ " + ex.Message);
+                return true;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
         #endregion
         #region MostrarCombos
         public void MostrarPatio(ComboBox combo)
@@ -456,6 +483,34 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public bool EliminarEnfarde(LControlPatio parametros)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EliminarEnfarde", Conexion.conectar)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@IdTendido", parametros.IdTendido);
+                cmd.Parameters.AddWithValue("@IdEnfarde", parametros.IdEnfarde);
+                cmd.Parameters.AddWithValue("@Usuario", parametros.Digitador);
+                cmd.Parameters.AddWithValue("@ProcesoCP", parametros.ProcesoCP);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("El registro ha sido eliminado.", "Eliminado con éxito ✅", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Eliminar Enfarde " + ex.Message, "Error aļ Eliminar Enfarde", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en EliminarEnfarde ✖️✖️ " + ex.Message);
+                return true;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
         #endregion
         #region Envio
         public bool InsertarEnvio(LControlPatio parametros)
@@ -528,6 +583,34 @@ namespace ProyectoOFI.Datos
                 MessageBox.Show("No se ha podido editar el registro " + ex.Message, "ERROR al actualizar datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en EditarEnvio ✖️✖️" + ex.Message);
                 return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+        public bool EliminarEnvio(LControlPatio parametros)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("EliminarEnvioCP", Conexion.conectar)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@IdTendido", parametros.IdTendido);
+                cmd.Parameters.AddWithValue("@IdEnvio", parametros.IdEnvio);
+                cmd.Parameters.AddWithValue("@Usuario", parametros.Digitador);
+                cmd.Parameters.AddWithValue("@ProcesoCP", parametros.ProcesoCP);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("El registro ha sido eliminado.", "Eliminado con éxito ✅", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Eliminar Envio " + ex.Message, "Error aļ Eliminar Envio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en EliminarEnvio ✖️✖️ " + ex.Message);
+                return true;
             }
             finally
             {

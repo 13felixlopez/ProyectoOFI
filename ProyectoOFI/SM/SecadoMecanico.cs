@@ -23,6 +23,7 @@ namespace ProyectoOFI.SM
         int IdVer;
         string origen;
         string Modulo;
+        int IDTV, IdPOA, IdGuardiola, IdPS, IdEnvioSM, IdPre;
         Label labelPreSeco = new Label();
         DataTable SM = new DataTable();
         public SecadoMecanico()
@@ -323,6 +324,8 @@ namespace ProyectoOFI.SM
                 {
                     //Componer la captura de fechas formato dia/mes/año hora/min/seg
                     DataRow dr = dt.Rows[0];
+                    IdPOA = int.Parse(dr["IdPOA"].ToString());
+                    IdPre = int.Parse(dr["IdPre"].ToString());
                     if (dr["HoradesIn"].ToString() != null)
                     {
                         //TimeSpan horaMinutos = (TimeSpan)dr["HoradesIn"];
@@ -606,6 +609,7 @@ namespace ProyectoOFI.SM
                 {
                     DataRow row = dt.Rows[0];
                     double kilos;
+                    IDTV = int.Parse(row["IDTV"].ToString());
                     if (row["Certificacion"].ToString() != null)
                     {
                         LblCert.Text = row["Certificacion"].ToString();

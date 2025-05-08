@@ -1920,6 +1920,7 @@
                 BtnEnviar.Visible = true;
                 toolStrip1.Visible = true;
                 BtnCambio.Visible = true;
+                BtnProceso.Visible = true;
             }
             else if (tieneAgregarSN)
             {
@@ -1936,6 +1937,7 @@
                 BtnEnfarde.Visible = false;
                 BtnEnviar.Visible = false;
                 toolStrip1.Visible = true;
+                BtnProceso.Visible = true;
             }
             else
             {
@@ -1955,6 +1957,7 @@
                 TSLTendido.Enabled = true;
                 TSLEnfarde.Enabled = true;
                 TSLEnvio.Enabled = true;
+                BtnProceso.Visible = true;
             }
         }
     }

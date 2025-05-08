@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CUControlPatio));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Sig = new System.Windows.Forms.Button();
             this.btn_Primera = new System.Windows.Forms.Button();
             this.btn_Ultima = new System.Windows.Forms.Button();
@@ -961,7 +961,7 @@
             this.LblMsj.Dock = System.Windows.Forms.DockStyle.Top;
             this.LblMsj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.LblMsj.ForeColor = System.Drawing.Color.Red;
-            this.LblMsj.Location = new System.Drawing.Point(0, 491);
+            this.LblMsj.Location = new System.Drawing.Point(0, 456);
             this.LblMsj.Name = "LblMsj";
             this.LblMsj.Size = new System.Drawing.Size(957, 34);
             this.LblMsj.TabIndex = 5;
@@ -989,7 +989,7 @@
             this.PlEnfarde.Controls.Add(this.TxtSacosEnfardados);
             this.PlEnfarde.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlEnfarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlEnfarde.Location = new System.Drawing.Point(0, 356);
+            this.PlEnfarde.Location = new System.Drawing.Point(0, 321);
             this.PlEnfarde.Name = "PlEnfarde";
             this.PlEnfarde.Size = new System.Drawing.Size(957, 135);
             this.PlEnfarde.TabIndex = 18;
@@ -1162,7 +1162,7 @@
             this.PlTendido.Controls.Add(this.label1);
             this.PlTendido.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlTendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlTendido.Location = new System.Drawing.Point(0, 221);
+            this.PlTendido.Location = new System.Drawing.Point(0, 186);
             this.PlTendido.Name = "PlTendido";
             this.PlTendido.Size = new System.Drawing.Size(957, 135);
             this.PlTendido.TabIndex = 17;
@@ -1300,6 +1300,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(957, 35);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Visible = false;
             // 
             // TSLTendido
             // 
@@ -1575,6 +1576,7 @@
             this.BtnProceso.Size = new System.Drawing.Size(51, 44);
             this.BtnProceso.TabIndex = 6;
             this.BtnProceso.UseVisualStyleBackColor = true;
+            this.BtnProceso.Visible = false;
             this.BtnProceso.Click += new System.EventHandler(this.BtnProceso_Click);
             // 
             // LblTituloCP
@@ -1615,7 +1617,7 @@
             this.PlEnvio.Controls.Add(this.TxtDNIN);
             this.PlEnvio.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PlEnvio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlEnvio.Location = new System.Drawing.Point(0, 525);
+            this.PlEnvio.Location = new System.Drawing.Point(0, 490);
             this.PlEnvio.Name = "PlEnvio";
             this.PlEnvio.Size = new System.Drawing.Size(957, 135);
             this.PlEnvio.TabIndex = 20;
@@ -1715,37 +1717,37 @@
             this.dtInventariocp.AllowUserToDeleteRows = false;
             this.dtInventariocp.AllowUserToOrderColumns = true;
             this.dtInventariocp.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.NullValue = "--";
-            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.NullValue = "--";
+            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dtInventariocp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventariocp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventariocp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dtInventariocp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.NullValue = "--";
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.NullValue = "--";
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle15;
             this.dtInventariocp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventariocp.Location = new System.Drawing.Point(0, 62);
             this.dtInventariocp.Name = "dtInventariocp";
             this.dtInventariocp.ReadOnly = true;
             this.dtInventariocp.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dtInventariocp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventariocp.ShowCellToolTips = false;
             this.dtInventariocp.ShowEditingIcon = false;

@@ -3,6 +3,7 @@ using ProyectoOFI.Logica;
 using ProyectoOFI.Usuario;
 using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Windows.Forms;
 
@@ -26,10 +27,12 @@ namespace ProyectoOFI
         private int clickCount = 0;
         private DateTime lastClickTime = DateTime.MinValue;
         private const int DoubleClickThreshold = 500;
+        string DB;
         public Login()
         {
             InitializeComponent();
             CrearArchivo();
+            NombreDB();
         }
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
@@ -100,10 +103,33 @@ namespace ProyectoOFI
                 login = null;
             }
         }
+        private void NombreDB()
+        {
+            try
+            {
+                // Obtener la cadena de conexión desencriptada
+                string connectionString = Desencryptacion.checkServer().ToString();
+
+                // Mostrar la cadena completa (opcional, para debug)
+                //txtCadenaCompleta.Text = connectionString;
+
+                // Parsear la cadena de conexión
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder(connectionString);
+
+                // Mostrar datos en los controles del formulario
+                DB = builder.InitialCatalog;
+                LblDB.Text = DB;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar la configuración: " + ex.Message,
+                               "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void VerificarConexion()
         {
             DUsuarios funcion = new DUsuarios();
-            funcion.VerificarUsuario(ref Indicador);
+            funcion.VerificarUsuario(ref Indicador,DB);
         }
         private void Login_Load(object sender, EventArgs e)
         {
@@ -163,7 +189,7 @@ namespace ProyectoOFI
                     {
                         //Task.Delay(10000);
                         CambiarServidor.Visible = true;
-
+                        LblDB.Visible = true;
                         // Reinicia el contador
                         clickCount = 0;
                     }

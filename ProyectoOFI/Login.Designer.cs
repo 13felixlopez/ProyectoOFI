@@ -45,6 +45,7 @@
             this.Lblrestablecer = new System.Windows.Forms.LinkLabel();
             this.BtnInicio = new System.Windows.Forms.Button();
             this.PbLogo = new System.Windows.Forms.PictureBox();
+            this.LblDB = new System.Windows.Forms.Label();
             this.PlTitulo.SuspendLayout();
             this.PlUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -56,6 +57,7 @@
             // 
             // PlTitulo
             // 
+            this.PlTitulo.Controls.Add(this.LblDB);
             this.PlTitulo.Controls.Add(this.CambiarServidor);
             this.PlTitulo.Controls.Add(this.BtnCerrar);
             this.PlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
@@ -92,7 +94,7 @@
             // label1
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(636, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(460, 163);
@@ -226,6 +228,18 @@
             this.PbLogo.TabIndex = 1;
             this.PbLogo.TabStop = false;
             // 
+            // LblDB
+            // 
+            this.LblDB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.LblDB.Location = new System.Drawing.Point(49, 0);
+            this.LblDB.Name = "LblDB";
+            this.LblDB.Size = new System.Drawing.Size(362, 52);
+            this.LblDB.TabIndex = 8;
+            this.LblDB.Text = "--";
+            this.LblDB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblDB.Visible = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -275,5 +289,6 @@
         private System.Windows.Forms.LinkLabel Lblrestablecer;
         private System.Windows.Forms.Button BtnInicio;
         private System.Windows.Forms.Button CambiarServidor;
+        private System.Windows.Forms.Label LblDB;
     }
 }

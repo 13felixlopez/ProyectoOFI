@@ -348,6 +348,7 @@ namespace ProyectoOFI.Recepcion
                 parametros.Ticket = txtTK.Text.Replace(" ", "");
                 parametros.FRecibido = Convert.ToDateTime(dtpRecibido.Text);
                 parametros.Patio = CbPatio.Text;
+                parametros.UbicacionRec = CbUbicacionRec.Text;
                 parametros.IdArea = int.Parse(cbArea.SelectedValue.ToString());
                 parametros.MTNR = txtMTNR.Text;
                 parametros.IdEstFis = int.Parse(cbEstadoFisico.SelectedValue.ToString());
@@ -1238,6 +1239,7 @@ namespace ProyectoOFI.Recepcion
                         parametros.FRecibido = Convert.ToDateTime(dtpRecibido.Text);
                         parametros.IdArea = int.Parse(cbArea.SelectedValue.ToString());
                         parametros.Patio = CbPatio.Text;
+                        parametros.UbicacionRec = CbUbicacionRec.Text;
                         parametros.MTNR = txtMTNR.Text;
                         parametros.IdEstFis = int.Parse(cbEstadoFisico.SelectedValue.ToString());
                         parametros.IdCalidad = int.Parse(cbCalidad.SelectedValue.ToString());
@@ -1448,6 +1450,7 @@ namespace ProyectoOFI.Recepcion
                                              $"- Tally: {TxtTally.Text}\n" +
                                              $"- Fecha Recibido: {dtpRecibido.Text}\n" +
                                              $"- Patio: {CbPatio.Text}\n" +
+                                             $"- Patio: {CbUbicacionRec.Text}\n" +
                                              $"- Área Secado: {cbArea.Text}\n" +
                                              $"- MTNR: {txtMTNR.Text}\n" +
                                              $"- Estado Físico: {cbEstadoFisico.Text}\n" +
@@ -1539,13 +1542,16 @@ namespace ProyectoOFI.Recepcion
             if (CbAreaCons.Text == "Control Patio")
             {
                 CbPatioCons.Enabled = true;
+                CbUbicacionCons.Enabled = true;
                 DControlPatio fun = new DControlPatio();
                 fun.MostrarPatio(CbPatioCons);
             }
             else
             {
                 CbPatioCons.Text = "SM";
+                CbUbicacionCons.Text = "SM";
                 CbPatioCons.Enabled = false;
+                CbUbicacionCons.Enabled = false;
             }
 
         }
@@ -1922,6 +1928,7 @@ namespace ProyectoOFI.Recepcion
                 parametros.Daño = Daño;
                 parametros.Digitador = Login.NombreA;
                 parametros.Patio = CbPatioCons.Text;
+                parametros.UbicacionRec = CbUbicacionCons.Text;
                 parametros.IdArea = int.Parse(CbAreaCons.SelectedValue.ToString());
                 string folio = TxtFolio.Text;
                 string proceso = "No Asignado";
@@ -2099,13 +2106,16 @@ namespace ProyectoOFI.Recepcion
             if (cbArea.Text == "Control Patio")
             {
                 CbPatio.Enabled = true;
+                CbUbicacionRec.Enabled = true;
                 DControlPatio fun = new DControlPatio();
                 fun.MostrarPatio(CbPatio);
             }
             else
             {
                 CbPatio.Text = "SM";
+                CbUbicacionRec.Text = "SM";
                 CbPatio.Enabled = false;
+                CbUbicacionRec.Enabled = false;
             }
         }
 
@@ -2132,6 +2142,33 @@ namespace ProyectoOFI.Recepcion
                 }
             }
         }
+
+        private void CbPatio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CbPatio.Text == "SM")
+            {
+                CbUbicacionRec.Text = "SM";
+            }
+            else
+            {
+                DControlPatio funcion = new DControlPatio();
+                funcion.MostrarPatioUbicacion(CbUbicacionRec, (int)CbPatio.SelectedValue);
+            }
+        }
+
+        private void CbPatioCons_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CbPatioCons.Text == "SM")
+            {
+                CbUbicacionCons.Text = "SM";
+            }
+            else
+            {
+                DControlPatio funcion = new DControlPatio();
+                funcion.MostrarPatioUbicacion(CbUbicacionCons, (int)CbPatioCons.SelectedValue);
+            }
+        }
+
         private void ValidarPermisos()
         {
             DataTable dt = new DataTable();

@@ -42,6 +42,7 @@
             this.txtIp = new System.Windows.Forms.TextBox();
             this.btnConectar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnProbar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).BeginInit();
             this.SuspendLayout();
@@ -171,7 +172,7 @@
             this.btnConectar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConectar.Image = global::ProyectoOFI.Properties.Resources.icons8_ok_32;
             this.btnConectar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConectar.Location = new System.Drawing.Point(116, 302);
+            this.btnConectar.Location = new System.Drawing.Point(198, 302);
             this.btnConectar.Margin = new System.Windows.Forms.Padding(2);
             this.btnConectar.Name = "btnConectar";
             this.btnConectar.Size = new System.Drawing.Size(112, 39);
@@ -192,11 +193,23 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Ingresa nombre del servidor o \r\ndireccion IP para la conexion";
             // 
+            // btnProbar
+            // 
+            this.btnProbar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProbar.Location = new System.Drawing.Point(27, 305);
+            this.btnProbar.Name = "btnProbar";
+            this.btnProbar.Size = new System.Drawing.Size(108, 31);
+            this.btnProbar.TabIndex = 28;
+            this.btnProbar.Text = "Probar";
+            this.btnProbar.UseVisualStyleBackColor = true;
+            this.btnProbar.Click += new System.EventHandler(this.btnProbar_Click);
+            // 
             // FrmConexionIP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(332, 375);
+            this.Controls.Add(this.btnProbar);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TXTbasededatos);
@@ -212,6 +225,7 @@
             this.Name = "FrmConexionIP";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmConexionIP";
+            this.Load += new System.EventHandler(this.FrmConexionIP_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).EndInit();
@@ -235,5 +249,6 @@
         private System.Windows.Forms.TextBox txtIp;
         private System.Windows.Forms.Button btnConectar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnProbar;
     }
 }

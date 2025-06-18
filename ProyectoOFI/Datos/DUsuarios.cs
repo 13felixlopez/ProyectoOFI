@@ -2,6 +2,7 @@
 using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace ProyectoOFI.Datos
@@ -69,21 +70,46 @@ namespace ProyectoOFI.Datos
             }
             finally { Conexion.cerrar(); }
         }
-        public void VerificarUsuario(ref string Indicador)
+        public void VerificarUsuario(ref string Indicador, string db)
         {
             try
             {
-                int IdUser;
+                // Validar el nombre de la base de datos
+                if (!Regex.IsMatch(db, @"^[\w]+$"))
+                {
+                    Indicador = "Nombre de base de datos inválido";
+                    return;
+                }
+
                 Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("Select IdUser from Usuarios", Conexion.conectar);
-                IdUser = Convert.ToInt32(cmd.ExecuteScalar());
+
+                // Consulta segura usando QUOTENAME para escapar el nombre
+                string query = $@"
+            SELECT TOP 1 TABLE_NAME 
+            FROM {EscapeDatabaseName(db)}.INFORMATION_SCHEMA.TABLES 
+            WHERE TABLE_TYPE = 'BASE TABLE'";
+
+                SqlCommand cmd = new SqlCommand(query, Conexion.conectar);
+
+                // Si devuelve algún resultado, hay al menos una tabla
+                var resultado = cmd.ExecuteScalar();
                 Conexion.cerrar();
-                Indicador = "Correcto";
+
+                Indicador = (resultado != null)
+                    ? "Correcto. Primera tabla: " + resultado.ToString()
+                    : "No se encontraron tablas";
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Indicador = "Incorrecto";
+                Indicador = "Error de conexión: " + ex.Message;
             }
+        }
+
+        // Función para escapar nombres de bases de datos de forma segura
+        private string EscapeDatabaseName(string dbName)
+        {
+            // Usamos QUOTENAME para prevenir inyección SQL y manejar nombres especiales
+            return $"[{dbName.Replace("]", "]]")}]";
         }
         public DataTable D_Usuarios(LUsuarios parametros)
         {

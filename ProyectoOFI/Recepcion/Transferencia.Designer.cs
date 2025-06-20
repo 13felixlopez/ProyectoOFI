@@ -66,6 +66,8 @@
             this.PlAlerta = new System.Windows.Forms.Panel();
             this.LblAlerta = new System.Windows.Forms.Label();
             this.PRecepcion = new System.Windows.Forms.Panel();
+            this.label19 = new System.Windows.Forms.Label();
+            this.CbUbicacionRec = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.CbPatio = new System.Windows.Forms.ComboBox();
             this.CHBConsSM = new System.Windows.Forms.CheckBox();
@@ -172,6 +174,8 @@
             this.PnTKCons = new System.Windows.Forms.Panel();
             this.dtTKCons = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CbUbicacionCons = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.CbPatioCons = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.LblMermaC = new System.Windows.Forms.Label();
@@ -209,10 +213,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label19 = new System.Windows.Forms.Label();
-            this.CbUbicacionRec = new System.Windows.Forms.ComboBox();
-            this.CbUbicacionCons = new System.Windows.Forms.ComboBox();
-            this.label21 = new System.Windows.Forms.Label();
             this.PlEnvio.SuspendLayout();
             this.PlRecepcion.SuspendLayout();
             this.PlAlerta.SuspendLayout();
@@ -620,6 +620,31 @@
             this.PRecepcion.Size = new System.Drawing.Size(1235, 291);
             this.PRecepcion.TabIndex = 106;
             this.PRecepcion.Visible = false;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(329, 119);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(150, 17);
+            this.label19.TabIndex = 159;
+            this.label19.Text = "Ubicación de Patio*";
+            // 
+            // CbUbicacionRec
+            // 
+            this.CbUbicacionRec.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbUbicacionRec.FormattingEnabled = true;
+            this.CbUbicacionRec.Items.AddRange(new object[] {
+            "Patio OFI",
+            "OFI Cerro",
+            "Secado Mecánico",
+            "Verticales"});
+            this.CbUbicacionRec.Location = new System.Drawing.Point(329, 146);
+            this.CbUbicacionRec.Name = "CbUbicacionRec";
+            this.CbUbicacionRec.Size = new System.Drawing.Size(163, 24);
+            this.CbUbicacionRec.TabIndex = 158;
+            this.CbUbicacionRec.Text = "--";
             // 
             // label13
             // 
@@ -1983,6 +2008,26 @@
             this.panel1.Size = new System.Drawing.Size(422, 123);
             this.panel1.TabIndex = 3;
             // 
+            // CbUbicacionCons
+            // 
+            this.CbUbicacionCons.Enabled = false;
+            this.CbUbicacionCons.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbUbicacionCons.FormattingEnabled = true;
+            this.CbUbicacionCons.Location = new System.Drawing.Point(712, 79);
+            this.CbUbicacionCons.Name = "CbUbicacionCons";
+            this.CbUbicacionCons.Size = new System.Drawing.Size(155, 24);
+            this.CbUbicacionCons.TabIndex = 148;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(709, 60);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(124, 16);
+            this.label21.TabIndex = 147;
+            this.label21.Text = "Ubicación de Patio:";
+            // 
             // CbPatioCons
             // 
             this.CbPatioCons.Enabled = false;
@@ -2423,51 +2468,6 @@
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(329, 119);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(150, 17);
-            this.label19.TabIndex = 159;
-            this.label19.Text = "Ubicación de Patio*";
-            // 
-            // CbUbicacionRec
-            // 
-            this.CbUbicacionRec.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CbUbicacionRec.FormattingEnabled = true;
-            this.CbUbicacionRec.Items.AddRange(new object[] {
-            "Patio OFI",
-            "OFI Cerro",
-            "Secado Mecánico",
-            "Verticales"});
-            this.CbUbicacionRec.Location = new System.Drawing.Point(329, 146);
-            this.CbUbicacionRec.Name = "CbUbicacionRec";
-            this.CbUbicacionRec.Size = new System.Drawing.Size(163, 24);
-            this.CbUbicacionRec.TabIndex = 158;
-            this.CbUbicacionRec.Text = "--";
-            // 
-            // CbUbicacionCons
-            // 
-            this.CbUbicacionCons.Enabled = false;
-            this.CbUbicacionCons.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CbUbicacionCons.FormattingEnabled = true;
-            this.CbUbicacionCons.Location = new System.Drawing.Point(712, 79);
-            this.CbUbicacionCons.Name = "CbUbicacionCons";
-            this.CbUbicacionCons.Size = new System.Drawing.Size(155, 24);
-            this.CbUbicacionCons.TabIndex = 148;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(709, 60);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(124, 16);
-            this.label21.TabIndex = 147;
-            this.label21.Text = "Ubicación de Patio:";
             // 
             // Transferencia
             // 

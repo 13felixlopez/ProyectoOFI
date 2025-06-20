@@ -41,71 +41,79 @@ namespace ProyectoOFI.Reportes
         }
         private async void FrmHistorial_Load(object sender, EventArgs e)
         {
-            PlCarga.Dock = DockStyle.Fill;
-            await CargarDatos();
-            DtHistorial.Columns["IdHistorial"].Visible = false;
-            PlCarga.Visible = false;
-            CargarEncabezadosEnComboBox();
-        }
-        private void MostrarHistorial()
-        {
-            DHistorial funcion = new DHistorial();
-            DataTable dt = new DataTable();
-            funcion.MostrarHistorial(ref dt, desde, hasta);
-            DtHistorial.DataSource = dt;
-        }
-        private async Task CargarDatos()
-        {
-            await Task.Delay(1500);
-            DtHistorial.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            MostrarHistorial();
+            await MostrarHistorialAsync();        // página inicial
             ReiniciarPaginado();
-            await Task.Delay(1000);
+            CargarEncabezadosEnComboBox();        // lo que tenías
         }
+        private bool _cargando;                       // evita clics repetidos
+        private DataGridViewAutoSizeColumnsMode _modoOriginal;
+
+        private async Task MostrarHistorialAsync()
+        {
+            if (_cargando) return;                    // ya hay una carga en curso
+            _cargando = true;
+
+            // --- Feedback al usuario ---
+            PlCarga.Dock = DockStyle.Fill;
+            PlCarga.Visible = true;
+
+            // --- Acelera la actualización ---
+            DtHistorial.SuspendLayout();
+            _modoOriginal = DtHistorial.AutoSizeColumnsMode;
+            DtHistorial.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+
+            // --- Carga real en hilo de trabajo ---
+            var dt = await Task.Run(() =>
+            {
+                var tabla = new DataTable();
+                tabla.BeginLoadData();
+                new DHistorial().MostrarHistorial(ref tabla, desde, hasta);  // usa paginación
+                tabla.EndLoadData();
+                return tabla;
+            });
+
+            // --- Enlace y formato ---
+            DtHistorial.DataSource = dt;
+            DtHistorial.Columns["IdHistorial"].Visible = false;
+            DtHistorial.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+            DtHistorial.AutoSizeColumnsMode = _modoOriginal;
+            DtHistorial.ResumeLayout();
+
+            // --- Fin ---
+            PlCarga.Visible = false;
+            _cargando = false;
+        }
+
+        //private async Task CargarDatos()
+        //{
+        //    await Task.Delay(1500);
+        //    DtHistorial.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+        //    MostrarHistorial();
+        //    ReiniciarPaginado();
+        //    await Task.Delay(1000);
+        //}
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
         #region Paginado Btn
-        private void btn_atras_Click(object sender, EventArgs e)
+        private async void btn_atras_Click(object sender, EventArgs e)
         {
             desde -= 100;
             hasta -= 100;
-            if (txtBuscador.Text != "")
-            {
-                BuscarTK();
-            }
-            else if (CbBuscador.Visible == true)
-            {
-                BuscarDatos();
-            }
-            else if (PlFiltroFecha.Visible == true)
-            {
-                BuscarRangoFecha();
-            }
-            else
-            {
-                MostrarHistorial();
-            }
-            Contar();
-            if (Contador > hasta)
-            {
-                btn_Sig.Visible = true;
-                btn_atras.Visible = true;
-            }
-            else
-            {
-                btn_Sig.Visible = false;
-                btn_atras.Visible = true;
-            }
-            if (desde == 1)
-            {
-                ReiniciarPaginado();
-            }
-            Paginar();
-        }
 
-        private void BuscarDatos()
+            if (!string.IsNullOrEmpty(txtBuscador.Text))
+                await BuscarTKAsync();
+            else if (CbBuscador.Visible)
+                await BuscarDatosAsync();
+            else if (PlFiltroFecha.Visible)
+                await BuscarRangoFechaAsync();
+            else
+                await MostrarHistorialAsync();
+
+            ActualizarPaginadoYBotones();
+        }
+        private async Task BuscarDatosAsync()
         {
             DataTable dt = new DataTable();
             DHistorial funcion = new DHistorial();
@@ -115,62 +123,41 @@ namespace ProyectoOFI.Reportes
             ContarBusqueda = int.Parse(funcion.Contador.ToString());
         }
 
-        private void btn_Sig_Click(object sender, EventArgs e)
+        private async void btn_Sig_Click(object sender, EventArgs e)
         {
             desde += 100;
             hasta += 100;
-            if (txtBuscador.Text != "")
-            {
-                BuscarTK();
-            }
-            else if (CbBuscador.Visible == true)
-            {
-                BuscarDatos();
-            }
-            else if (PlFiltroFecha.Visible == true)
-            {
-                BuscarRangoFecha();
-            }
+
+            if (!string.IsNullOrEmpty(txtBuscador.Text))
+                await BuscarTKAsync();
+            else if (CbBuscador.Visible)
+                await BuscarDatosAsync();
+            else if (PlFiltroFecha.Visible)
+                await BuscarRangoFechaAsync();
             else
-            {
-                MostrarHistorial();
-            }
-            Contar();
-            if (Contador > hasta)
-            {
-                btn_Sig.Visible = true;
-                btn_atras.Visible = true;
-            }
-            else
-            {
-                btn_Sig.Visible = false;
-                btn_atras.Visible = true;
-            }
-            if (desde == 1)
-            {
-                ReiniciarPaginado();
-            }
-            Paginar();
+                await MostrarHistorialAsync();
+
+            ActualizarPaginadoYBotones();
         }
-        private void btn_Ultima_Click(object sender, EventArgs e)
+        private async void btn_Ultima_Click(object sender, EventArgs e)
         {
             hasta = totalPaginas * items_por_pagina;
             desde = hasta - 99;
             if (txtBuscador.Text != "")
             {
-                BuscarTK();
+               await BuscarTKAsync();
             }
             else if (CbBuscador.Visible == true)
             {
-                BuscarDatos();
+                await BuscarDatosAsync();
             }
             else if (PlFiltroFecha.Visible == true)
             {
-                BuscarRangoFecha();
+                await BuscarRangoFechaAsync();
             }
             else
             {
-                MostrarHistorial();
+                await MostrarHistorialAsync();
             }
             Contar();
             if (Contador > hasta)
@@ -185,24 +172,24 @@ namespace ProyectoOFI.Reportes
             }
             Paginar();
         }
-        private void btn_Primera_Click(object sender, EventArgs e)
+        private async void btn_Primera_Click(object sender, EventArgs e)
         {
             ReiniciarPaginado();
             if (txtBuscador.Text != "")
             {
-                BuscarTK();
+                await BuscarTKAsync();
             }
             else if (CbBuscador.Visible == true)
             {
-                BuscarDatos();
+                await BuscarDatosAsync();
             }
             else if (PlFiltroFecha.Visible == true)
             {
-                BuscarRangoFecha();
+                await BuscarRangoFechaAsync();
             }
             else
             {
-                MostrarHistorial();
+                await MostrarHistorialAsync();
             }
         }
         #endregion
@@ -290,7 +277,7 @@ namespace ProyectoOFI.Reportes
                 CbBuscar.SelectedIndex = 0;
             }
         }
-        private void BuscarTK()
+        private async Task BuscarTKAsync()
         {
             DataTable dt = new DataTable();
             DHistorial funcion = new DHistorial();
@@ -299,7 +286,7 @@ namespace ProyectoOFI.Reportes
             DtHistorial.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.Contador.ToString());
         }
-        private void BuscarRangoFecha()
+        private async Task BuscarRangoFechaAsync()
         {
             DataTable dt = new DataTable();
             DHistorial funcion = new DHistorial();
@@ -332,28 +319,28 @@ namespace ProyectoOFI.Reportes
             }
         }
 
-        private void BtnFiltroFecha_Click(object sender, EventArgs e)
+        private async void BtnFiltroFecha_Click(object sender, EventArgs e)
         {
-            BuscarRangoFecha();
+            await BuscarRangoFechaAsync();
             ReiniciarPaginado();
         }
 
-        private void txtBuscador_TextChanged(object sender, EventArgs e)
+        private async void txtBuscador_TextChanged(object sender, EventArgs e)
         {
-            BuscarTK();
+            await BuscarTKAsync();
             ReiniciarPaginado();
         }
 
-        private void CbBuscador_SelectedIndexChanged(object sender, EventArgs e)
+        private async void CbBuscador_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CbBuscador.Text == "")
             {
                 ReiniciarPaginado();
-                MostrarHistorial();
+                await MostrarHistorialAsync();
             }
             else
             {
-                BuscarDatos();
+                await BuscarDatosAsync();
                 ReiniciarPaginado();
             }
         }
@@ -367,5 +354,13 @@ namespace ProyectoOFI.Reportes
             FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
             LT.ShowDialog();
         }
+        private void ActualizarPaginadoYBotones()
+        {
+            Contar();                               // tu método actual
+            btn_atras.Visible = desde > 1;
+            btn_Sig.Visible = Contador > hasta;
+            Paginar();                              // pinta "Página X de N"
+        }
+
     }
 }

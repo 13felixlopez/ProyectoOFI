@@ -159,15 +159,6 @@
             this.PnConsolidar = new System.Windows.Forms.Panel();
             this.PnTickets = new System.Windows.Forms.Panel();
             this.DtTickets = new System.Windows.Forms.DataGridView();
-            this.Tickets = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaRecibido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sacos = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PesoE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Certificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EsFisico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cali = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Danio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PlBuscar = new System.Windows.Forms.Panel();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -213,6 +204,16 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Tickets = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaRecibido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sacos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PesoE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Certificacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EsFisico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cali = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Danio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProcesoRec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PlEnvio.SuspendLayout();
             this.PlRecepcion.SuspendLayout();
             this.PlAlerta.SuspendLayout();
@@ -1815,7 +1816,8 @@
             this.Certificacion,
             this.EsFisico,
             this.Cali,
-            this.Danio});
+            this.Danio,
+            this.ProcesoRec});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1835,60 +1837,6 @@
             this.DtTickets.Size = new System.Drawing.Size(422, 14);
             this.DtTickets.TabIndex = 0;
             this.DtTickets.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtTickets_CellDoubleClick);
-            // 
-            // Tickets
-            // 
-            this.Tickets.HeaderText = "Ticket";
-            this.Tickets.Name = "Tickets";
-            this.Tickets.ReadOnly = true;
-            // 
-            // FechaRecibido
-            // 
-            this.FechaRecibido.HeaderText = "Fecha Recibido";
-            this.FechaRecibido.Name = "FechaRecibido";
-            this.FechaRecibido.ReadOnly = true;
-            // 
-            // Sacos
-            // 
-            this.Sacos.HeaderText = "Sacos";
-            this.Sacos.Name = "Sacos";
-            this.Sacos.ReadOnly = true;
-            // 
-            // Peso
-            // 
-            this.Peso.HeaderText = "Peso";
-            this.Peso.Name = "Peso";
-            this.Peso.ReadOnly = true;
-            // 
-            // PesoE
-            // 
-            this.PesoE.HeaderText = "Peso Envio";
-            this.PesoE.Name = "PesoE";
-            this.PesoE.ReadOnly = true;
-            // 
-            // Certificacion
-            // 
-            this.Certificacion.HeaderText = "Certificación";
-            this.Certificacion.Name = "Certificacion";
-            this.Certificacion.ReadOnly = true;
-            // 
-            // EsFisico
-            // 
-            this.EsFisico.HeaderText = "Estado Fisico";
-            this.EsFisico.Name = "EsFisico";
-            this.EsFisico.ReadOnly = true;
-            // 
-            // Cali
-            // 
-            this.Cali.HeaderText = "Calidad";
-            this.Cali.Name = "Cali";
-            this.Cali.ReadOnly = true;
-            // 
-            // Danio
-            // 
-            this.Danio.HeaderText = "Daño";
-            this.Danio.Name = "Danio";
-            this.Danio.ReadOnly = true;
             // 
             // PlBuscar
             // 
@@ -2469,6 +2417,66 @@
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
             // 
+            // Tickets
+            // 
+            this.Tickets.HeaderText = "Ticket";
+            this.Tickets.Name = "Tickets";
+            this.Tickets.ReadOnly = true;
+            // 
+            // FechaRecibido
+            // 
+            this.FechaRecibido.HeaderText = "Fecha Recibido";
+            this.FechaRecibido.Name = "FechaRecibido";
+            this.FechaRecibido.ReadOnly = true;
+            // 
+            // Sacos
+            // 
+            this.Sacos.HeaderText = "Sacos";
+            this.Sacos.Name = "Sacos";
+            this.Sacos.ReadOnly = true;
+            // 
+            // Peso
+            // 
+            this.Peso.HeaderText = "Peso";
+            this.Peso.Name = "Peso";
+            this.Peso.ReadOnly = true;
+            // 
+            // PesoE
+            // 
+            this.PesoE.HeaderText = "Peso Envio";
+            this.PesoE.Name = "PesoE";
+            this.PesoE.ReadOnly = true;
+            // 
+            // Certificacion
+            // 
+            this.Certificacion.HeaderText = "Certificación";
+            this.Certificacion.Name = "Certificacion";
+            this.Certificacion.ReadOnly = true;
+            // 
+            // EsFisico
+            // 
+            this.EsFisico.HeaderText = "Estado Fisico";
+            this.EsFisico.Name = "EsFisico";
+            this.EsFisico.ReadOnly = true;
+            // 
+            // Cali
+            // 
+            this.Cali.HeaderText = "Calidad";
+            this.Cali.Name = "Cali";
+            this.Cali.ReadOnly = true;
+            // 
+            // Danio
+            // 
+            this.Danio.HeaderText = "Daño";
+            this.Danio.Name = "Danio";
+            this.Danio.ReadOnly = true;
+            // 
+            // ProcesoRec
+            // 
+            this.ProcesoRec.HeaderText = "Proceso";
+            this.ProcesoRec.Name = "ProcesoRec";
+            this.ProcesoRec.ReadOnly = true;
+            // 
             // Transferencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2684,15 +2692,6 @@
         private System.Windows.Forms.CheckBox ChUA;
         private System.Windows.Forms.Label LblMermaC;
         private System.Windows.Forms.Label LblPesoe;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Tickets;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaRecibido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Sacos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Peso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PesoE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Certificacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EsFisico;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cali;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Danio;
         private System.Windows.Forms.Button BtnBuscar;
         private System.Windows.Forms.ComboBox CbPatio;
         private System.Windows.Forms.Label label13;
@@ -2703,5 +2702,15 @@
         private System.Windows.Forms.ComboBox CbUbicacionRec;
         private System.Windows.Forms.ComboBox CbUbicacionCons;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tickets;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaRecibido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sacos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Peso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PesoE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Certificacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EsFisico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cali;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Danio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProcesoRec;
     }
 }

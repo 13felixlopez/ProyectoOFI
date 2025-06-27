@@ -40,6 +40,8 @@ namespace ProyectoOFI.Recepcion
         private Form FrmActivo = null;
 
         List<string> permisosUsuario = new List<string>();
+
+        string ConstProceso;
         public Transferencia()
         {
             InitializeComponent();
@@ -425,6 +427,8 @@ namespace ProyectoOFI.Recepcion
         }
         private void dtInventario_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            // 1) Ignora clics en encabezados
+            if (e.RowIndex < 0) return;
             CargarCombos();
             ObtenerTK();
             ObtenerDatos();
@@ -940,19 +944,26 @@ namespace ProyectoOFI.Recepcion
             if (e.ColumnIndex == dtInventario.Columns["Consolidar"].Index)
             {
                 Datos();
-                plfooter.Visible = false;
-                plOpciones.Visible = false;
-                PnConsolidar.Visible = true;
-                PnConsolidar.Dock = DockStyle.Fill;
-                LblTextsacos.Visible = false;
-                LblSacosSM.Visible = false;
-                if (CertificacionE == "Convencional")
+                if (ConstProceso == "No Asignado")
                 {
-                    CbCertCons.Enabled = false;
+                    plfooter.Visible = false;
+                    plOpciones.Visible = false;
+                    PnConsolidar.Visible = true;
+                    PnConsolidar.Dock = DockStyle.Fill;
+                    LblTextsacos.Visible = false;
+                    LblSacosSM.Visible = false;
+                    if (CertificacionE == "Convencional")
+                    {
+                        CbCertCons.Enabled = false;
+                    }
+                    else
+                    {
+                        CbCertCons.Enabled = true;
+                    }
                 }
                 else
                 {
-                    CbCertCons.Enabled = true;
+                    MessageBox.Show("La Ticket ya tiene un proceso asignado", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 //Consolidar cons = new Consolidar(Calidad, CertificacionE, EstadoFisico, Daño);
                 //cons.Dock = DockStyle.Fill;
@@ -980,10 +991,15 @@ namespace ProyectoOFI.Recepcion
             indice = dtInventario.Columns[nombrecolumna].Index;
             parametros.Daño = dtInventario.SelectedCells[indice].Value.ToString();
 
+            nombrecolumna = "Proceso";
+            indice = dtInventario.Columns[nombrecolumna].Index;
+            ConstProceso = dtInventario.SelectedCells[indice].Value.ToString();
+
             Calidad = parametros.Calidad;
             CertificacionE = par.CertificacionE;
             EstadoFisico = parametros.EstadoFisico;
             Daño = parametros.Daño;
+
 
             funcion.MostrarCert(CbCertCons);
             funcion.MostrarAreaSecado(CbAreaCons);
@@ -2169,6 +2185,70 @@ namespace ProyectoOFI.Recepcion
             }
         }
 
+        private void DtVerCons_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
+            {
+                // 1) Ignora clics en encabezados
+                if (e.RowIndex < 0) return;
+
+                // 2) Obtiene valores indispensables
+                var fila = DtVerCons.Rows[e.RowIndex];
+                string ticket = fila.Cells["Ticket"].Value?.ToString() ?? string.Empty;
+                string ticketCons = txtTK.Text?.Trim() ?? string.Empty;
+
+                if (string.IsNullOrEmpty(ticket) || string.IsNullOrEmpty(ticketCons))
+                {
+                    MessageBox.Show("No se pudo determinar el ticket o el consolidado.",
+                                    "Datos incompletos",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // 3) Confirmación con el usuario
+                var resp = MessageBox.Show(
+                    $"¿Desea quitar el ticket {ticket} del consolidado {ticketCons}?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button2);
+
+                if (resp != DialogResult.Yes) return;   // usuario canceló
+
+                // 4) Llama al procedimiento y muestra resultado
+                try
+                {
+                    var funcion = new DRecepcion();
+                    bool ok = funcion.EditarConst(ticketCons, ticket);
+
+                    if (ok)
+                    {
+                        MessageBox.Show($"Se quitó el ticket {ticket} del consolidado {ticketCons}.",
+                                        "Operación exitosa",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Information);
+
+                        // refresca la grilla si procede
+                        // MostrarHistorial();  // o tu método de recarga
+                    }
+                    else
+                    {
+                        MessageBox.Show("La operación no pudo completarse.",
+                                        "Sin cambios",
+                                        MessageBoxButtons.OK,
+                                        MessageBoxIcon.Warning);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ocurrió un error:\n{ex.Message}",
+                                    "Error",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                }
+            }
+        }
         private void ValidarPermisos()
         {
             DataTable dt = new DataTable();

@@ -999,5 +999,65 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public bool EditarConst(string ticketConst, string ticket)
+        {
+            try
+            {
+                //-- Abrir conexión
+                Conexion.abrir();
+
+                using (var cmd = new SqlCommand("dbo.EditarConst", Conexion.conectar))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandTimeout = 60;                     // opcional
+
+                    //-- Parámetros de entrada
+                    cmd.Parameters.Add("@TicketConst", SqlDbType.VarChar, 30).Value = ticketConst;
+                    cmd.Parameters.Add("@Ticket", SqlDbType.VarChar, 30).Value = ticket;
+
+                    //-- Parámetro de salida (@Msg)
+                    var pMsg = cmd.Parameters.Add("@Msg", SqlDbType.NVarChar, 200);
+                    pMsg.Direction = ParameterDirection.Output;
+
+                    //-- Ejecutar
+                    cmd.ExecuteNonQuery();
+
+                    //-- Leer el mensaje que devuelve el SP
+                    string mensaje = pMsg.Value?.ToString() ?? "Operación completada.";
+
+                    MessageBox.Show(mensaje,
+                                    "Resultado",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+
+                    return true;
+                }
+            }
+            catch (SqlException ex)          // errores de SQL Server
+            {
+                MessageBox.Show($"Error SQL ({ex.Number}): {ex.Message}",
+                                "No se pudo completar la operación",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+
+                Log.Writeerror($"SQL Error en EditarConst ► {ex}");
+                return false;
+            }
+            catch (Exception ex)             // cualquier otro error
+            {
+                MessageBox.Show($"Error inesperado: {ex.Message}",
+                                "No se pudo completar la operación",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+
+                Log.Writeerror($"Error genérico en EditarConst ► {ex}");
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();           // se cierra aunque haya error
+            }
+        }
+
     }
 }

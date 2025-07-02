@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.PlTitulo = new System.Windows.Forms.Panel();
+            this.LblDB = new System.Windows.Forms.Label();
             this.CambiarServidor = new System.Windows.Forms.Button();
             this.BtnCerrar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtUser = new System.Windows.Forms.TextBox();
             this.PlUser = new System.Windows.Forms.Panel();
@@ -45,7 +45,10 @@
             this.Lblrestablecer = new System.Windows.Forms.LinkLabel();
             this.BtnInicio = new System.Windows.Forms.Button();
             this.PbLogo = new System.Windows.Forms.PictureBox();
-            this.LblDB = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.PlTitulo.SuspendLayout();
             this.PlUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -53,6 +56,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.PlBotones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbLogo)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PlTitulo
@@ -65,6 +69,18 @@
             this.PlTitulo.Name = "PlTitulo";
             this.PlTitulo.Size = new System.Drawing.Size(460, 52);
             this.PlTitulo.TabIndex = 0;
+            // 
+            // LblDB
+            // 
+            this.LblDB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.LblDB.Location = new System.Drawing.Point(49, 0);
+            this.LblDB.Name = "LblDB";
+            this.LblDB.Size = new System.Drawing.Size(362, 52);
+            this.LblDB.TabIndex = 8;
+            this.LblDB.Text = "--";
+            this.LblDB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblDB.Visible = false;
             // 
             // CambiarServidor
             // 
@@ -91,18 +107,6 @@
             this.BtnCerrar.UseVisualStyleBackColor = true;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(636, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(460, 163);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Bienvenidos a\r\nCoffeeTec \r\nofi";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDown);
-            // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -128,7 +132,7 @@
             this.PlUser.Controls.Add(this.label2);
             this.PlUser.Controls.Add(this.TxtUser);
             this.PlUser.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PlUser.Location = new System.Drawing.Point(636, 215);
+            this.PlUser.Location = new System.Drawing.Point(636, 236);
             this.PlUser.Name = "PlUser";
             this.PlUser.Size = new System.Drawing.Size(460, 100);
             this.PlUser.TabIndex = 5;
@@ -149,7 +153,7 @@
             this.PlPass.Controls.Add(this.label3);
             this.PlPass.Controls.Add(this.TxtPass);
             this.PlPass.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PlPass.Location = new System.Drawing.Point(636, 315);
+            this.PlPass.Location = new System.Drawing.Point(636, 336);
             this.PlPass.Name = "PlPass";
             this.PlPass.Size = new System.Drawing.Size(460, 100);
             this.PlPass.TabIndex = 6;
@@ -189,7 +193,7 @@
             this.PlBotones.Controls.Add(this.Lblrestablecer);
             this.PlBotones.Controls.Add(this.BtnInicio);
             this.PlBotones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PlBotones.Location = new System.Drawing.Point(636, 415);
+            this.PlBotones.Location = new System.Drawing.Point(636, 436);
             this.PlBotones.Name = "PlBotones";
             this.PlBotones.Size = new System.Drawing.Size(460, 100);
             this.PlBotones.TabIndex = 7;
@@ -219,8 +223,9 @@
             // 
             // PbLogo
             // 
+            this.PbLogo.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PbLogo.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PbLogo.Image = global::ProyectoOFI.Properties.Resources.Logo;
+            this.PbLogo.Image = global::ProyectoOFI.Properties.Resources.DRY_SYSTEM;
             this.PbLogo.Location = new System.Drawing.Point(0, 0);
             this.PbLogo.Name = "PbLogo";
             this.PbLogo.Size = new System.Drawing.Size(636, 645);
@@ -228,17 +233,51 @@
             this.PbLogo.TabIndex = 1;
             this.PbLogo.TabStop = false;
             // 
-            // LblDB
+            // panel1
             // 
-            this.LblDB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LblDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.LblDB.Location = new System.Drawing.Point(49, 0);
-            this.LblDB.Name = "LblDB";
-            this.LblDB.Size = new System.Drawing.Size(362, 52);
-            this.LblDB.TabIndex = 8;
-            this.LblDB.Text = "--";
-            this.LblDB.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.LblDB.Visible = false;
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(636, 52);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(460, 184);
+            this.panel1.TabIndex = 8;
+            // 
+            // label6
+            // 
+            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label6.Font = new System.Drawing.Font("Montserrat", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(248)))), ((int)(((byte)(141)))), ((int)(((byte)(0)))));
+            this.label6.Location = new System.Drawing.Point(219, 79);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(241, 105);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "SYSTEM";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label5
+            // 
+            this.label5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label5.Font = new System.Drawing.Font("Montserrat", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(0)))), ((int)(((byte)(100)))));
+            this.label5.Location = new System.Drawing.Point(0, 79);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(219, 105);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "DRY";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label4
+            // 
+            this.label4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(460, 79);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Bienvenidos a";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Login
             // 
@@ -248,7 +287,7 @@
             this.Controls.Add(this.PlBotones);
             this.Controls.Add(this.PlPass);
             this.Controls.Add(this.PlUser);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.PlTitulo);
             this.Controls.Add(this.PbLogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -267,6 +306,7 @@
             this.PlBotones.ResumeLayout(false);
             this.PlBotones.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbLogo)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -276,7 +316,6 @@
         private System.Windows.Forms.Panel PlTitulo;
         private System.Windows.Forms.PictureBox PbLogo;
         private System.Windows.Forms.Button BtnCerrar;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtUser;
         private System.Windows.Forms.Panel PlUser;
@@ -290,5 +329,9 @@
         private System.Windows.Forms.Button BtnInicio;
         private System.Windows.Forms.Button CambiarServidor;
         private System.Windows.Forms.Label LblDB;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -847,6 +847,7 @@
     <None Include="Resources\icons8-información-480.png" />
     <None Include="Resources\icons8-buscador-32.png" />
     <None Include="Resources\icons8-búsqueda-64.png" />
+    <None Include="Resources\DRY SYSTEM.png" />
     <Content Include="Ultima.sql" />
     <None Include="Resources\split_52966371.png" />
     <None Include="Resources\split_5296637.png" />

@@ -136,7 +136,7 @@ namespace ProyectoOFI
             Validar_Conexion();
             TxtUser.Focus();
             // Suscribir el evento MouseDown al label
-            label1.MouseDown += new MouseEventHandler(label1_MouseDown);
+            label5.MouseDown += new MouseEventHandler(label1_MouseDown);
         }
         private void CrearArchivo()
         {

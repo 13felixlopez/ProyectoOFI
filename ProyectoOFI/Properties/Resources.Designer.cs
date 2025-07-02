@@ -283,6 +283,16 @@ namespace ProyectoOFI.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DRY_SYSTEM {
+            get {
+                object obj = ResourceManager.GetObject("DRY SYSTEM", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit_property_30px {
             get {
                 object obj = ResourceManager.GetObject("edit_property_30px", resourceCulture);

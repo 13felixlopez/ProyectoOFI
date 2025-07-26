@@ -82,7 +82,7 @@
             // pbIcono
             // 
             this.pbIcono.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pbIcono.Image = global::ProyectoOFI.Properties.Resources.Logo;
+            this.pbIcono.Image = global::ProyectoOFI.Properties.Resources.DRY_SYSTEM;
             this.pbIcono.Location = new System.Drawing.Point(0, 0);
             this.pbIcono.Name = "pbIcono";
             this.pbIcono.Size = new System.Drawing.Size(101, 74);

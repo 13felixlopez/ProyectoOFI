@@ -35,6 +35,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.BtnEditar = new System.Windows.Forms.Button();
             this.BtnGuardar = new System.Windows.Forms.Button();
+            this.TxtTara = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TxtCapacidad = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.TxtEmpaque = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.DtEmpaque = new System.Windows.Forms.DataGridView();
@@ -44,10 +48,6 @@
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TxtCapacidad = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TxtTara = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtEmpaque)).BeginInit();
             this.PlTitulo.SuspendLayout();
@@ -99,6 +99,38 @@
             this.BtnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnGuardar.UseVisualStyleBackColor = true;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
+            // 
+            // TxtTara
+            // 
+            this.TxtTara.Location = new System.Drawing.Point(463, 86);
+            this.TxtTara.Name = "TxtTara";
+            this.TxtTara.Size = new System.Drawing.Size(128, 26);
+            this.TxtTara.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(361, 89);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Tara Saco:";
+            // 
+            // TxtCapacidad
+            // 
+            this.TxtCapacidad.Location = new System.Drawing.Point(107, 86);
+            this.TxtCapacidad.Name = "TxtCapacidad";
+            this.TxtCapacidad.Size = new System.Drawing.Size(219, 26);
+            this.TxtCapacidad.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 89);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Capacidad:";
             // 
             // TxtEmpaque
             // 
@@ -211,7 +243,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.Logo;
+            this.pictureBox1.Image = global::ProyectoOFI.Properties.Resources.DRY_SYSTEM;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 63);
@@ -227,38 +259,6 @@
             this.dataGridViewImageColumn1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ReadOnly = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 89);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Capacidad:";
-            // 
-            // TxtCapacidad
-            // 
-            this.TxtCapacidad.Location = new System.Drawing.Point(107, 86);
-            this.TxtCapacidad.Name = "TxtCapacidad";
-            this.TxtCapacidad.Size = new System.Drawing.Size(219, 26);
-            this.TxtCapacidad.TabIndex = 1;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(361, 89);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 20);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Tara Saco:";
-            // 
-            // TxtTara
-            // 
-            this.TxtTara.Location = new System.Drawing.Point(463, 86);
-            this.TxtTara.Name = "TxtTara";
-            this.TxtTara.Size = new System.Drawing.Size(128, 26);
-            this.TxtTara.TabIndex = 1;
             // 
             // FrmEmpaque
             // 

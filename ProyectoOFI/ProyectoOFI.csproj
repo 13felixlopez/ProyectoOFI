@@ -57,7 +57,7 @@
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
-    <ApplicationIcon>Logo.ico</ApplicationIcon>
+    <ApplicationIcon>Logo2.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>C4E0308A376B80707D3F538CA2C124C230459CE3</ManifestCertificateThumbprint>
@@ -835,6 +835,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CoffeeTech.sql" />
+    <Content Include="DRYSYSTEM.ico" />
     <Content Include="Logo.ico" />
     <None Include="Resources\split_52966372.png" />
     <None Include="Resources\split_5296637o.png" />
@@ -848,6 +849,7 @@
     <None Include="Resources\icons8-buscador-32.png" />
     <None Include="Resources\icons8-búsqueda-64.png" />
     <None Include="Resources\DRY SYSTEM.png" />
+    <Content Include="Logo2.ico" />
     <Content Include="Ultima.sql" />
     <None Include="Resources\split_52966371.png" />
     <None Include="Resources\split_5296637.png" />

@@ -1219,10 +1219,16 @@ namespace ProyectoOFI.Analisis
                 }
 
                 texto += "<p>Este cambio fue realizado el día <b>" + Fecha + "</b>.</p>" +
-                        "<hr style='border: 0; border-top: 1px solid #ccc;' />" +
-                        "<p>Saludos cordiales,<br>Equipo de Soporte<br><b>ofi Sistema de seguimiento de lotes</b></p>" +
-                        "</body>" +
-                        "</html>";
+    "<hr style='border: 0; border-top: 1px solid #ccc;' />" +
+    "<p>Saludos cordiales,<br>Equipo de Soporte<br>" +
+    "<b>" +
+    "<span style='font-size: 20px; font-weight: bold; color: rgb(135, 0, 100);'>Dry</span> " +
+    "<span style='font-size: 20px; font-weight: bold; color: rgb(248, 141, 0);'>System</span> " +
+    "ofi Sistema de seguimiento de lotes" +
+    "</b></p>" +
+    "</body>" +
+    "</html>";
+
 
                 // Si hay un mensaje, realizar acción
                 if (!string.IsNullOrEmpty(texto))
@@ -1249,7 +1255,7 @@ namespace ProyectoOFI.Analisis
                 //List<string> destinatarios = new List<string> { "lfelixlopez732@gmail.com" };
 
                 // Definir asunto y cuerpo del correo
-                string asunto = "Coffeetec ofi Sistema de seguimiento de lotes: Notificación de Cambios";
+                string asunto = "Dry System ofi Sistema de seguimiento de lotes: Notificación de Cambios";
                 string cuerpo = mensaje;
 
                 // Llamar al método enviarCorreo de la clase Recuperacion

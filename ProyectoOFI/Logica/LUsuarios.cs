@@ -8,5 +8,6 @@
         public string Estado { get; set; }
         public string Correo { get; set; }
         public string Login { get; set; }
+        public string Patio { get; set; }
     }
 }

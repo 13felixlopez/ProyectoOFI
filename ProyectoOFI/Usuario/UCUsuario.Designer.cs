@@ -78,6 +78,8 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.CbPatio = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.Plheader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbBuscar)).BeginInit();
             this.panel1.SuspendLayout();
@@ -209,6 +211,8 @@
             // 
             // PlRegistro
             // 
+            this.PlRegistro.Controls.Add(this.CbPatio);
+            this.PlRegistro.Controls.Add(this.label4);
             this.PlRegistro.Controls.Add(this.PlPass);
             this.PlRegistro.Controls.Add(this.panel11);
             this.PlRegistro.Controls.Add(this.TxtUser);
@@ -653,6 +657,28 @@
             this.panel6.Size = new System.Drawing.Size(1576, 26);
             this.panel6.TabIndex = 3;
             // 
+            // CbPatio
+            // 
+            this.CbPatio.BackColor = System.Drawing.SystemColors.Control;
+            this.CbPatio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CbPatio.FormattingEnabled = true;
+            this.CbPatio.Items.AddRange(new object[] {
+            "Todo"});
+            this.CbPatio.Location = new System.Drawing.Point(173, 398);
+            this.CbPatio.Name = "CbPatio";
+            this.CbPatio.Size = new System.Drawing.Size(221, 28);
+            this.CbPatio.TabIndex = 669;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label4.Location = new System.Drawing.Point(104, 402);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 20);
+            this.label4.TabIndex = 668;
+            this.label4.Text = "Patio:";
+            // 
             // UCUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -733,5 +759,7 @@
         private System.Windows.Forms.DataGridView DtPermisos;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Marcar;
         private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.ComboBox CbPatio;
+        private System.Windows.Forms.Label label4;
     }
 }

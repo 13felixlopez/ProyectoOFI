@@ -21,6 +21,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
                 cmd.Parameters.AddWithValue("@Correo", parametros.Correo);
                 cmd.Parameters.AddWithValue("@Login", parametros.Login);
+                cmd.Parameters.AddWithValue("@Patio", parametros.Patio);
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -170,6 +171,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@Correo", parametros.Correo);
                 cmd.Parameters.AddWithValue("@Login", parametros.Login);
                 cmd.Parameters.AddWithValue("@Pass", parametros.Pass);
+                cmd.Parameters.AddWithValue("@Patio", parametros.Patio);
                 cmd.ExecuteNonQuery();
                 return true;
             }

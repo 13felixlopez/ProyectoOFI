@@ -31,6 +31,8 @@ namespace ProyectoOFI.Usuario
             contraseñaGenerada = Validaciones.GenerarContraseñaAleatoria();
             txtContraseña.Text = contraseñaGenerada;
             Validaciones.ActualizarVisibilidadEtiquetas(contraseñaGenerada, lblMayu, lblMin, lblNum);
+            DControlPatio Ten = new DControlPatio();
+            Ten.MostrarPatio(CbPatio);
         }
         private void MostrarModulos()
         {
@@ -94,6 +96,7 @@ namespace ProyectoOFI.Usuario
             parametros.Pass = Encrip.Encriptar(Encrip.Encriptar(txtContraseña.Text));
             parametros.Correo = txtCorreo.Text;
             parametros.Login = TxtUser.Text;
+            parametros.Patio = CbPatio.Text;
             if (funcion.InsertarUsuario(parametros) == true)
             {
                 ObtenerIdUser();
@@ -146,6 +149,8 @@ namespace ProyectoOFI.Usuario
         {
             if (e.ColumnIndex == DtUser.Columns["Editar"].Index)
             {
+                DControlPatio Ten = new DControlPatio();
+                Ten.MostrarPatio(CbPatio);
                 ObtenerEstado();
                 ObtenerDatos();
             }
@@ -200,6 +205,7 @@ namespace ProyectoOFI.Usuario
             txtNombreApellidos.Text = DtUser.SelectedCells[4].Value.ToString();
             TxtUser.Text = DtUser.SelectedCells[6].Value.ToString();
             txtCorreo.Text = DtUser.SelectedCells[5].Value.ToString();
+            CbPatio.Text = DtUser.SelectedCells[9].Value.ToString();
             if (TxtUser.Text == "Admin")
             {
                 TxtUser.Enabled = false;
@@ -302,6 +308,7 @@ namespace ProyectoOFI.Usuario
             parametros.Login = TxtUser.Text;
             parametros.Pass = Encrip.Encriptar(Encrip.Encriptar(txtContraseña.Text));
             parametros.Correo = txtCorreo.Text;
+            parametros.Patio = CbPatio.Text;
             if (funcion.EditarUser(parametros) == true)
             {
                 EliminarPermisos();

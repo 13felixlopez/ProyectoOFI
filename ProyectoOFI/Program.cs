@@ -14,8 +14,8 @@ namespace ProyectoOFI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Login frm = new Login();
             //SMecánico frm = new SMecánico();
+            Login frm = new Login();
             frm.FormClosed += Frm_FormClosed;
             frm.ShowDialog();
             Application.Run();

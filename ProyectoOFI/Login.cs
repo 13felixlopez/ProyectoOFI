@@ -42,7 +42,8 @@ namespace ProyectoOFI
         {
             Logueo();
         }
-        frmInicio fr = new frmInicio();
+        //frmInicio fr = new frmInicio();
+        FrmMenu fr= new FrmMenu();
         private void Logueo()
         {
             if (string.IsNullOrEmpty(TxtUser.Text) || string.IsNullOrEmpty(TxtPass.Text))

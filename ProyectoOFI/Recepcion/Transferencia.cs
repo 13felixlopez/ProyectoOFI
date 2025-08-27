@@ -1,6 +1,7 @@
 ﻿using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
+using ProyectoOFI.Recepcion.FormExtras;
 using ProyectoOFI.Reportes;
 using System;
 using System.Collections.Generic;
@@ -38,7 +39,7 @@ namespace ProyectoOFI.Recepcion
         object[,] dataArray;
         List<string> filtro = new List<string>();
         private Form FrmActivo = null;
-
+        string label="Add";
         List<string> permisosUsuario = new List<string>();
 
         string ConstProceso;
@@ -83,25 +84,36 @@ namespace ProyectoOFI.Recepcion
         {
             AbrirFormulario();
             CargarCombos();
-            BtnVerCons.Visible = false;
-            PnGuardar.Visible = true;
-            BtnEditar.Visible = false;
-            LblDigitador.Text = Login.NombreA;
-            dtInventario.Enabled = false;
+            //BtnVerCons.Visible = false;
+            //PnGuardar.Visible = true;
+            //BtnEditar.Visible = false;
+            //LblDigitador.Text = Login.NombreA;
+            //dtInventario.Enabled = false;
         }
         private void AbrirFormulario()
         {
-            PlRecepcion.Location = new System.Drawing.Point(dtInventario.Width / 2
-                - PlRecepcion.Width / 2, dtInventario.Height / 2 - PlRecepcion.Height / 2);
-            PlRecepcion.Visible = true;
-            PlRecepcion.BringToFront();
-            plOpciones.Enabled = false;
-            PEnvio.Dock = DockStyle.Fill;
-            dtInventario.Enabled = false;
-            DRecepcion funcion = new DRecepcion();
-            funcion.Cosecha(LblCosecha);
-            //ChUA.Checked = true;
-            AdjustPanelInfoSizeAndPosition();
+            //PlRecepcion.Location = new System.Drawing.Point(dtInventario.Width / 2
+            //    - PlRecepcion.Width / 2, dtInventario.Height / 2 - PlRecepcion.Height / 2);
+            //PlRecepcion.Visible = true;
+            //PlRecepcion.BringToFront();
+            //plOpciones.Enabled = false;
+            //PEnvio.Dock = DockStyle.Fill;
+            //dtInventario.Enabled = false;
+            //DRecepcion funcion = new DRecepcion();
+            //funcion.Cosecha(LblCosecha);
+            ////ChUA.Checked = true;
+            //AdjustPanelInfoSizeAndPosition();
+            if (label == "Add")
+            {
+                AddEditTicket add = new AddEditTicket();
+                add.ShowDialog();
+            }
+            else
+            {
+                AddEditTicket edit=new AddEditTicket(Ticket,"Editar Transferencia", Consolidado, areaAc, ContadorEdit, Proceso);
+                edit.ShowDialog();
+                label = "Add";
+            }
         }
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -432,6 +444,7 @@ namespace ProyectoOFI.Recepcion
             CargarCombos();
             ObtenerTK();
             ObtenerDatos();
+            label= "Edit";
             lblTransferencia.Text = "Editar Transferencia";
             CHBConsSM.Visible = false;
             AbrirFormulario();
@@ -2249,6 +2262,7 @@ namespace ProyectoOFI.Recepcion
                 }
             }
         }
+
         private void ValidarPermisos()
         {
             DataTable dt = new DataTable();

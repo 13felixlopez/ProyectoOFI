@@ -151,6 +151,12 @@
     <Compile Include="FrmConexionIP.Designer.cs">
       <DependentUpon>FrmConexionIP.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -352,6 +358,12 @@
     <Compile Include="Recepcion\Consolidar.Designer.cs">
       <DependentUpon>Consolidar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recepcion\FormExtras\AddEditTicket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recepcion\FormExtras\AddEditTicket.Designer.cs">
+      <DependentUpon>AddEditTicket.cs</DependentUpon>
+    </Compile>
     <Compile Include="Recepcion\FrmExportExcel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -507,6 +519,9 @@
     <EmbeddedResource Include="FrmConexionIP.resx">
       <DependentUpon>FrmConexionIP.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -598,6 +613,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Recepcion\Consolidar.resx">
       <DependentUpon>Consolidar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Recepcion\FormExtras\AddEditTicket.resx">
+      <DependentUpon>AddEditTicket.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Recepcion\FrmExportExcel.resx">
       <DependentUpon>FrmExportExcel.cs</DependentUpon>

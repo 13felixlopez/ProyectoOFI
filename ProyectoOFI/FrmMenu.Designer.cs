@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.transferenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,6 +97,7 @@
             this.secadoNaturalToolStripMenuItem.Name = "secadoNaturalToolStripMenuItem";
             this.secadoNaturalToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
             this.secadoNaturalToolStripMenuItem.Text = "Secado Natural";
+            this.secadoNaturalToolStripMenuItem.Click += new System.EventHandler(this.secadoNaturalToolStripMenuItem_Click);
             // 
             // secadoMecanicoToolStripMenuItem
             // 
@@ -188,6 +190,7 @@
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
             this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.usuarioToolStripMenuItem.Text = "Usuario";
+            this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
             // catalogoToolStripMenuItem
             // 
@@ -246,6 +249,7 @@
             this.Controls.Add(this.PlPrincipal);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

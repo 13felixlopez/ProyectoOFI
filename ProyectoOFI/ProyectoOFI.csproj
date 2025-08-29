@@ -7,7 +7,7 @@
     <ProjectGuid>{EB85D54C-EDA2-4421-AFFE-1BC83437D6B6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>ProyectoOFI</RootNamespace>
-    <AssemblyName>ProyectoOFI</AssemblyName>
+    <AssemblyName>DrySystem</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

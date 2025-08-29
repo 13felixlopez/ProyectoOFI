@@ -1,5 +1,6 @@
 ﻿using ProyectoOFI.Logica;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
@@ -22,6 +23,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@Correo", parametros.Correo);
                 cmd.Parameters.AddWithValue("@Login", parametros.Login);
                 cmd.Parameters.AddWithValue("@Patio", parametros.Patio);
+                cmd.Parameters.AddWithValue("@Cargo", parametros.Cargo);
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -172,6 +174,7 @@ namespace ProyectoOFI.Datos
                 cmd.Parameters.AddWithValue("@Login", parametros.Login);
                 cmd.Parameters.AddWithValue("@Pass", parametros.Pass);
                 cmd.Parameters.AddWithValue("@Patio", parametros.Patio);
+                cmd.Parameters.AddWithValue("@Cargo", parametros.Cargo);
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -206,5 +209,39 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public List<string> BuscarCargos(string filtro)
+        {
+            var cargos = new List<string>();
+
+            try
+            {
+                Conexion.abrir();
+
+                using (SqlCommand cmd = new SqlCommand("SELECT DISTINCT Cargo FROM Usuarios WHERE Cargo LIKE @q + '%'", Conexion.conectar))
+                {
+                    cmd.Parameters.AddWithValue("@q", filtro);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            if (!reader.IsDBNull(0))
+                                cargos.Add(reader.GetString(0));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al buscar cargos: " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+
+            return cargos;
+        }
+
     }
 }

@@ -40,6 +40,8 @@
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Msj = new System.Windows.Forms.DataGridViewImageColumn();
             this.PlRegistro = new System.Windows.Forms.Panel();
+            this.CbPatio = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.PlPass = new System.Windows.Forms.Panel();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -78,8 +80,8 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.CbPatio = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.TxtCargo = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.Plheader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbBuscar)).BeginInit();
             this.panel1.SuspendLayout();
@@ -211,6 +213,8 @@
             // 
             // PlRegistro
             // 
+            this.PlRegistro.Controls.Add(this.TxtCargo);
+            this.PlRegistro.Controls.Add(this.label7);
             this.PlRegistro.Controls.Add(this.CbPatio);
             this.PlRegistro.Controls.Add(this.label4);
             this.PlRegistro.Controls.Add(this.PlPass);
@@ -239,6 +243,28 @@
             this.PlRegistro.Size = new System.Drawing.Size(1215, 710);
             this.PlRegistro.TabIndex = 2;
             this.PlRegistro.Visible = false;
+            // 
+            // CbPatio
+            // 
+            this.CbPatio.BackColor = System.Drawing.SystemColors.Control;
+            this.CbPatio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CbPatio.FormattingEnabled = true;
+            this.CbPatio.Items.AddRange(new object[] {
+            "Todo"});
+            this.CbPatio.Location = new System.Drawing.Point(173, 398);
+            this.CbPatio.Name = "CbPatio";
+            this.CbPatio.Size = new System.Drawing.Size(221, 28);
+            this.CbPatio.TabIndex = 669;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label4.Location = new System.Drawing.Point(104, 402);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 20);
+            this.label4.TabIndex = 668;
+            this.label4.Text = "Patio:";
             // 
             // PlPass
             // 
@@ -657,27 +683,29 @@
             this.panel6.Size = new System.Drawing.Size(1576, 26);
             this.panel6.TabIndex = 3;
             // 
-            // CbPatio
+            // TxtCargo
             // 
-            this.CbPatio.BackColor = System.Drawing.SystemColors.Control;
-            this.CbPatio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.CbPatio.FormattingEnabled = true;
-            this.CbPatio.Items.AddRange(new object[] {
-            "Todo"});
-            this.CbPatio.Location = new System.Drawing.Point(173, 398);
-            this.CbPatio.Name = "CbPatio";
-            this.CbPatio.Size = new System.Drawing.Size(221, 28);
-            this.CbPatio.TabIndex = 669;
+            this.TxtCargo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.TxtCargo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.TxtCargo.BackColor = System.Drawing.SystemColors.Control;
+            this.TxtCargo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCargo.Location = new System.Drawing.Point(173, 441);
+            this.TxtCargo.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtCargo.Name = "TxtCargo";
+            this.TxtCargo.Size = new System.Drawing.Size(374, 26);
+            this.TxtCargo.TabIndex = 671;
+            this.TxtCargo.TextChanged += new System.EventHandler(this.TxtCargo_TextChanged);
             // 
-            // label4
+            // label7
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label4.Location = new System.Drawing.Point(104, 402);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 20);
-            this.label4.TabIndex = 668;
-            this.label4.Text = "Patio:";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(89, 447);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 20);
+            this.label7.TabIndex = 670;
+            this.label7.Text = "Cargo:";
             // 
             // UCUsuario
             // 
@@ -761,5 +789,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.ComboBox CbPatio;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox TxtCargo;
+        private System.Windows.Forms.Label label7;
     }
 }

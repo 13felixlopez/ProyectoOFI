@@ -2,12 +2,8 @@
 using ProyectoOFI.Logica;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -61,7 +57,7 @@ namespace ProyectoOFI.Recepcion.FormExtras
             BtnEditar.Visible = false;
             LblDigitador.Text = Login.NombreA;
         }
-        public AddEditTicket(string Tk,string label,string consolidado,string Area,int contador,string proce)
+        public AddEditTicket(string Tk, string label, string consolidado, string Area, int contador, string proce)
         {
             InitializeComponent();
             Ticket = Tk;
@@ -70,7 +66,6 @@ namespace ProyectoOFI.Recepcion.FormExtras
             areaAc = Area;
             ContadorEdit = contador;
             Proceso = proce;
-            ObtenerDatos();
         }
 
         private void AddEditTicket_Load(object sender, EventArgs e)
@@ -84,7 +79,27 @@ namespace ProyectoOFI.Recepcion.FormExtras
             DRecepcion funcion = new DRecepcion();
             funcion.Cosecha(LblCosecha);
             Comprobaciones();
+            CargarCombos();
+            ObtenerDatos();
             //ChUA.Checked = true;
+        }
+        private void CargarCombos()
+        {
+            DRecepcion funcion = new DRecepcion();
+            funcion.MostrarAgencia(cbAgencia);
+            funcion.MostrarRecibidor(cbRecibidor);
+            funcion.MostrarCliente(cbCliente);
+            funcion.MostrarCompra(cbCompra);
+            funcion.MostrarCert(cbCertificacion);
+            //funcion.MostrarCert(CbCertCons);
+            funcion.MostrarEstFis(cbEsFisico);
+            funcion.MostrarEstFis(cbEstadoFisico);
+            funcion.MostrarCalidad(cbCalidadE);
+            funcion.MostrarCalidad(cbCalidad);
+            funcion.MostrarDaño(cbDanioE);
+            funcion.MostrarDaño(cbDaño);
+            funcion.MostrarAreaSecado2(cbArea);
+            //funcion.MostrarAreaSecado2(CbAreaCons);
         }
         private void ObtenerDatos()
         {
@@ -212,6 +227,14 @@ namespace ProyectoOFI.Recepcion.FormExtras
                     {
                         CbPatio.Text = "--";
                     }
+                    if (row["UbicacionRec"].ToString() != null)
+                    {
+                        CbUbicacionRec.Text = row["UbicacionRec"].ToString();
+                    }
+                    else
+                    {
+                        CbUbicacionRec.Text = "--";
+                    }
                     areaAc = row["AreaSecado"].ToString();
                     if (row["MTNR"].ToString() != null)
                     {
@@ -280,6 +303,281 @@ namespace ProyectoOFI.Recepcion.FormExtras
         {
             Limpiar();
 
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (nudSacos.Value > 0)
+                {
+                    if (nudSacosE.Value > 0)
+                    {
+                        if (dtFEnvio.Value.Date <= dtpRecibido.Value.Date)
+                        {
+                            carga();
+                        }
+                        else
+                        {
+                            MessageBox.Show("La fecha de envio no puede ser mayor que la fecha de recibido", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("La cantidad de sacos enviada no puede ser 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La cantidad de sacos recibidos no puede ser 0", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.StackTrace);
+            }
+        }
+        private async void carga()
+        {
+            timerAct.Enabled = true;
+            PlCargaTran.Dock = DockStyle.Fill;
+            PlCargaTran.Visible = true;
+            PlCargaTran.BringToFront();
+            await Task.Delay(1500);
+            InsertarLote();
+            await Task.Delay(1000);
+            PlCargaTran.Visible = false;
+            timerAct.Enabled = false;
+            PEnvio.Dock = DockStyle.Fill;
+            PEnvio.Visible = true;
+        }
+        private void InsertarLote()
+        {
+            if (validar() && ValidarE())
+            {
+                if (CHBConsSM.Checked == true)
+                {
+                    Consolidado = "Si";
+                }
+                else
+                {
+                    Consolidado = "";
+                }
+                LRecepcion parametros = new LRecepcion();
+                DRecepcion funcion = new DRecepcion();
+                parametros.Ticket = txtTK.Text.Replace(" ", "");
+                parametros.FRecibido = Convert.ToDateTime(dtpRecibido.Text);
+                parametros.Patio = CbPatio.Text;
+                parametros.UbicacionRec = CbUbicacionRec.Text;
+                parametros.IdArea = int.Parse(cbArea.SelectedValue.ToString());
+                parametros.MTNR = txtMTNR.Text;
+                parametros.IdEstFis = int.Parse(cbEstadoFisico.SelectedValue.ToString());
+                parametros.IdCalidad = int.Parse(cbCalidad.SelectedValue.ToString());
+                parametros.IdDaño = int.Parse(cbDaño.SelectedValue.ToString());
+                parametros.Sacos = Convert.ToInt32(nudSacos.Value);
+                parametros.Peso = Convert.ToDouble(txtKgs.Text);
+                parametros.Merma = Convert.ToDouble(LblMerma.Text);
+                parametros.IdRecibidor = int.Parse(cbRecibidor.SelectedValue.ToString());
+                parametros.Digitador = Login.NombreA;
+                parametros.Consolidado = Consolidado;
+                parametros.Cosecha = LblCosecha.Text;
+
+
+                LEnvio par = new LEnvio();
+                par.Ticket = txtTK.Text.Replace(" ", "");
+                par.FEnvio = dtFEnvio.Value;
+                par.IdAgencia = int.Parse(cbAgencia.SelectedValue.ToString());
+                par.IdAcopio = int.Parse(cbAcopio.SelectedValue.ToString());
+                par.IdCliente = int.Parse(cbCliente.SelectedValue.ToString());
+                par.MTNT = txtMTNT.Text;
+                par.IdTCompra = int.Parse(cbCompra.SelectedValue.ToString());
+                par.IdCertificacionE = int.Parse(cbCertificacion.SelectedValue.ToString());
+                par.IdEsFisico = int.Parse(cbEsFisico.SelectedValue.ToString());
+                par.IdCalidadE = int.Parse(cbCalidadE.SelectedValue.ToString());
+                par.IdDanioE = int.Parse(cbDanioE.SelectedValue.ToString());
+                par.SacosE = Convert.ToInt32(nudSacosE.Value);
+                par.PesoE = Convert.ToDouble(txtPesoE.Text);
+                par.Tally = TxtTally.Text;
+
+                if (funcion.InsertarLote2(parametros, par) == true)
+                {
+                    //frmInicio fr = new frmInicio();
+                    DataTable dt = new DataTable();
+                    Task.Delay(3000);
+                    //funcion.MostrarLote(ref dt, desde, hasta);
+                    //dtInventario.DataSource = dt;
+                    //PlRecepcion.Visible = false;
+                    //PRecepcion.Visible = false;
+                    Alerta();
+                    Limpiar();
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Existen campos vacios", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private async void Alerta()
+        {
+            timerAct.Enabled = true;
+            PlAlerta.BringToFront();
+            PlAlerta.Visible = true;
+            await Task.Delay(2000);
+            PlAlerta.Visible = false;
+            timerAct.Enabled = false;
+        }
+        private bool ValidarE()
+        {
+            double entero;
+            if (!double.TryParse(txtPesoE.Text, out entero))
+            {
+                return false;
+            }
+            return !(txtPesoE.Text == "" ||
+                cbCompra.Text == "" || cbDanioE.Text == ""
+            || cbCertificacion.Text == "" || cbEsFisico.Text == "" || cbCalidadE.Text == "");
+        }
+        private bool validar()
+        {
+            double entero;
+            if (!double.TryParse(txtKgs.Text, out entero))
+            {
+                return false;
+            }
+            return !(txtKgs.Text == "" || txtTK.Text == "" || cbArea.Text == "" || cbCalidad.Text == "" || cbDaño.Text == ""
+            || cbEstadoFisico.Text == "" || cbRecibidor.Text == "");
+        }
+        private bool validarEditar()
+        {
+            double entero;
+            if (!double.TryParse(txtPesoE.Text, out entero))
+            {
+                return false;
+            }
+            return !(cbCertificacion.Text == "" || cbEstadoFisico.Text == "" || cbCalidadE.Text == "" || cbDaño.Text == "" || txtPesoE.Text == "" || cbArea.Text == "" || cbEsFisico.Text == ""
+               || cbCalidad.Text == "" || cbDanioE.Text == "" || txtKgs.Text == "");
+        }
+
+        private void cbAgencia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DRecepcion funcion = new DRecepcion();
+            if (cbAgencia.SelectedValue != null)
+            {
+                funcion.MostrarAcopioAgencia(cbAcopio, (int)cbAgencia.SelectedValue);
+            }
+            else
+            {
+                cbAcopio.Text = null;
+            }
+        }
+
+        private void txtPesoE_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                LblMerma.Text = txtPesoE.Text;
+                double Kilos = double.Parse(txtPesoE.Text);
+                Kilos = Kilos / 46;
+                LblQQsEn.Text = Math.Round(Kilos, 2).ToString();
+
+            }
+            catch (Exception)
+            {
+                txtPesoE.Text = Convert.ToString(0);
+            }
+        }
+
+        private void ChUA_CheckedChanged(object sender, EventArgs e)
+        {
+            DRecepcion funcion = new DRecepcion();
+            if (ChUA.Checked == true)
+            {
+                funcion.MostrarCalidadUA(cbCalidadE);
+                funcion.MostrarCalidadUA(cbCalidad);
+            }
+            else
+            {
+                funcion.MostrarCalidad(cbCalidadE);
+                funcion.MostrarCalidad(cbCalidad);
+            }
+        }
+
+        private void cbArea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbArea.Text == "Control Patio")
+            {
+                CbPatio.Enabled = true;
+                CbUbicacionRec.Enabled = true;
+                DControlPatio fun = new DControlPatio();
+                fun.MostrarPatio(CbPatio);
+            }
+            else
+            {
+                CbPatio.Text = "SM";
+                CbUbicacionRec.Text = "SM";
+                CbPatio.Enabled = false;
+                CbUbicacionRec.Enabled = false;
+            }
+        }
+
+        private void CbPatio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CbPatio.Text == "SM")
+            {
+                CbUbicacionRec.Text = "SM";
+            }
+            else
+            {
+                DControlPatio funcion = new DControlPatio();
+                if (CbPatio.SelectedValue != null)
+                {
+                    funcion.MostrarPatioUbicacion(CbUbicacionRec, (int)CbPatio.SelectedValue);
+                }
+                else
+                {
+                    CbUbicacionRec.Text = null;
+                }
+            }
+        }
+
+        private void CHBConsSM_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CHBConsSM.Checked == true)
+            {
+                DialogResult result = MessageBox.Show("¿Está seguro que este lote es consolidado de secado mecánico?", "Consolidar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    cbArea.Text = "Secado Mecánico";
+                }
+                else
+                {
+                    CHBConsSM.Checked = false;
+                }
+            }
+        }
+
+        private void txtKgs_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                double Kilos = double.Parse(txtKgs.Text);
+                Kilos = Kilos / 46;
+                LblQQs.Text = Math.Round(Kilos, 2).ToString();
+                decimal PesoE, kgs, merma;
+                PesoE = Convert.ToDecimal(txtPesoE.Text);
+                kgs = Convert.ToDecimal(txtKgs.Text);
+                merma = kgs - PesoE;
+                //txtMerma.Text = Convert.ToString(fin);
+                LblMerma.Text = Math.Round(merma, 2).ToString();
+            }
+            catch (Exception)
+            {
+                //txtKgs.Text = Convert.ToString(0);
+            }
         }
 
         private void Comprobaciones()
@@ -400,6 +698,8 @@ namespace ProyectoOFI.Recepcion.FormExtras
             lblTransferencia.Text = "Agregar Transferencia";
             TxtTally.Clear();
             CHBConsSM.Checked = false;
+            CbPatio.SelectedItem = null;
+            CbUbicacionRec.SelectedItem = null;
         }
     }
 }

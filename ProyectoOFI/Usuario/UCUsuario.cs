@@ -97,6 +97,7 @@ namespace ProyectoOFI.Usuario
             parametros.Correo = txtCorreo.Text;
             parametros.Login = TxtUser.Text;
             parametros.Patio = CbPatio.Text;
+            parametros.Cargo=TxtCargo.Text;
             if (funcion.InsertarUsuario(parametros) == true)
             {
                 ObtenerIdUser();
@@ -206,6 +207,7 @@ namespace ProyectoOFI.Usuario
             TxtUser.Text = DtUser.SelectedCells[6].Value.ToString();
             txtCorreo.Text = DtUser.SelectedCells[5].Value.ToString();
             CbPatio.Text = DtUser.SelectedCells[9].Value.ToString();
+            TxtCargo.Text = DtUser.SelectedCells[10].Value.ToString();
             if (TxtUser.Text == "Admin")
             {
                 TxtUser.Enabled = false;
@@ -309,6 +311,7 @@ namespace ProyectoOFI.Usuario
             parametros.Pass = Encrip.Encriptar(Encrip.Encriptar(txtContraseña.Text));
             parametros.Correo = txtCorreo.Text;
             parametros.Patio = CbPatio.Text;
+            parametros.Cargo = TxtCargo.Text;
             if (funcion.EditarUser(parametros) == true)
             {
                 EliminarPermisos();
@@ -421,6 +424,17 @@ namespace ProyectoOFI.Usuario
             {
                 DtUser.Enabled = true;
             }
+        }
+
+        private void TxtCargo_TextChanged(object sender, EventArgs e)
+        {
+
+            if (TxtCargo.Text.Length < 2) return;
+
+            var cargos = new DUsuarios().BuscarCargos(TxtCargo.Text.Trim()); // ✅
+            var ac = new AutoCompleteStringCollection();
+            ac.AddRange(cargos.ToArray());
+            TxtCargo.AutoCompleteCustomSource = ac;
         }
     }
 }

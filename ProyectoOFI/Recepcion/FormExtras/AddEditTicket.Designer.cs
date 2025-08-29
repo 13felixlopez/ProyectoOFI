@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEditTicket));
             this.PlRecepcion = new System.Windows.Forms.Panel();
             this.PlAlerta = new System.Windows.Forms.Panel();
@@ -41,6 +42,7 @@
             this.LblDigitador = new System.Windows.Forms.Label();
             this.PlRecibido = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnAnt = new System.Windows.Forms.Button();
             this.LblCosecha = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.cbCalidad = new System.Windows.Forms.ComboBox();
@@ -73,6 +75,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.PlEnvio = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnSig = new System.Windows.Forms.Button();
             this.cbDanioE = new System.Windows.Forms.ComboBox();
             this.label43 = new System.Windows.Forms.Label();
             this.cbEsFisico = new System.Windows.Forms.ComboBox();
@@ -100,15 +103,14 @@
             this.label51 = new System.Windows.Forms.Label();
             this.dtFEnvio = new System.Windows.Forms.DateTimePicker();
             this.PlTexto = new System.Windows.Forms.Panel();
+            this.BtnVerCons = new System.Windows.Forms.Button();
             this.lblTransferencia = new System.Windows.Forms.Label();
             this.PnGuardar = new System.Windows.Forms.Panel();
-            this.PlCargaTran = new System.Windows.Forms.Panel();
-            this.btnAnt = new System.Windows.Forms.Button();
-            this.btnSig = new System.Windows.Forms.Button();
-            this.BtnVerCons = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.BtnEditar = new System.Windows.Forms.Button();
+            this.PlCargaTran = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timerAct = new System.Windows.Forms.Timer(this.components);
             this.PlRecepcion.SuspendLayout();
             this.PlAlerta.SuspendLayout();
             this.PRecepcion.SuspendLayout();
@@ -256,6 +258,7 @@
             this.CbPatio.Size = new System.Drawing.Size(163, 24);
             this.CbPatio.TabIndex = 156;
             this.CbPatio.Text = "--";
+            this.CbPatio.SelectedIndexChanged += new System.EventHandler(this.CbPatio_SelectedIndexChanged);
             // 
             // CHBConsSM
             // 
@@ -267,6 +270,7 @@
             this.CHBConsSM.Text = "Consolidado de SM";
             this.CHBConsSM.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.CHBConsSM.UseVisualStyleBackColor = true;
+            this.CHBConsSM.CheckedChanged += new System.EventHandler(this.CHBConsSM_CheckedChanged);
             // 
             // LblDigitador
             // 
@@ -302,6 +306,21 @@
             this.label6.Text = "Detalles de Recepción";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label6.UseCompatibleTextRendering = true;
+            // 
+            // btnAnt
+            // 
+            this.btnAnt.BackColor = System.Drawing.Color.Transparent;
+            this.btnAnt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAnt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnt.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAnt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnt.Image = global::ProyectoOFI.Properties.Resources.Ant_642;
+            this.btnAnt.Location = new System.Drawing.Point(1058, 229);
+            this.btnAnt.Name = "btnAnt";
+            this.btnAnt.Size = new System.Drawing.Size(106, 57);
+            this.btnAnt.TabIndex = 26;
+            this.btnAnt.UseVisualStyleBackColor = false;
+            this.btnAnt.Click += new System.EventHandler(this.btnAnt_Click);
             // 
             // LblCosecha
             // 
@@ -457,6 +476,7 @@
             this.cbArea.Name = "cbArea";
             this.cbArea.Size = new System.Drawing.Size(154, 24);
             this.cbArea.TabIndex = 16;
+            this.cbArea.SelectedIndexChanged += new System.EventHandler(this.cbArea_SelectedIndexChanged);
             // 
             // cbDaño
             // 
@@ -530,6 +550,7 @@
             this.txtKgs.Name = "txtKgs";
             this.txtKgs.Size = new System.Drawing.Size(112, 22);
             this.txtKgs.TabIndex = 23;
+            this.txtKgs.TextChanged += new System.EventHandler(this.txtKgs_TextChanged);
             // 
             // label33
             // 
@@ -641,6 +662,7 @@
             this.ChUA.TabIndex = 157;
             this.ChUA.Text = "UA";
             this.ChUA.UseVisualStyleBackColor = false;
+            this.ChUA.CheckedChanged += new System.EventHandler(this.ChUA_CheckedChanged);
             // 
             // LblQQsEn
             // 
@@ -686,6 +708,20 @@
             this.label5.Text = "Detalles del Envio";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label5.UseCompatibleTextRendering = true;
+            // 
+            // btnSig
+            // 
+            this.btnSig.BackColor = System.Drawing.Color.Transparent;
+            this.btnSig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSig.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnSig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSig.Image = global::ProyectoOFI.Properties.Resources.Next_64;
+            this.btnSig.Location = new System.Drawing.Point(1019, 221);
+            this.btnSig.Name = "btnSig";
+            this.btnSig.Size = new System.Drawing.Size(106, 57);
+            this.btnSig.TabIndex = 13;
+            this.btnSig.UseVisualStyleBackColor = false;
+            this.btnSig.Click += new System.EventHandler(this.btnSig_Click);
             // 
             // cbDanioE
             // 
@@ -914,6 +950,7 @@
             this.txtPesoE.Name = "txtPesoE";
             this.txtPesoE.Size = new System.Drawing.Size(151, 22);
             this.txtPesoE.TabIndex = 12;
+            this.txtPesoE.TextChanged += new System.EventHandler(this.txtPesoE_TextChanged);
             // 
             // label46
             // 
@@ -946,6 +983,7 @@
             this.cbAgencia.Name = "cbAgencia";
             this.cbAgencia.Size = new System.Drawing.Size(287, 24);
             this.cbAgencia.TabIndex = 1;
+            this.cbAgencia.SelectedIndexChanged += new System.EventHandler(this.cbAgencia_SelectedIndexChanged);
             // 
             // label49
             // 
@@ -989,6 +1027,20 @@
             this.PlTexto.Size = new System.Drawing.Size(1343, 63);
             this.PlTexto.TabIndex = 108;
             // 
+            // BtnVerCons
+            // 
+            this.BtnVerCons.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.BtnVerCons.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnVerCons.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnVerCons.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnVerCons.Image = global::ProyectoOFI.Properties.Resources.icons8_ver;
+            this.BtnVerCons.Location = new System.Drawing.Point(1070, 0);
+            this.BtnVerCons.Name = "BtnVerCons";
+            this.BtnVerCons.Size = new System.Drawing.Size(91, 63);
+            this.BtnVerCons.TabIndex = 60;
+            this.BtnVerCons.UseVisualStyleBackColor = false;
+            this.BtnVerCons.Visible = false;
+            // 
             // lblTransferencia
             // 
             this.lblTransferencia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -1012,58 +1064,6 @@
             this.PnGuardar.TabIndex = 57;
             this.PnGuardar.Visible = false;
             // 
-            // PlCargaTran
-            // 
-            this.PlCargaTran.Controls.Add(this.pictureBox1);
-            this.PlCargaTran.Location = new System.Drawing.Point(6, 148);
-            this.PlCargaTran.Name = "PlCargaTran";
-            this.PlCargaTran.Size = new System.Drawing.Size(1337, 226);
-            this.PlCargaTran.TabIndex = 109;
-            this.PlCargaTran.Visible = false;
-            // 
-            // btnAnt
-            // 
-            this.btnAnt.BackColor = System.Drawing.Color.Transparent;
-            this.btnAnt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAnt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnt.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnAnt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnt.Image = global::ProyectoOFI.Properties.Resources.Ant_642;
-            this.btnAnt.Location = new System.Drawing.Point(1058, 229);
-            this.btnAnt.Name = "btnAnt";
-            this.btnAnt.Size = new System.Drawing.Size(106, 57);
-            this.btnAnt.TabIndex = 26;
-            this.btnAnt.UseVisualStyleBackColor = false;
-            this.btnAnt.Click += new System.EventHandler(this.btnAnt_Click);
-            // 
-            // btnSig
-            // 
-            this.btnSig.BackColor = System.Drawing.Color.Transparent;
-            this.btnSig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnSig.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnSig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSig.Image = global::ProyectoOFI.Properties.Resources.Next_64;
-            this.btnSig.Location = new System.Drawing.Point(1019, 221);
-            this.btnSig.Name = "btnSig";
-            this.btnSig.Size = new System.Drawing.Size(106, 57);
-            this.btnSig.TabIndex = 13;
-            this.btnSig.UseVisualStyleBackColor = false;
-            this.btnSig.Click += new System.EventHandler(this.btnSig_Click);
-            // 
-            // BtnVerCons
-            // 
-            this.BtnVerCons.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.BtnVerCons.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnVerCons.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.BtnVerCons.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnVerCons.Image = global::ProyectoOFI.Properties.Resources.icons8_ver;
-            this.BtnVerCons.Location = new System.Drawing.Point(1070, 0);
-            this.BtnVerCons.Name = "BtnVerCons";
-            this.BtnVerCons.Size = new System.Drawing.Size(91, 63);
-            this.BtnVerCons.TabIndex = 60;
-            this.BtnVerCons.UseVisualStyleBackColor = false;
-            this.BtnVerCons.Visible = false;
-            // 
             // btnGuardar
             // 
             this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -1076,6 +1076,7 @@
             this.btnGuardar.Size = new System.Drawing.Size(91, 63);
             this.btnGuardar.TabIndex = 27;
             this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // BtnEditar
             // 
@@ -1090,6 +1091,15 @@
             this.BtnEditar.TabIndex = 59;
             this.BtnEditar.UseVisualStyleBackColor = false;
             this.BtnEditar.Visible = false;
+            // 
+            // PlCargaTran
+            // 
+            this.PlCargaTran.Controls.Add(this.pictureBox1);
+            this.PlCargaTran.Location = new System.Drawing.Point(6, 148);
+            this.PlCargaTran.Name = "PlCargaTran";
+            this.PlCargaTran.Size = new System.Drawing.Size(1337, 226);
+            this.PlCargaTran.TabIndex = 109;
+            this.PlCargaTran.Visible = false;
             // 
             // pictureBox1
             // 
@@ -1216,5 +1226,6 @@
         private System.Windows.Forms.Button BtnEditar;
         private System.Windows.Forms.Panel PlCargaTran;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timerAct;
     }
 }

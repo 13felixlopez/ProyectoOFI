@@ -16,6 +16,7 @@ namespace ProyectoOFI.Recepcion
 {
     public partial class Transferencia : UserControl
     {
+        private bool _debeActualizar = false;
         string Modulo;
         bool Search;
         string Ticket;
@@ -84,35 +85,55 @@ namespace ProyectoOFI.Recepcion
         {
             AbrirFormulario();
             CargarCombos();
-            //BtnVerCons.Visible = false;
-            //PnGuardar.Visible = true;
-            //BtnEditar.Visible = false;
-            //LblDigitador.Text = Login.NombreA;
-            //dtInventario.Enabled = false;
+            BtnVerCons.Visible = false;
+            PnGuardar.Visible = true;
+            BtnEditar.Visible = false;
+            LblDigitador.Text = Login.NombreA;
+            dtInventario.Enabled = false;
         }
         private void AbrirFormulario()
         {
-            //PlRecepcion.Location = new System.Drawing.Point(dtInventario.Width / 2
-            //    - PlRecepcion.Width / 2, dtInventario.Height / 2 - PlRecepcion.Height / 2);
-            //PlRecepcion.Visible = true;
-            //PlRecepcion.BringToFront();
-            //plOpciones.Enabled = false;
-            //PEnvio.Dock = DockStyle.Fill;
-            //dtInventario.Enabled = false;
-            //DRecepcion funcion = new DRecepcion();
-            //funcion.Cosecha(LblCosecha);
-            ////ChUA.Checked = true;
-            //AdjustPanelInfoSizeAndPosition();
-            if (label == "Add")
+            PlRecepcion.Location = new System.Drawing.Point(dtInventario.Width / 2
+                - PlRecepcion.Width / 2, dtInventario.Height / 2 - PlRecepcion.Height / 2);
+            PlRecepcion.Visible = true;
+            PlRecepcion.BringToFront();
+            plOpciones.Enabled = false;
+            PEnvio.Dock = DockStyle.Fill;
+            dtInventario.Enabled = false;
+            DRecepcion funcion = new DRecepcion();
+            funcion.Cosecha(LblCosecha);
+            //ChUA.Checked = true;
+            AdjustPanelInfoSizeAndPosition();
+            // Elegir el diálogo según el modo
+        }
+        private void AbrirFormulario1()
+        {
+            using (var dlg = (label == "Add")
+               ? new AddEditTicket()
+               : new AddEditTicket(Ticket, "Editar Transferencia", Consolidado, areaAc, ContadorEdit, Proceso))
             {
-                AddEditTicket add = new AddEditTicket();
-                add.ShowDialog();
-            }
-            else
-            {
-                AddEditTicket edit=new AddEditTicket(Ticket,"Editar Transferencia", Consolidado, areaAc, ContadorEdit, Proceso);
-                edit.ShowDialog();
-                label = "Add";
+                var owner = this.FindForm(); // para centrar sobre el formulario padre
+                var dr = dlg.ShowDialog(owner);
+
+                // Si veníamos en modo editar, volvemos a "Add" para el siguiente flujo
+                if (label != "Add")
+                    label = "Add";
+
+                // Solo refrescar si el guardado fue exitoso
+                if (dr == DialogResult.OK)
+                {
+                    // (Opcional) leer algo que te pase el diálogo:
+                    // var idNuevo = (dlg as AddEditTicket)?.Tag as int?;
+
+                    _debeActualizar = true;
+
+                    if (_debeActualizar)
+                    {
+                        BuscarTK();
+                        dtInventario.Enabled = true;
+                        _debeActualizar = false;
+                    }
+                }
             }
         }
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -977,6 +998,8 @@ namespace ProyectoOFI.Recepcion
                 else
                 {
                     MessageBox.Show("La Ticket ya tiene un proceso asignado", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DtTickets.Rows.Clear();
+                    Cons.Clear();
                 }
                 //Consolidar cons = new Consolidar(Calidad, CertificacionE, EstadoFisico, Daño);
                 //cons.Dock = DockStyle.Fill;
@@ -1171,20 +1194,23 @@ namespace ProyectoOFI.Recepcion
                     }
                 }
 
-                // Crear una nueva fila en dtTKCons y copiar los datos de la fila seleccionada en DtTickets
+                // Crear una nueva fila en dtTKCons y copiar los datos
                 DataGridViewRow newRow = (DataGridViewRow)selectedRow.Clone();
                 foreach (DataGridViewCell cell in selectedRow.Cells)
                 {
                     newRow.Cells[cell.ColumnIndex].Value = cell.Value;
                 }
 
-
-                // Actualizar la fecha más reciente
+                // Obtener la fecha de la fila seleccionada
                 DateTime fechaRecibido = Convert.ToDateTime(selectedRow.Cells["FechaRecibido"].Value);
-                if (!fechaMasReciente.HasValue || fechaRecibido > fechaMasReciente.Value)
+
+                // COMPARAR Y SELECCIONAR LA FECHA MENOR (MÁS ANTIGUA)
+                if (!fechaMasReciente.HasValue || fechaRecibido < fechaMasReciente.Value)
                 {
                     fechaMasReciente = fechaRecibido;
+                    LblFechaCons.Text = fechaMasReciente.Value.ToString("dd/MM/yyyy hh:mm tt"); // Agregué "tt" para AM/PM
                 }
+
                 // Agregar la nueva fila a dtTKCons
                 dtTKCons.Rows.Add(newRow);
 
@@ -2077,6 +2103,9 @@ namespace ProyectoOFI.Recepcion
             TxtTicketCons.Clear();
             TxtFolio.Clear();
             TxtBuscar.Clear();
+            DtTickets.Rows.Clear();
+            LblFechaCons.Text = "--";
+            fechaMasReciente = null;
         }
 
         private void AbrirFrm(Form hijo)
@@ -2260,6 +2289,16 @@ namespace ProyectoOFI.Recepcion
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void Transferencia_Enter(object sender, EventArgs e)
+        {
+            if (_debeActualizar)
+            {
+                BuscarTK();
+                dtInventario.Enabled = true;
+                _debeActualizar = false;
             }
         }
 

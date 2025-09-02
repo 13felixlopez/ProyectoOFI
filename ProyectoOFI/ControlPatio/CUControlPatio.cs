@@ -364,15 +364,26 @@
                 //Envio
                 PlEnvio.Visible = false;
                 TSLEnvio.Visible = false;
-                //Enfarde
-                TSLEnfarde.Visible = true;
-                TSLEnfarde.Enabled = true;
-                PlEnfarde.Visible = true;
-                PlEnfarde.Enabled = true;
+                ////Enfarde
+                //TSLEnfarde.Visible = true;
+                //TSLEnfarde.Enabled = true;
+                //PlEnfarde.Visible = true;
+                //PlEnfarde.Enabled = true;
+
+                //int X = PlControl.Location.X;
+                //int Y = PlControl.Location.Y;
+                //PlSigProceso.BringToFront();
+                //PlSigProceso.Location = new Point(X * 2, Y * 2);
+                //PlSigProceso.Visible = true;
+
+                AbrirPanelSigProceso();
+                PlControl.Enabled = false;
                 VerTendido();
+                VerPreSeco();
                 if (Rechazos != 0)
                 {
                     VerEnfarde();
+                    VerPreSeco();
                     DTPEnfarde.Enabled = false;
                     BtnEnvSM.Visible = true;
                     DtpReEnfarde.Enabled = true;
@@ -397,6 +408,15 @@
                     LblDtotal.Visible = true;
                     LblDTS.Visible = true;
                 }
+            }
+            else if (Proceso == "PreSeco")
+            {
+                //Tendido
+                PlTendido.Enabled = false;
+                PlTendido.Visible = true;
+                VerTendido();
+                VerPreSeco();
+                AbrirPanelSigProceso();
             }
             else if (Proceso == "Enfarde" || Proceso == "Analizado" || Estado == "Tendido/Rechazado")
             {
@@ -433,6 +453,7 @@
                 }
                 VerTendido();
                 VerEnfarde();
+                VerPreSeco();
                 BtnEnvSM.Visible = true;
                 PlEnfarde.Enabled = true;
                 BtnEnfarde.Enabled = false;
@@ -479,10 +500,103 @@
                 VerTendido();
                 VerEnfarde();
                 VerEnvioCp();
+                VerPreSeco();
                 if (Rechazos != 0)
                 {
                     Rechazado();
                 }
+            }
+        }
+        private void AbrirPanelSigProceso()
+        {
+            int formWidth = this.ClientSize.Width;
+            int formHeight = this.ClientSize.Height;
+
+            // Verificamos si el panel es más grande que el formulario y ajustamos si es necesario
+            if (PlSigProceso.Width > formWidth)
+            {
+                PlSigProceso.Width = formWidth - 20; // Agregamos un margen
+            }
+
+            if (PlSigProceso.Height > formHeight)
+            {
+                PlSigProceso.Height = formHeight - 20; // Agregamos un margen
+            }
+
+            // Luego calculamos la nueva ubicación centrada
+            int newX = (formWidth - PlSigProceso.Width) / 2;
+            int newY = (formHeight - PlSigProceso.Height) / 2;
+
+            PlSigProceso.Location = new System.Drawing.Point(newX, newY);
+
+            PlSigProceso.Visible = true;
+            PlSigProceso.BringToFront();
+            if (Proceso == "PreSeco")
+            {
+                BtnReProceso.Visible = true;
+                button3.Visible = false;
+            }
+            else
+            {
+                BtnReProceso.Visible = false;
+                button3.Visible = true;
+            }
+        }
+        private void VerPreSeco()
+        {
+            DControlPatio funcion = new DControlPatio();
+            DataTable dt = new DataTable();
+            try
+            {
+                funcion.MostrarDetallePreseco(ref dt, IdTendido);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow row = dt.Rows[0];
+                    if (row["InicioPreseco"].ToString() != null)
+                    {
+                        DtInicioPre.Value = DateTime.Parse(row["InicioPreseco"].ToString());
+                    }
+                    else
+                    {
+                        DtInicioPre.Value = DateTime.Today;
+                    }
+                    if (row["HumedadPreSeco"].ToString() != null)
+                    {
+                        TxtHumedadPre.Text = row["HumedadPreSeco"].ToString();
+                    }
+                    else
+                    {
+                        TxtHumedadPre.Text = "0";
+                    }
+                    if (row["CantSaco"].ToString() != null)
+                    {
+                        TxtSacosPre.Text = row["CantSaco"].ToString();
+                    }
+                    else
+                    {
+                        TxtSacosPre.Text = "0";
+                    }
+                    if (row["Dias"].ToString() != null)
+                    {
+                        LblDiasPre.Text = row["Dias"].ToString();
+                    }
+                    else
+                    {
+                        LblDiasPre.Text = "--";
+                    }
+                    PlTendido.Enabled = false;
+                    PlPreseco.Visible = true;
+                    PlPreseco.Enabled = false;
+                }
+                else
+                {
+                    PlPreseco.Visible = false;
+                    //MessageBox.Show("No se encontraron datos para el ticket especificado.","Pre-Seco");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron cargar los datos PreSeco " + ex.Message, "ERROR PreSeco", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -620,6 +734,10 @@
             CbEstFis.Text = "--";
             LblDigiEnvio.Text = "--";
             dtInventariocp.Enabled = true;
+            //Pre-Seco
+            TxtHumedadPre.Clear();
+            TxtSacosPre.Clear();
+            LblDiasPre.Text = "--";
         }
 
         private void BtnCerrarDetalleCp_Click(object sender, EventArgs e)
@@ -678,7 +796,7 @@
                     if (funcion.InsertarTendido(parametros) == true)
                     {
                         MessageBox.Show("Tendido realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        //MostrarLotes();
+                        MetodosBuscar();
                         Limpiar();
                         PlControl.Visible = false;
                     }
@@ -818,7 +936,15 @@
                 BtnTendido.Text = "Actualizar";
             }
         }
-
+        private bool validarPre()
+        {
+            double entero;
+            if (!double.TryParse(TxtSacosPre.Text, out entero))
+            {
+                return false;
+            }
+            return !(TxtHumedadPre.Text == "" || TxtSacosPre.Text == "");
+        }
         private bool validar()
         {
             double entero;
@@ -1460,6 +1586,11 @@
 
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
+            MetodosBuscar();
+        }
+
+        private void MetodosBuscar()
+        {
             if (txtBuscador.Text == "")
             {
                 ReiniciarPaginado();
@@ -1745,6 +1876,69 @@
                 PlControl.Visible = false;
             }
             plOpciones.Enabled = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PlSigProceso.Visible = false;
+            PlControl.Enabled = true;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //Enfarde
+            TSLEnfarde.Visible = true;
+            TSLEnfarde.Enabled = true;
+            PlEnfarde.Visible = true;
+            PlEnfarde.Enabled = true;
+            //PlPreseco.Visible = false;
+            PlSigProceso.Visible = false;
+            PlControl.Enabled = true;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //Enfarde
+            TSLEnfarde.Visible = false;
+            TSLEnfarde.Enabled = false;
+            PlEnfarde.Visible = false;
+            PlEnfarde.Enabled = false;
+            //PreSeco
+            PlPreseco.Visible = true;
+            PlSigProceso.Visible = false;
+            PlControl.Enabled = true;
+        }
+
+        private void BtnGuardarPre_Click(object sender, EventArgs e)
+        {
+            if (validarPre())
+            {
+                if (DtInicioPre.Value.Date <= DateTime.Today.Date)
+                {
+                    LSNPreSeco parametros = new LSNPreSeco();
+                    DControlPatio funcion = new DControlPatio();
+                    parametros.IdTendido = IdTendido;
+                    parametros.InicioPreseco = DateTime.Parse(DtInicioPre.Value.Date.ToString());
+                    parametros.HumedadPreseco = decimal.Parse(TxtHumedadPre.Text.ToString());
+                    parametros.CantSacos = int.Parse(TxtSacosPre.Text.ToString());
+                    parametros.Usuario = Login.NombreA;
+                    if (funcion.InsertarSNPreSeco(parametros) == true)
+                    {
+                        MessageBox.Show("Se realizó exitosamente el guardado del registro preseco", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        MetodosBuscar();
+                        Limpiar();
+                        PlControl.Visible = false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha de dia de hoy", "Error en la fecha", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
+        }
+        private void InsertarPreSeco()
+        {
+
         }
         private bool validarEnvio()
         {

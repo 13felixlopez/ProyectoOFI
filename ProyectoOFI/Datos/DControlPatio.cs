@@ -233,7 +233,7 @@ namespace ProyectoOFI.Datos
                 };
                 cmd.Parameters.AddWithValue("@IdTendido", parametros.IdTendido);
                 cmd.Parameters.AddWithValue("@Usuario", parametros.Digitador);
-                cmd.Parameters.AddWithValue("@ProcesoCP",parametros.ProcesoCP);
+                cmd.Parameters.AddWithValue("@ProcesoCP", parametros.ProcesoCP);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("El registro ha sido eliminado.", "Eliminado con éxito ✅", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 return true;
@@ -814,6 +814,52 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
+        public bool InsertarSNPreSeco(LSNPreSeco parametros)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlCommand cmd = new SqlCommand("InsertarSNPreSeco", Conexion.conectar);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IdTendido", parametros.IdTendido);
+                cmd.Parameters.AddWithValue("@InicioPreseco", parametros.InicioPreseco);
+                cmd.Parameters.AddWithValue("@HumedadPreseco", parametros.HumedadPreseco);
+                cmd.Parameters.AddWithValue("@CantSacos", parametros.CantSacos);
+                cmd.Parameters.AddWithValue("@Usuario", parametros.Usuario);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Log.Writeerror("Error en InsertarSNPreSeco ✖️✖️ " + ex.Message);
+                MessageBox.Show("Ne se logó insertar el registro Preseco " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
 
+        internal void MostrarDetallePreseco(ref DataTable dt, int idTendido)
+        {
+            try
+            {
+                Conexion.abrir();
+                SqlDataAdapter da = new SqlDataAdapter("MostrarDetallePreseco", Conexion.conectar);
+                da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                da.SelectCommand.Parameters.AddWithValue("@IdTendido", idTendido);
+                da.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarDetallePreseco ✖️✖️" + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
     }
 }

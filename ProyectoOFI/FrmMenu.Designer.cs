@@ -71,7 +71,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(1150, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(1668, 27);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -188,20 +188,20 @@
             // usuarioToolStripMenuItem
             // 
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
             this.usuarioToolStripMenuItem.Text = "Usuario";
             this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
             // catalogoToolStripMenuItem
             // 
             this.catalogoToolStripMenuItem.Name = "catalogoToolStripMenuItem";
-            this.catalogoToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.catalogoToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
             this.catalogoToolStripMenuItem.Text = "Catalogo";
             // 
             // perfilToolStripMenuItem
             // 
             this.perfilToolStripMenuItem.Name = "perfilToolStripMenuItem";
-            this.perfilToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.perfilToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
             this.perfilToolStripMenuItem.Text = "Perfil";
             this.perfilToolStripMenuItem.Visible = false;
             // 
@@ -210,6 +210,7 @@
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
             this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(111, 23);
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
+            this.cerrarSesionToolStripMenuItem.Click += new System.EventHandler(this.cerrarSesionToolStripMenuItem_Click);
             // 
             // salirToolStripMenuItem
             // 
@@ -225,7 +226,7 @@
             this.PlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlPrincipal.Location = new System.Drawing.Point(0, 27);
             this.PlPrincipal.Name = "PlPrincipal";
-            this.PlPrincipal.Size = new System.Drawing.Size(1150, 483);
+            this.PlPrincipal.Size = new System.Drawing.Size(1668, 735);
             this.PlPrincipal.TabIndex = 5;
             // 
             // LblPrincipal
@@ -236,7 +237,7 @@
             this.LblPrincipal.ForeColor = System.Drawing.Color.White;
             this.LblPrincipal.Location = new System.Drawing.Point(0, 0);
             this.LblPrincipal.Name = "LblPrincipal";
-            this.LblPrincipal.Size = new System.Drawing.Size(1150, 483);
+            this.LblPrincipal.Size = new System.Drawing.Size(1668, 735);
             this.LblPrincipal.TabIndex = 0;
             this.LblPrincipal.Text = "Bienvenido a \rDry System👋";
             this.LblPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -245,7 +246,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1150, 510);
+            this.ClientSize = new System.Drawing.Size(1668, 762);
             this.Controls.Add(this.PlPrincipal);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -253,9 +254,9 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmMenu";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Text = "Menu";
             this.Load += new System.EventHandler(this.FrmMenu_Load);
+            this.LocationChanged += new System.EventHandler(this.FrmMenu_LocationChanged);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.PlPrincipal.ResumeLayout(false);

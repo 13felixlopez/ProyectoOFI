@@ -11,11 +11,27 @@ namespace ProyectoOFI
 {
     public partial class FrmMenu : Form
     {
+        // Bandera para evitar que el evento se dispare a sí mismo y cree un bucle.
+        private bool isAdjusting = false;
         public FrmMenu()
         {
             InitializeComponent();
         }
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
 
+            base.OnLoad(e);
+
+            // Hacemos el ajuste inicial al cargar.
+            AjustarAlTamanoDePantalla();
+
+            // Opcional: Asegurar que no se pueda cambiar de tamaño.
+            // Estas propiedades solo necesitan establecerse una vez.
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MinimizeBox = true;
+            this.MaximizeBox = false;
+        }
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
@@ -115,5 +131,39 @@ namespace ProyectoOFI
             }
         }
 
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Dispose();
+            Login lg = new Login();
+            lg.ShowDialog();
+        }
+
+        private void FrmMenu_LocationChanged(object sender, EventArgs e)
+        {
+            // Cuando el formulario se mueva, volvemos a ajustar.
+            AjustarAlTamanoDePantalla();
+        }
+        private void AjustarAlTamanoDePantalla()
+        {
+            // Si ya estamos ajustando, salimos para evitar parpadeos o bucles.
+            if (isAdjusting) return;
+
+            try
+            {
+                isAdjusting = true; // Activamos la bandera
+
+                // Obtenemos la pantalla donde se encuentra actualmente el formulario.
+                Screen screen = Screen.FromControl(this);
+
+                // Ajustamos la posición y el tamaño a la nueva pantalla.
+                this.WindowState = FormWindowState.Normal;
+                this.Location = screen.WorkingArea.Location;
+                this.Size = screen.WorkingArea.Size;
+            }
+            finally
+            {
+                isAdjusting = false; // Desactivamos la bandera, incluso si hay un error.
+            }
+        }
     }
 }

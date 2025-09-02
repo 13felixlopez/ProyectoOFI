@@ -81,9 +81,9 @@ namespace ProyectoOFI.Recepcion
             LlenarCheckBoxList();
             await Task.Delay(1000);
         }
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private async void btnAgregar_Click(object sender, EventArgs e)
         {
-            AbrirFormulario();
+            await AbrirFormulario();
             CargarCombos();
             BtnVerCons.Visible = false;
             PnGuardar.Visible = true;
@@ -91,8 +91,9 @@ namespace ProyectoOFI.Recepcion
             LblDigitador.Text = Login.NombreA;
             dtInventario.Enabled = false;
         }
-        private void AbrirFormulario()
+        private async Task AbrirFormulario()
         {
+            await Task.Delay(100);
             PlRecepcion.Location = new System.Drawing.Point(dtInventario.Width / 2
                 - PlRecepcion.Width / 2, dtInventario.Height / 2 - PlRecepcion.Height / 2);
             PlRecepcion.Visible = true;

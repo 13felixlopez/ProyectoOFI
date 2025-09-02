@@ -180,6 +180,7 @@
     <Compile Include="Logica\LRecepcion.cs" />
     <Compile Include="Logica\LControlPatio.cs" />
     <Compile Include="Logica\LSM.cs" />
+    <Compile Include="Logica\LSNPreSeco.cs" />
     <Compile Include="Logica\LUsuarios.cs" />
     <Compile Include="Logica\LVertical.cs" />
     <Compile Include="Login.cs">

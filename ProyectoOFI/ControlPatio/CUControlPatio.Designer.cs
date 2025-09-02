@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CUControlPatio));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Sig = new System.Windows.Forms.Button();
             this.btn_Primera = new System.Windows.Forms.Button();
             this.btn_Ultima = new System.Windows.Forms.Button();
@@ -130,6 +130,12 @@
             this.TSLTendido = new System.Windows.Forms.ToolStripSplitButton();
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarTendido = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSLEnfarde = new System.Windows.Forms.ToolStripSplitButton();
+            this.editarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarEnfarde = new System.Windows.Forms.ToolStripMenuItem();
+            this.TSLEnvio = new System.Windows.Forms.ToolStripSplitButton();
+            this.editarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarEnvio = new System.Windows.Forms.ToolStripMenuItem();
             this.PlDatos = new System.Windows.Forms.Panel();
             this.LblTCompra = new System.Windows.Forms.Label();
             this.LblCliente = new System.Windows.Forms.Label();
@@ -169,12 +175,24 @@
             this.dtInventariocp = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.TSLEnfarde = new System.Windows.Forms.ToolStripSplitButton();
-            this.editarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarEnfarde = new System.Windows.Forms.ToolStripMenuItem();
-            this.TSLEnvio = new System.Windows.Forms.ToolStripSplitButton();
-            this.editarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarEnvio = new System.Windows.Forms.ToolStripMenuItem();
+            this.PlPreseco = new System.Windows.Forms.Panel();
+            this.DtInicioPre = new System.Windows.Forms.DateTimePicker();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.TxtHumedadPre = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.TxtSacosPre = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.LblDiasPre = new System.Windows.Forms.Label();
+            this.BtnReTendido = new System.Windows.Forms.Button();
+            this.BtnGuardarPre = new System.Windows.Forms.Button();
+            this.PlSigProceso = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label39 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.BtnReProceso = new System.Windows.Forms.Button();
             this.PlCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.plOpciones.SuspendLayout();
@@ -198,6 +216,9 @@
             this.PlCerrarDetalle.SuspendLayout();
             this.PlEnvio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).BeginInit();
+            this.PlPreseco.SuspendLayout();
+            this.PlSigProceso.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Sig
@@ -663,6 +684,7 @@
             // 
             // PlContenedor
             // 
+            this.PlContenedor.Controls.Add(this.PlSigProceso);
             this.PlContenedor.Controls.Add(this.PlProceso);
             this.PlContenedor.Controls.Add(this.PlCambio);
             this.PlContenedor.Controls.Add(this.PlControl);
@@ -753,6 +775,7 @@
             this.CbProceso.Items.AddRange(new object[] {
             "No Asignado",
             "Tendido",
+            "PreSeco",
             "Enfarde",
             "Analizado",
             "Envio",
@@ -943,15 +966,15 @@
             this.PlControl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PlControl.Controls.Add(this.LblMsj);
             this.PlControl.Controls.Add(this.PlEnfarde);
+            this.PlControl.Controls.Add(this.PlEnvio);
+            this.PlControl.Controls.Add(this.PlPreseco);
             this.PlControl.Controls.Add(this.PlTendido);
             this.PlControl.Controls.Add(this.toolStrip1);
             this.PlControl.Controls.Add(this.PlDatos);
             this.PlControl.Controls.Add(this.PlCerrarDetalle);
-            this.PlControl.Controls.Add(this.PlEnvio);
-            this.PlControl.Location = new System.Drawing.Point(190, 93);
-            this.PlControl.MaximumSize = new System.Drawing.Size(976, 624);
+            this.PlControl.Location = new System.Drawing.Point(192, 68);
             this.PlControl.Name = "PlControl";
-            this.PlControl.Size = new System.Drawing.Size(976, 624);
+            this.PlControl.Size = new System.Drawing.Size(920, 630);
             this.PlControl.TabIndex = 14;
             this.PlControl.Visible = false;
             // 
@@ -961,9 +984,9 @@
             this.LblMsj.Dock = System.Windows.Forms.DockStyle.Top;
             this.LblMsj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.LblMsj.ForeColor = System.Drawing.Color.Red;
-            this.LblMsj.Location = new System.Drawing.Point(0, 456);
+            this.LblMsj.Location = new System.Drawing.Point(0, 474);
             this.LblMsj.Name = "LblMsj";
-            this.LblMsj.Size = new System.Drawing.Size(957, 34);
+            this.LblMsj.Size = new System.Drawing.Size(918, 34);
             this.LblMsj.TabIndex = 5;
             this.LblMsj.Text = "Falta Análisis de Catación";
             this.LblMsj.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -989,17 +1012,18 @@
             this.PlEnfarde.Controls.Add(this.TxtSacosEnfardados);
             this.PlEnfarde.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlEnfarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlEnfarde.Location = new System.Drawing.Point(0, 321);
+            this.PlEnfarde.Location = new System.Drawing.Point(0, 355);
             this.PlEnfarde.Name = "PlEnfarde";
-            this.PlEnfarde.Size = new System.Drawing.Size(957, 135);
+            this.PlEnfarde.Size = new System.Drawing.Size(918, 119);
             this.PlEnfarde.TabIndex = 18;
             this.PlEnfarde.Visible = false;
             // 
             // BtnEnvSM
             // 
-            this.BtnEnvSM.Location = new System.Drawing.Point(647, 6);
+            this.BtnEnvSM.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnEnvSM.Location = new System.Drawing.Point(647, 17);
             this.BtnEnvSM.Name = "BtnEnvSM";
-            this.BtnEnvSM.Size = new System.Drawing.Size(142, 40);
+            this.BtnEnvSM.Size = new System.Drawing.Size(82, 33);
             this.BtnEnvSM.TabIndex = 4;
             this.BtnEnvSM.Text = "Enviar SM";
             this.BtnEnvSM.UseVisualStyleBackColor = true;
@@ -1008,9 +1032,10 @@
             // 
             // BtnEnfarde
             // 
-            this.BtnEnfarde.Location = new System.Drawing.Point(814, 6);
+            this.BtnEnfarde.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnEnfarde.Location = new System.Drawing.Point(647, 70);
             this.BtnEnfarde.Name = "BtnEnfarde";
-            this.BtnEnfarde.Size = new System.Drawing.Size(142, 40);
+            this.BtnEnfarde.Size = new System.Drawing.Size(81, 33);
             this.BtnEnfarde.TabIndex = 4;
             this.BtnEnfarde.Text = "Enfarde";
             this.BtnEnfarde.UseVisualStyleBackColor = true;
@@ -1018,61 +1043,61 @@
             // 
             // DtpReEnfarde
             // 
-            this.DtpReEnfarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtpReEnfarde.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.DtpReEnfarde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpReEnfarde.Location = new System.Drawing.Point(201, 56);
+            this.DtpReEnfarde.Location = new System.Drawing.Point(175, 41);
             this.DtpReEnfarde.Name = "DtpReEnfarde";
-            this.DtpReEnfarde.Size = new System.Drawing.Size(112, 23);
+            this.DtpReEnfarde.Size = new System.Drawing.Size(112, 25);
             this.DtpReEnfarde.TabIndex = 2;
             this.DtpReEnfarde.Visible = false;
             this.DtpReEnfarde.ValueChanged += new System.EventHandler(this.DtpReEnfarde_ValueChanged);
             // 
             // DTPEnfarde
             // 
-            this.DTPEnfarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTPEnfarde.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.DTPEnfarde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPEnfarde.Location = new System.Drawing.Point(164, 20);
+            this.DTPEnfarde.Location = new System.Drawing.Point(138, 7);
             this.DTPEnfarde.Name = "DTPEnfarde";
-            this.DTPEnfarde.Size = new System.Drawing.Size(112, 23);
+            this.DTPEnfarde.Size = new System.Drawing.Size(112, 25);
             this.DTPEnfarde.TabIndex = 2;
             this.DTPEnfarde.ValueChanged += new System.EventHandler(this.DTPEnfarde_ValueChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(318, 95);
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label8.Location = new System.Drawing.Point(301, 81);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(144, 17);
+            this.label8.Size = new System.Drawing.Size(122, 17);
             this.label8.TabIndex = 0;
             this.label8.Text = "Humedad Levante:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(16, 95);
+            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label9.Location = new System.Drawing.Point(16, 81);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(145, 17);
+            this.label9.Size = new System.Drawing.Size(117, 17);
             this.label9.TabIndex = 0;
             this.label9.Text = "Sacos Enfardados:";
             // 
             // LblFechaReEnfarde
             // 
             this.LblFechaReEnfarde.AutoSize = true;
-            this.LblFechaReEnfarde.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFechaReEnfarde.Location = new System.Drawing.Point(16, 59);
+            this.LblFechaReEnfarde.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblFechaReEnfarde.Location = new System.Drawing.Point(16, 44);
             this.LblFechaReEnfarde.Name = "LblFechaReEnfarde";
-            this.LblFechaReEnfarde.Size = new System.Drawing.Size(162, 17);
+            this.LblFechaReEnfarde.Size = new System.Drawing.Size(130, 17);
             this.LblFechaReEnfarde.TabIndex = 0;
             this.LblFechaReEnfarde.Text = "Fecha de ReEnfarde:";
             this.LblFechaReEnfarde.Visible = false;
             // 
             // LblDigitadorEnfar
             // 
-            this.LblDigitadorEnfar.Location = new System.Drawing.Point(734, 62);
+            this.LblDigitadorEnfar.Location = new System.Drawing.Point(734, 14);
             this.LblDigitadorEnfar.Name = "LblDigitadorEnfar";
-            this.LblDigitadorEnfar.Size = new System.Drawing.Size(228, 62);
+            this.LblDigitadorEnfar.Size = new System.Drawing.Size(181, 62);
             this.LblDigitadorEnfar.TabIndex = 0;
             this.LblDigitadorEnfar.Text = "--";
             this.LblDigitadorEnfar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1080,20 +1105,20 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(16, 23);
+            this.label10.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label10.Location = new System.Drawing.Point(16, 10);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(142, 17);
+            this.label10.Size = new System.Drawing.Size(115, 17);
             this.label10.TabIndex = 0;
             this.label10.Text = "Fecha de Enfarde:";
             // 
             // LblDtotal
             // 
             this.LblDtotal.AutoSize = true;
-            this.LblDtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDtotal.Location = new System.Drawing.Point(528, 59);
+            this.LblDtotal.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblDtotal.Location = new System.Drawing.Point(511, 44);
             this.LblDtotal.Name = "LblDtotal";
-            this.LblDtotal.Size = new System.Drawing.Size(20, 17);
+            this.LblDtotal.Size = new System.Drawing.Size(18, 17);
             this.LblDtotal.TabIndex = 0;
             this.LblDtotal.Text = "--";
             this.LblDtotal.Visible = false;
@@ -1101,20 +1126,20 @@
             // LblDiasSecado
             // 
             this.LblDiasSecado.AutoSize = true;
-            this.LblDiasSecado.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDiasSecado.Location = new System.Drawing.Point(529, 23);
+            this.LblDiasSecado.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblDiasSecado.Location = new System.Drawing.Point(512, 10);
             this.LblDiasSecado.Name = "LblDiasSecado";
-            this.LblDiasSecado.Size = new System.Drawing.Size(20, 17);
+            this.LblDiasSecado.Size = new System.Drawing.Size(18, 17);
             this.LblDiasSecado.TabIndex = 0;
             this.LblDiasSecado.Text = "--";
             // 
             // LblDTS
             // 
             this.LblDTS.AutoSize = true;
-            this.LblDTS.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDTS.Location = new System.Drawing.Point(336, 59);
+            this.LblDTS.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblDTS.Location = new System.Drawing.Point(319, 44);
             this.LblDTS.Name = "LblDTS";
-            this.LblDTS.Size = new System.Drawing.Size(169, 17);
+            this.LblDTS.Size = new System.Drawing.Size(135, 17);
             this.LblDTS.TabIndex = 0;
             this.LblDTS.Text = "Dias Total de Secado:";
             this.LblDTS.Visible = false;
@@ -1122,27 +1147,27 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(382, 23);
+            this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label11.Location = new System.Drawing.Point(365, 10);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(127, 17);
+            this.label11.Size = new System.Drawing.Size(102, 17);
             this.label11.TabIndex = 0;
             this.label11.Text = "Dias de Secado:";
             // 
             // TxtHumedadLevante
             // 
-            this.TxtHumedadLevante.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtHumedadLevante.Location = new System.Drawing.Point(484, 92);
+            this.TxtHumedadLevante.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.TxtHumedadLevante.Location = new System.Drawing.Point(467, 78);
             this.TxtHumedadLevante.Name = "TxtHumedadLevante";
-            this.TxtHumedadLevante.Size = new System.Drawing.Size(91, 23);
+            this.TxtHumedadLevante.Size = new System.Drawing.Size(91, 25);
             this.TxtHumedadLevante.TabIndex = 1;
             // 
             // TxtSacosEnfardados
             // 
-            this.TxtSacosEnfardados.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtSacosEnfardados.Location = new System.Drawing.Point(185, 92);
+            this.TxtSacosEnfardados.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.TxtSacosEnfardados.Location = new System.Drawing.Point(159, 78);
             this.TxtSacosEnfardados.Name = "TxtSacosEnfardados";
-            this.TxtSacosEnfardados.Size = new System.Drawing.Size(119, 23);
+            this.TxtSacosEnfardados.Size = new System.Drawing.Size(119, 25);
             this.TxtSacosEnfardados.TabIndex = 1;
             // 
             // PlTendido
@@ -1162,38 +1187,38 @@
             this.PlTendido.Controls.Add(this.label1);
             this.PlTendido.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlTendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlTendido.Location = new System.Drawing.Point(0, 186);
+            this.PlTendido.Location = new System.Drawing.Point(0, 167);
             this.PlTendido.Name = "PlTendido";
-            this.PlTendido.Size = new System.Drawing.Size(957, 135);
+            this.PlTendido.Size = new System.Drawing.Size(918, 111);
             this.PlTendido.TabIndex = 17;
             // 
             // DtpRetendido
             // 
-            this.DtpRetendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtpRetendido.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.DtpRetendido.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpRetendido.Location = new System.Drawing.Point(661, 19);
+            this.DtpRetendido.Location = new System.Drawing.Point(613, 19);
             this.DtpRetendido.Name = "DtpRetendido";
-            this.DtpRetendido.Size = new System.Drawing.Size(119, 23);
+            this.DtpRetendido.Size = new System.Drawing.Size(119, 25);
             this.DtpRetendido.TabIndex = 6;
             this.DtpRetendido.Visible = false;
             // 
             // LblFReTendido
             // 
             this.LblFReTendido.AutoSize = true;
-            this.LblFReTendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFReTendido.Location = new System.Drawing.Point(512, 22);
+            this.LblFReTendido.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblFReTendido.Location = new System.Drawing.Point(464, 22);
             this.LblFReTendido.Name = "LblFReTendido";
-            this.LblFReTendido.Size = new System.Drawing.Size(144, 15);
+            this.LblFReTendido.Size = new System.Drawing.Size(132, 17);
             this.LblFReTendido.TabIndex = 5;
             this.LblFReTendido.Text = "Fecha de ReTendido:";
             this.LblFReTendido.Visible = false;
             // 
             // BtnTendido
             // 
-            this.BtnTendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnTendido.Location = new System.Drawing.Point(814, 5);
+            this.BtnTendido.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnTendido.Location = new System.Drawing.Point(804, 6);
             this.BtnTendido.Name = "BtnTendido";
-            this.BtnTendido.Size = new System.Drawing.Size(142, 37);
+            this.BtnTendido.Size = new System.Drawing.Size(81, 33);
             this.BtnTendido.TabIndex = 4;
             this.BtnTendido.Text = "Tendido";
             this.BtnTendido.UseVisualStyleBackColor = true;
@@ -1202,39 +1227,39 @@
             // 
             // CbUbicacionP
             // 
-            this.CbUbicacionP.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbUbicacionP.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.CbUbicacionP.FormattingEnabled = true;
-            this.CbUbicacionP.Location = new System.Drawing.Point(497, 80);
+            this.CbUbicacionP.Location = new System.Drawing.Point(397, 65);
             this.CbUbicacionP.Name = "CbUbicacionP";
-            this.CbUbicacionP.Size = new System.Drawing.Size(221, 24);
+            this.CbUbicacionP.Size = new System.Drawing.Size(190, 25);
             this.CbUbicacionP.TabIndex = 3;
             // 
             // CbPatio
             // 
-            this.CbPatio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CbPatio.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.CbPatio.FormattingEnabled = true;
-            this.CbPatio.Location = new System.Drawing.Point(84, 80);
+            this.CbPatio.Location = new System.Drawing.Point(67, 65);
             this.CbPatio.Name = "CbPatio";
-            this.CbPatio.Size = new System.Drawing.Size(221, 24);
+            this.CbPatio.Size = new System.Drawing.Size(183, 25);
             this.CbPatio.TabIndex = 3;
             this.CbPatio.SelectedIndexChanged += new System.EventHandler(this.CbPatio_SelectedIndexChanged);
             // 
             // DTPFechaTendido
             // 
-            this.DTPFechaTendido.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTPFechaTendido.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.DTPFechaTendido.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPFechaTendido.Location = new System.Drawing.Point(379, 19);
+            this.DTPFechaTendido.Location = new System.Drawing.Point(331, 19);
             this.DTPFechaTendido.Name = "DTPFechaTendido";
-            this.DTPFechaTendido.Size = new System.Drawing.Size(116, 23);
+            this.DTPFechaTendido.Size = new System.Drawing.Size(116, 25);
             this.DTPFechaTendido.TabIndex = 2;
             this.DTPFechaTendido.ValueChanged += new System.EventHandler(this.DTPFechaTendido_ValueChanged);
             // 
             // LblDigitadorCp
             // 
-            this.LblDigitadorCp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDigitadorCp.Location = new System.Drawing.Point(747, 54);
+            this.LblDigitadorCp.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblDigitadorCp.Location = new System.Drawing.Point(605, 57);
             this.LblDigitadorCp.Name = "LblDigitadorCp";
-            this.LblDigitadorCp.Size = new System.Drawing.Size(209, 62);
+            this.LblDigitadorCp.Size = new System.Drawing.Size(162, 43);
             this.LblDigitadorCp.TabIndex = 0;
             this.LblDigitadorCp.Text = "--";
             this.LblDigitadorCp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1242,48 +1267,48 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(319, 84);
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label7.Location = new System.Drawing.Point(268, 69);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(149, 17);
+            this.label7.Size = new System.Drawing.Size(123, 17);
             this.label7.TabIndex = 0;
             this.label7.Text = "Ubicación de Patio:";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(15, 84);
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label6.Location = new System.Drawing.Point(15, 69);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 17);
+            this.label6.Size = new System.Drawing.Size(42, 17);
             this.label6.TabIndex = 0;
             this.label6.Text = "Patio:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(225, 22);
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(207, 22);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(144, 17);
+            this.label5.Size = new System.Drawing.Size(117, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "Fecha de Tendido:";
             // 
             // TxtFolio
             // 
-            this.TxtFolio.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtFolio.Location = new System.Drawing.Point(112, 19);
+            this.TxtFolio.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.TxtFolio.Location = new System.Drawing.Point(94, 19);
             this.TxtFolio.Name = "TxtFolio";
-            this.TxtFolio.Size = new System.Drawing.Size(98, 23);
+            this.TxtFolio.Size = new System.Drawing.Size(98, 25);
             this.TxtFolio.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(10, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 17);
+            this.label1.Size = new System.Drawing.Size(78, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "N° de Folio:";
             // 
@@ -1295,9 +1320,9 @@
             this.TSLTendido,
             this.TSLEnfarde,
             this.TSLEnvio});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 186);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 167);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(957, 35);
+            this.toolStrip1.Size = new System.Drawing.Size(901, 35);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.Visible = false;
@@ -1315,16 +1340,65 @@
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(180, 32);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(162, 32);
             this.editarToolStripMenuItem.Text = "Editar";
             this.editarToolStripMenuItem.Click += new System.EventHandler(this.editarToolStripMenuItem_Click);
             // 
             // eliminarTendido
             // 
             this.eliminarTendido.Name = "eliminarTendido";
-            this.eliminarTendido.Size = new System.Drawing.Size(180, 32);
+            this.eliminarTendido.Size = new System.Drawing.Size(162, 32);
             this.eliminarTendido.Text = "Eliminar";
             this.eliminarTendido.Click += new System.EventHandler(this.eliminarTendido_Click);
+            // 
+            // TSLEnfarde
+            // 
+            this.TSLEnfarde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.TSLEnfarde.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editarToolStripMenuItem1,
+            this.eliminarEnfarde});
+            this.TSLEnfarde.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
+            this.TSLEnfarde.Name = "TSLEnfarde";
+            this.TSLEnfarde.Size = new System.Drawing.Size(101, 32);
+            this.TSLEnfarde.Text = "Enfarde";
+            // 
+            // editarToolStripMenuItem1
+            // 
+            this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
+            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(162, 32);
+            this.editarToolStripMenuItem1.Text = "Editar";
+            this.editarToolStripMenuItem1.Click += new System.EventHandler(this.editarToolStripMenuItem1_Click);
+            // 
+            // eliminarEnfarde
+            // 
+            this.eliminarEnfarde.Name = "eliminarEnfarde";
+            this.eliminarEnfarde.Size = new System.Drawing.Size(162, 32);
+            this.eliminarEnfarde.Text = "Eliminar";
+            this.eliminarEnfarde.Click += new System.EventHandler(this.eliminarEnfarde_Click);
+            // 
+            // TSLEnvio
+            // 
+            this.TSLEnvio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.TSLEnvio.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editarToolStripMenuItem2,
+            this.eliminarEnvio});
+            this.TSLEnvio.Name = "TSLEnvio";
+            this.TSLEnvio.Size = new System.Drawing.Size(80, 32);
+            this.TSLEnvio.Text = "Envio";
+            // 
+            // editarToolStripMenuItem2
+            // 
+            this.editarToolStripMenuItem2.Name = "editarToolStripMenuItem2";
+            this.editarToolStripMenuItem2.Size = new System.Drawing.Size(162, 32);
+            this.editarToolStripMenuItem2.Text = "Editar";
+            this.editarToolStripMenuItem2.Click += new System.EventHandler(this.editarToolStripMenuItem2_Click);
+            // 
+            // eliminarEnvio
+            // 
+            this.eliminarEnvio.Name = "eliminarEnvio";
+            this.eliminarEnvio.Size = new System.Drawing.Size(162, 32);
+            this.eliminarEnvio.Text = "Eliminar";
+            this.eliminarEnvio.Click += new System.EventHandler(this.eliminarEnvio_Click);
             // 
             // PlDatos
             // 
@@ -1349,208 +1423,209 @@
             this.PlDatos.Controls.Add(this.label17);
             this.PlDatos.Controls.Add(this.label16);
             this.PlDatos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PlDatos.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.PlDatos.Location = new System.Drawing.Point(0, 48);
             this.PlDatos.Name = "PlDatos";
-            this.PlDatos.Size = new System.Drawing.Size(957, 138);
+            this.PlDatos.Size = new System.Drawing.Size(918, 119);
             this.PlDatos.TabIndex = 0;
             // 
             // LblTCompra
             // 
             this.LblTCompra.AutoSize = true;
-            this.LblTCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTCompra.Location = new System.Drawing.Point(723, 104);
+            this.LblTCompra.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblTCompra.Location = new System.Drawing.Point(723, 87);
             this.LblTCompra.Name = "LblTCompra";
-            this.LblTCompra.Size = new System.Drawing.Size(19, 20);
+            this.LblTCompra.Size = new System.Drawing.Size(18, 17);
             this.LblTCompra.TabIndex = 1;
             this.LblTCompra.Text = "--";
             // 
             // LblCliente
             // 
             this.LblCliente.AutoSize = true;
-            this.LblCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCliente.Location = new System.Drawing.Point(206, 104);
+            this.LblCliente.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblCliente.Location = new System.Drawing.Point(206, 87);
             this.LblCliente.Name = "LblCliente";
-            this.LblCliente.Size = new System.Drawing.Size(19, 20);
+            this.LblCliente.Size = new System.Drawing.Size(18, 17);
             this.LblCliente.TabIndex = 2;
             this.LblCliente.Text = "--";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(577, 104);
+            this.label26.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label26.Location = new System.Drawing.Point(577, 87);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(137, 20);
+            this.label26.Size = new System.Drawing.Size(106, 17);
             this.label26.TabIndex = 3;
             this.label26.Text = "Tipo de compra:";
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(122, 104);
+            this.label27.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label27.Location = new System.Drawing.Point(122, 87);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(70, 20);
+            this.label27.Size = new System.Drawing.Size(52, 17);
             this.label27.TabIndex = 4;
             this.label27.Text = "Cliente:";
             // 
             // LblCert
             // 
             this.LblCert.AutoSize = true;
-            this.LblCert.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCert.Location = new System.Drawing.Point(770, 70);
+            this.LblCert.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblCert.Location = new System.Drawing.Point(770, 48);
             this.LblCert.Name = "LblCert";
-            this.LblCert.Size = new System.Drawing.Size(19, 20);
+            this.LblCert.Size = new System.Drawing.Size(18, 17);
             this.LblCert.TabIndex = 0;
             this.LblCert.Text = "--";
             // 
             // LblDanio
             // 
             this.LblDanio.AutoSize = true;
-            this.LblDanio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDanio.Location = new System.Drawing.Point(536, 70);
+            this.LblDanio.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblDanio.Location = new System.Drawing.Point(536, 48);
             this.LblDanio.Name = "LblDanio";
-            this.LblDanio.Size = new System.Drawing.Size(19, 20);
+            this.LblDanio.Size = new System.Drawing.Size(18, 17);
             this.LblDanio.TabIndex = 0;
             this.LblDanio.Text = "--";
             // 
             // LblCalidad
             // 
             this.LblCalidad.AutoSize = true;
-            this.LblCalidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblCalidad.Location = new System.Drawing.Point(367, 70);
+            this.LblCalidad.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblCalidad.Location = new System.Drawing.Point(367, 48);
             this.LblCalidad.Name = "LblCalidad";
-            this.LblCalidad.Size = new System.Drawing.Size(19, 20);
+            this.LblCalidad.Size = new System.Drawing.Size(18, 17);
             this.LblCalidad.TabIndex = 0;
             this.LblCalidad.Text = "--";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(650, 70);
+            this.label23.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label23.Location = new System.Drawing.Point(650, 48);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(114, 20);
+            this.label23.Size = new System.Drawing.Size(84, 17);
             this.label23.TabIndex = 0;
             this.label23.Text = "Certificación:";
             // 
             // LblEstFis
             // 
             this.LblEstFis.AutoSize = true;
-            this.LblEstFis.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblEstFis.Location = new System.Drawing.Point(150, 70);
+            this.LblEstFis.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblEstFis.Location = new System.Drawing.Point(150, 48);
             this.LblEstFis.Name = "LblEstFis";
-            this.LblEstFis.Size = new System.Drawing.Size(19, 20);
+            this.LblEstFis.Size = new System.Drawing.Size(18, 17);
             this.LblEstFis.TabIndex = 0;
             this.LblEstFis.Text = "--";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(473, 70);
+            this.label22.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label22.Location = new System.Drawing.Point(473, 48);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(57, 20);
+            this.label22.Size = new System.Drawing.Size(43, 17);
             this.label22.TabIndex = 0;
             this.label22.Text = "Daño:";
             // 
             // LblQQs
             // 
             this.LblQQs.AutoSize = true;
-            this.LblQQs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblQQs.Location = new System.Drawing.Point(759, 16);
+            this.LblQQs.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblQQs.Location = new System.Drawing.Point(759, 12);
             this.LblQQs.Name = "LblQQs";
-            this.LblQQs.Size = new System.Drawing.Size(19, 20);
+            this.LblQQs.Size = new System.Drawing.Size(18, 17);
             this.LblQQs.TabIndex = 0;
             this.LblQQs.Text = "--";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(287, 70);
+            this.label21.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label21.Location = new System.Drawing.Point(287, 48);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(74, 20);
+            this.label21.Size = new System.Drawing.Size(55, 17);
             this.label21.TabIndex = 0;
             this.label21.Text = "Calidad:";
             // 
             // LblPeso
             // 
             this.LblPeso.AutoSize = true;
-            this.LblPeso.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPeso.Location = new System.Drawing.Point(539, 16);
+            this.LblPeso.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblPeso.Location = new System.Drawing.Point(539, 12);
             this.LblPeso.Name = "LblPeso";
-            this.LblPeso.Size = new System.Drawing.Size(19, 20);
+            this.LblPeso.Size = new System.Drawing.Size(18, 17);
             this.LblPeso.TabIndex = 0;
             this.LblPeso.Text = "--";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(21, 70);
+            this.label20.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label20.Location = new System.Drawing.Point(21, 48);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(123, 20);
+            this.label20.Size = new System.Drawing.Size(89, 17);
             this.label20.TabIndex = 0;
             this.label20.Text = "Estado Fisico:";
             // 
             // LblSacos
             // 
             this.LblSacos.AutoSize = true;
-            this.LblSacos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblSacos.Location = new System.Drawing.Point(324, 16);
+            this.LblSacos.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblSacos.Location = new System.Drawing.Point(324, 12);
             this.LblSacos.Name = "LblSacos";
-            this.LblSacos.Size = new System.Drawing.Size(19, 20);
+            this.LblSacos.Size = new System.Drawing.Size(18, 17);
             this.LblSacos.TabIndex = 0;
             this.LblSacos.Text = "--";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(700, 16);
+            this.label19.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label19.Location = new System.Drawing.Point(700, 12);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(49, 20);
+            this.label19.Size = new System.Drawing.Size(37, 17);
             this.label19.TabIndex = 0;
             this.label19.Text = "QQs:";
             // 
             // LblTicket
             // 
             this.LblTicket.AutoSize = true;
-            this.LblTicket.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTicket.Location = new System.Drawing.Point(89, 16);
+            this.LblTicket.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblTicket.Location = new System.Drawing.Point(89, 12);
             this.LblTicket.Name = "LblTicket";
-            this.LblTicket.Size = new System.Drawing.Size(19, 20);
+            this.LblTicket.Size = new System.Drawing.Size(18, 17);
             this.LblTicket.TabIndex = 0;
             this.LblTicket.Text = "--";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(485, 16);
+            this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label18.Location = new System.Drawing.Point(485, 12);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(44, 20);
+            this.label18.Size = new System.Drawing.Size(33, 17);
             this.label18.TabIndex = 0;
             this.label18.Text = "Kgs:";
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(250, 16);
+            this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label17.Location = new System.Drawing.Point(250, 12);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(64, 20);
+            this.label17.Size = new System.Drawing.Size(45, 17);
             this.label17.TabIndex = 0;
             this.label17.Text = "Sacos:";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(17, 16);
+            this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label16.Location = new System.Drawing.Point(17, 12);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(62, 20);
+            this.label16.Size = new System.Drawing.Size(46, 17);
             this.label16.TabIndex = 0;
             this.label16.Text = "Ticket:";
             // 
@@ -1563,7 +1638,7 @@
             this.PlCerrarDetalle.Dock = System.Windows.Forms.DockStyle.Top;
             this.PlCerrarDetalle.Location = new System.Drawing.Point(0, 0);
             this.PlCerrarDetalle.Name = "PlCerrarDetalle";
-            this.PlCerrarDetalle.Size = new System.Drawing.Size(957, 48);
+            this.PlCerrarDetalle.Size = new System.Drawing.Size(918, 48);
             this.PlCerrarDetalle.TabIndex = 3;
             // 
             // BtnProceso
@@ -1571,7 +1646,7 @@
             this.BtnProceso.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnProceso.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnProceso.Image = global::ProyectoOFI.Properties.Resources.split_52966371;
-            this.BtnProceso.Location = new System.Drawing.Point(827, 0);
+            this.BtnProceso.Location = new System.Drawing.Point(788, 0);
             this.BtnProceso.Name = "BtnProceso";
             this.BtnProceso.Size = new System.Drawing.Size(51, 44);
             this.BtnProceso.TabIndex = 6;
@@ -1585,7 +1660,7 @@
             this.LblTituloCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTituloCP.Location = new System.Drawing.Point(0, 0);
             this.LblTituloCP.Name = "LblTituloCP";
-            this.LblTituloCP.Size = new System.Drawing.Size(878, 44);
+            this.LblTituloCP.Size = new System.Drawing.Size(839, 44);
             this.LblTituloCP.TabIndex = 4;
             this.LblTituloCP.Text = "Editar Control Patio";
             this.LblTituloCP.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1595,7 +1670,7 @@
             this.BtnCerrarDetalleCp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.BtnCerrarDetalleCp.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnCerrarDetalleCp.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.BtnCerrarDetalleCp.Location = new System.Drawing.Point(878, 0);
+            this.BtnCerrarDetalleCp.Location = new System.Drawing.Point(839, 0);
             this.BtnCerrarDetalleCp.Name = "BtnCerrarDetalleCp";
             this.BtnCerrarDetalleCp.Size = new System.Drawing.Size(75, 44);
             this.BtnCerrarDetalleCp.TabIndex = 3;
@@ -1617,17 +1692,18 @@
             this.PlEnvio.Controls.Add(this.TxtDNIN);
             this.PlEnvio.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PlEnvio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlEnvio.Location = new System.Drawing.Point(0, 490);
+            this.PlEnvio.Location = new System.Drawing.Point(0, 529);
             this.PlEnvio.Name = "PlEnvio";
-            this.PlEnvio.Size = new System.Drawing.Size(957, 135);
+            this.PlEnvio.Size = new System.Drawing.Size(918, 99);
             this.PlEnvio.TabIndex = 20;
             this.PlEnvio.Visible = false;
             // 
             // BtnEnviar
             // 
-            this.BtnEnviar.Location = new System.Drawing.Point(814, 15);
+            this.BtnEnviar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnEnviar.Location = new System.Drawing.Point(730, 7);
             this.BtnEnviar.Name = "BtnEnviar";
-            this.BtnEnviar.Size = new System.Drawing.Size(142, 40);
+            this.BtnEnviar.Size = new System.Drawing.Size(89, 29);
             this.BtnEnviar.TabIndex = 4;
             this.BtnEnviar.Text = "Enviar";
             this.BtnEnviar.UseVisualStyleBackColor = true;
@@ -1636,79 +1712,88 @@
             // 
             // CbDestino
             // 
+            this.CbDestino.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.CbDestino.FormattingEnabled = true;
-            this.CbDestino.Location = new System.Drawing.Point(473, 15);
+            this.CbDestino.Location = new System.Drawing.Point(350, 15);
             this.CbDestino.Name = "CbDestino";
-            this.CbDestino.Size = new System.Drawing.Size(221, 28);
+            this.CbDestino.Size = new System.Drawing.Size(221, 25);
             this.CbDestino.TabIndex = 3;
             this.CbDestino.SelectedIndexChanged += new System.EventHandler(this.CbDestino_SelectedIndexChanged);
             // 
             // CbEstFis
             // 
+            this.CbEstFis.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.CbEstFis.FormattingEnabled = true;
-            this.CbEstFis.Location = new System.Drawing.Point(472, 76);
+            this.CbEstFis.Location = new System.Drawing.Point(429, 54);
             this.CbEstFis.Name = "CbEstFis";
-            this.CbEstFis.Size = new System.Drawing.Size(221, 28);
+            this.CbEstFis.Size = new System.Drawing.Size(221, 25);
             this.CbEstFis.TabIndex = 3;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(360, 19);
+            this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label15.Location = new System.Drawing.Point(287, 19);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(76, 20);
+            this.label15.Size = new System.Drawing.Size(57, 17);
             this.label15.TabIndex = 0;
             this.label15.Text = "Destino:";
             // 
             // LblDigiEnvio
             // 
-            this.LblDigiEnvio.Location = new System.Drawing.Point(734, 59);
+            this.LblDigiEnvio.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblDigiEnvio.Location = new System.Drawing.Point(688, 59);
             this.LblDigiEnvio.Name = "LblDigiEnvio";
-            this.LblDigiEnvio.Size = new System.Drawing.Size(228, 62);
+            this.LblDigiEnvio.Size = new System.Drawing.Size(200, 42);
             this.LblDigiEnvio.TabIndex = 0;
             this.LblDigiEnvio.Text = "--";
             this.LblDigiEnvio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DTEnvio
             // 
+            this.DTEnvio.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.DTEnvio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTEnvio.Location = new System.Drawing.Point(191, 16);
+            this.DTEnvio.Location = new System.Drawing.Point(125, 13);
             this.DTEnvio.Name = "DTEnvio";
-            this.DTEnvio.Size = new System.Drawing.Size(132, 26);
+            this.DTEnvio.Size = new System.Drawing.Size(132, 25);
             this.DTEnvio.TabIndex = 2;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(341, 80);
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label12.Location = new System.Drawing.Point(324, 58);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(123, 20);
+            this.label12.Size = new System.Drawing.Size(89, 17);
             this.label12.TabIndex = 0;
             this.label12.Text = "Estado Fisico:";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(15, 80);
+            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label13.Location = new System.Drawing.Point(15, 58);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(124, 20);
+            this.label13.Size = new System.Drawing.Size(94, 17);
             this.label13.TabIndex = 0;
             this.label13.Text = "DNIN-DNOUT:";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.label14.Location = new System.Drawing.Point(16, 19);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(138, 20);
+            this.label14.Size = new System.Drawing.Size(102, 17);
             this.label14.TabIndex = 0;
             this.label14.Text = "Fecha de Envio:";
             // 
             // TxtDNIN
             // 
-            this.TxtDNIN.Location = new System.Drawing.Point(147, 77);
+            this.TxtDNIN.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.TxtDNIN.Location = new System.Drawing.Point(115, 54);
             this.TxtDNIN.Name = "TxtDNIN";
-            this.TxtDNIN.Size = new System.Drawing.Size(186, 26);
+            this.TxtDNIN.Size = new System.Drawing.Size(186, 25);
             this.TxtDNIN.TabIndex = 1;
             // 
             // dtInventariocp
@@ -1717,37 +1802,37 @@
             this.dtInventariocp.AllowUserToDeleteRows = false;
             this.dtInventariocp.AllowUserToOrderColumns = true;
             this.dtInventariocp.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.NullValue = "--";
-            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle5.NullValue = "--";
+            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dtInventariocp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventariocp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventariocp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dtInventariocp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.NullValue = "--";
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.NullValue = "--";
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle7;
             this.dtInventariocp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventariocp.Location = new System.Drawing.Point(0, 62);
             this.dtInventariocp.Name = "dtInventariocp";
             this.dtInventariocp.ReadOnly = true;
             this.dtInventariocp.RowHeadersVisible = false;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dtInventariocp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventariocp.ShowCellToolTips = false;
             this.dtInventariocp.ShowEditingIcon = false;
@@ -1776,54 +1861,201 @@
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
             // 
-            // TSLEnfarde
+            // PlPreseco
             // 
-            this.TSLEnfarde.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.TSLEnfarde.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editarToolStripMenuItem1,
-            this.eliminarEnfarde});
-            this.TSLEnfarde.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            this.TSLEnfarde.Name = "TSLEnfarde";
-            this.TSLEnfarde.Size = new System.Drawing.Size(101, 32);
-            this.TSLEnfarde.Text = "Enfarde";
+            this.PlPreseco.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.PlPreseco.Controls.Add(this.BtnGuardarPre);
+            this.PlPreseco.Controls.Add(this.BtnReTendido);
+            this.PlPreseco.Controls.Add(this.LblDiasPre);
+            this.PlPreseco.Controls.Add(this.label38);
+            this.PlPreseco.Controls.Add(this.label37);
+            this.PlPreseco.Controls.Add(this.TxtSacosPre);
+            this.PlPreseco.Controls.Add(this.label34);
+            this.PlPreseco.Controls.Add(this.TxtHumedadPre);
+            this.PlPreseco.Controls.Add(this.DtInicioPre);
+            this.PlPreseco.Controls.Add(this.label30);
+            this.PlPreseco.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PlPreseco.Location = new System.Drawing.Point(0, 278);
+            this.PlPreseco.Name = "PlPreseco";
+            this.PlPreseco.Size = new System.Drawing.Size(918, 77);
+            this.PlPreseco.TabIndex = 21;
+            this.PlPreseco.Visible = false;
             // 
-            // editarToolStripMenuItem1
+            // DtInicioPre
             // 
-            this.editarToolStripMenuItem1.Name = "editarToolStripMenuItem1";
-            this.editarToolStripMenuItem1.Size = new System.Drawing.Size(180, 32);
-            this.editarToolStripMenuItem1.Text = "Editar";
-            this.editarToolStripMenuItem1.Click += new System.EventHandler(this.editarToolStripMenuItem1_Click);
+            this.DtInicioPre.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtInicioPre.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtInicioPre.Location = new System.Drawing.Point(132, 4);
+            this.DtInicioPre.Name = "DtInicioPre";
+            this.DtInicioPre.Size = new System.Drawing.Size(132, 25);
+            this.DtInicioPre.TabIndex = 4;
             // 
-            // eliminarEnfarde
+            // label30
             // 
-            this.eliminarEnfarde.Name = "eliminarEnfarde";
-            this.eliminarEnfarde.Size = new System.Drawing.Size(180, 32);
-            this.eliminarEnfarde.Text = "Eliminar";
-            this.eliminarEnfarde.Click += new System.EventHandler(this.eliminarEnfarde_Click);
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(19, 10);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(102, 17);
+            this.label30.TabIndex = 3;
+            this.label30.Text = "Fecha Estibado:";
             // 
-            // TSLEnvio
+            // label34
             // 
-            this.TSLEnvio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.TSLEnvio.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.editarToolStripMenuItem2,
-            this.eliminarEnvio});
-            this.TSLEnvio.Name = "TSLEnvio";
-            this.TSLEnvio.Size = new System.Drawing.Size(80, 32);
-            this.TSLEnvio.Text = "Envio";
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label34.Location = new System.Drawing.Point(292, 11);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(122, 17);
+            this.label34.TabIndex = 5;
+            this.label34.Text = "Humedad Levante:";
             // 
-            // editarToolStripMenuItem2
+            // TxtHumedadPre
             // 
-            this.editarToolStripMenuItem2.Name = "editarToolStripMenuItem2";
-            this.editarToolStripMenuItem2.Size = new System.Drawing.Size(180, 32);
-            this.editarToolStripMenuItem2.Text = "Editar";
-            this.editarToolStripMenuItem2.Click += new System.EventHandler(this.editarToolStripMenuItem2_Click);
+            this.TxtHumedadPre.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.TxtHumedadPre.Location = new System.Drawing.Point(423, 5);
+            this.TxtHumedadPre.Name = "TxtHumedadPre";
+            this.TxtHumedadPre.Size = new System.Drawing.Size(110, 25);
+            this.TxtHumedadPre.TabIndex = 6;
             // 
-            // eliminarEnvio
+            // label37
             // 
-            this.eliminarEnvio.Name = "eliminarEnvio";
-            this.eliminarEnvio.Size = new System.Drawing.Size(180, 32);
-            this.eliminarEnvio.Text = "Eliminar";
-            this.eliminarEnvio.Click += new System.EventHandler(this.eliminarEnvio_Click);
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label37.Location = new System.Drawing.Point(22, 49);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(80, 17);
+            this.label37.TabIndex = 7;
+            this.label37.Text = "Cant. Sacos:";
+            // 
+            // TxtSacosPre
+            // 
+            this.TxtSacosPre.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.TxtSacosPre.Location = new System.Drawing.Point(132, 41);
+            this.TxtSacosPre.Name = "TxtSacosPre";
+            this.TxtSacosPre.Size = new System.Drawing.Size(91, 25);
+            this.TxtSacosPre.TabIndex = 8;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label38.Location = new System.Drawing.Point(334, 49);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(87, 17);
+            this.label38.TabIndex = 9;
+            this.label38.Text = "Dias Preseco:";
+            // 
+            // LblDiasPre
+            // 
+            this.LblDiasPre.AutoSize = true;
+            this.LblDiasPre.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblDiasPre.Location = new System.Drawing.Point(420, 49);
+            this.LblDiasPre.Name = "LblDiasPre";
+            this.LblDiasPre.Size = new System.Drawing.Size(18, 17);
+            this.LblDiasPre.TabIndex = 10;
+            this.LblDiasPre.Text = "--";
+            // 
+            // BtnReTendido
+            // 
+            this.BtnReTendido.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnReTendido.Location = new System.Drawing.Point(630, 6);
+            this.BtnReTendido.Name = "BtnReTendido";
+            this.BtnReTendido.Size = new System.Drawing.Size(98, 37);
+            this.BtnReTendido.TabIndex = 11;
+            this.BtnReTendido.Text = "ReTendido";
+            this.BtnReTendido.UseVisualStyleBackColor = true;
+            this.BtnReTendido.Visible = false;
+            // 
+            // BtnGuardarPre
+            // 
+            this.BtnGuardarPre.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnGuardarPre.Location = new System.Drawing.Point(539, 26);
+            this.BtnGuardarPre.Name = "BtnGuardarPre";
+            this.BtnGuardarPre.Size = new System.Drawing.Size(81, 33);
+            this.BtnGuardarPre.TabIndex = 7;
+            this.BtnGuardarPre.Text = "Guardar";
+            this.BtnGuardarPre.UseVisualStyleBackColor = true;
+            this.BtnGuardarPre.Click += new System.EventHandler(this.BtnGuardarPre_Click);
+            // 
+            // PlSigProceso
+            // 
+            this.PlSigProceso.BackColor = System.Drawing.Color.White;
+            this.PlSigProceso.Controls.Add(this.BtnReProceso);
+            this.PlSigProceso.Controls.Add(this.button3);
+            this.PlSigProceso.Controls.Add(this.button4);
+            this.PlSigProceso.Controls.Add(this.panel5);
+            this.PlSigProceso.Location = new System.Drawing.Point(9, 134);
+            this.PlSigProceso.Name = "PlSigProceso";
+            this.PlSigProceso.Size = new System.Drawing.Size(272, 102);
+            this.PlSigProceso.TabIndex = 23;
+            this.PlSigProceso.Visible = false;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.label39);
+            this.panel5.Controls.Add(this.button1);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(272, 42);
+            this.panel5.TabIndex = 2;
+            // 
+            // label39
+            // 
+            this.label39.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(0, 0);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(223, 42);
+            this.label39.TabIndex = 3;
+            this.label39.Text = "Siguiente Proceso";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button1.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.button1.Location = new System.Drawing.Point(223, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(49, 42);
+            this.button1.TabIndex = 2;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button3.Location = new System.Drawing.Point(179, 46);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(84, 37);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "Pre-Seco";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button4.Location = new System.Drawing.Point(9, 46);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(84, 37);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "Enfardar";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // BtnReProceso
+            // 
+            this.BtnReProceso.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnReProceso.Location = new System.Drawing.Point(144, 48);
+            this.BtnReProceso.Name = "BtnReProceso";
+            this.BtnReProceso.Size = new System.Drawing.Size(84, 37);
+            this.BtnReProceso.TabIndex = 15;
+            this.BtnReProceso.Text = "ReTendido";
+            this.BtnReProceso.UseVisualStyleBackColor = true;
+            this.BtnReProceso.Visible = false;
             // 
             // CUControlPatio
             // 
@@ -1866,6 +2098,10 @@
             this.PlEnvio.ResumeLayout(false);
             this.PlEnvio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).EndInit();
+            this.PlPreseco.ResumeLayout(false);
+            this.PlPreseco.PerformLayout();
+            this.PlSigProceso.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2013,5 +2249,23 @@
         private System.Windows.Forms.ToolStripSplitButton TSLEnvio;
         private System.Windows.Forms.ToolStripMenuItem editarToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem eliminarEnvio;
+        private System.Windows.Forms.Panel PlPreseco;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.TextBox TxtHumedadPre;
+        private System.Windows.Forms.DateTimePicker DtInicioPre;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label LblDiasPre;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TextBox TxtSacosPre;
+        private System.Windows.Forms.Button BtnReTendido;
+        private System.Windows.Forms.Button BtnGuardarPre;
+        private System.Windows.Forms.Panel PlSigProceso;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnReProceso;
     }
 }

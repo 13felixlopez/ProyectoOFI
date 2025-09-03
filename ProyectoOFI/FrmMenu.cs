@@ -2,6 +2,7 @@
 using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using ProyectoOFI.Recepcion;
+using ProyectoOFI.Reportes;
 using ProyectoOFI.Usuario;
 using System;
 using System.Data;
@@ -164,6 +165,17 @@ namespace ProyectoOFI
             {
                 isAdjusting = false; // Desactivamos la bandera, incluso si hay un error.
             }
+        }
+
+        private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PlPrincipal.Controls.Clear();
+            Dashboard tr = new Dashboard
+            {
+                Dock = DockStyle.Fill
+            };
+            PlPrincipal.Controls.Add(tr);
+            Habilitar(dashboardToolStripMenuItem);
         }
     }
 }

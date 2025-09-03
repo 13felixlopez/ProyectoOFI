@@ -40,7 +40,7 @@ namespace ProyectoOFI.Recepcion
         object[,] dataArray;
         List<string> filtro = new List<string>();
         private Form FrmActivo = null;
-        string label="Add";
+        string label = "Add";
         List<string> permisosUsuario = new List<string>();
 
         string ConstProceso;
@@ -94,17 +94,17 @@ namespace ProyectoOFI.Recepcion
         private async Task AbrirFormulario()
         {
             await Task.Delay(100);
-            PlRecepcion.Location = new System.Drawing.Point(dtInventario.Width / 2
-                - PlRecepcion.Width / 2, dtInventario.Height / 2 - PlRecepcion.Height / 2);
-            PlRecepcion.Visible = true;
-            PlRecepcion.BringToFront();
+            //PlRecepcion.Location = new System.Drawing.Point(dtInventario.Width / 2
+            //    - PlRecepcion.Width / 2, dtInventario.Height / 2 - PlRecepcion.Height / 2);
+            //PlRecepcion.Visible = true;
+            //PlRecepcion.BringToFront();
             plOpciones.Enabled = false;
             PEnvio.Dock = DockStyle.Fill;
             dtInventario.Enabled = false;
             DRecepcion funcion = new DRecepcion();
             funcion.Cosecha(LblCosecha);
             //ChUA.Checked = true;
-            AdjustPanelInfoSizeAndPosition();
+            AdjustPanelInfoSizeAndPosition(PlRecepcion);
             // Elegir el diálogo según el modo
         }
         private void AbrirFormulario1()
@@ -466,7 +466,7 @@ namespace ProyectoOFI.Recepcion
             CargarCombos();
             ObtenerTK();
             ObtenerDatos();
-            label= "Edit";
+            label = "Edit";
             lblTransferencia.Text = "Editar Transferencia";
             CHBConsSM.Visible = false;
             AbrirFormulario();
@@ -2370,15 +2370,40 @@ namespace ProyectoOFI.Recepcion
             }
         }
 
-        private void AdjustPanelInfoSizeAndPosition()
+        private void AdjustPanelInfoSizeAndPosition(Panel PlControl)
         {
-            // Tamaño deseado del panel en una pantalla de referencia (por ejemplo, 1920x1080)
-            int desiredWidth = 600;
-            int desiredHeight = 300;
+            //// Tamaño deseado del panel en una pantalla de referencia (por ejemplo, 1920x1080)
+            //int desiredWidth = 600;
+            //int desiredHeight = 300;
 
-            // Calcular el tamaño proporcional al tamaño actual del formulario
-            PlRecepcion.Width = (this.ClientSize.Width * desiredWidth) / 1920;
-            PlRecepcion.Height = (this.ClientSize.Height * desiredHeight) / 1080;
+            //// Calcular el tamaño proporcional al tamaño actual del formulario
+            //PlRecepcion.Width = (this.ClientSize.Width * desiredWidth) / 1920;
+            //PlRecepcion.Height = (this.ClientSize.Height * desiredHeight) / 1080;
+
+            //PlControl.Location = new Point(dtInventariocp.Width / 2
+            //    - PlControl.Width / 2, dtInventariocp.Height / 2 - PlControl.Height / 3);
+            int formWidth = this.ClientSize.Width;
+            int formHeight = this.ClientSize.Height;
+
+            // Verificamos si el panel es más grande que el formulario y ajustamos si es necesario
+            if (PlControl.Width > formWidth)
+            {
+                PlControl.Width = formWidth - 20; // Agregamos un margen
+            }
+
+            if (PlControl.Height > formHeight)
+            {
+                PlControl.Height = formHeight - 20; // Agregamos un margen
+            }
+
+            // Luego calculamos la nueva ubicación centrada
+            int newX = (formWidth - PlControl.Width) / 2;
+            int newY = (formHeight - PlControl.Height) / 2;
+
+            PlControl.Location = new System.Drawing.Point(newX, newY);
+
+            PlControl.Visible = true;
+            PlControl.BringToFront();
         }
     }
 }

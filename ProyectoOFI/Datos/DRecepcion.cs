@@ -201,7 +201,7 @@ namespace ProyectoOFI.Datos
                 Conexion.cerrar();
             }
         }
-        
+
         internal void BuscarrangoFecha(ref DataTable dt, DateTime FInicio, DateTime FFin, int desde, int hasta, int Contar)
         {
             try

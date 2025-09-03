@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CUControlPatio));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Sig = new System.Windows.Forms.Button();
             this.btn_Primera = new System.Windows.Forms.Button();
             this.btn_Ultima = new System.Windows.Forms.Button();
@@ -72,6 +72,13 @@
             this.LblFiltros = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.PlContenedor = new System.Windows.Forms.Panel();
+            this.PlSigProceso = new System.Windows.Forms.Panel();
+            this.BtnReProceso = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label39 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.PlProceso = new System.Windows.Forms.Panel();
             this.LblProcesoCP = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
@@ -113,6 +120,27 @@
             this.label11 = new System.Windows.Forms.Label();
             this.TxtHumedadLevante = new System.Windows.Forms.TextBox();
             this.TxtSacosEnfardados = new System.Windows.Forms.TextBox();
+            this.PlEnvio = new System.Windows.Forms.Panel();
+            this.BtnEnviar = new System.Windows.Forms.Button();
+            this.CbDestino = new System.Windows.Forms.ComboBox();
+            this.CbEstFis = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.LblDigiEnvio = new System.Windows.Forms.Label();
+            this.DTEnvio = new System.Windows.Forms.DateTimePicker();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.TxtDNIN = new System.Windows.Forms.TextBox();
+            this.PlPreseco = new System.Windows.Forms.Panel();
+            this.BtnGuardarPre = new System.Windows.Forms.Button();
+            this.LblDiasPre = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.TxtSacosPre = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.TxtHumedadPre = new System.Windows.Forms.TextBox();
+            this.DtInicioPre = new System.Windows.Forms.DateTimePicker();
+            this.label30 = new System.Windows.Forms.Label();
             this.PlTendido = new System.Windows.Forms.Panel();
             this.DtpRetendido = new System.Windows.Forms.DateTimePicker();
             this.LblFReTendido = new System.Windows.Forms.Label();
@@ -161,38 +189,9 @@
             this.BtnProceso = new System.Windows.Forms.Button();
             this.LblTituloCP = new System.Windows.Forms.Label();
             this.BtnCerrarDetalleCp = new System.Windows.Forms.Button();
-            this.PlEnvio = new System.Windows.Forms.Panel();
-            this.BtnEnviar = new System.Windows.Forms.Button();
-            this.CbDestino = new System.Windows.Forms.ComboBox();
-            this.CbEstFis = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.LblDigiEnvio = new System.Windows.Forms.Label();
-            this.DTEnvio = new System.Windows.Forms.DateTimePicker();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.TxtDNIN = new System.Windows.Forms.TextBox();
             this.dtInventariocp = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.PlPreseco = new System.Windows.Forms.Panel();
-            this.DtInicioPre = new System.Windows.Forms.DateTimePicker();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.TxtHumedadPre = new System.Windows.Forms.TextBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.TxtSacosPre = new System.Windows.Forms.TextBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.LblDiasPre = new System.Windows.Forms.Label();
-            this.BtnReTendido = new System.Windows.Forms.Button();
-            this.BtnGuardarPre = new System.Windows.Forms.Button();
-            this.PlSigProceso = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label39 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.BtnReProceso = new System.Windows.Forms.Button();
             this.PlCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.plOpciones.SuspendLayout();
@@ -204,21 +203,21 @@
             this.PlFiltros.SuspendLayout();
             this.PlCerrar.SuspendLayout();
             this.PlContenedor.SuspendLayout();
+            this.PlSigProceso.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.PlProceso.SuspendLayout();
             this.panel4.SuspendLayout();
             this.PlCambio.SuspendLayout();
             this.panel1.SuspendLayout();
             this.PlControl.SuspendLayout();
             this.PlEnfarde.SuspendLayout();
+            this.PlEnvio.SuspendLayout();
+            this.PlPreseco.SuspendLayout();
             this.PlTendido.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.PlDatos.SuspendLayout();
             this.PlCerrarDetalle.SuspendLayout();
-            this.PlEnvio.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).BeginInit();
-            this.PlPreseco.SuspendLayout();
-            this.PlSigProceso.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_Sig
@@ -699,6 +698,85 @@
             this.PlContenedor.Size = new System.Drawing.Size(1825, 842);
             this.PlContenedor.TabIndex = 15;
             // 
+            // PlSigProceso
+            // 
+            this.PlSigProceso.BackColor = System.Drawing.Color.White;
+            this.PlSigProceso.Controls.Add(this.BtnReProceso);
+            this.PlSigProceso.Controls.Add(this.button3);
+            this.PlSigProceso.Controls.Add(this.button4);
+            this.PlSigProceso.Controls.Add(this.panel5);
+            this.PlSigProceso.Location = new System.Drawing.Point(9, 134);
+            this.PlSigProceso.Name = "PlSigProceso";
+            this.PlSigProceso.Size = new System.Drawing.Size(272, 102);
+            this.PlSigProceso.TabIndex = 23;
+            this.PlSigProceso.Visible = false;
+            // 
+            // BtnReProceso
+            // 
+            this.BtnReProceso.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnReProceso.Location = new System.Drawing.Point(144, 48);
+            this.BtnReProceso.Name = "BtnReProceso";
+            this.BtnReProceso.Size = new System.Drawing.Size(84, 37);
+            this.BtnReProceso.TabIndex = 15;
+            this.BtnReProceso.Text = "ReTendido";
+            this.BtnReProceso.UseVisualStyleBackColor = true;
+            this.BtnReProceso.Visible = false;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button3.Location = new System.Drawing.Point(179, 46);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(84, 37);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "Pre-Seco";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button4.Location = new System.Drawing.Point(9, 46);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(84, 37);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "Enfardar";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.label39);
+            this.panel5.Controls.Add(this.button1);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(272, 42);
+            this.panel5.TabIndex = 2;
+            // 
+            // label39
+            // 
+            this.label39.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label39.Location = new System.Drawing.Point(0, 0);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(223, 42);
+            this.label39.TabIndex = 3;
+            this.label39.Text = "Siguiente Proceso";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button1.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.button1.Location = new System.Drawing.Point(223, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(49, 42);
+            this.button1.TabIndex = 2;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // PlProceso
             // 
             this.PlProceso.Controls.Add(this.LblProcesoCP);
@@ -1170,6 +1248,230 @@
             this.TxtSacosEnfardados.Size = new System.Drawing.Size(119, 25);
             this.TxtSacosEnfardados.TabIndex = 1;
             // 
+            // PlEnvio
+            // 
+            this.PlEnvio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.PlEnvio.Controls.Add(this.BtnEnviar);
+            this.PlEnvio.Controls.Add(this.CbDestino);
+            this.PlEnvio.Controls.Add(this.CbEstFis);
+            this.PlEnvio.Controls.Add(this.label15);
+            this.PlEnvio.Controls.Add(this.LblDigiEnvio);
+            this.PlEnvio.Controls.Add(this.DTEnvio);
+            this.PlEnvio.Controls.Add(this.label12);
+            this.PlEnvio.Controls.Add(this.label13);
+            this.PlEnvio.Controls.Add(this.label14);
+            this.PlEnvio.Controls.Add(this.TxtDNIN);
+            this.PlEnvio.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PlEnvio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlEnvio.Location = new System.Drawing.Point(0, 529);
+            this.PlEnvio.Name = "PlEnvio";
+            this.PlEnvio.Size = new System.Drawing.Size(918, 99);
+            this.PlEnvio.TabIndex = 20;
+            this.PlEnvio.Visible = false;
+            // 
+            // BtnEnviar
+            // 
+            this.BtnEnviar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnEnviar.Location = new System.Drawing.Point(730, 7);
+            this.BtnEnviar.Name = "BtnEnviar";
+            this.BtnEnviar.Size = new System.Drawing.Size(89, 29);
+            this.BtnEnviar.TabIndex = 4;
+            this.BtnEnviar.Text = "Enviar";
+            this.BtnEnviar.UseVisualStyleBackColor = true;
+            this.BtnEnviar.Visible = false;
+            this.BtnEnviar.Click += new System.EventHandler(this.BtnEnviar_Click);
+            // 
+            // CbDestino
+            // 
+            this.CbDestino.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.CbDestino.FormattingEnabled = true;
+            this.CbDestino.Location = new System.Drawing.Point(350, 15);
+            this.CbDestino.Name = "CbDestino";
+            this.CbDestino.Size = new System.Drawing.Size(221, 25);
+            this.CbDestino.TabIndex = 3;
+            this.CbDestino.SelectedIndexChanged += new System.EventHandler(this.CbDestino_SelectedIndexChanged);
+            // 
+            // CbEstFis
+            // 
+            this.CbEstFis.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.CbEstFis.FormattingEnabled = true;
+            this.CbEstFis.Location = new System.Drawing.Point(429, 54);
+            this.CbEstFis.Name = "CbEstFis";
+            this.CbEstFis.Size = new System.Drawing.Size(221, 25);
+            this.CbEstFis.TabIndex = 3;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label15.Location = new System.Drawing.Point(287, 19);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(57, 17);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Destino:";
+            // 
+            // LblDigiEnvio
+            // 
+            this.LblDigiEnvio.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblDigiEnvio.Location = new System.Drawing.Point(688, 59);
+            this.LblDigiEnvio.Name = "LblDigiEnvio";
+            this.LblDigiEnvio.Size = new System.Drawing.Size(200, 42);
+            this.LblDigiEnvio.TabIndex = 0;
+            this.LblDigiEnvio.Text = "--";
+            this.LblDigiEnvio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // DTEnvio
+            // 
+            this.DTEnvio.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.DTEnvio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DTEnvio.Location = new System.Drawing.Point(125, 13);
+            this.DTEnvio.Name = "DTEnvio";
+            this.DTEnvio.Size = new System.Drawing.Size(132, 25);
+            this.DTEnvio.TabIndex = 2;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label12.Location = new System.Drawing.Point(324, 58);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(89, 17);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Estado Fisico:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label13.Location = new System.Drawing.Point(15, 58);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(94, 17);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "DNIN-DNOUT:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label14.Location = new System.Drawing.Point(16, 19);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(102, 17);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Fecha de Envio:";
+            // 
+            // TxtDNIN
+            // 
+            this.TxtDNIN.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.TxtDNIN.Location = new System.Drawing.Point(115, 54);
+            this.TxtDNIN.Name = "TxtDNIN";
+            this.TxtDNIN.Size = new System.Drawing.Size(186, 25);
+            this.TxtDNIN.TabIndex = 1;
+            // 
+            // PlPreseco
+            // 
+            this.PlPreseco.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.PlPreseco.Controls.Add(this.BtnGuardarPre);
+            this.PlPreseco.Controls.Add(this.LblDiasPre);
+            this.PlPreseco.Controls.Add(this.label38);
+            this.PlPreseco.Controls.Add(this.label37);
+            this.PlPreseco.Controls.Add(this.TxtSacosPre);
+            this.PlPreseco.Controls.Add(this.label34);
+            this.PlPreseco.Controls.Add(this.TxtHumedadPre);
+            this.PlPreseco.Controls.Add(this.DtInicioPre);
+            this.PlPreseco.Controls.Add(this.label30);
+            this.PlPreseco.Dock = System.Windows.Forms.DockStyle.Top;
+            this.PlPreseco.Location = new System.Drawing.Point(0, 278);
+            this.PlPreseco.Name = "PlPreseco";
+            this.PlPreseco.Size = new System.Drawing.Size(918, 77);
+            this.PlPreseco.TabIndex = 21;
+            this.PlPreseco.Visible = false;
+            // 
+            // BtnGuardarPre
+            // 
+            this.BtnGuardarPre.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.BtnGuardarPre.Location = new System.Drawing.Point(602, 26);
+            this.BtnGuardarPre.Name = "BtnGuardarPre";
+            this.BtnGuardarPre.Size = new System.Drawing.Size(81, 33);
+            this.BtnGuardarPre.TabIndex = 7;
+            this.BtnGuardarPre.Text = "Guardar";
+            this.BtnGuardarPre.UseVisualStyleBackColor = true;
+            this.BtnGuardarPre.Click += new System.EventHandler(this.BtnGuardarPre_Click);
+            // 
+            // LblDiasPre
+            // 
+            this.LblDiasPre.AutoSize = true;
+            this.LblDiasPre.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblDiasPre.Location = new System.Drawing.Point(420, 49);
+            this.LblDiasPre.Name = "LblDiasPre";
+            this.LblDiasPre.Size = new System.Drawing.Size(18, 17);
+            this.LblDiasPre.TabIndex = 10;
+            this.LblDiasPre.Text = "--";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label38.Location = new System.Drawing.Point(334, 49);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(87, 17);
+            this.label38.TabIndex = 9;
+            this.label38.Text = "Dias Preseco:";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label37.Location = new System.Drawing.Point(22, 49);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(80, 17);
+            this.label37.TabIndex = 7;
+            this.label37.Text = "Cant. Sacos:";
+            // 
+            // TxtSacosPre
+            // 
+            this.TxtSacosPre.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.TxtSacosPre.Location = new System.Drawing.Point(132, 41);
+            this.TxtSacosPre.Name = "TxtSacosPre";
+            this.TxtSacosPre.Size = new System.Drawing.Size(91, 25);
+            this.TxtSacosPre.TabIndex = 8;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label34.Location = new System.Drawing.Point(292, 11);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(122, 17);
+            this.label34.TabIndex = 5;
+            this.label34.Text = "Humedad Levante:";
+            // 
+            // TxtHumedadPre
+            // 
+            this.TxtHumedadPre.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.TxtHumedadPre.Location = new System.Drawing.Point(423, 5);
+            this.TxtHumedadPre.Name = "TxtHumedadPre";
+            this.TxtHumedadPre.Size = new System.Drawing.Size(134, 25);
+            this.TxtHumedadPre.TabIndex = 6;
+            // 
+            // DtInicioPre
+            // 
+            this.DtInicioPre.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DtInicioPre.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtInicioPre.Location = new System.Drawing.Point(132, 4);
+            this.DtInicioPre.Name = "DtInicioPre";
+            this.DtInicioPre.Size = new System.Drawing.Size(132, 25);
+            this.DtInicioPre.TabIndex = 4;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(19, 10);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(102, 17);
+            this.label30.TabIndex = 3;
+            this.label30.Text = "Fecha Estibado:";
+            // 
             // PlTendido
             // 
             this.PlTendido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -1248,9 +1550,9 @@
             // 
             this.DTPFechaTendido.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
             this.DTPFechaTendido.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTPFechaTendido.Location = new System.Drawing.Point(331, 19);
+            this.DTPFechaTendido.Location = new System.Drawing.Point(322, 19);
             this.DTPFechaTendido.Name = "DTPFechaTendido";
-            this.DTPFechaTendido.Size = new System.Drawing.Size(116, 25);
+            this.DTPFechaTendido.Size = new System.Drawing.Size(122, 25);
             this.DTPFechaTendido.TabIndex = 2;
             this.DTPFechaTendido.ValueChanged += new System.EventHandler(this.DTPFechaTendido_ValueChanged);
             // 
@@ -1677,162 +1979,43 @@
             this.BtnCerrarDetalleCp.UseVisualStyleBackColor = true;
             this.BtnCerrarDetalleCp.Click += new System.EventHandler(this.BtnCerrarDetalleCp_Click);
             // 
-            // PlEnvio
-            // 
-            this.PlEnvio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.PlEnvio.Controls.Add(this.BtnEnviar);
-            this.PlEnvio.Controls.Add(this.CbDestino);
-            this.PlEnvio.Controls.Add(this.CbEstFis);
-            this.PlEnvio.Controls.Add(this.label15);
-            this.PlEnvio.Controls.Add(this.LblDigiEnvio);
-            this.PlEnvio.Controls.Add(this.DTEnvio);
-            this.PlEnvio.Controls.Add(this.label12);
-            this.PlEnvio.Controls.Add(this.label13);
-            this.PlEnvio.Controls.Add(this.label14);
-            this.PlEnvio.Controls.Add(this.TxtDNIN);
-            this.PlEnvio.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.PlEnvio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PlEnvio.Location = new System.Drawing.Point(0, 529);
-            this.PlEnvio.Name = "PlEnvio";
-            this.PlEnvio.Size = new System.Drawing.Size(918, 99);
-            this.PlEnvio.TabIndex = 20;
-            this.PlEnvio.Visible = false;
-            // 
-            // BtnEnviar
-            // 
-            this.BtnEnviar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.BtnEnviar.Location = new System.Drawing.Point(730, 7);
-            this.BtnEnviar.Name = "BtnEnviar";
-            this.BtnEnviar.Size = new System.Drawing.Size(89, 29);
-            this.BtnEnviar.TabIndex = 4;
-            this.BtnEnviar.Text = "Enviar";
-            this.BtnEnviar.UseVisualStyleBackColor = true;
-            this.BtnEnviar.Visible = false;
-            this.BtnEnviar.Click += new System.EventHandler(this.BtnEnviar_Click);
-            // 
-            // CbDestino
-            // 
-            this.CbDestino.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.CbDestino.FormattingEnabled = true;
-            this.CbDestino.Location = new System.Drawing.Point(350, 15);
-            this.CbDestino.Name = "CbDestino";
-            this.CbDestino.Size = new System.Drawing.Size(221, 25);
-            this.CbDestino.TabIndex = 3;
-            this.CbDestino.SelectedIndexChanged += new System.EventHandler(this.CbDestino_SelectedIndexChanged);
-            // 
-            // CbEstFis
-            // 
-            this.CbEstFis.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.CbEstFis.FormattingEnabled = true;
-            this.CbEstFis.Location = new System.Drawing.Point(429, 54);
-            this.CbEstFis.Name = "CbEstFis";
-            this.CbEstFis.Size = new System.Drawing.Size(221, 25);
-            this.CbEstFis.TabIndex = 3;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label15.Location = new System.Drawing.Point(287, 19);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(57, 17);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Destino:";
-            // 
-            // LblDigiEnvio
-            // 
-            this.LblDigiEnvio.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.LblDigiEnvio.Location = new System.Drawing.Point(688, 59);
-            this.LblDigiEnvio.Name = "LblDigiEnvio";
-            this.LblDigiEnvio.Size = new System.Drawing.Size(200, 42);
-            this.LblDigiEnvio.TabIndex = 0;
-            this.LblDigiEnvio.Text = "--";
-            this.LblDigiEnvio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // DTEnvio
-            // 
-            this.DTEnvio.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.DTEnvio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTEnvio.Location = new System.Drawing.Point(125, 13);
-            this.DTEnvio.Name = "DTEnvio";
-            this.DTEnvio.Size = new System.Drawing.Size(132, 25);
-            this.DTEnvio.TabIndex = 2;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label12.Location = new System.Drawing.Point(324, 58);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(89, 17);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Estado Fisico:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label13.Location = new System.Drawing.Point(15, 58);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(94, 17);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "DNIN-DNOUT:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label14.Location = new System.Drawing.Point(16, 19);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(102, 17);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Fecha de Envio:";
-            // 
-            // TxtDNIN
-            // 
-            this.TxtDNIN.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.TxtDNIN.Location = new System.Drawing.Point(115, 54);
-            this.TxtDNIN.Name = "TxtDNIN";
-            this.TxtDNIN.Size = new System.Drawing.Size(186, 25);
-            this.TxtDNIN.TabIndex = 1;
-            // 
             // dtInventariocp
             // 
             this.dtInventariocp.AllowUserToAddRows = false;
             this.dtInventariocp.AllowUserToDeleteRows = false;
             this.dtInventariocp.AllowUserToOrderColumns = true;
             this.dtInventariocp.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.NullValue = "--";
-            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle13.NullValue = "--";
+            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dtInventariocp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventariocp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventariocp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dtInventariocp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.NullValue = "--";
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.NullValue = "--";
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle15;
             this.dtInventariocp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventariocp.Location = new System.Drawing.Point(0, 62);
             this.dtInventariocp.Name = "dtInventariocp";
             this.dtInventariocp.ReadOnly = true;
             this.dtInventariocp.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dtInventariocp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventariocp.ShowCellToolTips = false;
             this.dtInventariocp.ShowEditingIcon = false;
@@ -1861,202 +2044,6 @@
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
             // 
-            // PlPreseco
-            // 
-            this.PlPreseco.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.PlPreseco.Controls.Add(this.BtnGuardarPre);
-            this.PlPreseco.Controls.Add(this.BtnReTendido);
-            this.PlPreseco.Controls.Add(this.LblDiasPre);
-            this.PlPreseco.Controls.Add(this.label38);
-            this.PlPreseco.Controls.Add(this.label37);
-            this.PlPreseco.Controls.Add(this.TxtSacosPre);
-            this.PlPreseco.Controls.Add(this.label34);
-            this.PlPreseco.Controls.Add(this.TxtHumedadPre);
-            this.PlPreseco.Controls.Add(this.DtInicioPre);
-            this.PlPreseco.Controls.Add(this.label30);
-            this.PlPreseco.Dock = System.Windows.Forms.DockStyle.Top;
-            this.PlPreseco.Location = new System.Drawing.Point(0, 278);
-            this.PlPreseco.Name = "PlPreseco";
-            this.PlPreseco.Size = new System.Drawing.Size(918, 77);
-            this.PlPreseco.TabIndex = 21;
-            this.PlPreseco.Visible = false;
-            // 
-            // DtInicioPre
-            // 
-            this.DtInicioPre.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DtInicioPre.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtInicioPre.Location = new System.Drawing.Point(132, 4);
-            this.DtInicioPre.Name = "DtInicioPre";
-            this.DtInicioPre.Size = new System.Drawing.Size(132, 25);
-            this.DtInicioPre.TabIndex = 4;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label30.Location = new System.Drawing.Point(19, 10);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(102, 17);
-            this.label30.TabIndex = 3;
-            this.label30.Text = "Fecha Estibado:";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label34.Location = new System.Drawing.Point(292, 11);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(122, 17);
-            this.label34.TabIndex = 5;
-            this.label34.Text = "Humedad Levante:";
-            // 
-            // TxtHumedadPre
-            // 
-            this.TxtHumedadPre.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.TxtHumedadPre.Location = new System.Drawing.Point(423, 5);
-            this.TxtHumedadPre.Name = "TxtHumedadPre";
-            this.TxtHumedadPre.Size = new System.Drawing.Size(110, 25);
-            this.TxtHumedadPre.TabIndex = 6;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label37.Location = new System.Drawing.Point(22, 49);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(80, 17);
-            this.label37.TabIndex = 7;
-            this.label37.Text = "Cant. Sacos:";
-            // 
-            // TxtSacosPre
-            // 
-            this.TxtSacosPre.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.TxtSacosPre.Location = new System.Drawing.Point(132, 41);
-            this.TxtSacosPre.Name = "TxtSacosPre";
-            this.TxtSacosPre.Size = new System.Drawing.Size(91, 25);
-            this.TxtSacosPre.TabIndex = 8;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label38.Location = new System.Drawing.Point(334, 49);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(87, 17);
-            this.label38.TabIndex = 9;
-            this.label38.Text = "Dias Preseco:";
-            // 
-            // LblDiasPre
-            // 
-            this.LblDiasPre.AutoSize = true;
-            this.LblDiasPre.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.LblDiasPre.Location = new System.Drawing.Point(420, 49);
-            this.LblDiasPre.Name = "LblDiasPre";
-            this.LblDiasPre.Size = new System.Drawing.Size(18, 17);
-            this.LblDiasPre.TabIndex = 10;
-            this.LblDiasPre.Text = "--";
-            // 
-            // BtnReTendido
-            // 
-            this.BtnReTendido.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.BtnReTendido.Location = new System.Drawing.Point(630, 6);
-            this.BtnReTendido.Name = "BtnReTendido";
-            this.BtnReTendido.Size = new System.Drawing.Size(98, 37);
-            this.BtnReTendido.TabIndex = 11;
-            this.BtnReTendido.Text = "ReTendido";
-            this.BtnReTendido.UseVisualStyleBackColor = true;
-            this.BtnReTendido.Visible = false;
-            // 
-            // BtnGuardarPre
-            // 
-            this.BtnGuardarPre.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.BtnGuardarPre.Location = new System.Drawing.Point(539, 26);
-            this.BtnGuardarPre.Name = "BtnGuardarPre";
-            this.BtnGuardarPre.Size = new System.Drawing.Size(81, 33);
-            this.BtnGuardarPre.TabIndex = 7;
-            this.BtnGuardarPre.Text = "Guardar";
-            this.BtnGuardarPre.UseVisualStyleBackColor = true;
-            this.BtnGuardarPre.Click += new System.EventHandler(this.BtnGuardarPre_Click);
-            // 
-            // PlSigProceso
-            // 
-            this.PlSigProceso.BackColor = System.Drawing.Color.White;
-            this.PlSigProceso.Controls.Add(this.BtnReProceso);
-            this.PlSigProceso.Controls.Add(this.button3);
-            this.PlSigProceso.Controls.Add(this.button4);
-            this.PlSigProceso.Controls.Add(this.panel5);
-            this.PlSigProceso.Location = new System.Drawing.Point(9, 134);
-            this.PlSigProceso.Name = "PlSigProceso";
-            this.PlSigProceso.Size = new System.Drawing.Size(272, 102);
-            this.PlSigProceso.TabIndex = 23;
-            this.PlSigProceso.Visible = false;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.label39);
-            this.panel5.Controls.Add(this.button1);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(272, 42);
-            this.panel5.TabIndex = 2;
-            // 
-            // label39
-            // 
-            this.label39.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label39.Location = new System.Drawing.Point(0, 0);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(223, 42);
-            this.label39.TabIndex = 3;
-            this.label39.Text = "Siguiente Proceso";
-            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
-            this.button1.Location = new System.Drawing.Point(223, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(49, 42);
-            this.button1.TabIndex = 2;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button3.Location = new System.Drawing.Point(179, 46);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(84, 37);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Pre-Seco";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button4.Location = new System.Drawing.Point(9, 46);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(84, 37);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "Enfardar";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // BtnReProceso
-            // 
-            this.BtnReProceso.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.BtnReProceso.Location = new System.Drawing.Point(144, 48);
-            this.BtnReProceso.Name = "BtnReProceso";
-            this.BtnReProceso.Size = new System.Drawing.Size(84, 37);
-            this.BtnReProceso.TabIndex = 15;
-            this.BtnReProceso.Text = "ReTendido";
-            this.BtnReProceso.UseVisualStyleBackColor = true;
-            this.BtnReProceso.Visible = false;
-            // 
             // CUControlPatio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2078,6 +2065,8 @@
             this.PlFiltros.ResumeLayout(false);
             this.PlCerrar.ResumeLayout(false);
             this.PlContenedor.ResumeLayout(false);
+            this.PlSigProceso.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.PlProceso.ResumeLayout(false);
             this.PlProceso.PerformLayout();
             this.panel4.ResumeLayout(false);
@@ -2088,6 +2077,10 @@
             this.PlControl.PerformLayout();
             this.PlEnfarde.ResumeLayout(false);
             this.PlEnfarde.PerformLayout();
+            this.PlEnvio.ResumeLayout(false);
+            this.PlEnvio.PerformLayout();
+            this.PlPreseco.ResumeLayout(false);
+            this.PlPreseco.PerformLayout();
             this.PlTendido.ResumeLayout(false);
             this.PlTendido.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -2095,13 +2088,7 @@
             this.PlDatos.ResumeLayout(false);
             this.PlDatos.PerformLayout();
             this.PlCerrarDetalle.ResumeLayout(false);
-            this.PlEnvio.ResumeLayout(false);
-            this.PlEnvio.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventariocp)).EndInit();
-            this.PlPreseco.ResumeLayout(false);
-            this.PlPreseco.PerformLayout();
-            this.PlSigProceso.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2258,7 +2245,6 @@
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TextBox TxtSacosPre;
-        private System.Windows.Forms.Button BtnReTendido;
         private System.Windows.Forms.Button BtnGuardarPre;
         private System.Windows.Forms.Panel PlSigProceso;
         private System.Windows.Forms.Button button3;

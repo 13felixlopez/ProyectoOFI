@@ -1059,5 +1059,112 @@ namespace ProyectoOFI.Datos
             }
         }
 
+        public DataTable BuscarMTNT()
+        {
+            var dt = new DataTable();
+
+            try
+            {
+                Conexion.abrir();
+
+                //using (var cmd = new SqlCommand("SELECT DISTINCT MTNT FROM MTNTRec WHERE MTNT LIKE @q", Conexion.conectar))
+                using (var cmd = new SqlCommand("Select MT.MTNT from MTNTRec MT LEFT join Envio En on MT.MTNT=En.MTNT", Conexion.conectar))
+                {
+                    //cmd.Parameters.AddWithValue("@q", filtro + "%");
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        dt.Load(reader);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al buscar MTNT: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("BuscarMTNT ✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+
+            return dt;
+        }
+        public void MostrarMTNT(ComboBox combo)
+        {
+            try
+            {
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                Conexion.abrir();
+
+                SqlCommand cmd = new SqlCommand("SELECT MT.MTNT FROM MTNTRec MT LEFT JOIN Envio En ON MT.MTNT = En.MTNT", Conexion.conectar);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                combo.DisplayMember = "MTNT";
+                combo.ValueMember = "MTNT"; // Asumimos que MTNT es único
+                combo.DataSource = dt;
+
+                // Cargar los valores en el autocompletado
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    lista.Add(dt.Rows[i]["MTNT"].ToString());
+                }
+
+                combo.AutoCompleteCustomSource = lista;
+                combo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                combo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los MTNT: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarMTNT ✖️✖️ " + ex.Message);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+
+        public void RellenarCamposMTNT(string Doc, ComboBox Agencia, ComboBox Acopio, NumericUpDown Sacos, TextBox Peso, ComboBox EstFis)
+        {
+            try
+            {
+                Conexion.abrir();
+
+                // ✅ SQL corregido (sin comillas mal puestas)
+                SqlCommand cmd = new SqlCommand(
+                    "SELECT TOP (1) Agencia, Acopio, Sacos, Peso, EstadoFisico FROM MTNTRec WHERE MTNT = @Doc",
+                    Conexion.conectar);
+
+                cmd.CommandType = CommandType.Text;
+                cmd.Parameters.AddWithValue("@Doc", Doc);  // ✅ parámetro corregido
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+
+                if (dt.Rows.Count > 0)
+                {
+                    Agencia.Text = dt.Rows[0]["Agencia"].ToString();
+                    Acopio.Text = dt.Rows[0]["Acopio"].ToString();
+                    Sacos.Value = Convert.ToInt32(dt.Rows[0]["Sacos"]);
+                    Peso.Text = dt.Rows[0]["Peso"].ToString();
+                    EstFis.Text = dt.Rows[0]["EstadoFisico"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Writeerror("Error al buscar datos de MTNT RellenarCamposMTNT ✖️✖️ " + ex.Message);
+                MessageBox.Show("Ocurrió un error al buscar datos de MTNT: " + ex.Message,
+                                "Error en RellenarCamposMTNT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Conexion.cerrar();
+            }
+        }
+
     }
 }

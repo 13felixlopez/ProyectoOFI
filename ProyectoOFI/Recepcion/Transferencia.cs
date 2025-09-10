@@ -48,6 +48,7 @@ namespace ProyectoOFI.Recepcion
         {
             InitializeComponent();
         }
+
         private void LlenarCheckBoxList()
         {
             // Limpiar el CheckListBox antes de llenarlo
@@ -267,7 +268,7 @@ namespace ProyectoOFI.Recepcion
             cbAcopio.Text = "";
             cbCliente.Text = "";
             cbCompra.Text = "";
-            txtMTNT.Clear();
+            CbMTNT.Text = "";
             cbCertificacion.Text = "";
             cbEsFisico.Text = "";
             cbCalidadE.Text = "";
@@ -405,7 +406,7 @@ namespace ProyectoOFI.Recepcion
                 par.IdAgencia = int.Parse(cbAgencia.SelectedValue.ToString());
                 par.IdAcopio = int.Parse(cbAcopio.SelectedValue.ToString());
                 par.IdCliente = int.Parse(cbCliente.SelectedValue.ToString());
-                par.MTNT = txtMTNT.Text;
+                par.MTNT = CbMTNT.Text;
                 par.IdTCompra = int.Parse(cbCompra.SelectedValue.ToString());
                 par.IdCertificacionE = int.Parse(cbCertificacion.SelectedValue.ToString());
                 par.IdEsFisico = int.Parse(cbEsFisico.SelectedValue.ToString());
@@ -581,11 +582,11 @@ namespace ProyectoOFI.Recepcion
                     }
                     if (!string.IsNullOrEmpty(row["MTNT"].ToString()))
                     {
-                        txtMTNT.Text = row["MTNT"].ToString();
+                        CbMTNT.Text = row["MTNT"].ToString();
                     }
                     else
                     {
-                        txtMTNT.Text = "";
+                        CbMTNT.Text = "";
                     }
                     if (row["Certificacion"].ToString() != null)
                     {
@@ -1315,7 +1316,7 @@ namespace ProyectoOFI.Recepcion
                         par.IdAgencia = int.Parse(cbAgencia.SelectedValue.ToString());
                         par.IdAcopio = int.Parse(cbAcopio.SelectedValue.ToString());
                         par.IdCliente = int.Parse(cbCliente.SelectedValue.ToString());
-                        par.MTNT = txtMTNT.Text;
+                        par.MTNT = CbMTNT.Text;
                         par.IdTCompra = int.Parse(cbCompra.SelectedValue.ToString());
                         par.IdCertificacionE = int.Parse(cbCertificacion.SelectedValue.ToString());
                         par.IdEsFisico = int.Parse(cbEsFisico.SelectedValue.ToString());
@@ -1495,7 +1496,7 @@ namespace ProyectoOFI.Recepcion
                                              $"- Agencia: {cbAgencia.Text}\n" +
                                              $"- Acopio: {cbAcopio.Text}\n" +
                                              $"- Cliente: {cbCliente.Text}\n" +
-                                             $"- MTNT: {txtMTNT.Text}\n" +
+                                             $"- MTNT: {CbMTNT.Text}\n" +
                                              $"- Tipo Compra: {cbCompra.Text}\n" +
                                              $"- Certificación: {cbCertificacion.Text}\n" +
                                              $"- Es Físico: {cbEsFisico.Text}\n" +
@@ -1861,6 +1862,7 @@ namespace ProyectoOFI.Recepcion
             funcion.MostrarDaño(cbDaño);
             funcion.MostrarAreaSecado2(cbArea);
             funcion.MostrarAreaSecado2(CbAreaCons);
+            funcion.MostrarMTNT(CbMTNT);
         }
         private void BtnVerCons_Click(object sender, EventArgs e)
         {
@@ -2300,6 +2302,44 @@ namespace ProyectoOFI.Recepcion
                 BuscarTK();
                 dtInventario.Enabled = true;
                 _debeActualizar = false;
+            }
+        }
+
+        private AutoCompleteStringCollection listaMTNT = new AutoCompleteStringCollection();
+
+        private void txtMTNT_TextChanged(object sender, EventArgs e)
+        {
+            //if (txtMTNT.Text.Length < 2) return;
+
+            //var Doc = new DRecepcion().BuscarMTNT(txtMTNT.Text.Trim());
+            //listaMTNT.Clear();
+            //listaMTNT.AddRange(Doc.ToArray());
+
+            //txtMTNT.AutoCompleteCustomSource = listaMTNT;
+        }
+        private void RellenarCampos(string Doc)
+        {
+            DRecepcion funcion = new DRecepcion();
+            funcion.RellenarCamposMTNT(CbMTNT.Text, cbAgencia, cbAcopio, nudSacosE, txtPesoE, cbEsFisico);
+        }
+
+        private void txtMTNT_Validated(object sender, EventArgs e)
+        {
+            string seleccionado = CbMTNT.Text.Trim();
+
+            if (listaMTNT.Contains(seleccionado))
+            {
+                RellenarCampos(seleccionado);
+            }
+            // Si no está en la lista, no hace nada
+        }
+
+        private void CbMTNT_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CbMTNT.SelectedItem != null)
+            {
+                string seleccionado = CbMTNT.SelectedItem.ToString();
+                RellenarCampos(seleccionado);
             }
         }
 

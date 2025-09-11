@@ -1097,7 +1097,7 @@ namespace ProyectoOFI.Datos
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
                 Conexion.abrir();
 
-                SqlCommand cmd = new SqlCommand("SELECT MT.MTNT FROM MTNTRec MT LEFT JOIN Envio En ON MT.MTNT = En.MTNT", Conexion.conectar);
+                SqlCommand cmd = new SqlCommand("SELECT MT.MTNT FROM MTNTRec MT INNER JOIN Bascula B on MT.IdBascula=B.IdBascula INNER JOIN Entrada Ent ON Ent.Cod=B.Cod WHERE NOT EXISTS (SELECT 1 FROM Envio EN WHERE EN.MTNT = MT.MTNT) AND Ent.TipoEntrada !='Compra Directa'\r\n", Conexion.conectar);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);

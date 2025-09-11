@@ -694,6 +694,9 @@
                     string nombrecolumna2 = "Tipo Compra";
                     int indice2 = dtInventariocp.Columns[nombrecolumna2].Index;
                     LblTCompra.Text = dtInventariocp.SelectedCells[indice2].Value.ToString();
+                    LblPatioRec.Text = row["PatioRec"].ToString();
+                    LblUbicacionRec.Text = row["UbicacionRec"].ToString();
+                    LblFRecibido.Text = Frecibido.ToString("dd/MM/yyyy hh:mm");
                 }
                 else
                 {
@@ -762,6 +765,7 @@
             TxtSacosEnfardados.Enabled = true;
             TxtHumedadLevante.Enabled = true;
             BtnEnfarde.Enabled = true;
+            PlPreseco.Visible = false;
             Limpiar();
             PlControl.Refresh();
         }
@@ -893,16 +897,33 @@
             }
             else if (BtnTendido.Text == "ReTendido")
             {
-                if (DTPEnfarde.Value > DtpRetendido.Value)
+                if (Proceso == "PreSeco")
                 {
-                    MessageBox.Show("Error en la Fecha de ReTendido, por favor verificar la Fecha", "Error Fecha menor que Enfarde", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (DtInicioPre.Value > DtpRetendido.Value)
+                    {
+                        MessageBox.Show("Error en la Fecha de ReTendido, por favor verificar la Fecha", "Error Fecha menor que Enfarde", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        InsertarReTendido();
+                        PlTendido.Enabled = false;
+                        BtnTendido.Text = "Tendido";
+                        Limpiar();
+                    }
                 }
                 else
                 {
-                    InsertarReTendido();
-                    PlTendido.Enabled = false;
-                    BtnTendido.Text = "Tendido";
-                    Limpiar();
+                    if (DTPEnfarde.Value > DtpRetendido.Value)
+                    {
+                        MessageBox.Show("Error en la Fecha de ReTendido, por favor verificar la Fecha", "Error Fecha menor que Enfarde", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        InsertarReTendido();
+                        PlTendido.Enabled = false;
+                        BtnTendido.Text = "Tendido";
+                        Limpiar();
+                    }
                 }
             }
             else
@@ -1907,6 +1928,7 @@
             PlPreseco.Visible = true;
             PlSigProceso.Visible = false;
             PlControl.Enabled = true;
+            PlPreseco.Enabled = true;
         }
 
         private void BtnGuardarPre_Click(object sender, EventArgs e)
@@ -1936,10 +1958,21 @@
                 }
             }
         }
-        private void InsertarPreSeco()
+        private void BtnReProceso_Click(object sender, EventArgs e)
         {
-
+            //Metodos de Rechazado
+            PlTendido.Enabled = true;
+            BtnTendido.Text = "ReTendido";
+            LblFReTendido.Visible = true;
+            DtpRetendido.Visible = true;
+            DTPFechaTendido.Enabled = false;
+            LblFechaReEnfarde.Visible = false;
+            DtpReEnfarde.Visible = false;
+            LblDtotal.Visible = false;
+            LblDTS.Visible = false;
+            PlSigProceso.Visible = false;
         }
+
         private bool validarEnvio()
         {
             return !(string.IsNullOrEmpty(TxtDNIN.Text) || string.IsNullOrEmpty(CbEstFis.Text) || string.IsNullOrEmpty(CbDestino.Text));

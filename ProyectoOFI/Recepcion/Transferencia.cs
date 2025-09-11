@@ -2306,32 +2306,10 @@ namespace ProyectoOFI.Recepcion
         }
 
         private AutoCompleteStringCollection listaMTNT = new AutoCompleteStringCollection();
-
-        private void txtMTNT_TextChanged(object sender, EventArgs e)
-        {
-            //if (txtMTNT.Text.Length < 2) return;
-
-            //var Doc = new DRecepcion().BuscarMTNT(txtMTNT.Text.Trim());
-            //listaMTNT.Clear();
-            //listaMTNT.AddRange(Doc.ToArray());
-
-            //txtMTNT.AutoCompleteCustomSource = listaMTNT;
-        }
         private void RellenarCampos(string Doc)
         {
             DRecepcion funcion = new DRecepcion();
             funcion.RellenarCamposMTNT(CbMTNT.Text, cbAgencia, cbAcopio, nudSacosE, txtPesoE, cbEsFisico);
-        }
-
-        private void txtMTNT_Validated(object sender, EventArgs e)
-        {
-            string seleccionado = CbMTNT.Text.Trim();
-
-            if (listaMTNT.Contains(seleccionado))
-            {
-                RellenarCampos(seleccionado);
-            }
-            // Si no está en la lista, no hace nada
         }
 
         private void CbMTNT_SelectedIndexChanged(object sender, EventArgs e)

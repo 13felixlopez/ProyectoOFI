@@ -192,6 +192,12 @@
             this.dtInventariocp = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.LblPatioRec = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.LblUbicacionRec = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.LblFRecibido = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
             this.PlCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.plOpciones.SuspendLayout();
@@ -705,7 +711,7 @@
             this.PlSigProceso.Controls.Add(this.button3);
             this.PlSigProceso.Controls.Add(this.button4);
             this.PlSigProceso.Controls.Add(this.panel5);
-            this.PlSigProceso.Location = new System.Drawing.Point(9, 134);
+            this.PlSigProceso.Location = new System.Drawing.Point(1174, 680);
             this.PlSigProceso.Name = "PlSigProceso";
             this.PlSigProceso.Size = new System.Drawing.Size(272, 102);
             this.PlSigProceso.TabIndex = 23;
@@ -721,6 +727,7 @@
             this.BtnReProceso.Text = "ReTendido";
             this.BtnReProceso.UseVisualStyleBackColor = true;
             this.BtnReProceso.Visible = false;
+            this.BtnReProceso.Click += new System.EventHandler(this.BtnReProceso_Click);
             // 
             // button3
             // 
@@ -1704,6 +1711,12 @@
             // 
             // PlDatos
             // 
+            this.PlDatos.Controls.Add(this.LblFRecibido);
+            this.PlDatos.Controls.Add(this.label42);
+            this.PlDatos.Controls.Add(this.LblUbicacionRec);
+            this.PlDatos.Controls.Add(this.label43);
+            this.PlDatos.Controls.Add(this.LblPatioRec);
+            this.PlDatos.Controls.Add(this.label41);
             this.PlDatos.Controls.Add(this.LblTCompra);
             this.PlDatos.Controls.Add(this.LblCliente);
             this.PlDatos.Controls.Add(this.label26);
@@ -1734,20 +1747,20 @@
             // LblTCompra
             // 
             this.LblTCompra.AutoSize = true;
-            this.LblTCompra.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.LblTCompra.Location = new System.Drawing.Point(723, 87);
+            this.LblTCompra.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTCompra.Location = new System.Drawing.Point(403, 85);
             this.LblTCompra.Name = "LblTCompra";
-            this.LblTCompra.Size = new System.Drawing.Size(18, 17);
+            this.LblTCompra.Size = new System.Drawing.Size(15, 16);
             this.LblTCompra.TabIndex = 1;
             this.LblTCompra.Text = "--";
             // 
             // LblCliente
             // 
             this.LblCliente.AutoSize = true;
-            this.LblCliente.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.LblCliente.Location = new System.Drawing.Point(206, 87);
+            this.LblCliente.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblCliente.Location = new System.Drawing.Point(105, 82);
             this.LblCliente.Name = "LblCliente";
-            this.LblCliente.Size = new System.Drawing.Size(18, 17);
+            this.LblCliente.Size = new System.Drawing.Size(15, 16);
             this.LblCliente.TabIndex = 2;
             this.LblCliente.Text = "--";
             // 
@@ -1755,7 +1768,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label26.Location = new System.Drawing.Point(577, 87);
+            this.label26.Location = new System.Drawing.Point(287, 85);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(106, 17);
             this.label26.TabIndex = 3;
@@ -1765,7 +1778,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label27.Location = new System.Drawing.Point(122, 87);
+            this.label27.Location = new System.Drawing.Point(21, 82);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(52, 17);
             this.label27.TabIndex = 4;
@@ -1774,30 +1787,30 @@
             // LblCert
             // 
             this.LblCert.AutoSize = true;
-            this.LblCert.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblCert.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblCert.Location = new System.Drawing.Point(770, 48);
             this.LblCert.Name = "LblCert";
-            this.LblCert.Size = new System.Drawing.Size(18, 17);
+            this.LblCert.Size = new System.Drawing.Size(15, 16);
             this.LblCert.TabIndex = 0;
             this.LblCert.Text = "--";
             // 
             // LblDanio
             // 
             this.LblDanio.AutoSize = true;
-            this.LblDanio.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblDanio.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblDanio.Location = new System.Drawing.Point(536, 48);
             this.LblDanio.Name = "LblDanio";
-            this.LblDanio.Size = new System.Drawing.Size(18, 17);
+            this.LblDanio.Size = new System.Drawing.Size(15, 16);
             this.LblDanio.TabIndex = 0;
             this.LblDanio.Text = "--";
             // 
             // LblCalidad
             // 
             this.LblCalidad.AutoSize = true;
-            this.LblCalidad.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblCalidad.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblCalidad.Location = new System.Drawing.Point(367, 48);
             this.LblCalidad.Name = "LblCalidad";
-            this.LblCalidad.Size = new System.Drawing.Size(18, 17);
+            this.LblCalidad.Size = new System.Drawing.Size(15, 16);
             this.LblCalidad.TabIndex = 0;
             this.LblCalidad.Text = "--";
             // 
@@ -1814,10 +1827,10 @@
             // LblEstFis
             // 
             this.LblEstFis.AutoSize = true;
-            this.LblEstFis.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblEstFis.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblEstFis.Location = new System.Drawing.Point(150, 48);
             this.LblEstFis.Name = "LblEstFis";
-            this.LblEstFis.Size = new System.Drawing.Size(18, 17);
+            this.LblEstFis.Size = new System.Drawing.Size(15, 16);
             this.LblEstFis.TabIndex = 0;
             this.LblEstFis.Text = "--";
             // 
@@ -1834,10 +1847,10 @@
             // LblQQs
             // 
             this.LblQQs.AutoSize = true;
-            this.LblQQs.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.LblQQs.Location = new System.Drawing.Point(759, 12);
+            this.LblQQs.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblQQs.Location = new System.Drawing.Point(868, 12);
             this.LblQQs.Name = "LblQQs";
-            this.LblQQs.Size = new System.Drawing.Size(18, 17);
+            this.LblQQs.Size = new System.Drawing.Size(15, 16);
             this.LblQQs.TabIndex = 0;
             this.LblQQs.Text = "--";
             // 
@@ -1854,10 +1867,10 @@
             // LblPeso
             // 
             this.LblPeso.AutoSize = true;
-            this.LblPeso.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.LblPeso.Location = new System.Drawing.Point(539, 12);
+            this.LblPeso.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPeso.Location = new System.Drawing.Point(681, 12);
             this.LblPeso.Name = "LblPeso";
-            this.LblPeso.Size = new System.Drawing.Size(18, 17);
+            this.LblPeso.Size = new System.Drawing.Size(15, 16);
             this.LblPeso.TabIndex = 0;
             this.LblPeso.Text = "--";
             // 
@@ -1874,10 +1887,10 @@
             // LblSacos
             // 
             this.LblSacos.AutoSize = true;
-            this.LblSacos.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.LblSacos.Location = new System.Drawing.Point(324, 12);
+            this.LblSacos.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblSacos.Location = new System.Drawing.Point(528, 12);
             this.LblSacos.Name = "LblSacos";
-            this.LblSacos.Size = new System.Drawing.Size(18, 17);
+            this.LblSacos.Size = new System.Drawing.Size(15, 16);
             this.LblSacos.TabIndex = 0;
             this.LblSacos.Text = "--";
             // 
@@ -1885,7 +1898,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label19.Location = new System.Drawing.Point(700, 12);
+            this.label19.Location = new System.Drawing.Point(809, 12);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(37, 17);
             this.label19.TabIndex = 0;
@@ -1894,10 +1907,10 @@
             // LblTicket
             // 
             this.LblTicket.AutoSize = true;
-            this.LblTicket.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LblTicket.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTicket.Location = new System.Drawing.Point(89, 12);
             this.LblTicket.Name = "LblTicket";
-            this.LblTicket.Size = new System.Drawing.Size(18, 17);
+            this.LblTicket.Size = new System.Drawing.Size(15, 16);
             this.LblTicket.TabIndex = 0;
             this.LblTicket.Text = "--";
             // 
@@ -1905,7 +1918,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(485, 12);
+            this.label18.Location = new System.Drawing.Point(627, 12);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(33, 17);
             this.label18.TabIndex = 0;
@@ -1915,7 +1928,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label17.Location = new System.Drawing.Point(250, 12);
+            this.label17.Location = new System.Drawing.Point(454, 12);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(45, 17);
             this.label17.TabIndex = 0;
@@ -2043,6 +2056,66 @@
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
+            // 
+            // LblPatioRec
+            // 
+            this.LblPatioRec.AutoSize = true;
+            this.LblPatioRec.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPatioRec.Location = new System.Drawing.Point(583, 84);
+            this.LblPatioRec.Name = "LblPatioRec";
+            this.LblPatioRec.Size = new System.Drawing.Size(15, 16);
+            this.LblPatioRec.TabIndex = 5;
+            this.LblPatioRec.Text = "--";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label41.Location = new System.Drawing.Point(505, 84);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(67, 17);
+            this.label41.TabIndex = 6;
+            this.label41.Text = "Patio Rec:";
+            // 
+            // LblUbicacionRec
+            // 
+            this.LblUbicacionRec.AutoSize = true;
+            this.LblUbicacionRec.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblUbicacionRec.Location = new System.Drawing.Point(816, 82);
+            this.LblUbicacionRec.Name = "LblUbicacionRec";
+            this.LblUbicacionRec.Size = new System.Drawing.Size(15, 16);
+            this.LblUbicacionRec.TabIndex = 7;
+            this.LblUbicacionRec.Text = "--";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label43.Location = new System.Drawing.Point(713, 82);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(94, 17);
+            this.label43.TabIndex = 8;
+            this.label43.Text = "Ubicación Rec:";
+            // 
+            // LblFRecibido
+            // 
+            this.LblFRecibido.AutoSize = true;
+            this.LblFRecibido.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFRecibido.Location = new System.Drawing.Point(258, 11);
+            this.LblFRecibido.Name = "LblFRecibido";
+            this.LblFRecibido.Size = new System.Drawing.Size(15, 16);
+            this.LblFRecibido.TabIndex = 9;
+            this.LblFRecibido.Text = "--";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label42.Location = new System.Drawing.Point(178, 11);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(62, 17);
+            this.label42.TabIndex = 10;
+            this.label42.Text = "Recibido:";
             // 
             // CUControlPatio
             // 
@@ -2253,5 +2326,11 @@
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button BtnReProceso;
+        private System.Windows.Forms.Label LblUbicacionRec;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label LblPatioRec;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label LblFRecibido;
+        private System.Windows.Forms.Label label42;
     }
 }

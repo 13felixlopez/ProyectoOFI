@@ -52,6 +52,8 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PlPrincipal = new System.Windows.Forms.Panel();
             this.LblPrincipal = new System.Windows.Forms.Label();
+            this.muestrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cataciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.PlPrincipal.SuspendLayout();
             this.SuspendLayout();
@@ -107,6 +109,9 @@
             // 
             // analisisToolStripMenuItem
             // 
+            this.analisisToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.muestrasToolStripMenuItem,
+            this.cataciónToolStripMenuItem});
             this.analisisToolStripMenuItem.Name = "analisisToolStripMenuItem";
             this.analisisToolStripMenuItem.Size = new System.Drawing.Size(71, 23);
             this.analisisToolStripMenuItem.Text = "Analisis";
@@ -189,20 +194,20 @@
             // usuarioToolStripMenuItem
             // 
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
             this.usuarioToolStripMenuItem.Text = "Usuario";
             this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
             // catalogoToolStripMenuItem
             // 
             this.catalogoToolStripMenuItem.Name = "catalogoToolStripMenuItem";
-            this.catalogoToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.catalogoToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
             this.catalogoToolStripMenuItem.Text = "Catalogo";
             // 
             // perfilToolStripMenuItem
             // 
             this.perfilToolStripMenuItem.Name = "perfilToolStripMenuItem";
-            this.perfilToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.perfilToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
             this.perfilToolStripMenuItem.Text = "Perfil";
             this.perfilToolStripMenuItem.Visible = false;
             // 
@@ -242,6 +247,18 @@
             this.LblPrincipal.TabIndex = 0;
             this.LblPrincipal.Text = "Bienvenido a \rDry System👋";
             this.LblPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // muestrasToolStripMenuItem
+            // 
+            this.muestrasToolStripMenuItem.Name = "muestrasToolStripMenuItem";
+            this.muestrasToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.muestrasToolStripMenuItem.Text = "Muestras";
+            // 
+            // cataciónToolStripMenuItem
+            // 
+            this.cataciónToolStripMenuItem.Name = "cataciónToolStripMenuItem";
+            this.cataciónToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.cataciónToolStripMenuItem.Text = "Catación";
             // 
             // FrmMenu
             // 
@@ -291,5 +308,7 @@
         private System.Windows.Forms.ToolStripMenuItem usuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem catalogoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem perfilToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem muestrasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cataciónToolStripMenuItem;
     }
 }

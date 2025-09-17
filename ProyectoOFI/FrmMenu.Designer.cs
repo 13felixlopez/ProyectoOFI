@@ -35,6 +35,8 @@
             this.secadoNaturalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.secadoMecanicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.analisisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.muestrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cataciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bodegaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.almacenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.compraDirectaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,8 +54,6 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PlPrincipal = new System.Windows.Forms.Panel();
             this.LblPrincipal = new System.Windows.Forms.Label();
-            this.muestrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cataciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.PlPrincipal.SuspendLayout();
             this.SuspendLayout();
@@ -115,6 +115,19 @@
             this.analisisToolStripMenuItem.Name = "analisisToolStripMenuItem";
             this.analisisToolStripMenuItem.Size = new System.Drawing.Size(71, 23);
             this.analisisToolStripMenuItem.Text = "Analisis";
+            // 
+            // muestrasToolStripMenuItem
+            // 
+            this.muestrasToolStripMenuItem.Name = "muestrasToolStripMenuItem";
+            this.muestrasToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.muestrasToolStripMenuItem.Text = "Muestras";
+            // 
+            // cataciónToolStripMenuItem
+            // 
+            this.cataciónToolStripMenuItem.Name = "cataciónToolStripMenuItem";
+            this.cataciónToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.cataciónToolStripMenuItem.Text = "Catación";
+            this.cataciónToolStripMenuItem.Click += new System.EventHandler(this.cataciónToolStripMenuItem_Click);
             // 
             // bodegaToolStripMenuItem
             // 
@@ -247,18 +260,6 @@
             this.LblPrincipal.TabIndex = 0;
             this.LblPrincipal.Text = "Bienvenido a \rDry System👋";
             this.LblPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // muestrasToolStripMenuItem
-            // 
-            this.muestrasToolStripMenuItem.Name = "muestrasToolStripMenuItem";
-            this.muestrasToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.muestrasToolStripMenuItem.Text = "Muestras";
-            // 
-            // cataciónToolStripMenuItem
-            // 
-            this.cataciónToolStripMenuItem.Name = "cataciónToolStripMenuItem";
-            this.cataciónToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
-            this.cataciónToolStripMenuItem.Text = "Catación";
             // 
             // FrmMenu
             // 

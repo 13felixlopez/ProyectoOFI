@@ -1,4 +1,5 @@
-﻿using ProyectoOFI.ControlPatio;
+﻿using ProyectoOFI.Analisis;
+using ProyectoOFI.ControlPatio;
 using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
 using ProyectoOFI.Recepcion;
@@ -176,6 +177,17 @@ namespace ProyectoOFI
             };
             PlPrincipal.Controls.Add(tr);
             Habilitar(dashboardToolStripMenuItem);
+        }
+
+        private void cataciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PlPrincipal.Controls.Clear();
+            Catacion tr = new Catacion
+            {
+                Dock = DockStyle.Fill
+            };
+            PlPrincipal.Controls.Add(tr);
+            Habilitar(cataciónToolStripMenuItem);
         }
     }
 }

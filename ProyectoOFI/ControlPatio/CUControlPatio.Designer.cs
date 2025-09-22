@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CUControlPatio));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btn_Sig = new System.Windows.Forms.Button();
             this.btn_Primera = new System.Windows.Forms.Button();
             this.btn_Ultima = new System.Windows.Forms.Button();
@@ -165,6 +165,12 @@
             this.editarToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarEnvio = new System.Windows.Forms.ToolStripMenuItem();
             this.PlDatos = new System.Windows.Forms.Panel();
+            this.LblFRecibido = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.LblUbicacionRec = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.LblPatioRec = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
             this.LblTCompra = new System.Windows.Forms.Label();
             this.LblCliente = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -192,12 +198,6 @@
             this.dtInventariocp = new System.Windows.Forms.DataGridView();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.LblPatioRec = new System.Windows.Forms.Label();
-            this.label41 = new System.Windows.Forms.Label();
-            this.LblUbicacionRec = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
-            this.LblFRecibido = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
             this.PlCarga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbCarga)).BeginInit();
             this.plOpciones.SuspendLayout();
@@ -1744,6 +1744,66 @@
             this.PlDatos.Size = new System.Drawing.Size(918, 119);
             this.PlDatos.TabIndex = 0;
             // 
+            // LblFRecibido
+            // 
+            this.LblFRecibido.AutoSize = true;
+            this.LblFRecibido.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblFRecibido.Location = new System.Drawing.Point(258, 11);
+            this.LblFRecibido.Name = "LblFRecibido";
+            this.LblFRecibido.Size = new System.Drawing.Size(15, 16);
+            this.LblFRecibido.TabIndex = 9;
+            this.LblFRecibido.Text = "--";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label42.Location = new System.Drawing.Point(178, 11);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(62, 17);
+            this.label42.TabIndex = 10;
+            this.label42.Text = "Recibido:";
+            // 
+            // LblUbicacionRec
+            // 
+            this.LblUbicacionRec.AutoSize = true;
+            this.LblUbicacionRec.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblUbicacionRec.Location = new System.Drawing.Point(816, 82);
+            this.LblUbicacionRec.Name = "LblUbicacionRec";
+            this.LblUbicacionRec.Size = new System.Drawing.Size(15, 16);
+            this.LblUbicacionRec.TabIndex = 7;
+            this.LblUbicacionRec.Text = "--";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label43.Location = new System.Drawing.Point(713, 82);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(94, 17);
+            this.label43.TabIndex = 8;
+            this.label43.Text = "Ubicación Rec:";
+            // 
+            // LblPatioRec
+            // 
+            this.LblPatioRec.AutoSize = true;
+            this.LblPatioRec.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPatioRec.Location = new System.Drawing.Point(583, 84);
+            this.LblPatioRec.Name = "LblPatioRec";
+            this.LblPatioRec.Size = new System.Drawing.Size(15, 16);
+            this.LblPatioRec.TabIndex = 5;
+            this.LblPatioRec.Text = "--";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
+            this.label41.Location = new System.Drawing.Point(505, 84);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(67, 17);
+            this.label41.TabIndex = 6;
+            this.label41.Text = "Patio Rec:";
+            // 
             // LblTCompra
             // 
             this.LblTCompra.AutoSize = true;
@@ -1998,37 +2058,37 @@
             this.dtInventariocp.AllowUserToDeleteRows = false;
             this.dtInventariocp.AllowUserToOrderColumns = true;
             this.dtInventariocp.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.NullValue = "--";
-            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.NullValue = "--";
+            this.dtInventariocp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dtInventariocp.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventariocp.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventariocp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventariocp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtInventariocp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.NullValue = "--";
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.NullValue = "--";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtInventariocp.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtInventariocp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventariocp.Location = new System.Drawing.Point(0, 62);
             this.dtInventariocp.Name = "dtInventariocp";
             this.dtInventariocp.ReadOnly = true;
             this.dtInventariocp.RowHeadersVisible = false;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventariocp.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtInventariocp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventariocp.ShowCellToolTips = false;
             this.dtInventariocp.ShowEditingIcon = false;
@@ -2056,66 +2116,6 @@
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
-            // 
-            // LblPatioRec
-            // 
-            this.LblPatioRec.AutoSize = true;
-            this.LblPatioRec.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPatioRec.Location = new System.Drawing.Point(583, 84);
-            this.LblPatioRec.Name = "LblPatioRec";
-            this.LblPatioRec.Size = new System.Drawing.Size(15, 16);
-            this.LblPatioRec.TabIndex = 5;
-            this.LblPatioRec.Text = "--";
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label41.Location = new System.Drawing.Point(505, 84);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(67, 17);
-            this.label41.TabIndex = 6;
-            this.label41.Text = "Patio Rec:";
-            // 
-            // LblUbicacionRec
-            // 
-            this.LblUbicacionRec.AutoSize = true;
-            this.LblUbicacionRec.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblUbicacionRec.Location = new System.Drawing.Point(816, 82);
-            this.LblUbicacionRec.Name = "LblUbicacionRec";
-            this.LblUbicacionRec.Size = new System.Drawing.Size(15, 16);
-            this.LblUbicacionRec.TabIndex = 7;
-            this.LblUbicacionRec.Text = "--";
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label43.Location = new System.Drawing.Point(713, 82);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(94, 17);
-            this.label43.TabIndex = 8;
-            this.label43.Text = "Ubicación Rec:";
-            // 
-            // LblFRecibido
-            // 
-            this.LblFRecibido.AutoSize = true;
-            this.LblFRecibido.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblFRecibido.Location = new System.Drawing.Point(258, 11);
-            this.LblFRecibido.Name = "LblFRecibido";
-            this.LblFRecibido.Size = new System.Drawing.Size(15, 16);
-            this.LblFRecibido.TabIndex = 9;
-            this.LblFRecibido.Text = "--";
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold);
-            this.label42.Location = new System.Drawing.Point(178, 11);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(62, 17);
-            this.label42.TabIndex = 10;
-            this.label42.Text = "Recibido:";
             // 
             // CUControlPatio
             // 

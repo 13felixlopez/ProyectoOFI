@@ -2,6 +2,7 @@
 using ProyectoOFI.ControlPatio;
 using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
+using ProyectoOFI.Otros;
 using ProyectoOFI.Recepcion;
 using ProyectoOFI.Reportes;
 using ProyectoOFI.Usuario;
@@ -15,6 +16,7 @@ namespace ProyectoOFI
     {
         // Bandera para evitar que el evento se dispare a sí mismo y cree un bucle.
         private bool isAdjusting = false;
+        private Form FrmActivo = null;
         public FrmMenu()
         {
             InitializeComponent();
@@ -188,6 +190,27 @@ namespace ProyectoOFI
             };
             PlPrincipal.Controls.Add(tr);
             Habilitar(cataciónToolStripMenuItem);
+        }
+
+        private void catalogoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmConfig Cg = new FrmConfig();
+            AbrirFrm(Cg);
+        }
+        private void AbrirFrm(Form hijo)
+        {
+            if (FrmActivo != null)
+            {
+                FrmActivo.Close();
+            }
+
+            FrmActivo = hijo;
+            hijo.TopLevel = false;
+            hijo.Dock = DockStyle.Fill;
+            PlPrincipal.Controls.Add(hijo);
+            PlPrincipal.Tag = hijo;
+            hijo.BringToFront();
+            hijo.Show();
         }
     }
 }

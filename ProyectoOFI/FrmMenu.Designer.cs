@@ -119,13 +119,13 @@
             // muestrasToolStripMenuItem
             // 
             this.muestrasToolStripMenuItem.Name = "muestrasToolStripMenuItem";
-            this.muestrasToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.muestrasToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.muestrasToolStripMenuItem.Text = "Muestras";
             // 
             // cataciónToolStripMenuItem
             // 
             this.cataciónToolStripMenuItem.Name = "cataciónToolStripMenuItem";
-            this.cataciónToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.cataciónToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.cataciónToolStripMenuItem.Text = "Catación";
             this.cataciónToolStripMenuItem.Click += new System.EventHandler(this.cataciónToolStripMenuItem_Click);
             // 
@@ -207,20 +207,21 @@
             // usuarioToolStripMenuItem
             // 
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.usuarioToolStripMenuItem.Text = "Usuario";
             this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
             // catalogoToolStripMenuItem
             // 
             this.catalogoToolStripMenuItem.Name = "catalogoToolStripMenuItem";
-            this.catalogoToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
+            this.catalogoToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.catalogoToolStripMenuItem.Text = "Catalogo";
+            this.catalogoToolStripMenuItem.Click += new System.EventHandler(this.catalogoToolStripMenuItem_Click);
             // 
             // perfilToolStripMenuItem
             // 
             this.perfilToolStripMenuItem.Name = "perfilToolStripMenuItem";
-            this.perfilToolStripMenuItem.Size = new System.Drawing.Size(139, 24);
+            this.perfilToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.perfilToolStripMenuItem.Text = "Perfil";
             this.perfilToolStripMenuItem.Visible = false;
             // 

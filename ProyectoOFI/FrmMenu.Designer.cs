@@ -106,6 +106,7 @@
             this.secadoMecanicoToolStripMenuItem.Name = "secadoMecanicoToolStripMenuItem";
             this.secadoMecanicoToolStripMenuItem.Size = new System.Drawing.Size(195, 24);
             this.secadoMecanicoToolStripMenuItem.Text = "Secado Mecanico";
+            this.secadoMecanicoToolStripMenuItem.Click += new System.EventHandler(this.secadoMecanicoToolStripMenuItem_Click);
             // 
             // analisisToolStripMenuItem
             // 
@@ -209,6 +210,7 @@
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
             this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.usuarioToolStripMenuItem.Text = "Usuario";
+            this.usuarioToolStripMenuItem.Visible = false;
             this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
             // catalogoToolStripMenuItem
@@ -223,7 +225,6 @@
             this.perfilToolStripMenuItem.Name = "perfilToolStripMenuItem";
             this.perfilToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.perfilToolStripMenuItem.Text = "Perfil";
-            this.perfilToolStripMenuItem.Visible = false;
             // 
             // cerrarSesionToolStripMenuItem
             // 

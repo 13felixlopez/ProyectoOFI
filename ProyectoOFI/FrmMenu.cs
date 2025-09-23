@@ -5,6 +5,7 @@ using ProyectoOFI.Logica;
 using ProyectoOFI.Otros;
 using ProyectoOFI.Recepcion;
 using ProyectoOFI.Reportes;
+using ProyectoOFI.SM;
 using ProyectoOFI.Usuario;
 using System;
 using System.Data;
@@ -149,26 +150,24 @@ namespace ProyectoOFI
         }
         private void AjustarAlTamanoDePantalla()
         {
-            // Si ya estamos ajustando, salimos para evitar parpadeos o bucles.
             if (isAdjusting) return;
 
             try
             {
-                isAdjusting = true; // Activamos la bandera
+                isAdjusting = true;
 
-                // Obtenemos la pantalla donde se encuentra actualmente el formulario.
                 Screen screen = Screen.FromControl(this);
 
-                // Ajustamos la posición y el tamaño a la nueva pantalla.
-                this.WindowState = FormWindowState.Normal;
-                this.Location = screen.WorkingArea.Location;
-                this.Size = screen.WorkingArea.Size;
+                this.WindowState = FormWindowState.Maximized;
+                this.Location = screen.Bounds.Location;
+                this.Size = screen.Bounds.Size;
             }
             finally
             {
-                isAdjusting = false; // Desactivamos la bandera, incluso si hay un error.
+                isAdjusting = false;
             }
         }
+
 
         private void dashboardToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -211,6 +210,13 @@ namespace ProyectoOFI
             PlPrincipal.Tag = hijo;
             hijo.BringToFront();
             hijo.Show();
+        }
+
+        private void secadoMecanicoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SMecánico Cg = new SMecánico();
+            AbrirFrm(Cg);
+            Habilitar(secadoMecanicoToolStripMenuItem);
         }
     }
 }

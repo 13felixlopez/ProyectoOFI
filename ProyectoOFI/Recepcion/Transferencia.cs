@@ -428,6 +428,7 @@ namespace ProyectoOFI.Recepcion
                     dtInventario.Enabled = true;
                     Alerta();
                     Limpiar();
+                    funcion.MostrarMTNT(CbMTNT);
                 }
 
             }

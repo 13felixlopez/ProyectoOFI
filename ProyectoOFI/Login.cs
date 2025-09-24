@@ -43,7 +43,7 @@ namespace ProyectoOFI
             Logueo();
         }
         //frmInicio fr = new frmInicio();
-        FrmMenu fr= new FrmMenu();
+        FrmMenu fr = new FrmMenu();
         private void Logueo()
         {
             if (string.IsNullOrEmpty(TxtUser.Text) || string.IsNullOrEmpty(TxtPass.Text))
@@ -130,14 +130,14 @@ namespace ProyectoOFI
         private void VerificarConexion()
         {
             DUsuarios funcion = new DUsuarios();
-            funcion.VerificarUsuario(ref Indicador,DB);
+            funcion.VerificarUsuario(ref Indicador, DB);
         }
         private void Login_Load(object sender, EventArgs e)
         {
             Validar_Conexion();
             TxtUser.Focus();
             // Suscribir el evento MouseDown al label
-            label5.MouseDown += new MouseEventHandler(label1_MouseDown);
+            label5.MouseDown += new MouseEventHandler(label4_MouseDown);
         }
         private void CrearArchivo()
         {
@@ -175,7 +175,7 @@ namespace ProyectoOFI
             IP.ShowDialog();
         }
 
-        private void label1_MouseDown(object sender, MouseEventArgs e)
+        private void label4_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right) // Verifica si es un clic derecho
             {

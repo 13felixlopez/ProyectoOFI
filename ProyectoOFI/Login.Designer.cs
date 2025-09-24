@@ -278,6 +278,7 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Bienvenidos a";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDown);
             // 
             // Login
             // 

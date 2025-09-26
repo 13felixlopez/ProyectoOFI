@@ -653,6 +653,14 @@ namespace ProyectoOFI.Recepcion
                     {
                         CbPatio.Text = "--";
                     }
+                    if (row["UbicacionRec"].ToString() != null)
+                    {
+                        CbUbicacionRec.Text = row["UbicacionRec"].ToString();
+                    }
+                    else
+                    {
+                        CbUbicacionRec.Text = "--";
+                    }
                     areaAc = row["AreaSecado"].ToString();
                     if (row["MTNR"].ToString() != null)
                     {

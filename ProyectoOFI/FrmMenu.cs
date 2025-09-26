@@ -1,4 +1,5 @@
 ﻿using ProyectoOFI.Analisis;
+using ProyectoOFI.Compras;
 using ProyectoOFI.ControlPatio;
 using ProyectoOFI.Datos;
 using ProyectoOFI.Logica;
@@ -217,6 +218,64 @@ namespace ProyectoOFI
             SMecánico Cg = new SMecánico();
             AbrirFrm(Cg);
             Habilitar(secadoMecanicoToolStripMenuItem);
+        }
+
+        private void almacenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PlPrincipal.Controls.Clear();
+            Almacen.Almacen tr = new Almacen.Almacen
+            {
+                Dock = DockStyle.Fill
+            };
+            PlPrincipal.Controls.Add(tr);
+            Habilitar(almacenToolStripMenuItem);
+        }
+
+        private void compraDirectaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PlPrincipal.Controls.Clear();
+            ComprasDirectas tr = new ComprasDirectas
+            {
+                Dock = DockStyle.Fill
+            };
+            PlPrincipal.Controls.Add(tr);
+            Habilitar(compraDirectaToolStripMenuItem);
+        }
+
+        private void reporteTicketToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PlPrincipal.Controls.Clear();
+            CUReporteTK tr = new CUReporteTK
+            {
+                Dock = DockStyle.Fill
+            };
+            PlPrincipal.Controls.Add(tr);
+            Habilitar(reporteTicketToolStripMenuItem);
+        }
+
+        private void historialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmHistorial Cg = new FrmHistorial();
+            AbrirFrm(Cg);
+            Habilitar(historialToolStripMenuItem);
+        }
+
+        private void consolidacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            DReporte funcion = new DReporte();
+            funcion.ReporteConsolidados(ref dt);
+            string Nombre = "Lotes Consolidados ";
+            FrmLotes_Tendido Cg = new FrmLotes_Tendido(dt, Nombre);
+            AbrirFrm(Cg);
+            Habilitar(consolidacionesToolStripMenuItem);
+        }
+
+        private void perfilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPerfil Cg = new FrmPerfil();
+            AbrirFrm(Cg);
+            Habilitar(perfilToolStripMenuItem);
         }
     }
 }

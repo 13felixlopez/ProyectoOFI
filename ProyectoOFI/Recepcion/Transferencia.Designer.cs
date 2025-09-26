@@ -1541,6 +1541,7 @@
             this.CbOrdenar.Name = "CbOrdenar";
             this.CbOrdenar.Size = new System.Drawing.Size(168, 28);
             this.CbOrdenar.TabIndex = 1;
+            this.CbOrdenar.Visible = false;
             this.CbOrdenar.SelectedIndexChanged += new System.EventHandler(this.CbOrdenar_SelectedIndexChanged);
             // 
             // label3
@@ -1574,6 +1575,7 @@
             this.label2.Size = new System.Drawing.Size(74, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Ordenar";
+            this.label2.Visible = false;
             // 
             // PlFiltroFecha
             // 

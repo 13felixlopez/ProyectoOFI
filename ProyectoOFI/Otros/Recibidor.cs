@@ -39,7 +39,7 @@ namespace ProyectoOFI.Otros
             else
             {
                 DCatalogo funcion = new DCatalogo();
-                if (funcion.AgregarRecibidor(TxtRecibidor.Text) == true)
+                if (funcion.AgregarRecibidor(TxtRecibidor.Text.ToUpper()) == true)
                 {
                     MostrarRecibidor();
                     TxtRecibidor.Clear();

@@ -13,63 +13,59 @@ namespace ProyectoOFI.Datos
         {
             try
             {
-                Conexion.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("MostrarCata", Conexion.conectar);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Desde", desde);
-                da.SelectCommand.Parameters.AddWithValue("@Hasta", hasta);
-                da.Fill(dt);
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarCata", Conexion.conectar))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.AddWithValue("@Desde", desde);
+                    da.SelectCommand.Parameters.AddWithValue("@Hasta", hasta);
+                    da.Fill(dt);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al mostrar Lotes para catación " + ex.Message, "ERROR Catación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en MostrarCata ✖️✖️ " + ex.Message);
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         internal void ContarTK(ref int contador)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("select COUNT (Rec.Ticket) from Recepcion Rec " +
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("select COUNT (Rec.Ticket) from Recepcion Rec " +
                     "LEFT JOIN PreSecado Pre ON Rec.Ticket=Pre.Ticket LEFT JOIN POA P ON Pre.IDPreSecado=P.IDPreSecado " +
                     "where Estado = 'ACTIVO' AND (Proceso = 'Enfarde' OR Proceso = 'PS' OR Proceso = 'Envio' OR Proceso = 'Analizado') " +
                     "AND Cosecha=(select Cosecha from Cosecha where IdCosecha=(select max(IdCosecha) from Cosecha))",
-                    Conexion.conectar);
-                contador = Convert.ToInt32(cmd.ExecuteScalar());
+                    conectar))
+                {
+                    conectar.Open();
+                    contador = Convert.ToInt32(cmd.ExecuteScalar());
+                }
             }
             catch (Exception)
             {
                 contador = 0;
-            }
-            finally
-            {
-                Conexion.cerrar();
             }
         }
         public void VerDetalleCatacion(ref DataTable dt, string Ticket, string TkSM)
         {
             try
             {
-                Conexion.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("VerDetalleCatacion", Conexion.conectar);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Ticket", Ticket);
-                da.SelectCommand.Parameters.AddWithValue("@TkSM", TkSM);
-                da.Fill(dt);
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("VerDetalleCatacion", Conexion.conectar))
+                {
+
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.AddWithValue("@Ticket", Ticket);
+                    da.SelectCommand.Parameters.AddWithValue("@TkSM", TkSM);
+                    da.Fill(dt);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al mostrar el detalle de la Ticket " + ex.Message, "Error Detalle Catación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en mostrar datos en VerDetalleCatacion ✖️✖️ " + ex.Message);
-            }
-            finally
-            {
-                Conexion.cerrar();
             }
         }
         public void MostrarVariedad(ComboBox combo)
@@ -77,48 +73,50 @@ namespace ProyectoOFI.Datos
             try
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("MostrarVariedades", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter cb = new SqlDataAdapter(da);
-                DataTable dt = new DataTable();
-                cb.Fill(dt);
-                combo.ValueMember = "IdVariedad";
-                combo.DisplayMember = "Variedad";
-                combo.DataSource = dt;
-                for (int i = 0; i < dt.Rows.Count; i++)
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("MostrarVariedades", Conexion.conectar))
                 {
-                    lista.Add(dt.Rows[i]["Variedad"].ToString());
+
+                    da.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter cb = new SqlDataAdapter(da);
+                    DataTable dt = new DataTable();
+                    cb.Fill(dt);
+                    combo.ValueMember = "IdVariedad";
+                    combo.DisplayMember = "Variedad";
+                    combo.DataSource = dt;
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        lista.Add(dt.Rows[i]["Variedad"].ToString());
+                    }
+                    combo.AutoCompleteCustomSource = lista;
                 }
-                combo.AutoCompleteCustomSource = lista;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en MostrarVariedades ✖️✖️" + ex.Message);
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         public void SeleccionarScore(int score, Label Tasa, Label Calidad)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("SeleccionarScore", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                da.Parameters.AddWithValue("@score", score);
-                SqlDataReader dr = da.ExecuteReader();
-                if (dr.Read())
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("SeleccionarScore", Conexion.conectar))
                 {
-                    Tasa.Text = dr["Tasa"].ToString();
-                    Calidad.Text = dr["GrupoCalidad"].ToString();
-                }
-                else
-                {
-                    MessageBox.Show("No se encontraron resultados para el score especificado.", "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    da.CommandType = CommandType.StoredProcedure;
+                    da.Parameters.AddWithValue("@score", score);
+                    SqlDataReader dr = da.ExecuteReader();
+                    if (dr.Read())
+                    {
+                        Tasa.Text = dr["Tasa"].ToString();
+                        Calidad.Text = dr["GrupoCalidad"].ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontraron resultados para el score especificado.", "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
             }
             catch (Exception ex)
@@ -126,45 +124,44 @@ namespace ProyectoOFI.Datos
                 MessageBox.Show("Score fuera del rango " + ex.Message, "Error SeleccionarScore", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en cargar datos SeleccionarScore✖️✖️ " + ex.Message);
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         public bool InsertarCatacion(LCatacion parametros)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("InsertarCatacion", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                da.Parameters.AddWithValue("@Ticket", parametros.Ticket);
-                da.Parameters.AddWithValue("@Origen", parametros.Origen);
-                da.Parameters.AddWithValue("@FechaMuestra", parametros.FechaMuestra);
-                da.Parameters.AddWithValue("@FechaCatacion", parametros.FechaCatacion);
-                da.Parameters.AddWithValue("@Dias", parametros.Dias);
-                da.Parameters.AddWithValue("@RmtoObto", parametros.RmtoObto);
-                da.Parameters.AddWithValue("@Cascarilla", parametros.Cascarilla);
-                da.Parameters.AddWithValue("@TotalPS", parametros.TotalPS);
-                da.Parameters.AddWithValue("@IdVariedad", parametros.IdVariedad);
-                da.Parameters.AddWithValue("@Humedad", parametros.Humedad);
-                da.Parameters.AddWithValue("@Exp", parametros.Exp);
-                da.Parameters.AddWithValue("@DesmA", parametros.DesmA);
-                da.Parameters.AddWithValue("@DesmC", parametros.DesmC);
-                da.Parameters.AddWithValue("@DesmD", parametros.DesmD);
-                da.Parameters.AddWithValue("@ExpP", parametros.ExpP);
-                da.Parameters.AddWithValue("@DesmAP", parametros.DesmAP);
-                da.Parameters.AddWithValue("@DesmCP", parametros.DesmCP);
-                da.Parameters.AddWithValue("@DesmDP", parametros.DesmDP);
-                da.Parameters.AddWithValue("@Score", parametros.Score);
-                da.Parameters.AddWithValue("@Taza", parametros.Tasa);
-                da.Parameters.AddWithValue("@GradoCalidad", parametros.GradoCalidad);
-                da.Parameters.AddWithValue("@Digitador", parametros.Digitador);
-                da.Parameters.AddWithValue("@Estado", parametros.Estado);
-                da.Parameters.AddWithValue("@Analisis", parametros.Analisis);
-                da.Parameters.AddWithValue("@PesoRecibido", parametros.PesoRecibido);
-                da.ExecuteNonQuery();
-                return true;
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("InsertarCatacion", Conexion.conectar))
+                {
+
+                    da.CommandType = CommandType.StoredProcedure;
+                    da.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                    da.Parameters.AddWithValue("@Origen", parametros.Origen);
+                    da.Parameters.AddWithValue("@FechaMuestra", parametros.FechaMuestra);
+                    da.Parameters.AddWithValue("@FechaCatacion", parametros.FechaCatacion);
+                    da.Parameters.AddWithValue("@Dias", parametros.Dias);
+                    da.Parameters.AddWithValue("@RmtoObto", parametros.RmtoObto);
+                    da.Parameters.AddWithValue("@Cascarilla", parametros.Cascarilla);
+                    da.Parameters.AddWithValue("@TotalPS", parametros.TotalPS);
+                    da.Parameters.AddWithValue("@IdVariedad", parametros.IdVariedad);
+                    da.Parameters.AddWithValue("@Humedad", parametros.Humedad);
+                    da.Parameters.AddWithValue("@Exp", parametros.Exp);
+                    da.Parameters.AddWithValue("@DesmA", parametros.DesmA);
+                    da.Parameters.AddWithValue("@DesmC", parametros.DesmC);
+                    da.Parameters.AddWithValue("@DesmD", parametros.DesmD);
+                    da.Parameters.AddWithValue("@ExpP", parametros.ExpP);
+                    da.Parameters.AddWithValue("@DesmAP", parametros.DesmAP);
+                    da.Parameters.AddWithValue("@DesmCP", parametros.DesmCP);
+                    da.Parameters.AddWithValue("@DesmDP", parametros.DesmDP);
+                    da.Parameters.AddWithValue("@Score", parametros.Score);
+                    da.Parameters.AddWithValue("@Taza", parametros.Tasa);
+                    da.Parameters.AddWithValue("@GradoCalidad", parametros.GradoCalidad);
+                    da.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+                    da.Parameters.AddWithValue("@Estado", parametros.Estado);
+                    da.Parameters.AddWithValue("@Analisis", parametros.Analisis);
+                    da.Parameters.AddWithValue("@PesoRecibido", parametros.PesoRecibido);
+                    da.ExecuteNonQuery();
+                    return true;
+                }
 
             }
             catch (Exception ex)
@@ -173,66 +170,64 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error en InsertarCatacion ✖️✖️ " + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         public void VerDetalleCata(ref DataTable dt, string Ticket)
         {
             try
             {
-                Conexion.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("VerDetalleCata", Conexion.conectar);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Ticket", Ticket);
-                da.Fill(dt);
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("VerDetalleCata", Conexion.conectar))
+                {
+
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.AddWithValue("@Ticket", Ticket);
+                    da.Fill(dt);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al mostrar el detalle de la Ticket " + ex.Message, "Error en Ver Detalle", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en VerDetalleCata ✖️✖️ " + ex.Message);
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         public bool EditarCatacion(LCatacion parametros, int IdCatacion)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("EditarCatacion", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                da.Parameters.AddWithValue("@IdCatacion", IdCatacion);
-                da.Parameters.AddWithValue("@Ticket", parametros.Ticket);
-                da.Parameters.AddWithValue("@Origen", parametros.Origen);
-                da.Parameters.AddWithValue("@FechaMuestra", parametros.FechaMuestra);
-                da.Parameters.AddWithValue("@FechaCatacion", parametros.FechaCatacion);
-                da.Parameters.AddWithValue("@Dias", parametros.Dias);
-                da.Parameters.AddWithValue("@RmtoObto", parametros.RmtoObto);
-                da.Parameters.AddWithValue("@Cascarilla", parametros.Cascarilla);
-                da.Parameters.AddWithValue("@TotalPS", parametros.TotalPS);
-                da.Parameters.AddWithValue("@IdVariedad", parametros.IdVariedad);
-                da.Parameters.AddWithValue("@Humedad", parametros.Humedad);
-                da.Parameters.AddWithValue("@Exp", parametros.Exp);
-                da.Parameters.AddWithValue("@DesmA", parametros.DesmA);
-                da.Parameters.AddWithValue("@DesmC", parametros.DesmC);
-                da.Parameters.AddWithValue("@DesmD", parametros.DesmD);
-                da.Parameters.AddWithValue("@DesmAP", parametros.DesmAP);
-                da.Parameters.AddWithValue("@DesmCP", parametros.DesmCP);
-                da.Parameters.AddWithValue("@DesmDP", parametros.DesmDP);
-                da.Parameters.AddWithValue("@Score", parametros.Score);
-                da.Parameters.AddWithValue("@Taza", parametros.Tasa);
-                da.Parameters.AddWithValue("@GradoCalidad", parametros.GradoCalidad);
-                da.Parameters.AddWithValue("@Digitador", parametros.Digitador);
-                da.Parameters.AddWithValue("@Estado", parametros.Estado);
-                da.Parameters.AddWithValue("@Analisis", parametros.Analisis);
-                da.Parameters.AddWithValue("@ExpP", parametros.ExpP);
-                da.Parameters.AddWithValue("@PesoRecibido", parametros.PesoRecibido);
-                da.ExecuteNonQuery();
-                return true;
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("EditarCatacion", Conexion.conectar))
+                {
+
+                    da.CommandType = CommandType.StoredProcedure;
+                    da.Parameters.AddWithValue("@IdCatacion", IdCatacion);
+                    da.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                    da.Parameters.AddWithValue("@Origen", parametros.Origen);
+                    da.Parameters.AddWithValue("@FechaMuestra", parametros.FechaMuestra);
+                    da.Parameters.AddWithValue("@FechaCatacion", parametros.FechaCatacion);
+                    da.Parameters.AddWithValue("@Dias", parametros.Dias);
+                    da.Parameters.AddWithValue("@RmtoObto", parametros.RmtoObto);
+                    da.Parameters.AddWithValue("@Cascarilla", parametros.Cascarilla);
+                    da.Parameters.AddWithValue("@TotalPS", parametros.TotalPS);
+                    da.Parameters.AddWithValue("@IdVariedad", parametros.IdVariedad);
+                    da.Parameters.AddWithValue("@Humedad", parametros.Humedad);
+                    da.Parameters.AddWithValue("@Exp", parametros.Exp);
+                    da.Parameters.AddWithValue("@DesmA", parametros.DesmA);
+                    da.Parameters.AddWithValue("@DesmC", parametros.DesmC);
+                    da.Parameters.AddWithValue("@DesmD", parametros.DesmD);
+                    da.Parameters.AddWithValue("@DesmAP", parametros.DesmAP);
+                    da.Parameters.AddWithValue("@DesmCP", parametros.DesmCP);
+                    da.Parameters.AddWithValue("@DesmDP", parametros.DesmDP);
+                    da.Parameters.AddWithValue("@Score", parametros.Score);
+                    da.Parameters.AddWithValue("@Taza", parametros.Tasa);
+                    da.Parameters.AddWithValue("@GradoCalidad", parametros.GradoCalidad);
+                    da.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+                    da.Parameters.AddWithValue("@Estado", parametros.Estado);
+                    da.Parameters.AddWithValue("@Analisis", parametros.Analisis);
+                    da.Parameters.AddWithValue("@ExpP", parametros.ExpP);
+                    da.Parameters.AddWithValue("@PesoRecibido", parametros.PesoRecibido);
+                    da.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -240,22 +235,21 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error en EditarCatacion ✖️✖️ " + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         public bool EditarTKAnalisis(string Ticket, string TicketNueva)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("EditarTKAnalisis", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Ticket", Ticket);
-                cmd.Parameters.AddWithValue("@TicketNueva", TicketNueva);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EditarTKAnalisis", Conexion.conectar))
+                {
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Ticket", Ticket);
+                    cmd.Parameters.AddWithValue("@TicketNueva", TicketNueva);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -263,45 +257,44 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error en EditarTKAnalisis ✖️✖️ " + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         public bool InsertarCatacionCD(LCatacion parametros)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("InsertarCatacionCD", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                da.Parameters.AddWithValue("@Ticket", parametros.Ticket);
-                da.Parameters.AddWithValue("@Origen", parametros.Origen);
-                da.Parameters.AddWithValue("@FechaMuestra", parametros.FechaMuestra);
-                da.Parameters.AddWithValue("@FechaCatacion", parametros.FechaCatacion);
-                da.Parameters.AddWithValue("@Dias", parametros.Dias);
-                da.Parameters.AddWithValue("@RmtoObto", parametros.RmtoObto);
-                da.Parameters.AddWithValue("@Cascarilla", parametros.Cascarilla);
-                da.Parameters.AddWithValue("@TotalPS", parametros.TotalPS);
-                da.Parameters.AddWithValue("@IdVariedad", parametros.IdVariedad);
-                da.Parameters.AddWithValue("@Humedad", parametros.Humedad);
-                da.Parameters.AddWithValue("@Exp", parametros.Exp);
-                da.Parameters.AddWithValue("@DesmA", parametros.DesmA);
-                da.Parameters.AddWithValue("@DesmC", parametros.DesmC);
-                da.Parameters.AddWithValue("@DesmD", parametros.DesmD);
-                da.Parameters.AddWithValue("@ExpP", parametros.ExpP);
-                da.Parameters.AddWithValue("@DesmAP", parametros.DesmAP);
-                da.Parameters.AddWithValue("@DesmCP", parametros.DesmCP);
-                da.Parameters.AddWithValue("@DesmDP", parametros.DesmDP);
-                da.Parameters.AddWithValue("@Score", parametros.Score);
-                da.Parameters.AddWithValue("@Taza", parametros.Tasa);
-                da.Parameters.AddWithValue("@GradoCalidad", parametros.GradoCalidad);
-                da.Parameters.AddWithValue("@Digitador", parametros.Digitador);
-                da.Parameters.AddWithValue("@Estado", parametros.Estado);
-                da.Parameters.AddWithValue("@Analisis", parametros.Analisis);
-                da.Parameters.AddWithValue("@PesoRecibido", parametros.PesoRecibido);
-                da.ExecuteNonQuery();
-                return true;
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("InsertarCatacionCD", Conexion.conectar))
+                {
+
+                    da.CommandType = CommandType.StoredProcedure;
+                    da.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                    da.Parameters.AddWithValue("@Origen", parametros.Origen);
+                    da.Parameters.AddWithValue("@FechaMuestra", parametros.FechaMuestra);
+                    da.Parameters.AddWithValue("@FechaCatacion", parametros.FechaCatacion);
+                    da.Parameters.AddWithValue("@Dias", parametros.Dias);
+                    da.Parameters.AddWithValue("@RmtoObto", parametros.RmtoObto);
+                    da.Parameters.AddWithValue("@Cascarilla", parametros.Cascarilla);
+                    da.Parameters.AddWithValue("@TotalPS", parametros.TotalPS);
+                    da.Parameters.AddWithValue("@IdVariedad", parametros.IdVariedad);
+                    da.Parameters.AddWithValue("@Humedad", parametros.Humedad);
+                    da.Parameters.AddWithValue("@Exp", parametros.Exp);
+                    da.Parameters.AddWithValue("@DesmA", parametros.DesmA);
+                    da.Parameters.AddWithValue("@DesmC", parametros.DesmC);
+                    da.Parameters.AddWithValue("@DesmD", parametros.DesmD);
+                    da.Parameters.AddWithValue("@ExpP", parametros.ExpP);
+                    da.Parameters.AddWithValue("@DesmAP", parametros.DesmAP);
+                    da.Parameters.AddWithValue("@DesmCP", parametros.DesmCP);
+                    da.Parameters.AddWithValue("@DesmDP", parametros.DesmDP);
+                    da.Parameters.AddWithValue("@Score", parametros.Score);
+                    da.Parameters.AddWithValue("@Taza", parametros.Tasa);
+                    da.Parameters.AddWithValue("@GradoCalidad", parametros.GradoCalidad);
+                    da.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+                    da.Parameters.AddWithValue("@Estado", parametros.Estado);
+                    da.Parameters.AddWithValue("@Analisis", parametros.Analisis);
+                    da.Parameters.AddWithValue("@PesoRecibido", parametros.PesoRecibido);
+                    da.ExecuteNonQuery();
+                    return true;
+                }
 
             }
             catch (Exception ex)
@@ -310,45 +303,44 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error en InsertarCatacion ✖️✖️ " + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         public bool EditarCatacionCD(LCatacion parametros, string TK)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("EditarCatacionCD", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                da.Parameters.AddWithValue("@Ticket", TK);
-                da.Parameters.AddWithValue("@Origen", parametros.Origen);
-                da.Parameters.AddWithValue("@FechaMuestra", parametros.FechaMuestra);
-                da.Parameters.AddWithValue("@FechaCatacion", parametros.FechaCatacion);
-                da.Parameters.AddWithValue("@Dias", parametros.Dias);
-                da.Parameters.AddWithValue("@RmtoObto", parametros.RmtoObto);
-                da.Parameters.AddWithValue("@Cascarilla", parametros.Cascarilla);
-                da.Parameters.AddWithValue("@TotalPS", parametros.TotalPS);
-                da.Parameters.AddWithValue("@IdVariedad", parametros.IdVariedad);
-                da.Parameters.AddWithValue("@Humedad", parametros.Humedad);
-                da.Parameters.AddWithValue("@Exp", parametros.Exp);
-                da.Parameters.AddWithValue("@DesmA", parametros.DesmA);
-                da.Parameters.AddWithValue("@DesmC", parametros.DesmC);
-                da.Parameters.AddWithValue("@DesmD", parametros.DesmD);
-                da.Parameters.AddWithValue("@DesmAP", parametros.DesmAP);
-                da.Parameters.AddWithValue("@DesmCP", parametros.DesmCP);
-                da.Parameters.AddWithValue("@DesmDP", parametros.DesmDP);
-                da.Parameters.AddWithValue("@Score", parametros.Score);
-                da.Parameters.AddWithValue("@Taza", parametros.Tasa);
-                da.Parameters.AddWithValue("@GradoCalidad", parametros.GradoCalidad);
-                da.Parameters.AddWithValue("@Digitador", parametros.Digitador);
-                da.Parameters.AddWithValue("@Estado", parametros.Estado);
-                da.Parameters.AddWithValue("@Analisis", parametros.Analisis);
-                da.Parameters.AddWithValue("@ExpP", parametros.ExpP);
-                da.Parameters.AddWithValue("@PesoRecibido", parametros.PesoRecibido);
-                da.ExecuteNonQuery();
-                return true;
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("EditarCatacionCD", Conexion.conectar))
+                {
+
+                    da.CommandType = CommandType.StoredProcedure;
+                    da.Parameters.AddWithValue("@Ticket", TK);
+                    da.Parameters.AddWithValue("@Origen", parametros.Origen);
+                    da.Parameters.AddWithValue("@FechaMuestra", parametros.FechaMuestra);
+                    da.Parameters.AddWithValue("@FechaCatacion", parametros.FechaCatacion);
+                    da.Parameters.AddWithValue("@Dias", parametros.Dias);
+                    da.Parameters.AddWithValue("@RmtoObto", parametros.RmtoObto);
+                    da.Parameters.AddWithValue("@Cascarilla", parametros.Cascarilla);
+                    da.Parameters.AddWithValue("@TotalPS", parametros.TotalPS);
+                    da.Parameters.AddWithValue("@IdVariedad", parametros.IdVariedad);
+                    da.Parameters.AddWithValue("@Humedad", parametros.Humedad);
+                    da.Parameters.AddWithValue("@Exp", parametros.Exp);
+                    da.Parameters.AddWithValue("@DesmA", parametros.DesmA);
+                    da.Parameters.AddWithValue("@DesmC", parametros.DesmC);
+                    da.Parameters.AddWithValue("@DesmD", parametros.DesmD);
+                    da.Parameters.AddWithValue("@DesmAP", parametros.DesmAP);
+                    da.Parameters.AddWithValue("@DesmCP", parametros.DesmCP);
+                    da.Parameters.AddWithValue("@DesmDP", parametros.DesmDP);
+                    da.Parameters.AddWithValue("@Score", parametros.Score);
+                    da.Parameters.AddWithValue("@Taza", parametros.Tasa);
+                    da.Parameters.AddWithValue("@GradoCalidad", parametros.GradoCalidad);
+                    da.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+                    da.Parameters.AddWithValue("@Estado", parametros.Estado);
+                    da.Parameters.AddWithValue("@Analisis", parametros.Analisis);
+                    da.Parameters.AddWithValue("@ExpP", parametros.ExpP);
+                    da.Parameters.AddWithValue("@PesoRecibido", parametros.PesoRecibido);
+                    da.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -356,22 +348,21 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error en EditarCatacion ✖️✖️ " + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         public bool CambioCatacion(string Area, string Ticket)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("CambioCatacion", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                da.Parameters.AddWithValue("@Area", Area);
-                da.Parameters.AddWithValue("@Ticket", Ticket);
-                da.ExecuteNonQuery();
-                return true;
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("CambioCatacion", Conexion.conectar))
+                {
+
+                    da.CommandType = CommandType.StoredProcedure;
+                    da.Parameters.AddWithValue("@Area", Area);
+                    da.Parameters.AddWithValue("@Ticket", Ticket);
+                    da.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -379,39 +370,34 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error en CambioCatacion ✖️✖️ " + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         public void MostrarGrupoCalidadUA(ComboBox combo)
         {
             try
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("MostrarGrupoCalidadUA", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter cb = new SqlDataAdapter(da);
-                DataTable dt = new DataTable();
-                cb.Fill(dt);
-                combo.ValueMember = "IdGrupoCalidad";
-                combo.DisplayMember = "GrupoCalidad";
-                combo.DataSource = dt;
-                for (int i = 0; i < dt.Rows.Count; i++)
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("MostrarGrupoCalidadUA", Conexion.conectar))
                 {
-                    lista.Add(dt.Rows[i]["GrupoCalidad"].ToString());
+
+                    da.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter cb = new SqlDataAdapter(da);
+                    DataTable dt = new DataTable();
+                    cb.Fill(dt);
+                    combo.ValueMember = "IdGrupoCalidad";
+                    combo.DisplayMember = "GrupoCalidad";
+                    combo.DataSource = dt;
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        lista.Add(dt.Rows[i]["GrupoCalidad"].ToString());
+                    }
+                    combo.AutoCompleteCustomSource = lista;
                 }
-                combo.AutoCompleteCustomSource = lista;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en MostrarGrupoCalidad ✖️✖️" + ex.Message);
-            }
-            finally
-            {
-                Conexion.cerrar();
             }
         }
         public void MostrarGCalidad(ComboBox combo)
@@ -419,81 +405,78 @@ namespace ProyectoOFI.Datos
             try
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("Select * from GrupoCalidad where GrupoCalidad not like '%' + 'UA'", Conexion.conectar);
-                SqlDataAdapter cb = new SqlDataAdapter(da);
-                DataTable dt = new DataTable();
-                cb.Fill(dt);
-                combo.ValueMember = "IdGrupoCalidad";
-                combo.DisplayMember = "GrupoCalidad";
-                combo.DataSource = dt;
-                for (int i = 0; i < dt.Rows.Count; i++)
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("Select * from GrupoCalidad where GrupoCalidad not like '%' + 'UA'", Conexion.conectar))
                 {
-                    lista.Add(dt.Rows[i]["GrupoCalidad"].ToString());
+
+                    SqlDataAdapter cb = new SqlDataAdapter(da);
+                    DataTable dt = new DataTable();
+                    cb.Fill(dt);
+                    combo.ValueMember = "IdGrupoCalidad";
+                    combo.DisplayMember = "GrupoCalidad";
+                    combo.DataSource = dt;
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        lista.Add(dt.Rows[i]["GrupoCalidad"].ToString());
+                    }
+                    combo.AutoCompleteCustomSource = lista;
                 }
-                combo.AutoCompleteCustomSource = lista;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en MostrarGrupoCalidad ✖️✖️" + ex.Message);
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         public void ExcelCatacion(ref DataTable dt)
         {
             try
             {
-                Conexion.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("ExcelCatacion", Conexion.conectar);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.Fill(dt);
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("ExcelCatacion", Conexion.conectar))
+                {
+
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.Fill(dt);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al mostrar datos de Excel de Catación" + ex.Message, "Error en datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error al cargar datos en ExcelCatacion ✖️✖️" + ex.Message);
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         public void BuscarCatacion(string Buscar, string Dato, ref DataTable dt, int desde, int hasta, int Contar)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("BuscarCatacion", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Desde", desde);
-                cmd.Parameters.AddWithValue("@Hasta", hasta);
-                cmd.Parameters.AddWithValue("@Buscador", Buscar);
-                cmd.Parameters.AddWithValue("@Dato", Dato);
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("BuscarCatacion", Conexion.conectar))
+                {
 
-                // Parámetro de salida para el contador
-                SqlParameter contarParam = new SqlParameter("@Contar", SqlDbType.Int);
-                contarParam.Direction = ParameterDirection.Output;
-                cmd.Parameters.Add(contarParam);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Desde", desde);
+                    cmd.Parameters.AddWithValue("@Hasta", hasta);
+                    cmd.Parameters.AddWithValue("@Buscador", Buscar);
+                    cmd.Parameters.AddWithValue("@Dato", Dato);
 
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+                    // Parámetro de salida para el contador
+                    SqlParameter contarParam = new SqlParameter("@Contar", SqlDbType.Int);
+                    contarParam.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(contarParam);
 
-                // Obtener el valor del contador
-                Contar = Convert.ToInt32(contarParam.Value);
-                Contador = Contar;
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+
+                    // Obtener el valor del contador
+                    Contar = Convert.ToInt32(contarParam.Value);
+                    Contador = Contar;
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en BuscarCatacion ✖️✖️" + ex.Message);
-            }
-            finally
-            {
-                Conexion.cerrar();
             }
         }
         public void MostrarTasas(ComboBox combo)
@@ -501,29 +484,28 @@ namespace ProyectoOFI.Datos
             try
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("MostrarTasas", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter cb = new SqlDataAdapter(da);
-                DataTable dt = new DataTable();
-                cb.Fill(dt);
-                combo.ValueMember = "IdTasa";
-                combo.DisplayMember = "Tasa";
-                combo.DataSource = dt;
-                for (int i = 0; i < dt.Rows.Count; i++)
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("MostrarTasas", Conexion.conectar))
                 {
-                    lista.Add(dt.Rows[i]["Tasa"].ToString());
+
+                    da.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter cb = new SqlDataAdapter(da);
+                    DataTable dt = new DataTable();
+                    cb.Fill(dt);
+                    combo.ValueMember = "IdTasa";
+                    combo.DisplayMember = "Tasa";
+                    combo.DataSource = dt;
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        lista.Add(dt.Rows[i]["Tasa"].ToString());
+                    }
+                    combo.AutoCompleteCustomSource = lista;
                 }
-                combo.AutoCompleteCustomSource = lista;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en MostrarTasas ✖️✖️" + ex.Message);
-            }
-            finally
-            {
-                Conexion.cerrar();
             }
         }
     }

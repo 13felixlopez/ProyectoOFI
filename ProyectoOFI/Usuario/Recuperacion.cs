@@ -85,58 +85,63 @@ namespace ProyectoOFI.Usuario
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("Correo", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Dato", usuarioSolicitado);
-                SqlDataReader reader = cmd.ExecuteReader();
-                cmd.CommandType = CommandType.Text;
-
-                if (reader.HasRows)
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("Correo", con))
                 {
-                    reader.Read();
-                    string estadoUsuario = reader.GetString(reader.GetOrdinal("Estado"));
-                    if (estadoUsuario == "ACTIVO")
-                    {
-                        string nombreUsuario = reader.GetString(1);
-                        string correoUsuario = reader.GetString(2);
-                        string passUsuario = reader.GetString(6);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Dato", usuarioSolicitado);
 
-                        var mailservice = new DCorreoSoporte();
-                        mailservice.enviarCorreo(
-                            subject: "ofi Sistema de seguimiento de lotes: Notificación de seguridad",
-                            body: "Hola, estimado/a " + nombreUsuario + "\nLos datos de su cuenta en ofi Sistema de seguimiento de lotes ha cambiado recientemente.\n" +
-                            "\nLe informamos que se ha hecho un cambio en su cuenta, si usted realizó dicho cambio ignore este correo," +
-                            "\nPero si usted no ha realizado ningún cambio en su cuenta," +
-                            "\nle pedimos que cambie su contraseña inmediatamente una vez ingrese al sistema..." +
-                            "\n" +
-                            "\nSi no está seguro de si usted o su administrador ha realizado este cambio," +
-                            " debe ponerse en contacto con su administrador inmediatamente",
-                            destinatarioCorreo: new List<string> { correoUsuario });
-
-                        return "Hola, " + nombreUsuario + "\nUsted solicitó recuperar su contraseña.\n" +
-                            "Por favor revise su correo: " + correoUsuario +
-                            "\nSin embargo, le pedimos que cambie su contraseña inmediatamente una vez ingrese al sistema...";
-                    }
-                    else
+                    using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        return "Este usuario no cuenta con una cuenta activa";
+                        if (reader.HasRows)
+                        {
+                            reader.Read();
+                            string estadoUsuario = reader["Estado"].ToString();
+
+                            if (estadoUsuario == "ACTIVO")
+                            {
+                                string nombreUsuario = reader["Nombre"].ToString();
+                                string correoUsuario = reader["Correo"].ToString();
+                                string passUsuario = reader["Pass"].ToString(); // ojo: validá bien el índice/columna real
+
+                                var mailservice = new DCorreoSoporte();
+                                mailservice.enviarCorreo(
+                                    subject: "ofi Sistema de seguimiento de lotes: Notificación de seguridad",
+                                    body:
+                                        $"Hola, estimado/a {nombreUsuario}\n\n" +
+                                        "Los datos de su cuenta en ofi Sistema de seguimiento de lotes han cambiado recientemente.\n" +
+                                        "\nLe informamos que se ha hecho un cambio en su cuenta, si usted realizó dicho cambio ignore este correo," +
+                                        "\nPero si usted no ha realizado ningún cambio en su cuenta," +
+                                        "\nle pedimos que cambie su contraseña inmediatamente una vez ingrese al sistema..." +
+                                        "\n\nSi no está seguro de si usted o su administrador ha realizado este cambio," +
+                                        " debe ponerse en contacto con su administrador inmediatamente",
+                                    destinatarioCorreo: new List<string> { correoUsuario }
+                                );
+
+                                return $"Hola, {nombreUsuario}\n" +
+                                       "Usted solicitó recuperar su contraseña.\n" +
+                                       $"Por favor revise su correo: {correoUsuario}\n" +
+                                       "Sin embargo, le pedimos que cambie su contraseña inmediatamente una vez ingrese al sistema...";
+                            }
+                            else
+                            {
+                                return "Este usuario no cuenta con una cuenta activa";
+                            }
+                        }
+                        else
+                        {
+                            return "Lo sentimos, no tiene una cuenta con ese correo o nombre de usuario";
+                        }
                     }
-                }
-                else
-                {
-                    return "Lo sentimos, no tiene una cuenta con ese correo o nombre de usuario";
                 }
             }
             catch (Exception ex)
             {
+                Log.Writeerror("Error en NotificacionCambio ✖️✖️ " + ex.Message);
                 return "ERROR, Algo anda mal: " + ex.Message;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
 
         /// <summary>
         /// La función "RecoverPassword2" toma un nombre de usuario solicitado y una nueva contraseña, y
@@ -150,56 +155,65 @@ namespace ProyectoOFI.Usuario
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("CambiarContraseñaYEnviarCorreo", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Dato", usuarioSolicitado);
-                cmd.Parameters.AddWithValue("@Password", Encrip.Encriptar(Encrip.Encriptar(nuevaContraseña)));
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("CambiarContraseñaYEnviarCorreo", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter nuevoPasswordParam = new SqlParameter("@NuevoPassword", SqlDbType.VarChar, 255);
-                nuevoPasswordParam.Direction = ParameterDirection.Output;
-                cmd.Parameters.Add(nuevoPasswordParam);
+                    cmd.Parameters.AddWithValue("@Dato", usuarioSolicitado);
+                    cmd.Parameters.AddWithValue("@Password", Encrip.Encriptar(Encrip.Encriptar(nuevaContraseña)));
 
-                SqlParameter correoParam = new SqlParameter("@Correo", SqlDbType.VarChar, 100);
-                correoParam.Direction = ParameterDirection.Output;
-                cmd.Parameters.Add(correoParam);
+                    var nuevoPasswordParam = new SqlParameter("@NuevoPassword", SqlDbType.VarChar, 255)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    cmd.Parameters.Add(nuevoPasswordParam);
 
-                SqlParameter nombreUsuarioParam = new SqlParameter("@Login", SqlDbType.VarChar, 100);
-                nombreUsuarioParam.Direction = ParameterDirection.Output;
-                cmd.Parameters.Add(nombreUsuarioParam);
+                    var correoParam = new SqlParameter("@Correo", SqlDbType.VarChar, 100)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    cmd.Parameters.Add(correoParam);
 
-                cmd.ExecuteNonQuery();
+                    var nombreUsuarioParam = new SqlParameter("@Login", SqlDbType.VarChar, 100)
+                    {
+                        Direction = ParameterDirection.Output
+                    };
+                    cmd.Parameters.Add(nombreUsuarioParam);
 
-                string nombreUsuario = nombreUsuarioParam.Value.ToString();
-                string nuevoPassword = nuevoPasswordParam.Value.ToString();
-                string correoUsuario = correoParam.Value.ToString();
+                    cmd.ExecuteNonQuery();
 
-                var mailservice = new DCorreoSoporte();
-                mailservice.enviarCorreo(
-                    subject: "ofi Sistema de seguimiento de lotes: Solicitud de recuperación de Contraseña",
-                    body: "Hola, " + nombreUsuario + "\nUsted solicitó recuperar su contraseña.\n" +
-                    "\nSe le proporcionará una nueva contraseña por seguridad" +
-                    "\nSu nueva contraseña es: " + nuevaContraseña +
-                    "\n" +
-                    "\nSin embargo, le pedimos que cambie su contraseña una vez que ingrese al sistema..." +
-                    "\n" +
-                    "\nSi no está seguro de si usted o su administrador ha realizado este restablecimiento," +
-                    " debe ponerse en contacto con su administrador inmediatamente",
-                    destinatarioCorreo: new List<string> { correoUsuario });
+                    string nombreUsuario = nombreUsuarioParam.Value?.ToString() ?? "Usuario";
+                    string correoUsuario = correoParam.Value?.ToString() ?? "";
+                    //string nuevoPassword = nuevoPasswordParam.Value?.ToString() ?? ""; // ⚠️ no enviar nunca por correo
 
-                return "Hola, " + nombreUsuario + "\nUsted solicitó recuperar su contraseña.\n" +
-                    "Por favor revise su correo: " + correoUsuario +
-                    "\nSin embargo, le pedimos que cambie su contraseña una vez que ingrese al sistema...";
+                    if (string.IsNullOrEmpty(correoUsuario))
+                        return "No se encontró un correo válido para el usuario solicitado.";
+
+                    var mailservice = new DCorreoSoporte();
+                    mailservice.enviarCorreo(
+                        subject: "ofi Sistema de seguimiento de lotes: Recuperación de contraseña",
+                        body:
+                            $"Hola {nombreUsuario},\n\n" +
+                            "Usted solicitó recuperar su contraseña.\n" +
+                            "Se le ha generado una nueva contraseña temporal:\n\n" +
+                            $"🔑 {nuevaContraseña}\n\n" +
+                            "Por su seguridad, le pedimos que cambie esta contraseña inmediatamente después de ingresar al sistema.\n\n" +
+                            "Si usted no solicitó este restablecimiento, contacte a su administrador de inmediato.",
+                        destinatarioCorreo: new List<string> { correoUsuario }
+                    );
+
+                    return $"Hola {nombreUsuario}, revise su correo: {correoUsuario}\n" +
+                           "Recuerde cambiar la contraseña inmediatamente después de ingresar al sistema.";
+                }
             }
             catch (Exception ex)
             {
+                Log.Writeerror("Error en RecoverPassword2 ✖️✖️ " + ex.Message);
                 return "ERROR, Algo anda mal: " + ex.Message;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
 
         private void NotificacionCambio()
         {

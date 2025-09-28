@@ -12,7 +12,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlDataAdapter cmd = new SqlDataAdapter("Select * from Cosecha", Conexion.conectar))
+                using (SqlDataAdapter cmd = new SqlDataAdapter("Select * from Cosecha", conectar))
                 {
 
                     cmd.SelectCommand.CommandType = CommandType.Text;
@@ -30,7 +30,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand sqlCommand = new SqlCommand("InsertarCosecha", Conexion.conectar))
+                using (SqlCommand sqlCommand = new SqlCommand("InsertarCosecha", conectar))
                 {
 
                     sqlCommand.CommandType = CommandType.StoredProcedure;
@@ -51,7 +51,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("EditarCosecha", Conexion.conectar))
+                using (SqlCommand cmd = new SqlCommand("EditarCosecha", conectar))
                 {
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -73,7 +73,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand sqlCommand = new SqlCommand("AgregarAgencia", Conexion.conectar))
+                using (SqlCommand sqlCommand = new SqlCommand("AgregarAgencia", conectar))
                 {
 
                     sqlCommand.CommandType = CommandType.StoredProcedure;
@@ -94,7 +94,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlDataAdapter da = new SqlDataAdapter("MostrarAgencias", Conexion.conectar))
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarAgencias", conectar))
                 {
 
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -112,7 +112,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("EliminarAgencia", Conexion.conectar))
+                using (SqlCommand cmd = new SqlCommand("EliminarAgencia", conectar))
                 {
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -133,7 +133,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("EditarAgencia", Conexion.conectar))
+                using (SqlCommand cmd = new SqlCommand("EditarAgencia", conectar))
                 {
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -155,7 +155,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("InsertarAcopio", Conexion.conectar))
+                using (SqlCommand cmd = new SqlCommand("InsertarAcopio", conectar))
                 {
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -177,7 +177,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlDataAdapter da = new SqlDataAdapter("MostrarAcopios", Conexion.conectar))
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarAcopios", conectar))
                 {
 
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -195,7 +195,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("EditarAcopio", Conexion.conectar))
+                using (SqlCommand cmd = new SqlCommand("EditarAcopio", conectar))
                 {
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -218,7 +218,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("EliminarAcopio", Conexion.conectar))
+                using (SqlCommand cmd = new SqlCommand("EliminarAcopio", conectar))
                 {
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -239,7 +239,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlDataAdapter cmd = new SqlDataAdapter("MostrarRecibidor", Conexion.conectar))
+                using (SqlDataAdapter cmd = new SqlDataAdapter("MostrarRecibidor", conectar))
                 {
 
                     cmd.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -257,7 +257,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("InsertarRecibidor", Conexion.conectar))
+                using (SqlCommand cmd = new SqlCommand("InsertarRecibidor", conectar))
                 {
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -278,7 +278,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("EditarRecibidor", Conexion.conectar))
+                using (SqlCommand cmd = new SqlCommand("EditarRecibidor", conectar))
                 {
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -300,7 +300,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("EliminarRecibidor", Conexion.conectar))
+                using (SqlCommand cmd = new SqlCommand("EliminarRecibidor", conectar))
                 {
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -1333,12 +1333,14 @@ namespace ProyectoOFI.Datos
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand sqlCommand = new SqlCommand("AgregarVariedad", Conexion.conectar);
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@Variedad", Variedad);
-                sqlCommand.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand sqlCommand = new SqlCommand("AgregarVariedad", con))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@Variedad", Variedad);
+                    sqlCommand.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1346,40 +1348,38 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al AgregarVariedad ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public void MostrarVariedad(ref DataTable dt)
         {
             try
             {
-                Conexion.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("MostrarVariedades", Conexion.conectar);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.Fill(dt);
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarVariedades", con))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.Fill(dt);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error al MostrarVariedades ✖️✖️" + ex.Message);
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool EliminarVariedad(int IdVariedad)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("EliminarVariedad", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdVariedad", IdVariedad);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EliminarVariedad", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdVariedad", IdVariedad);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1387,22 +1387,21 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al EliminarVariedad ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool EditarVariedad(int IdVariedad, string Variedad)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("EditarVariedad", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdVariedad", IdVariedad);
-                cmd.Parameters.AddWithValue("@Variedad", Variedad);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EditarVariedad", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdVariedad", IdVariedad);
+                    cmd.Parameters.AddWithValue("@Variedad", Variedad);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1410,23 +1409,22 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al EditarVariedad ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         #endregion
+
         #region Descargador
         public bool AgregarDescargador(string Descargador)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand sqlCommand = new SqlCommand("AgregarDescargador", Conexion.conectar);
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@Descargador", Descargador);
-                sqlCommand.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand sqlCommand = new SqlCommand("AgregarDescargador", con))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@Descargador", Descargador);
+                    sqlCommand.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1434,40 +1432,38 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al AgregarDescargador ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public void MostrarDescargador(ref DataTable dt)
         {
             try
             {
-                Conexion.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("MostrarDescargador", Conexion.conectar);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.Fill(dt);
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarDescargador", con))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.Fill(dt);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error al MostrarDescargador ✖️✖️" + ex.Message);
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool EliminarDescargador(int IdDescargador)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("EliminarDescargador", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdDescargador", IdDescargador);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EliminarDescargador", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdDescargador", IdDescargador);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1475,22 +1471,21 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al EliminarDescargador ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool EditarDescargador(int IdDescargador, string Descargador)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("EditarDescargador", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdDescargador", IdDescargador);
-                cmd.Parameters.AddWithValue("@Descargador", Descargador);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EditarDescargador", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdDescargador", IdDescargador);
+                    cmd.Parameters.AddWithValue("@Descargador", Descargador);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1498,23 +1493,22 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al EditarDescargador ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         #endregion
+
         #region Bodega
         public bool AgregarBodega(string Bodega)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand sqlCommand = new SqlCommand("AgregarBodega", Conexion.conectar);
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@Bodega", Bodega);
-                sqlCommand.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand sqlCommand = new SqlCommand("AgregarBodega", con))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@Bodega", Bodega);
+                    sqlCommand.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1522,40 +1516,38 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al AgregarBodega ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public void MostrarBodega(ref DataTable dt)
         {
             try
             {
-                Conexion.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("MostrarBodega", Conexion.conectar);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.Fill(dt);
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarBodega", con))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.Fill(dt);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error al MostrarBodega ✖️✖️" + ex.Message);
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool EliminarBodega(int IdBodega)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("EliminarBodega", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdBodega", IdBodega);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EliminarBodega", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdBodega", IdBodega);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1563,22 +1555,21 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al EliminarBodega ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool EditarBodega(int IdBodega, string Bodega)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("EditarBodega", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdBodega", IdBodega);
-                cmd.Parameters.AddWithValue("@Bodega", Bodega);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EditarBodega", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdBodega", IdBodega);
+                    cmd.Parameters.AddWithValue("@Bodega", Bodega);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1586,24 +1577,23 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al EditarBodega ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         #endregion
+
         #region UbicacionB
         public bool AgregarUbicacionB(string UbicacionB, int IdBodega)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand sqlCommand = new SqlCommand("AgregarUbicacionB", Conexion.conectar);
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@UbicacionB", UbicacionB);
-                sqlCommand.Parameters.AddWithValue("@IdBodega", IdBodega);
-                sqlCommand.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand sqlCommand = new SqlCommand("AgregarUbicacionB", con))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@UbicacionB", UbicacionB);
+                    sqlCommand.Parameters.AddWithValue("@IdBodega", IdBodega);
+                    sqlCommand.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1611,40 +1601,38 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al AgregarUbicacionB ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public void MostrarUbicacionB(ref DataTable dt)
         {
             try
             {
-                Conexion.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("MostrarUbicacionB", Conexion.conectar);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.Fill(dt);
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarUbicacionB", con))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.Fill(dt);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error al MostrarUbicacionB ✖️✖️" + ex.Message);
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool EliminarUbicacionB(int IdUbicacionB)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("EliminarUbicacionB", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdUbicacion", IdUbicacionB);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EliminarUbicacionB", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdUbicacion", IdUbicacionB);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1652,23 +1640,22 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al EliminarUbicacionB ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool EditarUbicacionB(int IdUbicacionB, string UbicacionB, int idBodega)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("EditarUbicacionB", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdUbicacion", IdUbicacionB);
-                cmd.Parameters.AddWithValue("@UbicacionB", UbicacionB);
-                cmd.Parameters.AddWithValue("@IdBodega", idBodega);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EditarUbicacionB", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdUbicacion", IdUbicacionB);
+                    cmd.Parameters.AddWithValue("@UbicacionB", UbicacionB);
+                    cmd.Parameters.AddWithValue("@IdBodega", idBodega);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1676,25 +1663,24 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al EditarUbicacionB ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         #endregion
+
         #region Empaque
         public bool AgregarEmpaque(string Empaque, string Capacidad, double TaraSaco)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand sqlCommand = new SqlCommand("AgregarEmpaque", Conexion.conectar);
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@Empaque", Empaque);
-                sqlCommand.Parameters.AddWithValue("@Capacidad", Capacidad);
-                sqlCommand.Parameters.AddWithValue("@TaraSaco", TaraSaco);
-                sqlCommand.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand sqlCommand = new SqlCommand("AgregarEmpaque", con))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@Empaque", Empaque);
+                    sqlCommand.Parameters.AddWithValue("@Capacidad", Capacidad);
+                    sqlCommand.Parameters.AddWithValue("@TaraSaco", TaraSaco);
+                    sqlCommand.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1702,40 +1688,38 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al AgregarEmpaque ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public void MostrarEmpaque(ref DataTable dt)
         {
             try
             {
-                Conexion.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("MostrarEmpaque", Conexion.conectar);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.Fill(dt);
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarEmpaque", con))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.Fill(dt);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error al MostrarEmpaque ✖️✖️" + ex.Message);
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool EliminarEmpaque(int IdEmpaque)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("EliminarEmpaque", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdEmpaque", IdEmpaque);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EliminarEmpaque", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdEmpaque", IdEmpaque);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1743,24 +1727,23 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al EliminarEmpaque ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool EditarEmpaque(int IdEmpaque, string Empaque, string Capacidad, double TaraSaco)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("EditarEmpaque", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdEmpaque", IdEmpaque);
-                cmd.Parameters.AddWithValue("@Empaque", Empaque);
-                cmd.Parameters.AddWithValue("@Capacidad", Capacidad);
-                cmd.Parameters.AddWithValue("@TaraSaco", TaraSaco);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EditarEmpaque", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdEmpaque", IdEmpaque);
+                    cmd.Parameters.AddWithValue("@Empaque", Empaque);
+                    cmd.Parameters.AddWithValue("@Capacidad", Capacidad);
+                    cmd.Parameters.AddWithValue("@TaraSaco", TaraSaco);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1768,23 +1751,22 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al EditarEmpaque ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         #endregion
+
         #region TurnoAl
         public bool AgregarTurnoAl(string TurnoAl)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand sqlCommand = new SqlCommand("AgregarTurnoAl", Conexion.conectar);
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@Turnos", TurnoAl);
-                sqlCommand.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand sqlCommand = new SqlCommand("AgregarTurnoAl", con))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@Turnos", TurnoAl);
+                    sqlCommand.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1792,40 +1774,38 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al AgregarTurnoAl ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public void MostrarTurnoAl(ref DataTable dt)
         {
             try
             {
-                Conexion.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("MostrarTurnoAl", Conexion.conectar);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.Fill(dt);
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarTurnoAl", con))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.Fill(dt);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error al MostrarTurnoAl ✖️✖️" + ex.Message);
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool EliminarTurnoAl(int IdTurno)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("EliminarTurnoAl", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdTurno", IdTurno);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EliminarTurnoAl", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdTurno", IdTurno);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1833,22 +1813,21 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al EliminarTurnoAl ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool EditarTurnoAl(int IdTurnoAl, string TurnoAl)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("EditarTurnosAl", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdTurnos", IdTurnoAl);
-                cmd.Parameters.AddWithValue("@Turnos", TurnoAl);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EditarTurnosAl", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdTurnos", IdTurnoAl);
+                    cmd.Parameters.AddWithValue("@Turnos", TurnoAl);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1856,23 +1835,22 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al EditarTurnoAl ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         #endregion
+
         #region GCalidades
         public bool AgregarGCalidades(string GCalidades)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand sqlCommand = new SqlCommand("InsertarGrupoCalidad", Conexion.conectar);
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@GrupoCalidad", GCalidades);
-                sqlCommand.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand sqlCommand = new SqlCommand("InsertarGrupoCalidad", con))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@GrupoCalidad", GCalidades);
+                    sqlCommand.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1880,39 +1858,37 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al AgregarGCalidades ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public void MostrarGCalidades(ref DataTable dt)
         {
             try
             {
-                Conexion.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("Select * from GrupoCalidad", Conexion.conectar);
-                da.Fill(dt);
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("Select * from GrupoCalidad", con))
+                {
+                    da.Fill(dt);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error al MostrarGCalidadeses ✖️✖️" + ex.Message);
-            }
-            finally
-            {
-                Conexion.cerrar();
+                Log.Writeerror("Error al MostrarGCalidades ✖️✖️" + ex.Message);
             }
         }
+
         public bool EliminarGCalidades(int IdGCalidades)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("EliminarGrupoCalidad", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdGrupoCalidad", IdGCalidades);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EliminarGrupoCalidad", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdGrupoCalidad", IdGCalidades);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1920,22 +1896,21 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al EliminarGCalidades ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool EditarGCalidades(int IdGCalidades, string GCalidades)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("EditarGrupoCalidad", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdGrupoCalidad", IdGCalidades);
-                cmd.Parameters.AddWithValue("@GrupoCalidad", GCalidades);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EditarGrupoCalidad", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdGrupoCalidad", IdGCalidades);
+                    cmd.Parameters.AddWithValue("@GrupoCalidad", GCalidades);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1943,23 +1918,22 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al EditarGCalidades ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         #endregion
+
         #region Material
         public bool AgregarMaterial(string Material)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand sqlCommand = new SqlCommand("AgregarMaterial", Conexion.conectar);
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@Material", Material);
-                sqlCommand.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand sqlCommand = new SqlCommand("AgregarMaterial", con))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@Material", Material);
+                    sqlCommand.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -1967,40 +1941,38 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al AgregarMaterial ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public void MostrarMaterial(ref DataTable dt)
         {
             try
             {
-                Conexion.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("MostrarMaterial", Conexion.conectar);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.Fill(dt);
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarMaterial", con))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.Fill(dt);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error al MostrarMaterial ✖️✖️" + ex.Message);
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool EliminarMaterial(int IdMaterial)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("EliminarMaterial", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdMaterial", IdMaterial);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EliminarMaterial", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdMaterial", IdMaterial);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -2008,22 +1980,21 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al EliminarMaterial ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool EditarMaterial(int IdMaterial, string Material)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("EditarMaterial", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdMaterial", IdMaterial);
-                cmd.Parameters.AddWithValue("@Material", Material);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EditarMaterial", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdMaterial", IdMaterial);
+                    cmd.Parameters.AddWithValue("@Material", Material);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -2031,23 +2002,22 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al EditarMaterial ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         #endregion
+
         #region Tasa
         public bool AgregarTasa(string Tasa)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand sqlCommand = new SqlCommand("InsertarTasa", Conexion.conectar);
-                sqlCommand.CommandType = CommandType.StoredProcedure;
-                sqlCommand.Parameters.AddWithValue("@Tasa", Tasa);
-                sqlCommand.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand sqlCommand = new SqlCommand("InsertarTasa", con))
+                {
+                    sqlCommand.CommandType = CommandType.StoredProcedure;
+                    sqlCommand.Parameters.AddWithValue("@Tasa", Tasa);
+                    sqlCommand.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -2055,40 +2025,38 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al InsertarTasa ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public void MostrarTasas(ref DataTable dt)
         {
             try
             {
-                Conexion.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("MostrarTasas", Conexion.conectar);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.Fill(dt);
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarTasas", con))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.Fill(dt);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error al MostrarTasa ✖️✖️" + ex.Message);
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool EliminarTasa(int IdTasa)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("EliminarTasa", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdTasa", IdTasa);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EliminarTasa", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdTasa", IdTasa);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -2096,22 +2064,21 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al EliminarTasa ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool EditarTasa(int IdTasa, string Tasa)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("EditarTasa", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdTasa", IdTasa);
-                cmd.Parameters.AddWithValue("@Tasa", Tasa);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EditarTasa", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdTasa", IdTasa);
+                    cmd.Parameters.AddWithValue("@Tasa", Tasa);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
@@ -2119,11 +2086,8 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al EditarTasa ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         #endregion
+
     }
 }

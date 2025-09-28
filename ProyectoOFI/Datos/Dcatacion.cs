@@ -14,7 +14,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlDataAdapter da = new SqlDataAdapter("MostrarCata", Conexion.conectar))
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarCata", conectar))
                 {
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
                     da.SelectCommand.Parameters.AddWithValue("@Desde", desde);
@@ -53,7 +53,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlDataAdapter da = new SqlDataAdapter("VerDetalleCatacion", Conexion.conectar))
+                using (SqlDataAdapter da = new SqlDataAdapter("VerDetalleCatacion", conectar))
                 {
 
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -74,7 +74,7 @@ namespace ProyectoOFI.Datos
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand da = new SqlCommand("MostrarVariedades", Conexion.conectar))
+                using (SqlCommand da = new SqlCommand("MostrarVariedades", conectar))
                 {
 
                     da.CommandType = CommandType.StoredProcedure;
@@ -102,7 +102,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand da = new SqlCommand("SeleccionarScore", Conexion.conectar))
+                using (SqlCommand da = new SqlCommand("SeleccionarScore", conectar))
                 {
 
                     da.CommandType = CommandType.StoredProcedure;
@@ -130,7 +130,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand da = new SqlCommand("InsertarCatacion", Conexion.conectar))
+                using (SqlCommand da = new SqlCommand("InsertarCatacion", conectar))
                 {
 
                     da.CommandType = CommandType.StoredProcedure;
@@ -176,7 +176,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlDataAdapter da = new SqlDataAdapter("VerDetalleCata", Conexion.conectar))
+                using (SqlDataAdapter da = new SqlDataAdapter("VerDetalleCata", conectar))
                 {
 
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -195,7 +195,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand da = new SqlCommand("EditarCatacion", Conexion.conectar))
+                using (SqlCommand da = new SqlCommand("EditarCatacion", conectar))
                 {
 
                     da.CommandType = CommandType.StoredProcedure;
@@ -241,7 +241,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("EditarTKAnalisis", Conexion.conectar))
+                using (SqlCommand cmd = new SqlCommand("EditarTKAnalisis", conectar))
                 {
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -263,7 +263,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand da = new SqlCommand("InsertarCatacionCD", Conexion.conectar))
+                using (SqlCommand da = new SqlCommand("InsertarCatacionCD", conectar))
                 {
 
                     da.CommandType = CommandType.StoredProcedure;
@@ -309,7 +309,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand da = new SqlCommand("EditarCatacionCD", Conexion.conectar))
+                using (SqlCommand da = new SqlCommand("EditarCatacionCD", conectar))
                 {
 
                     da.CommandType = CommandType.StoredProcedure;
@@ -354,7 +354,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand da = new SqlCommand("CambioCatacion", Conexion.conectar))
+                using (SqlCommand da = new SqlCommand("CambioCatacion", conectar))
                 {
 
                     da.CommandType = CommandType.StoredProcedure;
@@ -377,7 +377,7 @@ namespace ProyectoOFI.Datos
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand da = new SqlCommand("MostrarGrupoCalidadUA", Conexion.conectar))
+                using (SqlCommand da = new SqlCommand("MostrarGrupoCalidadUA", conectar))
                 {
 
                     da.CommandType = CommandType.StoredProcedure;
@@ -406,7 +406,7 @@ namespace ProyectoOFI.Datos
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand da = new SqlCommand("Select * from GrupoCalidad where GrupoCalidad not like '%' + 'UA'", Conexion.conectar))
+                using (SqlCommand da = new SqlCommand("Select * from GrupoCalidad where GrupoCalidad not like '%' + 'UA'", conectar))
                 {
 
                     SqlDataAdapter cb = new SqlDataAdapter(da);
@@ -433,7 +433,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlDataAdapter da = new SqlDataAdapter("ExcelCatacion", Conexion.conectar))
+                using (SqlDataAdapter da = new SqlDataAdapter("ExcelCatacion", conectar))
                 {
 
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -451,7 +451,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("BuscarCatacion", Conexion.conectar))
+                using (SqlCommand cmd = new SqlCommand("BuscarCatacion", conectar))
                 {
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -485,7 +485,7 @@ namespace ProyectoOFI.Datos
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand da = new SqlCommand("MostrarTasas", Conexion.conectar))
+                using (SqlCommand da = new SqlCommand("MostrarTasas", conectar))
                 {
 
                     da.CommandType = CommandType.StoredProcedure;

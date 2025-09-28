@@ -35,23 +35,21 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en MostrarSM ✖️✖️" + ex.Message);
+                MessageBox.Show("Error al mostrar datos de SM: " + ex.Message,
+                    "Error MostrarSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarSM ✖️✖️ " + ex.Message);
             }
         }
 
         public DataTable MostrarTV()
         {
-            DataTable tablaTickets = new DataTable();
+            var tablaTickets = new DataTable();
             try
             {
                 using (SqlConnection con = Conexion.abrir())
                 using (SqlCommand cmd = new SqlCommand("MostrarTV", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-
-                    con.Open(); // 👈 Abrir la conexión manualmente
-
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         tablaTickets.Load(reader);
@@ -60,11 +58,12 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message + ex.StackTrace);
+                MessageBox.Show("Error al mostrar Tickets TV: " + ex.Message,
+                    "Error MostrarTV", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarTV ✖️✖️ " + ex.Message);
             }
             return tablaTickets;
         }
-
 
         public void CargarTV(string TK, DataTable dt)
         {
@@ -75,13 +74,17 @@ namespace ProyectoOFI.Datos
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Ticket", TK);
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudieron cargar los datos: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al cargar TV: " + ex.Message,
+                    "Error CargarTV", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en CargarTV ✖️✖️ " + ex.Message);
             }
         }
 
@@ -93,27 +96,31 @@ namespace ProyectoOFI.Datos
                 using (SqlCommand cmd = new SqlCommand("MostrarTkV", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
 
-                    combo.DataSource = dt;
-                    combo.ValueMember = "Ticket";
-                    combo.DisplayMember = "Ticket";
-                    combo.SelectedIndex = -1;
+                        combo.DataSource = dt;
+                        combo.ValueMember = "Ticket";
+                        combo.DisplayMember = "Ticket";
+                        combo.SelectedIndex = -1;
 
-                    AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
-                    foreach (DataRow row in dt.Rows)
-                        lista.Add(row["Ticket"].ToString());
+                        AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                        foreach (DataRow row in dt.Rows)
+                            lista.Add(row["Ticket"].ToString());
 
-                    combo.AutoCompleteCustomSource = lista;
-                    combo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                    combo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                        combo.AutoCompleteCustomSource = lista;
+                        combo.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+                        combo.AutoCompleteSource = AutoCompleteSource.CustomSource;
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudieron cargar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al cargar Tickets: " + ex.Message,
+                    "Error CargarTk", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en CargarTk ✖️✖️ " + ex.Message);
             }
         }
 
@@ -127,27 +134,42 @@ namespace ProyectoOFI.Datos
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@TK", TK);
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
 
-                    sacos.Text = dt.Rows[0]["Sacos"].ToString();
-                    kilos.Text = dt.Rows[0]["Peso"].ToString();
-                    double QQs = double.Parse(kilos.Text) / 46;
-                    QQS.Text = Math.Round(QQs, 2).ToString();
-                    calidad.Text = dt.Rows[0]["Calidad"].ToString();
-                    daño.Text = dt.Rows[0]["Danio"].ToString();
-                    esfisico.Text = dt.Rows[0]["Estado Fisico"].ToString();
-                    FRecibido.Text = dt.Rows[0]["FRecibido"].ToString();
-                    Cert.Text = dt.Rows[0]["Certificacion"].ToString();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        if (dt.Rows.Count > 0)
+                        {
+                            var row = dt.Rows[0];
+                            sacos.Text = row["Sacos"].ToString();
+                            kilos.Text = row["Peso"].ToString();
+
+                            if (double.TryParse(kilos.Text, out double peso))
+                                QQS.Text = Math.Round(peso / 46, 2).ToString();
+
+                            calidad.Text = row["Calidad"].ToString();
+                            daño.Text = row["Danio"].ToString();
+                            esfisico.Text = row["Estado Fisico"].ToString();
+                            FRecibido.Text = row["FRecibido"].ToString();
+                            Cert.Text = row["Certificacion"].ToString();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontraron datos para el Ticket especificado.",
+                                "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error " + ex.Message, "Error mostrar datos DSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al mostrar datos de TKSM: " + ex.Message,
+                    "Error MostrarDatosTKSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarDatosTKSM ✖️✖️ " + ex.Message);
             }
         }
-
         public void MostrarOperador(ComboBox combo)
         {
             try
@@ -156,25 +178,28 @@ namespace ProyectoOFI.Datos
                 using (SqlCommand cmd = new SqlCommand("MostrarOperadores", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
 
-                    combo.DataSource = dt;
-                    combo.ValueMember = "IdOperador";
-                    combo.DisplayMember = "Nombre";
-                    combo.SelectedIndex = -1;
+                        combo.DataSource = dt;
+                        combo.ValueMember = "IdOperador";
+                        combo.DisplayMember = "Nombre";
+                        combo.SelectedIndex = -1;
 
-                    AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
-                    foreach (DataRow row in dt.Rows)
-                        lista.Add(row["Nombre"].ToString());
+                        AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                        foreach (DataRow row in dt.Rows)
+                            lista.Add(row["Nombre"].ToString());
 
-                    combo.AutoCompleteCustomSource = lista;
+                        combo.AutoCompleteCustomSource = lista;
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar los operadores " + ex.Message, "ERROR Operadores", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al cargar operadores: " + ex.Message,
+                    "Error Operadores", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en MostrarOperador ✖️✖️ " + ex.Message);
             }
         }
@@ -187,26 +212,29 @@ namespace ProyectoOFI.Datos
                 using (SqlCommand cmd = new SqlCommand("MostrarTurno", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
 
-                    combo.DataSource = dt;
-                    combo.ValueMember = "IdTurnos";
-                    combo.DisplayMember = "Turno";
-                    combo.SelectedIndex = -1;
+                        combo.DataSource = dt;
+                        combo.ValueMember = "IdTurnos";
+                        combo.DisplayMember = "Turno";
+                        combo.SelectedIndex = -1;
 
-                    AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
-                    foreach (DataRow row in dt.Rows)
-                        lista.Add(row["Turno"].ToString());
+                        AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                        foreach (DataRow row in dt.Rows)
+                            lista.Add(row["Turno"].ToString());
 
-                    combo.AutoCompleteCustomSource = lista;
+                        combo.AutoCompleteCustomSource = lista;
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en MostrarTurnos ✖️✖️" + ex.Message);
+                MessageBox.Show("Error al cargar turnos: " + ex.Message,
+                    "Error Turnos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarTurno ✖️✖️ " + ex.Message);
             }
         }
 
@@ -224,8 +252,9 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en VerDetalleTkSM ✖️✖️" + ex.Message);
+                MessageBox.Show("Error al mostrar detalle TKSM: " + ex.Message,
+                    "Error VerDetalleTkSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en VerDetalleTkSM ✖️✖️ " + ex.Message);
             }
         }
 
@@ -243,8 +272,9 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en VerPOAV ✖️✖️" + ex.Message);
+                MessageBox.Show("Error al mostrar POAV: " + ex.Message,
+                    "Error VerPOAV", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en VerPOAV ✖️✖️ " + ex.Message);
             }
         }
 
@@ -262,7 +292,8 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar los datos de VerEnvioSM " + ex.Message, "Error VerEnvioSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al mostrar datos de EnvioSM: " + ex.Message,
+                    "Error VerEnvioSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en VerEnvioSM ✖️✖️ " + ex.Message);
             }
         }
@@ -281,11 +312,11 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al mostrar los datos de Guardiola " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al mostrar datos de Guardiola: " + ex.Message,
+                    "Error VerGuardiola", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en VerGuardiola ✖️✖️ " + ex.Message);
             }
         }
-
         public void VerPS(ref DataTable dt, string TK)
         {
             try
@@ -300,8 +331,9 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al mostrar los datos de PS " + ex.Message, "Error PS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en VerPS ✖️✖️" + ex.Message);
+                MessageBox.Show("Error al mostrar datos de PS: " + ex.Message,
+                    "Error PS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en VerPS ✖️✖️ " + ex.Message);
             }
         }
 
@@ -311,16 +343,17 @@ namespace ProyectoOFI.Datos
             {
                 using (SqlConnection con = Conexion.abrir())
                 using (SqlCommand cmd = new SqlCommand(
-                    "select COUNT (Ticket) from Recepcion " +
+                    "SELECT COUNT(Ticket) " +
+                    "FROM Recepcion " +
                     "INNER JOIN AreaSecado AS ASe ON Recepcion.IdAreaSecado = ASe.IdAreaSecado " +
-                    "where Estado='ACTIVO' AND AreaSecado='Secado Mecánico' " +
-                    "AND Cosecha=(select Cosecha from Cosecha where IdCosecha=(select max(IdCosecha) from Cosecha))",
+                    "WHERE Estado='ACTIVO' AND AreaSecado='Secado Mecánico' " +
+                    "AND Cosecha=(SELECT Cosecha FROM Cosecha WHERE IdCosecha=(SELECT MAX(IdCosecha) FROM Cosecha))",
                     con))
                 {
                     Contador = Convert.ToInt32(cmd.ExecuteScalar());
                 }
             }
-            catch (Exception)
+            catch
             {
                 Contador = 0;
             }
@@ -340,8 +373,9 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en VerVertical ✖️✖️" + ex.Message);
+                MessageBox.Show("Error al mostrar datos de Vertical: " + ex.Message,
+                    "Error VerVertical", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en VerVertical ✖️✖️ " + ex.Message);
             }
         }
 
@@ -370,8 +404,9 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en VerPreSecado ✖️✖️" + ex.Message);
+                MessageBox.Show("Error al mostrar datos de PreSecado: " + ex.Message,
+                    "Error VerPreSecado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en VerPreSecado ✖️✖️ " + ex.Message);
             }
         }
 
@@ -394,15 +429,17 @@ namespace ProyectoOFI.Datos
                     };
                     cmd.Parameters.Add(contarParam);
 
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
-
-                    foreach (DataRow dr in dt.Rows)
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
-                        if (dr["Proceso"].ToString() == "No Asignado")
-                            dr["ProcesoSM"] = "";
-                        else if (dr["ProcesoSM"] == DBNull.Value)
-                            dr["ProcesoSM"] = "Carga Directa SF";
+                        da.Fill(dt);
+
+                        foreach (DataRow dr in dt.Rows)
+                        {
+                            if (dr["Proceso"].ToString() == "No Asignado")
+                                dr["ProcesoSM"] = "";
+                            else if (dr["ProcesoSM"] == DBNull.Value)
+                                dr["ProcesoSM"] = "Carga Directa SF";
+                        }
                     }
 
                     Contar = Convert.ToInt32(contarParam.Value);
@@ -411,11 +448,11 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en BuscarTKSM ✖️✖️" + ex.Message);
+                MessageBox.Show("Error al buscar TKSM: " + ex.Message,
+                    "Error BuscarTKSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarTKSM ✖️✖️ " + ex.Message);
             }
         }
-
         public bool ParticionSM(LVertical parametros)
         {
             try
@@ -432,7 +469,7 @@ namespace ProyectoOFI.Datos
                     cmd.Parameters.AddWithValue("@ProcesoSF", parametros.ProcesoSF);
                     cmd.Parameters.AddWithValue("@IdTurno", parametros.TurnoV);
                     cmd.Parameters.AddWithValue("@POA1", parametros.POA1);
-                    cmd.Parameters.AddWithValue("POA2", parametros.POA2);
+                    cmd.Parameters.AddWithValue("@POA2", parametros.POA2);
                     cmd.Parameters.AddWithValue("@DigitadorSF", parametros.DigitadorV);
                     cmd.ExecuteNonQuery();
                     return true;
@@ -440,8 +477,9 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al Insertar los datos " + ex.Message, "ERROR ParticionSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en Insertar los datos en ParticionSM ✖️✖️" + ex.Message);
+                MessageBox.Show("Error al insertar datos en ParticionSM: " + ex.Message,
+                    "ERROR ParticionSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en ParticionSM ✖️✖️ " + ex.Message);
                 return false;
             }
         }
@@ -459,7 +497,8 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudieron cargar los datos de ExcelSM " + ex.Message, "Error en ExcelSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al cargar datos de ExcelSM: " + ex.Message,
+                    "Error ExcelSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en ExcelSM ✖️✖️ " + ex.Message);
             }
         }
@@ -469,7 +508,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection con = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("select DISTINCT(ProcesoSM) from POAV", con))
+                using (SqlCommand cmd = new SqlCommand("SELECT DISTINCT ProcesoSM FROM POAV", con))
                 {
                     SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
@@ -489,8 +528,9 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en ProcesoSM ✖️✖️" + ex.Message);
+                MessageBox.Show("Error al mostrar datos de ProcesoSM: " + ex.Message,
+                    "ERROR ProcesoSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en ProcesoSM ✖️✖️ " + ex.Message);
             }
         }
 
@@ -513,8 +553,10 @@ namespace ProyectoOFI.Datos
                     };
                     cmd.Parameters.Add(contarparam);
 
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
 
                     Contar = Convert.ToInt32(contarparam.Value);
                     contador = Contar;
@@ -522,9 +564,11 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en BuscarFechaSM ✖️✖️" + ex.Message);
+                MessageBox.Show("Error al buscar datos en SM: " + ex.Message,
+                    "Error BuscarFechaSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarFechaSM ✖️✖️ " + ex.Message);
             }
         }
+
     }
 }

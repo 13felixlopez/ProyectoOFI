@@ -13,316 +13,323 @@ namespace ProyectoOFI.Datos
             DataTable tablaTickets = new DataTable();
             try
             {
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("MostrarPS", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                tablaTickets.Load(da.ExecuteReader());
-                return tablaTickets;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("MostrarPS", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    tablaTickets.Load(cmd.ExecuteReader());
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
-                Log.Writeerror("No se ha podido cargar los datos en MostrarPS" + ex.Message);
-                return tablaTickets;
+                Log.Writeerror("No se ha podido cargar los datos en MostrarPS ✖️✖️ " + ex.Message);
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
+            return tablaTickets;
         }
+
         public void BuscarLotesPS(string Ticket, ref DataTable dt)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("BuscarLotesPS", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Ticket", Ticket);
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("BuscarLotesPS", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Ticket", Ticket);
 
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                da.Fill(dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en BuscarLotesPS ✖️✖️" + ex.Message);
-            }
-            finally
-            {
-                Conexion.cerrar();
+                MessageBox.Show("Ocurrió un error al cargar los datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarLotesPS ✖️✖️ " + ex.Message);
             }
         }
+
         public void MostrarLotesPS2(ref DataTable dt)
         {
             try
             {
-                Conexion.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("MostrarLotesPS2", Conexion.conectar);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.Fill(dt);
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarLotesPS2", con))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.Fill(dt);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en MostrarLotesPS2 ✖️✖️" + ex.Message);
-            }
-            finally
-            {
-                Conexion.cerrar();
+                MessageBox.Show("No se pudieron mostrar los datos: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarLotesPS2 ✖️✖️ " + ex.Message);
             }
         }
+
         public bool InsertarPS(LPS parametros)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("InsertarPS", Conexion.conectar);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@IdGuardiola", parametros.IdGuardiola);
-                cmd.Parameters.AddWithValue("@PS", parametros.PS);
-                cmd.Parameters.AddWithValue("@HoraIniPS", parametros.HoraIniPS);
-                cmd.Parameters.AddWithValue("@HoraFinPS ", parametros.HoraFinPS);
-                cmd.Parameters.AddWithValue("@HumedadPS ", parametros.HumedadPS);
-                cmd.Parameters.AddWithValue("@ParosPS", parametros.ParosPS);
-                cmd.Parameters.AddWithValue("@ObservacionSF", parametros.Observacion);
-                cmd.Parameters.AddWithValue("@TiempoSF", parametros.TiempoSF);
-                cmd.Parameters.AddWithValue("@TiempoTotal", parametros.TiempoTotal);
-                //cmd.Parameters.AddWithValue("@IdOperador ", parametros.IdOperador);
-                cmd.Parameters.AddWithValue("@IdTurno", parametros.IdTurno);
-                cmd.Parameters.AddWithValue("@DigitadorPS ", parametros.DigitadorPS);
-                cmd.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("InsertarPS", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdGuardiola", parametros.IdGuardiola);
+                    cmd.Parameters.AddWithValue("@PS", parametros.PS);
+                    cmd.Parameters.AddWithValue("@HoraIniPS", parametros.HoraIniPS);
+                    cmd.Parameters.AddWithValue("@HoraFinPS", parametros.HoraFinPS);
+                    cmd.Parameters.AddWithValue("@HumedadPS", parametros.HumedadPS);
+                    cmd.Parameters.AddWithValue("@ParosPS", parametros.ParosPS);
+                    cmd.Parameters.AddWithValue("@ObservacionSF", parametros.Observacion);
+                    cmd.Parameters.AddWithValue("@TiempoSF", parametros.TiempoSF);
+                    cmd.Parameters.AddWithValue("@TiempoTotal", parametros.TiempoTotal);
+                    // cmd.Parameters.AddWithValue("@IdOperador", parametros.IdOperador);
+                    cmd.Parameters.AddWithValue("@IdTurno", parametros.IdTurno);
+                    cmd.Parameters.AddWithValue("@DigitadorPS", parametros.DigitadorPS);
 
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al Insertar los datos " + ex.Message, "ERROR InsertarPS", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error al Insertar los datos en InsertarPS ✖️✖️" + ex.Message);
+                MessageBox.Show("Error al Insertar los datos: " + ex.Message, "ERROR InsertarPS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al Insertar los datos en InsertarPS ✖️✖️ " + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public void CargarPS(string TK, DataTable dt)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("CargarPS", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                da.Parameters.AddWithValue("@TK", TK);
-                SqlDataAdapter cb = new SqlDataAdapter(da);
-                cb.Fill(dt);
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("CargarPS", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@TK", TK);
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudieron cargar los datos" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se pudieron cargar los datos: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("No se pudieron cargar los datos en CargarPS ✖️✖️ " + ex.Message);
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool InsertarEnvioSM(LPS parametros, int IDPS)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("InsertarEnvioSM", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                da.Parameters.AddWithValue("@IdPS", parametros.IdPS);
-                //da.Parameters.AddWithValue("@IdOperador", parametros.IdOperador);
-                da.Parameters.AddWithValue("@IdTurno", parametros.IdTurno);
-                da.Parameters.AddWithValue("@FechaEn", parametros.FechaPS);
-                da.Parameters.AddWithValue("@DigitadorPS", parametros.DigitadorPS);
-                da.Parameters.AddWithValue("@DNIN", parametros.DNIN);
-                da.Parameters.AddWithValue("@IdArea", parametros.IdArea);
-                da.Parameters.AddWithValue("@IdEstFis", parametros.IdEstFis);
-                da.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("InsertarEnvioSM", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@IdPS", parametros.IdPS);
+                    //cmd.Parameters.AddWithValue("@IdOperador", parametros.IdOperador);
+                    cmd.Parameters.AddWithValue("@IdTurno", parametros.IdTurno);
+                    cmd.Parameters.AddWithValue("@FechaEn", parametros.FechaPS);
+                    cmd.Parameters.AddWithValue("@DigitadorPS", parametros.DigitadorPS);
+                    cmd.Parameters.AddWithValue("@DNIN", parametros.DNIN);
+                    cmd.Parameters.AddWithValue("@IdArea", parametros.IdArea);
+                    cmd.Parameters.AddWithValue("@IdEstFis", parametros.IdEstFis);
+
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al realizar el Envio hacia Almacén " + ex.Message, "Error Envio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al realizar el Envio hacia Almacén: " + ex.Message, "Error Envio", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en InsertarEnvioSM ✖️✖️ " + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public void MostrarAreaSecado(ComboBox combo)
         {
             try
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("select IdAreaSecado,AreaSecado from AreaSecado where IdAreaSecado IN (5)", Conexion.conectar);
-                da.CommandType = CommandType.Text;
-                SqlDataAdapter cb = new SqlDataAdapter(da);
-                DataTable dt = new DataTable();
-                cb.Fill(dt);
-                combo.ValueMember = "IdAreaSecado";
-                combo.DisplayMember = "AreaSecado";
-                combo.DataSource = dt;
-                for (int i = 0; i < dt.Rows.Count; i++)
+
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("SELECT IdAreaSecado, AreaSecado FROM AreaSecado WHERE IdAreaSecado IN (5)", con))
                 {
-                    lista.Add(dt.Rows[i]["AreaSecado"].ToString());
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        combo.ValueMember = "IdAreaSecado";
+                        combo.DisplayMember = "AreaSecado";
+                        combo.DataSource = dt;
+
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            lista.Add(dt.Rows[i]["AreaSecado"].ToString());
+                        }
+
+                        combo.AutoCompleteCustomSource = lista;
+                    }
                 }
-                combo.AutoCompleteCustomSource = lista;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en MostrarAreaSecado ✖️✖️" + ex.Message);
-            }
-            finally
-            {
-                Conexion.cerrar();
+                MessageBox.Show("No se pudieron mostrar los datos: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarAreaSecado ✖️✖️ " + ex.Message);
             }
         }
+
         public void MostrarEstFis(ComboBox combo)
         {
             try
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("SELECT IdestFis, EstFisico FROM EstFisico WHERE IdestFis IN (4,7)", Conexion.conectar);
-                da.CommandType = CommandType.Text;
-                SqlDataAdapter cb = new SqlDataAdapter(da);
-                DataTable dt = new DataTable();
-                cb.Fill(dt);
-                combo.ValueMember = "IdestFis";
-                combo.DisplayMember = "EstFisico";
-                combo.DataSource = dt;
-                for (int i = 0; i < dt.Rows.Count; i++)
+
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("SELECT IdestFis, EstFisico FROM EstFisico WHERE IdestFis IN (4,7)", con))
                 {
-                    lista.Add(dt.Rows[i]["EstFisico"].ToString());
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+
+                        combo.ValueMember = "IdestFis";
+                        combo.DisplayMember = "EstFisico";
+                        combo.DataSource = dt;
+
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            lista.Add(dt.Rows[i]["EstFisico"].ToString());
+                        }
+
+                        combo.AutoCompleteCustomSource = lista;
+                    }
                 }
-                combo.AutoCompleteCustomSource = lista;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en MostrarEstFis ✖️✖️" + ex.Message);
-            }
-            finally
-            {
-                Conexion.cerrar();
+                MessageBox.Show("No se pudieron mostrar los datos: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarEstFis ✖️✖️ " + ex.Message);
             }
         }
+
         public bool InsertarTF(string TK)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("InsertarTF", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                da.Parameters.AddWithValue("Ticket", TK);
-                da.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("InsertarTF", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Ticket", TK);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo Enviar a Tolvas Finales" + ex.Message, "ERROR TF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se pudo Enviar a Tolvas Finales: " + ex.Message, "ERROR TF", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en InsertarTF ✖️✖️ " + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public void MostrarTF(ref DataTable dt)
         {
             try
             {
-                Conexion.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("MostrarTF", Conexion.conectar);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.Fill(dt);
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarTF", con))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.Fill(dt);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al cargar los datos en MostrarTF " + ex.Message, "Error MostrarTF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al cargar los datos en MostrarTF: " + ex.Message, "Error MostrarTF", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en cargar datos en MostrarTF ✖️✖️ " + ex.Message);
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public void DetalleTF(string TK, ref DataTable dt)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("DetalleTF", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                da.Parameters.AddWithValue("@Ticket", TK);
-                SqlDataAdapter cb = new SqlDataAdapter(da);
-                cb.Fill(dt);
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("DetalleTF", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Ticket", TK);
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error en cargar los datos de Ticket " + ex.Message, "Error Detalle TF", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error en cargar los datos de Ticket: " + ex.Message, "Error Detalle TF", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en mostrar los datos en DetalleTF ✖️✖️ " + ex.Message);
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool ReProceso(string TK, double Humedad, int POA)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("ReProceso", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                da.Parameters.AddWithValue("@Ticket", TK);
-                da.Parameters.AddWithValue("@POA1", POA);
-                da.Parameters.AddWithValue("@HumedadG", Humedad);
-                da.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("ReProceso", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Ticket", TK);
+                    cmd.Parameters.AddWithValue("@POA1", POA);
+                    cmd.Parameters.AddWithValue("@HumedadG", Humedad);
+
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se han pudo insertar los datos ReProceso " + ex.Message, "Error ReProceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se pudieron insertar los datos ReProceso: " + ex.Message, "Error ReProceso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("No se insertaron los datos de ReProceso ✖️✖️ " + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
         public bool CambioAEnvio(string Ticket, string TK)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("CambioAEnvio", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                da.Parameters.AddWithValue("@Ticket", TK);
-                da.Parameters.AddWithValue("@TKSM", Ticket);
-                da.ExecuteNonQuery();
-                return true;
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("CambioAEnvio", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Ticket", TK);
+                    cmd.Parameters.AddWithValue("@TKSM", Ticket);
+
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al realizar el cambio de proceso " + ex.Message, "Error CambioAEnvio", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error al realizar el cambio de proceso: " + ex.Message, "Error CambioAEnvio", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en CambioAEnvio ✖️✖️ " + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
+
     }
 }

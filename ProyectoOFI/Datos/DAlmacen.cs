@@ -15,7 +15,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlDataAdapter da = new SqlDataAdapter("MostrarAlmacen", Conexion.conectar))
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarAlmacen", conectar))
                 {
 
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -35,7 +35,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlDataAdapter da = new SqlDataAdapter("ExcelAlmacen", Conexion.conectar))
+                using (SqlDataAdapter da = new SqlDataAdapter("ExcelAlmacen", conectar))
                 {
 
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -53,7 +53,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlDataAdapter da = new SqlDataAdapter("ReporteAlmacen", Conexion.conectar))
+                using (SqlDataAdapter da = new SqlDataAdapter("ReporteAlmacen", conectar))
                 {
 
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -71,7 +71,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("ConteoAlmacen", Conexion.conectar))
+                using (SqlCommand cmd = new SqlCommand("ConteoAlmacen", conectar))
                 {
 
                     contador = Convert.ToInt32(cmd.ExecuteScalar());
@@ -87,7 +87,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlDataAdapter da = new SqlDataAdapter("VerdetalleTkAlmacen", Conexion.conectar))
+                using (SqlDataAdapter da = new SqlDataAdapter("VerdetalleTkAlmacen", conectar))
                 {
 
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -107,7 +107,7 @@ namespace ProyectoOFI.Datos
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand da = new SqlCommand("MostrarBodega", Conexion.conectar))
+                using (SqlCommand da = new SqlCommand("MostrarBodega", conectar))
                 {
 
                     da.CommandType = CommandType.StoredProcedure;
@@ -136,7 +136,7 @@ namespace ProyectoOFI.Datos
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand da = new SqlCommand("MostrarUbicacionPxBodega", Conexion.conectar))
+                using (SqlCommand da = new SqlCommand("MostrarUbicacionPxBodega", conectar))
                 {
 
                     da.CommandType = CommandType.StoredProcedure;
@@ -165,7 +165,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand da = new SqlCommand("InsertarAlmacen", Conexion.conectar))
+                using (SqlCommand da = new SqlCommand("InsertarAlmacen", conectar))
                 {
 
                     da.CommandType = CommandType.StoredProcedure;
@@ -199,7 +199,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand da = new SqlCommand("EditarAlmacen", Conexion.conectar))
+                using (SqlCommand da = new SqlCommand("EditarAlmacen", conectar))
                 {
 
                     da.CommandType = CommandType.StoredProcedure;
@@ -234,7 +234,7 @@ namespace ProyectoOFI.Datos
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand da = new SqlCommand("MostrarEmpaque", Conexion.conectar))
+                using (SqlCommand da = new SqlCommand("MostrarEmpaque", conectar))
                 {
 
                     da.CommandType = CommandType.StoredProcedure;
@@ -263,7 +263,7 @@ namespace ProyectoOFI.Datos
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand da = new SqlCommand("MostrarTurnoAl", Conexion.conectar))
+                using (SqlCommand da = new SqlCommand("MostrarTurnoAl", conectar))
                 {
 
                     da.CommandType = CommandType.StoredProcedure;
@@ -292,7 +292,7 @@ namespace ProyectoOFI.Datos
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand da = new SqlCommand("MostrarDescargador", Conexion.conectar))
+                using (SqlCommand da = new SqlCommand("MostrarDescargador", conectar))
                 {
 
                     da.CommandType = CommandType.StoredProcedure;
@@ -322,7 +322,7 @@ namespace ProyectoOFI.Datos
                 // Abrir la conexión
                 using (SqlConnection conectar = Conexion.abrir())
 
-                using (SqlCommand cmd = new SqlCommand("MostrarTaraSaco", Conexion.conectar))
+                using (SqlCommand cmd = new SqlCommand("MostrarTaraSaco", conectar))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@IdEmpaque", IdEmpaque);
@@ -348,7 +348,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlDataAdapter da = new SqlDataAdapter("DetalleAlmacen", Conexion.conectar))
+                using (SqlDataAdapter da = new SqlDataAdapter("DetalleAlmacen", conectar))
                 {
 
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -367,7 +367,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("BuscarAlmacen", Conexion.conectar))
+                using (SqlCommand cmd = new SqlCommand("BuscarAlmacen", conectar))
                 {
 
                     cmd.CommandType = CommandType.StoredProcedure;
@@ -400,7 +400,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("Split", Conexion.conectar))
+                using (SqlCommand cmd = new SqlCommand("Split", conectar))
                 {
 
                     cmd.CommandType = CommandType.StoredProcedure;

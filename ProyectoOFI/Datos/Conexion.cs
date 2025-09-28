@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data;
 using System.Data.SqlClient;
 
 namespace ProyectoOFI.Datos
@@ -7,18 +6,21 @@ namespace ProyectoOFI.Datos
     public class Conexion
     {
 
-        public static string conexion = Convert.ToString(Logica.Desencryptacion.checkServer());
-        public static SqlConnection conectar = new SqlConnection(conexion);
+        private static readonly string cadenaConexion = Convert.ToString(Logica.Desencryptacion.checkServer());
+
+        // Devuelve SIEMPRE una conexión abierta lista para usarse
         public static SqlConnection abrir()
         {
-            return new SqlConnection(conexion);
+            var conexion = new SqlConnection(cadenaConexion);
+            conexion.Open();
+            return conexion;
         }
-        public static void cerrar()
-        {
-            if (conectar.State == ConnectionState.Open)
-            {
-                conectar.Close();
-            }
-        }
+        //public static void cerrar()
+        //{
+        //    if (conectar.State == ConnectionState.Open)
+        //    {
+        //        conectar.Close();
+        //    }
+        //}
     }
 }

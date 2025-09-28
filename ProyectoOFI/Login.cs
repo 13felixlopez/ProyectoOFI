@@ -84,10 +84,6 @@ namespace ProyectoOFI
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                finally
-                {
-                    Conexion.cerrar();
-                }
             }
         }
         private void Validar_Conexion()

@@ -12,11 +12,14 @@ namespace ProyectoOFI.Datos
             DataTable tablaTickets = new DataTable();
             try
             {
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("MostrarGuardiola", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                tablaTickets.Load(da.ExecuteReader());
-                return tablaTickets;
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("MostrarGuardiola", conectar))
+                {
+                    da.CommandType = CommandType.StoredProcedure;
+                    conectar.Open();
+                    tablaTickets.Load(da.ExecuteReader());
+                    return tablaTickets;
+                }
             }
             catch (Exception ex)
             {
@@ -24,30 +27,24 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("No se ha podido cargar los datos en MostrarGuardiola" + ex.Message);
                 return tablaTickets;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         public void CargarGuardiola(string TK, DataTable dt)
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("CargarGuardiola", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                da.Parameters.AddWithValue("@TK", TK);
-                SqlDataAdapter cb = new SqlDataAdapter(da);
-                cb.Fill(dt);
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("CargarGuardiola", conectar))
+                {
+                    da.CommandType = CommandType.StoredProcedure;
+                    da.Parameters.AddWithValue("@TK", TK);
+                    SqlDataAdapter cb = new SqlDataAdapter(da);
+                    cb.Fill(dt);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("No se pudieron cargar los datos" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("No se pudieron cargar los datos en CargarGuardiola ✖️✖️ " + ex.Message);
-            }
-            finally
-            {
-                Conexion.cerrar();
             }
         }
     }

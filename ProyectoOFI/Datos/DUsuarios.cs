@@ -14,10 +14,9 @@ namespace ProyectoOFI.Datos
         {
             try
             {
-                using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("InsertarUsuario", Conexion.conectar))
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("InsertarUsuario", con))
                 {
-
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@NombreA", parametros.NombreA);
                     cmd.Parameters.AddWithValue("@Pass", parametros.Pass);
@@ -32,35 +31,39 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                Log.Writeerror("Se produjo un error en InsertarUsuario DUsuario ❌❌");
+                MessageBox.Show("Error al insertar usuario: " + ex.Message,
+                    "Error InsertarUsuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en InsertarUsuario ✖️✖️ " + ex.Message);
                 return false;
             }
         }
+
         public void MostrarUsuarios(ref DataTable dt)
         {
             try
             {
-                using (SqlConnection conectar = Conexion.abrir())
-                using (SqlDataAdapter da = new SqlDataAdapter("MostrarUsuarios", Conexion.conectar))
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarUsuarios", con))
                 {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
                     da.Fill(dt);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                Log.Writeerror("Error al cargar MostrarUsuarios DUsuarios ✖️✖️");
+                MessageBox.Show("Error al mostrar usuarios: " + ex.Message,
+                    "Error MostrarUsuarios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarUsuarios ✖️✖️ " + ex.Message);
             }
         }
+
         public void ObtenerIdUser(ref int IdUser, string login)
         {
             try
             {
-                using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("ObtenerIdUser", Conexion.conectar))
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("ObtenerIdUser", con))
                 {
-
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Login", login);
                     IdUser = Convert.ToInt32(cmd.ExecuteScalar());
@@ -68,22 +71,22 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                Log.Writeerror("Error Al ObtenerIdUser DUsarios ✖️✖️");
+                MessageBox.Show("Error al obtener IdUser: " + ex.Message,
+                    "Error ObtenerIdUser", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en ObtenerIdUser ✖️✖️ " + ex.Message);
             }
         }
+
         public void VerificarUsuario(ref string Indicador, string db)
         {
             try
             {
-                // Validar el nombre de la base de datos
-                if (!Regex.IsMatch(db, @"^[\\w]+$"))
+                if (!Regex.IsMatch(db, @"^[\w]+$"))
                 {
                     Indicador = "Nombre de base de datos inválido";
                     return;
                 }
 
-                // Consulta segura usando QUOTENAME para escapar el nombre
                 string query = $@"
             SELECT TOP 1 TABLE_NAME 
             FROM {EscapeDatabaseName(db)}.INFORMATION_SCHEMA.TABLES 
@@ -93,17 +96,18 @@ namespace ProyectoOFI.Datos
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
                     var resultado = cmd.ExecuteScalar();
-
                     Indicador = (resultado != null)
-                        ? "Correcto. Primera tabla: " + resultado.ToString()
-                        : "No se encontraron tablas";
+                        ? "Correcto. Primera tabla: " + resultado
+                        : "No se encontraron tablas.";
                 }
             }
             catch (Exception ex)
             {
                 Indicador = "Error de conexión: " + ex.Message;
+                Log.Writeerror("Error en VerificarUsuario ✖️✖️ " + ex.Message);
             }
         }
+
 
 
         // Función para escapar nombres de bases de datos de forma segura
@@ -116,32 +120,34 @@ namespace ProyectoOFI.Datos
         {
             try
             {
-                using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("Login", Conexion.conectar))
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("Login", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Login", parametros.Login);
                     cmd.Parameters.AddWithValue("@Pass", parametros.Pass);
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-                    return dt;
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        return dt;
+                    }
                 }
-                ;
             }
-            catch (Exception)
+            catch
             {
                 throw new Exception("Datos incorrectos");
             }
         }
+
         public bool EliminarUser(int IdUser)
         {
             try
             {
-                using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("EliminarUser", Conexion.conectar))
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EliminarUser", con))
                 {
-
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@IdUser", IdUser);
                     cmd.ExecuteNonQuery();
@@ -150,19 +156,20 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ocurrió un erro al eliminar el Ususario, " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en EliminarUser DUsuario ✖️✖️" + ex.Message);
+                MessageBox.Show("Ocurrió un error al eliminar el Usuario: " + ex.Message,
+                                "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en EliminarUser ✖️✖️ " + ex.Message);
                 return false;
             }
         }
+
         public bool EditarUser(LUsuarios parametros)
         {
             try
             {
-                using (SqlConnection conectar = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("EditarUser", Conexion.conectar))
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EditarUser", con))
                 {
-
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@IdUser", parametros.IdUser);
                     cmd.Parameters.AddWithValue("@NombreApellidos", parametros.NombreA);
@@ -171,25 +178,27 @@ namespace ProyectoOFI.Datos
                     cmd.Parameters.AddWithValue("@Pass", parametros.Pass);
                     cmd.Parameters.AddWithValue("@Patio", parametros.Patio);
                     cmd.Parameters.AddWithValue("@Cargo", parametros.Cargo);
+
                     cmd.ExecuteNonQuery();
                     return true;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-                Log.Writeerror("Error EditarUser Dusuario ✖️✖️" + ex.Message);
+                MessageBox.Show("Error al editar usuario: " + ex.Message,
+                                "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en EditarUser ✖️✖️ " + ex.Message);
                 return false;
             }
         }
+
         public void MostrarUsuarioLogueado(DataTable dt, int Iduser)
         {
             try
             {
-                using (SqlConnection conectar = Conexion.abrir())
-                using (SqlDataAdapter da = new SqlDataAdapter("MostrarUsuarioLogueado", Conexion.conectar))
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarUsuarioLogueado", con))
                 {
-
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
                     da.SelectCommand.Parameters.AddWithValue("@IdUser", Iduser);
                     da.Fill(dt);
@@ -197,19 +206,21 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudieron cargar los datos del usuario " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error al MostrarUsuarioLogueado DUsuario ✖️✖️" + ex.Message);
+                MessageBox.Show("No se pudieron cargar los datos del usuario: " + ex.Message,
+                                "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarUsuarioLogueado ✖️✖️ " + ex.Message);
             }
         }
+
         public List<string> BuscarCargos(string filtro)
         {
             var cargos = new List<string>();
 
             try
             {
-                using (SqlConnection conectar = Conexion.abrir())
-
-                using (SqlCommand cmd = new SqlCommand("SELECT DISTINCT Cargo FROM Usuarios WHERE Cargo LIKE @q + '%'", Conexion.conectar))
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand(
+                    "SELECT DISTINCT Cargo FROM Usuarios WHERE Cargo LIKE @q + '%'", con))
                 {
                     cmd.Parameters.AddWithValue("@q", filtro);
 
@@ -225,11 +236,14 @@ namespace ProyectoOFI.Datos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al buscar cargos: " + ex.Message);
+                MessageBox.Show("Error al buscar cargos: " + ex.Message,
+                                "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarCargos ✖️✖️ " + ex.Message);
             }
 
             return cargos;
         }
+
 
     }
 }

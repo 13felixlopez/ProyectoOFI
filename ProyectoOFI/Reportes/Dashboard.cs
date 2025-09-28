@@ -22,7 +22,7 @@ namespace ProyectoOFI.Reportes
                 List<double> Porcentaje = new List<double>();
                 DataTable dt = new DataTable();
                 DReporte funcion = new DReporte();
-                funcion.kilosArea(dt);
+                funcion.KilosArea(dt);
                 foreach (DataRow row in dt.Rows)
                 {
                     Concepto.Add(Convert.ToString(row[0]));

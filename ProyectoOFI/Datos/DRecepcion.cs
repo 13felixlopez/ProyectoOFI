@@ -14,46 +14,47 @@ namespace ProyectoOFI.Datos
         {
             try
             {
-                Conexion.abrir();
-                SqlCommand cmd = new SqlCommand("InsertarLote", Conexion.conectar)
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("InsertarLote", Conexion.conectar))
                 {
-                    CommandType = CommandType.StoredProcedure
-                };
-                cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
-                cmd.Parameters.AddWithValue("@FechaRecibido", parametros.FRecibido);
-                cmd.Parameters.AddWithValue("@Patio", parametros.Patio);
-                cmd.Parameters.AddWithValue("@UbicacionRec", parametros.UbicacionRec);
-                cmd.Parameters.AddWithValue("@AreaSecado", parametros.IdArea);
-                cmd.Parameters.AddWithValue("@MTNR", parametros.MTNR);
-                cmd.Parameters.AddWithValue("@EstadoFisico", parametros.IdEstFis);
-                cmd.Parameters.AddWithValue("@Calidad", parametros.IdCalidad);
-                cmd.Parameters.AddWithValue("@Danio", parametros.IdDaño);
-                cmd.Parameters.AddWithValue("@Sacos", parametros.Sacos);
-                cmd.Parameters.AddWithValue("@Peso", parametros.Peso);
-                cmd.Parameters.AddWithValue("@Merma", parametros.Merma);
-                cmd.Parameters.AddWithValue("@Recibidor", parametros.IdRecibidor);
-                cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
-                cmd.Parameters.AddWithValue("@Consolidado", parametros.Consolidado);
-                cmd.Parameters.AddWithValue("@Cosecha", parametros.Cosecha);
-                //Envio
-                cmd.Parameters.AddWithValue("@IDEnvio", parametro.IDEnvio);
-                cmd.Parameters.AddWithValue("@TicketE", parametros.Ticket);
-                cmd.Parameters.AddWithValue("@FEnvio", parametro.FEnvio);
-                cmd.Parameters.AddWithValue("@IdAgencia", parametro.IdAgencia);
-                cmd.Parameters.AddWithValue("@IdAcopio", parametro.IdAcopio);
-                cmd.Parameters.AddWithValue("@IdCliente", parametro.IdCliente);
-                cmd.Parameters.AddWithValue("@MTNT", parametro.MTNT);
-                cmd.Parameters.AddWithValue("@Tipo_Compra", parametro.IdTCompra);
-                cmd.Parameters.AddWithValue("@IdCertificacion", parametro.IdCertificacionE);
-                cmd.Parameters.AddWithValue("@EsFisico", parametro.IdEsFisico);
-                cmd.Parameters.AddWithValue("@CalidadE", parametro.IdCalidadE);
-                cmd.Parameters.AddWithValue("@DanioE", parametro.IdDanioE);
-                cmd.Parameters.AddWithValue("@SacosE", parametro.SacosE);
-                cmd.Parameters.AddWithValue("@PesoE", parametro.PesoE);
-                cmd.Parameters.AddWithValue("@Tally", parametro.Tally);
-                cmd.ExecuteNonQuery();
-                //MessageBox.Show("Registro realizado con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return true;
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                    cmd.Parameters.AddWithValue("@FechaRecibido", parametros.FRecibido);
+                    cmd.Parameters.AddWithValue("@Patio", parametros.Patio);
+                    cmd.Parameters.AddWithValue("@UbicacionRec", parametros.UbicacionRec);
+                    cmd.Parameters.AddWithValue("@AreaSecado", parametros.IdArea);
+                    cmd.Parameters.AddWithValue("@MTNR", parametros.MTNR);
+                    cmd.Parameters.AddWithValue("@EstadoFisico", parametros.IdEstFis);
+                    cmd.Parameters.AddWithValue("@Calidad", parametros.IdCalidad);
+                    cmd.Parameters.AddWithValue("@Danio", parametros.IdDaño);
+                    cmd.Parameters.AddWithValue("@Sacos", parametros.Sacos);
+                    cmd.Parameters.AddWithValue("@Peso", parametros.Peso);
+                    cmd.Parameters.AddWithValue("@Merma", parametros.Merma);
+                    cmd.Parameters.AddWithValue("@Recibidor", parametros.IdRecibidor);
+                    cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+                    cmd.Parameters.AddWithValue("@Consolidado", parametros.Consolidado);
+                    cmd.Parameters.AddWithValue("@Cosecha", parametros.Cosecha);
+                    //Envio
+                    cmd.Parameters.AddWithValue("@IDEnvio", parametro.IDEnvio);
+                    cmd.Parameters.AddWithValue("@TicketE", parametros.Ticket);
+                    cmd.Parameters.AddWithValue("@FEnvio", parametro.FEnvio);
+                    cmd.Parameters.AddWithValue("@IdAgencia", parametro.IdAgencia);
+                    cmd.Parameters.AddWithValue("@IdAcopio", parametro.IdAcopio);
+                    cmd.Parameters.AddWithValue("@IdCliente", parametro.IdCliente);
+                    cmd.Parameters.AddWithValue("@MTNT", parametro.MTNT);
+                    cmd.Parameters.AddWithValue("@Tipo_Compra", parametro.IdTCompra);
+                    cmd.Parameters.AddWithValue("@IdCertificacion", parametro.IdCertificacionE);
+                    cmd.Parameters.AddWithValue("@EsFisico", parametro.IdEsFisico);
+                    cmd.Parameters.AddWithValue("@CalidadE", parametro.IdCalidadE);
+                    cmd.Parameters.AddWithValue("@DanioE", parametro.IdDanioE);
+                    cmd.Parameters.AddWithValue("@SacosE", parametro.SacosE);
+                    cmd.Parameters.AddWithValue("@PesoE", parametro.PesoE);
+                    cmd.Parameters.AddWithValue("@Tally", parametro.Tally);
+                    cmd.ExecuteNonQuery();
+                    //MessageBox.Show("Registro realizado con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                ;
             }
             catch (Exception ex)
             {
@@ -61,30 +62,25 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error en InsertarLote ✖️✖️" + ex.Message);
                 return false;
             }
-            finally
-            {
-                Conexion.cerrar();
-            }
         }
         public void MostrarLote(ref DataTable dt, int desde, int hasta)
         {
             try
             {
-                Conexion.abrir();
-                SqlDataAdapter da = new SqlDataAdapter("MostrarLotes", Conexion.conectar);
-                da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@Desde", desde);
-                da.SelectCommand.Parameters.AddWithValue("@Hasta", hasta);
-                da.Fill(dt);
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarLotes", Conexion.conectar))
+                {
+
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.AddWithValue("@Desde", desde);
+                    da.SelectCommand.Parameters.AddWithValue("@Hasta", hasta);
+                    da.Fill(dt);
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en MostrarLotes ✖️✖️" + ex.Message);
-            }
-            finally
-            {
-                Conexion.cerrar();
             }
         }
         public void MostrarDetalle(ref DataTable dt, string Tk)

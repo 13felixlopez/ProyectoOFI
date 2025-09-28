@@ -30,13 +30,13 @@ namespace ProyectoOFI
             base.OnLoad(e);
 
             // Hacemos el ajuste inicial al cargar.
-            AjustarAlTamanoDePantalla();
+            //AjustarAlTamanoDePantalla();
 
             // Opcional: Asegurar que no se pueda cambiar de tamaño.
             // Estas propiedades solo necesitan establecerse una vez.
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MinimizeBox = true;
-            this.MaximizeBox = false;
+            //this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            //this.MinimizeBox = true;
+            //this.MaximizeBox = false;
         }
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
@@ -147,25 +147,43 @@ namespace ProyectoOFI
         private void FrmMenu_LocationChanged(object sender, EventArgs e)
         {
             // Cuando el formulario se mueva, volvemos a ajustar.
-            AjustarAlTamanoDePantalla();
+            //AjustarAlTamanoDePantalla();
         }
         private void AjustarAlTamanoDePantalla()
         {
-            if (isAdjusting) return;
+            // Si realmente necesitas esta bandera, mantenla. Si no, puedes omitirla.
+            // if (isAdjusting) return; 
 
             try
             {
-                isAdjusting = true;
+                // isAdjusting = true; // Si la usas, descomenta
 
+                // 1. Asegúrate de que el estado es Normal antes de cambiar el tamaño
+                // Esto permite que el ajuste de tamaño se haga sin interferir con el estado Maximized.
+                this.WindowState = FormWindowState.Normal;
+
+                // Obtener la pantalla actual
                 Screen screen = Screen.FromControl(this);
 
+                // 2. Ajustar el tamaño y la ubicación a los límites de la pantalla principal
+                // Para que se ajuste al tamaño de la pantalla, usa los límites de trabajo (WorkingArea) 
+                // para evitar que oculte la barra de tareas. Si quieres toda la pantalla, usa Bounds.
+
+                // Opción Recomendada: Usar WorkingArea (deja la barra de tareas visible)
+                this.Location = screen.WorkingArea.Location;
+                this.Size = screen.WorkingArea.Size;
+
+                // Si realmente quieres que ocupe TODA la pantalla, usa Bounds:
+                // this.Location = screen.Bounds.Location;
+                // this.Size = screen.Bounds.Size;
+
+                // 3. Maximizar el formulario
+                // Esto le indica a Windows que gestione la ventana en estado maximizado.
                 this.WindowState = FormWindowState.Maximized;
-                this.Location = screen.Bounds.Location;
-                this.Size = screen.Bounds.Size;
             }
             finally
             {
-                isAdjusting = false;
+                // isAdjusting = false; // Si la usas, descomenta
             }
         }
 

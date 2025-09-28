@@ -103,7 +103,13 @@ namespace ProyectoOFI
         }
         private void conectar_manualmente()
         {
-            cadena_de_conexion = ("Data Source=" + txtIp.Text + ";Initial Catalog=" + TXTbasededatos.Text + ";Integrated Security=False;User Id=" + txtUsuario.Text + ";Password=" + txtPassword.Text + "");
+            cadena_de_conexion = "Data Source=" + txtIp.Text +
+                     ";Initial Catalog=" + TXTbasededatos.Text +
+                     ";Integrated Security=False" +
+                     ";User Id=" + txtUsuario.Text +
+                     ";Password=" + txtPassword.Text +
+                     ";Encrypt=False;";
+
             comprobar_conexion();
             if (indicador_de_conexion == "HAY CONEXION")
             {

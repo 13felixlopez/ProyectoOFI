@@ -535,15 +535,19 @@ namespace ProyectoOFI.SM
         }
         private void cbTicketV_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cbTicketV.DataSource == null || cbTicketV.SelectedIndex < 0) return;
+            if (cbTicketV.SelectedValue == null || cbTicketV.SelectedValue is DataRowView) return;
+
             CargarDatos();
         }
+
         private void CargarDatos()
         {
             if (cbTicketV.SelectedValue != null)
             {
                 AbrirFormulario();
                 DSM sm = new DSM();
-                sm.MostrarDatosTKSM(LblSacos, LblKilos, LblQQsV, LblCalidadV, LblDanioV, LblEFisicoV, LblFRecibido, LblCert, cbTicketV.Text);
+                sm.MostrarDatosTKSM(LblSacos, LblKilos, LblQQsV, LblCalidadV, LblDanioV, LblEFisicoV, LblFRecibido, LblCert, cbTicketV.SelectedValue?.ToString());
                 cbTicketV.Enabled = true;
                 btnGuardarPV.Visible = true;
                 btnDescargarPV.Visible = false;

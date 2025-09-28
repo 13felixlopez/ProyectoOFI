@@ -56,20 +56,20 @@ namespace ProyectoOFI.Datos
             DataTable tablaTickets = new DataTable();
             try
             {
-                Conexion.abrir();
-                SqlCommand da = new SqlCommand("MostrarV", Conexion.conectar);
-                da.CommandType = CommandType.StoredProcedure;
-                tablaTickets.Load(da.ExecuteReader());
-                return tablaTickets;
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("MostrarV", Conexion.conectar))
+                {
+
+                    da.CommandType = CommandType.StoredProcedure;
+                    conectar.Open();
+                    tablaTickets.Load(da.ExecuteReader());
+                    return tablaTickets;
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message + ex.StackTrace);
                 return tablaTickets;
-            }
-            finally
-            {
-                Conexion.cerrar();
             }
         }
         internal void CargarVer(string TK, DataTable dt)

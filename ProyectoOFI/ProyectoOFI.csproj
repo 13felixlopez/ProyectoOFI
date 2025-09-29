@@ -107,6 +107,12 @@
     <Compile Include="Analisis\Catacion.Designer.cs">
       <DependentUpon>Catacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Analisis\UCMuestras.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Analisis\UCMuestras.Designer.cs">
+      <DependentUpon>UCMuestras.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compras\ComprasDirectas.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -173,6 +179,7 @@
     <Compile Include="Logica\LControlPatio2.cs" />
     <Compile Include="Logica\LEnvio.cs" />
     <Compile Include="Logica\LModulos.cs" />
+    <Compile Include="Logica\LMuestras.cs" />
     <Compile Include="Logica\LPermisos.cs" />
     <Compile Include="Logica\LPOA.cs" />
     <Compile Include="Logica\LPOAV.cs" />
@@ -507,6 +514,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Analisis\Catacion.resx">
       <DependentUpon>Catacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Analisis\UCMuestras.resx">
+      <DependentUpon>UCMuestras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\ComprasDirectas.resx">
       <DependentUpon>ComprasDirectas.cs</DependentUpon>

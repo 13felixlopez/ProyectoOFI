@@ -295,5 +295,16 @@ namespace ProyectoOFI
             AbrirFrm(Cg);
             Habilitar(perfilToolStripMenuItem);
         }
+
+        private void muestrasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PlPrincipal.Controls.Clear();
+            UCMuestras tr = new UCMuestras
+            {
+                Dock = DockStyle.Fill
+            };
+            PlPrincipal.Controls.Add(tr);
+            Habilitar(muestrasToolStripMenuItem);
+        }
     }
 }

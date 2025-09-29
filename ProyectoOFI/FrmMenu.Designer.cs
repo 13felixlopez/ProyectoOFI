@@ -120,13 +120,14 @@
             // muestrasToolStripMenuItem
             // 
             this.muestrasToolStripMenuItem.Name = "muestrasToolStripMenuItem";
-            this.muestrasToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.muestrasToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.muestrasToolStripMenuItem.Text = "Muestras";
+            this.muestrasToolStripMenuItem.Click += new System.EventHandler(this.muestrasToolStripMenuItem_Click);
             // 
             // cataciónToolStripMenuItem
             // 
             this.cataciónToolStripMenuItem.Name = "cataciónToolStripMenuItem";
-            this.cataciónToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
+            this.cataciónToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
             this.cataciónToolStripMenuItem.Text = "Catación";
             this.cataciónToolStripMenuItem.Click += new System.EventHandler(this.cataciónToolStripMenuItem_Click);
             // 
@@ -283,7 +284,7 @@
             this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(1402, 801);
+            this.MinimumSize = new System.Drawing.Size(1364, 718);
             this.Name = "FrmMenu";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

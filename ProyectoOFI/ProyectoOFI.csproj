@@ -139,6 +139,7 @@
     <Compile Include="Datos\DGuardiola.cs" />
     <Compile Include="Datos\DHistorial.cs" />
     <Compile Include="Datos\DModulos.cs" />
+    <Compile Include="Datos\DMuestras.cs" />
     <Compile Include="Datos\DPermisos.cs" />
     <Compile Include="Datos\DPOA.cs" />
     <Compile Include="Datos\DPOAV.cs" />

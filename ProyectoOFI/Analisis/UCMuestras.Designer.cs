@@ -33,10 +33,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.DtMuestras = new System.Windows.Forms.DataGridView();
             this.PlOpciones = new System.Windows.Forms.Panel();
-            this.Muestra = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.BtnBuscar = new System.Windows.Forms.Button();
+            this.TxtBuscar = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.BtnGuardar = new System.Windows.Forms.Button();
             this.PlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtMuestras)).BeginInit();
@@ -80,19 +80,22 @@
             // 
             // DtMuestras
             // 
+            this.DtMuestras.AllowUserToAddRows = false;
+            this.DtMuestras.AllowUserToDeleteRows = false;
             this.DtMuestras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtMuestras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Muestra});
             this.DtMuestras.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtMuestras.Location = new System.Drawing.Point(0, 126);
             this.DtMuestras.Name = "DtMuestras";
             this.DtMuestras.RowHeadersVisible = false;
             this.DtMuestras.Size = new System.Drawing.Size(1202, 407);
             this.DtMuestras.TabIndex = 9;
+            this.DtMuestras.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtMuestras_CellClick);
             // 
             // PlOpciones
             // 
             this.PlOpciones.AutoScroll = true;
+            this.PlOpciones.BackColor = System.Drawing.Color.White;
+            this.PlOpciones.Controls.Add(this.BtnGuardar);
             this.PlOpciones.Controls.Add(this.BtnBuscar);
             this.PlOpciones.Controls.Add(this.TxtBuscar);
             this.PlOpciones.Controls.Add(this.label1);
@@ -101,29 +104,6 @@
             this.PlOpciones.Name = "PlOpciones";
             this.PlOpciones.Size = new System.Drawing.Size(1202, 61);
             this.PlOpciones.TabIndex = 10;
-            // 
-            // Muestra
-            // 
-            this.Muestra.HeaderText = "Muestra";
-            this.Muestra.Name = "Muestra";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(180, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Buscar Ticket:";
-            // 
-            // TxtBuscar
-            // 
-            this.TxtBuscar.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtBuscar.Location = new System.Drawing.Point(304, 19);
-            this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Size = new System.Drawing.Size(233, 27);
-            this.TxtBuscar.TabIndex = 1;
             // 
             // BtnBuscar
             // 
@@ -137,6 +117,36 @@
             this.BtnBuscar.Size = new System.Drawing.Size(53, 44);
             this.BtnBuscar.TabIndex = 10;
             this.BtnBuscar.UseVisualStyleBackColor = true;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            // 
+            // TxtBuscar
+            // 
+            this.TxtBuscar.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtBuscar.Location = new System.Drawing.Point(304, 19);
+            this.TxtBuscar.Name = "TxtBuscar";
+            this.TxtBuscar.Size = new System.Drawing.Size(233, 27);
+            this.TxtBuscar.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Variable Display", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(180, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(108, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Buscar Ticket:";
+            // 
+            // BtnGuardar
+            // 
+            this.BtnGuardar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGuardar.Location = new System.Drawing.Point(693, 12);
+            this.BtnGuardar.Name = "BtnGuardar";
+            this.BtnGuardar.Size = new System.Drawing.Size(78, 43);
+            this.BtnGuardar.TabIndex = 16;
+            this.BtnGuardar.Text = "Guardar";
+            this.BtnGuardar.UseVisualStyleBackColor = true;
+            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
             // 
             // UCMuestras
             // 
@@ -163,9 +173,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView DtMuestras;
         private System.Windows.Forms.Panel PlOpciones;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Muestra;
         private System.Windows.Forms.TextBox TxtBuscar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnBuscar;
+        private System.Windows.Forms.Button BtnGuardar;
     }
 }

@@ -30,6 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.TLPPS = new System.Windows.Forms.TableLayoutPanel();
+            this.BtnPS18 = new System.Windows.Forms.Button();
+            this.BtnPS17 = new System.Windows.Forms.Button();
+            this.BtnPS16 = new System.Windows.Forms.Button();
+            this.BtnPS15 = new System.Windows.Forms.Button();
+            this.BtnPS14 = new System.Windows.Forms.Button();
+            this.BtnPS13 = new System.Windows.Forms.Button();
+            this.BtnPS12 = new System.Windows.Forms.Button();
+            this.BtnPS11 = new System.Windows.Forms.Button();
+            this.BtnPS10 = new System.Windows.Forms.Button();
             this.LblPS18 = new System.Windows.Forms.Label();
             this.LblPS17 = new System.Windows.Forms.Label();
             this.LblPS16 = new System.Windows.Forms.Label();
@@ -39,6 +48,14 @@
             this.LblPS12 = new System.Windows.Forms.Label();
             this.LblPS11 = new System.Windows.Forms.Label();
             this.LblPS10 = new System.Windows.Forms.Label();
+            this.BtnPS9 = new System.Windows.Forms.Button();
+            this.BtnPS8 = new System.Windows.Forms.Button();
+            this.BtnPS7 = new System.Windows.Forms.Button();
+            this.BtnPS6 = new System.Windows.Forms.Button();
+            this.BtnPS5 = new System.Windows.Forms.Button();
+            this.BtnPS4 = new System.Windows.Forms.Button();
+            this.BtnPS3 = new System.Windows.Forms.Button();
+            this.BtnPS2 = new System.Windows.Forms.Button();
             this.LblPS9 = new System.Windows.Forms.Label();
             this.LblPS8 = new System.Windows.Forms.Label();
             this.LblPS7 = new System.Windows.Forms.Label();
@@ -48,6 +65,7 @@
             this.LblPS3 = new System.Windows.Forms.Label();
             this.LblPS2 = new System.Windows.Forms.Label();
             this.LblPS1 = new System.Windows.Forms.Label();
+            this.BtnPS1 = new System.Windows.Forms.Button();
             this.PlDatos = new System.Windows.Forms.Panel();
             this.LblMsj = new System.Windows.Forms.Label();
             this.GbEnvio = new System.Windows.Forms.GroupBox();
@@ -105,26 +123,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.BtnCerrarPlDatos = new System.Windows.Forms.Button();
-            this.BtnPS18 = new System.Windows.Forms.Button();
-            this.BtnPS17 = new System.Windows.Forms.Button();
-            this.BtnPS16 = new System.Windows.Forms.Button();
-            this.BtnPS15 = new System.Windows.Forms.Button();
-            this.BtnPS14 = new System.Windows.Forms.Button();
-            this.BtnPS13 = new System.Windows.Forms.Button();
-            this.BtnPS12 = new System.Windows.Forms.Button();
-            this.BtnPS11 = new System.Windows.Forms.Button();
-            this.BtnPS10 = new System.Windows.Forms.Button();
-            this.BtnPS9 = new System.Windows.Forms.Button();
-            this.BtnPS8 = new System.Windows.Forms.Button();
-            this.BtnPS7 = new System.Windows.Forms.Button();
-            this.BtnPS6 = new System.Windows.Forms.Button();
-            this.BtnPS5 = new System.Windows.Forms.Button();
-            this.BtnPS4 = new System.Windows.Forms.Button();
-            this.BtnPS3 = new System.Windows.Forms.Button();
-            this.BtnPS2 = new System.Windows.Forms.Button();
-            this.BtnPS1 = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.TLPPS.SuspendLayout();
             this.PlDatos.SuspendLayout();
             this.GbEnvio.SuspendLayout();
@@ -194,6 +195,141 @@
             this.TLPPS.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.TLPPS.Size = new System.Drawing.Size(1626, 737);
             this.TLPPS.TabIndex = 1;
+            // 
+            // BtnPS18
+            // 
+            this.BtnPS18.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
+            this.BtnPS18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPS18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnPS18.Location = new System.Drawing.Point(1443, 425);
+            this.BtnPS18.Name = "BtnPS18";
+            this.BtnPS18.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnPS18.Size = new System.Drawing.Size(180, 309);
+            this.BtnPS18.TabIndex = 62;
+            this.BtnPS18.Text = "PS #18";
+            this.BtnPS18.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnPS18.UseVisualStyleBackColor = true;
+            this.BtnPS18.Click += new System.EventHandler(this.BtnPS18_Click);
+            // 
+            // BtnPS17
+            // 
+            this.BtnPS17.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
+            this.BtnPS17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPS17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnPS17.Location = new System.Drawing.Point(1263, 425);
+            this.BtnPS17.Name = "BtnPS17";
+            this.BtnPS17.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnPS17.Size = new System.Drawing.Size(174, 309);
+            this.BtnPS17.TabIndex = 61;
+            this.BtnPS17.Text = "PS #17";
+            this.BtnPS17.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnPS17.UseVisualStyleBackColor = true;
+            this.BtnPS17.Click += new System.EventHandler(this.BtnPS17_Click);
+            // 
+            // BtnPS16
+            // 
+            this.BtnPS16.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
+            this.BtnPS16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPS16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnPS16.Location = new System.Drawing.Point(1083, 425);
+            this.BtnPS16.Name = "BtnPS16";
+            this.BtnPS16.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnPS16.Size = new System.Drawing.Size(174, 309);
+            this.BtnPS16.TabIndex = 60;
+            this.BtnPS16.Text = "PS #16";
+            this.BtnPS16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnPS16.UseVisualStyleBackColor = true;
+            this.BtnPS16.Click += new System.EventHandler(this.BtnPS16_Click);
+            // 
+            // BtnPS15
+            // 
+            this.BtnPS15.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
+            this.BtnPS15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPS15.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnPS15.Location = new System.Drawing.Point(903, 425);
+            this.BtnPS15.Name = "BtnPS15";
+            this.BtnPS15.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnPS15.Size = new System.Drawing.Size(174, 309);
+            this.BtnPS15.TabIndex = 59;
+            this.BtnPS15.Text = "PS #15";
+            this.BtnPS15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnPS15.UseVisualStyleBackColor = true;
+            this.BtnPS15.Click += new System.EventHandler(this.BtnPS15_Click);
+            // 
+            // BtnPS14
+            // 
+            this.BtnPS14.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
+            this.BtnPS14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPS14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnPS14.Location = new System.Drawing.Point(723, 425);
+            this.BtnPS14.Name = "BtnPS14";
+            this.BtnPS14.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnPS14.Size = new System.Drawing.Size(174, 309);
+            this.BtnPS14.TabIndex = 58;
+            this.BtnPS14.Text = "PS #14";
+            this.BtnPS14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnPS14.UseVisualStyleBackColor = true;
+            this.BtnPS14.Click += new System.EventHandler(this.BtnPS14_Click);
+            // 
+            // BtnPS13
+            // 
+            this.BtnPS13.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
+            this.BtnPS13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPS13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnPS13.Location = new System.Drawing.Point(543, 425);
+            this.BtnPS13.Name = "BtnPS13";
+            this.BtnPS13.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnPS13.Size = new System.Drawing.Size(174, 309);
+            this.BtnPS13.TabIndex = 57;
+            this.BtnPS13.Text = "PS #13";
+            this.BtnPS13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnPS13.UseVisualStyleBackColor = true;
+            this.BtnPS13.Click += new System.EventHandler(this.BtnPS13_Click);
+            // 
+            // BtnPS12
+            // 
+            this.BtnPS12.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
+            this.BtnPS12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPS12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnPS12.Location = new System.Drawing.Point(363, 425);
+            this.BtnPS12.Name = "BtnPS12";
+            this.BtnPS12.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnPS12.Size = new System.Drawing.Size(174, 309);
+            this.BtnPS12.TabIndex = 56;
+            this.BtnPS12.Text = "PS #12";
+            this.BtnPS12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnPS12.UseVisualStyleBackColor = true;
+            this.BtnPS12.Click += new System.EventHandler(this.BtnPS12_Click);
+            // 
+            // BtnPS11
+            // 
+            this.BtnPS11.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
+            this.BtnPS11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPS11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnPS11.Location = new System.Drawing.Point(183, 425);
+            this.BtnPS11.Name = "BtnPS11";
+            this.BtnPS11.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnPS11.Size = new System.Drawing.Size(174, 309);
+            this.BtnPS11.TabIndex = 55;
+            this.BtnPS11.Text = "PS #11";
+            this.BtnPS11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnPS11.UseVisualStyleBackColor = true;
+            this.BtnPS11.Click += new System.EventHandler(this.BtnPS11_Click);
+            // 
+            // BtnPS10
+            // 
+            this.BtnPS10.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
+            this.BtnPS10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPS10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnPS10.Location = new System.Drawing.Point(3, 425);
+            this.BtnPS10.Name = "BtnPS10";
+            this.BtnPS10.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnPS10.Size = new System.Drawing.Size(174, 309);
+            this.BtnPS10.TabIndex = 54;
+            this.BtnPS10.Text = "PS #10";
+            this.BtnPS10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnPS10.UseVisualStyleBackColor = true;
+            this.BtnPS10.Click += new System.EventHandler(this.BtnPS10_Click);
             // 
             // LblPS18
             // 
@@ -294,6 +430,134 @@
             this.LblPS10.Text = "--";
             this.LblPS10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // BtnPS9
+            // 
+            this.BtnPS9.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
+            this.BtnPS9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPS9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnPS9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.BtnPS9.Location = new System.Drawing.Point(1443, 57);
+            this.BtnPS9.Name = "BtnPS9";
+            this.BtnPS9.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnPS9.Size = new System.Drawing.Size(180, 308);
+            this.BtnPS9.TabIndex = 26;
+            this.BtnPS9.Text = " PS #9";
+            this.BtnPS9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnPS9.UseVisualStyleBackColor = true;
+            this.BtnPS9.Click += new System.EventHandler(this.BtnPS9_Click);
+            // 
+            // BtnPS8
+            // 
+            this.BtnPS8.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
+            this.BtnPS8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPS8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnPS8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.BtnPS8.Location = new System.Drawing.Point(1263, 57);
+            this.BtnPS8.Name = "BtnPS8";
+            this.BtnPS8.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnPS8.Size = new System.Drawing.Size(174, 308);
+            this.BtnPS8.TabIndex = 25;
+            this.BtnPS8.Text = " PS #8";
+            this.BtnPS8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnPS8.UseVisualStyleBackColor = true;
+            this.BtnPS8.Click += new System.EventHandler(this.BtnPS8_Click);
+            // 
+            // BtnPS7
+            // 
+            this.BtnPS7.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
+            this.BtnPS7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPS7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnPS7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.BtnPS7.Location = new System.Drawing.Point(1083, 57);
+            this.BtnPS7.Name = "BtnPS7";
+            this.BtnPS7.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnPS7.Size = new System.Drawing.Size(174, 308);
+            this.BtnPS7.TabIndex = 24;
+            this.BtnPS7.Text = " PS #7";
+            this.BtnPS7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnPS7.UseVisualStyleBackColor = true;
+            this.BtnPS7.Click += new System.EventHandler(this.BtnPS7_Click);
+            // 
+            // BtnPS6
+            // 
+            this.BtnPS6.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
+            this.BtnPS6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPS6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnPS6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.BtnPS6.Location = new System.Drawing.Point(903, 57);
+            this.BtnPS6.Name = "BtnPS6";
+            this.BtnPS6.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnPS6.Size = new System.Drawing.Size(174, 308);
+            this.BtnPS6.TabIndex = 23;
+            this.BtnPS6.Text = " PS #6";
+            this.BtnPS6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnPS6.UseVisualStyleBackColor = true;
+            this.BtnPS6.Click += new System.EventHandler(this.BtnPS6_Click);
+            // 
+            // BtnPS5
+            // 
+            this.BtnPS5.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
+            this.BtnPS5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPS5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnPS5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.BtnPS5.Location = new System.Drawing.Point(723, 57);
+            this.BtnPS5.Name = "BtnPS5";
+            this.BtnPS5.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnPS5.Size = new System.Drawing.Size(174, 308);
+            this.BtnPS5.TabIndex = 22;
+            this.BtnPS5.Text = " PS #5";
+            this.BtnPS5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnPS5.UseVisualStyleBackColor = true;
+            this.BtnPS5.Click += new System.EventHandler(this.BtnPS5_Click);
+            // 
+            // BtnPS4
+            // 
+            this.BtnPS4.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
+            this.BtnPS4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPS4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnPS4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.BtnPS4.Location = new System.Drawing.Point(543, 57);
+            this.BtnPS4.Name = "BtnPS4";
+            this.BtnPS4.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnPS4.Size = new System.Drawing.Size(174, 308);
+            this.BtnPS4.TabIndex = 21;
+            this.BtnPS4.Text = " PS #4";
+            this.BtnPS4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnPS4.UseVisualStyleBackColor = true;
+            this.BtnPS4.Click += new System.EventHandler(this.BtnPS4_Click);
+            // 
+            // BtnPS3
+            // 
+            this.BtnPS3.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
+            this.BtnPS3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPS3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnPS3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.BtnPS3.Location = new System.Drawing.Point(363, 57);
+            this.BtnPS3.Name = "BtnPS3";
+            this.BtnPS3.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnPS3.Size = new System.Drawing.Size(174, 308);
+            this.BtnPS3.TabIndex = 20;
+            this.BtnPS3.Text = " PS #3";
+            this.BtnPS3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnPS3.UseVisualStyleBackColor = true;
+            this.BtnPS3.Click += new System.EventHandler(this.BtnPS3_Click);
+            // 
+            // BtnPS2
+            // 
+            this.BtnPS2.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
+            this.BtnPS2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPS2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnPS2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.BtnPS2.Location = new System.Drawing.Point(183, 57);
+            this.BtnPS2.Name = "BtnPS2";
+            this.BtnPS2.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnPS2.Size = new System.Drawing.Size(174, 308);
+            this.BtnPS2.TabIndex = 19;
+            this.BtnPS2.Text = " PS #2";
+            this.BtnPS2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnPS2.UseVisualStyleBackColor = true;
+            this.BtnPS2.Click += new System.EventHandler(this.BtnPS2_Click);
+            // 
             // LblPS9
             // 
             this.LblPS9.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -392,6 +656,22 @@
             this.LblPS1.TabIndex = 0;
             this.LblPS1.Text = "--";
             this.LblPS1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnPS1
+            // 
+            this.BtnPS1.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
+            this.BtnPS1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnPS1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnPS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPS1.Location = new System.Drawing.Point(3, 57);
+            this.BtnPS1.Name = "BtnPS1";
+            this.BtnPS1.Padding = new System.Windows.Forms.Padding(5);
+            this.BtnPS1.Size = new System.Drawing.Size(174, 308);
+            this.BtnPS1.TabIndex = 18;
+            this.BtnPS1.Text = "PS #1";
+            this.BtnPS1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnPS1.UseVisualStyleBackColor = true;
+            this.BtnPS1.Click += new System.EventHandler(this.BtnPS1_Click);
             // 
             // PlDatos
             // 
@@ -992,284 +1272,9 @@
             this.BtnCerrarPlDatos.UseVisualStyleBackColor = true;
             this.BtnCerrarPlDatos.Click += new System.EventHandler(this.BtnCerrarPlDatos_Click);
             // 
-            // BtnPS18
+            // timer1
             // 
-            this.BtnPS18.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
-            this.BtnPS18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnPS18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnPS18.Location = new System.Drawing.Point(1443, 425);
-            this.BtnPS18.Name = "BtnPS18";
-            this.BtnPS18.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnPS18.Size = new System.Drawing.Size(180, 309);
-            this.BtnPS18.TabIndex = 62;
-            this.BtnPS18.Text = "PS #18";
-            this.BtnPS18.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnPS18.UseVisualStyleBackColor = true;
-            this.BtnPS18.Click += new System.EventHandler(this.BtnPS18_Click);
-            // 
-            // BtnPS17
-            // 
-            this.BtnPS17.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
-            this.BtnPS17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnPS17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnPS17.Location = new System.Drawing.Point(1263, 425);
-            this.BtnPS17.Name = "BtnPS17";
-            this.BtnPS17.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnPS17.Size = new System.Drawing.Size(174, 309);
-            this.BtnPS17.TabIndex = 61;
-            this.BtnPS17.Text = "PS #17";
-            this.BtnPS17.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnPS17.UseVisualStyleBackColor = true;
-            this.BtnPS17.Click += new System.EventHandler(this.BtnPS17_Click);
-            // 
-            // BtnPS16
-            // 
-            this.BtnPS16.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
-            this.BtnPS16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnPS16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnPS16.Location = new System.Drawing.Point(1083, 425);
-            this.BtnPS16.Name = "BtnPS16";
-            this.BtnPS16.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnPS16.Size = new System.Drawing.Size(174, 309);
-            this.BtnPS16.TabIndex = 60;
-            this.BtnPS16.Text = "PS #16";
-            this.BtnPS16.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnPS16.UseVisualStyleBackColor = true;
-            this.BtnPS16.Click += new System.EventHandler(this.BtnPS16_Click);
-            // 
-            // BtnPS15
-            // 
-            this.BtnPS15.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
-            this.BtnPS15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnPS15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnPS15.Location = new System.Drawing.Point(903, 425);
-            this.BtnPS15.Name = "BtnPS15";
-            this.BtnPS15.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnPS15.Size = new System.Drawing.Size(174, 309);
-            this.BtnPS15.TabIndex = 59;
-            this.BtnPS15.Text = "PS #15";
-            this.BtnPS15.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnPS15.UseVisualStyleBackColor = true;
-            this.BtnPS15.Click += new System.EventHandler(this.BtnPS15_Click);
-            // 
-            // BtnPS14
-            // 
-            this.BtnPS14.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
-            this.BtnPS14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnPS14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnPS14.Location = new System.Drawing.Point(723, 425);
-            this.BtnPS14.Name = "BtnPS14";
-            this.BtnPS14.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnPS14.Size = new System.Drawing.Size(174, 309);
-            this.BtnPS14.TabIndex = 58;
-            this.BtnPS14.Text = "PS #14";
-            this.BtnPS14.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnPS14.UseVisualStyleBackColor = true;
-            this.BtnPS14.Click += new System.EventHandler(this.BtnPS14_Click);
-            // 
-            // BtnPS13
-            // 
-            this.BtnPS13.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
-            this.BtnPS13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnPS13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnPS13.Location = new System.Drawing.Point(543, 425);
-            this.BtnPS13.Name = "BtnPS13";
-            this.BtnPS13.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnPS13.Size = new System.Drawing.Size(174, 309);
-            this.BtnPS13.TabIndex = 57;
-            this.BtnPS13.Text = "PS #13";
-            this.BtnPS13.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnPS13.UseVisualStyleBackColor = true;
-            this.BtnPS13.Click += new System.EventHandler(this.BtnPS13_Click);
-            // 
-            // BtnPS12
-            // 
-            this.BtnPS12.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
-            this.BtnPS12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnPS12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnPS12.Location = new System.Drawing.Point(363, 425);
-            this.BtnPS12.Name = "BtnPS12";
-            this.BtnPS12.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnPS12.Size = new System.Drawing.Size(174, 309);
-            this.BtnPS12.TabIndex = 56;
-            this.BtnPS12.Text = "PS #12";
-            this.BtnPS12.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnPS12.UseVisualStyleBackColor = true;
-            this.BtnPS12.Click += new System.EventHandler(this.BtnPS12_Click);
-            // 
-            // BtnPS11
-            // 
-            this.BtnPS11.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
-            this.BtnPS11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnPS11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnPS11.Location = new System.Drawing.Point(183, 425);
-            this.BtnPS11.Name = "BtnPS11";
-            this.BtnPS11.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnPS11.Size = new System.Drawing.Size(174, 309);
-            this.BtnPS11.TabIndex = 55;
-            this.BtnPS11.Text = "PS #11";
-            this.BtnPS11.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnPS11.UseVisualStyleBackColor = true;
-            this.BtnPS11.Click += new System.EventHandler(this.BtnPS11_Click);
-            // 
-            // BtnPS10
-            // 
-            this.BtnPS10.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
-            this.BtnPS10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnPS10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnPS10.Location = new System.Drawing.Point(3, 425);
-            this.BtnPS10.Name = "BtnPS10";
-            this.BtnPS10.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnPS10.Size = new System.Drawing.Size(174, 309);
-            this.BtnPS10.TabIndex = 54;
-            this.BtnPS10.Text = "PS #10";
-            this.BtnPS10.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnPS10.UseVisualStyleBackColor = true;
-            this.BtnPS10.Click += new System.EventHandler(this.BtnPS10_Click);
-            // 
-            // BtnPS9
-            // 
-            this.BtnPS9.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
-            this.BtnPS9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnPS9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnPS9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.BtnPS9.Location = new System.Drawing.Point(1443, 57);
-            this.BtnPS9.Name = "BtnPS9";
-            this.BtnPS9.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnPS9.Size = new System.Drawing.Size(180, 308);
-            this.BtnPS9.TabIndex = 26;
-            this.BtnPS9.Text = " PS #9";
-            this.BtnPS9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnPS9.UseVisualStyleBackColor = true;
-            this.BtnPS9.Click += new System.EventHandler(this.BtnPS9_Click);
-            // 
-            // BtnPS8
-            // 
-            this.BtnPS8.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
-            this.BtnPS8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnPS8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnPS8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.BtnPS8.Location = new System.Drawing.Point(1263, 57);
-            this.BtnPS8.Name = "BtnPS8";
-            this.BtnPS8.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnPS8.Size = new System.Drawing.Size(174, 308);
-            this.BtnPS8.TabIndex = 25;
-            this.BtnPS8.Text = " PS #8";
-            this.BtnPS8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnPS8.UseVisualStyleBackColor = true;
-            this.BtnPS8.Click += new System.EventHandler(this.BtnPS8_Click);
-            // 
-            // BtnPS7
-            // 
-            this.BtnPS7.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
-            this.BtnPS7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnPS7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnPS7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.BtnPS7.Location = new System.Drawing.Point(1083, 57);
-            this.BtnPS7.Name = "BtnPS7";
-            this.BtnPS7.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnPS7.Size = new System.Drawing.Size(174, 308);
-            this.BtnPS7.TabIndex = 24;
-            this.BtnPS7.Text = " PS #7";
-            this.BtnPS7.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnPS7.UseVisualStyleBackColor = true;
-            this.BtnPS7.Click += new System.EventHandler(this.BtnPS7_Click);
-            // 
-            // BtnPS6
-            // 
-            this.BtnPS6.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
-            this.BtnPS6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnPS6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnPS6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.BtnPS6.Location = new System.Drawing.Point(903, 57);
-            this.BtnPS6.Name = "BtnPS6";
-            this.BtnPS6.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnPS6.Size = new System.Drawing.Size(174, 308);
-            this.BtnPS6.TabIndex = 23;
-            this.BtnPS6.Text = " PS #6";
-            this.BtnPS6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnPS6.UseVisualStyleBackColor = true;
-            this.BtnPS6.Click += new System.EventHandler(this.BtnPS6_Click);
-            // 
-            // BtnPS5
-            // 
-            this.BtnPS5.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
-            this.BtnPS5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnPS5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnPS5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.BtnPS5.Location = new System.Drawing.Point(723, 57);
-            this.BtnPS5.Name = "BtnPS5";
-            this.BtnPS5.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnPS5.Size = new System.Drawing.Size(174, 308);
-            this.BtnPS5.TabIndex = 22;
-            this.BtnPS5.Text = " PS #5";
-            this.BtnPS5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnPS5.UseVisualStyleBackColor = true;
-            this.BtnPS5.Click += new System.EventHandler(this.BtnPS5_Click);
-            // 
-            // BtnPS4
-            // 
-            this.BtnPS4.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
-            this.BtnPS4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnPS4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnPS4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.BtnPS4.Location = new System.Drawing.Point(543, 57);
-            this.BtnPS4.Name = "BtnPS4";
-            this.BtnPS4.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnPS4.Size = new System.Drawing.Size(174, 308);
-            this.BtnPS4.TabIndex = 21;
-            this.BtnPS4.Text = " PS #4";
-            this.BtnPS4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnPS4.UseVisualStyleBackColor = true;
-            this.BtnPS4.Click += new System.EventHandler(this.BtnPS4_Click);
-            // 
-            // BtnPS3
-            // 
-            this.BtnPS3.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
-            this.BtnPS3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnPS3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnPS3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.BtnPS3.Location = new System.Drawing.Point(363, 57);
-            this.BtnPS3.Name = "BtnPS3";
-            this.BtnPS3.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnPS3.Size = new System.Drawing.Size(174, 308);
-            this.BtnPS3.TabIndex = 20;
-            this.BtnPS3.Text = " PS #3";
-            this.BtnPS3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnPS3.UseVisualStyleBackColor = true;
-            this.BtnPS3.Click += new System.EventHandler(this.BtnPS3_Click);
-            // 
-            // BtnPS2
-            // 
-            this.BtnPS2.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
-            this.BtnPS2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnPS2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnPS2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.BtnPS2.Location = new System.Drawing.Point(183, 57);
-            this.BtnPS2.Name = "BtnPS2";
-            this.BtnPS2.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnPS2.Size = new System.Drawing.Size(174, 308);
-            this.BtnPS2.TabIndex = 19;
-            this.BtnPS2.Text = " PS #2";
-            this.BtnPS2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnPS2.UseVisualStyleBackColor = true;
-            this.BtnPS2.Click += new System.EventHandler(this.BtnPS2_Click);
-            // 
-            // BtnPS1
-            // 
-            this.BtnPS1.BackgroundImage = global::ProyectoOFI.Properties.Resources.PS__2_;
-            this.BtnPS1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnPS1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnPS1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnPS1.Location = new System.Drawing.Point(3, 57);
-            this.BtnPS1.Name = "BtnPS1";
-            this.BtnPS1.Padding = new System.Windows.Forms.Padding(5);
-            this.BtnPS1.Size = new System.Drawing.Size(174, 308);
-            this.BtnPS1.TabIndex = 18;
-            this.BtnPS1.Text = "PS #1";
-            this.BtnPS1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnPS1.UseVisualStyleBackColor = true;
-            this.BtnPS1.Click += new System.EventHandler(this.BtnPS1_Click);
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // PS
             // 
@@ -1391,5 +1396,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label LblMsj;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

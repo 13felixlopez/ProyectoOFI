@@ -309,7 +309,7 @@ namespace ProyectoOFI.Analisis
             {
                 Dcatacion funcion = new Dcatacion();
                 DataTable dt = new DataTable();
-                funcion.VerDetalleCatacion(ref dt, Ticket, TkSM);
+                funcion.VerDetalleCatacion(ref dt, Ticket);
                 if (dt.Rows.Count > 0)
                 {
                     DataRow dr = dt.Rows[0];
@@ -445,15 +445,15 @@ namespace ProyectoOFI.Analisis
 
             if (BtnMostrarCompras.Text == "Compras Directas")
             {
-                string nombrecolum = "Ticket SM";
-                int num = dtInventarioCat.Columns[nombrecolum].Index;
-                TkSM = dtInventarioCat.SelectedCells[num].Value.ToString();
+                //string nombrecolum = "Ticket SM";
+                //int num = dtInventarioCat.Columns[nombrecolum].Index;
+                //TkSM = dtInventarioCat.SelectedCells[num].Value.ToString();
 
-                string nombreEstado = "Proce";
+                string nombreEstado = "Proceso";
                 int numEstado = dtInventarioCat.Columns[nombreEstado].Index;
                 Proceso = dtInventarioCat.SelectedCells[numEstado].Value.ToString();
 
-                string Est_Env = "Est_Envio";
+                string Est_Env = "EstadoFisico";
                 int numEst = dtInventarioCat.Columns[Est_Env].Index;
                 EstadoEnv = dtInventarioCat.SelectedCells[numEst].Value.ToString();
             }

@@ -48,7 +48,7 @@ namespace ProyectoOFI.Datos
                 contador = 0;
             }
         }
-        public void VerDetalleCatacion(ref DataTable dt, string Ticket, string TkSM)
+        public void VerDetalleCatacion(ref DataTable dt, string Ticket)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace ProyectoOFI.Datos
 
                     da.SelectCommand.CommandType = CommandType.StoredProcedure;
                     da.SelectCommand.Parameters.AddWithValue("@Ticket", Ticket);
-                    da.SelectCommand.Parameters.AddWithValue("@TkSM", TkSM);
+                    //da.SelectCommand.Parameters.AddWithValue("@TkSM", TkSM);
                     da.Fill(dt);
                 }
             }

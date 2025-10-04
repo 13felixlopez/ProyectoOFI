@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.TLPPOA = new System.Windows.Forms.TableLayoutPanel();
             this.btnP18 = new System.Windows.Forms.Button();
             this.btnP17 = new System.Windows.Forms.Button();
@@ -120,6 +121,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.BtnCerrarVerCons = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.TLPPOA.SuspendLayout();
             this.PlDatos.SuspendLayout();
             this.GbDescarga.SuspendLayout();
@@ -1247,6 +1249,12 @@
             this.BtnCerrarVerCons.UseVisualStyleBackColor = true;
             this.BtnCerrarVerCons.Click += new System.EventHandler(this.BtnCerrarVerCons_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // POASF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1363,5 +1371,6 @@
         public System.Windows.Forms.TextBox TxtGuariola;
         private System.Windows.Forms.Label LblDuracionG;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TolvasVerticales));
             this.lblTV5 = new System.Windows.Forms.Label();
             this.lblTV4 = new System.Windows.Forms.Label();
@@ -99,6 +100,7 @@
             this.btnTV3 = new System.Windows.Forms.Button();
             this.btnTV2 = new System.Windows.Forms.Button();
             this.lblTV8 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.PLDatos.SuspendLayout();
             this.gbVertical.SuspendLayout();
             this.gbPOAV.SuspendLayout();
@@ -929,6 +931,12 @@
             this.lblTV8.Text = "--";
             this.lblTV8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // TolvasVerticales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1023,5 +1031,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label LblCapacidad;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Timer timer1;
     }
 }

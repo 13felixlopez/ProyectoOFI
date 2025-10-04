@@ -722,6 +722,13 @@ namespace ProyectoOFI.SM
                 lblTicket.Text = "--";
             }
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            MostrarTicketsEnLabels();
+            Estilo();
+        }
+
         private void ValidarPermisos()
         {
             if (!Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))

@@ -10,6 +10,7 @@ namespace ProyectoOFI.SM
     public partial class TolvasVerticales : UserControl
     {
         string Sacos, Kilos, Calidad, Daño, EsFisico, Modulo;
+        private Timer timer;
         public TolvasVerticales()
         {
             InitializeComponent();
@@ -20,7 +21,6 @@ namespace ProyectoOFI.SM
             MostrarTicketsEnLabels();
             Estilo();
         }
-
         protected void MostrarTicketsEnLabels()
         {
             DSM datos = new DSM();
@@ -522,6 +522,13 @@ namespace ProyectoOFI.SM
                 gbDatos.BackColor = Color.White;
             }
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            MostrarTicketsEnLabels();
+            Estilo();
+        }
+
         private void Limpiar()
         {
             LblSacos.Text = "--";

@@ -495,6 +495,13 @@ namespace ProyectoOFI.SM
             string resultadoFinal = $"{diasFinal} : {horas} : {minutos}";
             LblTiempoPre.Text = resultadoFinal;
         }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            MostrarVerticalLabels();
+            Estilo();
+        }
+
         private void ValidarPermisos()
         {
             if (!Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))

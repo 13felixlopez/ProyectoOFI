@@ -15,8 +15,8 @@ namespace ProyectoOFI.Datos
                 using (SqlConnection conectar = Conexion.abrir())
                 using (SqlCommand da = new SqlCommand("MostrarGuardiola", conectar))
                 {
+                    //conectar.Open();
                     da.CommandType = CommandType.StoredProcedure;
-                    conectar.Open();
                     tablaTickets.Load(da.ExecuteReader());
                     return tablaTickets;
                 }

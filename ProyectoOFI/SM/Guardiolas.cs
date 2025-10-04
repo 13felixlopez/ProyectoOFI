@@ -792,6 +792,12 @@ namespace ProyectoOFI.SM
             DtHoraFin1.Value = DtHInicio1.Value.AddMinutes(10);
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            MostrarGuardiolaLabels();
+            Estilo();
+        }
+
         private void ValidarPermisos()
         {
             if (!Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))

@@ -129,7 +129,8 @@ namespace ProyectoOFI.Analisis
                 }
                 else
                 {
-                    funcion.ContarTK(ref Contador);
+                    //funcion.ContarTK(ref Contador);
+                    Contador = ContarBusqueda;
                 }
             }
         }
@@ -291,6 +292,7 @@ namespace ProyectoOFI.Analisis
             funcion.BuscarCatacion(txtBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
             dtInventarioCat.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.Contador.ToString());
+            //LblContador.Text = ContarBusqueda.ToString();
             //Base.DiseñoEnvio(ref dtInventarioCat);
         }
         public void MostrarLotes()

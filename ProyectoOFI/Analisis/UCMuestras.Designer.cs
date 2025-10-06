@@ -33,10 +33,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.DtMuestras = new System.Windows.Forms.DataGridView();
             this.PlOpciones = new System.Windows.Forms.Panel();
+            this.BtnGuardar = new System.Windows.Forms.Button();
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.BtnGuardar = new System.Windows.Forms.Button();
             this.PlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtMuestras)).BeginInit();
@@ -105,6 +105,17 @@
             this.PlOpciones.Size = new System.Drawing.Size(1202, 61);
             this.PlOpciones.TabIndex = 10;
             // 
+            // BtnGuardar
+            // 
+            this.BtnGuardar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGuardar.Location = new System.Drawing.Point(693, 12);
+            this.BtnGuardar.Name = "BtnGuardar";
+            this.BtnGuardar.Size = new System.Drawing.Size(78, 43);
+            this.BtnGuardar.TabIndex = 16;
+            this.BtnGuardar.Text = "Guardar";
+            this.BtnGuardar.UseVisualStyleBackColor = true;
+            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
+            // 
             // BtnBuscar
             // 
             this.BtnBuscar.BackgroundImage = global::ProyectoOFI.Properties.Resources.icons8_búsqueda;
@@ -137,17 +148,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar Ticket:";
             // 
-            // BtnGuardar
-            // 
-            this.BtnGuardar.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnGuardar.Location = new System.Drawing.Point(693, 12);
-            this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(78, 43);
-            this.BtnGuardar.TabIndex = 16;
-            this.BtnGuardar.Text = "Guardar";
-            this.BtnGuardar.UseVisualStyleBackColor = true;
-            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
-            // 
             // UCMuestras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,6 +157,7 @@
             this.Controls.Add(this.PlTitulo);
             this.Name = "UCMuestras";
             this.Size = new System.Drawing.Size(1202, 533);
+            this.Load += new System.EventHandler(this.UCMuestras_Load);
             this.PlTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtMuestras)).EndInit();

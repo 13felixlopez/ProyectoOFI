@@ -18,6 +18,9 @@ namespace ProyectoOFI.Analisis
         // Variables a nivel de clase
         private List<LMuestras> muestrasTemporales = new List<LMuestras>();
         private DataTable dtMuestrasData;
+
+        private DateTimePicker dtPicker = new DateTimePicker();
+        private Rectangle _Rectangle;
         public UCMuestras()
         {
             InitializeComponent();
@@ -37,6 +40,8 @@ namespace ProyectoOFI.Analisis
             DMuestras funcion = new DMuestras();
             funcion.ObtenerMuestras(TxtBuscar.Text, ref dt, ContarBusqueda);
             DtMuestras.DataSource = dt;
+            DtMuestras.Columns["FechaMuestra"].ReadOnly = false;
+            DtMuestras.Columns["FechaMuestra"].DefaultCellStyle.Format = "dd/MM/yyyy";
             ContarBusqueda = int.Parse(funcion.Contador.ToString());
             DtMuestras.Columns["IdMuestra"].Visible = false;
             // Inicializar la lista temporal con los datos del DataTable
@@ -51,15 +56,16 @@ namespace ProyectoOFI.Analisis
             foreach (DataRow row in dt.Rows)
             {
                 // Manejar valores nulos en IdMuestra y Muestriado
-                object idMuestraValue = row["IdMuestra"];
-                int idMuestra = (idMuestraValue != null && idMuestraValue != DBNull.Value) ? Convert.ToInt32(idMuestraValue) : 0;
+                int idMuestra = row["IdMuestra"] != DBNull.Value ? Convert.ToInt32(row["IdMuestra"]) : 0;
+                bool muestriado = row["Muestriado"] != DBNull.Value && Convert.ToBoolean(row["Muestriado"]);
+                string ticket = row["Ticket"]?.ToString() ?? "";
 
-                object muestriadoValue = row["Muestriado"];
-                bool muestriado = (muestriadoValue != null && muestriadoValue != DBNull.Value) ? Convert.ToBoolean(muestriadoValue) : false;
+                // Tomar la fecha desde la tabla si existe
+                DateTime fechaMuestra = DateTime.Now;
+                if (dt.Columns.Contains("FechaMuestra") && row["FechaMuestra"] != DBNull.Value)
+                    fechaMuestra = Convert.ToDateTime(row["FechaMuestra"]);
 
-                string ticket = row["Ticket"].ToString() ?? "";
-
-                // Solo agregar a la lista temporal los registros que tienen Muestriado = true
+                // Solo agregar registros que están muestriados
                 if (muestriado)
                 {
                     muestrasTemporales.Add(new LMuestras
@@ -67,70 +73,34 @@ namespace ProyectoOFI.Analisis
                         IdMuestra = idMuestra,
                         Ticket = ticket,
                         Muestriado = muestriado,
-                        FechaMuestra = DateTime.Now
+                        FechaMuestra = fechaMuestra
                     });
                 }
             }
         }
 
+
         private void DtMuestras_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
-
-            if (e.ColumnIndex == DtMuestras.Columns["Muestriado"].Index)
+            if (e.RowIndex >= 0 && DtMuestras.Columns[e.ColumnIndex].Name == "FechaMuestra")
             {
-                try
-                {
-                    // Obtener la fila actual
-                    DataGridViewRow row = DtMuestras.Rows[e.RowIndex];
+                _Rectangle = DtMuestras.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
+                dtPicker.Size = new Size(_Rectangle.Width, _Rectangle.Height);
+                dtPicker.Location = new Point(_Rectangle.X, _Rectangle.Y);
 
-                    // Manejar valores nulos de forma segura
-                    bool currentValue = false;
-                    if (row.Cells["Muestriado"].Value != null && row.Cells["Muestriado"].Value != DBNull.Value)
-                    {
-                        currentValue = Convert.ToBoolean(row.Cells["Muestriado"].Value);
-                    }
-
-                    // Cambiar el valor
-                    bool newValue = !currentValue;
-                    row.Cells["Muestriado"].Value = newValue;
-
-                    // Obtener ticket e IdMuestra
-                    string ticket = row.Cells["Ticket"].Value?.ToString() ?? "";
-
-                    int idMuestra = 0;
-                    if (row.Cells["IdMuestra"].Value != null && row.Cells["IdMuestra"].Value != DBNull.Value)
-                    {
-                        idMuestra = Convert.ToInt32(row.Cells["IdMuestra"].Value);
-                    }
-
-                    // Buscar o agregar a la lista temporal
-                    var muestraExistente = muestrasTemporales.FirstOrDefault(m => m.Ticket == ticket);
-                    if (muestraExistente != null)
-                    {
-                        muestraExistente.Muestriado = newValue;
-                        muestraExistente.FechaMuestra = DateTime.Now;
-                    }
-                    else
-                    {
-                        muestrasTemporales.Add(new LMuestras
-                        {
-                            IdMuestra = idMuestra,
-                            Ticket = ticket,
-                            Muestriado = newValue,
-                            FechaMuestra = DateTime.Now
-                        });
-                    }
-
-                    ActualizarColorFila(e.RowIndex, newValue);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error al procesar el checkbox: {ex.Message}", "Error",
-                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                // Mostrar el DateTimePicker con el valor actual
+                dtPicker.Visible = true;
+                if (DtMuestras.CurrentCell.Value != null && DateTime.TryParse(DtMuestras.CurrentCell.Value.ToString(), out DateTime fecha))
+                    dtPicker.Value = fecha;
+                else
+                    dtPicker.Value = DateTime.Now;
+            }
+            else
+            {
+                dtPicker.Visible = false;
             }
         }
+
         private void ActualizarColorFila(int rowIndex, bool muestriado)
         {
             if (muestriado)
@@ -148,28 +118,94 @@ namespace ProyectoOFI.Analisis
         {
             try
             {
+                // Sincronizar cambios desde el DataGridView hacia la lista temporal
+                foreach (DataGridViewRow row in DtMuestras.Rows)
+                {
+                    if (row.IsNewRow) continue;
+
+                    string ticket = row.Cells["Ticket"].Value?.ToString() ?? "";
+                    if (string.IsNullOrEmpty(ticket)) continue;
+
+                    bool muestriado = false;
+                    if (row.Cells["Muestriado"].Value != null && row.Cells["Muestriado"].Value != DBNull.Value)
+                        muestriado = Convert.ToBoolean(row.Cells["Muestriado"].Value);
+
+                    DateTime fechaMuestra = DateTime.Now;
+                    if (row.Cells["FechaMuestra"].Value != null && row.Cells["FechaMuestra"].Value != DBNull.Value)
+                        fechaMuestra = Convert.ToDateTime(row.Cells["FechaMuestra"].Value);
+                    else if (muestriado)
+                    {
+                        // Si el registro está muestriado pero no tiene fecha, pedimos ingresarla
+                        MessageBox.Show($"Debe especificar una fecha de muestra para el ticket: {ticket}",
+                                        "Fecha requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    int idMuestra = 0;
+                    if (row.Cells["IdMuestra"].Value != null && row.Cells["IdMuestra"].Value != DBNull.Value)
+                        idMuestra = Convert.ToInt32(row.Cells["IdMuestra"].Value);
+
+                    // Buscar si ya está en la lista temporal
+                    var muestraExistente = muestrasTemporales.FirstOrDefault(m => m.Ticket == ticket);
+
+                    if (muestriado)
+                    {
+                        if (muestraExistente != null)
+                        {
+                            // Actualizar valores
+                            muestraExistente.IdMuestra = idMuestra;
+                            muestraExistente.Muestriado = true;
+                            muestraExistente.FechaMuestra = fechaMuestra;
+                        }
+                        else
+                        {
+                            // Agregar nuevo registro
+                            muestrasTemporales.Add(new LMuestras
+                            {
+                                IdMuestra = idMuestra,
+                                Ticket = ticket,
+                                Muestriado = true,
+                                FechaMuestra = fechaMuestra
+                            });
+                        }
+                    }
+                    else
+                    {
+                        // Si el checkbox fue desactivado, eliminarlo de la lista temporal
+                        if (muestraExistente != null)
+                            muestrasTemporales.Remove(muestraExistente);
+                    }
+                }
+
+                // Verificar si hay algo que guardar
                 if (muestrasTemporales.Count == 0)
                 {
-                    MessageBox.Show("No hay cambios para guardar.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No hay cambios para guardar.", "Información",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
+                // Guardar en base de datos (inserciones/actualizaciones en lote)
                 DMuestras funcion = new DMuestras();
                 funcion.GuardarMuestrasEnBD(muestrasTemporales);
-                MessageBox.Show("Datos guardados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                MessageBox.Show("Datos guardados correctamente.", "Éxito",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 // Limpiar la lista temporal después de guardar
                 muestrasTemporales.Clear();
 
-                // Recargar los datos para actualizar los IdMuestra si hubo INSERTs
+                // Recargar datos para refrescar IdMuestra e información
                 BuscarTK();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al guardar los datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en btnGuardar_Click: " + ex.Message);
+                MessageBox.Show($"Error al guardar los datos: {ex.Message}", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BtnGuardar_Click: " + ex.Message);
             }
         }
+
 
         private void ActualizarCheckboxesEnDataGridView()
         {
@@ -194,6 +230,24 @@ namespace ProyectoOFI.Analisis
                     ActualizarColorFila(row.Index, muestriadoBD);
                 }
             }
+        }
+
+        private void UCMuestras_Load(object sender, EventArgs e)
+        {
+            DtMuestras.Controls.Add(dtPicker);
+            dtPicker.Visible = false;
+            dtPicker.Format = DateTimePickerFormat.Short;
+            dtPicker.CloseUp += new EventHandler(dtPicker_CloseUp);
+            dtPicker.TextChanged += new EventHandler(dtPicker_OnTextChange);
+        }
+        private void dtPicker_OnTextChange(object sender, EventArgs e)
+        {
+            DtMuestras.CurrentCell.Value = dtPicker.Text;
+        }
+
+        private void dtPicker_CloseUp(object sender, EventArgs e)
+        {
+            dtPicker.Visible = false;
         }
     }
 }

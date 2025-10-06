@@ -166,41 +166,114 @@ namespace ProyectoOFI.SM
         }
         private void CargaVer(Label V)
         {
-            DVerticales verticales = new DVerticales();
-            DataTable dt = new DataTable();
-            verticales.CargarVer(V.Text, dt);
-            LblTicket.Text = V.Text;
-            LblSacos.Text = dt.Rows[0]["Sacos"].ToString();
-            LblKilos.Text = dt.Rows[0]["Peso"].ToString();
-            double kilos = Convert.ToDouble(LblKilos.Text);
-            kilos = kilos / 46;
-            LblQQsV.Text = Math.Round(kilos, 2).ToString();
-            LblCalidadV.Text = dt.Rows[0]["Calidad"].ToString();
-            LblDanioV.Text = dt.Rows[0]["Danio"].ToString();
-            LblEFisicoV.Text = dt.Rows[0]["EstFisico"].ToString();
-            LblOperador.Text = dt.Rows[0]["Nombre"].ToString();
-            LblTurno.Text = dt.Rows[0]["TurnoV"].ToString();
-            //dtFProcV.Text = dt.Rows[0]["FRecibidoV"].ToString();
-            dtHorainicioV.Text = dt.Rows[0]["HrInicioV"].ToString();
-            dtHoraFinV.Text = dt.Rows[0]["HrFin"].ToString();
-            //TimeSpan tiempo = (TimeSpan)dt.Rows[0]["Duracion"];
-            //string duracionFormateada = $"{tiempo.Hours:D2}:{tiempo.Minutes:D2}";
-            //LblDuracion.Text = tiempo.ToString();
-            //LblDuracion.Text = dt.Rows[0]["Duracion"].ToString();
-            LblDuracion.Text = DateTime.Parse(dt.Rows[0]["Duracion"].ToString()).ToString("HH:mm:ss");
-            LblFRecibido.Text = dt.Rows[0]["FRecibido"].ToString();
-            LblCert.Text = dt.Rows[0]["Certificacion"].ToString();
-            Lblver.Text = dt.Rows[0]["Ver"].ToString();
-            IDV = int.Parse(dt.Rows[0]["IDV"].ToString());
-            if (LblCert.Text != "Convencional")
+            try
             {
-                PlDatos.BackColor = Color.FromArgb(192, 255, 255);
+                DVerticales verticales = new DVerticales();
+                DataTable dt = new DataTable();
+                verticales.CargarVer(V.Text, dt);
+
+                // Verificar si hay datos en el DataTable
+                if (dt == null || dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron datos para el ticket: " + V.Text);
+                    return;
+                }
+
+                DataRow row = dt.Rows[0];
+
+                // Asignar valores con verificación de null
+                LblTicket.Text = V.Text;
+                LblSacos.Text = ObtenerValorSeguro(row, "Sacos");
+                LblKilos.Text = ObtenerValorSeguro(row, "Peso");
+
+                // Calcular QQsV de forma segura
+                if (double.TryParse(LblKilos.Text, out double kilos))
+                {
+                    kilos = kilos / 46;
+                    LblQQsV.Text = Math.Round(kilos, 2).ToString();
+                }
+                else
+                {
+                    LblQQsV.Text = "0";
+                }
+
+                LblCalidadV.Text = ObtenerValorSeguro(row, "Calidad");
+                LblDanioV.Text = ObtenerValorSeguro(row, "Danio");
+                LblEFisicoV.Text = ObtenerValorSeguro(row, "EstFisico");
+                LblOperador.Text = ObtenerValorSeguro(row, "Nombre");
+                LblTurno.Text = ObtenerValorSeguro(row, "TurnoV");
+
+                //dtFProcV.Text = ObtenerValorSeguro(row, "FRecibidoV");
+                dtHorainicioV.Text = ObtenerValorSeguro(row, "HrInicioV");
+                dtHoraFinV.Text = ObtenerValorSeguro(row, "HrFin");
+
+                // Manejar la duración de forma segura
+                string duracion = ObtenerValorSeguro(row, "Duracion");
+                if (!string.IsNullOrEmpty(duracion))
+                {
+                    if (TimeSpan.TryParse(duracion, out TimeSpan tiempo))
+                    {
+                        LblDuracion.Text = tiempo.ToString(@"hh\:mm\:ss");
+                    }
+                    else if (DateTime.TryParse(duracion, out DateTime fechaDuracion))
+                    {
+                        LblDuracion.Text = fechaDuracion.ToString("HH:mm:ss");
+                    }
+                    else
+                    {
+                        LblDuracion.Text = "00:00:00";
+                    }
+                }
+                else
+                {
+                    LblDuracion.Text = "00:00:00";
+                }
+
+                LblFRecibido.Text = ObtenerValorSeguro(row, "FRecibido");
+                LblCert.Text = ObtenerValorSeguro(row, "Certificacion");
+                Lblver.Text = ObtenerValorSeguro(row, "Ver");
+
+                // Manejar IDV de forma segura
+                if (int.TryParse(ObtenerValorSeguro(row, "IDV"), out int idv))
+                {
+                    IDV = idv;
+                }
+                else
+                {
+                    IDV = 0;
+                }
+
+                // Cambiar color según certificación
+                if (LblCert.Text != "Convencional")
+                {
+                    PlDatos.BackColor = Color.FromArgb(192, 255, 255);
+                }
+                else
+                {
+                    PlDatos.BackColor = Color.FromArgb(192, 255, 192);
+                }
+
+                AbrirFormulario();
             }
-            else
+            catch (Exception ex)
             {
-                PlDatos.BackColor = Color.FromArgb(192, 255, 192);
+                MessageBox.Show($"Error al cargar los datos: {ex.Message}");
             }
-            AbrirFormulario();
+        }
+        private string ObtenerValorSeguro(DataRow row, string columnName)
+        {
+            try
+            {
+                if (row != null && row.Table.Columns.Contains(columnName) && !row.IsNull(columnName))
+                {
+                    return row[columnName]?.ToString() ?? "";
+                }
+                return "";
+            }
+            catch
+            {
+                return "";
+            }
         }
         private void AbrirFormulario()
         {

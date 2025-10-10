@@ -1058,7 +1058,7 @@
                     if (funcion.InsertarEnfarde(parametros) == true)
                     {
                         MessageBox.Show("Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        //MostrarLotes();
+                        MetodosBuscar();
                         Limpiar();
                         PlControl.Visible = false;
                     }
@@ -1094,7 +1094,7 @@
                     if (funcion.InsertarReEnfarde(parametros) == true)
                     {
                         MessageBox.Show("ReEnfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        //MostrarLotes();
+                        MetodosBuscar();
                         Limpiar();
                         PlControl.Visible = false;
                     }
@@ -1336,7 +1336,7 @@
                         if (funcion.EditarEnfarde(parametros, editenf) == true)
                         {
                             MessageBox.Show("Edición de Enfarde realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                            MostrarLotes();
+                            MetodosBuscar();
                             Limpiar();
                             PlControl.Visible = false;
                         }
@@ -1427,53 +1427,6 @@
             LT.ShowDialog();
         }
 
-        private async Task GetExcelControlPatio()
-        {
-            DataTable dt = new DataTable();
-            var data = await _apiService.GetExcelLotesExcelCP();
-            if (data != null && data.Count > 0)
-            {
-                dt = ConvertToDataTable(data);
-                string Nombre = "Control de Patio ";
-                FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
-                LT.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Error al cargar los datos", "Api error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private DataTable ConvertToDataTable<T>(List<T> data)
-        {
-            DataTable dt = new DataTable();
-
-            if (data == null || data.Count == 0)
-                return dt;
-
-            // Obtener propiedades del tipo T
-            var properties = typeof(T).GetProperties();
-
-            // Crear las columnas en el DataTable con los nombres de las propiedades
-            foreach (var prop in properties)
-            {
-                dt.Columns.Add(prop.Name, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
-            }
-
-            // Llenar las filas con los datos de la lista
-            foreach (var item in data)
-            {
-                var row = dt.NewRow();
-                foreach (var prop in properties)
-                {
-                    row[prop.Name] = prop.GetValue(item) ?? DBNull.Value;
-                }
-                dt.Rows.Add(row);
-            }
-
-            return dt;
-        }
-
         private void BtnEnvSM_Click(object sender, EventArgs e)
         {
             LblMsj.Visible = false;
@@ -1519,7 +1472,7 @@
                     if (funcion.InsertarEnvio(parametros) == true)
                     {
                         MessageBox.Show("Envio realizado con éxito", "Realizado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        //MostrarLotes();
+                        MetodosBuscar();
                         Limpiar();
                         PlControl.Visible = false;
                     }

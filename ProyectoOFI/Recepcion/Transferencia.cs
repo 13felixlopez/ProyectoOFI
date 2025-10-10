@@ -149,7 +149,6 @@ namespace ProyectoOFI.Recepcion
                         if (dtFEnvio.Value.Date <= dtpRecibido.Value.Date)
                         {
                             carga();
-                            PlRecepcion.Refresh();
                         }
                         else
                         {
@@ -1452,6 +1451,7 @@ namespace ProyectoOFI.Recepcion
             PlCargaTran.Visible = true;
             await Task.Delay(1500);
             EditarTK();
+            BuscarTK();
             ReiniciarPaginado();
             await Task.Delay(1000);
             PlCargaTran.Visible = false;

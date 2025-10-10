@@ -40,14 +40,19 @@ namespace ProyectoOFI.Analisis
             DMuestras funcion = new DMuestras();
             funcion.ObtenerMuestras(TxtBuscar.Text, ref dt, ContarBusqueda);
             DtMuestras.DataSource = dt;
+
             DtMuestras.Columns["FechaMuestra"].ReadOnly = false;
             DtMuestras.Columns["FechaMuestra"].DefaultCellStyle.Format = "dd/MM/yyyy";
-            ContarBusqueda = int.Parse(funcion.Contador.ToString());
             DtMuestras.Columns["IdMuestra"].Visible = false;
-            // Inicializar la lista temporal con los datos del DataTable
-            InicializarListaTemporalDesdeDataTable(dt);
+
+            ContarBusqueda = int.Parse(funcion.Contador.ToString());
+
+            // ❌ Quita esta línea (ya no se precarga la lista temporal)
+            // InicializarListaTemporalDesdeDataTable(dt);
+
             ActualizarCheckboxesEnDataGridView();
         }
+
 
         private void InicializarListaTemporalDesdeDataTable(DataTable dt)
         {
@@ -79,18 +84,74 @@ namespace ProyectoOFI.Analisis
             }
         }
 
-
         private void DtMuestras_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0 && DtMuestras.Columns[e.ColumnIndex].Name == "FechaMuestra")
+            if (e.RowIndex < 0 || e.ColumnIndex < 0) return;
+
+            // ✅ Cuando el usuario cambia el checkbox de Muestriado
+            if (DtMuestras.Columns[e.ColumnIndex].Name == "Muestriado")
+            {
+                try
+                {
+                    var row = DtMuestras.Rows[e.RowIndex];
+
+                    // Estado actual
+                    bool currentValue = row.Cells["Muestriado"].Value != DBNull.Value &&
+                                        Convert.ToBoolean(row.Cells["Muestriado"].Value);
+
+                    // Cambiar valor
+                    bool newValue = !currentValue;
+                    row.Cells["Muestriado"].Value = newValue;
+
+                    // Datos base
+                    string ticket = row.Cells["Ticket"].Value?.ToString() ?? "";
+                    int idMuestra = row.Cells["IdMuestra"].Value != DBNull.Value ? Convert.ToInt32(row.Cells["IdMuestra"].Value) : 0;
+
+                    DateTime fechaMuestra = DateTime.Now;
+                    if (row.Cells["FechaMuestra"].Value != DBNull.Value && row.Cells["FechaMuestra"].Value != null)
+                        fechaMuestra = Convert.ToDateTime(row.Cells["FechaMuestra"].Value);
+
+                    // Buscar si ya está en la lista temporal
+                    var muestra = muestrasTemporales.FirstOrDefault(m => m.Ticket == ticket);
+
+                    if (muestra == null)
+                    {
+                        // Nuevo cambio (activado o desactivado)
+                        muestrasTemporales.Add(new LMuestras
+                        {
+                            IdMuestra = idMuestra,
+                            Ticket = ticket,
+                            Muestriado = newValue,
+                            FechaMuestra = fechaMuestra
+                        });
+                    }
+                    else
+                    {
+                        // Ya existía → actualizar su estado
+                        muestra.Muestriado = newValue;
+                        muestra.FechaMuestra = fechaMuestra;
+                    }
+
+                    // Colorear fila según el nuevo estado
+                    ActualizarColorFila(e.RowIndex, newValue);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al procesar el checkbox: {ex.Message}", "Error",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            // ✅ Control de fecha (sin cambios)
+            else if (DtMuestras.Columns[e.ColumnIndex].Name == "FechaMuestra")
             {
                 _Rectangle = DtMuestras.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true);
                 dtPicker.Size = new Size(_Rectangle.Width, _Rectangle.Height);
                 dtPicker.Location = new Point(_Rectangle.X, _Rectangle.Y);
-
-                // Mostrar el DateTimePicker con el valor actual
                 dtPicker.Visible = true;
-                if (DtMuestras.CurrentCell.Value != null && DateTime.TryParse(DtMuestras.CurrentCell.Value.ToString(), out DateTime fecha))
+
+                if (DtMuestras.CurrentCell.Value != null &&
+                    DateTime.TryParse(DtMuestras.CurrentCell.Value.ToString(), out DateTime fecha))
                     dtPicker.Value = fecha;
                 else
                     dtPicker.Value = DateTime.Now;
@@ -100,6 +161,37 @@ namespace ProyectoOFI.Analisis
                 dtPicker.Visible = false;
             }
         }
+
+
+        // Método para el botón Guardar
+        private void BtnGuardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (muestrasTemporales.Count == 0)
+                {
+                    MessageBox.Show("No hay cambios para guardar.", "Información",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                DMuestras funcion = new DMuestras();
+                funcion.GuardarMuestrasEnBD(muestrasTemporales);
+
+                MessageBox.Show("Cambios guardados correctamente.", "Éxito",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                muestrasTemporales.Clear();
+                BuscarTK();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al guardar los datos: {ex.Message}", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BtnGuardar_Click: " + ex.Message);
+            }
+        }
+
 
         private void ActualizarColorFila(int rowIndex, bool muestriado)
         {
@@ -112,100 +204,6 @@ namespace ProyectoOFI.Analisis
                 DtMuestras.Rows[rowIndex].DefaultCellStyle.BackColor = Color.White;
             }
         }
-
-        // Método para el botón Guardar
-        private void BtnGuardar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                // Sincronizar cambios desde el DataGridView hacia la lista temporal
-                foreach (DataGridViewRow row in DtMuestras.Rows)
-                {
-                    if (row.IsNewRow) continue;
-
-                    string ticket = row.Cells["Ticket"].Value?.ToString() ?? "";
-                    if (string.IsNullOrEmpty(ticket)) continue;
-
-                    bool muestriado = false;
-                    if (row.Cells["Muestriado"].Value != null && row.Cells["Muestriado"].Value != DBNull.Value)
-                        muestriado = Convert.ToBoolean(row.Cells["Muestriado"].Value);
-
-                    DateTime fechaMuestra = DateTime.Now;
-                    if (row.Cells["FechaMuestra"].Value != null && row.Cells["FechaMuestra"].Value != DBNull.Value)
-                        fechaMuestra = Convert.ToDateTime(row.Cells["FechaMuestra"].Value);
-                    else if (muestriado)
-                    {
-                        // Si el registro está muestriado pero no tiene fecha, pedimos ingresarla
-                        MessageBox.Show($"Debe especificar una fecha de muestra para el ticket: {ticket}",
-                                        "Fecha requerida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        return;
-                    }
-
-                    int idMuestra = 0;
-                    if (row.Cells["IdMuestra"].Value != null && row.Cells["IdMuestra"].Value != DBNull.Value)
-                        idMuestra = Convert.ToInt32(row.Cells["IdMuestra"].Value);
-
-                    // Buscar si ya está en la lista temporal
-                    var muestraExistente = muestrasTemporales.FirstOrDefault(m => m.Ticket == ticket);
-
-                    if (muestriado)
-                    {
-                        if (muestraExistente != null)
-                        {
-                            // Actualizar valores
-                            muestraExistente.IdMuestra = idMuestra;
-                            muestraExistente.Muestriado = true;
-                            muestraExistente.FechaMuestra = fechaMuestra;
-                        }
-                        else
-                        {
-                            // Agregar nuevo registro
-                            muestrasTemporales.Add(new LMuestras
-                            {
-                                IdMuestra = idMuestra,
-                                Ticket = ticket,
-                                Muestriado = true,
-                                FechaMuestra = fechaMuestra
-                            });
-                        }
-                    }
-                    else
-                    {
-                        // Si el checkbox fue desactivado, eliminarlo de la lista temporal
-                        if (muestraExistente != null)
-                            muestrasTemporales.Remove(muestraExistente);
-                    }
-                }
-
-                // Verificar si hay algo que guardar
-                if (muestrasTemporales.Count == 0)
-                {
-                    MessageBox.Show("No hay cambios para guardar.", "Información",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-
-                // Guardar en base de datos (inserciones/actualizaciones en lote)
-                DMuestras funcion = new DMuestras();
-                funcion.GuardarMuestrasEnBD(muestrasTemporales);
-
-                MessageBox.Show("Datos guardados correctamente.", "Éxito",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Limpiar la lista temporal después de guardar
-                muestrasTemporales.Clear();
-
-                // Recargar datos para refrescar IdMuestra e información
-                BuscarTK();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al guardar los datos: {ex.Message}", "Error",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Log.Writeerror("Error en BtnGuardar_Click: " + ex.Message);
-            }
-        }
-
 
         private void ActualizarCheckboxesEnDataGridView()
         {

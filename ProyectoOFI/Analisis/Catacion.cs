@@ -398,12 +398,12 @@ namespace ProyectoOFI.Analisis
                     FRecibido = DateTime.Parse(dr["FechaRecibido"].ToString());
                     if (dr["Fecha Muestra"] != DBNull.Value && !string.IsNullOrWhiteSpace(dr["Fecha Muestra"].ToString()))
                     {
-                        FMuestra = DateTime.Parse(dr["Fecha Muestra"].ToString()).AddDays(1);
+                        FMuestra = DateTime.Parse(dr["Fecha Muestra"].ToString());
                         DTPFechaMuestra.Value = FMuestra;
                     }
                     else
                     {
-                        FMuestra = DateTime.Today.AddDays(1);
+                        FMuestra = DateTime.Today;
                         DTPFechaMuestra.Value = FMuestra;
                     }
 

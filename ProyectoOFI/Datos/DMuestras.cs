@@ -67,6 +67,7 @@ namespace ProyectoOFI.Datos
                     Value = dtMuestras
                 };
                 cmd.Parameters.Add(param);
+                cmd.Parameters.AddWithValue("@Usuario", Login.NombreA);
                 cmd.ExecuteNonQuery();
             }
         }

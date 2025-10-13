@@ -306,5 +306,12 @@ namespace ProyectoOFI
             PlPrincipal.Controls.Add(tr);
             Habilitar(muestrasToolStripMenuItem);
         }
+
+        private void digitacionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Digitacion Cg = new Digitacion();
+            AbrirFrm(Cg);
+            Habilitar(digitacionToolStripMenuItem);
+        }
     }
 }

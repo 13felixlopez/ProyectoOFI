@@ -120,14 +120,14 @@
             // muestrasToolStripMenuItem
             // 
             this.muestrasToolStripMenuItem.Name = "muestrasToolStripMenuItem";
-            this.muestrasToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.muestrasToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.muestrasToolStripMenuItem.Text = "Muestras";
             this.muestrasToolStripMenuItem.Click += new System.EventHandler(this.muestrasToolStripMenuItem_Click);
             // 
             // cataciónToolStripMenuItem
             // 
             this.cataciónToolStripMenuItem.Name = "cataciónToolStripMenuItem";
-            this.cataciónToolStripMenuItem.Size = new System.Drawing.Size(180, 24);
+            this.cataciónToolStripMenuItem.Size = new System.Drawing.Size(138, 24);
             this.cataciónToolStripMenuItem.Text = "Catación";
             this.cataciónToolStripMenuItem.Click += new System.EventHandler(this.cataciónToolStripMenuItem_Click);
             // 
@@ -200,6 +200,7 @@
             this.digitacionToolStripMenuItem.Name = "digitacionToolStripMenuItem";
             this.digitacionToolStripMenuItem.Size = new System.Drawing.Size(186, 24);
             this.digitacionToolStripMenuItem.Text = "Digitacion";
+            this.digitacionToolStripMenuItem.Click += new System.EventHandler(this.digitacionToolStripMenuItem_Click);
             // 
             // configToolStripMenuItem
             // 

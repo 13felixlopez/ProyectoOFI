@@ -438,6 +438,22 @@ namespace ProyectoOFI.Analisis
             }
             AbrirFormulario();
             VerDetalleCata();
+            if (LblProcedencia.Text == "Secado Mecánico")
+            {
+                PlTkSM.Location = new Point((this.Width - PlTkSM.Width) / 2, (this.Height - PlTkSM.Height) / 2);
+                PLDatos.Enabled = false;
+                PlTkSM.Visible = true;
+                BtnPart1.Text = Ticket + "-Parte1";
+                BtnPart2.Text = Ticket + "-Parte2";
+                PlTkSM.BringToFront();
+            }
+            else
+            {
+                PlTkSM.Visible = false;
+                PLDatos.Enabled = true;
+                BtnPart1.Text = "";
+                BtnPart2.Text = "";
+            }
         }
         private void ObtenerTK()
         {

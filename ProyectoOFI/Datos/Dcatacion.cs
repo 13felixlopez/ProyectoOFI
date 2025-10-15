@@ -48,6 +48,55 @@ namespace ProyectoOFI.Datos
                 contador = 0;
             }
         }
+        internal void MaquinaP1(string ticket, ref int Part1)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand(
+                    "SELECT TOP (1) POA FROM POA WHERE Ticket = @Tk", conectar))
+                {
+                    cmd.Parameters.AddWithValue("@Tk", ticket);
+
+                    if (conectar.State != ConnectionState.Open)
+                        conectar.Open();
+
+                    object result = cmd.ExecuteScalar();
+                    Part1 = (result == null || result == DBNull.Value)
+                        ? 0
+                        : Convert.ToInt32(result);
+                }
+            }
+            catch
+            {
+                Part1 = 0;
+            }
+        }
+        internal void MaquinaP2(string ticket, ref int Part2)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand(
+                    "SELECT TOP (1) POA FROM POA WHERE Ticket = @Tk", conectar))
+                {
+                    cmd.Parameters.AddWithValue("@Tk", ticket);
+
+                    if (conectar.State != ConnectionState.Open)
+                        conectar.Open();
+
+                    object result = cmd.ExecuteScalar();
+                    Part2 = (result == null || result == DBNull.Value)
+                        ? 0
+                        : Convert.ToInt32(result);
+                }
+            }
+            catch
+            {
+                Part2 = 0;
+            }
+        }
+
         public void VerDetalleCatacion(ref DataTable dt, string Ticket)
         {
             try
@@ -508,5 +557,30 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error en MostrarTasas ✖️✖️" + ex.Message);
             }
         }
+
+        internal DateTime ObtenerFechaMuestra(string ticket)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand(
+                    "SELECT FechaMuestra FROM Muestras WHERE Ticket = @Tk", conectar))
+                {
+                    cmd.Parameters.AddWithValue("@Tk", ticket);
+                    if (conectar.State != ConnectionState.Open)
+                        conectar.Open();
+
+                    object result = cmd.ExecuteScalar();
+                    return (result == null || result == DBNull.Value)
+                        ? DateTime.Now
+                        : Convert.ToDateTime(result);
+                }
+            }
+            catch
+            {
+                return DateTime.Now;
+            }
+        }
+
     }
 }

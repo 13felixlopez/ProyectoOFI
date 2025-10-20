@@ -487,7 +487,7 @@ namespace ProyectoOFI.Analisis
                     BtnPart2.Text = string.Empty;
                 }
                 VerDetalleCatacion();
-                TkDetalle = LblTicket.Text;
+                //TkDetalle = LblTicket.Text;
             }
             else
             {
@@ -497,9 +497,9 @@ namespace ProyectoOFI.Analisis
                 VerDetalleCompra();
                 TkDetalle = LblTKCD.Text;
                 DTPFechaMuestra.Value = DateTime.Parse(LblFecha.Text);
+                VerDetalleCata();
             }
             AbrirFormulario();
-            VerDetalleCata();
             // Traer panel al frente
             PlTkSM.BringToFront();
         }
@@ -862,7 +862,7 @@ namespace ProyectoOFI.Analisis
             TkDetalle = null;
             label53.Visible = false;
             LblTolva.Visible = false;
-            BtnCopiar.Visible = false;
+            //BtnCopiar.Visible = false;
         }
         private void BtnAnalisis_Click(object sender, EventArgs e)
         {
@@ -1805,10 +1805,13 @@ namespace ProyectoOFI.Analisis
             label53.Visible = true;
             LblTolva.Visible = true;
             LblTolva.Text = POA1.ToString();
-            BtnCopiar.Visible = true;
+            //BtnCopiar.Visible = true;
             Tk2 = part2;
             Dcatacion funcion = new Dcatacion();
             DTPFechaMuestra.Value = funcion.ObtenerFechaMuestra(LblTicket.Text);
+            TkDetalle = LblTicket.Text;
+            VerDetalleCata();
+            VerDetalleCata();
         }
 
         private void BtnPart2_Click(object sender, EventArgs e)
@@ -1820,10 +1823,13 @@ namespace ProyectoOFI.Analisis
             label53.Visible = true;
             LblTolva.Visible = true;
             LblTolva.Text = POA2.ToString();
-            BtnCopiar.Visible = true;
+            //BtnCopiar.Visible = true;
             Tk2 = part1;
             Dcatacion funcion = new Dcatacion();
             DTPFechaMuestra.Value = funcion.ObtenerFechaMuestra(LblTicket.Text);
+            TkDetalle = LblTicket.Text;
+            VerDetalleCata();
+            VerDetalleCata();
         }
 
         private void BtnCopiar_Click(object sender, EventArgs e)
@@ -1950,7 +1956,7 @@ namespace ProyectoOFI.Analisis
         // Llama al método desde el evento CellFormatting
         private void dtInventarioCat_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            FormatCellBasedOnProceso(dtInventarioCat, e);
+            //FormatCellBasedOnProceso(dtInventarioCat, e);
         }
 
         private void CalculoDias()

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioCat = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.BtnBuscar = new System.Windows.Forms.Button();
@@ -59,7 +59,8 @@
             this.PbCarga = new System.Windows.Forms.PictureBox();
             this.PLDatos = new System.Windows.Forms.Panel();
             this.PlCatacion = new System.Windows.Forms.Panel();
-            this.BtnCopiar = new System.Windows.Forms.Button();
+            this.LblTolva = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
             this.CbTasa = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.CbGrupoCalidad = new System.Windows.Forms.ComboBox();
@@ -177,12 +178,10 @@
             this.BtnCerrar = new System.Windows.Forms.Button();
             this.BtnFiltrar = new System.Windows.Forms.Button();
             this.PlTkSM = new System.Windows.Forms.Panel();
-            this.BtnPart2 = new System.Windows.Forms.Button();
-            this.BtnPart1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnX = new System.Windows.Forms.Button();
-            this.LblTolva = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
+            this.BtnPart2 = new System.Windows.Forms.Button();
+            this.BtnPart1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioCat)).BeginInit();
             this.plOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).BeginInit();
@@ -213,14 +212,14 @@
             this.dtInventarioCat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioCat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioCat.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dtInventarioCat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioCat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioCat.Location = new System.Drawing.Point(0, 62);
@@ -228,9 +227,9 @@
             this.dtInventarioCat.ReadOnly = true;
             this.dtInventarioCat.RowHeadersVisible = false;
             this.dtInventarioCat.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dtInventarioCat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioCat.ShowCellToolTips = false;
             this.dtInventarioCat.ShowEditingIcon = false;
@@ -583,7 +582,7 @@
             this.PLDatos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PLDatos.AutoScroll = true;
-            this.PLDatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+            this.PLDatos.BackColor = System.Drawing.Color.White;
             this.PLDatos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PLDatos.Controls.Add(this.PlCatacion);
             this.PLDatos.Controls.Add(this.PlDetalleCompra);
@@ -599,10 +598,9 @@
             // PlCatacion
             // 
             this.PlCatacion.AutoScroll = true;
-            this.PlCatacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.PlCatacion.BackColor = System.Drawing.Color.White;
             this.PlCatacion.Controls.Add(this.LblTolva);
             this.PlCatacion.Controls.Add(this.label53);
-            this.PlCatacion.Controls.Add(this.BtnCopiar);
             this.PlCatacion.Controls.Add(this.CbTasa);
             this.PlCatacion.Controls.Add(this.label24);
             this.PlCatacion.Controls.Add(this.CbGrupoCalidad);
@@ -654,16 +652,27 @@
             this.PlCatacion.Size = new System.Drawing.Size(1137, 342);
             this.PlCatacion.TabIndex = 17;
             // 
-            // BtnCopiar
+            // LblTolva
             // 
-            this.BtnCopiar.Location = new System.Drawing.Point(869, 252);
-            this.BtnCopiar.Name = "BtnCopiar";
-            this.BtnCopiar.Size = new System.Drawing.Size(114, 52);
-            this.BtnCopiar.TabIndex = 16;
-            this.BtnCopiar.Text = "Copiar datos a la otra parte";
-            this.BtnCopiar.UseVisualStyleBackColor = true;
-            this.BtnCopiar.Visible = false;
-            this.BtnCopiar.Click += new System.EventHandler(this.BtnCopiar_Click);
+            this.LblTolva.AutoSize = true;
+            this.LblTolva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTolva.Location = new System.Drawing.Point(354, 20);
+            this.LblTolva.Name = "LblTolva";
+            this.LblTolva.Size = new System.Drawing.Size(19, 20);
+            this.LblTolva.TabIndex = 17;
+            this.LblTolva.Text = "--";
+            this.LblTolva.Visible = false;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.Location = new System.Drawing.Point(294, 20);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(56, 20);
+            this.label53.TabIndex = 18;
+            this.label53.Text = "Tolva:";
+            this.label53.Visible = false;
             // 
             // CbTasa
             // 
@@ -1103,6 +1112,7 @@
             // 
             // PlDetalleCompra
             // 
+            this.PlDetalleCompra.BackColor = System.Drawing.Color.White;
             this.PlDetalleCompra.Controls.Add(this.label50);
             this.PlDetalleCompra.Controls.Add(this.label57);
             this.PlDetalleCompra.Controls.Add(this.label51);
@@ -1442,6 +1452,7 @@
             // 
             // PlDatosTk
             // 
+            this.PlDatosTk.BackColor = System.Drawing.Color.White;
             this.PlDatosTk.Controls.Add(this.LblProcedencia);
             this.PlDatosTk.Controls.Add(this.LblCert);
             this.PlDatosTk.Controls.Add(this.LblDanio);
@@ -1670,6 +1681,7 @@
             // 
             // PlCerrarDetalle
             // 
+            this.PlCerrarDetalle.BackColor = System.Drawing.Color.White;
             this.PlCerrarDetalle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.PlCerrarDetalle.Controls.Add(this.BtnSplit);
             this.PlCerrarDetalle.Controls.Add(this.BtnCambiarTK);
@@ -1708,6 +1720,7 @@
             // 
             // LblTituloCP
             // 
+            this.LblTituloCP.BackColor = System.Drawing.Color.White;
             this.LblTituloCP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LblTituloCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LblTituloCP.Location = new System.Drawing.Point(0, 0);
@@ -1905,6 +1918,7 @@
             // PlTkSM
             // 
             this.PlTkSM.BackColor = System.Drawing.Color.White;
+            this.PlTkSM.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PlTkSM.Controls.Add(this.panel1);
             this.PlTkSM.Controls.Add(this.BtnPart2);
             this.PlTkSM.Controls.Add(this.BtnPart1);
@@ -1913,6 +1927,28 @@
             this.PlTkSM.Size = new System.Drawing.Size(312, 143);
             this.PlTkSM.TabIndex = 19;
             this.PlTkSM.Visible = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.BtnX);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(310, 42);
+            this.panel1.TabIndex = 1;
+            // 
+            // BtnX
+            // 
+            this.BtnX.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnX.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnX.ForeColor = System.Drawing.Color.Red;
+            this.BtnX.Location = new System.Drawing.Point(258, 0);
+            this.BtnX.Name = "BtnX";
+            this.BtnX.Size = new System.Drawing.Size(52, 42);
+            this.BtnX.TabIndex = 0;
+            this.BtnX.Text = "✖️";
+            this.BtnX.UseVisualStyleBackColor = true;
+            this.BtnX.Click += new System.EventHandler(this.BtnX_Click);
             // 
             // BtnPart2
             // 
@@ -1939,50 +1975,6 @@
             this.BtnPart1.Text = "button1";
             this.BtnPart1.UseVisualStyleBackColor = true;
             this.BtnPart1.Click += new System.EventHandler(this.BtnPart1_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.BtnX);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(312, 42);
-            this.panel1.TabIndex = 1;
-            // 
-            // BtnX
-            // 
-            this.BtnX.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnX.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnX.ForeColor = System.Drawing.Color.Red;
-            this.BtnX.Location = new System.Drawing.Point(260, 0);
-            this.BtnX.Name = "BtnX";
-            this.BtnX.Size = new System.Drawing.Size(52, 42);
-            this.BtnX.TabIndex = 0;
-            this.BtnX.Text = "✖️";
-            this.BtnX.UseVisualStyleBackColor = true;
-            this.BtnX.Click += new System.EventHandler(this.BtnX_Click);
-            // 
-            // LblTolva
-            // 
-            this.LblTolva.AutoSize = true;
-            this.LblTolva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTolva.Location = new System.Drawing.Point(354, 20);
-            this.LblTolva.Name = "LblTolva";
-            this.LblTolva.Size = new System.Drawing.Size(19, 20);
-            this.LblTolva.TabIndex = 17;
-            this.LblTolva.Text = "--";
-            this.LblTolva.Visible = false;
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(294, 20);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(56, 20);
-            this.label53.TabIndex = 18;
-            this.label53.Text = "Tolva:";
-            this.label53.Visible = false;
             // 
             // Catacion
             // 
@@ -2178,7 +2170,6 @@
         private System.Windows.Forms.Panel PlTkSM;
         private System.Windows.Forms.Button BtnPart2;
         private System.Windows.Forms.Button BtnPart1;
-        private System.Windows.Forms.Button BtnCopiar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnX;
         private System.Windows.Forms.Label LblTolva;

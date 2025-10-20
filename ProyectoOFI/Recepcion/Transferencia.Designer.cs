@@ -101,8 +101,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
-            this.cbCertificacion = new System.Windows.Forms.ComboBox();
-            this.label57 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.TxtTally = new System.Windows.Forms.TextBox();
             this.txtPesoE = new System.Windows.Forms.TextBox();
@@ -216,6 +214,8 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.cbCertificacion = new System.Windows.Forms.ComboBox();
+            this.label57 = new System.Windows.Forms.Label();
             this.PlEnvio.SuspendLayout();
             this.PlRecepcion.SuspendLayout();
             this.PlAlerta.SuspendLayout();
@@ -340,7 +340,7 @@
             "Fruto",
             "Mara",
             "Uva"});
-            this.cbCalidad.Location = new System.Drawing.Point(137, 188);
+            this.cbCalidad.Location = new System.Drawing.Point(89, 188);
             this.cbCalidad.Name = "cbCalidad";
             this.cbCalidad.Size = new System.Drawing.Size(175, 24);
             this.cbCalidad.TabIndex = 20;
@@ -364,7 +364,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(51, 192);
+            this.label18.Location = new System.Drawing.Point(3, 192);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(73, 17);
             this.label18.TabIndex = 58;
@@ -393,7 +393,7 @@
             this.label22.AutoSize = true;
             this.label22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(120, 251);
+            this.label22.Location = new System.Drawing.Point(1092, 192);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(56, 17);
             this.label22.TabIndex = 60;
@@ -403,7 +403,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(748, 192);
+            this.label26.Location = new System.Drawing.Point(700, 192);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(99, 17);
             this.label26.TabIndex = 74;
@@ -445,7 +445,7 @@
             "Fermento",
             "Tierra",
             "Banyer"});
-            this.cbDaño.Location = new System.Drawing.Point(395, 188);
+            this.cbDaño.Location = new System.Drawing.Point(347, 188);
             this.cbDaño.Name = "cbDaño";
             this.cbDaño.Size = new System.Drawing.Size(118, 24);
             this.cbDaño.TabIndex = 21;
@@ -458,7 +458,7 @@
             "Admin",
             "Secado Natural",
             "Secado Mecanico"});
-            this.cbRecibidor.Location = new System.Drawing.Point(366, 247);
+            this.cbRecibidor.Location = new System.Drawing.Point(424, 247);
             this.cbRecibidor.Name = "cbRecibidor";
             this.cbRecibidor.Size = new System.Drawing.Size(327, 24);
             this.cbRecibidor.TabIndex = 25;
@@ -477,7 +477,7 @@
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(325, 192);
+            this.label37.Location = new System.Drawing.Point(277, 192);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(57, 17);
             this.label37.TabIndex = 71;
@@ -487,7 +487,7 @@
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(707, 250);
+            this.label38.Location = new System.Drawing.Point(765, 250);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(79, 17);
             this.label38.TabIndex = 67;
@@ -584,6 +584,8 @@
             // 
             this.PRecepcion.AutoScroll = true;
             this.PRecepcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PRecepcion.Controls.Add(this.cbCertificacion);
+            this.PRecepcion.Controls.Add(this.label57);
             this.PRecepcion.Controls.Add(this.label19);
             this.PRecepcion.Controls.Add(this.CbUbicacionRec);
             this.PRecepcion.Controls.Add(this.label13);
@@ -691,7 +693,7 @@
             // 
             this.LblDigitador.AutoSize = true;
             this.LblDigitador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDigitador.Location = new System.Drawing.Point(806, 251);
+            this.LblDigitador.Location = new System.Drawing.Point(864, 251);
             this.LblDigitador.Name = "LblDigitador";
             this.LblDigitador.Size = new System.Drawing.Size(15, 16);
             this.LblDigitador.TabIndex = 67;
@@ -730,7 +732,7 @@
             this.btnAnt.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnAnt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnt.Image = global::ProyectoOFI.Properties.Resources.Ant_642;
-            this.btnAnt.Location = new System.Drawing.Point(1058, 229);
+            this.btnAnt.Location = new System.Drawing.Point(1116, 229);
             this.btnAnt.Name = "btnAnt";
             this.btnAnt.Size = new System.Drawing.Size(106, 57);
             this.btnAnt.TabIndex = 26;
@@ -762,7 +764,7 @@
             this.LblMerma.AutoSize = true;
             this.LblMerma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.LblMerma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblMerma.Location = new System.Drawing.Point(185, 251);
+            this.LblMerma.Location = new System.Drawing.Point(1157, 192);
             this.LblMerma.Name = "LblMerma";
             this.LblMerma.Size = new System.Drawing.Size(21, 16);
             this.LblMerma.TabIndex = 60;
@@ -772,7 +774,7 @@
             // 
             this.LblQQs.AutoSize = true;
             this.LblQQs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblQQs.Location = new System.Drawing.Point(1068, 192);
+            this.LblQQs.Location = new System.Drawing.Point(1020, 192);
             this.LblQQs.Name = "LblQQs";
             this.LblQQs.Size = new System.Drawing.Size(15, 16);
             this.LblQQs.TabIndex = 74;
@@ -782,7 +784,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(1010, 192);
+            this.label1.Location = new System.Drawing.Point(962, 192);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 17);
             this.label1.TabIndex = 74;
@@ -801,7 +803,7 @@
             // nudSacos
             // 
             this.nudSacos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudSacos.Location = new System.Drawing.Point(644, 189);
+            this.nudSacos.Location = new System.Drawing.Point(596, 189);
             this.nudSacos.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -816,7 +818,7 @@
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(276, 251);
+            this.label32.Location = new System.Drawing.Point(334, 251);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(88, 17);
             this.label32.TabIndex = 64;
@@ -828,7 +830,7 @@
             this.txtKgs.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtKgs.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
             this.txtKgs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKgs.Location = new System.Drawing.Point(860, 189);
+            this.txtKgs.Location = new System.Drawing.Point(812, 189);
             this.txtKgs.Name = "txtKgs";
             this.txtKgs.Size = new System.Drawing.Size(112, 22);
             this.txtKgs.TabIndex = 23;
@@ -838,7 +840,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(568, 192);
+            this.label33.Location = new System.Drawing.Point(520, 192);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(63, 17);
             this.label33.TabIndex = 76;
@@ -886,8 +888,6 @@
             this.PEnvio.Controls.Add(this.label14);
             this.PEnvio.Controls.Add(this.label54);
             this.PEnvio.Controls.Add(this.label56);
-            this.PEnvio.Controls.Add(this.cbCertificacion);
-            this.PEnvio.Controls.Add(this.label57);
             this.PEnvio.Controls.Add(this.label58);
             this.PEnvio.Controls.Add(this.TxtTally);
             this.PEnvio.Controls.Add(this.txtPesoE);
@@ -1050,25 +1050,6 @@
             this.label56.Size = new System.Drawing.Size(58, 17);
             this.label56.TabIndex = 112;
             this.label56.Text = "Cliente";
-            // 
-            // cbCertificacion
-            // 
-            this.cbCertificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCertificacion.FormattingEnabled = true;
-            this.cbCertificacion.Location = new System.Drawing.Point(113, 188);
-            this.cbCertificacion.Name = "cbCertificacion";
-            this.cbCertificacion.Size = new System.Drawing.Size(169, 24);
-            this.cbCertificacion.TabIndex = 7;
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(2, 192);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(109, 17);
-            this.label57.TabIndex = 118;
-            this.label57.Text = "Certificación *";
             // 
             // label58
             // 
@@ -2509,6 +2490,25 @@
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
             // 
+            // cbCertificacion
+            // 
+            this.cbCertificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCertificacion.FormattingEnabled = true;
+            this.cbCertificacion.Location = new System.Drawing.Point(131, 247);
+            this.cbCertificacion.Name = "cbCertificacion";
+            this.cbCertificacion.Size = new System.Drawing.Size(169, 24);
+            this.cbCertificacion.TabIndex = 160;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(20, 251);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(109, 17);
+            this.label57.TabIndex = 161;
+            this.label57.Text = "Certificación *";
+            // 
             // Transferencia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2606,8 +2606,6 @@
         private System.Windows.Forms.NumericUpDown nudSacosE;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.ComboBox cbCertificacion;
-        private System.Windows.Forms.Label label57;
         private System.Windows.Forms.DateTimePicker dtFEnvio;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.TextBox txtPesoE;
@@ -2747,5 +2745,7 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label LblFechaCons;
         private System.Windows.Forms.ComboBox CbMTNT;
+        private System.Windows.Forms.ComboBox cbCertificacion;
+        private System.Windows.Forms.Label label57;
     }
 }

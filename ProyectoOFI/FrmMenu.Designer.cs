@@ -73,7 +73,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.menuStrip1.Size = new System.Drawing.Size(1386, 27);
+            this.menuStrip1.Size = new System.Drawing.Size(1370, 27);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -255,7 +255,7 @@
             this.PlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlPrincipal.Location = new System.Drawing.Point(0, 27);
             this.PlPrincipal.Name = "PlPrincipal";
-            this.PlPrincipal.Size = new System.Drawing.Size(1386, 735);
+            this.PlPrincipal.Size = new System.Drawing.Size(1370, 722);
             this.PlPrincipal.TabIndex = 5;
             // 
             // LblPrincipal
@@ -266,7 +266,7 @@
             this.LblPrincipal.ForeColor = System.Drawing.Color.White;
             this.LblPrincipal.Location = new System.Drawing.Point(0, 0);
             this.LblPrincipal.Name = "LblPrincipal";
-            this.LblPrincipal.Size = new System.Drawing.Size(1386, 735);
+            this.LblPrincipal.Size = new System.Drawing.Size(1370, 722);
             this.LblPrincipal.TabIndex = 0;
             this.LblPrincipal.Text = "Bienvenido a \rDry System👋";
             this.LblPrincipal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -277,7 +277,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1386, 762);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.PlPrincipal);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

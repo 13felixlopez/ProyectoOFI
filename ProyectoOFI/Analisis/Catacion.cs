@@ -875,7 +875,7 @@ namespace ProyectoOFI.Analisis
                     {
                         EditarCatacionCD(TxtAnalisis.Text);
                         Task.Delay(3000);
-                        MostrarLotes();
+                        BuscarTK();
                         Desactivar();
                     }
                     else
@@ -903,7 +903,7 @@ namespace ProyectoOFI.Analisis
                         {
                             InsertarCatacion(LblTicket.Text);
                             Task.Delay(3000);
-                            MostrarLotes();
+                            BuscarTK();
                             Desactivar();
                         }
                         else

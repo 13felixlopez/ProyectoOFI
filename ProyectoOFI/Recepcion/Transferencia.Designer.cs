@@ -66,6 +66,8 @@
             this.PlAlerta = new System.Windows.Forms.Panel();
             this.LblAlerta = new System.Windows.Forms.Label();
             this.PRecepcion = new System.Windows.Forms.Panel();
+            this.cbCertificacion = new System.Windows.Forms.ComboBox();
+            this.label57 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.CbUbicacionRec = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -214,8 +216,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.cbCertificacion = new System.Windows.Forms.ComboBox();
-            this.label57 = new System.Windows.Forms.Label();
+            this.BtnRefrescar = new System.Windows.Forms.Button();
             this.PlEnvio.SuspendLayout();
             this.PlRecepcion.SuspendLayout();
             this.PlAlerta.SuspendLayout();
@@ -625,6 +626,25 @@
             this.PRecepcion.Size = new System.Drawing.Size(1235, 291);
             this.PRecepcion.TabIndex = 106;
             this.PRecepcion.Visible = false;
+            // 
+            // cbCertificacion
+            // 
+            this.cbCertificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCertificacion.FormattingEnabled = true;
+            this.cbCertificacion.Location = new System.Drawing.Point(131, 247);
+            this.cbCertificacion.Name = "cbCertificacion";
+            this.cbCertificacion.Size = new System.Drawing.Size(169, 24);
+            this.cbCertificacion.TabIndex = 160;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(20, 251);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(109, 17);
+            this.label57.TabIndex = 161;
+            this.label57.Text = "Certificación *";
             // 
             // label19
             // 
@@ -1086,15 +1106,13 @@
             // 
             // CbMTNT
             // 
-            this.CbMTNT.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.CbMTNT.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.CbMTNT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbMTNT.FormattingEnabled = true;
             this.CbMTNT.Location = new System.Drawing.Point(302, 58);
             this.CbMTNT.Name = "CbMTNT";
             this.CbMTNT.Size = new System.Drawing.Size(222, 24);
+            this.CbMTNT.Sorted = true;
             this.CbMTNT.TabIndex = 1;
-            this.CbMTNT.SelectedIndexChanged += new System.EventHandler(this.CbMTNT_SelectedIndexChanged);
             // 
             // label49
             // 
@@ -1977,6 +1995,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.BtnRefrescar);
             this.panel1.Controls.Add(this.label23);
             this.panel1.Controls.Add(this.LblFechaCons);
             this.panel1.Controls.Add(this.CbUbicacionCons);
@@ -2490,24 +2509,16 @@
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
             // 
-            // cbCertificacion
+            // BtnRefrescar
             // 
-            this.cbCertificacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbCertificacion.FormattingEnabled = true;
-            this.cbCertificacion.Location = new System.Drawing.Point(131, 247);
-            this.cbCertificacion.Name = "cbCertificacion";
-            this.cbCertificacion.Size = new System.Drawing.Size(169, 24);
-            this.cbCertificacion.TabIndex = 160;
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(20, 251);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(109, 17);
-            this.label57.TabIndex = 161;
-            this.label57.Text = "Certificación *";
+            this.BtnRefrescar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRefrescar.Location = new System.Drawing.Point(154, 79);
+            this.BtnRefrescar.Name = "BtnRefrescar";
+            this.BtnRefrescar.Size = new System.Drawing.Size(49, 39);
+            this.BtnRefrescar.TabIndex = 151;
+            this.BtnRefrescar.Text = "🔁";
+            this.BtnRefrescar.UseVisualStyleBackColor = true;
+            this.BtnRefrescar.Click += new System.EventHandler(this.BtnRefrescar_Click);
             // 
             // Transferencia
             // 
@@ -2747,5 +2758,6 @@
         private System.Windows.Forms.ComboBox CbMTNT;
         private System.Windows.Forms.ComboBox cbCertificacion;
         private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Button BtnRefrescar;
     }
 }

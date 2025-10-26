@@ -98,6 +98,7 @@
             // BtnCerrar
             // 
             this.BtnCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnCerrar.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
             this.BtnCerrar.Location = new System.Drawing.Point(411, 0);
@@ -282,8 +283,10 @@
             // 
             // Login
             // 
+            this.AcceptButton = this.BtnInicio;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.BtnCerrar;
             this.ClientSize = new System.Drawing.Size(1096, 645);
             this.Controls.Add(this.PlBotones);
             this.Controls.Add(this.PlPass);

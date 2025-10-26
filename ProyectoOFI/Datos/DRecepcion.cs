@@ -690,7 +690,8 @@ namespace ProyectoOFI.Datos
             {
                 AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
                 using (SqlConnection con = Conexion.abrir())
-                using (SqlCommand da = new SqlCommand("SELECT * FROM Calidad WHERE Calidad NOT LIKE '%' + 'UA'", con))
+                // using (SqlCommand da = new SqlCommand("SELECT * FROM Calidad WHERE Calidad NOT LIKE '%' + 'UA'", con))
+                using (SqlCommand da = new SqlCommand("SELECT * FROM Calidad", con))
                 {
                     da.CommandType = CommandType.Text;
                     SqlDataAdapter cb = new SqlDataAdapter(da);

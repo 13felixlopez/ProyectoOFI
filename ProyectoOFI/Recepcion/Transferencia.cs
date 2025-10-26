@@ -548,33 +548,49 @@ namespace ProyectoOFI.Recepcion
                     {
                         dtFEnvio.Value = DateTime.Today.Date;
                     }
-                    if (row["Agencia"].ToString() != null)
+                    if (row["IdAgencia"].ToString() != null)
                     {
-                        cbAgencia.Text = row["Agencia"].ToString();
+                        cbAgencia.SelectedValue = row["IdAgencia"];
                     }
+                    //if (row["Agencia"].ToString() != null)
+                    //{
+                    //    cbAgencia.Text = row["Agencia"].ToString();
+                    //}
                     else
                     {
                         cbAgencia.ForeColor = Color.White;
                     }
-                    if (row["Acopio"].ToString() != null)
+                    if (row["IdAcopio"].ToString() != null)
                     {
-                        cbAcopio.Text = row["Acopio"].ToString();
+                        cbAcopio.SelectedValue = row["IdAcopio"];
                     }
+                    //if (row["Acopio"].ToString() != null)
+                    //{
+                    //    cbAcopio.Text = row["Acopio"].ToString();
+                    //}
                     else
                     {
                         cbAcopio.Text = "";
                     }
-                    if (row["Cliente"].ToString() != null)
+                    //if (row["Cliente"].ToString() != null)
+                    //{
+                    //    cbCliente.Text = row["Cliente"].ToString();
+                    //}
+                    if (row["IdCliente"].ToString() != null)
                     {
-                        cbCliente.Text = row["Cliente"].ToString();
+                        cbCliente.SelectedValue = row["IdCliente"];
                     }
                     else
                     {
                         cbCliente.Text = "";
                     }
-                    if (row["Compra"].ToString() != null)
+                    //if (row["Compra"].ToString() != null)
+                    //{
+                    //    cbCompra.Text = row["Compra"].ToString();
+                    //}
+                    if (row["IdCompra"].ToString() != null)
                     {
-                        cbCompra.Text = row["Compra"].ToString();
+                        cbCompra.SelectedValue = row["IdCompra"];
                     }
                     else
                     {
@@ -588,33 +604,49 @@ namespace ProyectoOFI.Recepcion
                     {
                         CbMTNT.Text = "";
                     }
-                    if (row["Certificacion"].ToString() != null)
+                    //if (row["Certificacion"].ToString() != null)
+                    //{
+                    //    cbCertificacion.Text = row["Certificacion"].ToString();
+                    //}
+                    if (row["IdCert"].ToString() != null)
                     {
-                        cbCertificacion.Text = row["Certificacion"].ToString();
+                        cbCertificacion.SelectedValue = row["IdCert"];
                     }
                     else
                     {
                         cbCertificacion.Text = "";
                     }
-                    if (row["EstadoFísicoE"].ToString() != null)
+                    //if (row["EstadoFísicoE"].ToString() != null)
+                    //{
+                    //    cbEsFisico.Text = row["EstadoFísicoE"].ToString();
+                    //}
+                    if (row["IdEstadoEn"].ToString() != null)
                     {
-                        cbEsFisico.Text = row["EstadoFísicoE"].ToString();
+                        cbEsFisico.SelectedValue = row["IdEstadoEn"];
                     }
                     else
                     {
                         cbEsFisico.Text = "";
                     }
-                    if (row["CalidadE"].ToString() != null)
+                    //if (row["CalidadE"].ToString() != null)
+                    //{
+                    //    cbCalidadE.Text = row["CalidadE"].ToString();
+                    //}
+                    if (row["IdCalidadEn"].ToString() != null)
                     {
-                        cbCalidadE.Text = row["CalidadE"].ToString();
+                        cbCalidadE.SelectedValue = row["IdCalidadEn"];
                     }
                     else
                     {
                         cbCalidadE.Text = "";
                     }
-                    if (row["DañoE"].ToString() != null)
+                    //if (row["DañoE"].ToString() != null)
+                    //{
+                    //    cbDanioE.Text = row["DañoE"].ToString();
+                    //}
+                    if (row["IdDanioE"].ToString() != null)
                     {
-                        cbDanioE.Text = row["DañoE"].ToString();
+                        cbDanioE.SelectedValue = row["IdDanioE"];
                     }
                     else
                     {
@@ -669,9 +701,31 @@ namespace ProyectoOFI.Recepcion
                     {
                         txtMTNR.Text = "";
                     }
-                    cbEstadoFisico.Text = row["Estado Físico"].ToString();
-                    cbCalidad.Text = row["Calidad"].ToString();
-                    cbDaño.Text = row["Daño"].ToString();
+                    if (row["IdEstFis"].ToString() != null)
+                    {
+                        cbEstadoFisico.SelectedValue = row["IdEstFis"];
+
+                    }
+                    else
+                    {
+                        cbEstadoFisico.Text = "";
+                    }
+                    if (row["IdCalidad"].ToString() != null)
+                    {
+                        cbCalidad.SelectedValue = row["IdCalidad"];
+                    }
+                    else
+                    {
+                        cbCalidad.Text = "";
+                    }
+                    if (row["IdDanio"].ToString() != null)
+                    {
+                        cbDaño.SelectedValue = row["IdDanio"];
+                    }
+                    else
+                    {
+                        cbDaño.Text = "";
+                    }
                     nudSacos.Value = int.Parse(row["Sacos"].ToString());
                     txtKgs.Text = row["Peso"].ToString();
                     kilos = double.Parse(txtKgs.Text);
@@ -685,9 +739,9 @@ namespace ProyectoOFI.Recepcion
                     {
                         LblMerma.Text = "";
                     }
-                    if (row["Recibidor"].ToString() != null)
+                    if (row["IdRecibidor"].ToString() != null)
                     {
-                        cbRecibidor.Text = row["Recibidor"].ToString();
+                        cbRecibidor.SelectedValue = row["IdRecibidor"];
                     }
                     else
                     {
@@ -1047,11 +1101,20 @@ namespace ProyectoOFI.Recepcion
             Daño = parametros.Daño;
 
 
-            funcion.MostrarCert(CbCertCons);
-            funcion.MostrarAreaSecado(CbAreaCons);
+            CombosConsolidado();
             funcion.MostrarTKConsolidar(ref Cons, parametros, par);
             //DtTickets.DataSource = Cons;
             DtAADT();
+        }
+
+        private void CombosConsolidado()
+        {
+            DRecepcion funcion = new DRecepcion();
+            LEnvio par = new LEnvio();
+
+            LRecepcion parametros = new LRecepcion();
+            funcion.MostrarCert(CbCertCons);
+            funcion.MostrarAreaSecado(CbAreaCons);
         }
         private void Datos2()
         {
@@ -1871,7 +1934,7 @@ namespace ProyectoOFI.Recepcion
             funcion.MostrarDaño(cbDaño);
             funcion.MostrarAreaSecado2(cbArea);
             funcion.MostrarAreaSecado2(CbAreaCons);
-            funcion.MostrarMTNT(CbMTNT);
+            // funcion.MostrarMTNT(CbMTNT);
         }
         private void BtnVerCons_Click(object sender, EventArgs e)
         {
@@ -2323,11 +2386,17 @@ namespace ProyectoOFI.Recepcion
 
         private void CbMTNT_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CbMTNT.SelectedItem != null)
+            if (CbMTNT.DataSource == null || CbMTNT.SelectedIndex < 0) return;
+            if (CbMTNT.SelectedValue == null || CbMTNT.SelectedValue is DataRowView) return;
             {
                 string seleccionado = CbMTNT.SelectedItem.ToString();
                 RellenarCampos(seleccionado);
             }
+        }
+
+        private void BtnRefrescar_Click(object sender, EventArgs e)
+        {
+            CombosConsolidado();
         }
 
         private void ValidarPermisos()

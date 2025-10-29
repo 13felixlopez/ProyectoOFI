@@ -28,6 +28,44 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error en MostrarCata ✖️✖️ " + ex.Message);
             }
         }
+        public void MostrarCataSN(ref DataTable dt, int desde, int hasta)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarCataSN", conectar))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.AddWithValue("@Desde", desde);
+                    da.SelectCommand.Parameters.AddWithValue("@Hasta", hasta);
+                    da.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar Lotes para catación " + ex.Message, "ERROR Catación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarCata ✖️✖️ " + ex.Message);
+            }
+        }
+        public void MostrarCataRobusta(ref DataTable dt, int desde, int hasta)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarCataRobusta", conectar))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.AddWithValue("@Desde", desde);
+                    da.SelectCommand.Parameters.AddWithValue("@Hasta", hasta);
+                    da.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar Lotes para catación " + ex.Message, "ERROR Catación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarCata ✖️✖️ " + ex.Message);
+            }
+        }
         internal void ContarTK(ref int contador)
         {
             try
@@ -528,6 +566,39 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error en BuscarCatacion ✖️✖️" + ex.Message);
             }
         }
+        public void BuscarCataSN(string Buscar, string Dato, ref DataTable dt, int desde, int hasta, int Contar)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("BuscarCataSN", conectar))
+                {
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Desde", desde);
+                    cmd.Parameters.AddWithValue("@Hasta", hasta);
+                    cmd.Parameters.AddWithValue("@Buscador", Buscar);
+                    cmd.Parameters.AddWithValue("@Dato", Dato);
+
+                    // Parámetro de salida para el contador
+                    SqlParameter contarParam = new SqlParameter("@Contar", SqlDbType.Int);
+                    contarParam.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(contarParam);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+
+                    // Obtener el valor del contador
+                    Contar = Convert.ToInt32(contarParam.Value);
+                    Contador = Contar;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarCatacion ✖️✖️" + ex.Message);
+            }
+        }
         public void MostrarTasas(ComboBox combo)
         {
             try
@@ -581,6 +652,38 @@ namespace ProyectoOFI.Datos
                 return DateTime.Now;
             }
         }
+        public void BuscarCataRobusta(string Buscar, string Dato, ref DataTable dt, int desde, int hasta, int Contar)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("BuscarCataRobusta", conectar))
+                {
 
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Desde", desde);
+                    cmd.Parameters.AddWithValue("@Hasta", hasta);
+                    cmd.Parameters.AddWithValue("@Buscador", Buscar);
+                    cmd.Parameters.AddWithValue("@Dato", Dato);
+
+                    // Parámetro de salida para el contador
+                    SqlParameter contarParam = new SqlParameter("@Contar", SqlDbType.Int);
+                    contarParam.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(contarParam);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+
+                    // Obtener el valor del contador
+                    Contar = Convert.ToInt32(contarParam.Value);
+                    Contador = Contar;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarCatacion ✖️✖️" + ex.Message);
+            }
+        }
     }
 }

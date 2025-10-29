@@ -35,6 +35,8 @@ namespace ProyectoOFI.Analisis
         List<string> filtro = new List<string>();
         string Analizar = "Proceso";//Variable que define si es compra directa o no
 
+        string Area = "Secado Natural";
+
         //Variables a utilizar para el envio de correo, Ticket y analisis se obtienen del metodo verdetallecata
         string NumAnalisis, Rendimiento, Quality;
 
@@ -295,7 +297,20 @@ namespace ProyectoOFI.Analisis
             DataTable dt = new DataTable();
             Dcatacion funcion = new Dcatacion();
             //funcion.BuscarTK(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            funcion.BuscarCatacion(txtBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
+            //funcion.BuscarCatacion(txtBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
+            funcion.BuscarCataSN(txtBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
+            dtInventarioCat.DataSource = dt;
+            ContarBusqueda = int.Parse(funcion.Contador.ToString());
+            //LblContador.Text = ContarBusqueda.ToString();
+            //Base.DiseñoEnvio(ref dtInventarioCat);
+        }
+        private void BuscarCataRobusta()
+        {
+            DataTable dt = new DataTable();
+            Dcatacion funcion = new Dcatacion();
+            //funcion.BuscarTK(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
+            //funcion.BuscarCatacion(txtBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
+            funcion.BuscarCataRobusta(txtBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
             dtInventarioCat.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.Contador.ToString());
             //LblContador.Text = ContarBusqueda.ToString();
@@ -306,7 +321,15 @@ namespace ProyectoOFI.Analisis
             BtnMostrarCompras.Text = "Compras Directas";
             Dcatacion funcion = new Dcatacion();
             DataTable dt = new DataTable();
-            funcion.MostrarCata(ref dt, desde, hasta);
+            //funcion.MostrarCata(ref dt, desde, hasta);
+            if (Area == "Secado Natural")
+            {
+                funcion.MostrarCataSN(ref dt, desde, hasta);
+            }
+            else if (Area == "Robusta")
+            {
+                funcion.MostrarCataRobusta(ref dt, desde, hasta);
+            }
             //ReiniciarPaginado();
             dtInventarioCat.DataSource = dt;
             //Base.DiseñoDtvEliminar(ref dtInventarioCat);
@@ -425,13 +448,14 @@ namespace ProyectoOFI.Analisis
         private void dtInventarioCat_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             ObtenerTK();
+            CargarCombos();
             if (BtnMostrarCompras.Text == "Compras Directas")
             {
                 PlDetalleCompra.Visible = false;
                 PlDatosTk.Visible = true;
                 //PlDatosTk.BringToFront();
 
-                if (Procedencia == "Secado Mecánico" && QQs > 330)
+                if (Procedencia == "Secado Mecánico")
                 {
                     // Centrar panel en pantalla
                     PlTkSM.Location = new Point(
@@ -485,9 +509,10 @@ namespace ProyectoOFI.Analisis
                     PLDatos.Enabled = true;
                     BtnPart1.Text = string.Empty;
                     BtnPart2.Text = string.Empty;
+                    TkDetalle = LblTicket.Text;
+                    VerDetalleCata();
                 }
                 VerDetalleCatacion();
-                //TkDetalle = LblTicket.Text;
             }
             else
             {
@@ -508,7 +533,7 @@ namespace ProyectoOFI.Analisis
             string nombrecolumna = "Ticket";
             int indice = dtInventarioCat.Columns[nombrecolumna].Index;
             Ticket = dtInventarioCat.SelectedCells[indice].Value.ToString();
-
+            LblTicket.Text = Ticket;
             if (BtnMostrarCompras.Text == "Compras Directas")
             {
                 string nombrecolum = "AreaSecado";
@@ -729,18 +754,18 @@ namespace ProyectoOFI.Analisis
             PLDatos.BringToFront();
             plOpciones.Enabled = false;
             dtInventarioCat.Enabled = false;
-            Dcatacion funcion = new Dcatacion();
-            funcion.MostrarVariedad(CbVariedad);
-            string calidad = LblCalidad.Text;
-            if (calidad.EndsWith("UA"))
-            {
-                funcion.MostrarGrupoCalidadUA(CbGrupoCalidad);
-            }
-            else
-            {
-                funcion.MostrarGCalidad(CbGrupoCalidad);
-            }
-            funcion.MostrarTasas(CbTasa);
+            //Dcatacion funcion = new Dcatacion();
+            //funcion.MostrarVariedad(CbVariedad);
+            //string calidad = LblCalidad.Text;
+            //if (calidad.EndsWith("UA"))
+            //{
+            //    funcion.MostrarGrupoCalidadUA(CbGrupoCalidad);
+            //}
+            //else
+            //{
+            //    funcion.MostrarGCalidad(CbGrupoCalidad);
+            //}
+            //funcion.MostrarTasas(CbTasa);
             Analisis();
             if (Proceso != "Almacén" && Proceso != "Analizado" && Proceso != "Envio")
             {
@@ -760,6 +785,21 @@ namespace ProyectoOFI.Analisis
 
             MostrarCambiarTK();
             TxtBto.Focus();
+        }
+        private void CargarCombos()
+        {
+            Dcatacion funcion = new Dcatacion();
+            funcion.MostrarVariedad(CbVariedad);
+            string calidad = LblCalidad.Text;
+            if (calidad.EndsWith("UA"))
+            {
+                funcion.MostrarGrupoCalidadUA(CbGrupoCalidad);
+            }
+            else
+            {
+                funcion.MostrarGCalidad(CbGrupoCalidad);
+            }
+            funcion.MostrarTasas(CbTasa);
         }
         private void Analisis()
         {
@@ -1471,9 +1511,9 @@ namespace ProyectoOFI.Analisis
                     }
 
                     // Asignar el valor de Var.Variedad
-                    if (row["Variedad"] != DBNull.Value && row["Variedad"].ToString() != null)
+                    if (row["IdVariedad"] != DBNull.Value && row["IdVariedad"].ToString() != null)
                     {
-                        CbVariedad.Text = row["Variedad"].ToString();
+                        CbVariedad.SelectedValue = row["IdVariedad"].ToString();
                     }
                     else
                     {
@@ -1763,7 +1803,18 @@ namespace ProyectoOFI.Analisis
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             Task.Delay(3000);
-            BuscarTK();
+            if (Area == "Secado Natural")
+            {
+                BuscarTK();
+            }
+            else if (Area == "Robusta")
+            {
+                BuscarCataRobusta();
+            }
+            else if (Area == "Secado Mecanico")
+            {
+                //Buscar SM
+            }
             ReiniciarPaginado();
             txtBuscador.Focus();
         }
@@ -1814,6 +1865,51 @@ namespace ProyectoOFI.Analisis
             VerDetalleCata();
         }
 
+        private void TxtScore_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir números, backspace y control
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '-')
+            {
+                e.Handled = true; // Rechazar el carácter
+            }
+
+            // Permitir signo negativo solo al inicio
+            if (e.KeyChar == '-' && ((TextBox)sender).SelectionStart != 0)
+            {
+                e.Handled = true;
+            }
+
+            // Evitar múltiples signos negativos
+            if (e.KeyChar == '-' && ((TextBox)sender).Text.Contains("-"))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void BtnSecadoNa_Click(object sender, EventArgs e)
+        {
+            Area = "Secado Natural";
+            BtnSecadoM.Enabled = true;
+            BtnRobusta.Enabled = true;
+            BtnSecadoNa.Enabled = false;
+        }
+
+        private void BtnRobusta_Click(object sender, EventArgs e)
+        {
+            Area = "Robusta";
+            BtnSecadoM.Enabled = true;
+            BtnSecadoNa.Enabled = true;
+            BtnRobusta.Enabled = false;
+        }
+
+        private void BtnSecadoM_Click(object sender, EventArgs e)
+        {
+            Area = "Secado Mecanico";
+            BtnSecadoM.Enabled = true;
+            BtnRobusta.Enabled = true;
+            BtnSecadoM.Enabled = false;
+        }
+
         private void BtnPart2_Click(object sender, EventArgs e)
         {
             LblTicket.Text = Ticket + "-Parte2";
@@ -1830,52 +1926,6 @@ namespace ProyectoOFI.Analisis
             TkDetalle = LblTicket.Text;
             VerDetalleCata();
             VerDetalleCata();
-        }
-
-        private void BtnCopiar_Click(object sender, EventArgs e)
-        {
-            DialogResult res;
-            if (Validar())
-            {
-                // Crear el mensaje con los datos
-                string mensaje = $"Verifique los datos antes de proceder:\n" +
-                             $"- Ticket: {LblTicket.Text}\n" +
-                             $"- Analisis: {TxtAnalisis.Text}\n" +
-                             $"- Rendimineto Oro Bruto: {TxtBto.Text}\n" +
-                             $"- Cascarilla: {LblCascarilla.Text}\n" +
-                             $"- Total PS: {LblTotal.Text}\n" +
-                             $"- Variedad: {CbVariedad.Text}\n" +
-                             $"- Humedad: {TxtHumedad.Text}\n" +
-                             $"- Exp: {TxtExp.Text}\n" +
-                             $"- DesmA: {TxtDesmA.Text}\n" +
-                             $"- DesmD: {TxtDesmD.Text}\n" +
-                             $"- DesmC: {LblDesmC.Text}\n" +
-                             $"- Score: {TxtScore.Text}\n" +
-                             $"- Quality Grade: {CbGrupoCalidad.Text}\n" +
-                             $"- Taza: {CbTasa.Text}\n";
-
-                // Mostrar el mensaje y esperar la confirmación del usuario
-                res = MessageBox.Show(mensaje, "Confirmar Edición", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-                if (res == DialogResult.Yes)
-                {
-                    //InsertarCatacion(LblTicket.Text);
-                    InsertarCatacion(Tk2);
-                    Task.Delay(3000);
-                    MostrarLotes();
-                    Desactivar();
-                }
-                else
-                {
-                    Activar();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Existen campos vacíos", "ERROR campos vacíos", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            dtInventarioCat.Enabled = true;
-            plOpciones.Enabled = true;
         }
 
         private void BtnX_Click(object sender, EventArgs e)

@@ -1813,10 +1813,19 @@ namespace ProyectoOFI.Analisis
             }
             else if (Area == "Secado Mecanico")
             {
-                //Buscar SM
+                BuscarCataSM();
             }
             ReiniciarPaginado();
             txtBuscador.Focus();
+        }
+
+        private void BuscarCataSM()
+        {
+            DataTable dt = new DataTable();
+            Dcatacion funcion = new Dcatacion();
+            funcion.BuscarCataSM(txtBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
+            dtInventarioCat.DataSource = dt;
+            ContarBusqueda = int.Parse(funcion.Contador.ToString());
         }
 
         private void BtnSplit_Click(object sender, EventArgs e)
@@ -1892,6 +1901,7 @@ namespace ProyectoOFI.Analisis
             BtnSecadoM.Enabled = true;
             BtnRobusta.Enabled = true;
             BtnSecadoNa.Enabled = false;
+            BuscarTK();
         }
 
         private void BtnRobusta_Click(object sender, EventArgs e)
@@ -1905,7 +1915,7 @@ namespace ProyectoOFI.Analisis
         private void BtnSecadoM_Click(object sender, EventArgs e)
         {
             Area = "Secado Mecanico";
-            BtnSecadoM.Enabled = true;
+            BtnSecadoNa.Enabled = true;
             BtnRobusta.Enabled = true;
             BtnSecadoM.Enabled = false;
         }

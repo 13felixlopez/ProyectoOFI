@@ -1901,6 +1901,7 @@ namespace ProyectoOFI.Analisis
             BtnSecadoM.Enabled = true;
             BtnRobusta.Enabled = true;
             BtnSecadoNa.Enabled = false;
+            dtInventarioCat.DataSource = null;
             BuscarTK();
         }
 
@@ -1910,6 +1911,8 @@ namespace ProyectoOFI.Analisis
             BtnSecadoM.Enabled = true;
             BtnSecadoNa.Enabled = true;
             BtnRobusta.Enabled = false;
+            dtInventarioCat.DataSource = null;
+            BuscarCataRobusta();
         }
 
         private void BtnSecadoM_Click(object sender, EventArgs e)
@@ -1918,6 +1921,8 @@ namespace ProyectoOFI.Analisis
             BtnSecadoNa.Enabled = true;
             BtnRobusta.Enabled = true;
             BtnSecadoM.Enabled = false;
+            dtInventarioCat.DataSource = null;
+            BuscarCataSM();
         }
 
         private void BtnPart2_Click(object sender, EventArgs e)

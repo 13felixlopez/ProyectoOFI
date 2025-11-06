@@ -176,6 +176,7 @@
     <Compile Include="Logica\Encrip.cs" />
     <Compile Include="Logica\LAlmacen.cs" />
     <Compile Include="Logica\LCatacion.cs" />
+    <Compile Include="Logica\LCatacionRob.cs" />
     <Compile Include="Logica\LComprasD.cs" />
     <Compile Include="Logica\LControlPatio2.cs" />
     <Compile Include="Logica\LEnvio.cs" />

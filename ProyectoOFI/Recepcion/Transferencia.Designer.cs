@@ -175,6 +175,7 @@
             this.PnTKCons = new System.Windows.Forms.Panel();
             this.dtTKCons = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnRefrescar = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.LblFechaCons = new System.Windows.Forms.Label();
             this.CbUbicacionCons = new System.Windows.Forms.ComboBox();
@@ -216,7 +217,8 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.BtnRefrescar = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.TxtPlaca = new System.Windows.Forms.TextBox();
             this.PlEnvio.SuspendLayout();
             this.PlRecepcion.SuspendLayout();
             this.PlAlerta.SuspendLayout();
@@ -889,6 +891,8 @@
             this.PEnvio.AutoScroll = true;
             this.PEnvio.AutoSize = true;
             this.PEnvio.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PEnvio.Controls.Add(this.label24);
+            this.PEnvio.Controls.Add(this.TxtPlaca);
             this.PEnvio.Controls.Add(this.ChUA);
             this.PEnvio.Controls.Add(this.LblQQsEn);
             this.PEnvio.Controls.Add(this.label7);
@@ -2027,6 +2031,17 @@
             this.panel1.Size = new System.Drawing.Size(429, 123);
             this.panel1.TabIndex = 3;
             // 
+            // BtnRefrescar
+            // 
+            this.BtnRefrescar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRefrescar.Location = new System.Drawing.Point(154, 79);
+            this.BtnRefrescar.Name = "BtnRefrescar";
+            this.BtnRefrescar.Size = new System.Drawing.Size(49, 39);
+            this.BtnRefrescar.TabIndex = 151;
+            this.BtnRefrescar.Text = "🔁";
+            this.BtnRefrescar.UseVisualStyleBackColor = true;
+            this.BtnRefrescar.Click += new System.EventHandler(this.BtnRefrescar_Click);
+            // 
             // label23
             // 
             this.label23.AutoSize = true;
@@ -2509,16 +2524,26 @@
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
             // 
-            // BtnRefrescar
+            // label24
             // 
-            this.BtnRefrescar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRefrescar.Location = new System.Drawing.Point(154, 79);
-            this.BtnRefrescar.Name = "BtnRefrescar";
-            this.BtnRefrescar.Size = new System.Drawing.Size(49, 39);
-            this.BtnRefrescar.TabIndex = 151;
-            this.BtnRefrescar.Text = "🔁";
-            this.BtnRefrescar.UseVisualStyleBackColor = true;
-            this.BtnRefrescar.Click += new System.EventHandler(this.BtnRefrescar_Click);
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(33, 193);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(53, 17);
+            this.label24.TabIndex = 159;
+            this.label24.Text = "Placa:";
+            // 
+            // TxtPlaca
+            // 
+            this.TxtPlaca.AllowDrop = true;
+            this.TxtPlaca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.TxtPlaca.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.TxtPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPlaca.Location = new System.Drawing.Point(91, 190);
+            this.TxtPlaca.Name = "TxtPlaca";
+            this.TxtPlaca.Size = new System.Drawing.Size(151, 22);
+            this.TxtPlaca.TabIndex = 158;
             // 
             // Transferencia
             // 
@@ -2759,5 +2784,7 @@
         private System.Windows.Forms.ComboBox cbCertificacion;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Button BtnRefrescar;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.TextBox TxtPlaca;
     }
 }

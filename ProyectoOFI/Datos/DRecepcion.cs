@@ -50,6 +50,7 @@ namespace ProyectoOFI.Datos
                     cmd.Parameters.AddWithValue("@SacosE", parametro.SacosE);
                     cmd.Parameters.AddWithValue("@PesoE", parametro.PesoE);
                     cmd.Parameters.AddWithValue("@Tally", parametro.Tally);
+                    cmd.Parameters.AddWithValue("@Placa", parametro.Placa);
                     cmd.ExecuteNonQuery();
                     //MessageBox.Show("Registro realizado con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return true;
@@ -276,6 +277,7 @@ namespace ProyectoOFI.Datos
                     cmd.Parameters.AddWithValue("@SacosE", par.SacosE);
                     cmd.Parameters.AddWithValue("@PesoE", par.PesoE);
                     cmd.Parameters.AddWithValue("@Tally", par.Tally);
+                    cmd.Parameters.AddWithValue("@Placa", par.Placa);
 
                     cmd.ExecuteNonQuery();
                     return true;

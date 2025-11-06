@@ -292,6 +292,7 @@ namespace ProyectoOFI.Recepcion
             LblQQs.Text = "--";
             lblTransferencia.Text = "Agregar Transferencia";
             TxtTally.Clear();
+            TxtPlaca.Clear();
             CHBConsSM.Checked = false;
         }
         private void txtKgs_TextChanged(object sender, EventArgs e)
@@ -414,6 +415,7 @@ namespace ProyectoOFI.Recepcion
                 par.SacosE = Convert.ToInt32(nudSacosE.Value);
                 par.PesoE = Convert.ToDouble(txtPesoE.Text);
                 par.Tally = TxtTally.Text;
+                par.Placa = TxtPlaca.Text;
 
                 if (funcion.InsertarLote2(parametros, par) == true)
                 {
@@ -701,6 +703,15 @@ namespace ProyectoOFI.Recepcion
                     {
                         txtMTNR.Text = "";
                     }
+                    if (row["Placa"].ToString() != null)
+                    {
+                        TxtPlaca.Text = row["Placa"].ToString();
+                    }
+                    else
+                    {
+                        TxtPlaca.Text = "";
+                    }
+
                     if (row["IdEstFis"].ToString() != null)
                     {
                         cbEstadoFisico.SelectedValue = row["IdEstFis"];
@@ -1396,6 +1407,7 @@ namespace ProyectoOFI.Recepcion
                         par.SacosE = Convert.ToInt32(nudSacosE.Value);
                         par.PesoE = Convert.ToDouble(txtPesoE.Text);
                         par.Tally = TxtTally.Text;
+                        par.Placa = TxtPlaca.Text;
                         if (ContadorEdit < 3 || Login.login.Trim().StartsWith("Admin", StringComparison.OrdinalIgnoreCase))
                         {
 
@@ -1569,6 +1581,7 @@ namespace ProyectoOFI.Recepcion
                                              $"- Acopio: {cbAcopio.Text}\n" +
                                              $"- Cliente: {cbCliente.Text}\n" +
                                              $"- MTNT: {CbMTNT.Text}\n" +
+                                             $"- Placa: {TxtPlaca.Text}\n" +
                                              $"- Tipo Compra: {cbCompra.Text}\n" +
                                              $"- Certificación: {cbCertificacion.Text}\n" +
                                              $"- Es Físico: {cbEsFisico.Text}\n" +

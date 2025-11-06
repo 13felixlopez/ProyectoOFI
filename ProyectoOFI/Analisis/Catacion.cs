@@ -1915,6 +1915,193 @@ namespace ProyectoOFI.Analisis
             BuscarCataRobusta();
         }
 
+        private void BtnAnalizadoRob_Click(object sender, EventArgs e)
+        {
+            if (!ValidarCamposRob())
+            {
+                MessageBox.Show("Datos invalidos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                InsertarCatRob();
+            }
+        }
+        public bool ValidarCamposRob()
+        {
+            // Usamos una lista de campos para simplificar la validación de nulos/vacíos
+            var camposTexto = new (string Nombre, string Valor, Control Control)[]
+            {
+            // Validaciones de Campos de Texto / Lógico (Null/Empty Check)
+            ("Ticket", LblTicketRob.Text, LblTicketRob),
+            ("Procedencia/Origen", LblProcedenciaRob.Text, LblProcedenciaRob),
+            ("Análisis", TxtAnalisisRob.Text, TxtAnalisisRob),
+            ("RmtoObto", TxtObtRob.Text, TxtObtRob),
+            ("Cascarilla", LblCascarillaRob.Text, LblCascarillaRob),
+            ("Total PS", LblPsRob.Text, LblPsRob),
+            ("Humedad", TxtHumdadRob.Text, TxtHumdadRob),
+            ("Exp Rob %", LblExpPRod.Text, LblExpPRod),
+            ("SCR 15 %", LblScr15PRob.Text, LblScr15PRob),
+            ("SCR 14 %", LblScr14PRob.Text, LblScr14PRob),
+            ("Desm D Rob %", LblDesmPRob.Text, LblDesmPRob),
+            ("Taza", CbTazaRob.Text, CbTazaRob),
+            ("Grado Calidad", CbGCalidadRob.Text, CbGCalidadRob),
+            
+            // Validamos que se haya seleccionado un valor en el ComboBox
+            ("Id Variedad", CbVariedadRob.SelectedValue?.ToString(), CbVariedadRob),
+            };
+
+            foreach (var campo in camposTexto)
+            {
+                // Verificación de nulos/vacíos
+                if (string.IsNullOrWhiteSpace(campo.Valor))
+                {
+                    MessageBox.Show($"El campo '{campo.Nombre}' es obligatorio y no puede estar vacío.", "Error de Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    campo.Control.Focus();
+                    return false;
+                }
+            }
+
+            // --- 2. Validación de Campos Numéricos (Int y Decimal) ---
+
+            // Se utiliza TryParse para validar que el texto sea convertible a número.
+            // Usamos CultureInfo.InvariantCulture para asegurar que el punto sea el separador decimal (si es relevante).
+
+            // Validación de campos INT
+            var camposInt = new (string Nombre, string Valor, Control Control)[]
+            {
+            ("Días", LblDiasRob.Text, LblDiasRob),
+            ("Score", TxtScoreRob.Text, TxtScoreRob)
+            };
+
+            foreach (var campo in camposInt)
+            {
+                if (!int.TryParse(campo.Valor, out _))
+                {
+                    MessageBox.Show($"El campo '{campo.Nombre}' debe ser un número entero válido.", "Error de Formato", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    campo.Control.Focus();
+                    return false;
+                }
+            }
+
+            // Validación de campos DECIMAL
+            var camposDecimal = new (string Nombre, string Valor, Control Control)[]
+            {
+            ("Exp Rob", TxtExpRob.Text, TxtExpRob),
+            ("SCR 15", TxtScr15.Text, TxtScr15),
+            ("SCR 14", TxtScr14.Text, TxtScr14),
+            ("Desm D Rob", LblDemDRob.Text, LblDemDRob),
+            ("Peso Recibido", LblPesoRob.Text, LblPesoRob)
+            };
+
+            foreach (var campo in camposDecimal)
+            {
+                // Usamos decimal.TryParse con InvariantCulture para manejo consistente de decimales.
+                if (!decimal.TryParse(campo.Valor, NumberStyles.Any, CultureInfo.InvariantCulture, out _))
+                {
+                    MessageBox.Show($"El campo '{campo.Nombre}' debe ser un valor numérico válido.", "Error de Formato", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    campo.Control.Focus();
+                    return false;
+                }
+            }
+
+            // Nota: Las fechas (DtPickerMuestraRob.Value, DateTime.Today) y el CheckBox (ChbRechazadoRob.Checked)
+            // se manejan internamente y siempre son válidos.
+
+            return true;
+        }
+        private void InsertarCatRob()
+        {
+            if (DtFechacatacionRob.Value.Date > DateTime.Today.Date)
+            {
+                MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha actual",
+                                "Error en la fecha",
+                                MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+
+            LCatacionRob parametros = new LCatacionRob();
+            Dcatacion funcion = new Dcatacion();
+
+            // --- Asignar valores ---
+            parametros.Ticket = LblTicketRob.Text;
+            parametros.Origen = LblProcedenciaRob.Text;
+            parametros.Analisis = TxtAnalisisRob.Text;
+            parametros.FechaMuestra = DtPickerMuestraRob.Value;
+            parametros.FechaCatacion = DateTime.Today;
+            parametros.Dias = int.Parse(LblDiasRob.Text);
+            parametros.RmtoObto = TxtObtRob.Text;
+            parametros.Cascarilla = LblCascarillaRob.Text;
+            parametros.TotalPS = LblPsRob.Text;
+            parametros.IdVariedad = (int)CbVariedadRob.SelectedValue;
+            parametros.Humedad = TxtHumdadRob.Text;
+            parametros.ExpRob = decimal.Parse(TxtExpRob.Text);
+            parametros.SCR15 = decimal.Parse(TxtScr15.Text);
+            parametros.SCR14 = decimal.Parse(TxtScr14.Text);
+            parametros.DesmDRob = decimal.Parse(LblDemDRob.Text);
+            parametros.Score = int.Parse(TxtScoreRob.Text);
+            parametros.Taza = CbTazaRob.Text;
+            parametros.GradoCalidad = CbGCalidadRob.Text;
+            parametros.ExpRobP = LblExpPRod.Text;
+            parametros.SCR15P = LblScr15PRob.Text;
+            parametros.SCR14P = LblScr14PRob.Text;
+            parametros.DesmDRobP = LblDesmPRob.Text;
+            parametros.Digitador = Login.NombreA;
+            parametros.PesoRecibido = decimal.Parse(LblPesoRob.Text);
+            parametros.Estado = ChbRechazadoRob.Checked ? "0" : "1";
+
+            // --- Insertar ---
+            if (funcion.InsertarCatacionRob(parametros) == true)
+            {
+                PlDatosrob.Visible = false;
+                LimpiarRob();
+            }
+            else
+            {
+                MessageBox.Show("❌ No se pudo insertar la catación de robusta.",
+                                "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void LimpiarRob()
+        {
+            // 1. Limpiar TextBoxes y Labels (Restablecer a cadena vacía)
+
+            // TextBoxes
+            TxtAnalisisRob.Text = string.Empty;
+            TxtObtRob.Text = string.Empty;
+            TxtHumdadRob.Text = string.Empty;
+            TxtExpRob.Text = string.Empty;
+            TxtScr15.Text = string.Empty;
+            TxtScr14.Text = string.Empty;
+            TxtScoreRob.Text = string.Empty;
+
+            // Labels (donde se muestra Ticket, Origen, etc.)
+            LblTicketRob.Text = string.Empty;
+            LblProcedenciaRob.Text = string.Empty;
+            LblDiasRob.Text = string.Empty;
+            LblCascarillaRob.Text = string.Empty;
+            LblPsRob.Text = string.Empty;
+            LblDemDRob.Text = string.Empty;
+            LblExpPRod.Text = string.Empty;
+            LblScr15PRob.Text = string.Empty;
+            LblScr14PRob.Text = string.Empty;
+            LblDesmPRob.Text = string.Empty;
+            LblPesoRob.Text = string.Empty;
+
+            // 2. Restablecer ComboBoxes (Desmarcar selección)
+            CbVariedadRob.SelectedIndex = -1; // Deseleccionar
+            CbTazaRob.Text = string.Empty;    // Limpiar texto (si es editable)
+            CbGCalidadRob.Text = string.Empty; // Limpiar texto (si es editable)
+
+            // 3. Restablecer DatePickers
+            DtPickerMuestraRob.Value = DateTime.Today;
+
+            // 4. Restablecer CheckBox (Estado)
+            ChbRechazadoRob.Checked = false;
+        }
+
         private void BtnSecadoM_Click(object sender, EventArgs e)
         {
             Area = "Secado Mecanico";

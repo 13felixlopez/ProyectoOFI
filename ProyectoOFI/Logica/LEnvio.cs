@@ -25,6 +25,7 @@ namespace ProyectoOFI.Logica
         public int SacosE { get; set; }
         public double PesoE { get; set; }
         public string Tally { get; set; }
+        public string Placa { get; set; }
 
     }
 }

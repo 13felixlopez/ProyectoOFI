@@ -448,7 +448,7 @@ namespace ProyectoOFI.Analisis
         private void dtInventarioCat_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             ObtenerTK();
-            CargarCombos();
+
             if (BtnMostrarCompras.Text == "Compras Directas")
             {
                 PlDetalleCompra.Visible = false;
@@ -524,6 +524,7 @@ namespace ProyectoOFI.Analisis
                 DTPFechaMuestra.Value = DateTime.Parse(LblFecha.Text);
                 VerDetalleCata();
             }
+            CargarCombos();
             AbrirFormulario();
             // Traer panel al frente
             PlTkSM.BringToFront();

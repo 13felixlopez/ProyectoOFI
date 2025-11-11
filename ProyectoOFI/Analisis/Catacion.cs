@@ -455,63 +455,63 @@ namespace ProyectoOFI.Analisis
                 PlDatosTk.Visible = true;
                 //PlDatosTk.BringToFront();
 
-                if (Procedencia == "Secado Mecánico")
-                {
-                    // Centrar panel en pantalla
-                    PlTkSM.Location = new Point(
-                        (this.ClientSize.Width - PlTkSM.Width) / 2,
-                        (this.ClientSize.Height - PlTkSM.Height) / 2);
+                //if (Procedencia == "Secado Mecánico")
+                //{
+                //    // Centrar panel en pantalla
+                //    PlTkSM.Location = new Point(
+                //        (this.ClientSize.Width - PlTkSM.Width) / 2,
+                //        (this.ClientSize.Height - PlTkSM.Height) / 2);
 
-                    // Desactivar panel principal
-                    PLDatos.Enabled = false;
-                    PlTkSM.Visible = true;
+                //    // Desactivar panel principal
+                //    PLDatos.Enabled = false;
+                //    PlTkSM.Visible = true;
 
-                    // Instanciar clase de acceso a datos
-                    var funcion = new Dcatacion();
+                //    // Instanciar clase de acceso a datos
+                //    var funcion = new Dcatacion();
 
-                    // Construir códigos de parte
-                    part1 = $"{Ticket}-Parte1";
-                    part2 = $"{Ticket}-Parte2";
+                //    // Construir códigos de parte
+                //    part1 = $"{Ticket}-Parte1";
+                //    part2 = $"{Ticket}-Parte2";
 
-                    // Obtener datos
-                    funcion.MaquinaP1(part1, ref POA1);
-                    funcion.MaquinaP2(part2, ref POA2);
+                //    // Obtener datos
+                //    funcion.MaquinaP1(part1, ref POA1);
+                //    funcion.MaquinaP2(part2, ref POA2);
 
-                    // Mostrar / ocultar botón Parte 1
-                    if (POA1 > 0)
-                    {
-                        BtnPart1.Visible = true;
-                        BtnPart1.Text = $"{Ticket}-Parte1  Tolva {POA1}";
-                    }
-                    else
-                    {
-                        BtnPart1.Visible = false;
-                        BtnPart1.Text = string.Empty;
-                    }
+                //    // Mostrar / ocultar botón Parte 1
+                //    if (POA1 > 0)
+                //    {
+                //        BtnPart1.Visible = true;
+                //        BtnPart1.Text = $"{Ticket}-Parte1  Tolva {POA1}";
+                //    }
+                //    else
+                //    {
+                //        BtnPart1.Visible = false;
+                //        BtnPart1.Text = string.Empty;
+                //    }
 
-                    // Mostrar / ocultar botón Parte 2
-                    if (POA2 > 0)
-                    {
-                        BtnPart2.Visible = true;
-                        BtnPart2.Text = $"{Ticket}-Parte2  Tolva {POA2}";
-                    }
-                    else
-                    {
-                        BtnPart2.Visible = false;
-                        BtnPart2.Text = string.Empty;
-                    }
+                //    // Mostrar / ocultar botón Parte 2
+                //    if (POA2 > 0)
+                //    {
+                //        BtnPart2.Visible = true;
+                //        BtnPart2.Text = $"{Ticket}-Parte2  Tolva {POA2}";
+                //    }
+                //    else
+                //    {
+                //        BtnPart2.Visible = false;
+                //        BtnPart2.Text = string.Empty;
+                //    }
 
-                }
-                else
-                {
-                    // Restaurar estado normal
-                    PlTkSM.Visible = false;
-                    PLDatos.Enabled = true;
-                    BtnPart1.Text = string.Empty;
-                    BtnPart2.Text = string.Empty;
-                    TkDetalle = LblTicket.Text;
-                    VerDetalleCata();
-                }
+                //}
+                //else
+                //{
+                // Restaurar estado normal
+                PlTkSM.Visible = false;
+                PLDatos.Enabled = true;
+                BtnPart1.Text = string.Empty;
+                BtnPart2.Text = string.Empty;
+                TkDetalle = LblTicket.Text;
+                VerDetalleCata();
+                //}
                 VerDetalleCatacion();
             }
             else
@@ -525,9 +525,16 @@ namespace ProyectoOFI.Analisis
                 VerDetalleCata();
             }
             CargarCombos();
-            AbrirFormulario();
+            if (Area == "Secado Natural")
+            {
+                AbrirFormulario(PLDatos);
+            }
+            else if (Area == "Robusta")
+            {
+                AbrirFormulario(PlDatosrob);
+            }
             // Traer panel al frente
-            PlTkSM.BringToFront();
+            // PlTkSM.BringToFront();
         }
         private void ObtenerTK()
         {
@@ -713,6 +720,16 @@ namespace ProyectoOFI.Analisis
             LblDesmC.Text = DesmD.ToString();
             LblDesmCP.Text = Math.Round((Bto * DesmD) / 100, 2).ToString() + "%";
         }
+        private void CalcularDesmDRob()
+        {
+            double Exp = string.IsNullOrEmpty(TxtExpRob.Text) ? 0 : double.Parse(TxtExpRob.Text);
+            double DesmA = string.IsNullOrEmpty(TxtScr15.Text) ? 0 : double.Parse(TxtScr15.Text);
+            double DesmC = string.IsNullOrEmpty(TxtScr14.Text) ? 0 : double.Parse(TxtScr14.Text);
+
+            double DesmD = Math.Round(100 - Exp - DesmA - DesmC, 2);
+            LblDemDRob.Text = DesmD.ToString();
+            LblDesmPRob.Text = Math.Round((Bto * DesmD) / 100, 2).ToString() + "%";
+        }
 
         private void BtnCerrarPldatos_Click(object sender, EventArgs e)
         {
@@ -725,7 +742,7 @@ namespace ProyectoOFI.Analisis
             Limpiar();
             ValidarPermisos();
         }
-        private void AbrirFormulario()
+        private void AbrirFormulario(Panel Datos)
         {
             // PLDatos.Size = new Size(1207, 622);
             //PLDatos.Location = new System.Drawing.Point(dtInventarioCat.Width / 2
@@ -735,24 +752,24 @@ namespace ProyectoOFI.Analisis
             int formHeight = this.ClientSize.Height;
 
             // Verificamos si el panel es más grande que el formulario y ajustamos si es necesario
-            if (PLDatos.Width > formWidth)
+            if (Datos.Width > formWidth)
             {
-                PLDatos.Width = formWidth - 20; // Agregamos un margen
+                Datos.Width = formWidth - 20; // Agregamos un margen
             }
 
-            if (PLDatos.Height > formHeight)
+            if (Datos.Height > formHeight)
             {
-                PLDatos.Height = formHeight - 20; // Agregamos un margen
+                Datos.Height = formHeight - 20; // Agregamos un margen
             }
 
             // Luego calculamos la nueva ubicación centrada
-            int newX = (formWidth - PLDatos.Width) / 2;
-            int newY = (formHeight - PLDatos.Height) / 2;
+            int newX = (formWidth - Datos.Width) / 2;
+            int newY = (formHeight - Datos.Height) / 2;
 
-            PLDatos.Location = new System.Drawing.Point(newX, newY);
+            Datos.Location = new System.Drawing.Point(newX, newY);
 
-            PLDatos.Visible = true;
-            PLDatos.BringToFront();
+            Datos.Visible = true;
+            Datos.BringToFront();
             plOpciones.Enabled = false;
             dtInventarioCat.Enabled = false;
             //Dcatacion funcion = new Dcatacion();
@@ -1055,21 +1072,42 @@ namespace ProyectoOFI.Analisis
         }
         private void Activar()
         {
-            TxtAnalisis.Enabled = true;
-            //DtFechaCatacion.Enabled = true;
-            //DTPFechaMuestra.Enabled = true;
-            TxtBto.Enabled = true;
-            CbVariedad.Enabled = true;
-            TxtHumedad.Enabled = true;
-            TxtExp.Enabled = true;
-            TxtDesmA.Enabled = true;
-            TxtDesmD.Enabled = true;
-            TxtScore.Enabled = true;
-            BtnAnalisis.Enabled = true;
-            ChbAnalizado.Enabled = true;
-            ChbRechazado.Enabled = true;
-            CbGrupoCalidad.Enabled = true;
-            CbTasa.Enabled = true;
+            if (Area == "Secado Natural")
+            {
+                TxtAnalisis.Enabled = true;
+                //DtFechaCatacion.Enabled = true;
+                //DTPFechaMuestra.Enabled = true;
+                TxtBto.Enabled = true;
+                CbVariedad.Enabled = true;
+                TxtHumedad.Enabled = true;
+                TxtExp.Enabled = true;
+                TxtDesmA.Enabled = true;
+                TxtDesmD.Enabled = true;
+                TxtScore.Enabled = true;
+                BtnAnalisis.Enabled = true;
+                ChbAnalizado.Enabled = true;
+                ChbRechazado.Enabled = true;
+                CbGrupoCalidad.Enabled = true;
+                CbTasa.Enabled = true;
+            }
+            else if (Area == "Robusta")
+            {
+                TxtAnalisisRob.Enabled = true;
+                //DtFechaCatacion.Enabled = true;
+                //DTPFechaMuestra.Enabled = true;
+                TxtObtRob.Enabled = true;
+                CbVariedadRob.Enabled = true;
+                TxtHumdadRob.Enabled = true;
+                TxtExpRob.Enabled = true;
+                TxtScr15.Enabled = true;
+                TxtScr14.Enabled = true;
+                TxtScoreRob.Enabled = true;
+                BtnAnalizadoRob.Enabled = true;
+                ChbAnalizadoRob.Enabled = true;
+                ChbRechazadoRob.Enabled = true;
+                CbGCalidadRob.Enabled = true;
+                CbTazaRob.Enabled = true;
+            }
         }
         private void Desactivar()
         {
@@ -2101,6 +2139,32 @@ namespace ProyectoOFI.Analisis
 
             // 4. Restablecer CheckBox (Estado)
             ChbRechazadoRob.Checked = false;
+        }
+
+        private void TxtObtRob_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(TxtObtRob.Text))
+            {
+                Bto = 0;
+            }
+            else
+            {
+                try
+                {
+                    Bto = double.Parse(TxtObtRob.Text);
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Por favor, introduce un número válido.");
+                    TxtObtRob.Text = "0";
+                    Bto = 0;
+                }
+            }
+
+            Casc = 100 - Bto;
+            LblCascarillaRob.Text = Casc.ToString();
+            LblPsRob.Text = (Casc + Bto).ToString();
+            CalcularDesmDRob();
         }
 
         private void BtnSecadoM_Click(object sender, EventArgs e)

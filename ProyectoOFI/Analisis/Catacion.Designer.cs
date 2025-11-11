@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioCat = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.BtnSecadoNa = new System.Windows.Forms.Button();
@@ -190,13 +190,11 @@
             this.CbTazaRob = new System.Windows.Forms.ComboBox();
             this.label55 = new System.Windows.Forms.Label();
             this.CbGCalidadRob = new System.Windows.Forms.ComboBox();
-            this.BtnActivarRod = new System.Windows.Forms.Button();
             this.ChbAnalizadoRob = new System.Windows.Forms.CheckBox();
             this.ChbRechazadoRob = new System.Windows.Forms.CheckBox();
             this.CbVariedadRob = new System.Windows.Forms.ComboBox();
             this.DtFechacatacionRob = new System.Windows.Forms.DateTimePicker();
             this.label56 = new System.Windows.Forms.Label();
-            this.BtnAnalizadoRob = new System.Windows.Forms.Button();
             this.DtPickerMuestraRob = new System.Windows.Forms.DateTimePicker();
             this.label58 = new System.Windows.Forms.Label();
             this.LblDiasRob = new System.Windows.Forms.Label();
@@ -257,6 +255,8 @@
             this.button7 = new System.Windows.Forms.Button();
             this.label134 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
+            this.BtnActivarRod = new System.Windows.Forms.Button();
+            this.BtnAnalizadoRob = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioCat)).BeginInit();
             this.plOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).BeginInit();
@@ -291,14 +291,14 @@
             this.dtInventarioCat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioCat.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioCat.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioCat.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dtInventarioCat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioCat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioCat.Location = new System.Drawing.Point(0, 62);
@@ -306,9 +306,9 @@
             this.dtInventarioCat.ReadOnly = true;
             this.dtInventarioCat.RowHeadersVisible = false;
             this.dtInventarioCat.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioCat.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dtInventarioCat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioCat.ShowCellToolTips = false;
             this.dtInventarioCat.ShowEditingIcon = false;
@@ -1232,7 +1232,6 @@
             // PlDetalleCompra
             // 
             this.PlDetalleCompra.BackColor = System.Drawing.Color.White;
-            this.PlDetalleCompra.Controls.Add(this.PlTkSM);
             this.PlDetalleCompra.Controls.Add(this.label50);
             this.PlDetalleCompra.Controls.Add(this.label57);
             this.PlDetalleCompra.Controls.Add(this.label51);
@@ -1276,7 +1275,7 @@
             this.PlTkSM.Controls.Add(this.panel1);
             this.PlTkSM.Controls.Add(this.BtnPart2);
             this.PlTkSM.Controls.Add(this.BtnPart1);
-            this.PlTkSM.Location = new System.Drawing.Point(107, 14);
+            this.PlTkSM.Location = new System.Drawing.Point(288, 81);
             this.PlTkSM.Name = "PlTkSM";
             this.PlTkSM.Size = new System.Drawing.Size(312, 143);
             this.PlTkSM.TabIndex = 19;
@@ -2109,7 +2108,7 @@
             this.PlDatosrob.Controls.Add(this.panel9);
             this.PlDatosrob.Controls.Add(this.BtnActivarRod);
             this.PlDatosrob.Controls.Add(this.BtnAnalizadoRob);
-            this.PlDatosrob.Location = new System.Drawing.Point(548, 82);
+            this.PlDatosrob.Location = new System.Drawing.Point(872, 81);
             this.PlDatosrob.MaximumSize = new System.Drawing.Size(1156, 556);
             this.PlDatosrob.Name = "PlDatosrob";
             this.PlDatosrob.Size = new System.Drawing.Size(1156, 556);
@@ -2199,17 +2198,6 @@
             this.CbGCalidadRob.Size = new System.Drawing.Size(353, 24);
             this.CbGCalidadRob.TabIndex = 10;
             // 
-            // BtnActivarRod
-            // 
-            this.BtnActivarRod.Enabled = false;
-            this.BtnActivarRod.Location = new System.Drawing.Point(692, 478);
-            this.BtnActivarRod.Name = "BtnActivarRod";
-            this.BtnActivarRod.Size = new System.Drawing.Size(93, 52);
-            this.BtnActivarRod.TabIndex = 15;
-            this.BtnActivarRod.Text = "Activar";
-            this.BtnActivarRod.UseVisualStyleBackColor = true;
-            this.BtnActivarRod.Visible = false;
-            // 
             // ChbAnalizadoRob
             // 
             this.ChbAnalizadoRob.AutoSize = true;
@@ -2264,18 +2252,6 @@
             this.label56.Size = new System.Drawing.Size(139, 16);
             this.label56.TabIndex = 5;
             this.label56.Text = "Fecha de catación:";
-            // 
-            // BtnAnalizadoRob
-            // 
-            this.BtnAnalizadoRob.Enabled = false;
-            this.BtnAnalizadoRob.Location = new System.Drawing.Point(469, 478);
-            this.BtnAnalizadoRob.Name = "BtnAnalizadoRob";
-            this.BtnAnalizadoRob.Size = new System.Drawing.Size(168, 61);
-            this.BtnAnalizadoRob.TabIndex = 14;
-            this.BtnAnalizadoRob.Text = "Analizado";
-            this.BtnAnalizadoRob.UseVisualStyleBackColor = true;
-            this.BtnAnalizadoRob.Visible = false;
-            this.BtnAnalizadoRob.Click += new System.EventHandler(this.BtnAnalizadoRob_Click);
             // 
             // DtPickerMuestraRob
             // 
@@ -2527,6 +2503,7 @@
             this.TxtObtRob.Name = "TxtObtRob";
             this.TxtObtRob.Size = new System.Drawing.Size(66, 22);
             this.TxtObtRob.TabIndex = 3;
+            this.TxtObtRob.TextChanged += new System.EventHandler(this.TxtObtRob_TextChanged);
             // 
             // label78
             // 
@@ -2885,10 +2862,34 @@
             this.button8.TabIndex = 3;
             this.button8.UseVisualStyleBackColor = true;
             // 
+            // BtnActivarRod
+            // 
+            this.BtnActivarRod.Enabled = false;
+            this.BtnActivarRod.Location = new System.Drawing.Point(692, 478);
+            this.BtnActivarRod.Name = "BtnActivarRod";
+            this.BtnActivarRod.Size = new System.Drawing.Size(93, 52);
+            this.BtnActivarRod.TabIndex = 15;
+            this.BtnActivarRod.Text = "Activar";
+            this.BtnActivarRod.UseVisualStyleBackColor = true;
+            this.BtnActivarRod.Visible = false;
+            // 
+            // BtnAnalizadoRob
+            // 
+            this.BtnAnalizadoRob.Enabled = false;
+            this.BtnAnalizadoRob.Location = new System.Drawing.Point(469, 478);
+            this.BtnAnalizadoRob.Name = "BtnAnalizadoRob";
+            this.BtnAnalizadoRob.Size = new System.Drawing.Size(168, 61);
+            this.BtnAnalizadoRob.TabIndex = 14;
+            this.BtnAnalizadoRob.Text = "Analizado";
+            this.BtnAnalizadoRob.UseVisualStyleBackColor = true;
+            this.BtnAnalizadoRob.Visible = false;
+            this.BtnAnalizadoRob.Click += new System.EventHandler(this.BtnAnalizadoRob_Click);
+            // 
             // Catacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.PlTkSM);
             this.Controls.Add(this.PlDatosrob);
             this.Controls.Add(this.PLDatos);
             this.Controls.Add(this.PlFiltros);

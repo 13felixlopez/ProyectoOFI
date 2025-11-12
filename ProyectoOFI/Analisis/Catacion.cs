@@ -445,10 +445,121 @@ namespace ProyectoOFI.Analisis
                 MessageBox.Show("Error al cargar datos en controles" + ex.Message, "ERROR en Catación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void VerDetalleCatacionRob()
+        {
+            try
+            {
+                Dcatacion funcion = new Dcatacion();
+                DataTable dt = new DataTable();
+                funcion.VerDetalleCatacion(ref dt, Ticket);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow dr = dt.Rows[0];
+                    if (dr["Ticket"].ToString() != null)
+                    {
+                        LblTicketRob.Text = dr["Ticket"].ToString();
+                    }
+                    else
+                    {
+                        LblTicketRob.Text = "--";
+                    }
+                    if (dr["Sacos"].ToString() != null)
+                    {
+                        LblSacosRob.Text = dr["Sacos"].ToString();
+                    }
+                    else
+                    {
+                        LblSacosRob.Text = "--";
+                    }
+                    if (dr["Peso"].ToString() != null)
+                    {
+                        LblPesoRob.Text = dr["Peso"].ToString();
+                    }
+                    else
+                    {
+                        LblPesoRob.Text = "--";
+                    }
+                    if (dr["QQs"].ToString() != null)
+                    {
+                        LblQqsRob.Text = dr["QQs"].ToString();
+                    }
+                    else
+                    {
+                        LblQqsRob.Text = "--";
+                    }
+                    if (dr["Calidad"].ToString() != null)
+                    {
+                        LblCalidadRob.Text = dr["Calidad"].ToString();
+                    }
+                    else
+                    {
+                        LblCalidadRob.Text = "--";
+                    }
+                    if (dr["Certificación"].ToString() != null)
+                    {
+                        LblCertRob.Text = dr["Certificación"].ToString();
+                    }
+                    else
+                    {
+                        LblCertRob.Text = "--";
+                    }
+                    if (dr["Estado Fisico"].ToString() != null)
+                    {
+                        LblEstFisRob.Text = dr["Estado Fisico"].ToString();
+                    }
+                    else
+                    {
+                        LblEstFisRob.Text = "--";
+                    }
+                    if (dr["Daño"].ToString() != null)
+                    {
+                        LblDanioRob.Text = dr["Daño"].ToString();
+                    }
+                    else
+                    {
+                        LblDanioRob.Text = "--";
+                    }
+                    if (dr["Cliente"].ToString() != null)
+                    {
+                        LblClienteRob.Text = dr["Cliente"].ToString();
+                    }
+                    else
+                    {
+                        LblClienteRob.Text = "--";
+                    }
+                    if (dr["AreaSecado"].ToString() != null)
+                    {
+                        LblProcedenciaRob.Text = dr["AreaSecado"].ToString();
+                    }
+                    else
+                    {
+                        LblProcedenciaRob.Text = "--";
+                    }
+                    FRecibido = DateTime.Parse(dr["FechaRecibido"].ToString());
+                    if (dr["Fecha Muestra"] != DBNull.Value && !string.IsNullOrWhiteSpace(dr["Fecha Muestra"].ToString()))
+                    {
+                        FMuestra = DateTime.Parse(dr["Fecha Muestra"].ToString());
+                        DtPickerMuestraRob.Value = FMuestra;
+                    }
+                    else
+                    {
+                        FMuestra = DateTime.Today;
+                        DtPickerMuestraRob.Value = FMuestra;
+                    }
+
+                    DtFechacatacionRob.Value = DateTime.Today.Date;
+                    CalculoDiasRob();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos en controles" + ex.Message, "ERROR en Catación", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void dtInventarioCat_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             ObtenerTK();
-
+            CargarCombos();
             if (BtnMostrarCompras.Text == "Compras Directas")
             {
                 PlDetalleCompra.Visible = false;
@@ -510,9 +621,17 @@ namespace ProyectoOFI.Analisis
                 BtnPart1.Text = string.Empty;
                 BtnPart2.Text = string.Empty;
                 TkDetalle = LblTicket.Text;
-                VerDetalleCata();
+                if (Area == "Secado Natural")
+                {
+                    VerDetalleCata();
+                    VerDetalleCatacion();
+                }
+                else if (Area == "Robusta")
+                {
+                    VerDetalleCataRob();
+                    VerDetalleCatacionRob();
+                }
                 //}
-                VerDetalleCatacion();
             }
             else
             {
@@ -524,7 +643,7 @@ namespace ProyectoOFI.Analisis
                 DTPFechaMuestra.Value = DateTime.Parse(LblFecha.Text);
                 VerDetalleCata();
             }
-            CargarCombos();
+
             if (Area == "Secado Natural")
             {
                 AbrirFormulario(PLDatos);
@@ -807,17 +926,34 @@ namespace ProyectoOFI.Analisis
         private void CargarCombos()
         {
             Dcatacion funcion = new Dcatacion();
-            funcion.MostrarVariedad(CbVariedad);
-            string calidad = LblCalidad.Text;
-            if (calidad.EndsWith("UA"))
+            if (Area == "Secado Natural")
             {
-                funcion.MostrarGrupoCalidadUA(CbGrupoCalidad);
+                funcion.MostrarVariedad(CbVariedad);
+                string calidad = LblCalidad.Text;
+                if (calidad.EndsWith("UA"))
+                {
+                    funcion.MostrarGrupoCalidadUA(CbGrupoCalidad);
+                }
+                else
+                {
+                    funcion.MostrarGCalidad(CbGrupoCalidad);
+                }
+                funcion.MostrarTasas(CbTasa);
             }
-            else
+            else if (Area == "Robusta")
             {
-                funcion.MostrarGCalidad(CbGrupoCalidad);
+                funcion.MostrarVariedad(CbVariedadRob);
+                string calidad = LblCalidadRob.Text;
+                if (calidad.EndsWith("UA"))
+                {
+                    funcion.MostrarGrupoCalidadUA(CbGCalidadRob);
+                }
+                else
+                {
+                    funcion.MostrarGCalidad(CbGCalidadRob);
+                }
+                funcion.MostrarTasas(CbTazaRob);
             }
-            funcion.MostrarTasas(CbTasa);
         }
         private void Analisis()
         {
@@ -907,19 +1043,36 @@ namespace ProyectoOFI.Analisis
         }
         private void Limpiar()
         {
-            TxtAnalisis.Clear();
-            LblDias.Text = "--";
-            TxtBto.Text = "";
-            TxtHumedad.Text = "";
-            TxtExp.Text = "0";
-            TxtDesmA.Text = "0";
-            TxtDesmD.Text = "0";
-            TxtScore.Clear();
-            ChbAnalizado.Checked = false;
-            ChbRechazado.Checked = false;
-            TkDetalle = null;
-            label53.Visible = false;
-            LblTolva.Visible = false;
+            if (Area == "Secado Natural")
+            {
+                TxtAnalisis.Clear();
+                LblDias.Text = "--";
+                TxtBto.Text = "";
+                TxtHumedad.Text = "";
+                TxtExp.Text = "0";
+                TxtDesmA.Text = "0";
+                TxtDesmD.Text = "0";
+                TxtScore.Clear();
+                ChbAnalizado.Checked = false;
+                ChbRechazado.Checked = false;
+                TkDetalle = null;
+                label53.Visible = false;
+                LblTolva.Visible = false;
+            }
+            else if (Area == "Robusta")
+            {
+                TxtAnalisisRob.Clear();
+                LblDiasRob.Text = "--";
+                TxtObtRob.Text = "";
+                TxtHumdadRob.Text = "";
+                TxtExpRob.Text = "0";
+                TxtScr15.Text = "0";
+                TxtScr14.Text = "0";
+                TxtScoreRob.Clear();
+                ChbAnalizadoRob.Checked = false;
+                ChbRechazadoRob.Checked = false;
+                TkDetalle = null;
+            }
             //BtnCopiar.Visible = false;
         }
         private void BtnAnalisis_Click(object sender, EventArgs e)
@@ -1111,23 +1264,45 @@ namespace ProyectoOFI.Analisis
         }
         private void Desactivar()
         {
-            TxtAnalisis.Enabled = false;
-            DtFechaCatacion.Enabled = false;
-            DTPFechaMuestra.Enabled = false;
-            TxtBto.Enabled = false;
-            CbVariedad.Enabled = false;
-            TxtHumedad.Enabled = false;
-            TxtExp.Enabled = false;
-            TxtDesmA.Enabled = false;
-            TxtDesmD.Enabled = false;
-            TxtScore.Enabled = false;
-            BtnAnalisis.Text = "Analizado";
-            BtnAnalisis.Enabled = false;
-            ChbAnalizado.Enabled = false;
-            ChbRechazado.Enabled = false;
-            CbGrupoCalidad.Enabled = false;
-            CbTasa.Enabled = false;
-            Tk2 = null;
+            if (Area == "Secado Natural")
+            {
+                TxtAnalisis.Enabled = false;
+                DtFechaCatacion.Enabled = false;
+                DTPFechaMuestra.Enabled = false;
+                TxtBto.Enabled = false;
+                CbVariedad.Enabled = false;
+                TxtHumedad.Enabled = false;
+                TxtExp.Enabled = false;
+                TxtDesmA.Enabled = false;
+                TxtDesmD.Enabled = false;
+                TxtScore.Enabled = false;
+                BtnAnalisis.Text = "Analizado";
+                BtnAnalisis.Enabled = false;
+                ChbAnalizado.Enabled = false;
+                ChbRechazado.Enabled = false;
+                CbGrupoCalidad.Enabled = false;
+                CbTasa.Enabled = false;
+                Tk2 = null;
+            }
+            else if (Area == "Robusta")
+            {
+                TxtAnalisisRob.Enabled = false;
+                DtFechacatacionRob.Enabled = false;
+                DtPickerMuestraRob.Enabled = false;
+                TxtObtRob.Enabled = false;
+                CbVariedadRob.Enabled = false;
+                TxtHumdadRob.Enabled = false;
+                TxtExpRob.Enabled = false;
+                TxtScr15.Enabled = false;
+                TxtScr14.Enabled = false;
+                TxtScoreRob.Enabled = false;
+                BtnAnalizadoRob.Text = "Analizado";
+                BtnAnalizadoRob.Enabled = false;
+                ChbAnalizadoRob.Enabled = false;
+                ChbRechazadoRob.Enabled = false;
+                CbGCalidadRob.Enabled = false;
+                CbTazaRob.Enabled = false;
+            }
         }
         private async void InsertarCatacion(string Tk, bool preguntar = true)
         {
@@ -1323,7 +1498,6 @@ namespace ProyectoOFI.Analisis
                     {
                         parametros.Estado = "1";
                     }
-
                     if (funcion.EditarCatacionCD(parametros, LblTicket.Text) == true)
                     {
                         if (bandera == true)
@@ -1722,6 +1896,106 @@ namespace ProyectoOFI.Analisis
                 MessageBox.Show("Error en cargar datos interfaz", "Error en datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void VerDetalleCataRob()
+        {
+            Dcatacion funcion = new Dcatacion();
+            DataTable dt = new DataTable();
+
+            try
+            {
+                funcion.VerDetalleCataRob(ref dt, TkDetalle); // 🔹 Llama al nuevo SP
+
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("No se encontraron datos para este ticket.",
+                                    "Sin resultados", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                DataRow row = dt.Rows[0];
+
+                // === Campos principales ===
+                TxtAnalisisRob.Text = row["Analisis"]?.ToString() ?? "";
+                LblProcedenciaRob.Text = row["Origen"]?.ToString() ?? "";
+
+                // Fecha Muestra
+                if (DateTime.TryParse(row["FechaMuestra"]?.ToString(), out DateTime fechaMuestra))
+                    DtPickerMuestraRob.Value = fechaMuestra;
+                else
+                    DtPickerMuestraRob.Value = DateTime.Today;
+
+                // Fecha Catación
+                if (DateTime.TryParse(row["FechaCatacionRob"]?.ToString(), out DateTime fechaCat))
+                    DtFechacatacionRob.Value = fechaCat;
+                else
+                    DtFechacatacionRob.Value = DateTime.Today;
+
+                // Días
+                LblDiasRob.Text = row["DiasRob"]?.ToString() ?? "--";
+
+                // === Datos de análisis ===
+                TxtObtRob.Text = row["RmtoObtoRob"]?.ToString() ?? "";
+                LblCascarillaRob.Text = row["CascarillaRob"]?.ToString() ?? "--";
+                LblPsRob.Text = row["TotalPSRob"]?.ToString() ?? "--";
+                TxtHumdadRob.Text = row["Humedad"]?.ToString() ?? "";
+                TxtExpRob.Text = row["ExpRob"]?.ToString() ?? "";
+                TxtScr15.Text = row["SCR15"]?.ToString() ?? "";
+                TxtScr14.Text = row["SCR1314"]?.ToString() ?? "";
+                LblDemDRob.Text = row["DesmDRob"]?.ToString() ?? "--";
+
+                // === Porcentajes ===
+                LblScr15PRob.Text = row["Scr15P"]?.ToString() ?? "--";
+                LblScr14PRob.Text = row["SCR1314P"]?.ToString() ?? "--";
+                LblDesmPRob.Text = row["DesmDRobP"]?.ToString() ?? "--";
+                LblExpPRod.Text = row["ExpRobP"]?.ToString() ?? "--";
+
+                // === Variedad ===
+                if (row["IdVariedad"] != DBNull.Value)
+                    CbVariedadRob.SelectedValue = Convert.ToInt32(row["IdVariedad"]);
+                else
+                    CbVariedadRob.SelectedIndex = -1;
+
+                // === Score / Taza / Calidad ===
+                TxtScoreRob.Text = row["ScoreRob"]?.ToString() ?? "";
+                CbTazaRob.Text = row["Tasa"]?.ToString() ?? "--";
+                CbGCalidadRob.Text = row["GradoCalidadRob"]?.ToString() ?? "--";
+
+                Quality = CbGCalidadRob.Text;
+                Rendimiento = TxtObtRob.Text;
+
+                // === Estado (es string, no bool) ===
+                string estado = row["Estado"]?.ToString()?.Trim() ?? "0";
+                if (estado == "1")
+                {
+                    ChbAnalizadoRob.Checked = true;
+                    BtnAnalizadoRob.Enabled = false;
+                }
+                else if (estado == "0")
+                {
+                    ChbRechazadoRob.Checked = true;
+                    BtnAnalizadoRob.Text = "Re-Analizar";
+                }
+                else
+                {
+                    ChbAnalizadoRob.Checked = false;
+                    ChbRechazadoRob.Checked = false;
+                }
+
+                // === ID Catación ===
+                if (int.TryParse(row["IdCatacion"]?.ToString(), out int idCata))
+                    Idcatacion = idCata;
+
+                // === Post-procesos ===
+                CalculoDiasRob();
+                BtnActivarRod.Visible = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos: " + ex.Message,
+                                "Error en datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
@@ -2051,47 +2325,79 @@ namespace ProyectoOFI.Analisis
         }
         private void InsertarCatRob()
         {
+            // 1️⃣ Validación de la fecha de catación
             if (DtFechacatacionRob.Value.Date > DateTime.Today.Date)
             {
-                MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha actual",
+                MessageBox.Show("La fecha de catación no puede ser mayor a la fecha actual.",
                                 "Error en la fecha",
                                 MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
 
-            LCatacionRob parametros = new LCatacionRob();
-            Dcatacion funcion = new Dcatacion();
-
-            // --- Asignar valores ---
-            parametros.Ticket = LblTicketRob.Text;
-            parametros.Origen = LblProcedenciaRob.Text;
-            parametros.Analisis = TxtAnalisisRob.Text;
-            parametros.FechaMuestra = DtPickerMuestraRob.Value;
-            parametros.FechaCatacion = DateTime.Today;
-            parametros.Dias = int.Parse(LblDiasRob.Text);
-            parametros.RmtoObto = TxtObtRob.Text;
-            parametros.Cascarilla = LblCascarillaRob.Text;
-            parametros.TotalPS = LblPsRob.Text;
-            parametros.IdVariedad = (int)CbVariedadRob.SelectedValue;
-            parametros.Humedad = TxtHumdadRob.Text;
-            parametros.ExpRob = decimal.Parse(TxtExpRob.Text);
-            parametros.SCR15 = decimal.Parse(TxtScr15.Text);
-            parametros.SCR14 = decimal.Parse(TxtScr14.Text);
-            parametros.DesmDRob = decimal.Parse(LblDemDRob.Text);
-            parametros.Score = int.Parse(TxtScoreRob.Text);
-            parametros.Taza = CbTazaRob.Text;
-            parametros.GradoCalidad = CbGCalidadRob.Text;
-            parametros.ExpRobP = LblExpPRod.Text;
-            parametros.SCR15P = LblScr15PRob.Text;
-            parametros.SCR14P = LblScr14PRob.Text;
-            parametros.DesmDRobP = LblDesmPRob.Text;
-            parametros.Digitador = Login.NombreA;
-            parametros.PesoRecibido = decimal.Parse(LblPesoRob.Text);
-            parametros.Estado = ChbRechazadoRob.Checked ? "0" : "1";
-
-            // --- Insertar ---
-            if (funcion.InsertarCatacionRob(parametros) == true)
+            // 2️⃣ Construir el objeto de parámetros
+            LCatacionRob parametros = new LCatacionRob
             {
+                Ticket = LblTicketRob.Text?.Trim(),
+                Origen = LblProcedenciaRob.Text?.Trim(),
+                Analisis = TxtAnalisisRob.Text?.Trim(),
+                FechaMuestra = DtPickerMuestraRob.Value,
+                FechaCatacion = DateTime.Today,
+                Dias = int.TryParse(LblDiasRob.Text, out var dias) ? dias : 0,
+                RmtoObto = TxtObtRob.Text?.Trim(),
+                Cascarilla = LblCascarillaRob.Text?.Trim(),
+                TotalPS = LblPsRob.Text?.Trim(),
+                IdVariedad = CbVariedadRob.SelectedValue is int v ? v : 0,
+                Humedad = TxtHumdadRob.Text?.Trim(),
+                ExpRob = decimal.TryParse(TxtExpRob.Text, out var exp) ? exp : 0,
+                SCR15 = decimal.TryParse(TxtScr15.Text, out var scr15) ? scr15 : 0,
+                SCR14 = decimal.TryParse(TxtScr14.Text, out var scr14) ? scr14 : 0,
+                DesmDRob = decimal.TryParse(LblDemDRob.Text, out var desm) ? desm : 0,
+                Score = int.TryParse(TxtScoreRob.Text, out var score) ? score : 0,
+                Taza = CbTazaRob.Text?.Trim(),
+                GradoCalidad = CbGCalidadRob.Text?.Trim(),
+                ExpRobP = LblExpPRod.Text?.Trim(),
+                SCR15P = LblScr15PRob.Text?.Trim(),
+                SCR14P = LblScr14PRob.Text?.Trim(),
+                DesmDRobP = LblDesmPRob.Text?.Trim(),
+                Digitador = Login.NombreA?.Trim(),
+                PesoRecibido = decimal.TryParse(LblPesoRob.Text, out var peso) ? peso : 0,
+                Estado = ChbRechazadoRob.Checked ? "0" : "1"
+            };
+
+            // 3️⃣ Validación dinámica de campos requeridos
+            List<string> errores = new List<string>();
+
+            if (string.IsNullOrWhiteSpace(parametros.Ticket)) errores.Add("Ticket");
+            if (string.IsNullOrWhiteSpace(parametros.Origen)) errores.Add("Origen");
+            if (string.IsNullOrWhiteSpace(parametros.Analisis)) errores.Add("Análisis");
+            if (parametros.FechaMuestra == DateTime.MinValue) errores.Add("Fecha de muestra");
+            if (parametros.FechaCatacion == DateTime.MinValue) errores.Add("Fecha de catación");
+            if (parametros.IdVariedad <= 0) errores.Add("Variedad");
+            if (parametros.Score <= 0) errores.Add("Score");
+            if (parametros.ExpRob <= 0) errores.Add("Exp. Robusta");
+            if (parametros.PesoRecibido <= 0) errores.Add("Peso recibido");
+
+            // 🔴 Si hay errores, mostrarlos antes de continuar
+            if (errores.Count > 0)
+            {
+                MessageBox.Show("Faltan los siguientes campos obligatorios:\n\n• " +
+                                string.Join("\n• ", errores),
+                                "Datos incompletos",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 4️⃣ Confirmación visual (opcional)
+            Console.WriteLine($"➡️ Insertando catación Ticket: {parametros.Ticket}");
+
+            // 5️⃣ Llamada al método de inserción
+            Dcatacion funcion = new Dcatacion();
+            bool resultado = funcion.InsertarCatacionRob(parametros);
+
+            if (resultado)
+            {
+                MessageBox.Show("✅ Catación insertada correctamente.", "Éxito",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
                 PlDatosrob.Visible = false;
                 LimpiarRob();
             }
@@ -2102,6 +2408,7 @@ namespace ProyectoOFI.Analisis
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         public void LimpiarRob()
         {
@@ -2165,6 +2472,171 @@ namespace ProyectoOFI.Analisis
             LblCascarillaRob.Text = Casc.ToString();
             LblPsRob.Text = (Casc + Bto).ToString();
             CalcularDesmDRob();
+        }
+
+        private void TxtHumdadRob_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TxtHumdadRob.Text))
+            {
+                Humedad = 0;
+            }
+            else
+            {
+                CultureInfo culture = new CultureInfo("en-US");
+
+                if (double.TryParse(TxtHumdadRob.Text, NumberStyles.Any, culture, out double result))
+                {
+                    Humedad = result;
+                }
+                else
+                {
+                    // Manejar el caso donde el texto no se puede convertir a número
+                    MessageBox.Show("Por favor, ingrese un número válido.");
+                    TxtHumdadRob.Text = string.Empty;
+                    return;
+                }
+            }
+
+            if (Humedad >= 12.8)
+            {
+                ChbRechazadoRob.Checked = true;
+                ChbAnalizadoRob.Enabled = false;
+                CbGCalidadRob.Text = "";
+            }
+            else
+            {
+                ChbRechazadoRob.Checked = false;
+                ChbAnalizadoRob.Enabled = true;
+            }
+        }
+
+        private void TxtExpRob_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(TxtExpRob.Text))
+                {
+                    Exp = 0;
+                }
+                else
+                {
+                    if (double.TryParse(TxtExpRob.Text, out double result))
+                    {
+                        Exp = result;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Por favor, ingrese un número válido.");
+                        TxtExpRob.Text = string.Empty;
+                        return;
+                    }
+                }
+
+                CalcularDesmDRob();
+                LblExpPRod.Text = Math.Round((Bto * Exp) / 100, 2).ToString() + "%";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Falló el cálculo: " + ex.Message, "Error en Exp");
+            }
+        }
+
+        private void TxtScr15_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TxtScr15.Text))
+            {
+                DesmA = 0;
+            }
+            else
+            {
+                if (double.TryParse(TxtScr15.Text, out double result))
+                {
+                    DesmA = result;
+                }
+                else
+                {
+                    // Manejar el caso donde el texto no se puede convertir a número
+                    MessageBox.Show("Por favor, ingrese un número válido.");
+                    TxtScr15.Text = string.Empty; // Limpiar el TextBox en caso de error
+                    return;
+                }
+            }
+
+            CalcularDesmDRob();
+            LblScr15PRob.Text = Math.Round((Bto * DesmA) / 100, 2).ToString() + "%";
+        }
+
+        private void TxtScr14_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TxtScr14.Text))
+            {
+                DesmC = 0;
+            }
+            else
+            {
+                if (double.TryParse(TxtScr14.Text, out double result))
+                {
+                    DesmC = result;
+                }
+                else
+                {
+                    // Manejar el caso donde el texto no se puede convertir a número
+                    MessageBox.Show("Por favor, ingrese un número válido.");
+                    TxtScr14.Text = string.Empty; // Limpiar el TextBox en caso de error
+                    return;
+                }
+            }
+
+            CalcularDesmDRob();
+            LblScr14PRob.Text = Math.Round((Bto * DesmC) / 100, 2).ToString() + "%";
+        }
+
+        private void ChbRechazadoRob_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChbRechazadoRob.Checked == true)
+            {
+                ChbAnalizadoRob.Enabled = false;
+                BtnAnalizadoRob.Enabled = true;
+                ChbAnalizadoRob.Checked = false;
+                //TxtAnalisis.Text = "# Analisis";
+                TxtObtRob.Text = "0";
+                TxtExpRob.Text = "0";
+                TxtScr15.Text = "0";
+                TxtScr14.Text = "0";
+                TxtScoreRob.Text = "0";
+            }
+            else
+            {
+                ChbAnalizadoRob.Enabled = true;
+                BtnAnalizadoRob.Enabled = false;
+            }
+        }
+
+        private void ChbAnalizadoRob_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChbAnalizadoRob.Checked == true)
+            {
+                ChbRechazadoRob.Enabled = false;
+                BtnAnalizadoRob.Enabled = true;
+                ChbRechazadoRob.Checked = false;
+            }
+            else
+            {
+                ChbRechazadoRob.Enabled = true;
+                BtnAnalizadoRob.Enabled = false;
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            PlDatosrob.Visible = false;
+            dtInventarioCat.Enabled = true;
+            plOpciones.Enabled = true;
+            BtnAnalizadoRob.Text = "Analizado";
+            BtnActivarRod.Visible = false;
+            Desactivar();
+            Limpiar();
+            ValidarPermisos();
         }
 
         private void BtnSecadoM_Click(object sender, EventArgs e)
@@ -2282,6 +2754,13 @@ namespace ProyectoOFI.Analisis
             TimeSpan diferencia = fechaActual.Subtract(DTPFechaMuestra.Value);
             int diasDiferencia = (int)diferencia.TotalDays;
             LblDias.Text = diasDiferencia.ToString();
+        }
+        private void CalculoDiasRob()
+        {
+            DateTime fechaActual = DtFechacatacionRob.Value;
+            TimeSpan diferencia = fechaActual.Subtract(DtPickerMuestraRob.Value);
+            int diasDiferencia = (int)diferencia.TotalDays;
+            LblDiasRob.Text = diasDiferencia.ToString();
         }
         private void MostrarCambiarTK()
         {
@@ -2499,24 +2978,36 @@ namespace ProyectoOFI.Analisis
                     BtnAnalisis.Visible = true;
                     BtnCambiarTK.Enabled = true;
                     BtnActivar.Enabled = true;
+
+                    BtnAnalizadoRob.Visible = true;
+                    BtnActivarRod.Enabled = true;
                 }
                 else if (tieneAgregarAnalisis)
                 {
                     BtnAnalisis.Visible = true;
                     BtnCambiarTK.Enabled = true;
                     BtnActivar.Enabled = false;
+
+                    BtnAnalizadoRob.Visible = true;
+                    BtnActivarRod.Enabled = false;
                 }
                 else if (tieneEditarAnalisis)
                 {
                     BtnAnalisis.Visible = false;
                     BtnCambiarTK.Enabled = false;
                     BtnActivar.Enabled = true;
+
+                    BtnAnalizadoRob.Visible = false;
+                    BtnActivarRod.Enabled = true;
                 }
                 else
                 {
                     BtnAnalisis.Visible = false;
                     BtnCambiarTK.Enabled = false;
                     BtnActivar.Enabled = false;
+
+                    BtnAnalizadoRob.Visible = true;
+                    BtnActivarRod.Enabled = false;
                 }
             }
             else

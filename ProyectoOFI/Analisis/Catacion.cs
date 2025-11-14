@@ -870,12 +870,12 @@ namespace ProyectoOFI.Analisis
         }
         private void CalcularDesmDRob()
         {
-            double Exp = string.IsNullOrEmpty(TxtExpRob.Text) ? 0 : double.Parse(TxtExpRob.Text);
+            double Exp = string.IsNullOrEmpty(TxtScr12.Text) ? 0 : double.Parse(TxtScr12.Text);
             double DesmA = string.IsNullOrEmpty(TxtScr15.Text) ? 0 : double.Parse(TxtScr15.Text);
             double DesmC = string.IsNullOrEmpty(TxtScr14.Text) ? 0 : double.Parse(TxtScr14.Text);
 
             double DesmD = Math.Round(100 - Exp - DesmA - DesmC, 2);
-            LblDemDRob.Text = DesmD.ToString();
+            LblFondo.Text = DesmD.ToString();
             LblDesmPRob.Text = Math.Round((Bto * DesmD) / 100, 2).ToString() + "%";
         }
 
@@ -1109,7 +1109,7 @@ namespace ProyectoOFI.Analisis
                 LblDiasRob.Text = "--";
                 TxtObtRob.Text = "";
                 TxtHumdadRob.Text = "";
-                TxtExpRob.Text = "0";
+                TxtScr12.Text = "0";
                 TxtScr15.Text = "0";
                 TxtScr14.Text = "0";
                 TxtScoreRob.Clear();
@@ -1295,7 +1295,7 @@ namespace ProyectoOFI.Analisis
                 TxtObtRob.Enabled = true;
                 CbVariedadRob.Enabled = true;
                 TxtHumdadRob.Enabled = true;
-                TxtExpRob.Enabled = true;
+                TxtScr12.Enabled = true;
                 TxtScr15.Enabled = true;
                 TxtScr14.Enabled = true;
                 TxtScoreRob.Enabled = true;
@@ -1336,7 +1336,7 @@ namespace ProyectoOFI.Analisis
                 TxtObtRob.Enabled = false;
                 CbVariedadRob.Enabled = false;
                 TxtHumdadRob.Enabled = false;
-                TxtExpRob.Enabled = false;
+                TxtScr12.Enabled = false;
                 TxtScr15.Enabled = false;
                 TxtScr14.Enabled = false;
                 TxtScoreRob.Enabled = false;
@@ -1977,10 +1977,10 @@ namespace ProyectoOFI.Analisis
                     LblCascarillaRob.Text = row["CascarillaRob"]?.ToString() ?? "--";
                     LblPsRob.Text = row["TotalPSRob"]?.ToString() ?? "--";
                     TxtHumdadRob.Text = row["Humedad"]?.ToString() ?? "";
-                    TxtExpRob.Text = row["ExpRob"]?.ToString() ?? "";
+                    TxtScr12.Text = row["ExpRob"]?.ToString() ?? "";
                     TxtScr15.Text = row["SCR15"]?.ToString() ?? "";
                     TxtScr14.Text = row["SCR1314"]?.ToString() ?? "";
-                    LblDemDRob.Text = row["DesmDRob"]?.ToString() ?? "--";
+                    LblFondo.Text = row["DesmDRob"]?.ToString() ?? "--";
 
                     // === Porcentajes ===
                     LblScr15PRob.Text = row["Scr15P"]?.ToString() ?? "--";
@@ -2315,10 +2315,10 @@ namespace ProyectoOFI.Analisis
                 TotalPS = LblPsRob.Text?.Trim(),
                 IdVariedad = CbVariedadRob.SelectedValue is int v ? v : 0,
                 Humedad = TxtHumdadRob.Text?.Trim(),
-                ExpRob = decimal.TryParse(TxtExpRob.Text, out var exp) ? exp : 0,
+                ExpRob = decimal.TryParse(TxtScr12.Text, out var exp) ? exp : 0,
                 SCR15 = decimal.TryParse(TxtScr15.Text, out var scr15) ? scr15 : 0,
                 SCR14 = decimal.TryParse(TxtScr14.Text, out var scr14) ? scr14 : 0,
-                DesmDRob = decimal.TryParse(LblDemDRob.Text, out var desm) ? desm : 0,
+                DesmDRob = decimal.TryParse(LblFondo.Text, out var desm) ? desm : 0,
                 Score = int.TryParse(TxtScoreRob.Text, out var score) ? score : 0,
                 Taza = CbTazaRob.Text?.Trim(),
                 GradoCalidad = CbGCalidadRob.Text?.Trim(),
@@ -2441,10 +2441,10 @@ namespace ProyectoOFI.Analisis
             // Validación de campos DECIMAL
             var camposDecimal = new (string Nombre, string Valor, Control Control)[]
             {
-            ("Exp Rob", TxtExpRob.Text, TxtExpRob),
+            ("Exp Rob", TxtScr12.Text, TxtScr12),
             ("SCR 15", TxtScr15.Text, TxtScr15),
             ("SCR 14", TxtScr14.Text, TxtScr14),
-            ("Desm D Rob", LblDemDRob.Text, LblDemDRob),
+            ("Desm D Rob", LblFondo.Text, LblFondo),
             ("Peso Recibido", LblPesoRob.Text, LblPesoRob)
             };
 
@@ -2489,10 +2489,10 @@ namespace ProyectoOFI.Analisis
                 TotalPS = LblPsRob.Text?.Trim(),
                 IdVariedad = CbVariedadRob.SelectedValue is int v ? v : 0,
                 Humedad = TxtHumdadRob.Text?.Trim(),
-                ExpRob = decimal.TryParse(TxtExpRob.Text, out var exp) ? exp : 0,
+                ExpRob = decimal.TryParse(TxtScr12.Text, out var exp) ? exp : 0,
                 SCR15 = decimal.TryParse(TxtScr15.Text, out var scr15) ? scr15 : 0,
                 SCR14 = decimal.TryParse(TxtScr14.Text, out var scr14) ? scr14 : 0,
-                DesmDRob = decimal.TryParse(LblDemDRob.Text, out var desm) ? desm : 0,
+                DesmDRob = decimal.TryParse(LblFondo.Text, out var desm) ? desm : 0,
                 Score = int.TryParse(TxtScoreRob.Text, out var score) ? score : 0,
                 Taza = CbTazaRob.Text?.Trim(),
                 GradoCalidad = CbGCalidadRob.Text?.Trim(),
@@ -2564,7 +2564,7 @@ namespace ProyectoOFI.Analisis
             TxtAnalisisRob.Text = string.Empty;
             TxtObtRob.Text = string.Empty;
             TxtHumdadRob.Text = string.Empty;
-            TxtExpRob.Text = string.Empty;
+            TxtScr12.Text = string.Empty;
             TxtScr15.Text = string.Empty;
             TxtScr14.Text = string.Empty;
             TxtScoreRob.Text = string.Empty;
@@ -2575,7 +2575,7 @@ namespace ProyectoOFI.Analisis
             LblDiasRob.Text = string.Empty;
             LblCascarillaRob.Text = string.Empty;
             LblPsRob.Text = string.Empty;
-            LblDemDRob.Text = string.Empty;
+            LblFondo.Text = string.Empty;
             LblExpPRod.Text = string.Empty;
             LblScr15PRob.Text = string.Empty;
             LblScr14PRob.Text = string.Empty;
@@ -2660,20 +2660,20 @@ namespace ProyectoOFI.Analisis
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(TxtExpRob.Text))
+                if (string.IsNullOrWhiteSpace(TxtScr12.Text))
                 {
                     Exp = 0;
                 }
                 else
                 {
-                    if (double.TryParse(TxtExpRob.Text, out double result))
+                    if (double.TryParse(TxtScr12.Text, out double result))
                     {
                         Exp = result;
                     }
                     else
                     {
                         MessageBox.Show("Por favor, ingrese un número válido.");
-                        TxtExpRob.Text = string.Empty;
+                        TxtScr12.Text = string.Empty;
                         return;
                     }
                 }
@@ -2746,7 +2746,7 @@ namespace ProyectoOFI.Analisis
                 ChbAnalizadoRob.Checked = false;
                 //TxtAnalisis.Text = "# Analisis";
                 TxtObtRob.Text = "0";
-                TxtExpRob.Text = "0";
+                TxtScr12.Text = "0";
                 TxtScr15.Text = "0";
                 TxtScr14.Text = "0";
                 TxtScoreRob.Text = "0";
@@ -2842,6 +2842,16 @@ namespace ProyectoOFI.Analisis
             PlFiltroFecha.Visible = false;
         }
 
+        private void TxtNess_TextChanged(object sender, EventArgs e)
+        {
+            CalcularPorcentajes();
+        }
+
+        private void Txt72_TextChanged(object sender, EventArgs e)
+        {
+            CalcularPorcentajes();
+        }
+
         private void FormatCellBasedOnProceso(DataGridView dataGridView, DataGridViewCellFormattingEventArgs e)
         {
             // Obtener los valores de las columnas relevantes
@@ -2884,6 +2894,7 @@ namespace ProyectoOFI.Analisis
                     // Cambiar el color de fondo y el color de fuente de la celda actual
                     e.CellStyle.BackColor = Color.Green;
                     e.CellStyle.ForeColor = Color.White;
+
                 }
                 else
                 {
@@ -3181,6 +3192,73 @@ namespace ProyectoOFI.Analisis
             {
                 CLBFiltros.Items.Add(column.HeaderText);
             }
+        }
+        private void CalcularPorcentajes()
+        {
+            // Obtener valores seguros
+            double ness = ObtenerValorSeguro(TxtNess);
+            double txt72 = ObtenerValorSeguro(Txt72);
+
+            double suma = ness + txt72;
+
+            // Si la suma es mayor a 100, ajustar el último TextBox modificado
+            if (suma > 100)
+            {
+                AjustarExceso(ness, txt72);
+                return;
+            }
+
+            // Calcular y mostrar el porcentaje restante
+            double desmDRob = 100 - suma;
+            LblDesmDRob.Text = desmDRob.ToString("0.##");
+
+            // Cambiar color según el resultado
+            if (desmDRob < 0)
+            {
+                LblDesmDRob.BackColor = Color.LightPink;
+            }
+            else if (desmDRob == 0)
+            {
+                LblDesmDRob.BackColor = Color.LightGreen;
+            }
+            else
+            {
+                LblDesmDRob.BackColor = SystemColors.Control;
+            }
+        }
+
+        private double ObtenerValorSeguro(TextBox textBox)
+        {
+            if (string.IsNullOrEmpty(textBox.Text))
+                return 0;
+
+            if (double.TryParse(textBox.Text, out double valor))
+            {
+                // Limitar a 2 decimales
+                return Math.Round(valor, 2);
+            }
+
+            return 0;
+        }
+
+        private void AjustarExceso(double ness, double txt72)
+        {
+            // Determinar cuál TextBox causó el exceso (el que tiene foco)
+            if (TxtNess.Focused)
+            {
+                // Ajustar TxtNess para que la suma sea 100
+                double nuevoNess = 100 - txt72;
+                TxtNess.Text = nuevoNess.ToString("0.##");
+            }
+            else if (Txt72.Focused)
+            {
+                // Ajustar Txt72 para que la suma sea 100
+                double nuevoTxt72 = 100 - ness;
+                Txt72.Text = nuevoTxt72.ToString("0.##");
+            }
+
+            LblDesmDRob.Text = "0";
+            LblDesmDRob.BackColor = Color.LightGreen;
         }
     }
 }

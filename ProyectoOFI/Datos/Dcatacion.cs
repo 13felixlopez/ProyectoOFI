@@ -534,6 +534,63 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error en MostrarGrupoCalidad ✖️✖️" + ex.Message);
             }
         }
+
+        public void MostrarGCalidadRob(ComboBox combo)
+        {
+            try
+            {
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("Select * from GrupoCalidad where IdGrupoCalidad=27", conectar))
+                {
+
+                    SqlDataAdapter cb = new SqlDataAdapter(da);
+                    DataTable dt = new DataTable();
+                    cb.Fill(dt);
+                    combo.ValueMember = "IdGrupoCalidad";
+                    combo.DisplayMember = "GrupoCalidad";
+                    combo.DataSource = dt;
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        lista.Add(dt.Rows[i]["GrupoCalidad"].ToString());
+                    }
+                    combo.AutoCompleteCustomSource = lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarGrupoCalidad ✖️✖️" + ex.Message);
+            }
+        }
+        public void MostrarGVariedadRob(ComboBox combo)
+        {
+            try
+            {
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("Select * from Variedad where IdVariedad=4", conectar))
+                {
+
+                    SqlDataAdapter cb = new SqlDataAdapter(da);
+                    DataTable dt = new DataTable();
+                    cb.Fill(dt);
+                    combo.ValueMember = "IdVariedad";
+                    combo.DisplayMember = "Variedad";
+                    combo.DataSource = dt;
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                    {
+                        lista.Add(dt.Rows[i]["Variedad"].ToString());
+                    }
+                    combo.AutoCompleteCustomSource = lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron mostrar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en MostrarGrupoCalidad ✖️✖️" + ex.Message);
+            }
+        }
         public void ExcelCatacion(ref DataTable dt)
         {
             try
@@ -758,25 +815,27 @@ namespace ProyectoOFI.Datos
                     da.Parameters.AddWithValue("@Humedad", parametros.Humedad ?? (object)DBNull.Value);
 
                     // Parámetros Decimales de Robusta
-                    da.Parameters.AddWithValue("@ExpRob", parametros.ExpRob);
+                    da.Parameters.AddWithValue("@SCR12", parametros.SCR12);
                     da.Parameters.AddWithValue("@SCR15", parametros.SCR15);
                     da.Parameters.AddWithValue("@SCR14", parametros.SCR14);
                     da.Parameters.AddWithValue("@DesmDRob", parametros.DesmDRob);
 
                     // Parámetros VARCHAR de Porcentajes de Robusta
-                    da.Parameters.AddWithValue("@SCR15P", parametros.SCR15P ?? (object)DBNull.Value);
-                    da.Parameters.AddWithValue("@SCR14P", parametros.SCR14P ?? (object)DBNull.Value);
+                    da.Parameters.AddWithValue("@NessP", parametros.NessP ?? (object)DBNull.Value);
+                    da.Parameters.AddWithValue("@Rob72P", parametros.Rob72P ?? (object)DBNull.Value);
                     da.Parameters.AddWithValue("@DesmDRobP", parametros.DesmDRobP ?? (object)DBNull.Value);
-                    da.Parameters.AddWithValue("@ExpRobP", parametros.ExpRobP ?? (object)DBNull.Value);
 
                     // Otros parámetros
-                    da.Parameters.AddWithValue("@Score", parametros.Score);
                     da.Parameters.AddWithValue("@Taza", parametros.Taza ?? (object)DBNull.Value);
                     da.Parameters.AddWithValue("@GradoCalidad", parametros.GradoCalidad ?? (object)DBNull.Value);
                     da.Parameters.AddWithValue("@Digitador", parametros.Digitador ?? (object)DBNull.Value);
                     da.Parameters.AddWithValue("@Estado", parametros.Estado);
                     da.Parameters.AddWithValue("@Analisis", parametros.Analisis ?? (object)DBNull.Value);
                     da.Parameters.AddWithValue("@PesoRecibido", parametros.PesoRecibido);
+
+                    da.Parameters.AddWithValue("@Fondo", parametros.Fondo);
+                    da.Parameters.AddWithValue("@Ness", parametros.Ness);
+                    da.Parameters.AddWithValue("@Rob72", parametros.Rob72);
                     da.ExecuteNonQuery();
                     return true;
                 }
@@ -810,25 +869,27 @@ namespace ProyectoOFI.Datos
                     da.Parameters.AddWithValue("@Humedad", parametros.Humedad ?? (object)DBNull.Value);
 
                     // Parámetros Decimales de Robusta
-                    da.Parameters.AddWithValue("@ExpRob", parametros.ExpRob);
+                    da.Parameters.AddWithValue("@SCR12", parametros.SCR12);
                     da.Parameters.AddWithValue("@SCR15", parametros.SCR15);
                     da.Parameters.AddWithValue("@SCR14", parametros.SCR14);
                     da.Parameters.AddWithValue("@DesmDRob", parametros.DesmDRob);
 
                     // Parámetros VARCHAR de Porcentajes de Robusta
-                    da.Parameters.AddWithValue("@SCR15P", parametros.SCR15P ?? (object)DBNull.Value);
-                    da.Parameters.AddWithValue("@SCR14P", parametros.SCR14P ?? (object)DBNull.Value);
+                    da.Parameters.AddWithValue("@NessP", parametros.NessP ?? (object)DBNull.Value);
+                    da.Parameters.AddWithValue("@Rob72P", parametros.Rob72P ?? (object)DBNull.Value);
                     da.Parameters.AddWithValue("@DesmDRobP", parametros.DesmDRobP ?? (object)DBNull.Value);
-                    da.Parameters.AddWithValue("@ExpRobP", parametros.ExpRobP ?? (object)DBNull.Value);
 
                     // Otros parámetros
-                    da.Parameters.AddWithValue("@Score", parametros.Score);
                     da.Parameters.AddWithValue("@Taza", parametros.Taza ?? (object)DBNull.Value);
                     da.Parameters.AddWithValue("@GradoCalidad", parametros.GradoCalidad ?? (object)DBNull.Value);
                     da.Parameters.AddWithValue("@Digitador", parametros.Digitador ?? (object)DBNull.Value);
                     da.Parameters.AddWithValue("@Estado", parametros.Estado);
                     da.Parameters.AddWithValue("@Analisis", parametros.Analisis ?? (object)DBNull.Value);
                     da.Parameters.AddWithValue("@PesoRecibido", parametros.PesoRecibido);
+
+                    da.Parameters.AddWithValue("@Fondo", parametros.Fondo);
+                    da.Parameters.AddWithValue("@Ness", parametros.Ness);
+                    da.Parameters.AddWithValue("@Rob72", parametros.Rob72);
                     da.ExecuteNonQuery();
                     return true;
                 }

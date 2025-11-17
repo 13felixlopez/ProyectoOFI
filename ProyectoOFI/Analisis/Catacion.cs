@@ -870,14 +870,33 @@ namespace ProyectoOFI.Analisis
         }
         private void CalcularDesmDRob()
         {
-            double Exp = string.IsNullOrEmpty(TxtScr12.Text) ? 0 : double.Parse(TxtScr12.Text);
-            double DesmA = string.IsNullOrEmpty(TxtScr15.Text) ? 0 : double.Parse(TxtScr15.Text);
-            double DesmC = string.IsNullOrEmpty(TxtScr14.Text) ? 0 : double.Parse(TxtScr14.Text);
+            // Paso 1: Obtener valores de Scr12, Scr14, Scr15
+            double val12 = ObtenerValorSeguro(TxtScr12);
+            double val14 = ObtenerValorSeguro(TxtScr14);
+            double val15 = ObtenerValorSeguro(TxtScr15);
 
-            double DesmD = Math.Round(100 - Exp - DesmA - DesmC, 2);
-            LblFondo.Text = DesmD.ToString();
-            LblDesmPRob.Text = Math.Round((Bto * DesmD) / 100, 2).ToString() + "%";
+            // Paso 2: Calcular el porcentaje restante
+            double totalUsado = val12 + val14 + val15;
+            double restante = Math.Round(100 - totalUsado, 2);
+
+            // Paso 3: Mostrar el valor restante
+            LblFondo.Text = restante.ToString("F2");
+
+            // Paso 4: Validación visual por colores
+            if (restante < 0)
+            {
+                LblFondo.BackColor = Color.LightPink; // Se pasó de 100
+            }
+            else if (restante == 0)
+            {
+                LblFondo.BackColor = Color.LightGreen; // Perfecto
+            }
+            else
+            {
+                LblFondo.BackColor = SystemColors.Control; // Aún resta por completar
+            }
         }
+
 
         private void BtnCerrarPldatos_Click(object sender, EventArgs e)
         {
@@ -971,15 +990,15 @@ namespace ProyectoOFI.Analisis
             }
             else if (Area == "Robusta")
             {
-                funcion.MostrarVariedad(CbVariedadRob);
+                funcion.MostrarGVariedadRob(CbVariedadRob);
                 string calidad = LblCalidadRob.Text;
                 if (calidad.EndsWith("UA"))
                 {
-                    funcion.MostrarGrupoCalidadUA(CbGCalidadRob);
+                    funcion.MostrarGCalidadRob(CbGCalidadRob);
                 }
                 else
                 {
-                    funcion.MostrarGCalidad(CbGCalidadRob);
+                    funcion.MostrarGCalidadRob(CbGCalidadRob);
                 }
                 funcion.MostrarTasas(CbTazaRob);
             }
@@ -1112,7 +1131,6 @@ namespace ProyectoOFI.Analisis
                 TxtScr12.Text = "0";
                 TxtScr15.Text = "0";
                 TxtScr14.Text = "0";
-                TxtScoreRob.Clear();
                 ChbAnalizadoRob.Checked = false;
                 ChbRechazadoRob.Checked = false;
                 TkDetalle = null;
@@ -1298,7 +1316,6 @@ namespace ProyectoOFI.Analisis
                 TxtScr12.Enabled = true;
                 TxtScr15.Enabled = true;
                 TxtScr14.Enabled = true;
-                TxtScoreRob.Enabled = true;
                 BtnAnalizadoRob.Enabled = true;
                 ChbAnalizadoRob.Enabled = true;
                 ChbRechazadoRob.Enabled = true;
@@ -1339,7 +1356,6 @@ namespace ProyectoOFI.Analisis
                 TxtScr12.Enabled = false;
                 TxtScr15.Enabled = false;
                 TxtScr14.Enabled = false;
-                TxtScoreRob.Enabled = false;
                 BtnAnalizadoRob.Text = "Analizado";
                 BtnAnalizadoRob.Enabled = false;
                 ChbAnalizadoRob.Enabled = false;
@@ -1977,16 +1993,19 @@ namespace ProyectoOFI.Analisis
                     LblCascarillaRob.Text = row["CascarillaRob"]?.ToString() ?? "--";
                     LblPsRob.Text = row["TotalPSRob"]?.ToString() ?? "--";
                     TxtHumdadRob.Text = row["Humedad"]?.ToString() ?? "";
-                    TxtScr12.Text = row["ExpRob"]?.ToString() ?? "";
+                    TxtScr12.Text = row["SCR12"]?.ToString() ?? "";
                     TxtScr15.Text = row["SCR15"]?.ToString() ?? "";
                     TxtScr14.Text = row["SCR1314"]?.ToString() ?? "";
                     LblFondo.Text = row["DesmDRob"]?.ToString() ?? "--";
 
                     // === Porcentajes ===
-                    LblScr15PRob.Text = row["Scr15P"]?.ToString() ?? "--";
-                    LblScr14PRob.Text = row["SCR1314P"]?.ToString() ?? "--";
-                    LblDesmPRob.Text = row["DesmDRobP"]?.ToString() ?? "--";
-                    LblExpPRod.Text = row["ExpRobP"]?.ToString() ?? "--";
+                    LblRob72P.Text = row["Scr15P"]?.ToString() ?? "--";
+                    LblDesmDPRob.Text = row["SCR1314P"]?.ToString() ?? "--";
+                    LblNessP.Text = row["SCR12P"]?.ToString() ?? "--";
+
+                    LblFondo.Text = row["Fondo"]?.ToString() ?? "";
+                    TxtNess.Text = row["Ness"]?.ToString() ?? "";
+                    Txt72.Text = row["Rob72"]?.ToString() ?? "";
 
                     // === Variedad ===
                     if (row["IdVariedad"] != DBNull.Value)
@@ -1995,7 +2014,6 @@ namespace ProyectoOFI.Analisis
                         CbVariedadRob.SelectedIndex = -1;
 
                     // === Score / Taza / Calidad ===
-                    TxtScoreRob.Text = row["ScoreRob"]?.ToString() ?? "";
                     CbTazaRob.Text = row["Tasa"]?.ToString() ?? "--";
                     CbGCalidadRob.Text = row["GradoCalidadRob"]?.ToString() ?? "--";
 
@@ -2315,19 +2333,20 @@ namespace ProyectoOFI.Analisis
                 TotalPS = LblPsRob.Text?.Trim(),
                 IdVariedad = CbVariedadRob.SelectedValue is int v ? v : 0,
                 Humedad = TxtHumdadRob.Text?.Trim(),
-                ExpRob = decimal.TryParse(TxtScr12.Text, out var exp) ? exp : 0,
+                SCR12 = decimal.TryParse(TxtScr12.Text, out var exp) ? exp : 0,
                 SCR15 = decimal.TryParse(TxtScr15.Text, out var scr15) ? scr15 : 0,
                 SCR14 = decimal.TryParse(TxtScr14.Text, out var scr14) ? scr14 : 0,
                 DesmDRob = decimal.TryParse(LblFondo.Text, out var desm) ? desm : 0,
-                Score = int.TryParse(TxtScoreRob.Text, out var score) ? score : 0,
                 Taza = CbTazaRob.Text?.Trim(),
                 GradoCalidad = CbGCalidadRob.Text?.Trim(),
-                ExpRobP = LblExpPRod.Text?.Trim(),
-                SCR15P = LblScr15PRob.Text?.Trim(),
-                SCR14P = LblScr14PRob.Text?.Trim(),
-                DesmDRobP = LblDesmPRob.Text?.Trim(),
+                NessP = LblNessP.Text?.Trim(),
+                Rob72P = LblRob72P.Text?.Trim(),
+                DesmDRobP = LblDesmDPRob.Text?.Trim(),
                 Digitador = Login.NombreA?.Trim(),
                 PesoRecibido = decimal.TryParse(LblPesoRob.Text, out var peso) ? peso : 0,
+                Fondo = decimal.TryParse(LblFondo.Text, out var fondo) ? fondo : 0,
+                Ness = decimal.TryParse(TxtNess.Text, out var ness) ? ness : 0,
+                Rob72 = decimal.TryParse(Txt72.Text, out var Rob72) ? Rob72 : 0,
                 Estado = ChbRechazadoRob.Checked ? "0" : "1"
             };
 
@@ -2341,7 +2360,7 @@ namespace ProyectoOFI.Analisis
             if (parametros.FechaCatacion == DateTime.MinValue) errores.Add("Fecha de catación");
             if (parametros.IdVariedad <= 0) errores.Add("Variedad");
             if (parametros.Score <= 0) errores.Add("Score");
-            if (parametros.ExpRob <= 0) errores.Add("Exp. Robusta");
+            if (parametros.SCR12 <= 0) errores.Add("Exp. Robusta");
             if (parametros.PesoRecibido <= 0) errores.Add("Peso recibido");
 
             // 🔴 Si hay errores, mostrarlos antes de continuar
@@ -2394,10 +2413,9 @@ namespace ProyectoOFI.Analisis
             ("Cascarilla", LblCascarillaRob.Text, LblCascarillaRob),
             ("Total PS", LblPsRob.Text, LblPsRob),
             ("Humedad", TxtHumdadRob.Text, TxtHumdadRob),
-            ("Exp Rob %", LblExpPRod.Text, LblExpPRod),
-            ("SCR 15 %", LblScr15PRob.Text, LblScr15PRob),
-            ("SCR 14 %", LblScr14PRob.Text, LblScr14PRob),
-            ("Desm D Rob %", LblDesmPRob.Text, LblDesmPRob),
+            ("Exp Rob %", LblNessP.Text, LblNessP),
+            ("SCR 15 %", LblRob72P.Text, LblRob72P),
+            ("SCR 14 %", LblDesmDPRob.Text, LblDesmDPRob),
             ("Taza", CbTazaRob.Text, CbTazaRob),
             ("Grado Calidad", CbGCalidadRob.Text, CbGCalidadRob),
             
@@ -2425,7 +2443,6 @@ namespace ProyectoOFI.Analisis
             var camposInt = new (string Nombre, string Valor, Control Control)[]
             {
             ("Días", LblDiasRob.Text, LblDiasRob),
-            ("Score", TxtScoreRob.Text, TxtScoreRob)
             };
 
             foreach (var campo in camposInt)
@@ -2489,19 +2506,20 @@ namespace ProyectoOFI.Analisis
                 TotalPS = LblPsRob.Text?.Trim(),
                 IdVariedad = CbVariedadRob.SelectedValue is int v ? v : 0,
                 Humedad = TxtHumdadRob.Text?.Trim(),
-                ExpRob = decimal.TryParse(TxtScr12.Text, out var exp) ? exp : 0,
+                SCR12 = decimal.TryParse(TxtScr12.Text, out var exp) ? exp : 0,
                 SCR15 = decimal.TryParse(TxtScr15.Text, out var scr15) ? scr15 : 0,
                 SCR14 = decimal.TryParse(TxtScr14.Text, out var scr14) ? scr14 : 0,
                 DesmDRob = decimal.TryParse(LblFondo.Text, out var desm) ? desm : 0,
-                Score = int.TryParse(TxtScoreRob.Text, out var score) ? score : 0,
                 Taza = CbTazaRob.Text?.Trim(),
                 GradoCalidad = CbGCalidadRob.Text?.Trim(),
-                ExpRobP = LblExpPRod.Text?.Trim(),
-                SCR15P = LblScr15PRob.Text?.Trim(),
-                SCR14P = LblScr14PRob.Text?.Trim(),
-                DesmDRobP = LblDesmPRob.Text?.Trim(),
+                NessP = LblNessP.Text?.Trim(),
+                Rob72P = LblRob72P.Text?.Trim(),
+                DesmDRobP = LblDesmDPRob.Text?.Trim(),
                 Digitador = Login.NombreA?.Trim(),
                 PesoRecibido = decimal.TryParse(LblPesoRob.Text, out var peso) ? peso : 0,
+                Fondo = decimal.TryParse(LblFondo.Text, out var fondo) ? fondo : 0,
+                Ness = decimal.TryParse(TxtNess.Text, out var ness) ? ness : 0,
+                Rob72 = decimal.TryParse(Txt72.Text, out var Rob72) ? Rob72 : 0,
                 Estado = ChbRechazadoRob.Checked ? "0" : "1"
             };
 
@@ -2515,7 +2533,7 @@ namespace ProyectoOFI.Analisis
             if (parametros.FechaCatacion == DateTime.MinValue) errores.Add("Fecha de catación");
             if (parametros.IdVariedad <= 0) errores.Add("Variedad");
             if (parametros.Score <= 0) errores.Add("Score");
-            if (parametros.ExpRob <= 0) errores.Add("Exp. Robusta");
+            if (parametros.SCR12 <= 0) errores.Add("Exp. Robusta");
             if (parametros.PesoRecibido <= 0) errores.Add("Peso recibido");
 
             // 🔴 Si hay errores, mostrarlos antes de continuar
@@ -2567,7 +2585,6 @@ namespace ProyectoOFI.Analisis
             TxtScr12.Text = string.Empty;
             TxtScr15.Text = string.Empty;
             TxtScr14.Text = string.Empty;
-            TxtScoreRob.Text = string.Empty;
 
             // Labels (donde se muestra Ticket, Origen, etc.)
             LblTicketRob.Text = string.Empty;
@@ -2576,10 +2593,9 @@ namespace ProyectoOFI.Analisis
             LblCascarillaRob.Text = string.Empty;
             LblPsRob.Text = string.Empty;
             LblFondo.Text = string.Empty;
-            LblExpPRod.Text = string.Empty;
-            LblScr15PRob.Text = string.Empty;
-            LblScr14PRob.Text = string.Empty;
-            LblDesmPRob.Text = string.Empty;
+            LblNessP.Text = string.Empty;
+            LblRob72P.Text = string.Empty;
+            LblDesmDPRob.Text = string.Empty;
             LblPesoRob.Text = string.Empty;
 
             // 2. Restablecer ComboBoxes (Desmarcar selección)
@@ -2617,7 +2633,7 @@ namespace ProyectoOFI.Analisis
             Casc = 100 - Bto;
             LblCascarillaRob.Text = Casc.ToString();
             LblPsRob.Text = (Casc + Bto).ToString();
-            CalcularDesmDRob();
+            CalcularPorcentajes();
         }
 
         private void TxtHumdadRob_TextChanged(object sender, EventArgs e)
@@ -2679,7 +2695,7 @@ namespace ProyectoOFI.Analisis
                 }
 
                 CalcularDesmDRob();
-                LblExpPRod.Text = Math.Round((Bto * Exp) / 100, 2).ToString() + "%";
+                //LblNessP.Text = Math.Round((Bto * Exp) / 100, 2).ToString() + "%";
             }
             catch (Exception ex)
             {
@@ -2709,7 +2725,7 @@ namespace ProyectoOFI.Analisis
             }
 
             CalcularDesmDRob();
-            LblScr15PRob.Text = Math.Round((Bto * DesmA) / 100, 2).ToString() + "%";
+            //LblRob72P.Text = Math.Round((Bto * DesmA) / 100, 2).ToString() + "%";
         }
 
         private void TxtScr14_TextChanged(object sender, EventArgs e)
@@ -2734,7 +2750,7 @@ namespace ProyectoOFI.Analisis
             }
 
             CalcularDesmDRob();
-            LblScr14PRob.Text = Math.Round((Bto * DesmC) / 100, 2).ToString() + "%";
+            //LblDesmDPRob.Text = Math.Round((Bto * DesmC) / 100, 2).ToString() + "%";
         }
 
         private void ChbRechazadoRob_CheckedChanged(object sender, EventArgs e)
@@ -2749,7 +2765,6 @@ namespace ProyectoOFI.Analisis
                 TxtScr12.Text = "0";
                 TxtScr15.Text = "0";
                 TxtScr14.Text = "0";
-                TxtScoreRob.Text = "0";
             }
             else
             {
@@ -2850,6 +2865,234 @@ namespace ProyectoOFI.Analisis
         private void Txt72_TextChanged(object sender, EventArgs e)
         {
             CalcularPorcentajes();
+        }
+
+        private void TxtNess_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite:
+            // 1. Dígitos (0-9)
+            // 2. Un único punto decimal (si no existe ya uno)
+            // 3. Teclas de control (Backspace, Delete, etc.)
+            // 4. Bloquea cualquier otro carácter (letras, signos, etc.)
+
+            TextBox textBox = (TextBox)sender;
+
+            // Caso 1: Si es un dígito, siempre permitido
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+
+            // Caso 2: Si es un punto, verificar que no exista ya uno y que no sea la primera posición
+            if (e.KeyChar == '.')
+            {
+                bool alreadyHasDecimal = textBox.Text.Contains('.');
+                bool isFirstChar = textBox.Text.Length == 0;
+
+                e.Handled = alreadyHasDecimal || isFirstChar;
+                return;
+            }
+
+            // Caso 3: Permitir teclas de control (Backspace, Delete, etc.)
+            if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+
+            // Bloquear cualquier otro carácter
+            e.Handled = true;
+        }
+
+        private void Txt72_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite:
+            // 1. Dígitos (0-9)
+            // 2. Un único punto decimal (si no existe ya uno)
+            // 3. Teclas de control (Backspace, Delete, etc.)
+            // 4. Bloquea cualquier otro carácter (letras, signos, etc.)
+
+            TextBox textBox = (TextBox)sender;
+
+            // Caso 1: Si es un dígito, siempre permitido
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+
+            // Caso 2: Si es un punto, verificar que no exista ya uno y que no sea la primera posición
+            if (e.KeyChar == '.')
+            {
+                bool alreadyHasDecimal = textBox.Text.Contains('.');
+                bool isFirstChar = textBox.Text.Length == 0;
+
+                e.Handled = alreadyHasDecimal || isFirstChar;
+                return;
+            }
+
+            // Caso 3: Permitir teclas de control (Backspace, Delete, etc.)
+            if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+
+            // Bloquear cualquier otro carácter
+            e.Handled = true;
+        }
+
+        private void TxtHumdadRob_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite:
+            // 1. Dígitos (0-9)
+            // 2. Un único punto decimal (si no existe ya uno)
+            // 3. Teclas de control (Backspace, Delete, etc.)
+            // 4. Bloquea cualquier otro carácter (letras, signos, etc.)
+
+            TextBox textBox = (TextBox)sender;
+
+            // Caso 1: Si es un dígito, siempre permitido
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+
+            // Caso 2: Si es un punto, verificar que no exista ya uno y que no sea la primera posición
+            if (e.KeyChar == '.')
+            {
+                bool alreadyHasDecimal = textBox.Text.Contains('.');
+                bool isFirstChar = textBox.Text.Length == 0;
+
+                e.Handled = alreadyHasDecimal || isFirstChar;
+                return;
+            }
+
+            // Caso 3: Permitir teclas de control (Backspace, Delete, etc.)
+            if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+
+            // Bloquear cualquier otro carácter
+            e.Handled = true;
+        }
+
+        private void TxtScr15_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite:
+            // 1. Dígitos (0-9)
+            // 2. Un único punto decimal (si no existe ya uno)
+            // 3. Teclas de control (Backspace, Delete, etc.)
+            // 4. Bloquea cualquier otro carácter (letras, signos, etc.)
+
+            TextBox textBox = (TextBox)sender;
+
+            // Caso 1: Si es un dígito, siempre permitido
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+
+            // Caso 2: Si es un punto, verificar que no exista ya uno y que no sea la primera posición
+            if (e.KeyChar == '.')
+            {
+                bool alreadyHasDecimal = textBox.Text.Contains('.');
+                bool isFirstChar = textBox.Text.Length == 0;
+
+                e.Handled = alreadyHasDecimal || isFirstChar;
+                return;
+            }
+
+            // Caso 3: Permitir teclas de control (Backspace, Delete, etc.)
+            if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+
+            // Bloquear cualquier otro carácter
+            e.Handled = true;
+        }
+
+        private void TxtScr14_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite:
+            // 1. Dígitos (0-9)
+            // 2. Un único punto decimal (si no existe ya uno)
+            // 3. Teclas de control (Backspace, Delete, etc.)
+            // 4. Bloquea cualquier otro carácter (letras, signos, etc.)
+
+            TextBox textBox = (TextBox)sender;
+
+            // Caso 1: Si es un dígito, siempre permitido
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+
+            // Caso 2: Si es un punto, verificar que no exista ya uno y que no sea la primera posición
+            if (e.KeyChar == '.')
+            {
+                bool alreadyHasDecimal = textBox.Text.Contains('.');
+                bool isFirstChar = textBox.Text.Length == 0;
+
+                e.Handled = alreadyHasDecimal || isFirstChar;
+                return;
+            }
+
+            // Caso 3: Permitir teclas de control (Backspace, Delete, etc.)
+            if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+
+            // Bloquear cualquier otro carácter
+            e.Handled = true;
+        }
+
+        private void TxtScr12_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permite:
+            // 1. Dígitos (0-9)
+            // 2. Un único punto decimal (si no existe ya uno)
+            // 3. Teclas de control (Backspace, Delete, etc.)
+            // 4. Bloquea cualquier otro carácter (letras, signos, etc.)
+
+            TextBox textBox = (TextBox)sender;
+
+            // Caso 1: Si es un dígito, siempre permitido
+            if (Char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+
+            // Caso 2: Si es un punto, verificar que no exista ya uno y que no sea la primera posición
+            if (e.KeyChar == '.')
+            {
+                bool alreadyHasDecimal = textBox.Text.Contains('.');
+                bool isFirstChar = textBox.Text.Length == 0;
+
+                e.Handled = alreadyHasDecimal || isFirstChar;
+                return;
+            }
+
+            // Caso 3: Permitir teclas de control (Backspace, Delete, etc.)
+            if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+                return;
+            }
+
+            // Bloquear cualquier otro carácter
+            e.Handled = true;
         }
 
         private void FormatCellBasedOnProceso(DataGridView dataGridView, DataGridViewCellFormattingEventArgs e)
@@ -3195,51 +3438,52 @@ namespace ProyectoOFI.Analisis
         }
         private void CalcularPorcentajes()
         {
-            // Obtener valores seguros
-            double ness = ObtenerValorSeguro(TxtNess);
-            double txt72 = ObtenerValorSeguro(Txt72);
-
-            double suma = ness + txt72;
-
-            // Si la suma es mayor a 100, ajustar el último TextBox modificado
-            if (suma > 100)
+            // Paso 1: Obtener el total de referencia
+            double total = ObtenerValorSeguro(TxtObtRob);
+            if (total <= 0)
             {
-                AjustarExceso(ness, txt72);
+                // Mostrar "inválido" si el total es 0 o menor
+                LblNessP.Text = LblRob72P.Text = LblDesmDPRob.Text = "--";
+                LblDesmDRob.Text = "0";
+                LblDesmDRob.BackColor = SystemColors.Control;
                 return;
             }
 
-            // Calcular y mostrar el porcentaje restante
-            double desmDRob = 100 - suma;
-            LblDesmDRob.Text = desmDRob.ToString("0.##");
+            // Paso 2: Obtener valores de Ness y 72
+            double valNess = ObtenerValorSeguro(TxtNess);
+            double val72 = ObtenerValorSeguro(Txt72);
 
-            // Cambiar color según el resultado
-            if (desmDRob < 0)
-            {
-                LblDesmDRob.BackColor = Color.LightPink;
-            }
-            else if (desmDRob == 0)
-            {
+            // Paso 3: Calcular el valor restante
+            double valDesmD = Math.Round(total - valNess - val72, 2);
+            if (valDesmD < 0) valDesmD = 0;
+
+            // Mostrar valor restante
+            LblDesmDRob.Text = valDesmD.ToString("F2");
+
+            // Paso 4: Calcular y mostrar porcentajes
+            double percNess = Math.Round((valNess / total) * 100, 2);
+            double perc72 = Math.Round((val72 / total) * 100, 2);
+            double percDesm = Math.Round((valDesmD / total) * 100, 2);
+
+            LblNessP.Text = percNess.ToString("F2") + "%";
+            LblRob72P.Text = perc72.ToString("F2") + "%";
+            LblDesmDPRob.Text = percDesm.ToString("F2") + "%";
+
+            // Paso 5: Color visual en base a equilibrio
+            if (valNess + val72 + valDesmD == total)
                 LblDesmDRob.BackColor = Color.LightGreen;
-            }
+            else if (valNess + val72 + valDesmD > total)
+                LblDesmDRob.BackColor = Color.LightPink;
             else
-            {
                 LblDesmDRob.BackColor = SystemColors.Control;
-            }
         }
 
-        private double ObtenerValorSeguro(TextBox textBox)
+
+        private double ObtenerValorSeguro(TextBox txt)
         {
-            if (string.IsNullOrEmpty(textBox.Text))
-                return 0;
-
-            if (double.TryParse(textBox.Text, out double valor))
-            {
-                // Limitar a 2 decimales
-                return Math.Round(valor, 2);
-            }
-
-            return 0;
+            return double.TryParse(txt.Text, out double val) ? val : 0;
         }
+
 
         private void AjustarExceso(double ness, double txt72)
         {

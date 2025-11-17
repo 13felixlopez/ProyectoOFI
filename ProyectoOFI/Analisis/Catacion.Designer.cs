@@ -187,6 +187,12 @@
             this.BtnFiltrar = new System.Windows.Forms.Button();
             this.PlDatosrob = new System.Windows.Forms.Panel();
             this.PlDatosRobusta = new System.Windows.Forms.Panel();
+            this.TxtNess = new System.Windows.Forms.TextBox();
+            this.LblDesmDRob = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.Txt72 = new System.Windows.Forms.TextBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
             this.CbTazaRob = new System.Windows.Forms.ComboBox();
             this.label55 = new System.Windows.Forms.Label();
             this.CbGCalidadRob = new System.Windows.Forms.ComboBox();
@@ -203,25 +209,21 @@
             this.label60 = new System.Windows.Forms.Label();
             this.LblPsRob = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
-            this.TxtScoreRob = new System.Windows.Forms.TextBox();
             this.label63 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
             this.TxtScr14 = new System.Windows.Forms.TextBox();
-            this.label65 = new System.Windows.Forms.Label();
-            this.LblScr14PRob = new System.Windows.Forms.Label();
+            this.LblDesmDPRob = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
             this.TxtScr15 = new System.Windows.Forms.TextBox();
             this.LblFondo = new System.Windows.Forms.Label();
             this.label69 = new System.Windows.Forms.Label();
-            this.LblDesmPRob = new System.Windows.Forms.Label();
-            this.label71 = new System.Windows.Forms.Label();
             this.TxtScr12 = new System.Windows.Forms.TextBox();
             this.label72 = new System.Windows.Forms.Label();
-            this.LblScr15PRob = new System.Windows.Forms.Label();
+            this.LblRob72P = new System.Windows.Forms.Label();
             this.label74 = new System.Windows.Forms.Label();
             this.TxtHumdadRob = new System.Windows.Forms.TextBox();
             this.label75 = new System.Windows.Forms.Label();
-            this.LblExpPRod = new System.Windows.Forms.Label();
+            this.LblNessP = new System.Windows.Forms.Label();
             this.label77 = new System.Windows.Forms.Label();
             this.TxtObtRob = new System.Windows.Forms.TextBox();
             this.label78 = new System.Windows.Forms.Label();
@@ -255,12 +257,6 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.label134 = new System.Windows.Forms.Label();
             this.button8 = new System.Windows.Forms.Button();
-            this.TxtNess = new System.Windows.Forms.TextBox();
-            this.LblDesmDRob = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.Txt72 = new System.Windows.Forms.TextBox();
-            this.label59 = new System.Windows.Forms.Label();
-            this.label61 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioCat)).BeginInit();
             this.plOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbFiltro)).BeginInit();
@@ -2142,25 +2138,21 @@
             this.PlDatosRobusta.Controls.Add(this.label60);
             this.PlDatosRobusta.Controls.Add(this.LblPsRob);
             this.PlDatosRobusta.Controls.Add(this.label62);
-            this.PlDatosRobusta.Controls.Add(this.TxtScoreRob);
             this.PlDatosRobusta.Controls.Add(this.label63);
             this.PlDatosRobusta.Controls.Add(this.label64);
             this.PlDatosRobusta.Controls.Add(this.TxtScr14);
-            this.PlDatosRobusta.Controls.Add(this.label65);
-            this.PlDatosRobusta.Controls.Add(this.LblScr14PRob);
+            this.PlDatosRobusta.Controls.Add(this.LblDesmDPRob);
             this.PlDatosRobusta.Controls.Add(this.label67);
             this.PlDatosRobusta.Controls.Add(this.TxtScr15);
             this.PlDatosRobusta.Controls.Add(this.LblFondo);
             this.PlDatosRobusta.Controls.Add(this.label69);
-            this.PlDatosRobusta.Controls.Add(this.LblDesmPRob);
-            this.PlDatosRobusta.Controls.Add(this.label71);
             this.PlDatosRobusta.Controls.Add(this.TxtScr12);
             this.PlDatosRobusta.Controls.Add(this.label72);
-            this.PlDatosRobusta.Controls.Add(this.LblScr15PRob);
+            this.PlDatosRobusta.Controls.Add(this.LblRob72P);
             this.PlDatosRobusta.Controls.Add(this.label74);
             this.PlDatosRobusta.Controls.Add(this.TxtHumdadRob);
             this.PlDatosRobusta.Controls.Add(this.label75);
-            this.PlDatosRobusta.Controls.Add(this.LblExpPRod);
+            this.PlDatosRobusta.Controls.Add(this.LblNessP);
             this.PlDatosRobusta.Controls.Add(this.label77);
             this.PlDatosRobusta.Controls.Add(this.TxtObtRob);
             this.PlDatosRobusta.Controls.Add(this.label78);
@@ -2177,12 +2169,70 @@
             this.PlDatosRobusta.Size = new System.Drawing.Size(1154, 512);
             this.PlDatosRobusta.TabIndex = 17;
             // 
+            // TxtNess
+            // 
+            this.TxtNess.Location = new System.Drawing.Point(235, 167);
+            this.TxtNess.Name = "TxtNess";
+            this.TxtNess.Size = new System.Drawing.Size(66, 22);
+            this.TxtNess.TabIndex = 21;
+            this.TxtNess.TextChanged += new System.EventHandler(this.TxtNess_TextChanged);
+            this.TxtNess.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNess_KeyPress);
+            // 
+            // LblDesmDRob
+            // 
+            this.LblDesmDRob.AutoSize = true;
+            this.LblDesmDRob.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDesmDRob.Location = new System.Drawing.Point(585, 170);
+            this.LblDesmDRob.Name = "LblDesmDRob";
+            this.LblDesmDRob.Size = new System.Drawing.Size(17, 16);
+            this.LblDesmDRob.TabIndex = 16;
+            this.LblDesmDRob.Text = "--";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.Location = new System.Drawing.Point(118, 170);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(95, 16);
+            this.label54.TabIndex = 17;
+            this.label54.Text = "Nesspresso:";
+            // 
+            // Txt72
+            // 
+            this.Txt72.Location = new System.Drawing.Point(376, 167);
+            this.Txt72.Name = "Txt72";
+            this.Txt72.Size = new System.Drawing.Size(66, 22);
+            this.Txt72.TabIndex = 20;
+            this.Txt72.TextChanged += new System.EventHandler(this.Txt72_TextChanged);
+            this.Txt72.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt72_KeyPress);
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.Location = new System.Drawing.Point(464, 170);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(99, 16);
+            this.label59.TabIndex = 18;
+            this.label59.Text = "Rob.Desm.D:";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.Location = new System.Drawing.Point(323, 170);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(31, 16);
+            this.label61.TabIndex = 19;
+            this.label61.Text = "7.2:";
+            // 
             // CbTazaRob
             // 
             this.CbTazaRob.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.CbTazaRob.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.CbTazaRob.FormattingEnabled = true;
-            this.CbTazaRob.Location = new System.Drawing.Point(883, 215);
+            this.CbTazaRob.Location = new System.Drawing.Point(722, 262);
             this.CbTazaRob.Name = "CbTazaRob";
             this.CbTazaRob.Size = new System.Drawing.Size(208, 24);
             this.CbTazaRob.TabIndex = 11;
@@ -2191,7 +2241,7 @@
             // 
             this.label55.AutoSize = true;
             this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label55.Location = new System.Drawing.Point(826, 220);
+            this.label55.Location = new System.Drawing.Point(665, 267);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(46, 16);
             this.label55.TabIndex = 13;
@@ -2202,15 +2252,16 @@
             this.CbGCalidadRob.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.CbGCalidadRob.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.CbGCalidadRob.FormattingEnabled = true;
-            this.CbGCalidadRob.Location = new System.Drawing.Point(425, 216);
+            this.CbGCalidadRob.Location = new System.Drawing.Point(264, 263);
             this.CbGCalidadRob.Name = "CbGCalidadRob";
             this.CbGCalidadRob.Size = new System.Drawing.Size(353, 24);
             this.CbGCalidadRob.TabIndex = 10;
+            this.CbGCalidadRob.Text = "BOLA ROBUSTA";
             // 
             // BtnActivarRod
             // 
             this.BtnActivarRod.Enabled = false;
-            this.BtnActivarRod.Location = new System.Drawing.Point(756, 309);
+            this.BtnActivarRod.Location = new System.Drawing.Point(756, 305);
             this.BtnActivarRod.Name = "BtnActivarRod";
             this.BtnActivarRod.Size = new System.Drawing.Size(93, 52);
             this.BtnActivarRod.TabIndex = 15;
@@ -2223,7 +2274,7 @@
             // 
             this.ChbAnalizadoRob.AutoSize = true;
             this.ChbAnalizadoRob.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChbAnalizadoRob.Location = new System.Drawing.Point(368, 320);
+            this.ChbAnalizadoRob.Location = new System.Drawing.Point(368, 316);
             this.ChbAnalizadoRob.Name = "ChbAnalizadoRob";
             this.ChbAnalizadoRob.Size = new System.Drawing.Size(95, 20);
             this.ChbAnalizadoRob.TabIndex = 13;
@@ -2234,7 +2285,7 @@
             // BtnAnalizadoRob
             // 
             this.BtnAnalizadoRob.Enabled = false;
-            this.BtnAnalizadoRob.Location = new System.Drawing.Point(533, 309);
+            this.BtnAnalizadoRob.Location = new System.Drawing.Point(533, 305);
             this.BtnAnalizadoRob.Name = "BtnAnalizadoRob";
             this.BtnAnalizadoRob.Size = new System.Drawing.Size(168, 61);
             this.BtnAnalizadoRob.TabIndex = 14;
@@ -2247,7 +2298,7 @@
             // 
             this.ChbRechazadoRob.AutoSize = true;
             this.ChbRechazadoRob.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChbRechazadoRob.Location = new System.Drawing.Point(195, 320);
+            this.ChbRechazadoRob.Location = new System.Drawing.Point(195, 316);
             this.ChbRechazadoRob.Name = "ChbRechazadoRob";
             this.ChbRechazadoRob.Size = new System.Drawing.Size(105, 20);
             this.ChbRechazadoRob.TabIndex = 12;
@@ -2347,13 +2398,6 @@
             this.label62.TabIndex = 0;
             this.label62.Text = "Total PS:";
             // 
-            // TxtScoreRob
-            // 
-            this.TxtScoreRob.Location = new System.Drawing.Point(195, 217);
-            this.TxtScoreRob.Name = "TxtScoreRob";
-            this.TxtScoreRob.Size = new System.Drawing.Size(66, 22);
-            this.TxtScoreRob.TabIndex = 9;
-            // 
             // label63
             // 
             this.label63.AutoSize = true;
@@ -2368,7 +2412,7 @@
             // 
             this.label64.AutoSize = true;
             this.label64.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label64.Location = new System.Drawing.Point(288, 220);
+            this.label64.Location = new System.Drawing.Point(127, 267);
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(131, 16);
             this.label64.TabIndex = 0;
@@ -2381,36 +2425,27 @@
             this.TxtScr14.Size = new System.Drawing.Size(66, 22);
             this.TxtScr14.TabIndex = 8;
             this.TxtScr14.TextChanged += new System.EventHandler(this.TxtScr14_TextChanged);
+            this.TxtScr14.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtScr14_KeyPress);
             // 
-            // label65
+            // LblDesmDPRob
             // 
-            this.label65.AutoSize = true;
-            this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label65.Location = new System.Drawing.Point(137, 220);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(52, 16);
-            this.label65.TabIndex = 0;
-            this.label65.Text = "Score:";
-            // 
-            // LblScr14PRob
-            // 
-            this.LblScr14PRob.AutoSize = true;
-            this.LblScr14PRob.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblScr14PRob.Location = new System.Drawing.Point(673, 261);
-            this.LblScr14PRob.Name = "LblScr14PRob";
-            this.LblScr14PRob.Size = new System.Drawing.Size(28, 16);
-            this.LblScr14PRob.TabIndex = 0;
-            this.LblScr14PRob.Text = "0%";
+            this.LblDesmDPRob.AutoSize = true;
+            this.LblDesmDPRob.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDesmDPRob.Location = new System.Drawing.Point(761, 222);
+            this.LblDesmDPRob.Name = "LblDesmDPRob";
+            this.LblDesmDPRob.Size = new System.Drawing.Size(28, 16);
+            this.LblDesmDPRob.TabIndex = 0;
+            this.LblDesmDPRob.Text = "0%";
             // 
             // label67
             // 
             this.label67.AutoSize = true;
             this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label67.Location = new System.Drawing.Point(555, 261);
+            this.label67.Location = new System.Drawing.Point(643, 222);
             this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(100, 16);
+            this.label67.Size = new System.Drawing.Size(79, 16);
             this.label67.TabIndex = 0;
-            this.label67.Text = "SCR 13/14 %:";
+            this.label67.Text = "Desm.D%:";
             // 
             // TxtScr15
             // 
@@ -2419,6 +2454,7 @@
             this.TxtScr15.Size = new System.Drawing.Size(66, 22);
             this.TxtScr15.TabIndex = 7;
             this.TxtScr15.TextChanged += new System.EventHandler(this.TxtScr15_TextChanged);
+            this.TxtScr15.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtScr15_KeyPress);
             // 
             // LblFondo
             // 
@@ -2440,26 +2476,6 @@
             this.label69.TabIndex = 0;
             this.label69.Text = "Scr 13/14:";
             // 
-            // LblDesmPRob
-            // 
-            this.LblDesmPRob.AutoSize = true;
-            this.LblDesmPRob.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDesmPRob.Location = new System.Drawing.Point(1012, 261);
-            this.LblDesmPRob.Name = "LblDesmPRob";
-            this.LblDesmPRob.Size = new System.Drawing.Size(28, 16);
-            this.LblDesmPRob.TabIndex = 0;
-            this.LblDesmPRob.Text = "0%";
-            // 
-            // label71
-            // 
-            this.label71.AutoSize = true;
-            this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label71.Location = new System.Drawing.Point(891, 261);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(116, 16);
-            this.label71.TabIndex = 0;
-            this.label71.Text = "Rob.Desm.D %:";
-            // 
             // TxtScr12
             // 
             this.TxtScr12.Location = new System.Drawing.Point(670, 114);
@@ -2467,6 +2483,7 @@
             this.TxtScr12.Size = new System.Drawing.Size(66, 22);
             this.TxtScr12.TabIndex = 6;
             this.TxtScr12.TextChanged += new System.EventHandler(this.TxtExpRob_TextChanged);
+            this.TxtScr12.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtScr12_KeyPress);
             // 
             // label72
             // 
@@ -2478,25 +2495,25 @@
             this.label72.TabIndex = 0;
             this.label72.Text = "Fondo:";
             // 
-            // LblScr15PRob
+            // LblRob72P
             // 
-            this.LblScr15PRob.AutoSize = true;
-            this.LblScr15PRob.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblScr15PRob.Location = new System.Drawing.Point(380, 264);
-            this.LblScr15PRob.Name = "LblScr15PRob";
-            this.LblScr15PRob.Size = new System.Drawing.Size(28, 16);
-            this.LblScr15PRob.TabIndex = 0;
-            this.LblScr15PRob.Text = "0%";
+            this.LblRob72P.AutoSize = true;
+            this.LblRob72P.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblRob72P.Location = new System.Drawing.Point(468, 225);
+            this.LblRob72P.Name = "LblRob72P";
+            this.LblRob72P.Size = new System.Drawing.Size(28, 16);
+            this.LblRob72P.TabIndex = 0;
+            this.LblRob72P.Text = "0%";
             // 
             // label74
             // 
             this.label74.AutoSize = true;
             this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label74.Location = new System.Drawing.Point(284, 264);
+            this.label74.Location = new System.Drawing.Point(372, 225);
             this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(79, 16);
+            this.label74.Size = new System.Drawing.Size(48, 16);
             this.label74.TabIndex = 0;
-            this.label74.Text = "SCR.15 %:";
+            this.label74.Text = "7.2 %:";
             // 
             // TxtHumdadRob
             // 
@@ -2505,6 +2522,7 @@
             this.TxtHumdadRob.Size = new System.Drawing.Size(66, 22);
             this.TxtHumdadRob.TabIndex = 5;
             this.TxtHumdadRob.TextChanged += new System.EventHandler(this.TxtHumdadRob_TextChanged);
+            this.TxtHumdadRob.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtHumdadRob_KeyPress);
             // 
             // label75
             // 
@@ -2516,25 +2534,25 @@
             this.label75.TabIndex = 0;
             this.label75.Text = "Scr.15:";
             // 
-            // LblExpPRod
+            // LblNessP
             // 
-            this.LblExpPRod.AutoSize = true;
-            this.LblExpPRod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblExpPRod.Location = new System.Drawing.Point(74, 264);
-            this.LblExpPRod.Name = "LblExpPRod";
-            this.LblExpPRod.Size = new System.Drawing.Size(28, 16);
-            this.LblExpPRod.TabIndex = 0;
-            this.LblExpPRod.Text = "0%";
+            this.LblNessP.AutoSize = true;
+            this.LblNessP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblNessP.Location = new System.Drawing.Point(188, 225);
+            this.LblNessP.Name = "LblNessP";
+            this.LblNessP.Size = new System.Drawing.Size(28, 16);
+            this.LblNessP.TabIndex = 0;
+            this.LblNessP.Text = "0%";
             // 
             // label77
             // 
             this.label77.AutoSize = true;
             this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label77.Location = new System.Drawing.Point(18, 264);
+            this.label77.Location = new System.Drawing.Point(106, 225);
             this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(50, 16);
+            this.label77.Size = new System.Drawing.Size(64, 16);
             this.label77.TabIndex = 0;
-            this.label77.Text = "Exp%:";
+            this.label77.Text = "Ness.%:";
             // 
             // TxtObtRob
             // 
@@ -2876,62 +2894,6 @@
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // TxtNess
-            // 
-            this.TxtNess.Location = new System.Drawing.Point(218, 167);
-            this.TxtNess.Name = "TxtNess";
-            this.TxtNess.Size = new System.Drawing.Size(66, 22);
-            this.TxtNess.TabIndex = 21;
-            this.TxtNess.TextChanged += new System.EventHandler(this.TxtNess_TextChanged);
-            // 
-            // LblDesmDRob
-            // 
-            this.LblDesmDRob.AutoSize = true;
-            this.LblDesmDRob.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblDesmDRob.Location = new System.Drawing.Point(586, 170);
-            this.LblDesmDRob.Name = "LblDesmDRob";
-            this.LblDesmDRob.Size = new System.Drawing.Size(17, 16);
-            this.LblDesmDRob.TabIndex = 16;
-            this.LblDesmDRob.Text = "--";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(118, 170);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(95, 16);
-            this.label54.TabIndex = 17;
-            this.label54.Text = "Nesspresso:";
-            // 
-            // Txt72
-            // 
-            this.Txt72.Location = new System.Drawing.Point(371, 167);
-            this.Txt72.Name = "Txt72";
-            this.Txt72.Size = new System.Drawing.Size(66, 22);
-            this.Txt72.TabIndex = 20;
-            this.Txt72.TextChanged += new System.EventHandler(this.Txt72_TextChanged);
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(462, 170);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(99, 16);
-            this.label59.TabIndex = 18;
-            this.label59.Text = "Rob.Desm.D:";
-            // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label61.Location = new System.Drawing.Point(329, 170);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(31, 16);
-            this.label61.TabIndex = 19;
-            this.label61.Text = "7.2:";
-            // 
             // Catacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3158,25 +3120,21 @@
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label LblPsRob;
         private System.Windows.Forms.Label label62;
-        private System.Windows.Forms.TextBox TxtScoreRob;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.Label label64;
         private System.Windows.Forms.TextBox TxtScr14;
-        private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.Label LblScr14PRob;
+        private System.Windows.Forms.Label LblDesmDPRob;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.TextBox TxtScr15;
         private System.Windows.Forms.Label LblFondo;
         private System.Windows.Forms.Label label69;
-        private System.Windows.Forms.Label LblDesmPRob;
-        private System.Windows.Forms.Label label71;
         private System.Windows.Forms.TextBox TxtScr12;
         private System.Windows.Forms.Label label72;
-        private System.Windows.Forms.Label LblScr15PRob;
+        private System.Windows.Forms.Label LblRob72P;
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.TextBox TxtHumdadRob;
         private System.Windows.Forms.Label label75;
-        private System.Windows.Forms.Label LblExpPRod;
+        private System.Windows.Forms.Label LblNessP;
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.TextBox TxtObtRob;
         private System.Windows.Forms.Label label78;

@@ -11,14 +11,13 @@ namespace ProyectoOFI.Logica
         public string Cascarilla { get; set; }
         public string TotalPS { get; set; }
         public string Humedad { get; set; }
-        public string SCR15P { get; set; }
-        public string SCR14P { get; set; }
+        public string NessP { get; set; }
         public string DesmDRobP { get; set; }
         public string Taza { get; set; }
         public string GradoCalidad { get; set; }
         public string Digitador { get; set; }
         public string Analisis { get; set; }
-        public string ExpRobP { get; set; }
+        public string Rob72P { get; set; }
 
         // Parámetros DATE (DateTime)
         public DateTime FechaMuestra { get; set; } // El SP lo puede buscar si es NULL
@@ -33,10 +32,13 @@ namespace ProyectoOFI.Logica
         public string Estado { get; set; }
 
         // Parámetros DECIMAL (decimal)
-        public decimal ExpRob { get; set; }
+        public decimal SCR12 { get; set; }
         public decimal SCR15 { get; set; }
         public decimal SCR14 { get; set; }
         public decimal DesmDRob { get; set; }
         public decimal PesoRecibido { get; set; }
+        public decimal Fondo { get; set; }
+        public decimal Ness { get; set; }
+        public decimal Rob72 { get; set; }
     }
 }

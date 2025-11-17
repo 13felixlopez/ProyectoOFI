@@ -9,6 +9,7 @@ namespace ProyectoOFI.Datos
         private static readonly string cadenaConexion = Convert.ToString(Logica.Desencryptacion.checkServer());
 
         // Devuelve SIEMPRE una conexión abierta lista para usarse
+
         public static SqlConnection abrir()
         {
             var conexion = new SqlConnection(cadenaConexion);

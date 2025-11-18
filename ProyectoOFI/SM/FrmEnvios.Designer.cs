@@ -449,6 +449,7 @@
             this.BtnCalcular.TabIndex = 14;
             this.BtnCalcular.Text = "Calcular Tiempo";
             this.BtnCalcular.UseVisualStyleBackColor = true;
+            this.BtnCalcular.Click += new System.EventHandler(this.BtnCalcular_Click);
             // 
             // BtnPS
             // 

@@ -14,5 +14,10 @@ namespace ProyectoOFI.SM
         {
 
         }
+
+        private void BtnCalcular_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

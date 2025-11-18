@@ -1197,7 +1197,7 @@ namespace ProyectoOFI.Recepcion
             parametros.Digitador = Login.NombreA;
             if (funcion.EliminarTK(parametros) == true)
             {
-                MostrarLotes();
+                BuscarTK();
             }
             else
             {

@@ -1999,9 +1999,9 @@ namespace ProyectoOFI.Analisis
                     LblFondo.Text = row["DesmDRob"]?.ToString() ?? "--";
 
                     // === Porcentajes ===
-                    LblRob72P.Text = row["Scr15P"]?.ToString() ?? "--";
-                    LblDesmDPRob.Text = row["SCR1314P"]?.ToString() ?? "--";
-                    LblNessP.Text = row["SCR12P"]?.ToString() ?? "--";
+                    LblRob72P.Text = row["Rob72P"]?.ToString() ?? "--";
+                    LblDesmDPRob.Text = row["DesmDRobP"]?.ToString() ?? "--";
+                    LblNessP.Text = row["Nessp"]?.ToString() ?? "--";
 
                     LblFondo.Text = row["Fondo"]?.ToString() ?? "";
                     TxtNess.Text = row["Ness"]?.ToString() ?? "";
@@ -2359,7 +2359,6 @@ namespace ProyectoOFI.Analisis
             if (parametros.FechaMuestra == DateTime.MinValue) errores.Add("Fecha de muestra");
             if (parametros.FechaCatacion == DateTime.MinValue) errores.Add("Fecha de catación");
             if (parametros.IdVariedad <= 0) errores.Add("Variedad");
-            if (parametros.Score <= 0) errores.Add("Score");
             if (parametros.SCR12 <= 0) errores.Add("Exp. Robusta");
             if (parametros.PesoRecibido <= 0) errores.Add("Peso recibido");
 
@@ -2532,7 +2531,6 @@ namespace ProyectoOFI.Analisis
             if (parametros.FechaMuestra == DateTime.MinValue) errores.Add("Fecha de muestra");
             if (parametros.FechaCatacion == DateTime.MinValue) errores.Add("Fecha de catación");
             if (parametros.IdVariedad <= 0) errores.Add("Variedad");
-            if (parametros.Score <= 0) errores.Add("Score");
             if (parametros.SCR12 <= 0) errores.Add("Exp. Robusta");
             if (parametros.PesoRecibido <= 0) errores.Add("Peso recibido");
 
@@ -2597,6 +2595,9 @@ namespace ProyectoOFI.Analisis
             LblRob72P.Text = string.Empty;
             LblDesmDPRob.Text = string.Empty;
             LblPesoRob.Text = string.Empty;
+            TxtNess.Text = string.Empty;
+            Txt72.Text = string.Empty;
+            LblDesmDRob.Text = string.Empty;
 
             // 2. Restablecer ComboBoxes (Desmarcar selección)
             CbVariedadRob.SelectedIndex = -1; // Deseleccionar
@@ -2797,6 +2798,7 @@ namespace ProyectoOFI.Analisis
             BtnActivarRod.Visible = false;
             Desactivar();
             Limpiar();
+            LimpiarRob();
             ValidarPermisos();
         }
 
@@ -3438,42 +3440,38 @@ namespace ProyectoOFI.Analisis
         }
         private void CalcularPorcentajes()
         {
-            // Paso 1: Obtener el total de referencia
-            double total = ObtenerValorSeguro(TxtObtRob);
-            if (total <= 0)
-            {
-                // Mostrar "inválido" si el total es 0 o menor
-                LblNessP.Text = LblRob72P.Text = LblDesmDPRob.Text = "--";
-                LblDesmDRob.Text = "0";
-                LblDesmDRob.BackColor = SystemColors.Control;
-                return;
-            }
+            // === 1. Calcular LblFondo ===
+            double scr15 = ObtenerValorSeguro(TxtScr15);
+            double scr14 = ObtenerValorSeguro(TxtScr14);
+            double scr12 = ObtenerValorSeguro(TxtScr12);
 
-            // Paso 2: Obtener valores de Ness y 72
-            double valNess = ObtenerValorSeguro(TxtNess);
-            double val72 = ObtenerValorSeguro(Txt72);
+            double fondo = Math.Round(100 - scr15 - scr14 - scr12, 2);
+            if (fondo < 0) fondo = 0;
+            LblFondo.Text = fondo.ToString("F2");
 
-            // Paso 3: Calcular el valor restante
-            double valDesmD = Math.Round(total - valNess - val72, 2);
-            if (valDesmD < 0) valDesmD = 0;
+            // === 2. Calcular Desmerma Robusto ===
+            double obtRob = ObtenerValorSeguro(TxtObtRob);  // base 100%
+            double valNess = ObtenerValorSeguro(TxtNess);   // %
+            double val72 = ObtenerValorSeguro(Txt72);       // %
 
-            // Mostrar valor restante
-            LblDesmDRob.Text = valDesmD.ToString("F2");
+            double desmPorc = Math.Round(100 - valNess - val72, 2);
+            if (desmPorc < 0) desmPorc = 0;
+            LblDesmDRob.Text = desmPorc.ToString("F2");
 
-            // Paso 4: Calcular y mostrar porcentajes
-            double percNess = Math.Round((valNess / total) * 100, 2);
-            double perc72 = Math.Round((val72 / total) * 100, 2);
-            double percDesm = Math.Round((valDesmD / total) * 100, 2);
+            // === 3. Calcular valores reales ===
+            double valNessQq = Math.Round((valNess / 100.0) * obtRob, 2);
+            double val72Qq = Math.Round((val72 / 100.0) * obtRob, 2);
+            double valDesmQq = Math.Round((desmPorc / 100.0) * obtRob, 2);
 
-            LblNessP.Text = percNess.ToString("F2") + "%";
-            LblRob72P.Text = perc72.ToString("F2") + "%";
-            LblDesmDPRob.Text = percDesm.ToString("F2") + "%";
+            LblNessP.Text = valNessQq.ToString("F2");
+            LblRob72P.Text = val72Qq.ToString("F2");
+            LblDesmDPRob.Text = valDesmQq.ToString("F2");
 
-            // Paso 5: Color visual en base a equilibrio
-            if (valNess + val72 + valDesmD == total)
-                LblDesmDRob.BackColor = Color.LightGreen;
-            else if (valNess + val72 + valDesmD > total)
+            // === 4. Validación visual ===
+            if (desmPorc < 0)
                 LblDesmDRob.BackColor = Color.LightPink;
+            else if (desmPorc == 0)
+                LblDesmDRob.BackColor = Color.LightGreen;
             else
                 LblDesmDRob.BackColor = SystemColors.Control;
         }

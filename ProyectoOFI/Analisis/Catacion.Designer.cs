@@ -2174,7 +2174,7 @@
             this.TxtNess.Location = new System.Drawing.Point(235, 167);
             this.TxtNess.Name = "TxtNess";
             this.TxtNess.Size = new System.Drawing.Size(66, 22);
-            this.TxtNess.TabIndex = 21;
+            this.TxtNess.TabIndex = 5;
             this.TxtNess.TextChanged += new System.EventHandler(this.TxtNess_TextChanged);
             this.TxtNess.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNess_KeyPress);
             // 
@@ -2203,7 +2203,7 @@
             this.Txt72.Location = new System.Drawing.Point(376, 167);
             this.Txt72.Name = "Txt72";
             this.Txt72.Size = new System.Drawing.Size(66, 22);
-            this.Txt72.TabIndex = 20;
+            this.Txt72.TabIndex = 6;
             this.Txt72.TextChanged += new System.EventHandler(this.Txt72_TextChanged);
             this.Txt72.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txt72_KeyPress);
             // 
@@ -2235,7 +2235,7 @@
             this.CbTazaRob.Location = new System.Drawing.Point(722, 262);
             this.CbTazaRob.Name = "CbTazaRob";
             this.CbTazaRob.Size = new System.Drawing.Size(208, 24);
-            this.CbTazaRob.TabIndex = 11;
+            this.CbTazaRob.TabIndex = 8;
             // 
             // label55
             // 
@@ -2255,7 +2255,7 @@
             this.CbGCalidadRob.Location = new System.Drawing.Point(264, 263);
             this.CbGCalidadRob.Name = "CbGCalidadRob";
             this.CbGCalidadRob.Size = new System.Drawing.Size(353, 24);
-            this.CbGCalidadRob.TabIndex = 10;
+            this.CbGCalidadRob.TabIndex = 7;
             this.CbGCalidadRob.Text = "BOLA ROBUSTA";
             // 
             // BtnActivarRod
@@ -2264,7 +2264,7 @@
             this.BtnActivarRod.Location = new System.Drawing.Point(756, 305);
             this.BtnActivarRod.Name = "BtnActivarRod";
             this.BtnActivarRod.Size = new System.Drawing.Size(93, 52);
-            this.BtnActivarRod.TabIndex = 15;
+            this.BtnActivarRod.TabIndex = 12;
             this.BtnActivarRod.Text = "Activar";
             this.BtnActivarRod.UseVisualStyleBackColor = true;
             this.BtnActivarRod.Visible = false;
@@ -2277,7 +2277,7 @@
             this.ChbAnalizadoRob.Location = new System.Drawing.Point(368, 316);
             this.ChbAnalizadoRob.Name = "ChbAnalizadoRob";
             this.ChbAnalizadoRob.Size = new System.Drawing.Size(95, 20);
-            this.ChbAnalizadoRob.TabIndex = 13;
+            this.ChbAnalizadoRob.TabIndex = 10;
             this.ChbAnalizadoRob.Text = "Analizado";
             this.ChbAnalizadoRob.UseVisualStyleBackColor = true;
             this.ChbAnalizadoRob.CheckedChanged += new System.EventHandler(this.ChbAnalizadoRob_CheckedChanged);
@@ -2288,7 +2288,7 @@
             this.BtnAnalizadoRob.Location = new System.Drawing.Point(533, 305);
             this.BtnAnalizadoRob.Name = "BtnAnalizadoRob";
             this.BtnAnalizadoRob.Size = new System.Drawing.Size(168, 61);
-            this.BtnAnalizadoRob.TabIndex = 14;
+            this.BtnAnalizadoRob.TabIndex = 11;
             this.BtnAnalizadoRob.Text = "Analizado";
             this.BtnAnalizadoRob.UseVisualStyleBackColor = true;
             this.BtnAnalizadoRob.Visible = false;
@@ -2301,7 +2301,7 @@
             this.ChbRechazadoRob.Location = new System.Drawing.Point(195, 316);
             this.ChbRechazadoRob.Name = "ChbRechazadoRob";
             this.ChbRechazadoRob.Size = new System.Drawing.Size(105, 20);
-            this.ChbRechazadoRob.TabIndex = 12;
+            this.ChbRechazadoRob.TabIndex = 9;
             this.ChbRechazadoRob.Text = "Rechazado";
             this.ChbRechazadoRob.UseVisualStyleBackColor = true;
             this.ChbRechazadoRob.CheckedChanged += new System.EventHandler(this.ChbRechazadoRob_CheckedChanged);
@@ -2318,7 +2318,7 @@
             this.CbVariedadRob.Location = new System.Drawing.Point(770, 65);
             this.CbVariedadRob.Name = "CbVariedadRob";
             this.CbVariedadRob.Size = new System.Drawing.Size(278, 24);
-            this.CbVariedadRob.TabIndex = 4;
+            this.CbVariedadRob.TabIndex = 1;
             // 
             // DtFechacatacionRob
             // 
@@ -2423,7 +2423,7 @@
             this.TxtScr14.Location = new System.Drawing.Point(492, 114);
             this.TxtScr14.Name = "TxtScr14";
             this.TxtScr14.Size = new System.Drawing.Size(66, 22);
-            this.TxtScr14.TabIndex = 8;
+            this.TxtScr14.TabIndex = 3;
             this.TxtScr14.TextChanged += new System.EventHandler(this.TxtScr14_TextChanged);
             this.TxtScr14.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtScr14_KeyPress);
             // 
@@ -2452,7 +2452,7 @@
             this.TxtScr15.Location = new System.Drawing.Point(297, 114);
             this.TxtScr15.Name = "TxtScr15";
             this.TxtScr15.Size = new System.Drawing.Size(66, 22);
-            this.TxtScr15.TabIndex = 7;
+            this.TxtScr15.TabIndex = 2;
             this.TxtScr15.TextChanged += new System.EventHandler(this.TxtScr15_TextChanged);
             this.TxtScr15.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtScr15_KeyPress);
             // 
@@ -2481,7 +2481,7 @@
             this.TxtScr12.Location = new System.Drawing.Point(670, 114);
             this.TxtScr12.Name = "TxtScr12";
             this.TxtScr12.Size = new System.Drawing.Size(66, 22);
-            this.TxtScr12.TabIndex = 6;
+            this.TxtScr12.TabIndex = 4;
             this.TxtScr12.TextChanged += new System.EventHandler(this.TxtExpRob_TextChanged);
             this.TxtScr12.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtScr12_KeyPress);
             // 
@@ -2520,7 +2520,7 @@
             this.TxtHumdadRob.Location = new System.Drawing.Point(123, 114);
             this.TxtHumdadRob.Name = "TxtHumdadRob";
             this.TxtHumdadRob.Size = new System.Drawing.Size(66, 22);
-            this.TxtHumdadRob.TabIndex = 5;
+            this.TxtHumdadRob.TabIndex = 1;
             this.TxtHumdadRob.TextChanged += new System.EventHandler(this.TxtHumdadRob_TextChanged);
             this.TxtHumdadRob.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtHumdadRob_KeyPress);
             // 
@@ -2559,7 +2559,7 @@
             this.TxtObtRob.Location = new System.Drawing.Point(123, 66);
             this.TxtObtRob.Name = "TxtObtRob";
             this.TxtObtRob.Size = new System.Drawing.Size(66, 22);
-            this.TxtObtRob.TabIndex = 3;
+            this.TxtObtRob.TabIndex = 0;
             this.TxtObtRob.TextChanged += new System.EventHandler(this.TxtObtRob_TextChanged);
             // 
             // label78
@@ -2607,7 +2607,7 @@
             this.TxtAnalisisRob.Location = new System.Drawing.Point(117, 19);
             this.TxtAnalisisRob.Name = "TxtAnalisisRob";
             this.TxtAnalisisRob.Size = new System.Drawing.Size(158, 22);
-            this.TxtAnalisisRob.TabIndex = 0;
+            this.TxtAnalisisRob.TabIndex = 13;
             // 
             // label82
             // 

@@ -465,7 +465,7 @@ namespace ProyectoOFI.Analisis
                         DTPFechaMuestra.Value = FMuestra;
                     }
 
-                    DtFechaCatacion.Value = DateTime.Today.Date;
+                    //DtFechaCatacion.Value = DateTime.Today.Date;
                     CalculoDias();
                 }
             }
@@ -576,7 +576,7 @@ namespace ProyectoOFI.Analisis
                         DtPickerMuestraRob.Value = FMuestra;
                     }
 
-                    DtFechacatacionRob.Value = DateTime.Today.Date;
+                    //DtFechacatacionRob.Value = DateTime.Today.Date;
                     CalculoDiasRob();
                 }
             }
@@ -652,11 +652,13 @@ namespace ProyectoOFI.Analisis
                 CargarCombos();
                 if (Area == "Secado Natural")
                 {
+                    DtFechaCatacion.Value = DateTime.Today.Date;
                     VerDetalleCata();
                     VerDetalleCatacion();
                 }
                 else if (Area == "Robusta")
                 {
+                    DtFechacatacionRob.Value = DateTime.Today.Date;
                     VerDetalleCataRob();
                     VerDetalleCatacionRob();
                 }
@@ -1291,7 +1293,7 @@ namespace ProyectoOFI.Analisis
             {
                 TxtAnalisis.Enabled = true;
                 //DtFechaCatacion.Enabled = true;
-                //DTPFechaMuestra.Enabled = true;
+                DTPFechaMuestra.Enabled = true;
                 TxtBto.Enabled = true;
                 CbVariedad.Enabled = true;
                 TxtHumedad.Enabled = true;
@@ -1308,7 +1310,7 @@ namespace ProyectoOFI.Analisis
             else if (Area == "Robusta")
             {
                 TxtAnalisisRob.Enabled = true;
-                //DtFechaCatacion.Enabled = true;
+                DtFechaCatacion.Enabled = true;
                 //DTPFechaMuestra.Enabled = true;
                 TxtObtRob.Enabled = true;
                 CbVariedadRob.Enabled = true;
@@ -2508,7 +2510,7 @@ namespace ProyectoOFI.Analisis
                 SCR12 = decimal.TryParse(TxtScr12.Text, out var exp) ? exp : 0,
                 SCR15 = decimal.TryParse(TxtScr15.Text, out var scr15) ? scr15 : 0,
                 SCR14 = decimal.TryParse(TxtScr14.Text, out var scr14) ? scr14 : 0,
-                DesmDRob = decimal.TryParse(LblFondo.Text, out var desm) ? desm : 0,
+                DesmDRob = decimal.TryParse(LblDesmDRob.Text, out var desm) ? desm : 0,
                 Taza = CbTazaRob.Text?.Trim(),
                 GradoCalidad = CbGCalidadRob.Text?.Trim(),
                 NessP = LblNessP.Text?.Trim(),

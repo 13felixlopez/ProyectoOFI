@@ -86,6 +86,30 @@ namespace ProyectoOFI.Datos
                 contador = 0;
             }
         }
+        internal void MaquinaLoteUnico(string ticket, ref int Part1)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand(
+                    "SELECT TOP (1) POA FROM POA WHERE Ticket = @Tk", conectar))
+                {
+                    cmd.Parameters.AddWithValue("@Tk", ticket);
+
+                    if (conectar.State != ConnectionState.Open)
+                        conectar.Open();
+
+                    object result = cmd.ExecuteScalar();
+                    Part1 = (result == null || result == DBNull.Value)
+                        ? 0
+                        : Convert.ToInt32(result);
+                }
+            }
+            catch
+            {
+                Part1 = 0;
+            }
+        }
         internal void MaquinaP1(string ticket, ref int Part1)
         {
             try
@@ -452,6 +476,98 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show(ex.Message, "Error al editar Análisis", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en EditarCatacion ✖️✖️ " + ex.Message);
+                return false;
+            }
+        }
+        public bool EditarCatacionSM(LCatacion parametros, string TK)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("EditarCatacionSM", conectar))
+                {
+
+                    da.CommandType = CommandType.StoredProcedure;
+                    da.Parameters.AddWithValue("@Ticket", TK);
+                    da.Parameters.AddWithValue("@Origen", parametros.Origen);
+                    da.Parameters.AddWithValue("@FechaMuestra", parametros.FechaMuestra);
+                    da.Parameters.AddWithValue("@FechaCatacion", parametros.FechaCatacion);
+                    da.Parameters.AddWithValue("@Dias", parametros.Dias);
+                    da.Parameters.AddWithValue("@RmtoObto", parametros.RmtoObto);
+                    da.Parameters.AddWithValue("@Cascarilla", parametros.Cascarilla);
+                    da.Parameters.AddWithValue("@TotalPS", parametros.TotalPS);
+                    da.Parameters.AddWithValue("@IdVariedad", parametros.IdVariedad);
+                    da.Parameters.AddWithValue("@Humedad", parametros.Humedad);
+                    da.Parameters.AddWithValue("@Exp", parametros.Exp);
+                    da.Parameters.AddWithValue("@DesmA", parametros.DesmA);
+                    da.Parameters.AddWithValue("@DesmC", parametros.DesmC);
+                    da.Parameters.AddWithValue("@DesmD", parametros.DesmD);
+                    da.Parameters.AddWithValue("@DesmAP", parametros.DesmAP);
+                    da.Parameters.AddWithValue("@DesmCP", parametros.DesmCP);
+                    da.Parameters.AddWithValue("@DesmDP", parametros.DesmDP);
+                    da.Parameters.AddWithValue("@Score", parametros.Score);
+                    da.Parameters.AddWithValue("@Taza", parametros.Tasa);
+                    da.Parameters.AddWithValue("@GradoCalidad", parametros.GradoCalidad);
+                    da.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+                    da.Parameters.AddWithValue("@Estado", parametros.Estado);
+                    da.Parameters.AddWithValue("@Analisis", parametros.Analisis);
+                    da.Parameters.AddWithValue("@ExpP", parametros.ExpP);
+                    da.Parameters.AddWithValue("@PesoRecibido", parametros.PesoRecibido);
+                    da.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error al editar Análisis", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en EditarCatacionSM ✖️✖️ " + ex.Message);
+                return false;
+            }
+        }
+        public bool InsertarCatacionSM(LCatacion parametros)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("InsertarCatacionSM", conectar))
+                {
+
+                    da.CommandType = CommandType.StoredProcedure;
+                    da.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                    da.Parameters.AddWithValue("@Origen", parametros.Origen);
+                    da.Parameters.AddWithValue("@FechaMuestra", parametros.FechaMuestra);
+                    da.Parameters.AddWithValue("@FechaCatacion", parametros.FechaCatacion);
+                    da.Parameters.AddWithValue("@Dias", parametros.Dias);
+                    da.Parameters.AddWithValue("@RmtoObto", parametros.RmtoObto);
+                    da.Parameters.AddWithValue("@Cascarilla", parametros.Cascarilla);
+                    da.Parameters.AddWithValue("@TotalPS", parametros.TotalPS);
+                    da.Parameters.AddWithValue("@IdVariedad", parametros.IdVariedad);
+                    da.Parameters.AddWithValue("@Humedad", parametros.Humedad);
+                    da.Parameters.AddWithValue("@Exp", parametros.Exp);
+                    da.Parameters.AddWithValue("@DesmA", parametros.DesmA);
+                    da.Parameters.AddWithValue("@DesmC", parametros.DesmC);
+                    da.Parameters.AddWithValue("@DesmD", parametros.DesmD);
+                    da.Parameters.AddWithValue("@ExpP", parametros.ExpP);
+                    da.Parameters.AddWithValue("@DesmAP", parametros.DesmAP);
+                    da.Parameters.AddWithValue("@DesmCP", parametros.DesmCP);
+                    da.Parameters.AddWithValue("@DesmDP", parametros.DesmDP);
+                    da.Parameters.AddWithValue("@Score", parametros.Score);
+                    da.Parameters.AddWithValue("@Taza", parametros.Tasa);
+                    da.Parameters.AddWithValue("@GradoCalidad", parametros.GradoCalidad);
+                    da.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+                    da.Parameters.AddWithValue("@Estado", parametros.Estado);
+                    da.Parameters.AddWithValue("@Analisis", parametros.Analisis);
+                    da.Parameters.AddWithValue("@PesoRecibido", parametros.PesoRecibido);
+                    da.Parameters.AddWithValue("@Maquina", parametros.Maquina);
+                    da.ExecuteNonQuery();
+                    return true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Insertar los datos " + ex.Message, "Error al Insertar Análisis", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en InsertarCatacion ✖️✖️ " + ex.Message);
                 return false;
             }
         }

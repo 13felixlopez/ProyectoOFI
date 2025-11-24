@@ -115,6 +115,8 @@
             this.PlCerrar = new System.Windows.Forms.Panel();
             this.LblFiltros = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
+            this.BtnSecadoNa = new System.Windows.Forms.Button();
+            this.BtnRobusta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioAlm)).BeginInit();
             this.plOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).BeginInit();
@@ -168,6 +170,8 @@
             // 
             this.plOpciones.AutoScroll = true;
             this.plOpciones.BackColor = System.Drawing.Color.White;
+            this.plOpciones.Controls.Add(this.BtnSecadoNa);
+            this.plOpciones.Controls.Add(this.BtnRobusta);
             this.plOpciones.Controls.Add(this.BtnBusqueda);
             this.plOpciones.Controls.Add(this.BtnReporte);
             this.plOpciones.Controls.Add(this.CbBuscador);
@@ -1135,6 +1139,29 @@
             this.BtnCerrar.UseVisualStyleBackColor = true;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
+            // BtnSecadoNa
+            // 
+            this.BtnSecadoNa.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnSecadoNa.Enabled = false;
+            this.BtnSecadoNa.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSecadoNa.Location = new System.Drawing.Point(1068, 0);
+            this.BtnSecadoNa.Name = "BtnSecadoNa";
+            this.BtnSecadoNa.Size = new System.Drawing.Size(81, 62);
+            this.BtnSecadoNa.TabIndex = 20;
+            this.BtnSecadoNa.Text = "Secado Natural";
+            this.BtnSecadoNa.UseVisualStyleBackColor = true;
+            // 
+            // BtnRobusta
+            // 
+            this.BtnRobusta.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnRobusta.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRobusta.Location = new System.Drawing.Point(1149, 0);
+            this.BtnRobusta.Name = "BtnRobusta";
+            this.BtnRobusta.Size = new System.Drawing.Size(81, 62);
+            this.BtnRobusta.TabIndex = 19;
+            this.BtnRobusta.Text = "Robusta";
+            this.BtnRobusta.UseVisualStyleBackColor = true;
+            // 
             // Almacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1257,5 +1284,7 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Button BtnReporte;
         private System.Windows.Forms.Button BtnBusqueda;
+        private System.Windows.Forms.Button BtnSecadoNa;
+        private System.Windows.Forms.Button BtnRobusta;
     }
 }

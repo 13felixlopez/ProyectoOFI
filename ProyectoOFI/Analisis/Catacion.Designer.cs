@@ -706,7 +706,7 @@
             this.PLDatos.Controls.Add(this.PlDetalleCompra);
             this.PLDatos.Controls.Add(this.PlDatosTk);
             this.PLDatos.Controls.Add(this.PlCerrarDetalle);
-            this.PLDatos.Location = new System.Drawing.Point(9, 266);
+            this.PLDatos.Location = new System.Drawing.Point(9, 230);
             this.PLDatos.MaximumSize = new System.Drawing.Size(1156, 556);
             this.PLDatos.Name = "PLDatos";
             this.PLDatos.Size = new System.Drawing.Size(1156, 556);
@@ -2105,7 +2105,7 @@
             this.PlDatosrob.Controls.Add(this.PlDatosRobusta);
             this.PlDatosrob.Controls.Add(this.panel8);
             this.PlDatosrob.Controls.Add(this.panel9);
-            this.PlDatosrob.Location = new System.Drawing.Point(642, 85);
+            this.PlDatosrob.Location = new System.Drawing.Point(1166, 97);
             this.PlDatosrob.Name = "PlDatosrob";
             this.PlDatosrob.Size = new System.Drawing.Size(1156, 655);
             this.PlDatosrob.TabIndex = 19;

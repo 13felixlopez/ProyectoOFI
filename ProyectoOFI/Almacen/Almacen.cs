@@ -190,7 +190,7 @@ namespace ProyectoOFI.Almacen
             }
             else
             {
-                MostrarAlmacen();
+                BuscarTK();
             }
             Contar();
             if (Contador > hasta)
@@ -218,7 +218,7 @@ namespace ProyectoOFI.Almacen
             }
             else
             {
-                MostrarAlmacen();
+                BuscarTK();
             }
         }
         #endregion

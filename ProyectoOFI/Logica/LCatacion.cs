@@ -29,5 +29,6 @@ namespace ProyectoOFI.Logica
         public string Estado { get; set; }
         public string Analisis { get; set; }
         public double PesoRecibido { get; set; }
+        public int Maquina { get; set; }
     }
 }

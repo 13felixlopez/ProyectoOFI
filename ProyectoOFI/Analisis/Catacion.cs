@@ -171,6 +171,10 @@ namespace ProyectoOFI.Analisis
                 {
                     BuscarCataRobusta();
                 }
+                else if (Area == "Secado Mecanico")
+                {
+                    BuscarCataSM();
+                }
             }
             else if (CbBuscador.Visible == true)
             {
@@ -215,6 +219,10 @@ namespace ProyectoOFI.Analisis
                 {
                     BuscarCataRobusta();
                 }
+                else if (Area == "Secado Mecanico")
+                {
+                    BuscarCataSM();
+                }
             }
             else if (CbBuscador.Visible == true)
             {
@@ -255,6 +263,10 @@ namespace ProyectoOFI.Analisis
                 {
                     BuscarCataRobusta();
                 }
+                else if (Area == "Secado Mecanico")
+                {
+                    BuscarCataSM();
+                }
             }
             else if (CbBuscador.Visible == true)
             {
@@ -294,6 +306,10 @@ namespace ProyectoOFI.Analisis
                 {
                     BuscarCataRobusta();
                 }
+                else if (Area == "Secado Mecanico")
+                {
+                    BuscarCataSM();
+                }
             }
             else if (CbBuscador.Visible == true)
             {
@@ -332,6 +348,15 @@ namespace ProyectoOFI.Analisis
             //LblContador.Text = ContarBusqueda.ToString();
             //Base.DiseñoEnvio(ref dtInventarioCat);
         }
+        private void BuscarCataSM()
+        {
+            DataTable dt = new DataTable();
+            Dcatacion funcion = new Dcatacion();
+            dtInventarioCat.DataSource = null;
+            funcion.BuscarCataSM(txtBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
+            dtInventarioCat.DataSource = dt;
+            ContarBusqueda = int.Parse(funcion.Contador.ToString());
+        }
         private void BuscarCataRobusta()
         {
             DataTable dt = new DataTable();
@@ -358,6 +383,10 @@ namespace ProyectoOFI.Analisis
             else if (Area == "Robusta")
             {
                 funcion.MostrarCataRobusta(ref dt, desde, hasta);
+            }
+            else if (Area == "Secado Mecanico")
+            {
+                BuscarCataSM();
             }
             //ReiniciarPaginado();
             dtInventarioCat.DataSource = dt;
@@ -662,6 +691,13 @@ namespace ProyectoOFI.Analisis
                     VerDetalleCataRob();
                     VerDetalleCatacionRob();
                 }
+                else if (Area == "Secado Mecanico")
+                {
+                    DtFechaCatacion.Value = DateTime.Today.Date;
+                    MostrarPanelSM();
+                    // VerDetalleCataSM();
+                    VerDetalleCatacion();
+                }
                 //}
             }
             else
@@ -685,6 +721,56 @@ namespace ProyectoOFI.Analisis
             }
             // Traer panel al frente
             // PlTkSM.BringToFront();
+        }
+        private void MostrarPanelSM()
+        {
+            PlTkSM.Visible = true;
+            // Centrar panel en pantalla
+            PlTkSM.Location = new Point(
+                (this.ClientSize.Width - PlTkSM.Width) / 2,
+                (this.ClientSize.Height - PlTkSM.Height) / 2);
+            //Instanciar clase de acceso a datos
+            var funcion = new Dcatacion();
+
+            // Construir códigos de parte
+            part1 = $"{Ticket}-Parte1";
+            part2 = $"{Ticket}-Parte2";
+
+            // Obtener datos
+            funcion.MaquinaP1(part1, ref POA1);
+            funcion.MaquinaP2(part2, ref POA2);
+
+            // Mostrar / ocultar botón Parte 1
+            if (POA1 > 0)
+            {
+                BtnPart1.Visible = true;
+                BtnPart1.Text = $"{Ticket}-Parte1  Tolva {POA1}";
+            }
+            else
+            {
+                BtnPart1.Visible = false;
+                BtnPart1.Text = string.Empty;
+            }
+
+            // Mostrar / ocultar botón Parte 2
+            if (POA2 > 0)
+            {
+                BtnPart2.Visible = true;
+                BtnPart2.Text = $"{Ticket}-Parte2  Tolva {POA2}";
+            }
+            else
+            {
+                BtnPart2.Visible = false;
+                BtnPart2.Text = string.Empty;
+            }
+
+            if (POA1 == 0 && POA2 == 0)
+            {
+                funcion.MaquinaLoteUnico(Ticket, ref POA1);
+                BtnPart1.Visible = true;
+                BtnPart1.Text = $"{Ticket}  Tolva {POA1}";
+                part1 = Ticket;
+            }
         }
         private void ObtenerTK()
         {
@@ -976,7 +1062,7 @@ namespace ProyectoOFI.Analisis
         private void CargarCombos()
         {
             Dcatacion funcion = new Dcatacion();
-            if (Area == "Secado Natural")
+            if (Area == "Secado Natural" || Area=="Secado Mecanico")
             {
                 funcion.MostrarVariedad(CbVariedad);
                 string calidad = LblCalidad.Text;
@@ -1018,36 +1104,36 @@ namespace ProyectoOFI.Analisis
             }
             if (Analizar == "Proceso")
             {
-                // Verifica si el ticket contiene "-Parte1" o "-Parte2"
-                if (ticketText.Contains("-Parte1") || ticketText.Contains("-Parte2"))
-                {
-                    // Utiliza Regex para extraer la parte después de "24/25-"
-                    string pattern = @"24\/25-(\w+)-";
-                    Match match = Regex.Match(ticketText, pattern);
+                //// Verifica si el ticket contiene "-Parte1" o "-Parte2"
+                //if (ticketText.Contains("-Parte1") || ticketText.Contains("-Parte2"))
+                //{
+                //    // Utiliza Regex para extraer la parte después de "24/25-"
+                //    string pattern = @"24\/25-(\w+)-";
+                //    Match match = Regex.Match(ticketText, pattern);
 
-                    if (match.Success)
-                    {
-                        // Si se encuentra una coincidencia, establece el texto extraído
-                        TxtAnalisis.Text = match.Groups[1].Value;
-                    }
-                    else
-                    {
-                        // Si no se encuentra una coincidencia, muestra un mensaje de error
-                        TxtAnalisis.Text = "No se encontró una coincidencia válida.";
-                    }
-                }
-                else
+                //    if (match.Success)
+                //    {
+                //        // Si se encuentra una coincidencia, establece el texto extraído
+                //        TxtAnalisis.Text = match.Groups[1].Value;
+                //    }
+                //    else
+                //    {
+                //        // Si no se encuentra una coincidencia, muestra un mensaje de error
+                //        TxtAnalisis.Text = "No se encontró una coincidencia válida.";
+                //    }
+                //}
+                //else
+                //{
+                // Si no lo contiene, muestra el ticket completo
+                if (Area == "Secado Natural")
                 {
-                    // Si no lo contiene, muestra el ticket completo
-                    if (Area == "Secado Natural")
-                    {
-                        TxtAnalisis.Text = ticketText;
-                    }
-                    else if (Area == "Robusta")
-                    {
-                        TxtAnalisisRob.Text = ticketText;
-                    }
+                    TxtAnalisis.Text = ticketText;
                 }
+                else if (Area == "Robusta")
+                {
+                    TxtAnalisisRob.Text = ticketText;
+                }
+                //}
 
             }
             else
@@ -1148,9 +1234,18 @@ namespace ProyectoOFI.Analisis
                 {
                     if (BtnAnalisis.Text == "Re-Analizar" || BtnAnalisis.Text == "Editar Análisis")
                     {
-                        EditarCatacionCD(TxtAnalisis.Text);
-                        Task.Delay(3000);
-                        BuscarTK();
+                        if (Area == "Secado Natural")
+                        {
+                            EditarCatacionCD(TxtAnalisis.Text);
+                            Task.Delay(3000);
+                            BuscarTK();
+                        }
+                        else if (Area == "Secado Mecanico")
+                        {
+                            EditarCatacionSM(TxtAnalisis.Text);
+                            Task.Delay(3000);
+                            BuscarCataSM();
+                        }
                         Desactivar();
                     }
                     else
@@ -1176,9 +1271,18 @@ namespace ProyectoOFI.Analisis
                         res = MessageBox.Show(mensaje, "Confirmar Edición", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                         if (res == DialogResult.Yes)
                         {
-                            InsertarCatacion(LblTicket.Text);
-                            Task.Delay(3000);
-                            BuscarTK();
+                            if (Area == "Secado Natural")
+                            {
+                                InsertarCatacion(TxtAnalisis.Text);
+                                Task.Delay(3000);
+                                BuscarTK();
+                            }
+                            else if (Area == "Secado Mecanico")
+                            {
+                                InsertarCatacionSM(TxtAnalisis.Text);
+                                Task.Delay(3000);
+                                BuscarCataSM();
+                            }
                             Desactivar();
                         }
                         else
@@ -1412,25 +1516,102 @@ namespace ProyectoOFI.Analisis
             // --- Insertar ---
             if (funcion.InsertarCatacion(parametros))
             {
-                // Preguntar solo si corresponde y si existe Tk2
-                if (preguntar && !string.IsNullOrEmpty(Tk2))
-                {
-                    var res = MessageBox.Show(
-                        $"¿Deseas copiar los mismos datos a {Tk2}?",
-                        "Copiar Datos",
-                        MessageBoxButtons.OKCancel,
-                        MessageBoxIcon.Question);
+                //// Preguntar solo si corresponde y si existe Tk2
+                //if (preguntar && !string.IsNullOrEmpty(Tk2))
+                //{
+                //    var res = MessageBox.Show(
+                //        $"¿Deseas copiar los mismos datos a {Tk2}?",
+                //        "Copiar Datos",
+                //        MessageBoxButtons.OKCancel,
+                //        MessageBoxIcon.Question);
 
-                    if (res == DialogResult.OK)
-                    {
-                        // Llamada recursiva SIN preguntar esta vez
-                        InsertarCatacion(Tk2, false);
+                //    if (res == DialogResult.OK)
+                //    {
+                //        // Llamada recursiva SIN preguntar esta vez
+                //        InsertarCatacion(Tk2, false);
 
-                        EditarCatacionCD(Ticket);
-                        bandera = false;
-                        await Task.Delay(3000);
-                    }
-                }
+                //        EditarCatacionCD(Ticket);
+                //        bandera = false;
+                //        await Task.Delay(3000);
+                //    }
+                //}
+
+                PLDatos.Visible = false;
+                Limpiar();
+            }
+            else
+            {
+                MessageBox.Show("❌ No se pudo insertar la catación.",
+                                "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private async void InsertarCatacionSM(string Tk, bool preguntar = true)
+        {
+            if (!Validar())
+                return;
+
+            if (DtFechaCatacion.Value.Date > DateTime.Today.Date)
+            {
+                MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha actual",
+                                "Error en la fecha",
+                                MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+
+            LCatacion parametros = new LCatacion();
+            Dcatacion funcion = new Dcatacion();
+
+            // --- Asignar valores ---
+            parametros.Ticket = Tk;
+            parametros.Origen = LblProcedencia.Text;
+            parametros.Analisis = TxtAnalisis.Text;
+            parametros.FechaMuestra = DTPFechaMuestra.Value;
+            parametros.FechaCatacion = DateTime.Today;
+            parametros.Dias = int.Parse(LblDias.Text);
+            parametros.RmtoObto = TxtBto.Text;
+            parametros.Cascarilla = LblCascarilla.Text;
+            parametros.TotalPS = LblTotal.Text;
+            parametros.IdVariedad = (int)CbVariedad.SelectedValue;
+            parametros.Humedad = TxtHumedad.Text;
+            parametros.Exp = double.Parse(TxtExp.Text);
+            parametros.DesmA = double.Parse(TxtDesmA.Text);
+            parametros.DesmC = double.Parse(LblDesmC.Text);
+            parametros.DesmD = double.Parse(TxtDesmD.Text);
+            parametros.Score = int.Parse(TxtScore.Text);
+            parametros.Tasa = CbTasa.Text;
+            parametros.GradoCalidad = CbGrupoCalidad.Text;
+            parametros.ExpP = LblExpP.Text;
+            parametros.DesmAP = LblDesmAP.Text;
+            parametros.DesmCP = LblDesmCP.Text;
+            parametros.DesmDP = LblDesmDP.Text;
+            parametros.Digitador = Login.NombreA;
+            parametros.PesoRecibido = double.Parse(LblPeso.Text);
+            parametros.Estado = ChbRechazado.Checked ? "0" : "1";
+            parametros.Maquina = int.Parse(LblTolva.Text);
+
+            // --- Insertar ---
+            if (funcion.InsertarCatacionSM(parametros))
+            {
+                //// Preguntar solo si corresponde y si existe Tk2
+                //if (preguntar && !string.IsNullOrEmpty(Tk2))
+                //{
+                //    var res = MessageBox.Show(
+                //        $"¿Deseas copiar los mismos datos a {Tk2}?",
+                //        "Copiar Datos",
+                //        MessageBoxButtons.OKCancel,
+                //        MessageBoxIcon.Question);
+
+                //    if (res == DialogResult.OK)
+                //    {
+                //        // Llamada recursiva SIN preguntar esta vez
+                //        InsertarCatacion(Tk2, false);
+
+                //        EditarCatacionCD(Ticket);
+                //        bandera = false;
+                //        await Task.Delay(3000);
+                //    }
+                //}
 
                 PLDatos.Visible = false;
                 Limpiar();
@@ -1463,60 +1644,7 @@ namespace ProyectoOFI.Analisis
             PlCarga.Visible = false;
             await Task.Delay(1000);
         }
-        private void EditarCatacion()
-        {
-            if (Validar())
-            {
-                LCatacion parametros = new LCatacion();
-                Dcatacion funcion = new Dcatacion();
-                parametros.Ticket = LblTicket.Text;
-                parametros.Origen = LblProcedencia.Text;
-                parametros.Analisis = TxtAnalisis.Text;
-                parametros.FechaMuestra = DTPFechaMuestra.Value;
-                parametros.FechaCatacion = DateTime.Today;
-                parametros.Dias = int.Parse(LblDias.Text);
-                parametros.RmtoObto = TxtBto.Text;
-                parametros.Cascarilla = LblCascarilla.Text;
-                parametros.TotalPS = LblTotal.Text;
-                parametros.IdVariedad = (int)CbVariedad.SelectedValue;
-                parametros.Humedad = TxtHumedad.Text;
-                parametros.Exp = double.Parse(TxtExp.Text);
-                parametros.DesmA = double.Parse(TxtDesmA.Text);
-                parametros.DesmC = double.Parse(TxtDesmD.Text);
-                parametros.DesmD = double.Parse(LblDesmC.Text);
-                parametros.Score = int.Parse(TxtScore.Text);
-                parametros.Tasa = CbTasa.Text;
-                //parametros.GradoCalidad = LblGCalidad.Text;
-                parametros.ExpP = LblExpP.Text;
-                parametros.DesmAP = LblDesmAP.Text;
-                parametros.DesmCP = LblDesmCP.Text;
-                parametros.DesmDP = LblDesmDP.Text;
-                parametros.Digitador = Login.NombreA;
 
-                if (ChbRechazado.Checked == true)
-                {
-                    parametros.Estado = "0";
-                }
-                else if (ChbAnalizado.Checked == true)
-                {
-                    parametros.Estado = "1";
-                }
-                else
-                {
-                    parametros.Estado = "1";
-                }
-
-                if (funcion.EditarCatacion(parametros, Idcatacion) == true)
-                {
-                    PLDatos.Visible = false;
-                    Limpiar();
-                }
-                else
-                {
-                    MessageBox.Show("Error en los datos", "Error en interfaz", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
         private void EditarCatacionCD(string Analisis)
         {
             if (Validar())
@@ -1561,6 +1689,72 @@ namespace ProyectoOFI.Analisis
                         parametros.Estado = "1";
                     }
                     if (funcion.EditarCatacionCD(parametros, LblTicket.Text) == true)
+                    {
+                        if (bandera == true)
+                        {
+                            DateTime FEdicion = DateTime.Now;
+                            MSJ(Ticket, TxtAnalisis.Text, FEdicion, Rendimiento, Quality);
+                        }
+                        MessageBox.Show("Registro editado con Exito", "Editar Analisis", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        PLDatos.Visible = false;
+                        bandera = true;
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error en los datos", "Error en interfaz", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha de dia de hoy", "Error en la fecha", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
+        }
+        private void EditarCatacionSM(string Analisis)
+        {
+            if (Validar())
+            {
+                if (DtFechaCatacion.Value.Date <= DateTime.Today.Date)
+                {
+                    LCatacion parametros = new LCatacion();
+                    Dcatacion funcion = new Dcatacion();
+                    parametros.Origen = LblProcedencia.Text;
+                    parametros.Analisis = Analisis;
+                    parametros.FechaMuestra = DTPFechaMuestra.Value;
+                    parametros.FechaCatacion = DateTime.Today;
+                    parametros.Dias = int.Parse(LblDias.Text);
+                    parametros.RmtoObto = TxtBto.Text;
+                    parametros.Cascarilla = LblCascarilla.Text;
+                    parametros.TotalPS = LblTotal.Text;
+                    parametros.IdVariedad = (int)CbVariedad.SelectedValue;
+                    parametros.Humedad = TxtHumedad.Text;
+                    parametros.Exp = double.Parse(TxtExp.Text);
+                    parametros.DesmA = double.Parse(TxtDesmA.Text);
+                    parametros.DesmC = double.Parse(LblDesmC.Text);
+                    parametros.DesmD = double.Parse(TxtDesmD.Text);
+                    parametros.Score = int.Parse(TxtScore.Text);
+                    parametros.Tasa = CbTasa.Text;
+                    parametros.GradoCalidad = CbGrupoCalidad.Text;
+                    parametros.ExpP = LblExpP.Text;
+                    parametros.DesmAP = LblDesmAP.Text;
+                    parametros.DesmCP = LblDesmCP.Text;
+                    parametros.DesmDP = LblDesmDP.Text;
+                    parametros.Digitador = Login.NombreA;
+                    parametros.PesoRecibido = double.Parse(LblPeso.Text);
+                    if (ChbRechazado.Checked == true)
+                    {
+                        parametros.Estado = "0";
+                    }
+                    else if (ChbAnalizado.Checked == true)
+                    {
+                        parametros.Estado = "1";
+                    }
+                    else
+                    {
+                        parametros.Estado = "1";
+                    }
+                    if (funcion.EditarCatacionSM(parametros, LblTicket.Text) == true)
                     {
                         if (bandera == true)
                         {
@@ -2196,15 +2390,6 @@ namespace ProyectoOFI.Analisis
             txtBuscador.Focus();
         }
 
-        private void BuscarCataSM()
-        {
-            DataTable dt = new DataTable();
-            Dcatacion funcion = new Dcatacion();
-            funcion.BuscarCataSM(txtBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
-            dtInventarioCat.DataSource = dt;
-            ContarBusqueda = int.Parse(funcion.Contador.ToString());
-        }
-
         private void BtnSplit_Click(object sender, EventArgs e)
         {
             if (TxtBto.Text == "")
@@ -2235,10 +2420,10 @@ namespace ProyectoOFI.Analisis
 
         private void BtnPart1_Click(object sender, EventArgs e)
         {
-            LblTicket.Text = Ticket + "-Parte1";
+            LblTicket.Text = part1;
             PlTkSM.Visible = false;
             PLDatos.Enabled = true;
-            TxtAnalisis.Text = Ticket + "-Parte1";
+            TxtAnalisis.Text = part1;
             label53.Visible = true;
             LblTolva.Visible = true;
             LblTolva.Text = POA1.ToString();
@@ -2248,7 +2433,8 @@ namespace ProyectoOFI.Analisis
             DTPFechaMuestra.Value = funcion.ObtenerFechaMuestra(LblTicket.Text);
             TkDetalle = LblTicket.Text;
             VerDetalleCata();
-            VerDetalleCata();
+            AbrirFormulario(PLDatos);
+            //VerDetalleCata();
         }
 
         private void TxtScore_KeyPress(object sender, KeyPressEventArgs e)

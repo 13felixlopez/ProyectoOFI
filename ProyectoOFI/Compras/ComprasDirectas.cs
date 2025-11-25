@@ -82,7 +82,7 @@ namespace ProyectoOFI.Compras
             {
                 if (Validar())
                 {
-                    if (DTPFecha.Value.Date < DateTime.Today.Date)
+                    if (DTPFecha.Value.Date <= DateTime.Today.Date)
                     {
                         DCompraD funcion = new DCompraD();
                         LComprasD parametros = new LComprasD();
@@ -126,7 +126,7 @@ namespace ProyectoOFI.Compras
             {
                 if (Validar())
                 {
-                    if (DTPFecha.Value.Date < DateTime.Today.Date)
+                    if (DTPFecha.Value.Date <= DateTime.Today.Date)
                     {
                         DCompraD funcion = new DCompraD();
                         LComprasD parametros = new LComprasD();

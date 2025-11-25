@@ -301,6 +301,26 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error en VerDetalleCata ✖️✖️ " + ex.Message);
             }
         }
+
+        public void VerDetalleCataSM(ref DataTable dt, string Ticket)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("VerDetalleCataSM", conectar))
+                {
+
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.AddWithValue("@Ticket", Ticket);
+                    da.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar el detalle de la Ticket " + ex.Message, "Error en Ver Detalle", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en VerDetalleCata ✖️✖️ " + ex.Message);
+            }
+        }
         public void VerDetalleCataRob(ref DataTable dt, string Ticket)
         {
             try

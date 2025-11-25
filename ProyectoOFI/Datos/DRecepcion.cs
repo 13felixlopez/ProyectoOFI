@@ -292,6 +292,60 @@ namespace ProyectoOFI.Datos
             }
         }
 
+        public bool EditarTKCons(LRecepcion parametros, LEnvio par, string TicketAnterior)
+        {
+            try
+            {
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EditarTK", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@TicketAnterior", TicketAnterior);
+                    cmd.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                    cmd.Parameters.AddWithValue("@FechaRecibido", parametros.FRecibido);
+                    cmd.Parameters.AddWithValue("@Patio", parametros.Patio);
+                    cmd.Parameters.AddWithValue("@UbicacionRec", parametros.UbicacionRec);
+                    cmd.Parameters.AddWithValue("@AreaSecado", parametros.IdArea);
+                    cmd.Parameters.AddWithValue("@MTNR", parametros.MTNR);
+                    cmd.Parameters.AddWithValue("@EstadoFisico", parametros.IdEstFis);
+                    cmd.Parameters.AddWithValue("@Calidad", parametros.IdCalidad);
+                    cmd.Parameters.AddWithValue("@Danio", parametros.IdDaño);
+                    cmd.Parameters.AddWithValue("@Sacos", parametros.Sacos);
+                    cmd.Parameters.AddWithValue("@Peso", parametros.Peso);
+                    cmd.Parameters.AddWithValue("@Merma", parametros.Merma);
+                    //cmd.Parameters.AddWithValue("@Recibidor", parametros.IdRecibidor);
+                    cmd.Parameters.AddWithValue("@Digitador", parametros.Digitador);
+                    cmd.Parameters.AddWithValue("@ContadorEdit", parametros.ContadorEdit);
+                    cmd.Parameters.AddWithValue("@Proceso", parametros.Proceso);
+                    // Envio
+                    cmd.Parameters.AddWithValue("@FEnvio", par.FEnvio);
+                    //cmd.Parameters.AddWithValue("@IdAgencia", par.IdAgencia);
+                    //cmd.Parameters.AddWithValue("@IdAcopio", par.IdAcopio);
+                    cmd.Parameters.AddWithValue("@IdCliente", par.IdCliente);
+                    cmd.Parameters.AddWithValue("@MTNT", par.MTNT);
+                    cmd.Parameters.AddWithValue("@Tipo_Compra", par.IdTCompra);
+                    cmd.Parameters.AddWithValue("@IdCertificacion", par.IdCertificacionE);
+                    cmd.Parameters.AddWithValue("@EsFisico", par.IdEsFisico);
+                    cmd.Parameters.AddWithValue("@CalidadE", par.IdCalidadE);
+                    cmd.Parameters.AddWithValue("@DanioE", par.IdDanioE);
+                    cmd.Parameters.AddWithValue("@SacosE", par.SacosE);
+                    cmd.Parameters.AddWithValue("@PesoE", par.PesoE);
+                    cmd.Parameters.AddWithValue("@Tally", par.Tally);
+                    cmd.Parameters.AddWithValue("@Placa", par.Placa);
+
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo actualizar el Ticket. Detalle: " + ex.Message,
+                    "Error EditarTK", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en EditarTK ✖️✖️ " + ex.Message);
+                return false;
+            }
+        }
+
         public bool Consolidar(LRecepcion parametros, LEnvio par, List<string> lstcons, string folio, string proceso)
         {
             try

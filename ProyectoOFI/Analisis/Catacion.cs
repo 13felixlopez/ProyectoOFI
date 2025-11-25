@@ -788,9 +788,12 @@ namespace ProyectoOFI.Analisis
                 int numqqs = dtInventarioCat.Columns[columnqqs].Index;
                 QQs = double.Parse(dtInventarioCat.SelectedCells[numqqs].Value.ToString());
 
-                string nombreEstado = "Proceso";
-                int numEstado = dtInventarioCat.Columns[nombreEstado].Index;
-                Proceso = dtInventarioCat.SelectedCells[numEstado].Value.ToString();
+                if (Area != "Secado Mecanico")
+                {
+                    string nombreEstado = "Proceso";
+                    int numEstado = dtInventarioCat.Columns[nombreEstado].Index;
+                    Proceso = dtInventarioCat.SelectedCells[numEstado].Value.ToString();
+                }
 
                 string Est_Env = "EstadoFisico";
                 int numEst = dtInventarioCat.Columns[Est_Env].Index;
@@ -1042,7 +1045,14 @@ namespace ProyectoOFI.Analisis
             Analisis();
             if (Proceso != "Almacén" && Proceso != "Analizado" && Proceso != "Envio")
             {
-                Activar();
+                if (BtnActivar.Visible == true)
+                {
+                    Desactivar();
+                }
+                else
+                {
+                    Activar();
+                }
             }
             else
             {
@@ -1062,7 +1072,7 @@ namespace ProyectoOFI.Analisis
         private void CargarCombos()
         {
             Dcatacion funcion = new Dcatacion();
-            if (Area == "Secado Natural" || Area=="Secado Mecanico")
+            if (Area == "Secado Natural" || Area == "Secado Mecanico")
             {
                 funcion.MostrarVariedad(CbVariedad);
                 string calidad = LblCalidad.Text;
@@ -1194,7 +1204,7 @@ namespace ProyectoOFI.Analisis
         }
         private void Limpiar()
         {
-            if (Area == "Secado Natural")
+            if (Area == "Secado Natural" || Area == "Secado Mecanico")
             {
                 TxtAnalisis.Clear();
                 LblDias.Text = "--";
@@ -1393,7 +1403,7 @@ namespace ProyectoOFI.Analisis
         }
         private void Activar()
         {
-            if (Area == "Secado Natural")
+            if (Area == "Secado Natural" || Area == "Secado Mecanico")
             {
                 TxtAnalisis.Enabled = true;
                 //DtFechaCatacion.Enabled = true;
@@ -1431,7 +1441,7 @@ namespace ProyectoOFI.Analisis
         }
         private void Desactivar()
         {
-            if (Area == "Secado Natural")
+            if (Area == "Secado Natural" || Area == "Secado Mecanico")
             {
                 TxtAnalisis.Enabled = false;
                 DtFechaCatacion.Enabled = false;
@@ -2152,6 +2162,252 @@ namespace ProyectoOFI.Analisis
                 MessageBox.Show("Error en cargar datos interfaz", "Error en datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void VerDetalleCataSM()
+        {
+            Dcatacion funcion = new Dcatacion();
+            DataTable dt = new DataTable();
+            try
+            {
+                funcion.VerDetalleCataSM(ref dt, TkDetalle);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow row = dt.Rows[0];
+                    if (row["Analisis"].ToString() != null)
+                    {
+                        TxtAnalisis.Text = row["Analisis"].ToString();
+                    }
+                    else
+                    {
+                        TxtAnalisis.Clear();
+                    }
+                    if (DateTime.Parse(row["FechaMuestra"].ToString()) != null)
+                    {
+                        DTPFechaMuestra.Value = DateTime.Parse(row["FechaMuestra"].ToString());
+                    }
+                    else
+                    {
+                        DTPFechaMuestra.Value = DateTime.Today;
+                    }
+                    if (DateTime.Parse(row["FechaCatacion"].ToString()) != null)
+                    {
+                        DtFechaCatacion.Value = DateTime.Parse(row["FechaCatacion"].ToString());
+                    }
+                    else
+                    {
+                        DtFechaCatacion.Value = DateTime.Today;
+                    }
+                    if (row["Dias"].ToString() != null)
+                    {
+                        LblDias.Text = row["Dias"].ToString();
+                    }
+                    else
+                    {
+                        LblDias.Text = "--";
+                    }
+                    // Asignar el valor de Cat.RmtoObto
+                    if (row["RmtoObto"] != DBNull.Value && row["RmtoObto"].ToString() != null)
+                    {
+                        TxtBto.Text = row["RmtoObto"].ToString();
+                        Rendimiento = TxtBto.Text;
+                    }
+                    else
+                    {
+                        TxtBto.Clear();
+                    }
+
+                    // Asignar el valor de Cat.Cascarilla
+                    if (row["Cascarilla"] != DBNull.Value && row["Cascarilla"].ToString() != null)
+                    {
+                        LblCascarilla.Text = row["Cascarilla"].ToString();
+                    }
+                    else
+                    {
+                        LblCascarilla.Text = "--";
+                    }
+
+                    // Asignar el valor de Cat.TotalPS
+                    if (row["TotalPS"] != DBNull.Value && row["TotalPS"].ToString() != null)
+                    {
+                        LblTotal.Text = row["TotalPS"].ToString();
+                    }
+                    else
+                    {
+                        LblTotal.Text = "--";
+                    }
+
+                    // Asignar el valor de Var.Variedad
+                    if (row["IdVariedad"] != DBNull.Value && row["IdVariedad"].ToString() != null)
+                    {
+                        CbVariedad.SelectedValue = row["IdVariedad"].ToString();
+                    }
+                    else
+                    {
+                        CbVariedad.Text = "--";
+                    }
+
+                    // Asignar el valor de Cat.Humedad
+                    if (row["Humedad"] != DBNull.Value && row["Humedad"].ToString() != null)
+                    {
+                        TxtHumedad.Text = row["Humedad"].ToString();
+                    }
+                    else
+                    {
+                        TxtHumedad.Clear();
+                    }
+
+                    // Asignar el valor de Cat.Exp
+                    if (row["Exp"] != DBNull.Value && row["Exp"].ToString() != null)
+                    {
+                        TxtExp.Text = row["Exp"].ToString();
+                    }
+                    else
+                    {
+                        TxtExp.Clear();
+                    }
+
+                    // Asignar el valor de Cat.DesmA
+                    if (row["DesmA"] != DBNull.Value && row["DesmA"].ToString() != null)
+                    {
+                        TxtDesmA.Text = row["DesmA"].ToString();
+                    }
+                    else
+                    {
+                        TxtDesmA.Clear();
+                    }
+
+                    // Asignar el valor de Cat.DesmC
+                    if (row["DesmC"] != DBNull.Value && row["DesmC"].ToString() != null)
+                    {
+                        LblDesmC.Text = row["DesmC"].ToString();
+                    }
+                    else
+                    {
+                        LblDesmC.Text = "--";
+                    }
+
+                    // Asignar el valor de Cat.DesmD
+                    if (row["DesmD"] != DBNull.Value && row["DesmD"].ToString() != null)
+                    {
+                        TxtDesmD.Text = row["DesmD"].ToString();
+                    }
+                    else
+                    {
+                        TxtDesmD.Clear();
+                    }
+
+                    // Asignar el valor de Cat.DesmAP
+                    if (row["DesmAP"] != DBNull.Value && row["DesmAP"].ToString() != null)
+                    {
+                        LblDesmAP.Text = row["DesmAP"].ToString();
+                    }
+                    else
+                    {
+                        LblDesmAP.Text = "--";
+                    }
+
+                    // Asignar el valor de Cat.DesmCP
+                    if (row["DesmCP"] != DBNull.Value && row["DesmCP"].ToString() != null)
+                    {
+                        LblDesmCP.Text = row["DesmCP"].ToString();
+                    }
+                    else
+                    {
+                        LblDesmCP.Text = "--";
+                    }
+
+                    // Asignar el valor de Cat.DesmDP
+                    if (row["DesmDP"] != DBNull.Value && row["DesmDP"].ToString() != null)
+                    {
+                        LblDesmDP.Text = row["DesmDP"].ToString();
+                    }
+                    else
+                    {
+                        LblDesmDP.Text = "--";
+                    }
+
+                    // Asignar el valor de Cat.ExpP
+                    if (row["ExpP"] != DBNull.Value && row["ExpP"].ToString() != null)
+                    {
+                        LblExpP.Text = row["ExpP"].ToString();
+                    }
+                    else
+                    {
+                        LblExpP.Text = "--";
+                    }
+
+                    // Asignar el valor de Cat.Score
+                    if (row["Score"] != DBNull.Value && row["Score"].ToString() != null)
+                    {
+                        TxtScore.Text = row["Score"].ToString();
+                    }
+                    else
+                    {
+                        TxtScore.Clear();
+                    }
+
+                    //Asignar el valor de Cat.Taza 'Tasa'
+                    if (row["Tasa"] != DBNull.Value && row["Tasa"].ToString() != null)
+                    {
+                        CbTasa.Text = row["Tasa"].ToString();
+                    }
+                    else
+                    {
+                        CbTasa.Text = "--";
+                    }
+
+                    // Asignar el valor de Cat.GradoCalidad
+                    if (row["GradoCalidad"] != DBNull.Value && row["GradoCalidad"].ToString() != null)
+                    {
+                        CbGrupoCalidad.Text = row["GradoCalidad"].ToString();
+                        Quality = CbGrupoCalidad.Text;
+                    }
+                    else
+                    {
+                        //LblGCalidad.Text = "--";
+                        CbGrupoCalidad.Text = "--";
+                    }
+                    if (row["Estado"] != DBNull.Value && row["Estado"].ToString() != null)
+                    {
+                        Estado = Boolean.Parse(row["Estado"].ToString());
+                        if (Estado == true)
+                        {
+                            ChbAnalizado.Checked = true;
+                            BtnAnalisis.Enabled = false;
+                            if (BtnAnalisis.Text == "Re-Analizar")
+                            {
+                                BtnAnalisis.Enabled = true;
+                            }
+                        }
+                        else if (Estado == false)
+                        {
+                            ChbRechazado.Checked = true;
+                            BtnAnalisis.Text = "Re-Analizar";
+                        }
+                        else
+                        {
+                            ChbRechazado.Checked = false;
+                            ChbAnalizado.Checked = false;
+                        }
+                    }
+                    CalculoDias();
+                    Idcatacion = int.Parse(row["IdCatacion"].ToString());
+                    BtnActivar.Visible = true;
+                    //Desactivar();
+                    //else
+                    //{
+                    //    Estado = false;
+                    //}
+                }
+                else
+                {
+                    BtnAnalisis.Enabled = true;
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error en cargar datos interfaz", "Error en datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void VerDetalleCataRob()
         {
             Dcatacion funcion = new Dcatacion();
@@ -2432,7 +2688,7 @@ namespace ProyectoOFI.Analisis
             Dcatacion funcion = new Dcatacion();
             DTPFechaMuestra.Value = funcion.ObtenerFechaMuestra(LblTicket.Text);
             TkDetalle = LblTicket.Text;
-            VerDetalleCata();
+            VerDetalleCataSM();
             AbrirFormulario(PLDatos);
             //VerDetalleCata();
         }
@@ -3009,10 +3265,10 @@ namespace ProyectoOFI.Analisis
 
         private void BtnPart2_Click(object sender, EventArgs e)
         {
-            LblTicket.Text = Ticket + "-Parte2";
+            LblTicket.Text = part2;
             PlTkSM.Visible = false;
             PLDatos.Enabled = true;
-            TxtAnalisis.Text = Ticket + "-Parte2";
+            TxtAnalisis.Text = part2;
             label53.Visible = true;
             LblTolva.Visible = true;
             LblTolva.Text = POA2.ToString();
@@ -3021,8 +3277,8 @@ namespace ProyectoOFI.Analisis
             Dcatacion funcion = new Dcatacion();
             DTPFechaMuestra.Value = funcion.ObtenerFechaMuestra(LblTicket.Text);
             TkDetalle = LblTicket.Text;
-            VerDetalleCata();
-            VerDetalleCata();
+            VerDetalleCataSM();
+            AbrirFormulario(PLDatos);
         }
 
         private void BtnX_Click(object sender, EventArgs e)

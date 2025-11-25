@@ -33,7 +33,7 @@ namespace ProyectoOFI.Datos
                     cmd.Parameters.AddWithValue("@IdUbicacion", parametros.IdUbicacion);
                     cmd.Parameters.AddWithValue("@IdCompra", parametros.IdCompra);
                     cmd.Parameters.AddWithValue("@IdMaterial", parametros.IdMaterial);
-                    cmd.Parameters.AddWithValue("@IdCertificacion", parametros.IdCertificacion);
+                    //cmd.Parameters.AddWithValue("@IdCertificacion", parametros.IdCertificacion);
                     cmd.Parameters.AddWithValue("@Estado", parametros.Estado);
                     cmd.Parameters.AddWithValue("@Usuario", Login.NombreA);
                     cmd.ExecuteNonQuery();
@@ -149,7 +149,7 @@ namespace ProyectoOFI.Datos
                     cmd.Parameters.AddWithValue("@IdUbicacion", parametros.IdUbicacion);
                     cmd.Parameters.AddWithValue("@IdCompra", parametros.IdCompra);
                     cmd.Parameters.AddWithValue("@IdMaterial", parametros.IdMaterial);
-                    cmd.Parameters.AddWithValue("@IdCertificacion", parametros.IdCertificacion);
+                    //cmd.Parameters.AddWithValue("@IdCertificacion", parametros.IdCertificacion);
                     cmd.Parameters.AddWithValue("@Estado", parametros.Estado);
                     cmd.Parameters.AddWithValue("@Usuario", Login.NombreA);
                     cmd.ExecuteNonQuery();

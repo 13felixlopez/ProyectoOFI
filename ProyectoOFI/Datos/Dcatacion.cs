@@ -745,6 +745,24 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al cargar datos en ExcelCatacion ✖️✖️" + ex.Message);
             }
         }
+        public void ExcelCatacionRob(ref DataTable dt)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("ExcelCatacionRob", conectar))
+                {
+
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar datos de Excel de Catación Robusta" + ex.Message, "Error en datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al cargar datos en ExcelCatacion ✖️✖️" + ex.Message);
+            }
+        }
         public void BuscarCatacion(string Buscar, string Dato, ref DataTable dt, int desde, int hasta, int Contar)
         {
             try

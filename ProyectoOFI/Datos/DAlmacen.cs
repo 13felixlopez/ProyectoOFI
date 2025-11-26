@@ -194,6 +194,38 @@ namespace ProyectoOFI.Datos
                 return false;
             }
         }
+        public bool InsertarAlmacenRob(LAlmacen parametros)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("InsertarAlmacenRob", conectar))
+                {
+
+                    da.CommandType = CommandType.StoredProcedure;
+                    da.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                    da.Parameters.AddWithValue("@Origen", parametros.Origen);
+                    da.Parameters.AddWithValue("@FechaAlmacen", parametros.FechaAlmacen);
+                    da.Parameters.AddWithValue("@IdBodega", parametros.IdBodega);
+                    da.Parameters.AddWithValue("@IdUbicacion", parametros.IdUbicacion);
+                    da.Parameters.AddWithValue("@IdEmpaque", parametros.IdEmpaque);
+                    da.Parameters.AddWithValue("@Sacos", parametros.Sacos);
+                    da.Parameters.AddWithValue("@Peso", parametros.Peso);
+                    da.Parameters.AddWithValue("@Tara", parametros.Tara);
+                    da.Parameters.AddWithValue("@PesoNeto", parametros.PesoNeto);
+                    da.Parameters.AddWithValue("@Rendimiento", parametros.Rendimiento);
+                    da.Parameters.AddWithValue("@Usuario", Login.NombreA);
+                    da.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Insertar los datos en Almacén Robusta" + ex.Message, "Error en Almacén", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en InsertarAlmacen Robusta ✖️✖️ " + ex.Message);
+                return false;
+            }
+        }
         public bool EditarAlmacen(LAlmacen parametros)
         {
             try
@@ -225,6 +257,38 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show("Error al Editar los datos en Almacén " + ex.Message, "Error en Almacén", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en EditarAlmacen ✖️✖️ " + ex.Message);
+                return false;
+            }
+        }
+        public bool EditarAlmacenRob(LAlmacen parametros)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("EditarAlmacenRob", conectar))
+                {
+
+                    da.CommandType = CommandType.StoredProcedure;
+                    da.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                    da.Parameters.AddWithValue("@Origen", parametros.Origen);
+                    da.Parameters.AddWithValue("@FechaAlmacen", parametros.FechaAlmacen);
+                    da.Parameters.AddWithValue("@IdBodega", parametros.IdBodega);
+                    da.Parameters.AddWithValue("@IdUbicacion", parametros.IdUbicacion);
+                    da.Parameters.AddWithValue("@IdEmpaque", parametros.IdEmpaque);
+                    da.Parameters.AddWithValue("@Sacos", parametros.Sacos);
+                    da.Parameters.AddWithValue("@Peso", parametros.Peso);
+                    da.Parameters.AddWithValue("@Tara", parametros.Tara);
+                    da.Parameters.AddWithValue("@PesoNeto", parametros.PesoNeto);
+                    da.Parameters.AddWithValue("@Rendimiento", parametros.Rendimiento);
+                    da.Parameters.AddWithValue("@Usuario", Login.NombreA);
+                    da.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Editar los datos en Almacén Robusta" + ex.Message, "Error en Almacén", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en EditarAlmacen Robusta ✖️✖️ " + ex.Message);
                 return false;
             }
         }
@@ -392,6 +456,39 @@ namespace ProyectoOFI.Datos
             catch (Exception ex)
             {
                 MessageBox.Show("Ocurrió un error al cargar los datos " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarAlmacen ✖️✖️" + ex.Message);
+            }
+        }
+        public void BuscarAlmacenRob(string Buscar, string Dato, ref DataTable dt, int desde, int hasta, int Contar)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("BuscarAlmacenRob", conectar))
+                {
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Desde", desde);
+                    cmd.Parameters.AddWithValue("@Hasta", hasta);
+                    cmd.Parameters.AddWithValue("@Buscador", Buscar);
+                    cmd.Parameters.AddWithValue("@Dato", Dato);
+
+                    // Parámetro de salida para el contador
+                    SqlParameter contarParam = new SqlParameter("@Contar", SqlDbType.Int);
+                    contarParam.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(contarParam);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+
+                    // Obtener el valor del contador
+                    Contar = Convert.ToInt32(contarParam.Value);
+                    Contador = Contar;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cargar los datos Robusta" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en BuscarAlmacen ✖️✖️" + ex.Message);
             }
         }

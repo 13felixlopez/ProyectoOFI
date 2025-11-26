@@ -22,6 +22,7 @@ namespace ProyectoOFI.Almacen
         double rendimiento;
         int ContarBusqueda;
         string TicketO;
+        string Area = "Secado Natural";
         public Almacen()
         {
             InitializeComponent();
@@ -128,7 +129,7 @@ namespace ProyectoOFI.Almacen
             }
             else
             {
-                MostrarAlmacen();
+                BuscarDatos();
             }
             Contar();
             if (Contador > hasta)
@@ -161,7 +162,7 @@ namespace ProyectoOFI.Almacen
             }
             else
             {
-                MostrarAlmacen();
+                BuscarTK();
             }
             Contar();
             if (Contador > hasta)
@@ -401,7 +402,44 @@ namespace ProyectoOFI.Almacen
                     if (funcion.InsertarAlmacen(parametros) == true)
                     {
                         MessageBox.Show("Se ha guardado con éxito", "Almacén", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        MostrarAlmacen();
+                        BuscarTK();
+                        Limpiar();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha de dia de hoy", "Error en la fecha", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Existen campos vacios", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void InsertarAlmacenRob()
+        {
+            if (validar())
+            {
+                // DateTime fechaAlmacen = DtpFAlmacen.Value.Date.AddDays(-1);
+                if (DtpFAlmacen.Value.Date <= DateTime.Today.Date)
+                {
+                    DAlmacen funcion = new DAlmacen();
+                    LAlmacen parametros = new LAlmacen();
+                    parametros.Ticket = LblTicket.Text;
+                    parametros.Origen = LblProcedencia.Text;
+                    parametros.FechaAlmacen = DateTime.Parse(DtpFAlmacen.Text);
+                    parametros.IdBodega = (int)CbBodega.SelectedValue;
+                    parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
+                    parametros.IdEmpaque = (int)CbTipoEmpaque.SelectedValue;
+                    parametros.Sacos = int.Parse(NudSacos.Text);
+                    parametros.Peso = decimal.Parse(TxtPeso.Text);
+                    parametros.Tara = decimal.Parse(TxtTara.Text);
+                    parametros.PesoNeto = decimal.Parse(TxtPesoNeto.Text);
+                    parametros.Rendimiento = rendimiento;
+                    if (funcion.InsertarAlmacenRob(parametros) == true)
+                    {
+                        MessageBox.Show("Se ha guardado con éxito", "Almacén", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        BuscarTK();
                         Limpiar();
                     }
                 }
@@ -486,7 +524,14 @@ namespace ProyectoOFI.Almacen
         {
             if (BtnGuardar.Text == "Guardar")
             {
-                InsertarAlmacen();
+                if (Area == "Secado Natural")
+                {
+                    InsertarAlmacen();
+                }
+                else if (Area == "Robusta")
+                {
+                    InsertarAlmacenRob();
+                }
             }
             else
             {
@@ -496,7 +541,14 @@ namespace ProyectoOFI.Almacen
                 }
                 else
                 {
-                    EditarAlmacen();
+                    if (Area == "Secado Natural")
+                    {
+                        EditarAlmacen();
+                    }
+                    else if (Area == "Robusta")
+                    {
+                        EditarAlmacenRob();
+                    }
                 }
             }
         }
@@ -526,7 +578,45 @@ namespace ProyectoOFI.Almacen
                     if (funcion.EditarAlmacen(parametros) == true)
                     {
                         MessageBox.Show("Se ha guardado con éxito", "Almacén", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        MostrarAlmacen();
+                        BuscarTK();
+                        Limpiar();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha de dia de hoy", "Error en la fecha", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Existen campos vacios", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void EditarAlmacenRob()
+        {
+            if (validar())
+            {
+                // Restar un día al valor de DtpFAlmacen DateTime fechaAlmacen = DtpFAlmacen.Value.Date.AddDays(-1)
+                //DateTime fechaAlmacen = DtpFAlmacen.Value.Date.AddDays(-1);
+                if (DtpFAlmacen.Value.Date <= DateTime.Today.Date)
+                {
+                    DAlmacen funcion = new DAlmacen();
+                    LAlmacen parametros = new LAlmacen();
+                    parametros.Ticket = LblTicket.Text;
+                    parametros.Origen = LblProcedencia.Text;
+                    parametros.FechaAlmacen = DateTime.Parse(DtpFAlmacen.Text);
+                    parametros.IdBodega = (int)CbBodega.SelectedValue;
+                    parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
+                    parametros.IdEmpaque = (int)CbTipoEmpaque.SelectedValue;
+                    parametros.Sacos = int.Parse(NudSacos.Text);
+                    parametros.Peso = decimal.Parse(TxtPeso.Text);
+                    parametros.Tara = decimal.Parse(TxtTara.Text);
+                    parametros.PesoNeto = decimal.Parse(TxtPesoNeto.Text);
+                    parametros.Rendimiento = rendimiento;
+                    if (funcion.EditarAlmacenRob(parametros) == true)
+                    {
+                        MessageBox.Show("Se ha guardado con éxito", "Almacén", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        BuscarTK();
                         Limpiar();
                     }
                 }
@@ -831,6 +921,25 @@ namespace ProyectoOFI.Almacen
             ReiniciarPaginado();
         }
 
+        private void BtnRobusta_Click(object sender, EventArgs e)
+        {
+            Area = "Robusta";
+            //BtnSecadoM.Enabled = true;
+            BtnSecadoNa.Enabled = true;
+            BtnRobusta.Enabled = false;
+            BuscarTK();
+            ReiniciarPaginado();
+        }
+
+        private void BtnSecadoNa_Click(object sender, EventArgs e)
+        {
+            Area = "Secado Natural";
+            BtnSecadoNa.Enabled = false;
+            BtnRobusta.Enabled = true;
+            BuscarTK();
+            ReiniciarPaginado();
+        }
+
         private void Activar()
         {
             DtpFAlmacen.Enabled = true;
@@ -908,8 +1017,16 @@ namespace ProyectoOFI.Almacen
         {
             DataTable dt = new DataTable();
             DAlmacen funcion = new DAlmacen();
+            dtInventarioAlm.DataSource = null;
             //funcion.BuscarTK(txtBuscador.Text, ref dt, desde, hasta, ContarBusqueda);
-            funcion.BuscarAlmacen(txtBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
+            if (Area == "Secado Natural")
+            {
+                funcion.BuscarAlmacen(txtBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
+            }
+            else if (Area == "Robusta")
+            {
+                funcion.BuscarAlmacenRob(txtBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
+            }
             dtInventarioAlm.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.Contador.ToString());
         }

@@ -1910,8 +1910,17 @@ namespace ProyectoOFI.Analisis
         {
             DataTable dt = new DataTable();
             Dcatacion funcion = new Dcatacion();
-            funcion.ExcelCatacion(ref dt);
-            string Nombre = "Inventario Catación";
+            string Nombre;
+            if (Area == "Robusta")
+            {
+                funcion.ExcelCatacionRob(ref dt);
+                Nombre = "Inventario Catacion Robusta";
+            }
+            else if (true)
+            {
+                funcion.ExcelCatacion(ref dt);
+                Nombre = "Inventario Catación";
+            }
             FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
             LT.ShowDialog();
         }

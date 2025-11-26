@@ -297,7 +297,7 @@ namespace ProyectoOFI.Datos
             try
             {
                 using (SqlConnection con = Conexion.abrir())
-                using (SqlCommand cmd = new SqlCommand("EditarTK", con))
+                using (SqlCommand cmd = new SqlCommand("EditarTKCons", con))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@TicketAnterior", TicketAnterior);
@@ -321,9 +321,9 @@ namespace ProyectoOFI.Datos
                     cmd.Parameters.AddWithValue("@FEnvio", par.FEnvio);
                     //cmd.Parameters.AddWithValue("@IdAgencia", par.IdAgencia);
                     //cmd.Parameters.AddWithValue("@IdAcopio", par.IdAcopio);
-                    cmd.Parameters.AddWithValue("@IdCliente", par.IdCliente);
+                    //cmd.Parameters.AddWithValue("@IdCliente", par.IdCliente);
                     cmd.Parameters.AddWithValue("@MTNT", par.MTNT);
-                    cmd.Parameters.AddWithValue("@Tipo_Compra", par.IdTCompra);
+                    //cmd.Parameters.AddWithValue("@Tipo_Compra", par.IdTCompra);
                     cmd.Parameters.AddWithValue("@IdCertificacion", par.IdCertificacionE);
                     cmd.Parameters.AddWithValue("@EsFisico", par.IdEsFisico);
                     cmd.Parameters.AddWithValue("@CalidadE", par.IdCalidadE);

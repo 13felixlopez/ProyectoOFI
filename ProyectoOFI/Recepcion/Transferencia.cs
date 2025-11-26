@@ -1482,9 +1482,9 @@ namespace ProyectoOFI.Recepcion
                         par.FEnvio = Convert.ToDateTime(dtFEnvio.Text);
                         //par.IdAgencia = int.Parse(cbAgencia.SelectedValue.ToString());
                         //par.IdAcopio = int.Parse(cbAcopio.SelectedValue.ToString());
-                        par.IdCliente = int.Parse(cbCliente.SelectedValue.ToString());
+                        //par.IdCliente = int.Parse(cbCliente.SelectedValue.ToString());
                         par.MTNT = CbMTNT.Text;
-                        par.IdTCompra = int.Parse(cbCompra.SelectedValue.ToString());
+                        // par.IdTCompra = int.Parse(cbCompra.SelectedValue.ToString());
                         par.IdCertificacionE = int.Parse(cbCertificacion.SelectedValue.ToString());
                         par.IdEsFisico = int.Parse(cbEsFisico.SelectedValue.ToString());
                         par.IdCalidadE = int.Parse(cbCalidadE.SelectedValue.ToString());
@@ -1610,7 +1610,14 @@ namespace ProyectoOFI.Recepcion
             PlCargaTran.BringToFront();
             PlCargaTran.Visible = true;
             await Task.Delay(1500);
-            EditarTK();
+            if (Consolidado == "Si")
+            {
+                EditarTKConsolidado();
+            }
+            else
+            {
+                EditarTK();
+            }
             BuscarTK();
             ReiniciarPaginado();
             await Task.Delay(1000);

@@ -2984,7 +2984,7 @@ namespace ProyectoOFI.Analisis
             if (parametros.FechaMuestra == DateTime.MinValue) errores.Add("Fecha de muestra");
             if (parametros.FechaCatacion == DateTime.MinValue) errores.Add("Fecha de catación");
             if (parametros.IdVariedad <= 0) errores.Add("Variedad");
-            if (parametros.SCR12 <= 0) errores.Add("Exp. Robusta");
+            //if (parametros.SCR12 <= 0) errores.Add("Exp. Robusta");
             if (parametros.PesoRecibido <= 0) errores.Add("Peso recibido");
 
             // 🔴 Si hay errores, mostrarlos antes de continuar

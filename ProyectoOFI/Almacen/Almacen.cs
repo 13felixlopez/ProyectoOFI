@@ -227,7 +227,14 @@ namespace ProyectoOFI.Almacen
         {
             ObtenerTK();
             VerdetalleTkAlmacen();
+            if (Area=="Secado Natural")
+            {
             DetalleAlmacen();
+            }
+            else if (Area=="Robusta")
+            {
+                DetalleAlmacenRob();
+            }
             AbrirFormulario();
         }
         private void ObtenerTK()
@@ -748,6 +755,115 @@ namespace ProyectoOFI.Almacen
                     {
                         CbDescargador.ForeColor = Color.Red;
                     }
+                    Edit = int.Parse(row["Edit"].ToString());
+                    Desactivar();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        private void DetalleAlmacenRob()
+        {
+            DAlmacen funcion = new DAlmacen();
+            DataTable dt = new DataTable();
+            try
+            {
+                funcion.DetalleAlmacenRob(ref dt, Ticket);
+                if (dt.Rows.Count > 0 && !string.IsNullOrEmpty(dt.Rows[0]["Ticket"].ToString()))
+                {
+                    DataRow row = dt.Rows[0];
+                    if (DateTime.Parse(row["FechaAlmacen"].ToString()) != null)
+                    {
+                        DtpFAlmacen.Value = DateTime.Parse(row["FechaAlmacen"].ToString());
+                    }
+                    else
+                    {
+                        DtpFAlmacen.Value = DateTime.Today.Date;
+                    }
+                    if (row["Bodega"].ToString() != null)
+                    {
+                        CbBodega.Text = row["Bodega"].ToString();
+                    }
+                    else
+                    {
+                        CbBodega.ForeColor = Color.Red;
+                    }
+                    if (row["Ubicacion"].ToString() != null)
+                    {
+                        CbUbicacion.Text = row["Ubicacion"].ToString();
+                    }
+                    else
+                    {
+                        CbUbicacion.ForeColor = Color.Red;
+                    }
+                    if (row["Empaque"].ToString() != null)
+                    {
+                        CbTipoEmpaque.Text = row["Empaque"].ToString();
+                    }
+                    else
+                    {
+                        CbTipoEmpaque.ForeColor = Color.Red;
+                    }
+                    if (row["Sacos"].ToString() != null)
+                    {
+                        NudSacos.Text = row["Sacos"].ToString();
+                    }
+                    else
+                    {
+                        NudSacos.Value = 0;
+                        NudSacos.ForeColor = Color.Red;
+                    }
+                    if (row["Peso"].ToString() != null)
+                    {
+                        TxtPeso.Text = row["Peso"].ToString();
+                    }
+                    else
+                    {
+                        TxtPeso.Text = "";
+                    }
+                    if (row["Tara"].ToString() != null)
+                    {
+                        TxtTara.Text = row["Tara"].ToString();
+                    }
+                    else
+                    {
+                        TxtTara.Text = "";
+                    }
+                    if (row["PesoNeto"].ToString() != null)
+                    {
+                        TxtPesoNeto.Text = row["PesoNeto"].ToString();
+                    }
+                    else
+                    {
+                        TxtPesoNeto.Text = "";
+                    }
+                    if (row["Rendimiento"].ToString() != null)
+                    {
+                        LblRedimiento.Text = row["Rendimiento"].ToString();
+                    }
+                    else
+                    {
+                        LblRedimiento.Text = "";
+                    }
+                    //if (row["Turno"].ToString() != null)
+                    //{
+                    //    CbTurno.Text = row["Turno"].ToString();
+                    //}
+                    //else
+                    //{
+                    //    CbTurno.ForeColor = Color.Red;
+                    //}
+                    //if (row["Descargador"].ToString() != null)
+                    //{
+                    //    CbDescargador.Text = row["Descargador"].ToString();
+                    //}
+                    //else
+                    //{
+                    //    CbDescargador.ForeColor = Color.Red;
+                    //}
                     Edit = int.Parse(row["Edit"].ToString());
                     Desactivar();
                 }

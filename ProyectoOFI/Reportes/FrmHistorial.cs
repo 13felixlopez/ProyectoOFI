@@ -1,7 +1,11 @@
-﻿using ProyectoOFI.Datos;
+﻿using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
+using ProyectoOFI.Datos;
 using System;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -145,7 +149,7 @@ namespace ProyectoOFI.Reportes
             desde = hasta - 99;
             if (txtBuscador.Text != "")
             {
-               await BuscarTKAsync();
+                await BuscarTKAsync();
             }
             else if (CbBuscador.Visible == true)
             {
@@ -362,5 +366,112 @@ namespace ProyectoOFI.Reportes
             Paginar();                              // pinta "Página X de N"
         }
 
+        private void ExportToExcel(DataGridView dataGridView, string fileName)
+        {
+            IWorkbook workbook = new XSSFWorkbook();
+            ISheet sheet = workbook.CreateSheet("Datos");
+
+            // Crear el formato de fecha
+            ICellStyle dateCellStyle = workbook.CreateCellStyle();
+            short dateFormat = workbook.CreateDataFormat().GetFormat("yyyy-MM-dd"); // Formato de fecha
+            dateCellStyle.DataFormat = dateFormat;
+
+            // Crear la fila de encabezado con columnas visibles
+            IRow headerRow = sheet.CreateRow(0);
+            int visibleColumnIndex = 0;
+            foreach (DataGridViewColumn column in dataGridView.Columns)
+            {
+                if (column.Visible)
+                {
+                    ICell cell = headerRow.CreateCell(visibleColumnIndex++);
+                    cell.SetCellValue(column.HeaderText);
+                }
+            }
+
+            // Llenar las filas con datos del DataGridView solo de columnas visibles
+            int rowIndex = 1;
+            foreach (DataGridViewRow gridViewRow in dataGridView.Rows)
+            {
+                IRow row = sheet.CreateRow(rowIndex++);
+                visibleColumnIndex = 0;
+
+                foreach (DataGridViewColumn column in dataGridView.Columns)
+                {
+                    if (column.Visible)
+                    {
+                        ICell cell = row.CreateCell(visibleColumnIndex++);
+                        var cellValue = gridViewRow.Cells[column.Index].Value;
+
+                        if (cellValue is DateTime dateValue)
+                        {
+                            // Formatear como fecha
+                            cell.SetCellValue(dateValue);
+                            cell.CellStyle = dateCellStyle;
+                        }
+                        else if (decimal.TryParse(cellValue?.ToString(), out decimal numericValue))
+                        {
+                            // Formatear como número
+                            cell.SetCellValue((double)numericValue);
+                        }
+                        else
+                        {
+                            cell.SetCellValue(cellValue?.ToString() ?? string.Empty);
+                        }
+                    }
+                }
+            }
+
+            // Guardar el archivo Excel
+            using (FileStream stream = new FileStream(fileName, FileMode.Create, FileAccess.Write))
+            {
+                workbook.Write(stream);
+            }
+        }
+
+
+        private void SaveExcelFile(DataGridView dataGridView, string defaultFileName)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Excel Files|*.xlsx";
+                saveFileDialog.Title = "Guardar archivo Excel";
+                saveFileDialog.FileName = defaultFileName;
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string fileName = saveFileDialog.FileName;
+                    ExportToExcel(dataGridView, fileName);
+
+                    DialogResult result = MessageBox.Show("Archivo Excel creado y guardado exitosamente. ¿Deseas abrir el archivo?", "Exportación Completada", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        Process.Start(new ProcessStartInfo(fileName) { UseShellExecute = true });
+                    }
+                }
+            }
+        }
+
+        private void BtnCambioUbi_Click(object sender, EventArgs e)
+        {
+            DtHistorial.DataSource = null;
+            if (BtnDescargar.Visible == false)
+            {
+                BtnDescargar.Visible = true;
+            }
+            else
+            {
+                BtnDescargar.Visible = false;
+            }
+            DHistorial funcion = new DHistorial();
+            DataTable dt =new DataTable();
+            funcion.CambioUbi(ref dt);
+            DtHistorial.DataSource = dt;
+        }
+
+        private void BtnDescargar_Click(object sender, EventArgs e)
+        {
+            string fe = "Cambio Ubicacion " + DateTime.Now.Day + "_" + DateTime.Today.Month + "_" + DateTime.Today.Year + "-" + DateTime.Now.Hour + "-" + DateTime.Now.Minute + "-" + DateTime.Now.Second;
+            SaveExcelFile(DtHistorial, fe);
+        }
     }
 }

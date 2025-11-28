@@ -61,6 +61,8 @@
             this.DtHistorial = new System.Windows.Forms.DataGridView();
             this.PlCarga = new System.Windows.Forms.Panel();
             this.PbCarga = new System.Windows.Forms.PictureBox();
+            this.BtnCambioUbi = new System.Windows.Forms.Button();
+            this.BtnDescargar = new System.Windows.Forms.Button();
             this.PlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.PlOpciones.SuspendLayout();
@@ -123,6 +125,8 @@
             // PlOpciones
             // 
             this.PlOpciones.BackColor = System.Drawing.Color.White;
+            this.PlOpciones.Controls.Add(this.BtnDescargar);
+            this.PlOpciones.Controls.Add(this.BtnCambioUbi);
             this.PlOpciones.Controls.Add(this.PbExcel);
             this.PlOpciones.Controls.Add(this.PlFiltroFecha);
             this.PlOpciones.Controls.Add(this.txtBuscador);
@@ -449,6 +453,32 @@
             this.PbCarga.TabIndex = 0;
             this.PbCarga.TabStop = false;
             // 
+            // BtnCambioUbi
+            // 
+            this.BtnCambioUbi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCambioUbi.Location = new System.Drawing.Point(1235, 3);
+            this.BtnCambioUbi.Name = "BtnCambioUbi";
+            this.BtnCambioUbi.Size = new System.Drawing.Size(110, 58);
+            this.BtnCambioUbi.TabIndex = 15;
+            this.BtnCambioUbi.Text = "Cambios de ubicacion";
+            this.BtnCambioUbi.UseVisualStyleBackColor = true;
+            this.BtnCambioUbi.Click += new System.EventHandler(this.BtnCambioUbi_Click);
+            // 
+            // BtnDescargar
+            // 
+            this.BtnDescargar.FlatAppearance.BorderSize = 0;
+            this.BtnDescargar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnDescargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDescargar.Location = new System.Drawing.Point(1131, 6);
+            this.BtnDescargar.Name = "BtnDescargar";
+            this.BtnDescargar.Size = new System.Drawing.Size(48, 50);
+            this.BtnDescargar.TabIndex = 16;
+            this.BtnDescargar.Text = "⬇️";
+            this.BtnDescargar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnDescargar.UseVisualStyleBackColor = true;
+            this.BtnDescargar.Visible = false;
+            this.BtnDescargar.Click += new System.EventHandler(this.BtnDescargar_Click);
+            // 
             // FrmHistorial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -509,5 +539,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox PbExcel;
+        private System.Windows.Forms.Button BtnCambioUbi;
+        private System.Windows.Forms.Button BtnDescargar;
     }
 }

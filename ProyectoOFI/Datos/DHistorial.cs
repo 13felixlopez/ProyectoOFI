@@ -166,5 +166,21 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al mostrar Digitacion ✖️✖️" + ex.Message);
             }
         }
+        public void CambioUbi(ref DataTable dt)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlDataAdapter cmd = new SqlDataAdapter("Select Fecha,Observacion from Historial where Observacion like 'Cambio%' order by Fecha DESC", conectar))
+                {
+                    cmd.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ERROR", "No se pudieron mostrar los datos " + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al mostrar CambioUbi ✖️✖️" + ex.Message);
+            }
+        }
     }
 }

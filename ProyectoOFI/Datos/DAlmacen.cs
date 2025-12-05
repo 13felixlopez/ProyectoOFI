@@ -48,6 +48,42 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error al cargar datos en ExcelAlmacen ✖️✖️" + ex.Message);
             }
         }
+        public void ExcelAlmacenRob(ref DataTable dt)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("ExcelAlmacenRob", conectar))
+                {
+
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar datos de Excel de AlmacénRob" + ex.Message, "Error en datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al cargar datos en ExcelAlmacenRob ✖️✖️" + ex.Message);
+            }
+        }
+        public void ExcelAlmacenSM(ref DataTable dt)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("ExcelAlmacenSM", conectar))
+                {
+
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar datos de Excel de AlmacénSM" + ex.Message, "Error en datos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al cargar datos en ExcelAlmacenSM ✖️✖️" + ex.Message);
+            }
+        }
         public void ReporteAlmacen(ref DataTable dt)
         {
             try
@@ -194,6 +230,38 @@ namespace ProyectoOFI.Datos
                 return false;
             }
         }
+        public bool InsertarAlmacenSM(LAlmacen parametros)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("InsertarAlmacenSM", conectar))
+                {
+
+                    da.CommandType = CommandType.StoredProcedure;
+                    da.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                    da.Parameters.AddWithValue("@Origen", parametros.Origen);
+                    da.Parameters.AddWithValue("@FechaAlmacen", parametros.FechaAlmacen);
+                    da.Parameters.AddWithValue("@IdBodega", parametros.IdBodega);
+                    da.Parameters.AddWithValue("@IdUbicacion", parametros.IdUbicacion);
+                    da.Parameters.AddWithValue("@IdEmpaque", parametros.IdEmpaque);
+                    da.Parameters.AddWithValue("@Sacos", parametros.Sacos);
+                    da.Parameters.AddWithValue("@Peso", parametros.Peso);
+                    da.Parameters.AddWithValue("@Tara", parametros.Tara);
+                    da.Parameters.AddWithValue("@PesoNeto", parametros.PesoNeto);
+                    da.Parameters.AddWithValue("@Rendimiento", parametros.Rendimiento);
+                    da.Parameters.AddWithValue("@Usuario", Login.NombreA);
+                    da.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Insertar los datos en Almacén SM" + ex.Message, "Error en AlmacénSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en InsertarAlmacenSM ✖️✖️ " + ex.Message);
+                return false;
+            }
+        }
         public bool InsertarAlmacenRob(LAlmacen parametros)
         {
             try
@@ -257,6 +325,38 @@ namespace ProyectoOFI.Datos
             {
                 MessageBox.Show("Error al Editar los datos en Almacén " + ex.Message, "Error en Almacén", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en EditarAlmacen ✖️✖️ " + ex.Message);
+                return false;
+            }
+        }
+        public bool EditarAlmacenSM(LAlmacen parametros)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("EditarAlmacenSM", conectar))
+                {
+
+                    da.CommandType = CommandType.StoredProcedure;
+                    da.Parameters.AddWithValue("@Ticket", parametros.Ticket);
+                    da.Parameters.AddWithValue("@Origen", parametros.Origen);
+                    da.Parameters.AddWithValue("@FechaAlmacen", parametros.FechaAlmacen);
+                    da.Parameters.AddWithValue("@IdBodega", parametros.IdBodega);
+                    da.Parameters.AddWithValue("@IdUbicacion", parametros.IdUbicacion);
+                    da.Parameters.AddWithValue("@IdEmpaque", parametros.IdEmpaque);
+                    da.Parameters.AddWithValue("@Sacos", parametros.Sacos);
+                    da.Parameters.AddWithValue("@Peso", parametros.Peso);
+                    da.Parameters.AddWithValue("@Tara", parametros.Tara);
+                    da.Parameters.AddWithValue("@PesoNeto", parametros.PesoNeto);
+                    da.Parameters.AddWithValue("@Rendimiento", parametros.Rendimiento);
+                    da.Parameters.AddWithValue("@Usuario", Login.NombreA);
+                    da.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al Editar los datos en Almacén SM " + ex.Message, "Error en AlmacénSM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en EditarAlmacenSM ✖️✖️ " + ex.Message);
                 return false;
             }
         }
@@ -426,6 +526,25 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("No se pudo cargar los datos en DetalleAlmacen ✖️✖️ " + ex.Message);
             }
         }
+        public void DetalleAlmacenSM(ref DataTable dt, string TK)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("DetalleAlmacenSM", conectar))
+                {
+
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.SelectCommand.Parameters.AddWithValue("@Ticket", TK);
+                    da.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudo cargar los datos de Ticket " + ex.Message, "Error en detalle SM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("No se pudo cargar los datos en DetalleAlmacenSM ✖️✖️ " + ex.Message);
+            }
+        }
         public void DetalleAlmacenRob(ref DataTable dt, string TK)
         {
             try
@@ -532,6 +651,40 @@ namespace ProyectoOFI.Datos
                 MessageBox.Show("Error al crear el Split " + ex.Message, "Split no creado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Log.Writeerror("Error en Split ✖️✖️ " + ex.Message);
                 return false;
+            }
+        }
+
+        internal void BuscarAlmacenSM(string Buscar, string Dato, ref DataTable dt, int desde, int hasta, int Contar)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("BuscarAlmacenSM", conectar))
+                {
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Desde", desde);
+                    cmd.Parameters.AddWithValue("@Hasta", hasta);
+                    cmd.Parameters.AddWithValue("@Buscador", Buscar);
+                    cmd.Parameters.AddWithValue("@Dato", Dato);
+
+                    // Parámetro de salida para el contador
+                    SqlParameter contarParam = new SqlParameter("@Contar", SqlDbType.Int);
+                    contarParam.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(contarParam);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    da.Fill(dt);
+
+                    // Obtener el valor del contador
+                    Contar = Convert.ToInt32(contarParam.Value);
+                    Contador = Contar;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al cargar los datos SM" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en BuscarAlmacen ✖️✖️" + ex.Message);
             }
         }
     }

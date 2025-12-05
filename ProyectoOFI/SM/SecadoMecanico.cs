@@ -33,10 +33,10 @@ namespace ProyectoOFI.SM
         }
         private async void SecadoMecanico_Load(object sender, EventArgs e)
         {
-            PlCarga.Dock = DockStyle.Fill;
-            await CargarDatos();
-            Base.DiseñoDtvEliminar(ref dtInventarioSM);
-            PlCarga.Visible = false;
+            //PlCarga.Dock = DockStyle.Fill;
+            //await CargarDatos();
+            //Base.DiseñoDtvEliminar(ref dtInventarioSM);
+            //PlCarga.Visible = false;
         }
         private async Task CargarDatos()
         {
@@ -479,9 +479,9 @@ namespace ProyectoOFI.SM
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                MessageBox.Show("Error al cargar datos en controles" + ex.Message, "ERROR en Secado Mecanico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Error al cargar datos en controles" + ex.Message, "ERROR en Secado Mecanico", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void AbrirFormulario()
@@ -672,9 +672,9 @@ namespace ProyectoOFI.SM
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Error al cargar datos en controles" + ex.Message, "ERROR en Secado Mecanico", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Error al cargar datos en controles" + ex.Message, "ERROR en Secado Mecanico", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void BuscarTk()
@@ -779,21 +779,21 @@ namespace ProyectoOFI.SM
         }
         private void txtBuscador_TextChanged(object sender, EventArgs e)
         {
-            if (txtBuscador.Text == "")
-            {
-                ReiniciarPaginado();
-                MostrarSM();
-            }
-            else if (CbBuscador.Text == "Peso")
-            {
-                Buscar();
-                ReiniciarPaginado();
-            }
-            else
-            {
-                BuscarTk();
-                ReiniciarPaginado();
-            }
+            //if (txtBuscador.Text == "")
+            //{
+            //    ReiniciarPaginado();
+            //    MostrarSM();
+            //}
+            //else if (CbBuscador.Text == "Peso")
+            //{
+            //    Buscar();
+            //    ReiniciarPaginado();
+            //}
+            //else
+            //{
+            //    BuscarTk();
+            //    ReiniciarPaginado();
+            //}
         }
         private void btn_Sig_Click(object sender, EventArgs e)
         {
@@ -1026,6 +1026,26 @@ namespace ProyectoOFI.SM
                 PlFiltroFecha.Visible = true;
             }
         }
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtBuscador.Text == "")
+            {
+                ReiniciarPaginado();
+                MostrarSM();
+            }
+            else if (CbBuscador.Text == "Peso")
+            {
+                Buscar();
+                ReiniciarPaginado();
+            }
+            else
+            {
+                BuscarTk();
+                ReiniciarPaginado();
+            }
+        }
+
         private void TextBuscarVisible()
         {
             txtBuscador.Clear();
@@ -1061,12 +1081,6 @@ namespace ProyectoOFI.SM
             dtInventarioSM.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.contador.ToString());
             Base.DiseñoDtvEliminar(ref dtInventarioSM);
-        }
-
-        private async void BtnActualizar_Click(object sender, EventArgs e)
-        {
-            await CargarDatos();
-            MessageBox.Show("Datos Actualizados", "Refrescar Datos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
 
         private void EnvioSM()

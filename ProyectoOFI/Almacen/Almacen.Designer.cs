@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dtInventarioAlm = new System.Windows.Forms.DataGridView();
             this.plOpciones = new System.Windows.Forms.Panel();
             this.BtnSecadoNa = new System.Windows.Forms.Button();
-            this.BtnRobusta = new System.Windows.Forms.Button();
             this.BtnBusqueda = new System.Windows.Forms.Button();
             this.BtnReporte = new System.Windows.Forms.Button();
             this.CbBuscador = new System.Windows.Forms.ComboBox();
@@ -42,6 +41,8 @@
             this.label26 = new System.Windows.Forms.Label();
             this.txtBuscador = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.BtnSM = new System.Windows.Forms.Button();
+            this.BtnRobusta = new System.Windows.Forms.Button();
             this.plfooter = new System.Windows.Forms.Panel();
             this.btn_atras = new System.Windows.Forms.Button();
             this.btn_Sig = new System.Windows.Forms.Button();
@@ -141,23 +142,23 @@
             this.dtInventarioAlm.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioAlm.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioAlm.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioAlm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioAlm.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dtInventarioAlm.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioAlm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtInventarioAlm.Location = new System.Drawing.Point(0, 62);
             this.dtInventarioAlm.Name = "dtInventarioAlm";
             this.dtInventarioAlm.ReadOnly = true;
             this.dtInventarioAlm.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioAlm.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioAlm.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dtInventarioAlm.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioAlm.ShowCellToolTips = false;
             this.dtInventarioAlm.ShowEditingIcon = false;
@@ -171,7 +172,6 @@
             this.plOpciones.AutoScroll = true;
             this.plOpciones.BackColor = System.Drawing.Color.White;
             this.plOpciones.Controls.Add(this.BtnSecadoNa);
-            this.plOpciones.Controls.Add(this.BtnRobusta);
             this.plOpciones.Controls.Add(this.BtnBusqueda);
             this.plOpciones.Controls.Add(this.BtnReporte);
             this.plOpciones.Controls.Add(this.CbBuscador);
@@ -180,6 +180,8 @@
             this.plOpciones.Controls.Add(this.label26);
             this.plOpciones.Controls.Add(this.txtBuscador);
             this.plOpciones.Controls.Add(this.label3);
+            this.plOpciones.Controls.Add(this.BtnSM);
+            this.plOpciones.Controls.Add(this.BtnRobusta);
             this.plOpciones.Dock = System.Windows.Forms.DockStyle.Top;
             this.plOpciones.Location = new System.Drawing.Point(0, 0);
             this.plOpciones.Name = "plOpciones";
@@ -191,25 +193,13 @@
             this.BtnSecadoNa.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnSecadoNa.Enabled = false;
             this.BtnSecadoNa.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSecadoNa.Location = new System.Drawing.Point(1068, 0);
+            this.BtnSecadoNa.Location = new System.Drawing.Point(987, 0);
             this.BtnSecadoNa.Name = "BtnSecadoNa";
             this.BtnSecadoNa.Size = new System.Drawing.Size(81, 62);
             this.BtnSecadoNa.TabIndex = 20;
             this.BtnSecadoNa.Text = "Secado Natural";
             this.BtnSecadoNa.UseVisualStyleBackColor = true;
             this.BtnSecadoNa.Click += new System.EventHandler(this.BtnSecadoNa_Click);
-            // 
-            // BtnRobusta
-            // 
-            this.BtnRobusta.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnRobusta.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRobusta.Location = new System.Drawing.Point(1149, 0);
-            this.BtnRobusta.Name = "BtnRobusta";
-            this.BtnRobusta.Size = new System.Drawing.Size(81, 62);
-            this.BtnRobusta.TabIndex = 19;
-            this.BtnRobusta.Text = "Robusta";
-            this.BtnRobusta.UseVisualStyleBackColor = true;
-            this.BtnRobusta.Click += new System.EventHandler(this.BtnRobusta_Click);
             // 
             // BtnBusqueda
             // 
@@ -317,6 +307,30 @@
             this.label3.Size = new System.Drawing.Size(86, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Buscar:";
+            // 
+            // BtnSM
+            // 
+            this.BtnSM.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnSM.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSM.Location = new System.Drawing.Point(1068, 0);
+            this.BtnSM.Name = "BtnSM";
+            this.BtnSM.Size = new System.Drawing.Size(81, 62);
+            this.BtnSM.TabIndex = 21;
+            this.BtnSM.Text = "Secado Mecánico";
+            this.BtnSM.UseVisualStyleBackColor = true;
+            this.BtnSM.Click += new System.EventHandler(this.BtnSM_Click);
+            // 
+            // BtnRobusta
+            // 
+            this.BtnRobusta.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnRobusta.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnRobusta.Location = new System.Drawing.Point(1149, 0);
+            this.BtnRobusta.Name = "BtnRobusta";
+            this.BtnRobusta.Size = new System.Drawing.Size(81, 62);
+            this.BtnRobusta.TabIndex = 19;
+            this.BtnRobusta.Text = "Robusta";
+            this.BtnRobusta.UseVisualStyleBackColor = true;
+            this.BtnRobusta.Click += new System.EventHandler(this.BtnRobusta_Click);
             // 
             // plfooter
             // 
@@ -1288,5 +1302,6 @@
         private System.Windows.Forms.Button BtnBusqueda;
         private System.Windows.Forms.Button BtnSecadoNa;
         private System.Windows.Forms.Button BtnRobusta;
+        private System.Windows.Forms.Button BtnSM;
     }
 }

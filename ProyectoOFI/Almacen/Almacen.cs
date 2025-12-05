@@ -227,13 +227,17 @@ namespace ProyectoOFI.Almacen
         {
             ObtenerTK();
             VerdetalleTkAlmacen();
-            if (Area=="Secado Natural")
+            if (Area == "Secado Natural")
             {
-            DetalleAlmacen();
+                DetalleAlmacen();
             }
-            else if (Area=="Robusta")
+            else if (Area == "Robusta")
             {
                 DetalleAlmacenRob();
+            }
+            else if (Area == "Secado Mecánico")
+            {
+                DetalleAlmacenSM();
             }
             AbrirFormulario();
         }
@@ -423,6 +427,43 @@ namespace ProyectoOFI.Almacen
                 MessageBox.Show("Existen campos vacios", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void InsertarAlmacenSM()
+        {
+            if (validar())
+            {
+                // DateTime fechaAlmacen = DtpFAlmacen.Value.Date.AddDays(-1);
+                if (DtpFAlmacen.Value.Date <= DateTime.Today.Date)
+                {
+                    DAlmacen funcion = new DAlmacen();
+                    LAlmacen parametros = new LAlmacen();
+                    parametros.Ticket = LblTicket.Text;
+                    parametros.Origen = LblProcedencia.Text;
+                    parametros.FechaAlmacen = DateTime.Parse(DtpFAlmacen.Text);
+                    parametros.IdBodega = (int)CbBodega.SelectedValue;
+                    parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
+                    parametros.IdEmpaque = (int)CbTipoEmpaque.SelectedValue;
+                    parametros.Sacos = int.Parse(NudSacos.Text);
+                    parametros.Peso = decimal.Parse(TxtPeso.Text);
+                    parametros.Tara = decimal.Parse(TxtTara.Text);
+                    parametros.PesoNeto = decimal.Parse(TxtPesoNeto.Text);
+                    parametros.Rendimiento = rendimiento;
+                    if (funcion.InsertarAlmacenSM(parametros) == true)
+                    {
+                        MessageBox.Show("Se ha guardado con éxito", "AlmacénSM", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        BuscarTK();
+                        Limpiar();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha de dia de hoy", "Error en la fecha", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Existen campos vacios", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void InsertarAlmacenRob()
         {
             if (validar())
@@ -539,6 +580,11 @@ namespace ProyectoOFI.Almacen
                 {
                     InsertarAlmacenRob();
                 }
+                else if (Area == "Secado Mecánico")
+                {
+                    InsertarAlmacenSM();
+
+                }
             }
             else
             {
@@ -555,6 +601,10 @@ namespace ProyectoOFI.Almacen
                     else if (Area == "Robusta")
                     {
                         EditarAlmacenRob();
+                    }
+                    else if (Area == "Secado Mecánico")
+                    {
+                        EditarAlmacenSM();
                     }
                 }
             }
@@ -583,6 +633,44 @@ namespace ProyectoOFI.Almacen
                     parametros.IdTurno = (int)CbTurno.SelectedValue;
                     parametros.IdDescargador = (int)CbDescargador.SelectedValue;
                     if (funcion.EditarAlmacen(parametros) == true)
+                    {
+                        MessageBox.Show("Se ha guardado con éxito", "Almacén", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        BuscarTK();
+                        Limpiar();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("La fecha de recibido no puede ser mayor a la fecha de dia de hoy", "Error en la fecha", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Existen campos vacios", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void EditarAlmacenSM()
+        {
+            if (validar())
+            {
+                // Restar un día al valor de DtpFAlmacen DateTime fechaAlmacen = DtpFAlmacen.Value.Date.AddDays(-1)
+                //DateTime fechaAlmacen = DtpFAlmacen.Value.Date.AddDays(-1);
+                if (DtpFAlmacen.Value.Date <= DateTime.Today.Date)
+                {
+                    DAlmacen funcion = new DAlmacen();
+                    LAlmacen parametros = new LAlmacen();
+                    parametros.Ticket = LblTicket.Text;
+                    parametros.Origen = LblProcedencia.Text;
+                    parametros.FechaAlmacen = DateTime.Parse(DtpFAlmacen.Text);
+                    parametros.IdBodega = (int)CbBodega.SelectedValue;
+                    parametros.IdUbicacion = (int)CbUbicacion.SelectedValue;
+                    parametros.IdEmpaque = (int)CbTipoEmpaque.SelectedValue;
+                    parametros.Sacos = int.Parse(NudSacos.Text);
+                    parametros.Peso = decimal.Parse(TxtPeso.Text);
+                    parametros.Tara = decimal.Parse(TxtTara.Text);
+                    parametros.PesoNeto = decimal.Parse(TxtPesoNeto.Text);
+                    parametros.Rendimiento = rendimiento;
+                    if (funcion.EditarAlmacenSM(parametros) == true)
                     {
                         MessageBox.Show("Se ha guardado con éxito", "Almacén", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         BuscarTK();
@@ -765,6 +853,99 @@ namespace ProyectoOFI.Almacen
                 throw;
             }
         }
+        private void DetalleAlmacenSM()
+        {
+            DAlmacen funcion = new DAlmacen();
+            DataTable dt = new DataTable();
+            try
+            {
+                funcion.DetalleAlmacenSM(ref dt, Ticket);
+                if (dt.Rows.Count > 0 && !string.IsNullOrEmpty(dt.Rows[0]["Ticket"].ToString()))
+                {
+                    DataRow row = dt.Rows[0];
+                    if (DateTime.Parse(row["FechaAlmacen"].ToString()) != null)
+                    {
+                        DtpFAlmacen.Value = DateTime.Parse(row["FechaAlmacen"].ToString());
+                    }
+                    else
+                    {
+                        DtpFAlmacen.Value = DateTime.Today.Date;
+                    }
+                    if (row["Bodega"].ToString() != null)
+                    {
+                        CbBodega.Text = row["Bodega"].ToString();
+                    }
+                    else
+                    {
+                        CbBodega.ForeColor = Color.Red;
+                    }
+                    if (row["Ubicacion"].ToString() != null)
+                    {
+                        CbUbicacion.Text = row["Ubicacion"].ToString();
+                    }
+                    else
+                    {
+                        CbUbicacion.ForeColor = Color.Red;
+                    }
+                    if (row["Empaque"].ToString() != null)
+                    {
+                        CbTipoEmpaque.Text = row["Empaque"].ToString();
+                    }
+                    else
+                    {
+                        CbTipoEmpaque.ForeColor = Color.Red;
+                    }
+                    if (row["Sacos"].ToString() != null)
+                    {
+                        NudSacos.Text = row["Sacos"].ToString();
+                    }
+                    else
+                    {
+                        NudSacos.Value = 0;
+                        NudSacos.ForeColor = Color.Red;
+                    }
+                    if (row["Peso"].ToString() != null)
+                    {
+                        TxtPeso.Text = row["Peso"].ToString();
+                    }
+                    else
+                    {
+                        TxtPeso.Text = "";
+                    }
+                    if (row["Tara"].ToString() != null)
+                    {
+                        TxtTara.Text = row["Tara"].ToString();
+                    }
+                    else
+                    {
+                        TxtTara.Text = "";
+                    }
+                    if (row["PesoNeto"].ToString() != null)
+                    {
+                        TxtPesoNeto.Text = row["PesoNeto"].ToString();
+                    }
+                    else
+                    {
+                        TxtPesoNeto.Text = "";
+                    }
+                    if (row["Rendimiento"].ToString() != null)
+                    {
+                        LblRedimiento.Text = row["Rendimiento"].ToString();
+                    }
+                    else
+                    {
+                        LblRedimiento.Text = "";
+                    }
+                    Edit = int.Parse(row["Edit"].ToString());
+                    Desactivar();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         private void DetalleAlmacenRob()
         {
             DAlmacen funcion = new DAlmacen();
@@ -884,7 +1065,18 @@ namespace ProyectoOFI.Almacen
         {
             DataTable dt = new DataTable();
             DAlmacen funcion = new DAlmacen();
-            funcion.ExcelAlmacen(ref dt);
+            if (Area == "Secado Natural")
+            {
+                funcion.ExcelAlmacen(ref dt);
+            }
+            else if (Area == "Secado Mecánico")
+            {
+                funcion.ExcelAlmacenSM(ref dt);
+            }
+            else if (Area == "Robusta")
+            {
+                funcion.ExcelAlmacenRob(ref dt);
+            }
             string Nombre = "Inventario Almacén";
             FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
             LT.ShowDialog();
@@ -1043,6 +1235,7 @@ namespace ProyectoOFI.Almacen
             //BtnSecadoM.Enabled = true;
             BtnSecadoNa.Enabled = true;
             BtnRobusta.Enabled = false;
+            BtnSM.Enabled = true;
             BuscarTK();
             ReiniciarPaginado();
         }
@@ -1051,6 +1244,17 @@ namespace ProyectoOFI.Almacen
         {
             Area = "Secado Natural";
             BtnSecadoNa.Enabled = false;
+            BtnRobusta.Enabled = true;
+            BtnSM.Enabled = true;
+            BuscarTK();
+            ReiniciarPaginado();
+        }
+
+        private void BtnSM_Click(object sender, EventArgs e)
+        {
+            Area = "Secado Mecánico";
+            BtnSecadoNa.Enabled = true;
+            BtnSM.Enabled = false;
             BtnRobusta.Enabled = true;
             BuscarTK();
             ReiniciarPaginado();
@@ -1142,6 +1346,10 @@ namespace ProyectoOFI.Almacen
             else if (Area == "Robusta")
             {
                 funcion.BuscarAlmacenRob(txtBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
+            }
+            else if (Area == "Secado Mecánico")
+            {
+                funcion.BuscarAlmacenSM(txtBuscador.Text, CbBuscar.Text, ref dt, desde, hasta, ContarBusqueda);
             }
             dtInventarioAlm.DataSource = dt;
             ContarBusqueda = int.Parse(funcion.Contador.ToString());

@@ -8,7 +8,6 @@ using System.Data;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -788,12 +787,12 @@ namespace ProyectoOFI.Analisis
                 int numqqs = dtInventarioCat.Columns[columnqqs].Index;
                 QQs = double.Parse(dtInventarioCat.SelectedCells[numqqs].Value.ToString());
 
-                if (Area != "Secado Mecanico")
-                {
-                    string nombreEstado = "Proceso";
-                    int numEstado = dtInventarioCat.Columns[nombreEstado].Index;
-                    Proceso = dtInventarioCat.SelectedCells[numEstado].Value.ToString();
-                }
+                //if (Area != "Secado Mecanico")
+                //{
+                string nombreEstado = "Proceso";
+                int numEstado = dtInventarioCat.Columns[nombreEstado].Index;
+                Proceso = dtInventarioCat.SelectedCells[numEstado].Value.ToString();
+                //}
 
                 string Est_Env = "EstadoFisico";
                 int numEst = dtInventarioCat.Columns[Est_Env].Index;
@@ -884,7 +883,8 @@ namespace ProyectoOFI.Analisis
             {
                 ChbRechazado.Checked = true;
                 ChbAnalizado.Enabled = false;
-                CbGrupoCalidad.Text = "";
+                CbGrupoCalidad.Text = "N/A";
+                CbTasa.Text = "N/A";
             }
             else
             {
@@ -987,8 +987,6 @@ namespace ProyectoOFI.Analisis
                 LblFondo.BackColor = SystemColors.Control; // Aún resta por completar
             }
         }
-
-
         private void BtnCerrarPldatos_Click(object sender, EventArgs e)
         {
             PLDatos.Visible = false;
@@ -1047,6 +1045,10 @@ namespace ProyectoOFI.Analisis
             {
                 if (BtnActivar.Visible == true)
                 {
+                    if (Proceso == "Enfarde")
+                    {
+                        BtnActivar.Enabled = true;
+                    }
                     Desactivar();
                 }
                 else
@@ -1063,6 +1065,7 @@ namespace ProyectoOFI.Analisis
                 else
                 {
                     Desactivar();
+                    ValidarPermisos();
                 }
             }
 
@@ -1164,6 +1167,7 @@ namespace ProyectoOFI.Analisis
                 TxtDesmA.Text = "0";
                 TxtDesmD.Text = "0";
                 TxtScore.Text = "0";
+                CbGrupoCalidad.Text = "N/A";
             }
             else
             {
@@ -2483,12 +2487,12 @@ namespace ProyectoOFI.Analisis
 
                     // === Estado (es string, no bool) ===
                     string estado = row["Estado"]?.ToString()?.Trim() ?? "0";
-                    if (estado == "1")
+                    if (estado == "True")
                     {
                         ChbAnalizadoRob.Checked = true;
                         BtnAnalizadoRob.Enabled = false;
                     }
-                    else if (estado == "0")
+                    else if (estado == "False")
                     {
                         ChbRechazadoRob.Checked = true;
                         BtnAnalizadoRob.Text = "Re-Analizar";
@@ -3117,7 +3121,8 @@ namespace ProyectoOFI.Analisis
             {
                 ChbRechazadoRob.Checked = true;
                 ChbAnalizadoRob.Enabled = false;
-                CbGCalidadRob.Text = "";
+                CbGCalidadRob.Text = "N/A";
+                CbTazaRob.Text = "N/A";
             }
             else
             {
@@ -3219,6 +3224,7 @@ namespace ProyectoOFI.Analisis
                 TxtScr12.Text = "0";
                 TxtScr15.Text = "0";
                 TxtScr14.Text = "0";
+                CbGCalidadRob.Text = "N/A";
             }
             else
             {

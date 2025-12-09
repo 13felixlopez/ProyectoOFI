@@ -90,6 +90,8 @@
             this.txtMTNR = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
             this.PEnvio = new System.Windows.Forms.Panel();
+            this.label24 = new System.Windows.Forms.Label();
+            this.TxtPlaca = new System.Windows.Forms.TextBox();
             this.ChUA = new System.Windows.Forms.CheckBox();
             this.LblQQsEn = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -217,8 +219,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.label24 = new System.Windows.Forms.Label();
-            this.TxtPlaca = new System.Windows.Forms.TextBox();
             this.PlEnvio.SuspendLayout();
             this.PlRecepcion.SuspendLayout();
             this.PlAlerta.SuspendLayout();
@@ -346,7 +346,7 @@
             this.cbCalidad.Location = new System.Drawing.Point(89, 188);
             this.cbCalidad.Name = "cbCalidad";
             this.cbCalidad.Size = new System.Drawing.Size(175, 24);
-            this.cbCalidad.TabIndex = 20;
+            this.cbCalidad.TabIndex = 7;
             // 
             // cbEstadoFisico
             // 
@@ -361,7 +361,7 @@
             this.cbEstadoFisico.Location = new System.Drawing.Point(823, 146);
             this.cbEstadoFisico.Name = "cbEstadoFisico";
             this.cbEstadoFisico.Size = new System.Drawing.Size(109, 24);
-            this.cbEstadoFisico.TabIndex = 18;
+            this.cbEstadoFisico.TabIndex = 6;
             // 
             // label18
             // 
@@ -389,7 +389,7 @@
             this.txtTK.Location = new System.Drawing.Point(229, 55);
             this.txtTK.Name = "txtTK";
             this.txtTK.Size = new System.Drawing.Size(214, 22);
-            this.txtTK.TabIndex = 14;
+            this.txtTK.TabIndex = 0;
             // 
             // label22
             // 
@@ -434,7 +434,7 @@
             this.cbArea.Location = new System.Drawing.Point(988, 56);
             this.cbArea.Name = "cbArea";
             this.cbArea.Size = new System.Drawing.Size(154, 24);
-            this.cbArea.TabIndex = 16;
+            this.cbArea.TabIndex = 2;
             this.cbArea.SelectedIndexChanged += new System.EventHandler(this.cbArea_SelectedIndexChanged);
             // 
             // cbDaño
@@ -451,7 +451,7 @@
             this.cbDaño.Location = new System.Drawing.Point(347, 188);
             this.cbDaño.Name = "cbDaño";
             this.cbDaño.Size = new System.Drawing.Size(118, 24);
-            this.cbDaño.TabIndex = 21;
+            this.cbDaño.TabIndex = 8;
             // 
             // cbRecibidor
             // 
@@ -464,7 +464,7 @@
             this.cbRecibidor.Location = new System.Drawing.Point(424, 247);
             this.cbRecibidor.Name = "cbRecibidor";
             this.cbRecibidor.Size = new System.Drawing.Size(327, 24);
-            this.cbRecibidor.TabIndex = 25;
+            this.cbRecibidor.TabIndex = 12;
             // 
             // label46
             // 
@@ -504,7 +504,7 @@
             this.dtpRecibido.Location = new System.Drawing.Point(640, 53);
             this.dtpRecibido.Name = "dtpRecibido";
             this.dtpRecibido.Size = new System.Drawing.Size(184, 26);
-            this.dtpRecibido.TabIndex = 15;
+            this.dtpRecibido.TabIndex = 1;
             // 
             // cbAcopio
             // 
@@ -515,7 +515,7 @@
             this.cbAcopio.Location = new System.Drawing.Point(89, 132);
             this.cbAcopio.Name = "cbAcopio";
             this.cbAcopio.Size = new System.Drawing.Size(268, 24);
-            this.cbAcopio.TabIndex = 2;
+            this.cbAcopio.TabIndex = 4;
             // 
             // cbAgencia
             // 
@@ -526,7 +526,7 @@
             this.cbAgencia.Location = new System.Drawing.Point(921, 51);
             this.cbAgencia.Name = "cbAgencia";
             this.cbAgencia.Size = new System.Drawing.Size(287, 24);
-            this.cbAgencia.TabIndex = 1;
+            this.cbAgencia.TabIndex = 3;
             this.cbAgencia.SelectedIndexChanged += new System.EventHandler(this.cbAgencia_SelectedIndexChanged);
             // 
             // cbCompra
@@ -542,7 +542,7 @@
             this.cbCompra.Location = new System.Drawing.Point(845, 129);
             this.cbCompra.Name = "cbCompra";
             this.cbCompra.Size = new System.Drawing.Size(174, 24);
-            this.cbCompra.TabIndex = 4;
+            this.cbCompra.TabIndex = 6;
             // 
             // PlRecepcion
             // 
@@ -636,7 +636,7 @@
             this.cbCertificacion.Location = new System.Drawing.Point(131, 247);
             this.cbCertificacion.Name = "cbCertificacion";
             this.cbCertificacion.Size = new System.Drawing.Size(169, 24);
-            this.cbCertificacion.TabIndex = 160;
+            this.cbCertificacion.TabIndex = 11;
             // 
             // label57
             // 
@@ -670,7 +670,7 @@
             this.CbUbicacionRec.Location = new System.Drawing.Point(329, 146);
             this.CbUbicacionRec.Name = "CbUbicacionRec";
             this.CbUbicacionRec.Size = new System.Drawing.Size(163, 24);
-            this.CbUbicacionRec.TabIndex = 158;
+            this.CbUbicacionRec.TabIndex = 4;
             this.CbUbicacionRec.Text = "--";
             // 
             // label13
@@ -695,7 +695,7 @@
             this.CbPatio.Location = new System.Drawing.Point(68, 146);
             this.CbPatio.Name = "CbPatio";
             this.CbPatio.Size = new System.Drawing.Size(163, 24);
-            this.CbPatio.TabIndex = 156;
+            this.CbPatio.TabIndex = 3;
             this.CbPatio.Text = "--";
             this.CbPatio.SelectedIndexChanged += new System.EventHandler(this.CbPatio_SelectedIndexChanged);
             // 
@@ -833,7 +833,7 @@
             0});
             this.nudSacos.Name = "nudSacos";
             this.nudSacos.Size = new System.Drawing.Size(91, 22);
-            this.nudSacos.TabIndex = 22;
+            this.nudSacos.TabIndex = 9;
             this.toolTip1.SetToolTip(this.nudSacos, "La cantidad Sacos tiene que ser mayor a 0");
             // 
             // label32
@@ -855,7 +855,7 @@
             this.txtKgs.Location = new System.Drawing.Point(812, 189);
             this.txtKgs.Name = "txtKgs";
             this.txtKgs.Size = new System.Drawing.Size(112, 22);
-            this.txtKgs.TabIndex = 23;
+            this.txtKgs.TabIndex = 10;
             this.txtKgs.TextChanged += new System.EventHandler(this.txtKgs_TextChanged);
             // 
             // label33
@@ -874,7 +874,7 @@
             this.txtMTNR.Location = new System.Drawing.Point(560, 147);
             this.txtMTNR.Name = "txtMTNR";
             this.txtMTNR.Size = new System.Drawing.Size(180, 22);
-            this.txtMTNR.TabIndex = 17;
+            this.txtMTNR.TabIndex = 5;
             // 
             // label40
             // 
@@ -927,6 +927,27 @@
             this.PEnvio.Size = new System.Drawing.Size(1225, 291);
             this.PEnvio.TabIndex = 107;
             this.toolTip1.SetToolTip(this.PEnvio, "Los campos con * son obligatorios");
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(33, 193);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(53, 17);
+            this.label24.TabIndex = 159;
+            this.label24.Text = "Placa:";
+            // 
+            // TxtPlaca
+            // 
+            this.TxtPlaca.AllowDrop = true;
+            this.TxtPlaca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.TxtPlaca.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
+            this.TxtPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtPlaca.Location = new System.Drawing.Point(91, 190);
+            this.TxtPlaca.Name = "TxtPlaca";
+            this.TxtPlaca.Size = new System.Drawing.Size(151, 22);
+            this.TxtPlaca.TabIndex = 7;
             // 
             // ChUA
             // 
@@ -1019,7 +1040,7 @@
             this.cbCliente.Location = new System.Drawing.Point(480, 129);
             this.cbCliente.Name = "cbCliente";
             this.cbCliente.Size = new System.Drawing.Size(257, 24);
-            this.cbCliente.TabIndex = 3;
+            this.cbCliente.TabIndex = 5;
             // 
             // label53
             // 
@@ -1094,7 +1115,7 @@
             this.TxtTally.Location = new System.Drawing.Point(636, 58);
             this.TxtTally.Name = "TxtTally";
             this.TxtTally.Size = new System.Drawing.Size(151, 22);
-            this.TxtTally.TabIndex = 6;
+            this.TxtTally.TabIndex = 2;
             // 
             // txtPesoE
             // 
@@ -2523,27 +2544,6 @@
             this.dataGridViewImageColumn3.Name = "dataGridViewImageColumn3";
             this.dataGridViewImageColumn3.ReadOnly = true;
             this.dataGridViewImageColumn3.Visible = false;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(33, 193);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(53, 17);
-            this.label24.TabIndex = 159;
-            this.label24.Text = "Placa:";
-            // 
-            // TxtPlaca
-            // 
-            this.TxtPlaca.AllowDrop = true;
-            this.TxtPlaca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.TxtPlaca.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.HistoryList;
-            this.TxtPlaca.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtPlaca.Location = new System.Drawing.Point(91, 190);
-            this.TxtPlaca.Name = "TxtPlaca";
-            this.TxtPlaca.Size = new System.Drawing.Size(151, 22);
-            this.TxtPlaca.TabIndex = 158;
             // 
             // Transferencia
             // 

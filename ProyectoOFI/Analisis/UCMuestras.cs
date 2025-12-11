@@ -21,6 +21,8 @@ namespace ProyectoOFI.Analisis
 
         private DateTimePicker dtPicker = new DateTimePicker();
         private Rectangle _Rectangle;
+
+        string Area = "control patio";
         public UCMuestras()
         {
             InitializeComponent();
@@ -31,14 +33,14 @@ namespace ProyectoOFI.Analisis
             Task.Delay(3000);
             BuscarTK();
             //ReiniciarPaginado();
-            ActualizarCheckboxesEnDataGridView();
+            //ActualizarCheckboxesEnDataGridView();
             TxtBuscar.Focus();
         }
         private void BuscarTK()
         {
             DataTable dt = new DataTable();
             DMuestras funcion = new DMuestras();
-            funcion.ObtenerMuestras(TxtBuscar.Text, ref dt, ContarBusqueda);
+            funcion.ObtenerMuestras(TxtBuscar.Text, ref dt, ContarBusqueda, Area);
             DtMuestras.DataSource = dt;
 
             DtMuestras.Columns["FechaMuestra"].ReadOnly = false;
@@ -50,38 +52,7 @@ namespace ProyectoOFI.Analisis
             // ❌ Quita esta línea (ya no se precarga la lista temporal)
             // InicializarListaTemporalDesdeDataTable(dt);
 
-            ActualizarCheckboxesEnDataGridView();
-        }
-
-
-        private void InicializarListaTemporalDesdeDataTable(DataTable dt)
-        {
-            muestrasTemporales.Clear();
-
-            foreach (DataRow row in dt.Rows)
-            {
-                // Manejar valores nulos en IdMuestra y Muestriado
-                int idMuestra = row["IdMuestra"] != DBNull.Value ? Convert.ToInt32(row["IdMuestra"]) : 0;
-                bool muestriado = row["Muestriado"] != DBNull.Value && Convert.ToBoolean(row["Muestriado"]);
-                string ticket = row["Ticket"]?.ToString() ?? "";
-
-                // Tomar la fecha desde la tabla si existe
-                DateTime fechaMuestra = DateTime.Now;
-                if (dt.Columns.Contains("FechaMuestra") && row["FechaMuestra"] != DBNull.Value)
-                    fechaMuestra = Convert.ToDateTime(row["FechaMuestra"]);
-
-                // Solo agregar registros que están muestriados
-                if (muestriado)
-                {
-                    muestrasTemporales.Add(new LMuestras
-                    {
-                        IdMuestra = idMuestra,
-                        Ticket = ticket,
-                        Muestriado = muestriado,
-                        FechaMuestra = fechaMuestra
-                    });
-                }
-            }
+            //ActualizarCheckboxesEnDataGridView();
         }
 
         private void DtMuestras_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -133,7 +104,7 @@ namespace ProyectoOFI.Analisis
                     }
 
                     // Colorear fila según el nuevo estado
-                    ActualizarColorFila(e.RowIndex, newValue);
+                    //ActualizarColorFila(e.RowIndex, newValue);
                 }
                 catch (Exception ex)
                 {
@@ -246,6 +217,20 @@ namespace ProyectoOFI.Analisis
         private void dtPicker_CloseUp(object sender, EventArgs e)
         {
             dtPicker.Visible = false;
+        }
+
+        private void BtnSN_Click(object sender, EventArgs e)
+        {
+            Area = "control patio";
+            BtnSN.Enabled = false;
+            BtnSM.Enabled = true;
+        }
+
+        private void BtnSM_Click(object sender, EventArgs e)
+        {
+            Area = "Secado Mecánico";
+            BtnSM.Enabled = false;
+            BtnSN.Enabled = true;
         }
     }
 }

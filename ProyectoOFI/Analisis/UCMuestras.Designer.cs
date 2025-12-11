@@ -37,6 +37,8 @@
             this.BtnBuscar = new System.Windows.Forms.Button();
             this.TxtBuscar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.BtnSN = new System.Windows.Forms.Button();
+            this.BtnSM = new System.Windows.Forms.Button();
             this.PlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtMuestras)).BeginInit();
@@ -95,6 +97,8 @@
             // 
             this.PlOpciones.AutoScroll = true;
             this.PlOpciones.BackColor = System.Drawing.Color.White;
+            this.PlOpciones.Controls.Add(this.BtnSM);
+            this.PlOpciones.Controls.Add(this.BtnSN);
             this.PlOpciones.Controls.Add(this.BtnGuardar);
             this.PlOpciones.Controls.Add(this.BtnBuscar);
             this.PlOpciones.Controls.Add(this.TxtBuscar);
@@ -148,6 +152,28 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar Ticket:";
             // 
+            // BtnSN
+            // 
+            this.BtnSN.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSN.Location = new System.Drawing.Point(883, 6);
+            this.BtnSN.Name = "BtnSN";
+            this.BtnSN.Size = new System.Drawing.Size(124, 48);
+            this.BtnSN.TabIndex = 17;
+            this.BtnSN.Text = "Secado Natural";
+            this.BtnSN.UseVisualStyleBackColor = true;
+            this.BtnSN.Click += new System.EventHandler(this.BtnSN_Click);
+            // 
+            // BtnSM
+            // 
+            this.BtnSM.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSM.Location = new System.Drawing.Point(1027, 6);
+            this.BtnSM.Name = "BtnSM";
+            this.BtnSM.Size = new System.Drawing.Size(122, 48);
+            this.BtnSM.TabIndex = 18;
+            this.BtnSM.Text = "Secado Mecánico";
+            this.BtnSM.UseVisualStyleBackColor = true;
+            this.BtnSM.Click += new System.EventHandler(this.BtnSM_Click);
+            // 
             // UCMuestras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -178,5 +204,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnBuscar;
         private System.Windows.Forms.Button BtnGuardar;
+        private System.Windows.Forms.Button BtnSN;
+        private System.Windows.Forms.Button BtnSM;
     }
 }

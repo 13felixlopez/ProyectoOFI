@@ -10,7 +10,7 @@ namespace ProyectoOFI.Datos
     public class DMuestras
     {
         public int Contador;
-        public void ObtenerMuestras(string TK, ref DataTable dt, int Contar)
+        public void ObtenerMuestras(string TK, ref DataTable dt, int Contar, string Area)
         {
             try
             {
@@ -20,6 +20,7 @@ namespace ProyectoOFI.Datos
 
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@Ticket", TK);
+                    cmd.Parameters.AddWithValue("@Area", Area);
 
                     // Parámetro de salida para el contador
                     SqlParameter contarParam = new SqlParameter("@Contar", SqlDbType.Int);

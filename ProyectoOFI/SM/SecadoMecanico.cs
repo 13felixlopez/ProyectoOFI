@@ -479,7 +479,7 @@ namespace ProyectoOFI.SM
                     }
                 }
             }
-            catch (Exception )
+            catch (Exception)
             {
                 //MessageBox.Show("Error al cargar datos en controles" + ex.Message, "ERROR en Secado Mecanico", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -966,11 +966,11 @@ namespace ProyectoOFI.SM
                 parametros.HoraFin = DtHInicio2.Value;
                 parametros.Humedad = double.Parse(TxtHumedad.Text);
                 parametros.ProcesoSF = "POA";
-                // parametros.OperadorV = int.Parse(CbOperadores.SelectedValue.ToString());
+                //parametros.OperadorV = int.Parse(CbOperadores.SelectedValue.ToString());
                 parametros.TurnoV = int.Parse(CbTurno.SelectedValue.ToString());
                 parametros.POA1 = int.Parse(CbPOA1.Text.Trim());
                 parametros.POA2 = int.Parse(CbPOA2.Text.Trim());
-                parametros.DigitadorV = Login.NombreA;
+                parametros.DigitadorV = CbOperadores.Text;
                 if (funcion.ParticionSM(parametros) == true)
                 {
                     MessageBox.Show("Operación realizada con éxito", "Secado final", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

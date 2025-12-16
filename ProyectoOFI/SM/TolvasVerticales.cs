@@ -529,6 +529,12 @@ namespace ProyectoOFI.SM
             Estilo();
         }
 
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            DSM DV = new DSM();
+            DV.CargarTk(cbTicketV);
+        }
+
         private void Limpiar()
         {
             LblSacos.Text = "--";
@@ -554,7 +560,7 @@ namespace ProyectoOFI.SM
             {
                 AbrirFormulario();
                 DSM sm = new DSM();
-                sm.MostrarDatosTKSM(LblSacos, LblKilos, LblQQsV, LblCalidadV, LblDanioV, LblEFisicoV, LblFRecibido, LblCert, cbTicketV.SelectedValue?.ToString());
+                sm.MostrarDatosTKSM(LblSacos, LblKilos, LblQQsV, LblCalidadV, LblDanioV, LblEFisicoV, LblFRecibido, LblCert, cbTicketV.Text?.ToString());
                 cbTicketV.Enabled = true;
                 btnGuardarPV.Visible = true;
                 btnDescargarPV.Visible = false;

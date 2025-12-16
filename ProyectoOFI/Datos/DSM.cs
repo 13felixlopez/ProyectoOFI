@@ -104,7 +104,7 @@ namespace ProyectoOFI.Datos
                         combo.DataSource = dt;
                         combo.ValueMember = "Ticket";
                         combo.DisplayMember = "Ticket";
-                        combo.SelectedIndex = -1;
+                        //combo.SelectedIndex = -1;
 
                         AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
                         foreach (DataRow row in dt.Rows)

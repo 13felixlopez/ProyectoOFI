@@ -101,6 +101,7 @@
             this.btnTV2 = new System.Windows.Forms.Button();
             this.lblTV8 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.BtnRefresh = new System.Windows.Forms.Button();
             this.PLDatos.SuspendLayout();
             this.gbVertical.SuspendLayout();
             this.gbPOAV.SuspendLayout();
@@ -471,6 +472,7 @@
             // 
             // gbDatos
             // 
+            this.gbDatos.Controls.Add(this.BtnRefresh);
             this.gbDatos.Controls.Add(this.LblCert);
             this.gbDatos.Controls.Add(this.label17);
             this.gbDatos.Controls.Add(this.cbTicketV);
@@ -534,12 +536,11 @@
             // LblFRecibido
             // 
             this.LblFRecibido.AutoSize = true;
-            this.LblFRecibido.Location = new System.Drawing.Point(1286, 74);
+            this.LblFRecibido.Location = new System.Drawing.Point(414, 102);
             this.LblFRecibido.Name = "LblFRecibido";
             this.LblFRecibido.Size = new System.Drawing.Size(21, 20);
             this.LblFRecibido.TabIndex = 6;
             this.LblFRecibido.Text = "--";
-            this.LblFRecibido.Visible = false;
             // 
             // LblEFisicoV
             // 
@@ -937,6 +938,16 @@
             this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // BtnRefresh
+            // 
+            this.BtnRefresh.Location = new System.Drawing.Point(10, 28);
+            this.BtnRefresh.Name = "BtnRefresh";
+            this.BtnRefresh.Size = new System.Drawing.Size(37, 27);
+            this.BtnRefresh.TabIndex = 22;
+            this.BtnRefresh.Text = "🔁";
+            this.BtnRefresh.UseVisualStyleBackColor = true;
+            this.BtnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
+            // 
             // TolvasVerticales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1032,5 +1043,6 @@
         private System.Windows.Forms.Label LblCapacidad;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button BtnRefresh;
     }
 }

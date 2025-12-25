@@ -1065,19 +1065,22 @@ namespace ProyectoOFI.Almacen
         {
             DataTable dt = new DataTable();
             DAlmacen funcion = new DAlmacen();
+            string Nombre = "";
             if (Area == "Secado Natural")
             {
                 funcion.ExcelAlmacen(ref dt);
+                Nombre = "Inventario Almacén";
             }
             else if (Area == "Secado Mecánico")
             {
                 funcion.ExcelAlmacenSM(ref dt);
+                Nombre = "Inventario AlmacénSM";
             }
             else if (Area == "Robusta")
             {
                 funcion.ExcelAlmacenRob(ref dt);
+                Nombre = "Inventario AlmacénRob";
             }
-            string Nombre = "Inventario Almacén";
             FrmLotes_Tendido LT = new FrmLotes_Tendido(dt, Nombre);
             LT.ShowDialog();
         }

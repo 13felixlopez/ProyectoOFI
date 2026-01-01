@@ -687,5 +687,29 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error en BuscarAlmacen ✖️✖️" + ex.Message);
             }
         }
+
+        public bool CambioTkAlm(string tkAlm, string ticket)
+        {
+            try
+            {
+                using (SqlConnection conectar = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("TicketAlm", conectar))
+                {
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@TicketAlm", tkAlm);
+                    cmd.Parameters.AddWithValue("@Ticket", ticket);
+                    cmd.Parameters.AddWithValue("@User", Login.NombreA);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cambiar Ticket " + ex.Message, "Cambio no realizado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en CambioTkAlm ✖️✖️ " + ex.Message);
+                return false;
+            }
+        }
     }
 }

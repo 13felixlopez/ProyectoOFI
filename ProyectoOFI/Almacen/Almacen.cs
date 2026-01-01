@@ -27,6 +27,7 @@ namespace ProyectoOFI.Almacen
         {
             InitializeComponent();
             ValidarPermisos();
+            BtnSplit.Enabled = false;
         }
 
         private async void Almacen_Load(object sender, EventArgs e)
@@ -743,6 +744,9 @@ namespace ProyectoOFI.Almacen
             PLDatos.Visible = false;
             dtInventarioAlm.Enabled = true;
             plOpciones.Enabled = true;
+            LblTkAlmSm.Text = "";
+            LbltiSM.Visible = false;
+            LblTkAlmSm.Visible = false;
         }
         private void DetalleAlmacen()
         {
@@ -931,10 +935,22 @@ namespace ProyectoOFI.Almacen
                     if (row["Rendimiento"].ToString() != null)
                     {
                         LblRedimiento.Text = row["Rendimiento"].ToString();
+                        LblTkAlmSm.Enabled = true;
                     }
                     else
                     {
                         LblRedimiento.Text = "";
+                        LblTkAlmSm.Enabled = false;
+                    }
+                    if (row["TicketAlm"].ToString() != null)
+                    {
+                        LblTkAlmSm.Text = row["TicketAlm"].ToString();
+                        LbltiSM.Visible = true;
+                    }
+                    else
+                    {
+                        LblTkAlmSm.Text = "";
+                        LbltiSM.Visible = false;
                     }
                     Edit = int.Parse(row["Edit"].ToString());
                     Desactivar();
@@ -1125,6 +1141,7 @@ namespace ProyectoOFI.Almacen
             CbTurno.Enabled = false;
             CbDescargador.Enabled = false;
             BtnGuardar.Enabled = false;
+            BtnSplit.Visible = true;
         }
 
         private void CbBuscar_SelectedIndexChanged(object sender, EventArgs e)
@@ -1198,12 +1215,17 @@ namespace ProyectoOFI.Almacen
 
         private void BtnSplit_Click(object sender, EventArgs e)
         {
-            PlSplit.Location = new Point(this.Width / 2
-               - PlSplit.Width / 2, this.Height / 2 - PlSplit.Height / 2);
-            PlSplit.Visible = true;
-            PlSplit.BringToFront();
-            LblTKSplit.Text = LblTicket.Text;
-            LblPesoO.Text = LblPeso.Text;
+            //PlSplit.Location = new Point(this.Width / 2
+            //   - PlSplit.Width / 2, this.Height / 2 - PlSplit.Height / 2);
+            //PlSplit.Visible = true;
+            //PlSplit.BringToFront();
+            //LblTKSplit.Text = LblTicket.Text;
+            //LblPesoO.Text = LblPeso.Text;
+            PlTicketAlm.Location = new Point(this.Width / 2
+               - PlTicketAlm.Width / 2, this.Height / 2 - PlTicketAlm.Height / 2);
+            PlTicketAlm.Visible = true;
+            PlTicketAlm.BringToFront();
+            LblTkSM.Text = LblTicket.Text;
         }
 
         private void BtnCrearSplit_Click(object sender, EventArgs e)
@@ -1239,6 +1261,7 @@ namespace ProyectoOFI.Almacen
             BtnSecadoNa.Enabled = true;
             BtnRobusta.Enabled = false;
             BtnSM.Enabled = true;
+            BtnSplit.Enabled = false;
             BuscarTK();
             ReiniciarPaginado();
         }
@@ -1249,6 +1272,7 @@ namespace ProyectoOFI.Almacen
             BtnSecadoNa.Enabled = false;
             BtnRobusta.Enabled = true;
             BtnSM.Enabled = true;
+            BtnSplit.Enabled = false;
             BuscarTK();
             ReiniciarPaginado();
         }
@@ -1259,8 +1283,40 @@ namespace ProyectoOFI.Almacen
             BtnSecadoNa.Enabled = true;
             BtnSM.Enabled = false;
             BtnRobusta.Enabled = true;
+            BtnSplit.Enabled = true;
             BuscarTK();
             ReiniciarPaginado();
+        }
+
+        private void BtnCerrarTkAlm_Click(object sender, EventArgs e)
+        {
+            LblTkSM.Text = "--";
+            TxtTicketAlm.Clear();
+            PlTicketAlm.Visible = false;
+        }
+
+        private void BtnTicketAlm_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DAlmacen funcion = new DAlmacen();
+                string TkAlm = TxtTicketAlm.Text;
+                if (funcion.CambioTkAlm(TkAlm, Ticket) == true)
+                {
+                    MessageBox.Show("Cambio realizado con éxito", "Correcto!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    PlTicketAlm.Visible = false;
+
+                }
+                else
+                {
+                    MessageBox.Show("Error al realizar el cambio", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Activar()
@@ -1304,6 +1360,7 @@ namespace ProyectoOFI.Almacen
                 {
                     BtnGuardar.Visible = true;
                     BtnActivar.Enabled = true;
+                    BtnSplit.Enabled = true;
                 }
                 else if (tieneAgregarAlmacen)
                 {
@@ -1314,17 +1371,20 @@ namespace ProyectoOFI.Almacen
                 {
                     BtnGuardar.Visible = false;
                     BtnActivar.Enabled = true;
+                    BtnSplit.Enabled = true;
                 }
                 else
                 {
                     BtnGuardar.Visible = false;
                     BtnActivar.Enabled = false;
+                    BtnSplit.Enabled = false;
                 }
             }
             else
             {
                 BtnGuardar.Visible = true;
                 BtnActivar.Enabled = true;
+                BtnSplit.Enabled = true;
             }
         }
         private void BuscarDatos()

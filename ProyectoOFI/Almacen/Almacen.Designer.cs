@@ -118,6 +118,19 @@
             this.PlCerrar = new System.Windows.Forms.Panel();
             this.LblFiltros = new System.Windows.Forms.Label();
             this.BtnCerrar = new System.Windows.Forms.Button();
+            this.PlTicketAlm = new System.Windows.Forms.Panel();
+            this.BtnTicketAlm = new System.Windows.Forms.Button();
+            this.TxtTicketAlm = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.LblTkSM = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label34 = new System.Windows.Forms.Label();
+            this.BtnCerrarTkAlm = new System.Windows.Forms.Button();
+            this.LblTkAlmSm = new System.Windows.Forms.Label();
+            this.LbltiSM = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioAlm)).BeginInit();
             this.plOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).BeginInit();
@@ -131,6 +144,8 @@
             this.PlCerrarDetalle.SuspendLayout();
             this.PlSplit.SuspendLayout();
             this.PlCerrar.SuspendLayout();
+            this.PlTicketAlm.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dtInventarioAlm
@@ -765,6 +780,8 @@
             // 
             // PlDatosTk
             // 
+            this.PlDatosTk.Controls.Add(this.LblTkAlmSm);
+            this.PlDatosTk.Controls.Add(this.LbltiSM);
             this.PlDatosTk.Controls.Add(this.LblProcedencia);
             this.PlDatosTk.Controls.Add(this.LblCert);
             this.PlDatosTk.Controls.Add(this.LblDanio);
@@ -1035,6 +1052,7 @@
             this.BtnSplit.Size = new System.Drawing.Size(75, 44);
             this.BtnSplit.TabIndex = 5;
             this.BtnSplit.UseVisualStyleBackColor = true;
+            this.BtnSplit.Visible = false;
             this.BtnSplit.Click += new System.EventHandler(this.BtnSplit_Click);
             // 
             // LblTitulo
@@ -1071,7 +1089,7 @@
             this.PlSplit.Controls.Add(this.LblTKSplit);
             this.PlSplit.Controls.Add(this.label15);
             this.PlSplit.Controls.Add(this.PlCerrar);
-            this.PlSplit.Location = new System.Drawing.Point(478, 68);
+            this.PlSplit.Location = new System.Drawing.Point(274, 719);
             this.PlSplit.Name = "PlSplit";
             this.PlSplit.Size = new System.Drawing.Size(366, 192);
             this.PlSplit.TabIndex = 20;
@@ -1178,10 +1196,155 @@
             this.BtnCerrar.UseVisualStyleBackColor = true;
             this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
+            // PlTicketAlm
+            // 
+            this.PlTicketAlm.BackColor = System.Drawing.Color.White;
+            this.PlTicketAlm.Controls.Add(this.BtnTicketAlm);
+            this.PlTicketAlm.Controls.Add(this.TxtTicketAlm);
+            this.PlTicketAlm.Controls.Add(this.label28);
+            this.PlTicketAlm.Controls.Add(this.label29);
+            this.PlTicketAlm.Controls.Add(this.label30);
+            this.PlTicketAlm.Controls.Add(this.LblTkSM);
+            this.PlTicketAlm.Controls.Add(this.label33);
+            this.PlTicketAlm.Controls.Add(this.panel2);
+            this.PlTicketAlm.Location = new System.Drawing.Point(693, 719);
+            this.PlTicketAlm.Name = "PlTicketAlm";
+            this.PlTicketAlm.Size = new System.Drawing.Size(366, 192);
+            this.PlTicketAlm.TabIndex = 21;
+            this.PlTicketAlm.Visible = false;
+            // 
+            // BtnTicketAlm
+            // 
+            this.BtnTicketAlm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTicketAlm.Location = new System.Drawing.Point(275, 147);
+            this.BtnTicketAlm.Name = "BtnTicketAlm";
+            this.BtnTicketAlm.Size = new System.Drawing.Size(78, 39);
+            this.BtnTicketAlm.TabIndex = 11;
+            this.BtnTicketAlm.Text = "Guardar";
+            this.BtnTicketAlm.UseVisualStyleBackColor = true;
+            this.BtnTicketAlm.Click += new System.EventHandler(this.BtnTicketAlm_Click);
+            // 
+            // TxtTicketAlm
+            // 
+            this.TxtTicketAlm.Location = new System.Drawing.Point(126, 115);
+            this.TxtTicketAlm.Name = "TxtTicketAlm";
+            this.TxtTicketAlm.Size = new System.Drawing.Size(125, 20);
+            this.TxtTicketAlm.TabIndex = 7;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Location = new System.Drawing.Point(3, 115);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(117, 20);
+            this.label28.TabIndex = 6;
+            this.label28.Text = "Nueva Ticket:";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Location = new System.Drawing.Point(57, 77);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(19, 20);
+            this.label29.TabIndex = 4;
+            this.label29.Text = "--";
+            this.label29.Visible = false;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Location = new System.Drawing.Point(3, 77);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(44, 20);
+            this.label30.TabIndex = 5;
+            this.label30.Text = "Kgs:";
+            this.label30.Visible = false;
+            // 
+            // LblTkSM
+            // 
+            this.LblTkSM.AutoSize = true;
+            this.LblTkSM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTkSM.Location = new System.Drawing.Point(75, 45);
+            this.LblTkSM.Name = "LblTkSM";
+            this.LblTkSM.Size = new System.Drawing.Size(19, 20);
+            this.LblTkSM.TabIndex = 2;
+            this.LblTkSM.Text = "--";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(3, 45);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(62, 20);
+            this.label33.TabIndex = 3;
+            this.label33.Text = "Ticket:";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.label34);
+            this.panel2.Controls.Add(this.BtnCerrarTkAlm);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(366, 42);
+            this.panel2.TabIndex = 1;
+            // 
+            // label34
+            // 
+            this.label34.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.Location = new System.Drawing.Point(0, 0);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(317, 42);
+            this.label34.TabIndex = 3;
+            this.label34.Text = "Cambio de Ticket";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnCerrarTkAlm
+            // 
+            this.BtnCerrarTkAlm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.BtnCerrarTkAlm.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrarTkAlm.Image = global::ProyectoOFI.Properties.Resources.icons8_cerrar_ventana;
+            this.BtnCerrarTkAlm.Location = new System.Drawing.Point(317, 0);
+            this.BtnCerrarTkAlm.Name = "BtnCerrarTkAlm";
+            this.BtnCerrarTkAlm.Size = new System.Drawing.Size(49, 42);
+            this.BtnCerrarTkAlm.TabIndex = 2;
+            this.BtnCerrarTkAlm.UseVisualStyleBackColor = true;
+            this.BtnCerrarTkAlm.Click += new System.EventHandler(this.BtnCerrarTkAlm_Click);
+            // 
+            // LblTkAlmSm
+            // 
+            this.LblTkAlmSm.AutoSize = true;
+            this.LblTkAlmSm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.LblTkAlmSm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.LblTkAlmSm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTkAlmSm.Location = new System.Drawing.Point(175, 111);
+            this.LblTkAlmSm.Name = "LblTkAlmSm";
+            this.LblTkAlmSm.Size = new System.Drawing.Size(19, 20);
+            this.LblTkAlmSm.TabIndex = 1;
+            this.LblTkAlmSm.Text = "--";
+            this.LblTkAlmSm.Visible = false;
+            // 
+            // LbltiSM
+            // 
+            this.LbltiSM.AutoSize = true;
+            this.LbltiSM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbltiSM.Location = new System.Drawing.Point(31, 111);
+            this.LbltiSM.Name = "LbltiSM";
+            this.LbltiSM.Size = new System.Drawing.Size(136, 20);
+            this.LbltiSM.TabIndex = 2;
+            this.LbltiSM.Text = "Ticket Almacén:";
+            this.LbltiSM.Visible = false;
+            // 
             // Almacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.PlTicketAlm);
             this.Controls.Add(this.PlSplit);
             this.Controls.Add(this.PLDatos);
             this.Controls.Add(this.PlCarga);
@@ -1209,6 +1372,9 @@
             this.PlSplit.ResumeLayout(false);
             this.PlSplit.PerformLayout();
             this.PlCerrar.ResumeLayout(false);
+            this.PlTicketAlm.ResumeLayout(false);
+            this.PlTicketAlm.PerformLayout();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1303,5 +1469,18 @@
         private System.Windows.Forms.Button BtnSecadoNa;
         private System.Windows.Forms.Button BtnRobusta;
         private System.Windows.Forms.Button BtnSM;
+        private System.Windows.Forms.Panel PlTicketAlm;
+        private System.Windows.Forms.Button BtnTicketAlm;
+        private System.Windows.Forms.TextBox TxtTicketAlm;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label LblTkSM;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Button BtnCerrarTkAlm;
+        private System.Windows.Forms.Label LblTkAlmSm;
+        private System.Windows.Forms.Label LbltiSM;
     }
 }

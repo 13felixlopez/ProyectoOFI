@@ -935,12 +935,12 @@ namespace ProyectoOFI.Almacen
                     if (row["Rendimiento"].ToString() != null)
                     {
                         LblRedimiento.Text = row["Rendimiento"].ToString();
-                        LblTkAlmSm.Enabled = true;
+                        LblTkAlmSm.Visible = true;
                     }
                     else
                     {
                         LblRedimiento.Text = "";
-                        LblTkAlmSm.Enabled = false;
+                        LblTkAlmSm.Visible = false;
                     }
                     if (row["TicketAlm"].ToString() != null)
                     {
@@ -1305,7 +1305,9 @@ namespace ProyectoOFI.Almacen
                 {
                     MessageBox.Show("Cambio realizado con éxito", "Correcto!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     PlTicketAlm.Visible = false;
-
+                    LblTkAlmSm.Text = TkAlm;
+                    BuscarTK();
+                    ReiniciarPaginado();
                 }
                 else
                 {

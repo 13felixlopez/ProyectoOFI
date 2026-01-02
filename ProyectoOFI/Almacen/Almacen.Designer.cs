@@ -81,6 +81,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.PlDatosTk = new System.Windows.Forms.Panel();
+            this.LblTkAlmSm = new System.Windows.Forms.Label();
+            this.LbltiSM = new System.Windows.Forms.Label();
             this.LblProcedencia = new System.Windows.Forms.Label();
             this.LblCert = new System.Windows.Forms.Label();
             this.LblDanio = new System.Windows.Forms.Label();
@@ -129,8 +131,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label34 = new System.Windows.Forms.Label();
             this.BtnCerrarTkAlm = new System.Windows.Forms.Button();
-            this.LblTkAlmSm = new System.Windows.Forms.Label();
-            this.LbltiSM = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtInventarioAlm)).BeginInit();
             this.plOpciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbExcel)).BeginInit();
@@ -810,6 +810,30 @@
             this.PlDatosTk.Size = new System.Drawing.Size(1205, 138);
             this.PlDatosTk.TabIndex = 0;
             // 
+            // LblTkAlmSm
+            // 
+            this.LblTkAlmSm.AutoSize = true;
+            this.LblTkAlmSm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.LblTkAlmSm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.LblTkAlmSm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTkAlmSm.Location = new System.Drawing.Point(175, 111);
+            this.LblTkAlmSm.Name = "LblTkAlmSm";
+            this.LblTkAlmSm.Size = new System.Drawing.Size(19, 20);
+            this.LblTkAlmSm.TabIndex = 1;
+            this.LblTkAlmSm.Text = "--";
+            this.LblTkAlmSm.Visible = false;
+            // 
+            // LbltiSM
+            // 
+            this.LbltiSM.AutoSize = true;
+            this.LbltiSM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LbltiSM.Location = new System.Drawing.Point(31, 111);
+            this.LbltiSM.Name = "LbltiSM";
+            this.LbltiSM.Size = new System.Drawing.Size(136, 20);
+            this.LbltiSM.TabIndex = 2;
+            this.LbltiSM.Text = "Ticket Almacén:";
+            this.LbltiSM.Visible = false;
+            // 
             // LblProcedencia
             // 
             this.LblProcedencia.AutoSize = true;
@@ -1207,7 +1231,7 @@
             this.PlTicketAlm.Controls.Add(this.LblTkSM);
             this.PlTicketAlm.Controls.Add(this.label33);
             this.PlTicketAlm.Controls.Add(this.panel2);
-            this.PlTicketAlm.Location = new System.Drawing.Point(693, 719);
+            this.PlTicketAlm.Location = new System.Drawing.Point(702, 79);
             this.PlTicketAlm.Name = "PlTicketAlm";
             this.PlTicketAlm.Size = new System.Drawing.Size(366, 192);
             this.PlTicketAlm.TabIndex = 21;
@@ -1315,30 +1339,6 @@
             this.BtnCerrarTkAlm.TabIndex = 2;
             this.BtnCerrarTkAlm.UseVisualStyleBackColor = true;
             this.BtnCerrarTkAlm.Click += new System.EventHandler(this.BtnCerrarTkAlm_Click);
-            // 
-            // LblTkAlmSm
-            // 
-            this.LblTkAlmSm.AutoSize = true;
-            this.LblTkAlmSm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.LblTkAlmSm.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.LblTkAlmSm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblTkAlmSm.Location = new System.Drawing.Point(175, 111);
-            this.LblTkAlmSm.Name = "LblTkAlmSm";
-            this.LblTkAlmSm.Size = new System.Drawing.Size(19, 20);
-            this.LblTkAlmSm.TabIndex = 1;
-            this.LblTkAlmSm.Text = "--";
-            this.LblTkAlmSm.Visible = false;
-            // 
-            // LbltiSM
-            // 
-            this.LbltiSM.AutoSize = true;
-            this.LbltiSM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LbltiSM.Location = new System.Drawing.Point(31, 111);
-            this.LbltiSM.Name = "LbltiSM";
-            this.LbltiSM.Size = new System.Drawing.Size(136, 20);
-            this.LbltiSM.TabIndex = 2;
-            this.LbltiSM.Text = "Ticket Almacén:";
-            this.LbltiSM.Visible = false;
             // 
             // Almacen
             // 

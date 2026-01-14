@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.LblTituloCP = new System.Windows.Forms.Label();
             this.PlCerrarDetalle = new System.Windows.Forms.Panel();
             this.BtnCerrarPldatos = new System.Windows.Forms.Button();
@@ -129,7 +129,7 @@
             this.BtnCerrarPldatos.Location = new System.Drawing.Point(1126, 0);
             this.BtnCerrarPldatos.Name = "BtnCerrarPldatos";
             this.BtnCerrarPldatos.Size = new System.Drawing.Size(75, 44);
-            this.BtnCerrarPldatos.TabIndex = 3;
+            this.BtnCerrarPldatos.TabIndex = 0;
             this.BtnCerrarPldatos.UseVisualStyleBackColor = true;
             this.BtnCerrarPldatos.Click += new System.EventHandler(this.BtnCerrarPldatos_Click);
             // 
@@ -379,7 +379,7 @@
             this.CbMaterial.Location = new System.Drawing.Point(849, 177);
             this.CbMaterial.Name = "CbMaterial";
             this.CbMaterial.Size = new System.Drawing.Size(253, 28);
-            this.CbMaterial.TabIndex = 125;
+            this.CbMaterial.TabIndex = 7;
             // 
             // label15
             // 
@@ -398,7 +398,7 @@
             this.BtnActivar.Location = new System.Drawing.Point(669, 459);
             this.BtnActivar.Name = "BtnActivar";
             this.BtnActivar.Size = new System.Drawing.Size(134, 44);
-            this.BtnActivar.TabIndex = 123;
+            this.BtnActivar.TabIndex = 15;
             this.BtnActivar.Text = "Activar";
             this.BtnActivar.UseVisualStyleBackColor = true;
             this.BtnActivar.Visible = false;
@@ -410,7 +410,7 @@
             this.BtnGuardar.Location = new System.Drawing.Point(505, 459);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(134, 44);
-            this.BtnGuardar.TabIndex = 123;
+            this.BtnGuardar.TabIndex = 14;
             this.BtnGuardar.Text = "Guardar";
             this.BtnGuardar.UseVisualStyleBackColor = true;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
@@ -428,7 +428,7 @@
             this.cbCompra.Location = new System.Drawing.Point(431, 372);
             this.cbCompra.Name = "cbCompra";
             this.cbCompra.Size = new System.Drawing.Size(282, 28);
-            this.cbCompra.TabIndex = 119;
+            this.cbCompra.TabIndex = 13;
             // 
             // label48
             // 
@@ -448,7 +448,7 @@
             this.CbUbicacion.Location = new System.Drawing.Point(203, 372);
             this.CbUbicacion.Name = "CbUbicacion";
             this.CbUbicacion.Size = new System.Drawing.Size(79, 28);
-            this.CbUbicacion.TabIndex = 21;
+            this.CbUbicacion.TabIndex = 12;
             // 
             // CbBodega
             // 
@@ -457,7 +457,7 @@
             this.CbBodega.Location = new System.Drawing.Point(1046, 267);
             this.CbBodega.Name = "CbBodega";
             this.CbBodega.Size = new System.Drawing.Size(143, 28);
-            this.CbBodega.TabIndex = 20;
+            this.CbBodega.TabIndex = 11;
             this.CbBodega.SelectedIndexChanged += new System.EventHandler(this.CbBodega_SelectedIndexChanged);
             // 
             // label13
@@ -506,7 +506,7 @@
             this.TxtPeso.Location = new System.Drawing.Point(599, 268);
             this.TxtPeso.Name = "TxtPeso";
             this.TxtPeso.Size = new System.Drawing.Size(125, 26);
-            this.TxtPeso.TabIndex = 16;
+            this.TxtPeso.TabIndex = 10;
             this.TxtPeso.TextChanged += new System.EventHandler(this.TxtPeso_TextChanged);
             // 
             // NudSacos
@@ -520,7 +520,7 @@
             0});
             this.NudSacos.Name = "NudSacos";
             this.NudSacos.Size = new System.Drawing.Size(73, 26);
-            this.NudSacos.TabIndex = 15;
+            this.NudSacos.TabIndex = 9;
             this.NudSacos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label9
@@ -550,7 +550,7 @@
             this.CbTipoEmpaque.Location = new System.Drawing.Point(487, 177);
             this.CbTipoEmpaque.Name = "CbTipoEmpaque";
             this.CbTipoEmpaque.Size = new System.Drawing.Size(253, 28);
-            this.CbTipoEmpaque.TabIndex = 12;
+            this.CbTipoEmpaque.TabIndex = 6;
             // 
             // label8
             // 
@@ -568,7 +568,7 @@
             this.TxtTally.Location = new System.Drawing.Point(128, 178);
             this.TxtTally.Name = "TxtTally";
             this.TxtTally.Size = new System.Drawing.Size(195, 26);
-            this.TxtTally.TabIndex = 10;
+            this.TxtTally.TabIndex = 5;
             // 
             // label7
             // 
@@ -601,12 +601,14 @@
             // 
             // CbProveedor
             // 
+            this.CbProveedor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.CbProveedor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.CbProveedor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CbProveedor.FormattingEnabled = true;
             this.CbProveedor.Location = new System.Drawing.Point(643, 72);
             this.CbProveedor.Name = "CbProveedor";
             this.CbProveedor.Size = new System.Drawing.Size(314, 28);
-            this.CbProveedor.TabIndex = 6;
+            this.CbProveedor.TabIndex = 3;
             // 
             // label4
             // 
@@ -625,7 +627,7 @@
             this.DTPFecha.Location = new System.Drawing.Point(91, 73);
             this.DTPFecha.Name = "DTPFecha";
             this.DTPFecha.Size = new System.Drawing.Size(132, 26);
-            this.DTPFecha.TabIndex = 4;
+            this.DTPFecha.TabIndex = 1;
             // 
             // label5
             // 
@@ -643,7 +645,7 @@
             this.TxtTicket.Location = new System.Drawing.Point(296, 73);
             this.TxtTicket.Name = "TxtTicket";
             this.TxtTicket.Size = new System.Drawing.Size(159, 26);
-            this.TxtTicket.TabIndex = 1;
+            this.TxtTicket.TabIndex = 2;
             // 
             // label12
             // 
@@ -661,7 +663,7 @@
             this.TxtRem.Location = new System.Drawing.Point(1101, 73);
             this.TxtRem.Name = "TxtRem";
             this.TxtRem.Size = new System.Drawing.Size(100, 26);
-            this.TxtRem.TabIndex = 1;
+            this.TxtRem.TabIndex = 4;
             // 
             // label2
             // 
@@ -679,7 +681,7 @@
             this.TxtConsecha.Location = new System.Drawing.Point(109, 22);
             this.TxtConsecha.Name = "TxtConsecha";
             this.TxtConsecha.Size = new System.Drawing.Size(100, 26);
-            this.TxtConsecha.TabIndex = 1;
+            this.TxtConsecha.TabIndex = 0;
             // 
             // label1
             // 
@@ -700,14 +702,14 @@
             this.dtInventarioCompras.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtInventarioCompras.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dtInventarioCompras.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtInventarioCompras.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtInventarioCompras.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dtInventarioCompras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtInventarioCompras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar});
@@ -716,9 +718,9 @@
             this.dtInventarioCompras.Name = "dtInventarioCompras";
             this.dtInventarioCompras.ReadOnly = true;
             this.dtInventarioCompras.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInventarioCompras.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInventarioCompras.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dtInventarioCompras.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtInventarioCompras.ShowCellToolTips = false;
             this.dtInventarioCompras.ShowEditingIcon = false;

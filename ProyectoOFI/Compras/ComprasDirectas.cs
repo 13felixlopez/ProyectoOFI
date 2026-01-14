@@ -3,7 +3,6 @@ using ProyectoOFI.Logica;
 using ProyectoOFI.Reportes;
 using System;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -326,7 +325,7 @@ namespace ProyectoOFI.Compras
         private void CargarCombos()
         {
             DRecepcion DR = new DRecepcion();
-            DR.MostrarCliente(CbProveedor);
+            DR.MostrarProveedor(CbProveedor);
             DR.MostrarCompra(cbCompra);
             //DR.MostrarCert(cbCertificacion);
             DAlmacen DA = new DAlmacen();
@@ -661,9 +660,33 @@ namespace ProyectoOFI.Compras
         }
         private void AbrirFormulario()
         {
-            PLDatos.Size = new Size(1207, 622);
-            PLDatos.Location = new System.Drawing.Point(dtInventarioCompras.Width / 2
-                - PLDatos.Width / 2, dtInventarioCompras.Height / 2 - PLDatos.Height / 2);
+
+            //PlControl.Location = new Point(dtInventariocp.Width / 2
+            //    - PlControl.Width / 2, dtInventariocp.Height / 2 - PlControl.Height / 3);
+            int formWidth = this.ClientSize.Width;
+            int formHeight = this.ClientSize.Height;
+
+            // Verificamos si el panel es más grande que el formulario y ajustamos si es necesario
+            if (PLDatos.Width > formWidth)
+            {
+                PLDatos.Width = formWidth - 20; // Agregamos un margen
+            }
+
+            if (PLDatos.Height > formHeight)
+            {
+                PLDatos.Height = formHeight - 20; // Agregamos un margen
+            }
+
+            // Luego calculamos la nueva ubicación centrada
+            int newX = (formWidth - PLDatos.Width) / 2;
+            int newY = (formHeight - PLDatos.Height) / 2;
+
+            PLDatos.Location = new System.Drawing.Point(newX, newY);
+
+
+            //PLDatos.Size = new Size(1207, 622);
+            //PLDatos.Location = new System.Drawing.Point(dtInventarioCompras.Width / 2
+            //    - PLDatos.Width / 2, dtInventarioCompras.Height / 2 - PLDatos.Height / 2);
             PLDatos.Visible = true;
             PLDatos.BringToFront();
             plOpciones.Enabled = false;

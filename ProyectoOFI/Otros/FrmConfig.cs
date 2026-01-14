@@ -323,5 +323,11 @@ namespace ProyectoOFI.Otros
             FrmTasas tasas = new FrmTasas();
             tasas.ShowDialog();
         }
+
+        private void BtnProveedores_Click(object sender, EventArgs e)
+        {
+            FrmProveedores AA = new FrmProveedores();
+            AA.ShowDialog();
+        }
     }
 }

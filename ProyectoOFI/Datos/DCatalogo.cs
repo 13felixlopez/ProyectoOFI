@@ -2087,7 +2087,95 @@ namespace ProyectoOFI.Datos
                 return false;
             }
         }
-        #endregion
 
+        #endregion
+        #region Proveedores
+        public void MostrarProveedores(ref DataTable dt)
+        {
+            try
+            {
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlDataAdapter da = new SqlDataAdapter("MostrarProveedor", con))
+                {
+                    da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    da.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar los datos " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al MostrarProveedor ✖️✖️" + ex.Message);
+            }
+        }
+
+        public bool AgregarProveedor(string Identificacion, string Nombre)
+        {
+            try
+            {
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("AgregarProveedores", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Identificacion", Identificacion);
+                    cmd.Parameters.AddWithValue("@Nombre", Nombre);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar Proveedor " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al AgregarProveedores ✖️✖️" + ex.Message);
+                return false;
+            }
+        }
+
+        public bool EditarProveedor(int idproveedor, string Identificacion, string Nombre)
+        {
+            try
+            {
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EditarProveedor", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Idproveedor", idproveedor);
+                    cmd.Parameters.AddWithValue("@Identificacion", Identificacion);
+                    cmd.Parameters.AddWithValue("@Nombre", Nombre.Trim());
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se ha podido editar los datos del proveedor: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al Editarproveedor ✖️✖️" + ex.Message);
+                return false;
+            }
+        }
+
+        public bool EliminarProveedor(int idproveedor)
+        {
+            try
+            {
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand cmd = new SqlCommand("EliminarProveedor", con))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@Idproveedor", idproveedor);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar Proveedor: " + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error al EliminarProveedor ✖️✖️" + ex.Message);
+                return false;
+            }
+        }
+
+
+
+        #endregion
     }
 }

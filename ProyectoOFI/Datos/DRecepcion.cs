@@ -627,6 +627,33 @@ namespace ProyectoOFI.Datos
                 Log.Writeerror("Error en MostrarClientes ✖️✖️ " + ex.Message);
             }
         }
+        public void MostrarProveedor(ComboBox combo)
+        {
+            try
+            {
+                AutoCompleteStringCollection lista = new AutoCompleteStringCollection();
+                using (SqlConnection con = Conexion.abrir())
+                using (SqlCommand da = new SqlCommand("MostrarProveedor", con))
+                {
+                    da.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter cb = new SqlDataAdapter(da);
+                    DataTable dt = new DataTable();
+                    cb.Fill(dt);
+                    combo.ValueMember = "IdProveedor";
+                    combo.DisplayMember = "Nombre";
+                    combo.DataSource = dt;
+                    for (int i = 0; i < dt.Rows.Count; i++)
+                        lista.Add(dt.Rows[i]["Nombre"].ToString());
+                    combo.AutoCompleteCustomSource = lista;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al mostrar los Proveedores: " + ex.Message,
+                    "Error Proveedores", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Log.Writeerror("Error en Proveedores ✖️✖️ " + ex.Message);
+            }
+        }
 
         public void MostrarCompra(ComboBox combo)
         {

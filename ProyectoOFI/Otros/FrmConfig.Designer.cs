@@ -78,6 +78,7 @@
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.BtnCosechas = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.BtnProveedores = new System.Windows.Forms.Button();
             this.PlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.GbTransfer.SuspendLayout();
@@ -453,6 +454,7 @@
             // 
             // GbAlmacen
             // 
+            this.GbAlmacen.Controls.Add(this.BtnProveedores);
             this.GbAlmacen.Controls.Add(this.BtnUbicacion);
             this.GbAlmacen.Controls.Add(this.BtnDescargador);
             this.GbAlmacen.Controls.Add(this.BtnMaterial);
@@ -462,7 +464,7 @@
             this.GbAlmacen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GbAlmacen.Location = new System.Drawing.Point(444, 168);
             this.GbAlmacen.Name = "GbAlmacen";
-            this.GbAlmacen.Size = new System.Drawing.Size(348, 267);
+            this.GbAlmacen.Size = new System.Drawing.Size(348, 316);
             this.GbAlmacen.TabIndex = 25;
             this.GbAlmacen.TabStop = false;
             this.GbAlmacen.Text = "Almacén";
@@ -744,6 +746,19 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1070, 521);
             this.flowLayoutPanel1.TabIndex = 28;
             // 
+            // BtnProveedores
+            // 
+            this.BtnProveedores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnProveedores.Image = global::ProyectoOFI.Properties.Resources.icons8_grupos_de_usuarios;
+            this.BtnProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnProveedores.Location = new System.Drawing.Point(92, 250);
+            this.BtnProveedores.Name = "BtnProveedores";
+            this.BtnProveedores.Size = new System.Drawing.Size(186, 60);
+            this.BtnProveedores.TabIndex = 22;
+            this.BtnProveedores.Text = "Proveedores";
+            this.BtnProveedores.UseVisualStyleBackColor = true;
+            this.BtnProveedores.Click += new System.EventHandler(this.BtnProveedores_Click);
+            // 
             // FrmConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -820,5 +835,6 @@
         private System.Windows.Forms.Button BtnMaterial;
         private System.Windows.Forms.Button BtnTasas;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button BtnProveedores;
     }
 }

@@ -20,7 +20,7 @@ namespace ProyectoOFI.Datos
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@NombreA", parametros.NombreA);
                     cmd.Parameters.AddWithValue("@Pass", parametros.Pass);
-                    cmd.Parameters.AddWithValue("@Estado", "ACTIVO");
+                    cmd.Parameters.AddWithValue("@Estado", parametros.Estado);
                     cmd.Parameters.AddWithValue("@Correo", parametros.Correo);
                     cmd.Parameters.AddWithValue("@Login", parametros.Login);
                     cmd.Parameters.AddWithValue("@Patio", parametros.Patio);
@@ -135,9 +135,9 @@ namespace ProyectoOFI.Datos
                     }
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                throw new Exception("Datos incorrectos");
+                throw new Exception(ex.Message);
             }
         }
 
@@ -178,6 +178,7 @@ namespace ProyectoOFI.Datos
                     cmd.Parameters.AddWithValue("@Pass", parametros.Pass);
                     cmd.Parameters.AddWithValue("@Patio", parametros.Patio);
                     cmd.Parameters.AddWithValue("@Cargo", parametros.Cargo);
+                    cmd.Parameters.AddWithValue("@Estado", parametros.Estado);
 
                     cmd.ExecuteNonQuery();
                     return true;

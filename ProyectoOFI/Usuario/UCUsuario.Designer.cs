@@ -40,6 +40,8 @@
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Msj = new System.Windows.Forms.DataGridViewImageColumn();
             this.PlRegistro = new System.Windows.Forms.Panel();
+            this.TxtCargo = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.CbPatio = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.PlPass = new System.Windows.Forms.Panel();
@@ -80,8 +82,8 @@
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.TxtCargo = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.CbEstado = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.Plheader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PbBuscar)).BeginInit();
             this.panel1.SuspendLayout();
@@ -213,6 +215,8 @@
             // 
             // PlRegistro
             // 
+            this.PlRegistro.Controls.Add(this.CbEstado);
+            this.PlRegistro.Controls.Add(this.label9);
             this.PlRegistro.Controls.Add(this.TxtCargo);
             this.PlRegistro.Controls.Add(this.label7);
             this.PlRegistro.Controls.Add(this.CbPatio);
@@ -243,6 +247,30 @@
             this.PlRegistro.Size = new System.Drawing.Size(1215, 710);
             this.PlRegistro.TabIndex = 2;
             this.PlRegistro.Visible = false;
+            // 
+            // TxtCargo
+            // 
+            this.TxtCargo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.TxtCargo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.TxtCargo.BackColor = System.Drawing.SystemColors.Control;
+            this.TxtCargo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TxtCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCargo.Location = new System.Drawing.Point(173, 441);
+            this.TxtCargo.Margin = new System.Windows.Forms.Padding(2);
+            this.TxtCargo.Name = "TxtCargo";
+            this.TxtCargo.Size = new System.Drawing.Size(374, 26);
+            this.TxtCargo.TabIndex = 671;
+            this.TxtCargo.TextChanged += new System.EventHandler(this.TxtCargo_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(104, 447);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(56, 20);
+            this.label7.TabIndex = 670;
+            this.label7.Text = "Cargo:";
             // 
             // CbPatio
             // 
@@ -478,7 +506,7 @@
             // 
             this.flowLayoutPanel1.Controls.Add(this.btnGuardar);
             this.flowLayoutPanel1.Controls.Add(this.btnActualizar);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(222, 479);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(214, 574);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(8, 6, 8, 6);
@@ -683,29 +711,28 @@
             this.panel6.Size = new System.Drawing.Size(1576, 26);
             this.panel6.TabIndex = 3;
             // 
-            // TxtCargo
+            // CbEstado
             // 
-            this.TxtCargo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.TxtCargo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.TxtCargo.BackColor = System.Drawing.SystemColors.Control;
-            this.TxtCargo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TxtCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtCargo.Location = new System.Drawing.Point(173, 441);
-            this.TxtCargo.Margin = new System.Windows.Forms.Padding(2);
-            this.TxtCargo.Name = "TxtCargo";
-            this.TxtCargo.Size = new System.Drawing.Size(374, 26);
-            this.TxtCargo.TabIndex = 671;
-            this.TxtCargo.TextChanged += new System.EventHandler(this.TxtCargo_TextChanged);
+            this.CbEstado.BackColor = System.Drawing.SystemColors.Control;
+            this.CbEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.CbEstado.FormattingEnabled = true;
+            this.CbEstado.Items.AddRange(new object[] {
+            "ACTIVO",
+            "DESACTIVADO"});
+            this.CbEstado.Location = new System.Drawing.Point(174, 484);
+            this.CbEstado.Name = "CbEstado";
+            this.CbEstado.Size = new System.Drawing.Size(221, 28);
+            this.CbEstado.TabIndex = 673;
             // 
-            // label7
+            // label9
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(89, 447);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(56, 20);
-            this.label7.TabIndex = 670;
-            this.label7.Text = "Cargo:";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label9.Location = new System.Drawing.Point(104, 488);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(64, 20);
+            this.label9.TabIndex = 672;
+            this.label9.Text = "Estado:";
             // 
             // UCUsuario
             // 
@@ -791,5 +818,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TxtCargo;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox CbEstado;
+        private System.Windows.Forms.Label label9;
     }
 }

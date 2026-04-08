@@ -97,7 +97,8 @@ namespace ProyectoOFI.Usuario
             parametros.Correo = txtCorreo.Text;
             parametros.Login = TxtUser.Text;
             parametros.Patio = CbPatio.Text;
-            parametros.Cargo=TxtCargo.Text;
+            parametros.Cargo = TxtCargo.Text;
+            parametros.Estado = CbEstado.Text;
             if (funcion.InsertarUsuario(parametros) == true)
             {
                 ObtenerIdUser();
@@ -208,6 +209,7 @@ namespace ProyectoOFI.Usuario
             txtCorreo.Text = DtUser.SelectedCells[5].Value.ToString();
             CbPatio.Text = DtUser.SelectedCells[9].Value.ToString();
             TxtCargo.Text = DtUser.SelectedCells[10].Value.ToString();
+            CbEstado.Text = DtUser.SelectedCells[8].Value.ToString();
             if (TxtUser.Text == "Admin")
             {
                 TxtUser.Enabled = false;
@@ -312,6 +314,7 @@ namespace ProyectoOFI.Usuario
             parametros.Correo = txtCorreo.Text;
             parametros.Patio = CbPatio.Text;
             parametros.Cargo = TxtCargo.Text;
+            parametros.Estado = CbEstado.Text;
             if (funcion.EditarUser(parametros) == true)
             {
                 EliminarPermisos();

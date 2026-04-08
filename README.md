@@ -1,132 +1,187 @@
 # ProyectoOFI (Dry System OFI)
 
-Aplicacion de escritorio en **C# WinForms (.NET Framework 4.8)** para gestionar el flujo operativo del beneficio de cafe: recepcion, secado, analisis, almacen, reporteria y administracion de catalogos/usuarios.
+Aplicacion de escritorio en C# WinForms para controlar el flujo operativo del beneficio de cafe: recepcion, secado, analisis, almacen y reporteria.
 
-Este README describe **solo** lo que existe en este repositorio.
+Este README esta escrito para que puedas construir un diagrama de flujo directamente (incluyendo GitDiagram) a partir de los bloques y transiciones aqui definidos.
 
-## 1. Tecnologias y arquitectura
+## Objetivo funcional
 
-- UI: WinForms (`ProyectoOFI`).
-- Base de datos: SQL Server (uso intensivo de procedimientos almacenados en la capa `Datos`).
-- Estructura por capas:
-  - `Logica/`: modelos/DTOs y utilidades (encriptacion, etc.).
-  - `Datos/`: acceso SQL (`SqlConnection`, `SqlCommand`, `SqlDataAdapter`).
-  - `Forms/UserControls`: modulos funcionales.
-- Integraciones:
-  - Excel/archivos: `DocumentFormat.OpenXml`, `ExcelDataReader`, `NPOI`.
-  - API HTTP local: `Services/ApiService.cs` (base URL configurada en codigo).
+El sistema recibe tickets/lotes de cafe, les da seguimiento por etapas de proceso, registra resultados operativos y de calidad, y genera reportes para control y toma de decisiones.
 
-## 2. Flujo de arranque y operacion
+## Componentes del sistema
 
-1. `Program.cs` inicia el formulario `Login`.
-2. `Login`:
-   - valida conexion a SQL Server.
-   - autentica usuario con SP (`Login`) usando password encriptada.
-   - abre `FrmMenu` al autenticar.
-3. `FrmMenu` carga los modulos dentro de `PlPrincipal` segun opcion seleccionada.
-4. Permisos:
-   - se consultan por usuario (`PermisosUser`).
-   - el usuario cuyo login inicia con `Admin` obtiene acceso completo.
+- UI principal: `Login` + `FrmMenu` + UserControls/Formularios por modulo.
+- Capa de negocio/modelo: carpeta `Logica` (`L*`).
+- Capa de acceso a datos: carpeta `Datos` (`D*`, SQL Server + Stored Procedures).
+- Persistencia externa:
+  - SQL Server.
+  - `ConnectionString.xml` (cadena cifrada AES).
+  - `C:\Log\logerror.txt` (errores).
+- Integracion opcional HTTP: `Services/ApiService.cs` (`/api/ExcelLotesExcelCP`).
 
-## 3. Modulos funcionales principales
+## Flujo principal del sistema (listo para diagramar)
 
-Desde `FrmMenu`:
+### Nodos
 
-- `Transferencia` (Recepcion).
-- `Secado`:
-  - Secado Natural (`ControlPatio`).
-  - Secado Mecanico (`SM`).
-- `Analisis`:
-  - `Muestras`.
-  - `Catacion`.
-- `Bodega`:
-  - `Almacen`.
-  - `Compra Directa`.
-- `Reportes`:
-  - Reporte Ticket.
-  - Historial.
-  - Dashboard.
-  - Consolidaciones.
-  - Digitacion.
-- `Config`:
-  - Usuario.
-  - Catalogo.
-  - Perfil.
+- `N1_InicioAplicacion`
+- `N2_CargarConfiguracionConexion`
+- `N3_ValidarConexionSQL`
+- `N4_MostrarPantallaConexion`
+- `N5_IntentoLogin`
+- `N6_ValidarCredenciales`
+- `N7_MostrarMenuPrincipal`
+- `N8_CargarPermisosUsuario`
+- `N9_SeleccionModulo`
+- `N10_EjecutarOperacionModulo`
+- `N11_GuardarCambiosEnBD`
+- `N12_GenerarReporte`
+- `N13_CerrarSesion`
+- `N14_SalirSistema`
+- `N_ERR_RegistrarError`
 
-## 4. Estructura de carpetas
+### Decisiones
 
-Raiz:
+- `D1_ConexionValida?`
+- `D2_CredencialesValidas?`
+- `D3_UsuarioEsAdmin?`
+- `D4_OperacionExitosa?`
+- `D5_AccionUsuario` (Seleccion modulo / Cerrar sesion / Salir)
 
-- `ProyectoOFI.sln`: solucion principal.
-- `ProyectoOFI/`: proyecto WinForms productivo.
-- `Datos/`: proyecto de libreria legado (no referenciado por la solucion actual).
-- `README.md`: este documento.
+### Transiciones
 
-Dentro de `ProyectoOFI/`:
+- `N1_InicioAplicacion -> N2_CargarConfiguracionConexion`
+- `N2_CargarConfiguracionConexion -> N3_ValidarConexionSQL`
+- `N3_ValidarConexionSQL -> D1_ConexionValida?`
+- `D1_ConexionValida? (Si) -> N5_IntentoLogin`
+- `D1_ConexionValida? (No) -> N4_MostrarPantallaConexion`
+- `N4_MostrarPantallaConexion -> N2_CargarConfiguracionConexion`
+- `N5_IntentoLogin -> N6_ValidarCredenciales`
+- `N6_ValidarCredenciales -> D2_CredencialesValidas?`
+- `D2_CredencialesValidas? (No) -> N5_IntentoLogin`
+- `D2_CredencialesValidas? (Si) -> N7_MostrarMenuPrincipal`
+- `N7_MostrarMenuPrincipal -> N8_CargarPermisosUsuario`
+- `N8_CargarPermisosUsuario -> D3_UsuarioEsAdmin?`
+- `D3_UsuarioEsAdmin? (Si) -> N9_SeleccionModulo (Acceso total)`
+- `D3_UsuarioEsAdmin? (No) -> N9_SeleccionModulo (Acceso segun permisos)`
+- `N9_SeleccionModulo -> D5_AccionUsuario`
+- `D5_AccionUsuario (Seleccion modulo) -> N10_EjecutarOperacionModulo`
+- `D5_AccionUsuario (Cerrar sesion) -> N13_CerrarSesion`
+- `D5_AccionUsuario (Salir) -> N14_SalirSistema`
+- `N10_EjecutarOperacionModulo -> D4_OperacionExitosa?`
+- `D4_OperacionExitosa? (Si, cambia datos) -> N11_GuardarCambiosEnBD`
+- `D4_OperacionExitosa? (Si, consulta/reporte) -> N12_GenerarReporte`
+- `D4_OperacionExitosa? (No) -> N_ERR_RegistrarError`
+- `N11_GuardarCambiosEnBD -> N9_SeleccionModulo`
+- `N12_GenerarReporte -> N9_SeleccionModulo`
+- `N_ERR_RegistrarError -> N9_SeleccionModulo`
+- `N13_CerrarSesion -> N5_IntentoLogin`
+- `N14_SalirSistema -> FIN`
 
-- `Program.cs`, `Login.cs`, `FrmMenu.cs`: arranque y navegacion principal.
-- `Datos/`: repositorio SQL por modulo (`DControlPatio`, `DAlmacen`, `DReporte`, etc.).
-- `Logica/`: entidades de negocio (`L*`) y utilidades de seguridad.
-- `Recepcion/`, `ControlPatio/`, `SM/`, `Analisis/`, `Almacen/`, `Compras/`, `Reportes/`, `Usuario/`, `Otros/`: modulos de interfaz/operacion.
-- `Services/`: cliente HTTP (`ApiService`).
-- `Resources/`: iconos/imagenes/recursos visuales.
-- `CoffeeTech.sql`, `Ultima.sql`: scripts de base de datos.
+## Subflujos por modulo (narrativa funcional)
 
-## 5. Requisitos para ejecutar en desarrollo
+### 1) Transferencia / Recepcion
 
-- Windows con Visual Studio 2022 (o MSBuild compatible con proyectos .NET Framework).
-- .NET Framework 4.8 Developer Pack.
-- SQL Server accesible desde la maquina cliente.
-- Restaurar paquetes NuGet definidos en `ProyectoOFI.csproj`.
+- Entrada: datos de ticket/lote recibido.
+- Proceso: registro inicial, validaciones, persistencia.
+- Salida: lote disponible para seguimiento en etapas posteriores.
 
-## 6. Configuracion de conexion a base de datos
+Flujo:
 
-La app usa un archivo local `ConnectionString.xml` con la cadena cifrada (AES).
+- `M1_Recepcion_Inicio -> M1_ValidarDatos -> M1_GuardarRecepcion -> M1_ActualizarEstadoLote -> M1_Fin`
 
-- Si no existe, se crea automaticamente al iniciar con valor placeholder.
-- El formulario `FrmConexionIP` permite configurar:
-  - servidor,
-  - base de datos,
-  - usuario,
-  - password.
-- Al guardar, la app cifra la cadena y reinicia.
+### 2) Secado Natural (Control Patio)
 
-Notas:
+- Entrada: lotes en proceso natural.
+- Proceso: seguimiento por etapas, filtros, paginacion, actualizacion de estado.
+- Salida: avance del lote (tendido/enfarde/envio segun reglas de negocio).
 
-- Se registran errores en `C:\Log\logerror.txt`.
-- En el login hay una opcion oculta para mostrar cambio de servidor (clic derecho repetido en la etiqueta de acceso).
+Flujo:
 
-## 7. Base de datos
+- `M2_CP_Inicio -> M2_ListarLotes -> M2_SeleccionarLote -> M2_EditarProceso -> M2_GuardarCambios -> M2_Fin`
 
-El repositorio incluye scripts SQL completos:
+### 3) Secado Mecanico (SM)
 
-- `ProyectoOFI/CoffeeTech.sql`
-- `ProyectoOFI/Ultima.sql`
+- Entrada: lotes para secado mecanico.
+- Proceso: operaciones de POA/PS/verticales/guardiolas/tolvas (segun pantalla usada).
+- Salida: estado actualizado para seguimiento y reportes.
 
-Ambos crean estructura de BD (tablas, tipos, SPs, etc.) con nombres de base diferentes segun version del script (`OFI` y `coffeetec`).
+Flujo:
 
-## 8. Compilacion y ejecucion
+- `M3_SM_Inicio -> M3_SeleccionSubprocesoSM -> M3_RegistrarOperacion -> M3_GuardarEnBD -> M3_Fin`
 
-Desde Visual Studio:
+### 4) Analisis (Muestras y Catacion)
+
+- Entrada: lote disponible para control de calidad.
+- Proceso: registro de muestra, catacion, metricas de rendimiento/calidad.
+- Salida: resultados de analisis asociados al ticket.
+
+Flujo:
+
+- `M4_Analisis_Inicio -> M4_RegistrarMuestra -> M4_RegistrarCatacion -> M4_GuardarResultados -> M4_Fin`
+
+### 5) Bodega (Almacen y Compra Directa)
+
+- Entrada: lotes listos para almacen o compra directa.
+- Proceso: ubicacion, empaque, pesos, movimientos y consolidacion.
+- Salida: inventario actualizado y trazabilidad de movimientos.
+
+Flujo:
+
+- `M5_Bodega_Inicio -> M5_SeleccionOperacion -> M5_RegistrarMovimiento -> M5_GuardarMovimiento -> M5_Fin`
+
+### 6) Reportes
+
+- Entrada: informacion historica/operativa de BD.
+- Proceso: consultas y agregaciones (ticket, historial, dashboard, consolidaciones, digitacion).
+- Salida: visualizacion o exportacion de reporte.
+
+Flujo:
+
+- `M6_Reportes_Inicio -> M6_SeleccionTipoReporte -> M6_ConsultarDatos -> M6_MostrarExportar -> M6_Fin`
+
+### 7) Configuracion
+
+- Entrada: accion administrativa.
+- Proceso: gestion de usuarios, catalogos y perfil.
+- Salida: parametros maestros y accesos actualizados.
+
+Flujo:
+
+- `M7_Config_Inicio -> M7_SeleccionEntidad -> M7_CrearEditarEliminar -> M7_GuardarCambios -> M7_Fin`
+
+## Mapa de carpetas (referencia para GitDiagram)
+
+- `ProyectoOFI/Program.cs`: punto de entrada.
+- `ProyectoOFI/Login.cs`: autenticacion y validacion de conexion.
+- `ProyectoOFI/FrmConexionIP.cs`: configuracion manual de conexion SQL.
+- `ProyectoOFI/FrmMenu.cs`: orquestador de modulos.
+- `ProyectoOFI/Datos/`: consultas y ejecucion de SPs.
+- `ProyectoOFI/Logica/`: entidades y utilidades (AES, encriptacion).
+- `ProyectoOFI/Recepcion/`, `ControlPatio/`, `SM/`, `Analisis/`, `Almacen/`, `Compras/`, `Reportes/`, `Usuario/`, `Otros/`: modulos funcionales.
+- `ProyectoOFI/Services/ApiService.cs`: cliente HTTP auxiliar.
+- `ProyectoOFI/CoffeeTech.sql` y `ProyectoOFI/Ultima.sql`: scripts de base de datos.
+
+## Requisitos de ejecucion
+
+- Windows.
+- Visual Studio 2022.
+- .NET Framework 4.8.
+- SQL Server accesible.
+- Restauracion de paquetes NuGet del proyecto.
+
+## Ejecucion local
 
 1. Abrir `ProyectoOFI.sln`.
-2. Restaurar paquetes NuGet.
-3. Compilar en `Debug` o `Release`.
-4. Ejecutar (`F5`) y configurar conexion en el login si aplica.
+2. Restaurar NuGet.
+3. Compilar (`Debug` o `Release`).
+4. Ejecutar.
+5. Si no hay conexion valida, configurar desde pantalla de conexion y reiniciar.
 
-Desde linea de comandos (MSBuild Developer Command Prompt):
+## Convencion recomendada para usar GitDiagram
 
-```powershell
-msbuild .\ProyectoOFI.sln /p:Configuration=Debug
-```
+Si quieres maximizar el resultado del diagrama:
 
-## 9. Observaciones tecnicas relevantes
-
-- El acceso a datos esta fuertemente acoplado a SQL Server y SPs.
-- Parte de la funcionalidad de `ControlPatio` puede consumir un endpoint HTTP local (`/api/ExcelLotesExcelCP`).
-- El proyecto tiene gran volumen de formularios y recursos embebidos; es un sistema de escritorio monolitico modular.
-
-## 10. Alcance de este repositorio
-
-Este codigo representa la **aplicacion de escritorio WinForms** y sus scripts SQL asociados.
-No documenta aplicaciones moviles, servicios externos adicionales ni infraestructura fuera de lo versionado aqui.
+- Usa la seccion `Flujo principal del sistema` como diagrama general.
+- Usa `Subflujos por modulo` como diagramas hijos.
+- Interpreta cada linea `Origen -> Destino` como arista.
+- Interpreta nodos `D*` como rombos (decision) y `N*`/`M*` como procesos.

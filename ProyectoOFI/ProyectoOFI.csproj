@@ -430,6 +430,7 @@
     </Compile>
     <Compile Include="Services\ApiResponse.cs" />
     <Compile Include="Services\ApiService.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="SM\FrmEnvios.cs">
       <SubType>Form</SubType>
     </Compile>
